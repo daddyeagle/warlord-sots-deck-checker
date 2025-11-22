@@ -1,0 +1,200 @@
+{
+  "rulesets": {
+    "default": {
+      "name": "Open Format (Standard SA)",
+      "warlordCount": 1,
+      "saRequiredSlots": [
+        { "level": 1, "count": 3 },
+        { "level": 2, "count": 2 }
+      ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": [],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    },
+    "Ancients": {
+      "name": "Ancients",
+      "warlordCount": 1,
+      "saRequiredSlots": [
+        { "level": 1, "count": 3 },
+        { "level": 2, "count": 2 }
+      ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": ["Ancients", "Campaign", "Pre-Campaign"],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    },
+    "Alliance": {
+      "name": "Alliance",
+      "warlordCount": 2,
+      "saRequiredSlots": [
+        { "level": 1, "count": 4 },
+        { "level": 2, "count": 3 }
+      ],
+      "maxCopies": 1,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 70,
+      "checkMainDeckFaction": true,
+      "editions": ["Alliance"],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    },
+    "Template 1": {
+      "name": "Template 1 (Ancients)",
+      "warlordCount": 1,
+      "saRequiredSlots": [ { "level": 1, "count": 3 }, { "level": 2, "count": 2 } ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": ["Ancients", "Campaign", "Pre-Campaign"],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    },
+    "Template 2": {
+      "name": "Template 2 (Ancients)",
+      "warlordCount": 1,
+      "saRequiredSlots": [ { "level": 1, "count": 3 }, { "level": 2, "count": 2 } ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": ["Ancients", "Campaign", "Pre-Campaign"],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    },
+    "Template 3": {
+      "name": "Template 3 (Ancients)",
+      "warlordCount": 1,
+      "saRequiredSlots": [ { "level": 1, "count": 3 }, { "level": 2, "count": 2 } ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": ["Ancients", "Campaign", "Pre-Campaign"],
+      "restricted": { "names": [], "sets": [], "rarities": [] }
+    }
+  },
+  "warlordExceptions": [
+    {
+      "warlordName": "Black Tom of Corinth",
+      "normalizedWarlordName": "blacktomofcorinth",
+      "loyaltyBypass": { "type": "Character", "requiredClass": "rogue", "fullBypass": false },
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "Behlial",
+      "normalizedWarlordName": "behlial",
+      "loyaltyBypass": { "type": "Character", "requiredClass": "cleric", "fullBypass": false },
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "Anton Cyldragen",
+      "normalizedWarlordName": "antoncyldragen",
+      "loyaltyBypass": { "type": "Character", "requiredClass": "wizard", "fullBypass": false },
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "Duchess Brymin",
+      "normalizedWarlordName": "duchessbrymin",
+      "loyaltyBypass": { "type": "Character", "requiredClass": "fighter", "fullBypass": false },
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "Xiathe",
+      "normalizedWarlordName": "xiathe",
+      "loyaltyBypass": { "type": "Character", "requiredClass": null, "fullBypass": true },
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "High Priest Nassiral",
+      "normalizedWarlordName": "highpriestnassiral",
+      "loyaltyBypass": null,
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": [
+        {
+          "name": "L3 Fighter Exception",
+          "replaces": 2,
+          "count": 1,
+          "criteria": { "type": "Character", "level": 3, "classes": ["fighter"], "isSingleClass": true }
+        }
+      ]
+    },
+    {
+      "warlordName": "Nisha",
+      "normalizedWarlordName": "nisha",
+      "loyaltyBypass": { "type": "Character", "requiredClass": null, "fullBypass": false },
+      "requiresUnifiedFaction": true,
+      "compositionExceptions": []
+    },
+    {
+      "warlordName": "Jautya Syne",
+      "normalizedWarlordName": "jautyasyne",
+      "loyaltyBypass": null,
+      "requiresUnifiedFaction": false,
+      "addsExtraSASlot": true,
+      "saForbiddenCards": ["mournjackals"],
+      "compositionExceptions": [
+        {
+          "name": "Jautya's Follower",
+          "criteria": { "type": "Character", "level": 4, "maxClasses": 1 }
+        }
+      ]
+    },
+    {
+      "warlordName": "Zartoch",
+      "normalizedWarlordName": "zartoch",
+      "loyaltyBypass": null,
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": [],
+      "copyLimitException": { "cardName": "Zartoch", "normalizedCardName": "zartoch", "maxCopies": 5 }
+    },
+    {
+      "warlordName": "Ferris Bachman",
+      "normalizedWarlordName": "ferrisbachman",
+      "loyaltyBypass": null,
+      "requiresUnifiedFaction": false,
+      "compositionExceptions": [],
+      "copyLimitException": { "cardName": "Ferris Bachman", "normalizedCardName": "ferrisbachman", "maxCopies": 3 }
+    },
+    {
+      "warlordName": "Sakar",
+      "normalizedWarlordName": "sakar",
+      "loyaltyBypass": null,
+      "requiresUnifiedFaction": false,
+      "requiresAlignment": "Good",
+      "addsExtraSASlot": true,
+      "compositionExceptions": [
+        {
+          "name": "Sakar's Item",
+          "criteria": { "type": "Item", "level": 8, "classes": ["rogue"] }
+        }
+      ]
+    }
+  ],
+  "ringExceptions": [
+    { "name": "Ring of Piercing", "normalizedName": "ringofpiercing", "requiredClass": "fighter" },
+    { "name": "Ring of Mending", "normalizedName": "ringofmending", "requiredClass": "cleric" },
+    { "name": "Ring of Blasting", "normalizedName": "ringofblasting", "requiredClass": "wizard" },
+    { "name": "Ring of Guile", "normalizedName": "ringofguile", "requiredClass": "rogue" }
+  ],
+  "characterExceptions": [
+    { "name": "Kapix the Cursed", "normalizedName": "kapixthecursed", "consumes": [1, 1], "level_bypass": false },
+    { "name": "Sir Argen Undying", "normalizedName": "sirargenundying", "consumes": [2, 2], "level_bypass": true },
+    { "name": "Nolen, King's Guardian", "normalizedName": "nolenkingsguardian", "consumes": [2, 2], "level_bypass": true },
+    { "name": "B'haya, the Fiend", "normalizedName": "bhayathefiend", "consumes": [1, 2], "level_bypass": true }
+  ],
+  "factionWildcards": [
+    "miseareanscout",
+    "sarakiansellsword",
+    "sakarianbloodknight",
+    "freelancecavalier",
+    "sarakiangiant"
+  ]
+}
