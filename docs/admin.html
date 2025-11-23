@@ -376,6 +376,8 @@
         if(!putRes.ok){ const txt = await putRes.text(); throw new Error('Failed to write file: '+putRes.status+' '+txt); }
         const resJson = await putRes.json();
         setFeedback('File committed: '+(resJson.content && resJson.content.html_url ? resJson.content.html_url : 'success'));
+        // Notify other open tabs that the configuration was updated
+        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'commit', url: (resJson.content && resJson.content.html_url) || null })); }catch(e){}
         if(resJson.content && resJson.content.html_url) window.open(resJson.content.html_url, '_blank');
       }catch(err){ setFeedback('Apply failed: '+err.message, true); }
     }
@@ -458,6 +460,8 @@
 
         const pr = await r.json();
         setFeedback('PR created: '+pr.html_url);
+        // Notify other tabs that a PR was created (note: deployed site won't change until PR merged)
+        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'pr', url: pr.html_url })); }catch(e){}
         window.open(pr.html_url, '_blank');
       }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
     }

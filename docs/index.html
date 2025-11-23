@@ -625,6 +625,49 @@
             return { pass: saStatus === 'PASS', result: { status: saStatus, message: msg } };
         };
 
+        // Reload configuration only (used when admin signals an update via localStorage)
+        const reloadConfigOnly = async () => {
+            try {
+                const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now());
+                if (!r.ok) return;
+                const configJson = await r.json();
+                RULE_SETS = configJson.rulesets || {};
+                WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
+                SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
+                SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
+                FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+
+                // Rebuild ruleset selector (hide hidden ones)
+                const rulesetKeys = Object.keys(RULE_SETS || {});
+                const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
+                const defaultKey = configJson.defaultRuleset;
+                let orderedKeys = visibleKeys;
+                if (defaultKey && visibleKeys.includes(defaultKey)) {
+                    orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                }
+                const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
+                const limit = Math.min(orderedKeys.length, configuredLimit);
+                const prev = rulesetSelect.value;
+                rulesetSelect.innerHTML = '';
+                for (let j = 0; j < limit; j++) {
+                    const key = orderedKeys[j];
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = RULE_SETS[key].name;
+                    rulesetSelect.appendChild(option);
+                }
+                // restore selection where possible
+                if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
+                    rulesetSelect.value = prev;
+                } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
+                    rulesetSelect.value = defaultKey;
+                }
+                console.info('Configuration reloaded from admin update');
+            } catch (e) {
+                console.warn('Failed to reload config:', e && e.message);
+            }
+        };
+
         const checkTotalCount = (allLegalCards, activeRuleSet) => { 
             const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
             const totalLegalCount = allLegalCards.length;
@@ -848,6 +891,13 @@
             document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
             document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
             await loadAppData();
+            // Listen for admin updates signaled via localStorage and reload config when seen
+            window.addEventListener('storage', (e) => {
+                if (!e) return;
+                if (e.key === 'warlordConfigUpdate') {
+                    try { reloadConfigOnly(); } catch(err) { console.warn('reload on storage failed', err); }
+                }
+            });
         });
 
     </script>
