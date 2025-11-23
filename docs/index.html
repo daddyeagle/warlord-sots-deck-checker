@@ -158,16 +158,22 @@
                     rulesetSelect.innerHTML = '';
                     const rulesetKeys = Object.keys(RULE_SETS || {});
                     const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
-                    const limit = Math.min(visibleKeys.length, 10);
+                    // If a default is configured, place it first (if visible)
+                    const defaultKey = configJson.defaultRuleset;
+                    let orderedKeys = visibleKeys;
+                    if (defaultKey && visibleKeys.includes(defaultKey)) {
+                        orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                    }
+                    // Respect configured index selector limit (set via admin), default 10
+                    const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
+                    const limit = Math.min(orderedKeys.length, configuredLimit);
                     for(let j = 0; j < limit; j++) {
-                        const key = visibleKeys[j];
+                        const key = orderedKeys[j];
                         const option = document.createElement('option');
                         option.value = key;
                         option.textContent = RULE_SETS[key].name;
                         rulesetSelect.appendChild(option);
                     }
-                    // If config specifies a default ruleset, select it if visible
-                    const defaultKey = configJson.defaultRuleset;
                     if (defaultKey && visibleKeys.includes(defaultKey)) {
                         rulesetSelect.value = defaultKey;
                     }
