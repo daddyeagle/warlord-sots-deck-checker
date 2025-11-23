@@ -996,18 +996,24 @@
                                     if (!typeMap[type]) typeMap[type] = {};
                                     typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
                                 });
-                                if (typeMap['Character']) {
-                                    const saMap = {};
-                                    saCards.forEach(card => {
-                                        if (card.type === 'Character') {
-                                            saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
-                                        }
-                                    });
-                                    typeMap['Character'] = {
-                                        ...typeMap['Character'],
-                                        StartingArmy: saMap
+                                // Always include all SA cards (not just Characters) in StartingArmy
+                                const saMap = {};
+                                saCards.forEach(card => {
+                                    saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                });
+                                // Attach StartingArmy to each type present in SA
+                                Object.keys(typeMap).forEach(type => {
+                                    typeMap[type] = {
+                                        ...typeMap[type],
+                                        StartingArmy: {}
                                     };
-                                }
+                                });
+                                // Fill StartingArmy for each type
+                                saCards.forEach(card => {
+                                    if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                        typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                    }
+                                });
                                 return typeMap;
                             };
                         }
