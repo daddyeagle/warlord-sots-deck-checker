@@ -105,7 +105,7 @@
                 }
 
                 async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
-                    // Get current file SHA (if exists)
+                    // Always fetch the latest sha before updating
                     const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
                     const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
                     let sha = undefined;
@@ -121,7 +121,8 @@
                     const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
                     const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
                     const body = { message, content, branch };
-                    if (exists && sha) body.sha = sha;
+                    // Always include sha if it exists
+                    if (sha) body.sha = sha;
                     const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
                     if (!putRes.ok) {
                         let errMsg = `GitHub PUT failed: ${putRes.status}`;
