@@ -139,7 +139,7 @@
                 try {
                     const [cardsResponse, configResponse] = await Promise.all([
                         fetch(CARD_DATA_URL),
-                        fetch(CONFIG_DATA_URL + '?_=' + Date.now())
+                        fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
                     ]);
 
                     if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
@@ -629,7 +629,7 @@
         // Reload configuration only (used when admin signals an update via localStorage)
         const reloadConfigOnly = async () => {
             try {
-                const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now());
+                const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
                 if (!r.ok) return;
                 const configJson = await r.json();
                 RULE_SETS = configJson.rulesets || {};
