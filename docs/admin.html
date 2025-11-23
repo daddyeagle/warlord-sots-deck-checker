@@ -87,11 +87,15 @@
     <textarea id="jsonArea" placeholder="warlord_configuration.json contents will appear here..."></textarea>
 
     <div class="row" style="margin-top:.75rem">
-      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:320px" />
+      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:280px" />
       <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
       <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
-      <button id="createPrBtn">Create PR</button>
-      <button id="applyBtn" class="btn-danger">Apply (overwrite / download)</button>
+      <label style="display:flex; align-items:center; gap:6px;">
+        <input id="directApply" type="checkbox" />
+        <span class="small">Direct apply to `deploy-docs` (bypass PR)</span>
+      </label>
+      <button id="createPrBtn">Submit</button>
+      <button id="applyBtn" class="btn-danger">Apply (download)</button>
     </div>
 
     <pre id="feedback" class="small" style="margin-top:.75rem"></pre>
@@ -388,7 +392,17 @@
       }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
     }
 
-    createPrBtn.addEventListener('click', createPR);
+    // If the direct-apply checkbox is selected, submit will directly commit to `deploy-docs`,
+    // otherwise it will create a PR from a new branch.
+    createPrBtn.addEventListener('click', async (e)=>{
+      const direct = document.getElementById('directApply').checked;
+      if (direct) {
+        // Direct commit path
+        await applyUpdate();
+      } else {
+        await createPR();
+      }
+    });
 
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
