@@ -497,9 +497,15 @@
             
             const allWarlordFactions = new Set();
             const warlordList = Array.isArray(warlords) ? warlords : (warlords ? [warlords] : []);
-            
-            if (warlordList.length === 0 && !activeRuleSet?.requiresUnifiedFaction && !warlordException?.requiresAlignment && !((warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass)) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
-            
+
+            // Determine ruleset/exception-driven modes
+            const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
+            const requiresAlignment = warlordException?.requiresAlignment || null;
+            const requiresUnifiedFaction = !!activeRuleSet.requiresUnifiedFaction;
+
+            // If there's no warlord and nothing requires enforcement, warn and skip
+            if (warlordList.length === 0 && !requiresUnifiedFaction && !requiresAlignment && !isFullBypass) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
+
             const warlordNamesString = warlordList.map(w => w.name).join(' / ');
             warlordList.forEach(wl => {
                 (wl.faction || '').toLowerCase().split(' ').filter(f => f && f !== 'neutral').forEach(f => allWarlordFactions.add(f));
@@ -512,11 +518,7 @@
             else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
 
             const violations = [];
-            // ruleset-level flags should act as defaults alongside warlord-specific exceptions
-            const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
-            const requiresAlignment = warlordException?.requiresAlignment || null;
-            const requiresUnifiedFaction = !!activeRuleSet.requiresUnifiedFaction;
-
+            // ruleset-level flags act as defaults alongside warlord-specific exceptions
             if (isFullBypass) {
                 loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
             } else if (requiresAlignment) {
@@ -548,7 +550,7 @@
                         loyaltyMessage = `All characters share a single faction (${firstFactions[0] ? firstFactions[0].toUpperCase() : 'UNKNOWN'}).`;
                     }
                 }
-            } else if (warlordFactions.length > 0) {
+            } else if (!requiresUnifiedFaction && warlordFactions.length > 0) {
                 loyaltyMessage = `All characters match **${warlordFactionDisplay}** faction (Warlord **${warlordNamesString}**).`;
                 cardsToCheck.forEach(c => {
                     if (c.type === 'Character' && !c.isFactionWildcard) {
