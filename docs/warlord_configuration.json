@@ -1,4 +1,5 @@
 {
+  "adminTestLastUpdated": "2025-11-23T00:00:00Z",
   "rulesets": {
     "default": {
       "name": "Open Format (Standard SA)",
@@ -52,7 +53,8 @@
           "Into the Accordlands (ITA)"
         ],
         "rarities": []
-      }
+      },
+      "hidden": false
     },
     "Saga": {
       "name": "Saga",
@@ -132,7 +134,8 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
@@ -160,7 +163,8 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
     },
     "Template 3": {
       "name": "Template 3 (Ancients)",
@@ -188,7 +192,37 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
+    },
+    "December Ancients+": {
+      "name": "December Ancients+",
+      "warlordCount": 1,
+      "saRequiredSlots": [
+        {
+          "level": 1,
+          "count": 3
+        },
+        {
+          "level": 2,
+          "count": 2
+        }
+      ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": [
+        "Ancients"
+      ],
+      "restricted": {
+        "names": [
+          "Tzin's Secret"
+        ],
+        "sets": [],
+        "rarities": []
+      },
+      "hidden": false
     }
   },
   "warlordExceptions": [
@@ -409,5 +443,6 @@
     "sarakiansellsword",
     "sakarianbloodknight",
     "freelancecavalier"
-  ]
+  ],
+  "defaultRuleset": "December Ancients+"
 }
