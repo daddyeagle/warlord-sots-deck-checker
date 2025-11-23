@@ -125,7 +125,7 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
-      "requiresUnifiedFaction": true,
+      "requiresUnifiedFaction": false,
       "fullBypass": false,
       "editions": [
         "Ancients"
@@ -139,7 +139,7 @@
         ],
         "rarities": []
       },
-      "hidden": false
+      "hidden": true
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
