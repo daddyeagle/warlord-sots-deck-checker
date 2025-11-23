@@ -42,13 +42,15 @@
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
       "editions": [
-        "Ancients",
-        "Campaign",
-        "Pre-Campaign"
+        "Ancients"
       ],
       "restricted": {
-        "names": [],
-        "sets": [],
+        "names": [
+          "Tzin's Secret"
+        ],
+        "sets": [
+          "Into the Accordlands (ITA)"
+        ],
         "rarities": []
       }
     },
