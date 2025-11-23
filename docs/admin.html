@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Config Editor — Warlord Deck Checker</title>
+  <link href="/warlord-sots-deck-checker/assets/css/style.css" rel="stylesheet">
+  <style>
+    body { background: #0d1117; color: #e5e7eb; font-family: Inter, system-ui, -apple-system, Roboto, Arial; padding: 1rem; }
+    .card { background: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 8px; max-width: 1100px; margin: 0 auto; }
+    textarea { width: 100%; height: 420px; background:#0b1220; color: #e6eef8; border: 1px solid #233041; padding: 0.75rem; font-family: monospace; font-size: 13px; border-radius:6px }
+    .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:0.75rem }
+    button { background:#0ea5a1; color:#042d2b; padding:0.5rem 0.75rem; border-radius:6px; border:none; font-weight:700 }
+    .btn-danger { background:#ef4444; color:#fff }
+    .small { font-size:13px; color:#9ca3af }
+    .notice { background:#07202a; border:1px solid #0b5560; padding:0.6rem; border-radius:6px; color:#9fe0d6; margin-bottom:12px }
+    input[type=text], input[type=password] { padding:6px; border-radius:6px; border:1px solid #233041; background:#081018; color:#e6eef8 }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 style="margin:0 0 .5rem 0">Configuration Editor</h1>
+    <div class="small">Edit `warlord_configuration.json`. This page can download the updated file or create a Pull Request if you provide a GitHub Personal Access Token (repo scope).</div>
+
+    <div class="notice">
+      <strong>Warning:</strong> If you use the GitHub PR feature you must paste a personal access token into the form below. Tokens are sent directly to GitHub and are not stored on this server. Keep your token secret.
+    </div>
+
+    <div style="margin-bottom:.5rem">
+      <button id="loadBtn">Load current config</button>
+      <button id="validateBtn">Validate JSON</button>
+      <button id="downloadBtn">Download JSON</button>
+      <button id="copyBtn">Copy to Clipboard</button>
+    </div>
+
+    <textarea id="jsonArea" placeholder="warlord_configuration.json contents will appear here..."></textarea>
+
+    <div class="row" style="margin-top:.75rem">
+      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:320px" />
+      <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
+      <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
+      <button id="createPrBtn">Create PR</button>
+      <button id="applyBtn" class="btn-danger">Apply (overwrite / download)</button>
+    </div>
+
+    <pre id="feedback" class="small" style="margin-top:.75rem"></pre>
+    <hr />
+    <div class="small">Tip: use <strong>Load</strong> then edit, validate, then <strong>Download</strong> or create a PR to propose changes.</div>
+  </div>
+
+  <script>
+    const configPath = 'warlord_configuration.json';
+    const loadBtn = document.getElementById('loadBtn');
+    const validateBtn = document.getElementById('validateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const createPrBtn = document.getElementById('createPrBtn');
+    const applyBtn = document.getElementById('applyBtn');
+    const area = document.getElementById('jsonArea');
+    const feedback = document.getElementById('feedback');
+
+    function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
+
+    async function loadConfig(){
+      setFeedback('Loading...');
+      try{
+        const r = await fetch(configPath, {cache:'no-store'});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const text = await r.text();
+        // pretty-print if valid JSON
+        try { const obj = JSON.parse(text); area.value = JSON.stringify(obj, null, 2); }
+        catch(e){ area.value = text; }
+        setFeedback('Loaded configuration.');
+      }catch(err){ setFeedback('Failed to load: '+err.message, true); }
+    }
+
+    function validate(){
+      try{ JSON.parse(area.value); setFeedback('Valid JSON.'); return true; }
+      catch(e){ setFeedback('Invalid JSON: '+e.message, true); return false; }
+    }
+
+    function download(){
+      const blob = new Blob([area.value], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'warlord_configuration.json'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+      setFeedback('Download started.');
+    }
+
+    copyBtn.addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText(area.value); setFeedback('Copied to clipboard.'); }
+      catch(e){ setFeedback('Clipboard failed: '+e.message, true); }
+    });
+
+    loadBtn.addEventListener('click', loadConfig);
+    validateBtn.addEventListener('click', validate);
+    downloadBtn.addEventListener('click', download);
+
+    applyBtn.addEventListener('click', ()=>{ if(validate()) download(); });
+
+    // --- GitHub PR flow (client-side) ---
+    async function createPR(){
+      if(!validate()) return;
+      const token = document.getElementById('ghToken').value.trim();
+      if(!token){ setFeedback('Token required to create a PR. Provide a personal access token with repo scope.', true); return; }
+
+      setFeedback('Creating branch and committing file (This will use GitHub API).');
+
+      const owner = 'daddyeagle';
+      const repo = 'warlord-sots-deck-checker';
+      const base = 'main';
+      const branch = document.getElementById('prBranch').value.trim() || ('config-update-' + Math.floor(Date.now()/1000));
+      const title = document.getElementById('prTitle').value.trim() || `Update warlord_configuration.json (${branch})`;
+
+      try{
+        const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+
+        // 1) Get main ref
+        let r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${base}`, {headers});
+        if(!r.ok) throw new Error('Failed to get base ref: '+r.status);
+        const ref = await r.json();
+        const baseSha = ref.object.sha;
+
+        // 2) Create branch (ref) if it doesn't exist
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, { headers });
+        if (r.ok) {
+          // branch exists
+          setFeedback('Branch already exists; will attempt to update file on that branch.');
+        } else {
+          // create branch
+          r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+          if(!r.ok) {
+            const txt = await r.text();
+            throw new Error('Failed to create branch: '+r.status+' '+txt);
+          }
+        }
+
+        // 3) Check if file exists on the target branch to determine whether to include `sha`
+        let existingSha = null;
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        r = await fetch(contentsUrl, { headers });
+        if (r.ok) {
+          const j = await r.json();
+          existingSha = j.sha;
+        } else if (r.status === 404) {
+          existingSha = null; // file doesn't exist on branch
+        } else {
+          // other error - but we can still attempt to PUT (API will respond accordingly)
+        }
+
+        // 4) Commit file via PUT contents API (include sha if updating)
+        const content = btoa(unescape(encodeURIComponent(area.value)));
+        const putBody = { message: `Update warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`, { method:'PUT', headers, body: JSON.stringify(putBody) });
+        if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create commit: '+r.status+' '+txt); }
+
+        // 5) Create PR (if one doesn't already exist for this branch)
+        // For simplicity we'll attempt to create a PR; GitHub will return 422 if a PR already exists from this head to base.
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/pulls`, { method:'POST', headers, body: JSON.stringify({ title, head: branch, base }) });
+        if(!r.ok){
+          const txt = await r.text();
+          // If PR already exists, return success message with link if possible
+          try{
+            const errObj = JSON.parse(txt);
+            if (errObj && errObj.message && errObj.message.includes('A pull request already exists')) {
+              setFeedback('PR already exists for this branch.');
+              return;
+            }
+          }catch(e){}
+          throw new Error('Failed to create PR: '+r.status+' '+txt);
+        }
+
+        const pr = await r.json();
+        setFeedback('PR created: '+pr.html_url);
+        window.open(pr.html_url, '_blank');
+      }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
+    }
+
+    createPrBtn.addEventListener('click', createPR);
+
+    // Auto-load when page opens
+    window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+  </script>
+</body>
+</html>
