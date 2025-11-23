@@ -78,6 +78,8 @@
           </div>
           <div style="margin-top:6px; display:flex; gap:8px; align-items:center;">
             <label style="display:flex; align-items:center; gap:6px;"><input id="rs_hidden" type="checkbox" /> <span class="small">Mark ruleset as <strong>hidden</strong> (in development)</span></label>
+            <label style="display:flex; align-items:center; gap:6px;"><input id="rs_requiresUnifiedFaction" type="checkbox" /> <span class="small">Require unified faction (ruleset)</span></label>
+            <label style="display:flex; align-items:center; gap:6px;"><input id="rs_fullBypass" type="checkbox" /> <span class="small">Full loyalty bypass (ruleset)</span></label>
             <button id="setDefaultBtn">Set as Default</button>
             <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
               <label class="small" style="margin:0">Index selector limit</label>
@@ -166,6 +168,8 @@
     const rs_level1_count = document.getElementById('rs_level1_count');
     const rs_level2_count = document.getElementById('rs_level2_count');
     const rs_hidden = document.getElementById('rs_hidden');
+    const rs_requiresUnifiedFaction = document.getElementById('rs_requiresUnifiedFaction');
+    const rs_fullBypass = document.getElementById('rs_fullBypass');
     const indexLimit = document.getElementById('indexLimit');
     const saveSettingsBtn = document.getElementById('saveSettingsBtn');
     const rs_editions = document.getElementById('rs_editions');
@@ -252,6 +256,8 @@
       rs_level1_count.value = lvl1;
       rs_level2_count.value = lvl2;
       rs_hidden.checked = !!rs.hidden;
+      rs_requiresUnifiedFaction.checked = !!rs.requiresUnifiedFaction;
+      rs_fullBypass.checked = !!rs.fullBypass;
       rs_editions.value = (rs.editions || []).join(', ');
       const restricted = rs.restricted || { names:[], sets:[], rarities:[] };
       rs_restricted_names.value = (restricted.names || []).join(', ');
@@ -278,6 +284,9 @@
           maxEpicCopies: parseInt(rs_maxEpicCopies.value||'1',10),
           minTotalDeck: parseInt(rs_minTotalDeck.value||'50',10),
           checkMainDeckFaction: !!rs_checkMainDeckFaction.checked,
+          // ruleset-level loyalty options
+          requiresUnifiedFaction: !!rs_requiresUnifiedFaction.checked,
+          fullBypass: !!rs_fullBypass.checked,
           editions: editions,
           restricted: restricted
         };

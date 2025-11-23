@@ -512,8 +512,10 @@
             else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
 
             const violations = [];
-            const isFullBypass = warlordException?.loyaltyBypass?.fullBypass;
-            const requiresAlignment = warlordException?.requiresAlignment;
+            // ruleset-level flags should act as defaults alongside warlord-specific exceptions
+            const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
+            const requiresAlignment = warlordException?.requiresAlignment || null;
+            const requiresUnifiedFaction = !!activeRuleSet.requiresUnifiedFaction;
 
             if (isFullBypass) {
                 loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
@@ -524,7 +526,7 @@
                         violations.push(`${c.name} (${c.alignment || 'None'})`);
                     }
                 });
-            } else if (warlordFactions.length > 0) {
+            } else if (warlordFactions.length > 0 || requiresUnifiedFaction) {
                 loyaltyMessage = `All characters match **${warlordFactionDisplay}** faction (Warlord **${warlordNamesString}**).`;
                 cardsToCheck.forEach(c => {
                     if (c.type === 'Character' && !c.isFactionWildcard) {
