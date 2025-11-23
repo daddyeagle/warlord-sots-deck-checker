@@ -94,6 +94,38 @@
     </div>
 
     <script type="module">
+                // --- GITHUB API HELPERS ---
+                async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
+                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+                    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
+                    const res = await fetch(url, { headers });
+                    if (res.status === 404) return null;
+                    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+                    return await res.json();
+                }
+
+                async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
+                    // Get current file SHA (if exists)
+                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+                    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
+                    let sha = undefined;
+                    let exists = false;
+                    try {
+                        const res = await fetch(getUrl, { headers });
+                        if (res.ok) {
+                            const data = await res.json();
+                            sha = data.sha;
+                            exists = true;
+                        }
+                    } catch (e) { /* ignore 404 */ }
+                    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+                    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
+                    const body = { message, content, branch };
+                    if (exists && sha) body.sha = sha;
+                    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+                    if (!putRes.ok) throw new Error(`GitHub PUT failed: ${putRes.status}`);
+                    return await putRes.json();
+                }
         // --- DECK SUBMISSION HELPERS ---
         function slugify(str) {
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
