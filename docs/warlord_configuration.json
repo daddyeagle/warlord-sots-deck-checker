@@ -133,7 +133,8 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
@@ -161,7 +162,8 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
     },
     "Template 3": {
       "name": "Template 3 (Ancients)",
@@ -189,7 +191,8 @@
         "names": [],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": true
     },
     "December Ancients+": {
       "name": "December Ancients+",
@@ -217,7 +220,8 @@
         ],
         "sets": [],
         "rarities": []
-      }
+      },
+      "hidden": false
     }
   },
   "warlordExceptions": [
@@ -438,5 +442,6 @@
     "sarakiansellsword",
     "sakarianbloodknight",
     "freelancecavalier"
-  ]
+  ],
+  "defaultRuleset": "December Ancients+"
 }
