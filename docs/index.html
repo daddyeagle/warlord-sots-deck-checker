@@ -106,18 +106,24 @@
 
                 async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
                     // Always fetch the latest sha before updating
-                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
                     const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
                     let sha = undefined;
                     let exists = false;
                     try {
                         const res = await fetch(getUrl, { headers });
-                        if (res.ok) {
-                            const data = await res.json();
-                            sha = data.sha;
-                            exists = true;
+                        const text = await res.text();
+                        try {
+                            const data = JSON.parse(text);
+                            console.log('GET file for sha:', getUrl, data);
+                            if (res.ok) {
+                                sha = data.sha;
+                                exists = true;
+                            }
+                        } catch (jsonErr) {
+                            console.warn('Failed to parse GET response for sha:', text);
                         }
-                    } catch (e) { /* ignore 404 */ }
+                    } catch (e) { console.warn('GET for sha failed:', e); }
                     const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
                     const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
                     const body = { message, content, branch };
