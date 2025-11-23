@@ -113,12 +113,15 @@
                     try {
                         const res = await fetch(getUrl, { headers });
                         const text = await res.text();
+                        console.log('Full GET response for sha:', text);
                         try {
                             const data = JSON.parse(text);
-                            console.log('GET file for sha:', getUrl, data);
                             if (res.ok) {
                                 sha = data.sha;
                                 exists = true;
+                                if (!sha) {
+                                    console.warn('Warning: GET response did not include sha property!', data);
+                                }
                             }
                         } catch (jsonErr) {
                             console.warn('Failed to parse GET response for sha:', text);
@@ -127,7 +130,11 @@
                     const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
                     const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
                     const body = { message, content, branch };
-                    // Always include sha if it exists
+                    // Defensive: if file exists but sha is missing, log and abort
+                    if (exists && !sha) {
+                        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
+                        throw new Error('File exists but sha is missing. Cannot update file without sha.');
+                    }
                     if (sha) body.sha = sha;
                     const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
                     if (!putRes.ok) {
