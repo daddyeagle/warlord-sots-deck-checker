@@ -126,7 +126,7 @@
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
       "requiresUnifiedFaction": true,
-      "fullBypass": true,
+      "fullBypass": false,
       "editions": [
         "Ancients"
       ],
