@@ -91,7 +91,8 @@
     <script type="module">
         // --- CONSTANTS ----------------------------------------------------
 
-        let cardDatabase = {}; 
+        let cardDatabase = {};
+        let lastConfigSignature = null;
         let RULE_SETS = {};
         let WL_SA_LOYALTY_EXCEPTIONS = [];
         let SA_RING_EXCEPTIONS = [];
@@ -134,11 +135,12 @@
             return saExceptions;
         }
 
-        const loadAppData = async (retries = 3, delay = 1000) => {
+        const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             for (let i = 0; i < retries; i++) {
                 try {
+                    const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
                     const [cardsResponse, configResponse] = await Promise.all([
-                        fetch(CARD_DATA_URL),
+                        fetch(CARD_DATA_URL, cardFetchOpts),
                         fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
                     ]);
 
@@ -250,6 +252,7 @@
                         cardDatabase = newDatabase;
                         loadingStatusDiv.className = 'hidden';
                         inputSectionDiv.classList.remove('hidden');
+                        try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
                         return true;
                     }
 
@@ -627,16 +630,24 @@
         };
 
         // Reload configuration only (used when admin signals an update via localStorage)
+        // Returns true if the config was changed/applied, false if unchanged or failed
         const reloadConfigOnly = async () => {
             try {
                 const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
-                if (!r.ok) return;
+                if (!r.ok) return false;
                 const configJson = await r.json();
+                const newSignature = JSON.stringify(configJson);
+                if (lastConfigSignature && newSignature === lastConfigSignature) {
+                    console.info('reloadConfigOnly: config unchanged');
+                    return false;
+                }
+
                 RULE_SETS = configJson.rulesets || {};
                 WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
                 SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
                 SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                 FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+                lastConfigSignature = newSignature;
 
                 // Rebuild ruleset selector (hide hidden ones)
                 const rulesetKeys = Object.keys(RULE_SETS || {});
@@ -664,8 +675,10 @@
                     rulesetSelect.value = defaultKey;
                 }
                 console.info('Configuration reloaded from admin update');
+                return true;
             } catch (e) {
                 console.warn('Failed to reload config:', e && e.message);
+                return false;
             }
         };
 
@@ -893,10 +906,20 @@
             document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
             await loadAppData();
             // Listen for admin updates signaled via localStorage and reload config when seen
-            window.addEventListener('storage', (e) => {
+            window.addEventListener('storage', async (e) => {
                 if (!e) return;
                 if (e.key === 'warlordConfigUpdate') {
-                    try { reloadConfigOnly(); } catch(err) { console.warn('reload on storage failed', err); }
+                    try {
+                        const changed = await reloadConfigOnly();
+                        if (!changed) {
+                            console.warn('Config reload reported no change; attempting stronger network refresh');
+                            const forced = await loadAppData(3, 1000, true);
+                            if (!forced) {
+                                console.warn('Forced reload failed; performing full page reload');
+                                try { window.location.reload(); } catch(_) { window.location.href = window.location.href; }
+                            }
+                        }
+                    } catch(err) { console.warn('reload on storage failed', err); }
                 }
             });
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
