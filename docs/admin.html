@@ -255,7 +255,58 @@
     validateBtn.addEventListener('click', validate);
     downloadBtn.addEventListener('click', download);
 
-    applyBtn.addEventListener('click', ()=>{ if(validate()) download(); });
+    async function applyUpdate(){
+      if(!validate()) return;
+      const token = document.getElementById('ghToken').value.trim();
+      if(!token){
+        if(confirm('No token provided. Download JSON instead? Click OK to download.')){ download(); setFeedback('Downloaded JSON.'); }
+        else setFeedback('Apply cancelled.');
+        return;
+      }
+
+      setFeedback('Applying update (committing file)...');
+      const owner = 'daddyeagle';
+      const repo = 'warlord-sots-deck-checker';
+      const branchInput = document.getElementById('prBranch').value.trim();
+      const branch = branchInput || 'main';
+      const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+
+      try{
+        // Try to get existing file sha on the target branch
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        let r = await fetch(contentsUrl, { headers });
+        let existingSha = null;
+        if (r.ok){ const j = await r.json(); existingSha = j.sha; }
+        else if (r.status === 404) { existingSha = null; }
+        else {
+          // If branch doesn't exist and it's not main, create branch from main
+          if (branch !== 'main'){
+            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers });
+            if(!r.ok) throw new Error('Failed to get main ref: '+r.status);
+            const ref = await r.json();
+            const baseSha = ref.object.sha;
+            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+            if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create branch: '+r.status+' '+txt); }
+            existingSha = null;
+          } else {
+            const txt = await r.text(); throw new Error('Failed to check existing file: '+r.status+' '+txt);
+          }
+        }
+
+        const content = btoa(unescape(encodeURIComponent(area.value)));
+        const putBody = { message: `Apply warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
+        const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`;
+        let putRes = await fetch(putUrl, { method:'PUT', headers, body: JSON.stringify(putBody) });
+        if(!putRes.ok){ const txt = await putRes.text(); throw new Error('Failed to write file: '+putRes.status+' '+txt); }
+        const resJson = await putRes.json();
+        setFeedback('File committed: '+(resJson.content && resJson.content.html_url ? resJson.content.html_url : 'success'));
+        if(resJson.content && resJson.content.html_url) window.open(resJson.content.html_url, '_blank');
+      }catch(err){ setFeedback('Apply failed: '+err.message, true); }
+    }
+
+    applyBtn.addEventListener('click', applyUpdate);
 
     // --- GitHub PR flow (client-side) ---
     async function createPR(){
