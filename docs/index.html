@@ -123,7 +123,16 @@
                     const body = { message, content, branch };
                     if (exists && sha) body.sha = sha;
                     const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-                    if (!putRes.ok) throw new Error(`GitHub PUT failed: ${putRes.status}`);
+                    if (!putRes.ok) {
+                        let errMsg = `GitHub PUT failed: ${putRes.status}`;
+                        try {
+                            const errJson = await putRes.json();
+                            if (errJson && errJson.message) errMsg += ` - ${errJson.message}`;
+                        } catch (e) {
+                            // ignore JSON parse error
+                        }
+                        throw new Error(errMsg);
+                    }
                     return await putRes.json();
                 }
         // --- DECK SUBMISSION HELPERS ---
