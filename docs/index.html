@@ -666,7 +666,7 @@
 
             cardsToCount.forEach(c => {
                 if (c.type === 'Character') {
-                    if (slotsToFill[c.level] !== undefined) slotsToFill[c.level]--;
+                    if (slotsToFill[c.level] !== undefined) slotsToFill[c.level] -= (c.count || 1);
                     else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
                 } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
                      saMessage.push(`Invalid card type in SA: ${c.name}`);
