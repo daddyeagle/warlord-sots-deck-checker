@@ -3,7 +3,7 @@
     "username": "daddy_eagle",
     "event": "December Ancients+",
     "warlord": "B'alam Nak",
-    "timestamp": "2025-11-23T22:13:58.230Z",
+    "timestamp": "2025-11-23T23:15:48.200Z",
     "cardList": {
       "Character": {
         "B'alam Nak": 1,
@@ -11,14 +11,14 @@
         "Nightmaster Rress": 1,
         "Joleg": 1,
         "B'haya, the Fiend": 1,
-        "Jackals of Mourn": 1,
-        "Nog, Pog, and Snivels": 1,
+        "Jackals of Mourn": 3,
+        "Nog, Pog, and Snivels": 3,
         "Yeg-Igryll's Altar": 1,
         "Archer Tower": 1,
-        "Carg'rag": 1,
-        "D'nath": 1,
-        "Muddflek": 1,
-        "FirRal": 1,
+        "Carg'rag": 3,
+        "D'nath": 3,
+        "Muddflek": 3,
+        "FirRal": 3,
         "StartingArmy": {
           "B'alam Nak": 1,
           "Urnack": 1,
@@ -28,19 +28,19 @@
         }
       },
       "Item": {
-        "Portable Hole": 1,
-        "Giant Bat": 1,
+        "Portable Hole": 3,
+        "Giant Bat": 2,
         "Nodwick": 1,
         "Farglass": 1,
         "Arbalest": 1
       },
       "Action": {
-        "Wither": 1,
-        "Strain the Shot": 1,
-        "Reconnaissance": 1,
-        "Assassin's Strike": 1,
-        "Meet at the Inn!": 1,
-        "Crypt Wine": 1
+        "Wither": 3,
+        "Strain the Shot": 3,
+        "Reconnaissance": 3,
+        "Assassin's Strike": 2,
+        "Meet at the Inn!": 3,
+        "Crypt Wine": 3
       }
     }
   }
