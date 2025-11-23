@@ -267,8 +267,8 @@
       setFeedback('Applying update (committing file)...');
       const owner = 'daddyeagle';
       const repo = 'warlord-sots-deck-checker';
-      const branchInput = document.getElementById('prBranch').value.trim();
-      const branch = branchInput || 'main';
+      // Always apply changes to the deploy-docs branch for Pages deployment
+      const branch = 'deploy-docs';
       const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
 
       try{
