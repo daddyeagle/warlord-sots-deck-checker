@@ -51,7 +51,7 @@
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
       "editions": ["Ancients", "Campaign", "Pre-Campaign"],
-      "restricted": { "names": [], "sets": [], "rarities": [] }
+      "restricted": { "names": ["Gunda"], "sets": [], "rarities": [] }
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
