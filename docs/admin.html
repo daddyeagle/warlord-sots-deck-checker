@@ -403,8 +403,7 @@
     async function testToken(){
       const rawToken = document.getElementById('ghToken').value || '';
       const tokenTrimmed = rawToken.trim();
-      const token = tokenTrimmed.replace(/[^
-\x20-\x7E]/g, '');
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
       if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
       if (!token) return setFeedback('No token provided to test.', true);
       setFeedback('Testing token...');
