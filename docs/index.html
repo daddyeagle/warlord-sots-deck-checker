@@ -406,6 +406,47 @@
             return { pass: true, result: null };
         };
 
+        const checkdragonlordLimit = (allLegalCards) => {
+            let dragonlordCount = 0;
+            const founddragonlords = [];
+            allLegalCards.forEach(card => {
+                if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
+                    dragonlordCount++;
+                    founddragonlords.push(card.name);
+                }
+            });
+            if (dragonlordCount > 1) {
+                return {
+                    pass: false,
+                    result: { status: 'FAIL', message: `Dragon Lord Limit: Deck contains ${dragonlordCount} Dragon Lord cards (${[...new Set(founddragonlords)].join(', ')}). Max 1 allowed.` }
+                };
+            }
+            if (overlordCount === 1) {
+                 return { pass: true, result: { status: 'PASS', message: 'Dragon Lord limit (Max 1) respected.' } };
+            }
+            return { pass: true, result: null };
+        };
+        const checkdaemonlordLimit = (allLegalCards) => {
+            let daemonlordCount = 0;
+            const founddaemonlords = [];
+            allLegalCards.forEach(card => {
+                if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
+                    daemonlordCount++;
+                    founddaemonlords.push(card.name);
+                }
+            });
+            if (daemonlordCount > 1) {
+                return {
+                    pass: false,
+                    result: { status: 'FAIL', message: `Daemonlord Limit: Deck contains ${daemonlordCount} Daemonlord cards (${[...new Set(founddaemonlords)].join(', ')}). Max 1 allowed.` }
+                };
+            }
+            if (overlordCount === 1) {
+                 return { pass: true, result: { status: 'PASS', message: 'Daemonlord limit (Max 1) respected.' } };
+            }
+            return { pass: true, result: null };
+        };
+
         const checkRestrictions = (allLegalCards, activeRuleSet) => {
             const restricted = activeRuleSet.restricted;
             if (!restricted) return { pass: true };
