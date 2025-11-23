@@ -33,14 +33,69 @@
       <button id="copyBtn">Copy to Clipboard</button>
     </div>
 
+    <!-- Ruleset editor: dropdown + form for single ruleset -->
+    <div class="card" style="margin-top:0.75rem;">
+      <h2 style="margin:0 0 .5rem 0">Ruleset Editor</h2>
+      <div class="small">Select a ruleset to view and edit only that ruleset's fields.</div>
+      <div style="display:flex; gap:8px; align-items:center; margin-top:0.5rem;">
+        <select id="rulesetSelect" style="min-width:280px; padding:6px; border-radius:6px; background:#081018; color:#e6eef8"></select>
+        <button id="addRulesetBtn">Add Ruleset</button>
+        <button id="deleteRulesetBtn" class="btn-danger">Delete Ruleset</button>
+      </div>
+
+      <div id="rulesetForm" style="margin-top:0.75rem; display:grid; grid-template-columns:1fr 1fr; gap:8px; align-items:start;">
+        <div>
+          <label class="small">Name</label>
+          <input id="rs_name" type="text" />
+
+          <label class="small" style="display:block; margin-top:6px">Warlord Count</label>
+          <input id="rs_warlordCount" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Max Copies</label>
+          <input id="rs_maxCopies" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Max Epic Copies</label>
+          <input id="rs_maxEpicCopies" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Min Total Deck</label>
+          <input id="rs_minTotalDeck" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Check Main Deck Faction</label>
+          <input id="rs_checkMainDeckFaction" type="checkbox" />
+        </div>
+
+        <div>
+          <label class="small">Edit: `saRequiredSlots` (JSON array)</label>
+          <textarea id="rs_saRequiredSlots" style="height:160px"></textarea>
+
+          <label class="small" style="display:block; margin-top:6px">Edit: `editions` (comma-separated)</label>
+          <input id="rs_editions" type="text" />
+
+          <label class="small" style="display:block; margin-top:6px">Restricted (names, sets, rarities — comma separated)</label>
+          <input id="rs_restricted_names" type="text" placeholder="names" />
+          <input id="rs_restricted_sets" type="text" placeholder="sets" />
+          <input id="rs_restricted_rarities" type="text" placeholder="rarities" />
+        </div>
+      </div>
+
+      <div style="margin-top:8px; display:flex; gap:8px;">
+        <button id="updateRulesetBtn">Update Ruleset</button>
+        <button id="applyToTextareaBtn">Apply to JSON</button>
+      </div>
+    </div>
+
     <textarea id="jsonArea" placeholder="warlord_configuration.json contents will appear here..."></textarea>
 
     <div class="row" style="margin-top:.75rem">
-      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:320px" />
+      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:280px" />
       <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
       <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
-      <button id="createPrBtn">Create PR</button>
-      <button id="applyBtn" class="btn-danger">Apply (overwrite / download)</button>
+      <label style="display:flex; align-items:center; gap:6px;">
+        <input id="directApply" type="checkbox" />
+        <span class="small">Direct apply to `deploy-docs` (bypass PR)</span>
+      </label>
+      <button id="createPrBtn">Submit</button>
+      <button id="applyBtn" class="btn-danger">Apply (download)</button>
     </div>
 
     <pre id="feedback" class="small" style="margin-top:.75rem"></pre>
@@ -58,6 +113,25 @@
     const applyBtn = document.getElementById('applyBtn');
     const area = document.getElementById('jsonArea');
     const feedback = document.getElementById('feedback');
+    let configObj = null;
+    const rulesetSelect = document.getElementById('rulesetSelect');
+    const addRulesetBtn = document.getElementById('addRulesetBtn');
+    const deleteRulesetBtn = document.getElementById('deleteRulesetBtn');
+    const updateRulesetBtn = document.getElementById('updateRulesetBtn');
+    const applyToTextareaBtn = document.getElementById('applyToTextareaBtn');
+
+    // Form inputs
+    const rs_name = document.getElementById('rs_name');
+    const rs_warlordCount = document.getElementById('rs_warlordCount');
+    const rs_maxCopies = document.getElementById('rs_maxCopies');
+    const rs_maxEpicCopies = document.getElementById('rs_maxEpicCopies');
+    const rs_minTotalDeck = document.getElementById('rs_minTotalDeck');
+    const rs_checkMainDeckFaction = document.getElementById('rs_checkMainDeckFaction');
+    const rs_saRequiredSlots = document.getElementById('rs_saRequiredSlots');
+    const rs_editions = document.getElementById('rs_editions');
+    const rs_restricted_names = document.getElementById('rs_restricted_names');
+    const rs_restricted_sets = document.getElementById('rs_restricted_sets');
+    const rs_restricted_rarities = document.getElementById('rs_restricted_rarities');
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
@@ -68,10 +142,92 @@
         if(!r.ok) throw new Error('HTTP '+r.status);
         const text = await r.text();
         // pretty-print if valid JSON
-        try { const obj = JSON.parse(text); area.value = JSON.stringify(obj, null, 2); }
-        catch(e){ area.value = text; }
+        try { configObj = JSON.parse(text); area.value = JSON.stringify(configObj, null, 2); }
+        catch(e){ configObj = null; area.value = text; }
         setFeedback('Loaded configuration.');
+
+        // If rulesets exist, populate the select
+        if (configObj && configObj.rulesets) {
+          renderRulesetList();
+        }
       }catch(err){ setFeedback('Failed to load: '+err.message, true); }
+    }
+
+    function renderRulesetList(){
+      rulesetSelect.innerHTML = '';
+      const keys = Object.keys(configObj.rulesets || {});
+      keys.forEach(k => {
+        const opt = document.createElement('option'); opt.value = k; opt.textContent = k + ' — ' + (configObj.rulesets[k].name || ''); rulesetSelect.appendChild(opt);
+      });
+      if (keys.length > 0) {
+        rulesetSelect.value = keys[0];
+        renderRulesetForm(keys[0]);
+      }
+    }
+
+    function renderRulesetForm(key){
+      const rs = configObj.rulesets[key];
+      rs_name.value = rs.name || '';
+      rs_warlordCount.value = rs.warlordCount || 1;
+      rs_maxCopies.value = rs.maxCopies || 3;
+      rs_maxEpicCopies.value = rs.maxEpicCopies || 1;
+      rs_minTotalDeck.value = rs.minTotalDeck || 50;
+      rs_checkMainDeckFaction.checked = !!rs.checkMainDeckFaction;
+      rs_saRequiredSlots.value = JSON.stringify(rs.saRequiredSlots || [], null, 2);
+      rs_editions.value = (rs.editions || []).join(', ');
+      const restricted = rs.restricted || { names:[], sets:[], rarities:[] };
+      rs_restricted_names.value = (restricted.names || []).join(', ');
+      rs_restricted_sets.value = (restricted.sets || []).join(', ');
+      rs_restricted_rarities.value = (restricted.rarities || []).join(', ');
+    }
+
+    function updateRulesetFromForm(){
+      const key = rulesetSelect.value;
+      if (!key) return setFeedback('No ruleset selected', true);
+      try{
+        const saSlots = JSON.parse(rs_saRequiredSlots.value || '[]');
+        const editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        const restricted = {
+          names: rs_restricted_names.value.split(',').map(s=>s.trim()).filter(Boolean),
+          sets: rs_restricted_sets.value.split(',').map(s=>s.trim()).filter(Boolean),
+          rarities: rs_restricted_rarities.value.split(',').map(s=>s.trim()).filter(Boolean)
+        };
+        configObj.rulesets[key] = {
+          name: rs_name.value,
+          warlordCount: parseInt(rs_warlordCount.value || '1',10),
+          saRequiredSlots: saSlots,
+          maxCopies: parseInt(rs_maxCopies.value||'3',10),
+          maxEpicCopies: parseInt(rs_maxEpicCopies.value||'1',10),
+          minTotalDeck: parseInt(rs_minTotalDeck.value||'50',10),
+          checkMainDeckFaction: !!rs_checkMainDeckFaction.checked,
+          editions: editions,
+          restricted: restricted
+        };
+        area.value = JSON.stringify(configObj, null, 2);
+        setFeedback('Ruleset updated in JSON textarea. Click Download or Create PR to persist.');
+        renderRulesetList();
+      }catch(e){ setFeedback('Failed to update ruleset: '+e.message, true); }
+    }
+
+    function addRuleset(){
+      const name = prompt('Enter a key for the new ruleset (no spaces, unique):');
+      if (!name) return;
+      if (!configObj) configObj = { rulesets: {} };
+      if (!configObj.rulesets) configObj.rulesets = {};
+      if (configObj.rulesets[name]) return setFeedback('Ruleset key already exists', true);
+      configObj.rulesets[name] = { name: name, warlordCount:1, saRequiredSlots:[{level:1,count:3},{level:2,count:2}], maxCopies:3, maxEpicCopies:1, minTotalDeck:50, checkMainDeckFaction:false, editions:[], restricted:{names:[],sets:[],rarities:[]} };
+      area.value = JSON.stringify(configObj, null, 2);
+      renderRulesetList();
+      setFeedback('Added new ruleset: '+name);
+    }
+
+    function deleteRuleset(){
+      const key = rulesetSelect.value; if (!key) return setFeedback('No ruleset selected', true);
+      if (!confirm('Delete ruleset "'+key+'"?')) return;
+      delete configObj.rulesets[key];
+      area.value = JSON.stringify(configObj, null, 2);
+      renderRulesetList();
+      setFeedback('Deleted ruleset: '+key);
     }
 
     function validate(){
@@ -93,11 +249,68 @@
       catch(e){ setFeedback('Clipboard failed: '+e.message, true); }
     });
 
+    rulesetSelect.addEventListener('change', (e)=>{ renderRulesetForm(e.target.value); });
+    addRulesetBtn.addEventListener('click', addRuleset);
+    deleteRulesetBtn.addEventListener('click', deleteRuleset);
+    updateRulesetBtn.addEventListener('click', updateRulesetFromForm);
+    applyToTextareaBtn.addEventListener('click', updateRulesetFromForm);
+
     loadBtn.addEventListener('click', loadConfig);
     validateBtn.addEventListener('click', validate);
     downloadBtn.addEventListener('click', download);
 
-    applyBtn.addEventListener('click', ()=>{ if(validate()) download(); });
+    async function applyUpdate(){
+      if(!validate()) return;
+      const token = document.getElementById('ghToken').value.trim();
+      if(!token){
+        if(confirm('No token provided. Download JSON instead? Click OK to download.')){ download(); setFeedback('Downloaded JSON.'); }
+        else setFeedback('Apply cancelled.');
+        return;
+      }
+
+      setFeedback('Applying update (committing file)...');
+      const owner = 'daddyeagle';
+      const repo = 'warlord-sots-deck-checker';
+      // Always apply changes to the deploy-docs branch for Pages deployment
+      const branch = 'deploy-docs';
+      const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+
+      try{
+        // Try to get existing file sha on the target branch
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        let r = await fetch(contentsUrl, { headers });
+        let existingSha = null;
+        if (r.ok){ const j = await r.json(); existingSha = j.sha; }
+        else if (r.status === 404) { existingSha = null; }
+        else {
+          // If branch doesn't exist and it's not main, create branch from main
+          if (branch !== 'main'){
+            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers });
+            if(!r.ok) throw new Error('Failed to get main ref: '+r.status);
+            const ref = await r.json();
+            const baseSha = ref.object.sha;
+            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+            if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create branch: '+r.status+' '+txt); }
+            existingSha = null;
+          } else {
+            const txt = await r.text(); throw new Error('Failed to check existing file: '+r.status+' '+txt);
+          }
+        }
+
+        const content = btoa(unescape(encodeURIComponent(area.value)));
+        const putBody = { message: `Apply warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
+        const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`;
+        let putRes = await fetch(putUrl, { method:'PUT', headers, body: JSON.stringify(putBody) });
+        if(!putRes.ok){ const txt = await putRes.text(); throw new Error('Failed to write file: '+putRes.status+' '+txt); }
+        const resJson = await putRes.json();
+        setFeedback('File committed: '+(resJson.content && resJson.content.html_url ? resJson.content.html_url : 'success'));
+        if(resJson.content && resJson.content.html_url) window.open(resJson.content.html_url, '_blank');
+      }catch(err){ setFeedback('Apply failed: '+err.message, true); }
+    }
+
+    applyBtn.addEventListener('click', applyUpdate);
 
     // --- GitHub PR flow (client-side) ---
     async function createPR(){
@@ -179,7 +392,17 @@
       }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
     }
 
-    createPrBtn.addEventListener('click', createPR);
+    // If the direct-apply checkbox is selected, submit will directly commit to `deploy-docs`,
+    // otherwise it will create a PR from a new branch.
+    createPrBtn.addEventListener('click', async (e)=>{
+      const direct = document.getElementById('directApply').checked;
+      if (direct) {
+        // Direct commit path
+        await applyUpdate();
+      } else {
+        await createPR();
+      }
+    });
 
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
