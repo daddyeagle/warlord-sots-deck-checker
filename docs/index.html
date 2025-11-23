@@ -701,7 +701,7 @@
 
         const checkTotalCount = (allLegalCards, activeRuleSet) => { 
             const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
-            const totalLegalCount = allLegalCards.length;
+            const totalLegalCount = allLegalCards.reduce((sum, card) => sum + (card.count || 1), 0);
             let countStatus = 'PASS';
             let countMessage = `Total legal cards in SA and Main Deck: **${totalLegalCount}** (${totalLegalCount} cards total).`;
 
