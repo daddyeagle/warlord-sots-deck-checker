@@ -126,10 +126,10 @@
                     if (!putRes.ok) {
                         let errMsg = `GitHub PUT failed: ${putRes.status}`;
                         try {
-                            const errJson = await putRes.json();
-                            if (errJson && errJson.message) errMsg += ` - ${errJson.message}`;
+                            const errText = await putRes.text();
+                            errMsg += `\nResponse: ${errText}`;
                         } catch (e) {
-                            // ignore JSON parse error
+                            // ignore parse error
                         }
                         throw new Error(errMsg);
                     }
@@ -980,13 +980,13 @@
                                 allCards.forEach(card => {
                                     const type = card.type || 'Unknown';
                                     if (!typeMap[type]) typeMap[type] = {};
-                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + 1;
+                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
                                 });
                                 if (typeMap['Character']) {
                                     const saMap = {};
                                     saCards.forEach(card => {
                                         if (card.type === 'Character') {
-                                            saMap[card.name] = (saMap[card.name] || 0) + 1;
+                                            saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
                                         }
                                     });
                                     typeMap['Character'] = {
