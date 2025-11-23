@@ -498,7 +498,7 @@
             const allWarlordFactions = new Set();
             const warlordList = Array.isArray(warlords) ? warlords : (warlords ? [warlords] : []);
             
-            if (warlordList.length === 0) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
+            if (warlordList.length === 0 && !activeRuleSet?.requiresUnifiedFaction && !warlordException?.requiresAlignment && !((warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass)) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
             
             const warlordNamesString = warlordList.map(w => w.name).join(' / ');
             warlordList.forEach(wl => {
@@ -526,7 +526,29 @@
                         violations.push(`${c.name} (${c.alignment || 'None'})`);
                     }
                 });
-            } else if (warlordFactions.length > 0 || requiresUnifiedFaction) {
+            } else if (requiresUnifiedFaction) {
+                // Enforce that all Starting Army characters share a single faction (independent of warlord faction)
+                const charCards = cardsToCheck.filter(c => c.type === 'Character' && !c.isFactionWildcard);
+                if (charCards.length === 0) {
+                    loyaltyMessage = `No character faction data available to enforce unified faction.`;
+                } else {
+                    const firstFactions = (charCards[0].faction || '').toLowerCase().split(' ').filter(Boolean);
+                    const firstSet = new Set(firstFactions);
+                    const violationsUnified = [];
+                    for (const c of charCards) {
+                        if (warlordException?.loyaltyBypass?.requiredClass && c.classes.includes(warlordException.loyaltyBypass.requiredClass)) continue;
+                        const cFactions = (c.faction || '').toLowerCase().split(' ').filter(Boolean);
+                        const intersects = cFactions.some(f => firstSet.has(f));
+                        if (!intersects) violationsUnified.push(`${c.name} (${c.faction || 'None'})`);
+                    }
+                    if (violationsUnified.length > 0) {
+                        loyaltyStatus = 'FAIL';
+                        loyaltyMessage = `Unified Faction Violations: ${violationsUnified.join(', ')}`;
+                    } else {
+                        loyaltyMessage = `All characters share a single faction (${firstFactions[0] ? firstFactions[0].toUpperCase() : 'UNKNOWN'}).`;
+                    }
+                }
+            } else if (warlordFactions.length > 0) {
                 loyaltyMessage = `All characters match **${warlordFactionDisplay}** faction (Warlord **${warlordNamesString}**).`;
                 cardsToCheck.forEach(c => {
                     if (c.type === 'Character' && !c.isFactionWildcard) {
