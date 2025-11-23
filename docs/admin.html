@@ -122,20 +122,56 @@
         const ref = await r.json();
         const baseSha = ref.object.sha;
 
-        // 2) Create branch (ref)
-        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
-        if(r.status === 422){ /* branch exists */ setFeedback('Branch already exists; will attempt to update file on that branch.'); }
-        else if(!r.ok) throw new Error('Failed to create branch: '+r.status);
+        // 2) Create branch (ref) if it doesn't exist
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, { headers });
+        if (r.ok) {
+          // branch exists
+          setFeedback('Branch already exists; will attempt to update file on that branch.');
+        } else {
+          // create branch
+          r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+          if(!r.ok) {
+            const txt = await r.text();
+            throw new Error('Failed to create branch: '+r.status+' '+txt);
+          }
+        }
 
-        // 3) Commit file via PUT contents API
+        // 3) Check if file exists on the target branch to determine whether to include `sha`
+        let existingSha = null;
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        r = await fetch(contentsUrl, { headers });
+        if (r.ok) {
+          const j = await r.json();
+          existingSha = j.sha;
+        } else if (r.status === 404) {
+          existingSha = null; // file doesn't exist on branch
+        } else {
+          // other error - but we can still attempt to PUT (API will respond accordingly)
+        }
+
+        // 4) Commit file via PUT contents API (include sha if updating)
         const content = btoa(unescape(encodeURIComponent(area.value)));
         const putBody = { message: `Update warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
         r = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`, { method:'PUT', headers, body: JSON.stringify(putBody) });
         if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create commit: '+r.status+' '+txt); }
 
-        // 4) Create PR
+        // 5) Create PR (if one doesn't already exist for this branch)
+        // For simplicity we'll attempt to create a PR; GitHub will return 422 if a PR already exists from this head to base.
         r = await fetch(`https://api.github.com/repos/${owner}/${repo}/pulls`, { method:'POST', headers, body: JSON.stringify({ title, head: branch, base }) });
-        if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create PR: '+r.status+' '+txt); }
+        if(!r.ok){
+          const txt = await r.text();
+          // If PR already exists, return success message with link if possible
+          try{
+            const errObj = JSON.parse(txt);
+            if (errObj && errObj.message && errObj.message.includes('A pull request already exists')) {
+              setFeedback('PR already exists for this branch.');
+              return;
+            }
+          }catch(e){}
+          throw new Error('Failed to create PR: '+r.status+' '+txt);
+        }
 
         const pr = await r.json();
         setFeedback('PR created: '+pr.html_url);
