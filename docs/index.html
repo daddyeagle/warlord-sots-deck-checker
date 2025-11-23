@@ -293,9 +293,8 @@
                 if (!lineMatch) return;
                 const count = parseInt(lineMatch[1]) || 1;
                 const name = lineMatch[2].trim();
-                const slug = normalizeName(name);
+                const slug = normalizeName(name).toLowerCase();
                 cardCounts[slug] = (cardCounts[slug] || 0) + count;
-                
                 let card = cardDatabase[slug];
                 if (card) {
                     cardList.push({ ...card, count });
