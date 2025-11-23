@@ -173,6 +173,15 @@
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
+    // Helper to call GitHub API and provide clearer errors for auth issues
+    async function ghFetch(url, options = {}, actionDesc = 'GitHub API request'){
+      const r = await fetch(url, options);
+      if (r.status === 401) {
+        throw new Error(`${actionDesc}: 401 Unauthorized — the provided token is invalid or/or missing required scopes. For public repos use 'public_repo' or a fine-grained token with 'Contents: Read & Write'.`);
+      }
+      return r;
+    }
+
     async function loadConfig(){
       setFeedback('Loading...');
       try{
@@ -352,18 +361,18 @@
       try{
         // Try to get existing file sha on the target branch
         const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
-        let r = await fetch(contentsUrl, { headers });
+        let r = await ghFetch(contentsUrl, { headers }, 'Get existing file contents');
         let existingSha = null;
         if (r.ok){ const j = await r.json(); existingSha = j.sha; }
         else if (r.status === 404) { existingSha = null; }
         else {
           // If branch doesn't exist and it's not main, create branch from main
           if (branch !== 'main'){
-            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers });
+            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers }, 'Get main ref');
             if(!r.ok) throw new Error('Failed to get main ref: '+r.status);
             const ref = await r.json();
             const baseSha = ref.object.sha;
-            r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) }, 'Create branch');
             if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create branch: '+r.status+' '+txt); }
             existingSha = null;
           } else {
@@ -409,19 +418,19 @@
         const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
 
         // 1) Get main ref
-        let r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${base}`, {headers});
+        let r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${base}`, {headers}, 'Get base ref');
         if(!r.ok) throw new Error('Failed to get base ref: '+r.status);
         const ref = await r.json();
         const baseSha = ref.object.sha;
 
         // 2) Create branch (ref) if it doesn't exist
-        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, { headers });
+        r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, { headers }, 'Check branch');
         if (r.ok) {
           // branch exists
           setFeedback('Branch already exists; will attempt to update file on that branch.');
         } else {
           // create branch
-          r = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) });
+          r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) }, 'Create branch');
           if(!r.ok) {
             const txt = await r.text();
             throw new Error('Failed to create branch: '+r.status+' '+txt);
@@ -431,7 +440,7 @@
         // 3) Check if file exists on the target branch to determine whether to include `sha`
         let existingSha = null;
         const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
-        r = await fetch(contentsUrl, { headers });
+        r = await ghFetch(contentsUrl, { headers }, 'Get existing file contents');
         if (r.ok) {
           const j = await r.json();
           existingSha = j.sha;
