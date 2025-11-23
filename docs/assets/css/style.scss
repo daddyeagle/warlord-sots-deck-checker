@@ -1,0 +1,17 @@
+// Minimal placeholder to satisfy Jekyll asset pipeline during Pages build.
+// You can replace this with your full stylesheet later.
+
+/* Basic resets and container styles used by the generated index */
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #0d1117;
+  color: #e5e7eb;
+}
+
+.container-lg {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Keep this file intentionally small */
