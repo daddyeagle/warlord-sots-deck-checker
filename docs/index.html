@@ -1,4 +1,4 @@
-    <!-- All helper JS is now inside the <script type="module"> block below. -->
+    <!-- All JS is now inside the <script type="module"> block below. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,75 +97,7 @@
         // --- DECK SUBMISSION HELPERS ---
         function slugify(str) {
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        }
 
-        function buildCardListByType(allCards, saCards) {
-            // allCards: all legal cards (SA + Main)
-            // saCards: legal SA cards only
-            const typeMap = {};
-            allCards.forEach(card => {
-                const type = card.type || 'Unknown';
-                if (!typeMap[type]) typeMap[type] = {};
-                typeMap[type][card.name] = (typeMap[type][card.name] || 0) + 1;
-            });
-            // For Character, add SA as subset
-            if (typeMap['Character']) {
-                const saMap = {};
-                saCards.forEach(card => {
-                    if (card.type === 'Character') {
-                        saMap[card.name] = (saMap[card.name] || 0) + 1;
-                    }
-                });
-                typeMap['Character'] = {
-                    ...typeMap['Character'],
-                    StartingArmy: saMap
-                };
-            }
-            return typeMap;
-        }
-
-        async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
-            const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-            const r = await fetch(url, { headers: { Authorization: `token ${token}` } });
-            if (r.status === 404) return null;
-            if (!r.ok) throw new Error(`Failed to fetch ${path}: ${r.status}`);
-            const data = await r.json();
-            if (data.content) {
-                return JSON.parse(atob(data.content.replace(/\n/g, '')));
-            }
-            return null;
-        }
-
-        async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
-            // Get SHA if file exists
-            let sha = undefined;
-            try {
-                const existing = await fetchJsonFromGitHub(owner, repo, path, branch, token);
-                if (existing) {
-                    // Fetch SHA
-                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-                    const r = await fetch(url, { headers: { Authorization: `token ${token}` } });
-                    if (r.ok) {
-                        const data = await r.json();
-                        sha = data.sha;
-                    }
-                }
-            } catch {}
-            const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-            const body = {
-                message,
-                content: btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2)))),
-                branch
-            };
-            if (sha) body.sha = sha;
-            const r = await fetch(url, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json', Authorization: `token ${token}` },
-                body: JSON.stringify(body)
-            });
-            if (!r.ok) throw new Error(`Failed to save ${path}: ${r.status}`);
-            return await r.json();
-        }
         // --- CONSTANTS ----------------------------------------------------
 
         let cardDatabase = {};
