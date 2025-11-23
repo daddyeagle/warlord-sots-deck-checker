@@ -331,7 +331,11 @@
 
     async function applyUpdate(){
       if(!validate()) return;
-      const token = document.getElementById('ghToken').value.trim();
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      // Sanitize token: remove non-printable / non-ISO-8859-1 characters to avoid fetch header errors
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
       if(!token){
         if(confirm('No token provided. Download JSON instead? Click OK to download.')){ download(); setFeedback('Downloaded JSON.'); }
         else setFeedback('Apply cancelled.');
@@ -387,7 +391,10 @@
     // --- GitHub PR flow (client-side) ---
     async function createPR(){
       if(!validate()) return;
-      const token = document.getElementById('ghToken').value.trim();
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
       if(!token){ setFeedback('Token required to create a PR. Provide a personal access token with repo scope.', true); return; }
 
       setFeedback('Creating branch and committing file (This will use GitHub API).');
