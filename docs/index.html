@@ -501,7 +501,7 @@
             // Determine ruleset/exception-driven modes
             const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
             const requiresAlignment = warlordException?.requiresAlignment || null;
-            const requiresUnifiedFaction = !!activeRuleSet.requiresUnifiedFaction;
+            const requiresUnifiedFaction = !!(activeRuleSet.requiresUnifiedFaction || warlordException?.requiresUnifiedFaction);
 
             // If there's no warlord and nothing requires enforcement, warn and skip
             if (warlordList.length === 0 && !requiresUnifiedFaction && !requiresAlignment && !isFullBypass) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
