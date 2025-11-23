@@ -1,4 +1,4 @@
-    <!-- All JS is now inside the <script type="module"> block below. -->
+<!-- All JS is now inside the <script type="module"> block below. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,8 +153,14 @@
                         fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
                     ]);
 
-                    if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
-                    if (!configResponse.ok) throw new Error(`Config HTTP error! status: ${configResponse.status}`);
+                    if (!cardsResponse.ok) {
+                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
+                        throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
+                    }
+                    if (!configResponse.ok) {
+                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
+                        throw new Error(`Config HTTP error! status: ${configResponse.status}`);
+                    }
 
                     const cardJson = await cardsResponse.json();
                     const configJson = await configResponse.json();
@@ -266,69 +272,43 @@
                     }
 
                 } catch (error) {
-                    console.error(`Attempt ${i + 1} failed to load data:`, error.message);
+                    loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
+                    loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
+                    loadingStatusDiv.classList.remove('text-sky-400');
+                    console.error('LoadAppData error:', error);
                     if (i < retries - 1) {
                         await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2; 
+                        delay *= 2;
                     }
                 }
             }
-            loadingStatusDiv.innerHTML = `
-                <p class="text-red-400 font-bold mb-2">❌ Failed to load configuration.</p>
-                <p class="text-sm text-gray-300">Ensure <code>warlord_configuration.json</code> is in the same folder.</p>
-                <p class="text-xs text-gray-500 mt-2">Note: If running locally, you must use a web server (http://localhost) not file:// due to CORS security.</p>
-            `;
-            loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
-            loadingStatusDiv.classList.remove('text-sky-400');
-            if (deckIsLegal) {
-                document.getElementById('submit-deck-button').addEventListener('click', async () => {
-                    const tokenRaw = document.getElementById('submit-token').value || '';
-                    const token = tokenRaw.replace(/[^\x00-\xFF]/g, '');
-                    const username = (document.getElementById('submit-username').value || '').trim();
-                    const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
-                    const statusEl = document.getElementById('submit-status');
-                    if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
-                    if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
+            return false;
+        };
 
-                    try {
-                        statusEl.textContent = 'Preparing deck payload...';
-                        // Build card list structure
-                        // allLegalCards, saList, warlords, selectedEditions are in checkDeck scope, so pass them as closure variables
-                        const allCardsForSave = [...allLegalCards];
-                        const saForSave = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
-                        const cardList = buildCardListByType(allCardsForSave, saForSave);
-                        const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                        const timestamp = new Date().toISOString();
+        // --- REGULAR EXPRESSION HELPERS ---
+        const parseCardInput = (input, cardCounts, cardList) => {
+            const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
+            lines.forEach(line => {
+                const lineMatch = lineRegex.exec(line);
+                if (!lineMatch) return;
+                const count = parseInt(lineMatch[1]) || 1;
+                const name = lineMatch[2].trim();
+                const slug = normalizeName(name);
+                cardCounts[slug] = (cardCounts[slug] || 0) + count;
+                
+                let card = cardDatabase[slug];
+                if (card) {
+                    cardList.push({ ...card, count });
+                } else {
+                    cardList.push({ name, isUnknown: true, count });
+                }
+            });
+        };
 
-                        // Prepare event file object and decks.json
-                        const owner = 'daddyeagle';
-                        const repo = 'warlord-sots-deck-checker';
-                        const branch = 'deploy-docs';
-
-                        const eventPath = `docs/events/${slugify(eventName)}.json`;
-                        const decksPath = `docs/events/decks.json`;
-
-                        // Fetch existing event file (if any), then upsert this username entry
-                        statusEl.textContent = 'Saving event entry...';
-                        const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, token) || { eventName: eventName, submissions: {} };
-                        eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = { warlord: warlordName, username, timestamp };
-                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, token);
-
-                        statusEl.textContent = 'Saving deck to deck database...';
-                        const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, token) || {};
-                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
-                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, token);
-
-                        statusEl.textContent = 'Deck submitted successfully.';
-                    } catch (err) {
-                        console.error('Submit failed', err);
-                        document.getElementById('submit-status').textContent = 'Submit failed: ' + (err.message || err);
-                    }
-                });
-            }
-            if (!firstWarlord) return null;
-            const normalizedWarlordName = normalizeName(firstWarlord.name).toLowerCase();
+        // --- EXCEPTION HELPERS ---
+        const getWarlordException = (warlordData) => {
+            if (!warlordData) return null;
+            const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
             return WL_SA_LOYALTY_EXCEPTIONS.find(e => e.normalizedWarlordName === normalizedWarlordName) || null;
         };
 
