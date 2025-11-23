@@ -97,6 +97,7 @@
         // --- DECK SUBMISSION HELPERS ---
         function slugify(str) {
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        }
 
         // --- CONSTANTS ----------------------------------------------------
 
@@ -245,7 +246,6 @@
                                 bannedErrataFormats: [], 
                                 saReservedFormats: [],
                                 epicErrataFormats: [],
-                                isSAItemStarter: saExceptions.isItemStarter,
                                 isSACharacterReplacement: saExceptions.isReplacement,
                                 text: card.text || '' 
                             };
