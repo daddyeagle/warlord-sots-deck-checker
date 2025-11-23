@@ -114,7 +114,8 @@
         const CONFIG_DATA_URL = "warlord_configuration.json";
 
         // --- REGEX & CONSTANTS ---
-        const lineRegex = /^\s*(?:(\d+)\s*x?\s+)?([^(/]+)/i;
+        // Matches: '3 Card Name', '2x Card Name', 'Card Name', and ignores notes after /, \, |, #, &, or ()
+        const lineRegex = /^\s*(\d+)?\s*x?\s*([^\d][^/\\|#&()]*)/i;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
         const errataEpicRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Epic/gi; 
@@ -291,8 +292,9 @@
             lines.forEach(line => {
                 const lineMatch = lineRegex.exec(line);
                 if (!lineMatch) return;
-                const count = parseInt(lineMatch[1]) || 1;
-                const name = lineMatch[2].trim();
+                const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
+                const name = lineMatch[2] ? lineMatch[2].trim() : '';
+                if (!name) return;
                 const slug = normalizeName(name).toLowerCase();
                 cardCounts[slug] = (cardCounts[slug] || 0) + count;
                 let card = cardDatabase[slug];
