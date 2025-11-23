@@ -53,7 +53,8 @@
           "Into the Accordlands (ITA)"
         ],
         "rarities": []
-      }
+      },
+      "hidden": false
     },
     "Saga": {
       "name": "Saga",
@@ -443,5 +444,5 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "Ancients"
 }
