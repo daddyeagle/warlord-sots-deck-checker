@@ -106,6 +106,7 @@
 
     <div class="row" style="margin-top:.75rem">
       <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:280px" />
+      <button id="testTokenBtn" title="Validate token and scopes">Test Token</button>
       <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
       <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
       <label style="display:flex; align-items:center; gap:6px;">
@@ -145,6 +146,7 @@
     const copyBtn = document.getElementById('copyBtn');
     const createPrBtn = document.getElementById('createPrBtn');
     const applyBtn = document.getElementById('applyBtn');
+    const testTokenBtn = document.getElementById('testTokenBtn');
     const area = document.getElementById('jsonArea');
     const feedback = document.getElementById('feedback');
     let configObj = null;
@@ -396,6 +398,29 @@
     }
 
     applyBtn.addEventListener('click', applyUpdate);
+
+    // Quick token tester: performs a lightweight GET /user to validate token and scopes
+    async function testToken(){
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      const token = tokenTrimmed.replace(/[^
+\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
+      if (!token) return setFeedback('No token provided to test.', true);
+      setFeedback('Testing token...');
+      try{
+        const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+        const r = await ghFetch('https://api.github.com/user', { headers }, 'Validate token');
+        if (!r.ok) {
+          const txt = await r.text();
+          throw new Error('Token test failed: '+r.status+' '+txt);
+        }
+        const user = await r.json();
+        setFeedback('Token valid for user: '+(user.login || user.name || user.id));
+      }catch(err){ setFeedback('Token test failed: '+err.message, true); }
+    }
+
+    testTokenBtn.addEventListener('click', testToken);
 
     // --- GitHub PR flow (client-side) ---
     async function createPR(){
