@@ -24,6 +24,8 @@
         .fail { background-color: #ef4444; color: #7f1d1d; }
         .warning { background-color: #f59e0b; color: #78350f; }
         #edition-select { height: 120px; }
+        /* small toast for config reload notifications */
+        #config-toast { position: fixed; top: 16px; right: 16px; background: rgba(15,23,42,0.95); color: #e6eef8; padding: 8px 12px; border-radius: 6px; font-weight:600; display:none; border:1px solid #263248 }
     </style>
 </head>
 <body class="p-4 sm:p-8 flex justify-center items-start min-h-screen">
@@ -49,6 +51,7 @@
                     <select id="ruleset-select" class="w-full p-3 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
                         <!-- Options populated by JS -->
                     </select>
+                        <button id="reloadConfigBtn" class="mt-2 ml-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-1 px-3 rounded">Reload Config</button>
                     <p class="text-xs mt-2 text-gray-500">
                         Select a format to apply deck construction rules defined in <code>warlord_configuration.json</code>.
                     </p>
@@ -898,6 +901,20 @@
                     try { reloadConfigOnly(); } catch(err) { console.warn('reload on storage failed', err); }
                 }
             });
+            // Manual reload button (helps when storage events are not firing)
+            const reloadBtn = document.getElementById('reloadConfigBtn');
+            const showToast = (txt) => {
+                let t = document.getElementById('config-toast');
+                if(!t) {
+                    t = document.createElement('div'); t.id = 'config-toast'; document.body.appendChild(t);
+                }
+                t.textContent = txt; t.style.display = 'block';
+                setTimeout(()=>{ try{ t.style.display = 'none'; }catch(e){} }, 2500);
+            };
+            reloadBtn.addEventListener('click', async ()=>{ await reloadConfigOnly(); showToast('Config reloaded (manual)'); });
+            // show a toast when the config is reloaded via storage event as well
+            const origReload = reloadConfigOnly;
+            reloadConfigOnly = async () => { await origReload(); showToast('Config reloaded from admin'); };
         });
 
     </script>
