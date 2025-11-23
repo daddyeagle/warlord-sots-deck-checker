@@ -405,19 +405,20 @@
             }
             return { pass: true, result: null };
         };
-        const checkDragonlordLimit = (allLegalCards) => {
+
+        const checkdragonlordLimit = (allLegalCards) => {
             let dragonlordCount = 0;
-            const foundDragonlords = [];
+            const founddragonlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
                     dragonlordCount++;
-                    foundDragonlords.push(card.name);
+                    founddragonlords.push(card.name);
                 }
             });
             if (dragonlordCount > 1) {
                 return {
                     pass: false,
-                    result: { status: 'FAIL', message: `Dragon Lord Limit: Deck contains ${dragonlordCount} Dragon Lord cards (${[...new Set(foundDragonlords)].join(', ')}). Max 1 allowed.` }
+                    result: { status: 'FAIL', message: `Dragon Lord Limit: Deck contains ${dragonlordCount} Dragon Lord cards (${[...new Set(founddragonlords)].join(', ')}). Max 1 allowed.` }
                 };
             }
             if (dragonlordCount === 1) {
@@ -425,26 +426,27 @@
             }
             return { pass: true, result: null };
         };
-        const checkDaemonlordLimit = (allLegalCards) => {
+        const checkdaemonlordLimit = (allLegalCards) => {
             let daemonlordCount = 0;
-            const foundDaemonlords = [];
+            const founddaemonlords = [];
             allLegalCards.forEach(card => {
-                if (card.rawSubtype && card.rawSubtype.includes('Daemonlord')) {
-                    DaemonlordCount++;
-                    foundDaemonlords.push(card.name);
+                if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
+                    daemonlordCount++;
+                    founddaemonlords.push(card.name);
                 }
             });
             if (daemonlordCount > 1) {
                 return {
                     pass: false,
-                    result: { status: 'FAIL', message: `Daemon Lord Limit: Deck contains ${daemonlordCount} Daemonlord cards (${[...new Set(foundDaemonlords)].join(', ')}). Max 1 allowed.` }
+                    result: { status: 'FAIL', message: `Daemonlord Limit: Deck contains ${daemonlordCount} Daemonlord cards (${[...new Set(founddaemonlords)].join(', ')}). Max 1 allowed.` }
                 };
             }
-            if (dragonlordCount === 1) {
+            if (daemonlordCount === 1) {
                  return { pass: true, result: { status: 'PASS', message: 'Daemonlord limit (Max 1) respected.' } };
             }
             return { pass: true, result: null };
         };
+
         const checkRestrictions = (allLegalCards, activeRuleSet) => {
             const restricted = activeRuleSet.restricted;
             if (!restricted) return { pass: true };
@@ -771,7 +773,16 @@
                  checks.overlordLimit = overlordCheck.result;
                  if (!overlordCheck.pass) deckIsLegal = false;
             }
-
+            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
+            if (dragonlordCheck.result) { 
+                 checks.dragonlordLimit = dragonlordCheck.result;
+                 if (!dragonlordCheck.pass) deckIsLegal = false;
+            }
+            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
+            if (daemonlordCheck.result) { 
+                 checks.daemonlordLimit = daemonlordCheck.result;
+                 if (!daemonlordCheck.pass) deckIsLegal = false;
+            }
             const activeExceptionsMessage = [];
             if (extraSACard) {
                  activeExceptionsMessage.push(`Exception Active: **${extraSACard.name}** added as extra SA card.`);
@@ -794,7 +805,9 @@
                 'saLoyalty', 
                 'mdLoyalty', 
                 'copyLimits', 
-                'overlordLimit', 
+                'overlordLimit',
+                'dragonlordLimit', 
+                'daemonlordLimit',  
                 'typeDominance',
                 'activeExceptions' 
             ];
