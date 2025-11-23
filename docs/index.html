@@ -154,18 +154,22 @@
                     SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                     FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
 
-                    // Populate Ruleset Select
+                    // Populate Ruleset Select (hide rulesets marked as hidden)
                     rulesetSelect.innerHTML = '';
-                    // Only allow first 10 rulesets to prevent UI clutter
-                    const rulesetKeys = Object.keys(RULE_SETS);
-                    const limit = Math.min(rulesetKeys.length, 10);
-                    
+                    const rulesetKeys = Object.keys(RULE_SETS || {});
+                    const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
+                    const limit = Math.min(visibleKeys.length, 10);
                     for(let j = 0; j < limit; j++) {
-                        const key = rulesetKeys[j];
+                        const key = visibleKeys[j];
                         const option = document.createElement('option');
                         option.value = key;
                         option.textContent = RULE_SETS[key].name;
                         rulesetSelect.appendChild(option);
+                    }
+                    // If config specifies a default ruleset, select it if visible
+                    const defaultKey = configJson.defaultRuleset;
+                    if (defaultKey && visibleKeys.includes(defaultKey)) {
+                        rulesetSelect.value = defaultKey;
                     }
 
                     // 2. Process Card Data
