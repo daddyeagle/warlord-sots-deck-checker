@@ -67,41 +67,6 @@
                         <select id="submit-eventname" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg">
                             <option value="">Loading events...</option>
                         </select>
-                            // --- EVENT LIST FETCH & POPULATE ---
-                            let EVENT_RULESET_REQUIREMENTS = {};
-                            async function populateEventDropdown() {
-                                const eventDropdown = document.getElementById('submit-eventname');
-                                try {
-                                    const res = await fetch('events/event_list.json');
-                                    if (!res.ok) throw new Error('Failed to fetch event list');
-                                    const data = await res.json();
-                                    let events = [];
-                                    if (Array.isArray(data)) {
-                                        events = data;
-                                    } else if (Array.isArray(data.events)) {
-                                        events = data.events;
-                                    } else if (data.eventName) {
-                                        events = [data];
-                                    }
-                                    eventDropdown.innerHTML = '';
-                                    EVENT_RULESET_REQUIREMENTS = {};
-                                    if (events.length === 0) {
-                                        eventDropdown.innerHTML = '<option value="">No events found</option>';
-                                    } else {
-                                        for (const ev of events) {
-                                            const opt = document.createElement('option');
-                                            opt.value = ev.eventName || ev;
-                                            opt.textContent = ev.eventName || ev;
-                                            if (ev.requiredRuleset) {
-                                                EVENT_RULESET_REQUIREMENTS[opt.value] = ev.requiredRuleset;
-                                            }
-                                            eventDropdown.appendChild(opt);
-                                        }
-                                    }
-                                } catch (e) {
-                                    eventDropdown.innerHTML = '<option value="">Failed to load events</option>';
-                                }
-                            }
                     </div>
                     <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
                 </div>
@@ -131,6 +96,41 @@
     </div>
 
     <script type="module">
+                        // --- EVENT LIST FETCH & POPULATE ---
+                        let EVENT_RULESET_REQUIREMENTS = {};
+                        async function populateEventDropdown() {
+                            const eventDropdown = document.getElementById('submit-eventname');
+                            try {
+                                const res = await fetch('events/event_list.json');
+                                if (!res.ok) throw new Error('Failed to fetch event list');
+                                const data = await res.json();
+                                let events = [];
+                                if (Array.isArray(data)) {
+                                    events = data;
+                                } else if (Array.isArray(data.events)) {
+                                    events = data.events;
+                                } else if (data.eventName) {
+                                    events = [data];
+                                }
+                                eventDropdown.innerHTML = '';
+                                EVENT_RULESET_REQUIREMENTS = {};
+                                if (events.length === 0) {
+                                    eventDropdown.innerHTML = '<option value="">No events found</option>';
+                                } else {
+                                    for (const ev of events) {
+                                        const opt = document.createElement('option');
+                                        opt.value = ev.eventName || ev;
+                                        opt.textContent = ev.eventName || ev;
+                                        if (ev.requiredRuleset) {
+                                            EVENT_RULESET_REQUIREMENTS[opt.value] = ev.requiredRuleset;
+                                        }
+                                        eventDropdown.appendChild(opt);
+                                    }
+                                }
+                            } catch (e) {
+                                eventDropdown.innerHTML = '<option value="">Failed to load events</option>';
+                            }
+                        }
                 // --- GITHUB API HELPERS ---
                 async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
                     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
