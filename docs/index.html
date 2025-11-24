@@ -64,7 +64,45 @@
                     <p class="text-xs text-gray-500 mb-2">Warlord + Characters/Items starting in play.</p>
                     <div class="mb-3 flex gap-3">
                         <input id="submit-username" type="text" placeholder="Your username" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
-                        <input id="submit-eventname" type="text" placeholder="Event name (optional)" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
+                        <select id="submit-eventname" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg">
+                            <option value="">Loading events...</option>
+                        </select>
+                            // --- EVENT LIST FETCH & POPULATE ---
+                            // Store event ruleset requirements for validation
+                            let EVENT_RULESET_REQUIREMENTS = {};
+                            async function populateEventDropdown() {
+                                const eventDropdown = document.getElementById('submit-eventname');
+                                try {
+                                    const res = await fetch('events/event_list.json');
+                                    if (!res.ok) throw new Error('Failed to fetch event list');
+                                    const data = await res.json();
+                                    let events = [];
+                                    if (Array.isArray(data)) {
+                                        events = data;
+                                    } else if (Array.isArray(data.events)) {
+                                        events = data.events;
+                                    } else if (data.eventName) {
+                                        events = [data];
+                                    }
+                                    eventDropdown.innerHTML = '';
+                                    EVENT_RULESET_REQUIREMENTS = {};
+                                    if (events.length === 0) {
+                                        eventDropdown.innerHTML = '<option value="">No events found</option>';
+                                    } else {
+                                        for (const ev of events) {
+                                            const opt = document.createElement('option');
+                                            opt.value = ev.eventName || ev;
+                                            opt.textContent = ev.eventName || ev;
+                                            if (ev.requiredRuleset) {
+                                                EVENT_RULESET_REQUIREMENTS[opt.value] = ev.requiredRuleset;
+                                            }
+                                            eventDropdown.appendChild(opt);
+                                        }
+                                    }
+                                } catch (e) {
+                                    eventDropdown.innerHTML = '<option value="">Failed to load events</option>';
+                                }
+                            }
                     </div>
                     <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
                 </div>
@@ -981,6 +1019,13 @@
                     const token = tokenRaw.replace(/[\u0100-\uFFFF]/g, '');
                     const username = (document.getElementById('submit-username').value || '').trim();
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
+                    // Check event ruleset requirement before submission
+                    const requiredRuleset = EVENT_RULESET_REQUIREMENTS[eventName];
+                    const selectedRuleset = rulesetSelect.value;
+                    if (requiredRuleset && selectedRuleset !== requiredRuleset) {
+                        statusEl.textContent = `This event requires the "${requiredRuleset}" format. Please select it before submitting.`;
+                        return;
+                    }
                     const statusEl = document.getElementById('submit-status');
                     if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
@@ -1063,6 +1108,7 @@
             document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
             document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
             await loadAppData();
+            await populateEventDropdown();
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
                 if (!e) return;
