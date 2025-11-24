@@ -1,44 +1,47 @@
 {
   "daddy_eagle": {
     "username": "daddy_eagle",
-    "event": "December Ancients+",
-    "warlord": "Fo'ttr'ak'ka",
-    "timestamp": "2025-11-24T05:04:08.781Z",
+    "event": "December Ancients",
+    "warlord": "B'alam Nak",
+    "timestamp": "2025-11-24T06:57:50.140Z",
     "cardList": {
       "Character": {
-        "Fo'ttr'ak'ka": 1,
-        "Gunda": 2,
+        "B'alam Nak": 1,
+        "Urnack": 1,
         "Nightmaster Rress": 1,
+        "Joleg": 1,
         "B'haya, the Fiend": 1,
-        "Carg'rag": 3,
-        "Yeg-Igryll's Altar": 1,
-        "FirRal": 3,
-        "Gush": 1,
-        "Nemtok": 3,
-        "SanUris": 3,
-        "Lorik": 3,
         "Jackals of Mourn": 3,
+        "Nog, Pog, and Snivels": 3,
+        "Yeg-Igryll's Altar": 1,
+        "Archer Tower": 1,
+        "Carg'rag": 3,
+        "D'nath": 3,
+        "Muddflek": 3,
+        "FirRal": 3,
         "StartingArmy": {
-          "Fo'ttr'ak'ka": 1,
-          "Gunda": 2,
+          "B'alam Nak": 1,
+          "Urnack": 1,
           "Nightmaster Rress": 1,
+          "Joleg": 1,
           "B'haya, the Fiend": 1
         }
       },
       "Item": {
-        "Black Moss": 3,
-        "Destroyer's Armor": 3,
+        "Portable Hole": 3,
+        "Giant Bat": 2,
+        "Nodwick": 1,
+        "Farglass": 1,
+        "Arbalest": 1,
         "StartingArmy": {}
       },
       "Action": {
-        "Final Blessing": 3,
-        "Hero's Gambit": 3,
-        "Incentives": 1,
-        "Quick Strength": 3,
-        "Rescue": 1,
-        "Speed of the Falcon": 3,
-        "Back Alley Tavern": 2,
-        "Blind the Gods": 3,
+        "Wither": 3,
+        "Strain the Shot": 3,
+        "Reconnaissance": 3,
+        "Assassin's Strike": 2,
+        "Meet at the Inn!": 3,
+        "Crypt Wine": 3,
         "StartingArmy": {}
       }
     }
