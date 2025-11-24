@@ -1026,9 +1026,8 @@
                     <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
                     <form id="deck-submit-form" class="flex flex-col gap-2 items-stretch">
                         <div class="flex flex-col sm:flex-row gap-2">
-                            <input id="submit-username" type="text" placeholder="Enter your Discord username (e.g. user#1234)" class="flex-1 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                            <input id="submit-username" type="text" placeholder="Enter your username" class="flex-1 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
                             <input id="submit-token" type="password" placeholder="GitHub Personal Access Token" class="flex-1 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
-                            <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="save-pat-checkbox" class="mr-1">Remember PAT</label>
                             <select id="submit-eventname" class="flex-1 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg">
                                 <option value="">Loading events...</option>
                             </select>
@@ -1058,25 +1057,7 @@
                                 populateEventDropdown();
                                 const usernameInput = document.getElementById('submit-username');
                                 const tokenInput = document.getElementById('submit-token');
-                                const savePatCheckbox = document.getElementById('save-pat-checkbox');
                                 const submitBtn = document.getElementById('submit-deck-button');
-                                // Restore PAT from localStorage if available
-                                if (localStorage.getItem('savedPatToken')) {
-                                    tokenInput.value = localStorage.getItem('savedPatToken');
-                                    savePatCheckbox.checked = true;
-                                }
-                                savePatCheckbox.addEventListener('change', () => {
-                                    if (savePatCheckbox.checked) {
-                                        localStorage.setItem('savedPatToken', tokenInput.value);
-                                    } else {
-                                        localStorage.removeItem('savedPatToken');
-                                    }
-                                });
-                                tokenInput.addEventListener('input', () => {
-                                    if (savePatCheckbox.checked) {
-                                        localStorage.setItem('savedPatToken', tokenInput.value);
-                                    }
-                                });
                                 submitBtn.onclick = async () => {
                                     const username = usernameInput.value.trim();
                                     const token = tokenInput.value.trim();
