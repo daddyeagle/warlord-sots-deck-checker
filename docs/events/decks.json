@@ -46,46 +46,46 @@
   "daddy_eagle2": {
     "username": "daddy_eagle2",
     "event": "December Ancients+",
-    "warlord": "Jautya Syne",
-    "timestamp": "2025-11-24T01:17:17.763Z",
+    "warlord": "Kothkah",
+    "timestamp": "2025-11-24T05:18:29.913Z",
     "cardList": {
       "Character": {
+        "Kothkah": 1,
+        "Nightmaster Rress": 1,
+        "Yeg-Igryll's Altar": 1,
+        "Gunda": 3,
         "Toren Yscar": 1,
-        "Amoudasi's Wrath": 1,
-        "Jautya Syne": 1,
-        "Hack": 1,
-        "Brine Fiend": 3,
-        "Sal'Azar the Gilded": 1,
-        "Spirit Wing": 3,
-        "Antaelus": 1,
-        "Behemoth": 1,
-        "Death Fog": 3,
-        "Jackals of Mourn": 3,
-        "Leviathan": 1,
-        "Ssithiss, Sutek King": 2,
-        "Ssithiss": 1,
-        "Shadowreaver": 2,
+        "The Retiarius": 1,
+        "Sar'ean": 3,
+        "SanUris": 3,
+        "Koratcghuk": 2,
+        "FirRal": 3,
+        "Carg'rag": 3,
+        "Bokos": 3,
         "StartingArmy": {
-          "Toren Yscar": 1,
-          "Amoudasi's Wrath": 1,
-          "Jautya Syne": 1,
-          "Hack": 1,
-          "Brine Fiend": 3
+          "Kothkah": 1,
+          "Nightmaster Rress": 1,
+          "Yeg-Igryll's Altar": 1,
+          "Gunda": 3
         }
       },
-      "Action": {
-        "Premonition": 2,
-        "Metamorphosis": 3,
-        "Reflect": 3,
-        "Bribe": 3,
-        "Veiled Passing": 3,
-        "Evoke Crisis": 3,
-        "Chosen": 2,
-        "Meet at the Inn!": 3,
+      "Item": {
+        "Monkey's Paws": 2,
+        "Ring of Piercing": 1,
+        "Recruiter's Orders": 1,
+        "Nodwick": 1,
+        "Madman's Blade": 1,
+        "Fine Hilted Saber": 3,
+        "Figurine of Power": 3,
+        "Double Bladed Sword": 1,
+        "Destroyer's Armor": 3,
         "StartingArmy": {}
       },
-      "Item": {
-        "Signon's Armor": 3,
+      "Action": {
+        "Sword Master": 2,
+        "Slow March": 2,
+        "Order of Battle": 2,
+        "Loyalty's Reward": 3,
         "StartingArmy": {}
       }
     }
