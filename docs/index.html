@@ -31,8 +31,39 @@
         <div id="results" class="space-y-6 mt-6"><!-- Results will be injected here --></div>
     </div>
     <script type="module">
-// ...existing JavaScript logic from previous script blocks goes here, unchanged...
-// (Paste all the JS logic you provided, but ensure it is not duplicated and is valid JS)
+// --- Place all your helpers and logic here ---
+// (Paste your full, non-duplicated JS logic here, including all helpers, event listeners, and Discord token logic)
+
+// Example: (replace this with your actual code, but ensure no duplicate/nested listeners)
+// ...
+
+// At the end, add the DOMContentLoaded handler to wire up the UI:
+document.addEventListener('DOMContentLoaded', async () => {
+    document.getElementById('clear-deck-button').addEventListener('click', () => {
+        document.getElementById('sa-wl-input').value = '';
+        document.getElementById('main-deck-input').value = '';
+        document.getElementById('results').innerHTML = '';
+    });
+    document.getElementById('check-deck-button').addEventListener('click', checkDeck);
+    await loadAppData();
+    // Listen for admin updates signaled via localStorage and reload config when seen
+    window.addEventListener('storage', async (e) => {
+        if (!e) return;
+        if (e.key === 'warlordConfigUpdate') {
+            try {
+                const changed = await reloadConfigOnly();
+                if (!changed) {
+                    console.warn('Config reload reported no change; attempting stronger network refresh');
+                    const forced = await loadAppData(3, 1000, true);
+                    if (!forced) {
+                        console.warn('Forced reload failed; performing full page reload');
+                        try { window.location.reload(); } catch(_) { window.location.href = window.location.href; }
+                    }
+                }
+            } catch(err) { console.warn('reload on storage failed', err); }
+        }
+    });
+});
     </script>
 </body>
 </html>
