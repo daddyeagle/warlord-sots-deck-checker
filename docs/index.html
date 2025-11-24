@@ -1038,94 +1038,80 @@
                     </form>
                     <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
                 </div>`;
-                // After rendering, repopulate the event dropdown and set up Discord token validation
+                // After rendering, repopulate the event dropdown and set up submit button
                 setTimeout(() => {
                     populateEventDropdown();
-                    const tokenInput = document.getElementById('discord-token');
-                    const usernameDisplay = document.getElementById('discord-username-display');
+                    const usernameInput = document.getElementById('submit-username');
+                    const tokenInput = document.getElementById('submit-token');
                     const submitBtn = document.getElementById('submit-deck-button');
-                    let discordUsername = '';
-                    let discordToken = '';
-                    tokenInput.addEventListener('input', async () => {
-                        const val = tokenInput.value.trim();
-                        if (!val) {
-                            usernameDisplay.textContent = '';
-                            usernameDisplay.classList.add('hidden');
-                            submitBtn.disabled = true;
-                            discordUsername = '';
-                            setTimeout(() => {
-                                populateEventDropdown();
-                                const usernameInput = document.getElementById('submit-username');
-                                const tokenInput = document.getElementById('submit-token');
-                                const submitBtn = document.getElementById('submit-deck-button');
-                                submitBtn.onclick = async () => {
-                                    const username = usernameInput.value.trim();
-                                    const token = tokenInput.value.trim();
-                                    const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
-                                    const requiredRuleset = EVENT_RULESET_REQUIREMENTS[eventName];
-                                    const selectedRuleset = rulesetSelect.value;
-                                    const statusEl = document.getElementById('submit-status');
-                                    if (requiredRuleset && selectedRuleset !== requiredRuleset) {
-                                        showRulesetAlert(`This event requires the "${requiredRuleset}" format. Please select it before submitting.`);
-                                        statusEl.textContent = '';
-                                        return;
-                                    } else {
-                                        hideRulesetAlert();
-                                    }
-                                    if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
-                                    if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
-                                    try {
-                                        statusEl.textContent = 'Preparing deck payload...';
-                                        if (typeof buildCardListByType !== 'function') {
-                                            window.buildCardListByType = function(allCards, saCards) {
-                                                const typeMap = {};
-                                                allCards.forEach(card => {
-                                                    const type = card.type || 'Unknown';
-                                                    if (!typeMap[type]) typeMap[type] = {};
-                                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
-                                                });
-                                                const saMap = {};
-                                                saCards.forEach(card => {
-                                                    saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
-                                                });
-                                                Object.keys(typeMap).forEach(type => {
-                                                    typeMap[type] = {
-                                                        ...typeMap[type],
-                                                        StartingArmy: {}
-                                                    };
-                                                });
-                                                saCards.forEach(card => {
-                                                    if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
-                                                        typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
-                                                    }
-                                                });
-                                                return typeMap;
-                                            };
+                    submitBtn.onclick = async () => {
+                        const username = usernameInput.value.trim();
+                        const token = tokenInput.value.trim();
+                        const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
+                        const requiredRuleset = EVENT_RULESET_REQUIREMENTS[eventName];
+                        const selectedRuleset = rulesetSelect.value;
+                        const statusEl = document.getElementById('submit-status');
+                        if (requiredRuleset && selectedRuleset !== requiredRuleset) {
+                            showRulesetAlert(`This event requires the "${requiredRuleset}" format. Please select it before submitting.`);
+                            statusEl.textContent = '';
+                            return;
+                        } else {
+                            hideRulesetAlert();
+                        }
+                        if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
+                        if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
+                        try {
+                            statusEl.textContent = 'Preparing deck payload...';
+                            if (typeof buildCardListByType !== 'function') {
+                                window.buildCardListByType = function(allCards, saCards) {
+                                    const typeMap = {};
+                                    allCards.forEach(card => {
+                                        const type = card.type || 'Unknown';
+                                        if (!typeMap[type]) typeMap[type] = {};
+                                        typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                                    });
+                                    const saMap = {};
+                                    saCards.forEach(card => {
+                                        saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                    });
+                                    Object.keys(typeMap).forEach(type => {
+                                        typeMap[type] = {
+                                            ...typeMap[type],
+                                            StartingArmy: {}
+                                        };
+                                    });
+                                    saCards.forEach(card => {
+                                        if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                            typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
                                         }
-                                        const cardList = buildCardListByType(allCards, saList);
-                                        const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                                        const timestamp = new Date().toISOString();
-                                        const owner = 'daddyeagle';
-                                        const repo = 'warlord-sots-deck-checker';
-                                        const branch = 'deploy-docs';
-                                        const eventPath = `docs/events/${slugify(eventName)}.json`;
-                                        const decksPath = `docs/events/decks.json`;
-                                        statusEl.textContent = 'Saving event entry...';
-                                        const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, token) || { eventName: eventName, submissions: {} };
-                                        eventObj.submissions = eventObj.submissions || {};
-                                        eventObj.submissions[username] = { warlord: warlordName, username, timestamp };
-                                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, token);
-                                        statusEl.textContent = 'Saving deck to deck database...';
-                                        const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, token) || {};
-                                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
-                                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, token);
-                                        statusEl.textContent = 'Deck submitted successfully.';
-                                    } catch (err) {
-                                        console.error('Submit failed', err);
-                                        document.getElementById('submit-status').textContent = 'Submit failed: ' + (err.message || err);
-                                    }
+                                    });
+                                    return typeMap;
                                 };
-                            }, 0);
+                            }
+                            const cardList = buildCardListByType(allCards, saList);
+                            const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                            const timestamp = new Date().toISOString();
+                            const owner = 'daddyeagle';
+                            const repo = 'warlord-sots-deck-checker';
+                            const branch = 'deploy-docs';
+                            const eventPath = `docs/events/${slugify(eventName)}.json`;
+                            const decksPath = `docs/events/decks.json`;
+                            statusEl.textContent = 'Saving event entry...';
+                            const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, token) || { eventName: eventName, submissions: {} };
+                            eventObj.submissions = eventObj.submissions || {};
+                            eventObj.submissions[username] = { warlord: warlordName, username, timestamp };
+                            await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, token);
+                            statusEl.textContent = 'Saving deck to deck database...';
+                            const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, token) || {};
+                            decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
+                            await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, token);
+                            statusEl.textContent = 'Deck submitted successfully.';
+                        } catch (err) {
+                            console.error('Submit failed', err);
+                            document.getElementById('submit-status').textContent = 'Submit failed: ' + (err.message || err);
+                        }
+                    };
+                }, 0);
 
         window.checkDeck = checkDeck;
         window.clearDeck = clearDeck;
