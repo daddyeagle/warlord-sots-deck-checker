@@ -96,6 +96,29 @@
     </div>
 
     <script type="module">
+                                // --- UI HELPERS ---
+                                function showRulesetAlert(message) {
+                                    let alert = document.getElementById('ruleset-alert');
+                                    if (!alert) {
+                                        alert = document.createElement('div');
+                                        alert.id = 'ruleset-alert';
+                                        alert.className = 'bg-red-700 text-white font-bold p-3 rounded-lg mb-4 text-center border border-red-400';
+                                        const app = document.getElementById('app');
+                                        app.insertBefore(alert, app.firstChild.nextSibling); // after header
+                                    }
+                                    alert.textContent = message;
+                                    alert.style.display = '';
+                                }
+
+                                function hideRulesetAlert() {
+                                    const alert = document.getElementById('ruleset-alert');
+                                    if (alert) alert.style.display = 'none';
+                                }
+
+                                function resetResultsToDefault() {
+                                    document.getElementById('results').innerHTML = '';
+                                    hideRulesetAlert();
+                                }
                         // --- EVENT LIST FETCH & POPULATE ---
                         let EVENT_RULESET_REQUIREMENTS = {};
                         async function populateEventDropdown() {
@@ -1015,17 +1038,19 @@
             if (deckIsLegal) {
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
                     const tokenRaw = document.getElementById('submit-token').value || '';
-                    const token = tokenRaw.replace(/[\u0100-\uFFFF]/g, '');
+                    const token = tokenRaw.replace(/[ - ]/g, '');
                     const username = (document.getElementById('submit-username').value || '').trim();
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
-                    // Check event ruleset requirement before submission
                     const requiredRuleset = EVENT_RULESET_REQUIREMENTS[eventName];
                     const selectedRuleset = rulesetSelect.value;
-                    if (requiredRuleset && selectedRuleset !== requiredRuleset) {
-                        statusEl.textContent = `This event requires the "${requiredRuleset}" format. Please select it before submitting.`;
-                        return;
-                    }
                     const statusEl = document.getElementById('submit-status');
+                    if (requiredRuleset && selectedRuleset !== requiredRuleset) {
+                        showRulesetAlert(`This event requires the "${requiredRuleset}" format. Please select it before submitting.`);
+                        statusEl.textContent = '';
+                        return;
+                    } else {
+                        hideRulesetAlert();
+                    }
                     if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
 
@@ -1108,6 +1133,13 @@
             document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
             await loadAppData();
             await populateEventDropdown();
+            // Reset results and hide submit on ruleset or event change
+            document.getElementById('ruleset-select').addEventListener('change', () => {
+                resetResultsToDefault();
+            });
+            document.getElementById('submit-eventname').addEventListener('change', () => {
+                resetResultsToDefault();
+            });
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
                 if (!e) return;
