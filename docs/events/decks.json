@@ -43,5 +43,52 @@
         "Crypt Wine": 3
       }
     }
+  },
+  "daddy_eagle2": {
+    "username": "daddy_eagle2",
+    "event": "December Ancients+",
+    "warlord": "Jautya Syne",
+    "timestamp": "2025-11-24T01:17:17.763Z",
+    "cardList": {
+      "Character": {
+        "Toren Yscar": 1,
+        "Amoudasi's Wrath": 1,
+        "Jautya Syne": 1,
+        "Hack": 1,
+        "Brine Fiend": 3,
+        "Sal'Azar the Gilded": 1,
+        "Spirit Wing": 3,
+        "Antaelus": 1,
+        "Behemoth": 1,
+        "Death Fog": 3,
+        "Jackals of Mourn": 3,
+        "Leviathan": 1,
+        "Ssithiss, Sutek King": 2,
+        "Ssithiss": 1,
+        "Shadowreaver": 2,
+        "StartingArmy": {
+          "Toren Yscar": 1,
+          "Amoudasi's Wrath": 1,
+          "Jautya Syne": 1,
+          "Hack": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "Premonition": 2,
+        "Metamorphosis": 3,
+        "Reflect": 3,
+        "Bribe": 3,
+        "Veiled Passing": 3,
+        "Evoke Crisis": 3,
+        "Chosen": 2,
+        "Meet at the Inn!": 3,
+        "StartingArmy": {}
+      },
+      "Item": {
+        "Signon's Armor": 3,
+        "StartingArmy": {}
+      }
+    }
   }
 }
