@@ -1,3 +1,4 @@
+    <!DOCTYPE html>
     <script type="module">
         // --- DISCORD TOKEN LOOKUP (for popup) ---
         async function lookupDiscordToken(token) {
@@ -37,8 +38,12 @@
         }
         // Expose for use after rendering popup
         window.setupDiscordTokenLookup = setupDiscordTokenLookup;
-<!-- All JS is now inside the <script type="module"> block below. -->
-<!DOCTYPE html>
+
+        // ...existing code from the previous <script type="module"> block...
+
+        // (Paste all the main app logic here, starting from the GITHUB API HELPERS, etc.)
+        // ...existing code...
+    </script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
