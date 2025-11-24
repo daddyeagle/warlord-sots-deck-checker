@@ -120,6 +120,7 @@
                         let EVENT_RULESET_REQUIREMENTS = {};
                         async function populateEventDropdown() {
                             const eventDropdown = document.getElementById('submit-eventname');
+                            if (!eventDropdown) return; // Dropdown not present yet
                             try {
                                 const res = await fetch('events/event_list.json');
                                 if (!res.ok) throw new Error('Failed to fetch event list');
@@ -1037,6 +1038,8 @@
                     </form>
                     <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
                 </div>`;
+                // After rendering, repopulate the event dropdown
+                setTimeout(() => { populateEventDropdown(); }, 0);
             }
             document.getElementById('results').innerHTML = html;
 
