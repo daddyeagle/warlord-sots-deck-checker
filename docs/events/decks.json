@@ -3,7 +3,7 @@
     "username": "daddy_eagle",
     "event": "December Ancients+",
     "warlord": "B'alam Nak",
-    "timestamp": "2025-11-23T23:15:48.200Z",
+    "timestamp": "2025-11-24T04:29:40.748Z",
     "cardList": {
       "Character": {
         "B'alam Nak": 1,
@@ -32,7 +32,8 @@
         "Giant Bat": 2,
         "Nodwick": 1,
         "Farglass": 1,
-        "Arbalest": 1
+        "Arbalest": 1,
+        "StartingArmy": {}
       },
       "Action": {
         "Wither": 3,
@@ -40,7 +41,8 @@
         "Reconnaissance": 3,
         "Assassin's Strike": 2,
         "Meet at the Inn!": 3,
-        "Crypt Wine": 3
+        "Crypt Wine": 3,
+        "StartingArmy": {}
       }
     }
   },
