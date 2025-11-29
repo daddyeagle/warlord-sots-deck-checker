@@ -1023,9 +1023,22 @@
                     const tokenRaw = tokenInput.value || '';
                     // Only allow printable ASCII characters (0x20-0x7E)
                     const token = tokenRaw.replace(/[^\x20-\x7E]/g, '');
-                    const username = (document.getElementById('submit-username').value || '').trim();
+                    let username = (document.getElementById('submit-username').value || '').trim();
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
+                    // Discord token check: if token is at least 10 chars, check last 10 digits against discord_tokens.json
+                    if (tokenRaw.length >= 10) {
+                        try {
+                            const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
+                            const last10 = tokenRaw.slice(-10);
+                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => entry.token && entry.token.slice(-10) === last10);
+                            if (found && found.discord_id) {
+                                username = found.discord_id;
+                                document.getElementById('submit-username').value = username;
+                                statusEl.textContent = 'Username auto-filled from Discord token.';
+                            }
+                        } catch (e) { /* ignore */ }
+                    }
                     if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
 
