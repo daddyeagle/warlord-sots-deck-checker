@@ -166,9 +166,10 @@
 
         // --- REGEX & CONSTANTS ---
         // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
-        // Quantity: optional number, optional space, optional 'x' or 'X', optional space, then card name
-        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros'
-        const lineRegex = /^\s*(\d+)?\s*(?:[xX])?\s+(.+)/;
+        // Quantity: optional number, optional space, optional 'x' or 'X' (only if followed by a space), then card name (allowable special chars: ', -, ., ,, :, !, ?)
+        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros', "X'andros", "X-andros", etc.
+        // Card name stops at first disallowed character (e.g., (, [, {, ")
+        const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
         const errataEpicRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Epic/gi; 
@@ -348,7 +349,13 @@
                 const lineMatch = lineRegex.exec(line);
                 if (!lineMatch) return;
                 const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
-                const name = lineMatch[2] ? lineMatch[2].trim() : '';
+                let name = lineMatch[2] ? lineMatch[2].trim() : '';
+                // Truncate at first disallowed character (anything not in allowed set)
+                const allowedChars = "A-Za-z0-9'\-\.,:!\? ";
+                const disallowedCharMatch = name.match(new RegExp(`[^${allowedChars}]`));
+                if (disallowedCharMatch) {
+                    name = name.substring(0, disallowedCharMatch.index).trim();
+                }
                 if (!name) return;
                 const slug = normalizeName(name).toLowerCase();
                 cardCounts[slug] = (cardCounts[slug] || 0) + count;
