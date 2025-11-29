@@ -165,8 +165,10 @@
         const CONFIG_DATA_URL = "warlord_configuration.json";
 
         // --- REGEX & CONSTANTS ---
-        // Matches: '3 Card Name', '2x Card Name', 'Card Name', and ignores notes after /, \, |, #, &, or ()
-        const lineRegex = /^\s*(\d+)?\s*x?\s*([^\d][^/\\|#&()]*)/i;
+        // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
+        // Quantity: optional number, optional space, optional 'x' or 'X', optional space, then card name
+        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros'
+        const lineRegex = /^\s*(\d+)?\s*(?:[xX])?\s+(.+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
         const errataEpicRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Epic/gi; 
@@ -341,6 +343,8 @@
         const parseCardInput = (input, cardCounts, cardList) => {
             const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
             lines.forEach(line => {
+                // Ignore lines that start with //, #, or &
+                if (/^(\/\/|#|&)/.test(line)) return;
                 const lineMatch = lineRegex.exec(line);
                 if (!lineMatch) return;
                 const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
