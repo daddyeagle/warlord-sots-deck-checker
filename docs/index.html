@@ -849,7 +849,8 @@
             const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const allSubmittedCards = [...saList, ...mdList];
 
-            const warlords = saList.filter(c => c.isWarlord);
+            // Count warlords in both Starting Army and Main Deck
+            const warlords = [...saList, ...mdList].filter(c => c.isWarlord);
             const saCards = saList.filter(c => !c.isWarlord);
             const wlData = warlords.length > 0 ? warlords[0] : null;
             const wlException = getWarlordException(wlData);
