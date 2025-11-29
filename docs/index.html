@@ -405,7 +405,10 @@
             let deckIsLegal = true;
             const violations = [];
             const legalCardCounts = {};
-            allLegalCards.forEach(c => legalCardCounts[c.name] = (legalCardCounts[c.name] || 0) + (c.count || 1));
+            allLegalCards.forEach(c => {
+                const norm = normalizeName(c.name).toLowerCase();
+                legalCardCounts[norm] = (legalCardCounts[norm] || 0) + (c.count || 1);
+            });
 
             const defaultMax = activeRuleSet.maxCopies || 3;
             const epicMax = activeRuleSet.maxEpicCopies || 1;
@@ -413,24 +416,23 @@
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
             // Build a set of SA card names for Unique enforcement
-            const saNames = new Set(saWlLegal.map(c => c.name));
+            const saNames = new Set(saWlLegal.map(c => normalizeName(c.name).toLowerCase()));
 
 
             // First, build warlordTotals by normalized name
             const warlordTotals = {};
-            for (const name in legalCardCounts) {
-                const data = cardDatabase[normalizeName(name).toLowerCase()];
+            for (const norm in legalCardCounts) {
+                const data = cardDatabase[norm];
                 if (!data) continue;
-                const count = legalCardCounts[name];
+                const count = legalCardCounts[norm];
                 if (data.isWarlord) {
-                    const norm = data.normalizedName;
                     warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
                 } else {
                     if (data.isUnlimitedCopies) continue;
                     let max = defaultMax;
                     let reason = `Max ${defaultMax}`;
                     // ENFORCE UNIQUE ONLY FOR SA
-                    if (data.isUniqueKeyword && saNames.has(name)) {
+                    if (data.isUniqueKeyword && saNames.has(norm)) {
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
                     }
@@ -439,7 +441,7 @@
                         reason = `Epic (Max ${max})`;
                     }
                     if (count > max) {
-                        violations.push(`${name} (${count} copies, ${reason})`);
+                        violations.push(`${data.name} (${count} copies, ${reason})`);
                         deckIsLegal = false;
                     }
                 }
@@ -447,7 +449,7 @@
 
             // Now check warlord copy limits (combined SA + Main Deck)
             for (const norm in warlordTotals) {
-                const data = Object.values(cardDatabase).find(cd => cd.normalizedName === norm && cd.isWarlord);
+                const data = cardDatabase[norm];
                 if (!data) continue;
                 let max = defaultMax;
                 let reason = `Max ${defaultMax}`;
@@ -475,30 +477,19 @@
                 }
             }
 
-            // Additional check: only 1 copy of any warlord is allowed in the Starting Army
-            // Only declare saWarlordCounts once in this function
+            // Additional check: only 1 copy of any warlord is allowed in the Starting Army (by normalized name)
             let saWarlordCounts = {};
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
-                    saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
+                    const norm = normalizeName(c.name).toLowerCase();
+                    saWarlordCounts[norm] = (saWarlordCounts[norm] || 0) + (c.count || 1);
                 }
             });
-            for (const name in saWarlordCounts) {
-                if (saWarlordCounts[name] > 1) {
-                    violations.push(`${name} (${saWarlordCounts[name]} copies in Starting Army, Max 1 allowed)`);
-                    deckIsLegal = false;
-                }
-            }
-
-            // Additional check: only 1 copy of any warlord is allowed in the Starting Army
-            saWlLegal.forEach(c => {
-                if (c.isWarlord) {
-                    saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
-                }
-            });
-            for (const name in saWarlordCounts) {
-                if (saWarlordCounts[name] > 1) {
-                    violations.push(`${name} (${saWarlordCounts[name]} copies in Starting Army, Max 1 allowed)`);
+            for (const norm in saWarlordCounts) {
+                if (saWarlordCounts[norm] > 1) {
+                    // Use display name from cardDatabase if available
+                    const displayName = cardDatabase[norm] ? cardDatabase[norm].name : norm;
+                    violations.push(`${displayName} (${saWarlordCounts[norm]} copies in Starting Army, Max 1 allowed)`);
                     deckIsLegal = false;
                 }
             }
