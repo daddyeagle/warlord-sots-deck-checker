@@ -501,11 +501,23 @@
                 }
             }
             const allowedWarlordCount = activeRuleSet.warlordCount || 1;
+
+            // Special exception: If the only unique warlord is Zartoch or Ferris Bachman, and there are exactly 2 total (across SA and Main Deck), and at least one is in SA, allow it
             if (saUniqueWarlordNorms.size > allowedWarlordCount) {
-                // Show display names for all unique warlords in SA
-                const warlordNames = Array.from(saUniqueWarlordNorms).map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
-                violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
-                deckIsLegal = false;
+                const normList = Array.from(saUniqueWarlordNorms);
+                if (
+                    normList.length === 1 &&
+                    (normList[0] === 'zartoch' || normList[0] === 'ferrisbachman') &&
+                    warlordTotals[normList[0]] === 2 &&
+                    saWarlordCounts[normList[0]] >= 1
+                ) {
+                    // Allow this case, do not flag as violation
+                } else {
+                    // Normal violation
+                    const warlordNames = normList.map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
+                    violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
+                    deckIsLegal = false;
+                }
             }
             // Debug: Log unique warlords in SA and in Main Deck for troubleshooting
             //console.log('SA unique warlords:', Array.from(saUniqueWarlordNorms));
