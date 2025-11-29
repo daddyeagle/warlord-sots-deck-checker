@@ -968,6 +968,7 @@
                     <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
                     <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
                         <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                        <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
                         <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
                     </form>
                     <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
@@ -976,14 +977,29 @@
             document.getElementById('results').innerHTML = html;
 
             if (deckIsLegal) {
+                const tokenInput = document.getElementById('submit-token');
+                const rememberCheckbox = document.getElementById('remember-token');
+                // On load, prefill token if saved
+                const savedToken = localStorage.getItem('githubToken');
+                if (savedToken) {
+                    tokenInput.value = savedToken;
+                    rememberCheckbox.checked = true;
+                }
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
-                    const tokenRaw = document.getElementById('submit-token').value || '';
-                    const token = tokenRaw.replace(/[\u0100-\uFFFF]/g, '');
+                    const tokenRaw = tokenInput.value || '';
+                    const token = tokenRaw.replace(/[^\x20-\x7E]/g, '');
                     const username = (document.getElementById('submit-username').value || '').trim();
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
                     if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
+
+                    // Save or remove token in localStorage based on checkbox
+                    if (rememberCheckbox.checked) {
+                        localStorage.setItem('githubToken', token);
+                    } else {
+                        localStorage.removeItem('githubToken');
+                    }
 
                     try {
                         statusEl.textContent = 'Preparing deck payload...';
