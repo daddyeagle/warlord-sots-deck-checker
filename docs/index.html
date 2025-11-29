@@ -415,39 +415,33 @@
             // Build a set of SA card names for Unique enforcement
             const saNames = new Set(saWlLegal.map(c => c.name));
 
-            // Combine all copies of each warlord (by normalized name) across both SA and Main Deck
+
+            // First, build warlordTotals by normalized name
             const warlordTotals = {};
             for (const name in legalCardCounts) {
                 const data = cardDatabase[normalizeName(name).toLowerCase()];
                 if (!data) continue;
                 const count = legalCardCounts[name];
-                if (data.isUnlimitedCopies) continue;
-
-                let max = defaultMax;
-                let reason = `Max ${defaultMax}`;
-
-                // ENFORCE UNIQUE ONLY FOR SA
-                if (data.isUniqueKeyword && saNames.has(name)) {
-                    max = 1;
-                    reason = `Unique in SA (Max 1)`;
-                }
-
-                // Track total warlord copies by normalized name
                 if (data.isWarlord) {
                     const norm = data.normalizedName;
                     warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
-                }
-
-                // Epic check
-                if (!data.isWarlord && isCardEpic(data, selectedEditions)) {
-                    max = epicMax;
-                    reason = `Epic (Max ${max})`;
-                }
-
-                // For non-warlords, check normal copy limits
-                if (!data.isWarlord && count > max) {
-                    violations.push(`${name} (${count} copies, ${reason})`);
-                    deckIsLegal = false;
+                } else {
+                    if (data.isUnlimitedCopies) continue;
+                    let max = defaultMax;
+                    let reason = `Max ${defaultMax}`;
+                    // ENFORCE UNIQUE ONLY FOR SA
+                    if (data.isUniqueKeyword && saNames.has(name)) {
+                        max = 1;
+                        reason = `Unique in SA (Max 1)`;
+                    }
+                    if (isCardEpic(data, selectedEditions)) {
+                        max = epicMax;
+                        reason = `Epic (Max ${max})`;
+                    }
+                    if (count > max) {
+                        violations.push(`${name} (${count} copies, ${reason})`);
+                        deckIsLegal = false;
+                    }
                 }
             }
 
