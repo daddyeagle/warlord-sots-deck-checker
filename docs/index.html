@@ -835,9 +835,11 @@
                  checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
             }
 
+            // Use all cards for copy/type dominance checks, not just edition-legal
             const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const allSubmittedCards = [...saList, ...mdList];
 
             const warlords = saList.filter(c => c.isWarlord);
             const saCards = saList.filter(c => !c.isWarlord);
@@ -875,7 +877,9 @@
             }
 
             const copyRes = checkCopyLimits([...saList, ...mdList], saList, selectedEditions, wlException, activeRuleSet);
-            checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.join('<br>') || 'Copy limits OK' };
+            // Always check copy limits on all submitted cards
+            const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
+            checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
             if (!copyRes.deckIsLegal) deckIsLegal = false;
 
             const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
@@ -904,6 +908,8 @@
             if (!totalCountCheck.pass) deckIsLegal = false;
 
             const typeDominanceCheck = checkTypeDominance(allLegalCards);
+            // Always check type dominance on all submitted cards
+            const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
             checks.typeDominance = typeDominanceCheck.result;
             if (!typeDominanceCheck.pass) deckIsLegal = false;
             
