@@ -416,15 +416,24 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
+            // Build a set of SA card names for Unique enforcement
+            const saNames = new Set(saWlLegal.map(c => c.name));
+
             for (const name in legalCardCounts) {
                 const data = cardDatabase[normalizeName(name).toLowerCase()];
                 if (!data) continue;
                 const count = legalCardCounts[name];
-                
+
                 if (data.isUnlimitedCopies) continue;
 
                 let max = defaultMax;
                 let reason = `Max ${defaultMax}`;
+
+                // ENFORCE UNIQUE ONLY FOR SA
+                if (data.isUniqueKeyword && saNames.has(name)) {
+                    max = 1;
+                    reason = `Unique in SA (Max 1)`;
+                }
 
                 if (copyException && data.normalizedName === copyException.normalizedCardName) {
                     max = copyException.maxCopies;
@@ -437,9 +446,18 @@
                     reason = `Epic (Max ${max})`;
                 }
 
+                // PATCH: Always enforce maxCopies for all cards
                 if (count > max) {
                     violations.push(`${name} (${count} copies, ${reason})`);
                     deckIsLegal = false;
+                }
+            }
+            // PATCH: If no violations, but debug shows a card with count > defaultMax, add a debug message
+            if (violations.length === 0) {
+                for (const name in legalCardCounts) {
+                    if (legalCardCounts[name] > defaultMax) {
+                        violations.push(`DEBUG: ${name} (${legalCardCounts[name]} copies, should be max ${defaultMax})`);
+                    }
                 }
             }
             return { deckIsLegal, violations };
