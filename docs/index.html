@@ -494,17 +494,19 @@
                 }
             }
 
-            // Revised: Only count unique warlords in the Starting Army for the warlord count check
+            // Strict: Only count unique warlords in the Starting Army for the warlord count check
+            // This is completely decoupled from copy limit logic
             const saUniqueWarlordNorms = new Set();
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
                     saUniqueWarlordNorms.add(normalizeName(c.name).toLowerCase());
                 }
             });
-            if (saUniqueWarlordNorms.size > (activeRuleSet.warlordCount || 1)) {
+            const allowedWarlordCount = activeRuleSet.warlordCount || 1;
+            if (saUniqueWarlordNorms.size > allowedWarlordCount) {
                 // Show display names for all unique warlords in SA
                 const warlordNames = Array.from(saUniqueWarlordNorms).map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
-                violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${(activeRuleSet.warlordCount || 1)}) [${warlordNames}]`);
+                violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
                 deckIsLegal = false;
             }
             return { deckIsLegal, violations };
