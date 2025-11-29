@@ -723,10 +723,23 @@
                 }
             });
 
+            // Adjusted: Allow warlord exception for multiple copies (e.g., Zartoch, Ferris Bachman)
             const reqWl = activeRuleSet.warlordCount || 1;
+            // If there is only one unique warlord and it is a special exception (e.g., Zartoch or Ferris Bachman), and the exception allows more than 1 copy, allow it
             if (warlords.length !== reqWl) {
-                saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
-                saStatus = 'FAIL';
+                // Check for exception: only one unique warlord, and it's a special exception, and the exception allows >1
+                const uniqueWarlordNorms = Array.from(new Set(warlords.map(w => (w.normalizedName || normalizeName(w.name).toLowerCase()))));
+                if (
+                    uniqueWarlordNorms.length === 1 &&
+                    (uniqueWarlordNorms[0] === 'zartoch' || uniqueWarlordNorms[0] === 'ferrisbachman') &&
+                    warlordException && warlordException.copyLimitException && warlordException.copyLimitException.maxCopies > 1 &&
+                    warlords.length <= warlordException.copyLimitException.maxCopies
+                ) {
+                    // Allow this case, do not fail
+                } else {
+                    saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
+                    saStatus = 'FAIL';
+                }
             }
 
             for (const [lvl, count] of Object.entries(slotsToFill)) {
