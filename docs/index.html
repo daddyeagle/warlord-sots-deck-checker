@@ -409,7 +409,7 @@
             let deckIsLegal = true;
             const violations = [];
             const legalCardCounts = {};
-            allLegalCards.forEach(c => legalCardCounts[c.name] = (legalCardCounts[c.name] || 0) + 1);
+            allLegalCards.forEach(c => legalCardCounts[c.name] = (legalCardCounts[c.name] || 0) + (c.count || 1));
 
             const defaultMax = activeRuleSet.maxCopies || 3;
             const epicMax = activeRuleSet.maxEpicCopies || 1;
@@ -446,18 +446,9 @@
                     reason = `Epic (Max ${max})`;
                 }
 
-                // PATCH: Always enforce maxCopies for all cards
                 if (count > max) {
                     violations.push(`${name} (${count} copies, ${reason})`);
                     deckIsLegal = false;
-                }
-            }
-            // PATCH: If no violations, but debug shows a card with count > defaultMax, add a debug message
-            if (violations.length === 0) {
-                for (const name in legalCardCounts) {
-                    if (legalCardCounts[name] > defaultMax) {
-                        violations.push(`DEBUG: ${name} (${legalCardCounts[name]} copies, should be max ${defaultMax})`);
-                    }
                 }
             }
             return { deckIsLegal, violations };
@@ -790,20 +781,23 @@
 
         const checkTypeDominance = (allLegalCards) => {
             const typeCounts = {};
+            let total = 0;
             allLegalCards.forEach(card => {
                 const type = card.type || 'Unknown Type';
-                typeCounts[type] = (typeCounts[type] || 0) + 1;
+                const count = card.count || 1;
+                typeCounts[type] = (typeCounts[type] || 0) + count;
+                total += count;
             });
 
-            const maxAllowedTypeCount = Math.max(25, Math.floor(allLegalCards.length / 2));
+            const maxAllowedTypeCount = Math.max(25, Math.floor(total / 2));
             const dominanceViolations = [];
 
             for (const type in typeCounts) {
                 if (typeCounts[type] > maxAllowedTypeCount) {
-                    dominanceViolations.push(`${type} (${typeCounts[type]} copies out of ${allLegalCards.length}, > 50%)`);
+                    dominanceViolations.push(`${type} (${typeCounts[type]} copies out of ${total}, > 50%)`);
                 }
             }
-            
+
             let typeDominanceStatus = 'PASS';
             let typeDominanceMessage = `No single card type exceeds 50% of the deck (${maxAllowedTypeCount} cards allowed).`;
 
@@ -811,7 +805,7 @@
                 typeDominanceStatus = 'FAIL';
                 typeDominanceMessage = `The following card types exceed the 50% maximum limit (${maxAllowedTypeCount} cards allowed): ${[...new Set(dominanceViolations)].join(', ')}.`;
             }
-            
+
             return {
                 pass: typeDominanceStatus === 'PASS',
                 result: { status: typeDominanceStatus, message: typeDominanceMessage }
