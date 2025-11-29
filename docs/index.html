@@ -496,6 +496,7 @@
 
             // Strict: Only count unique warlords in the Starting Army for the warlord count check
             // This is completely decoupled from copy limit logic
+            // Defensive: Main Deck warlords must NOT affect this count, only SA matters
             const saUniqueWarlordNorms = new Set();
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
@@ -509,6 +510,8 @@
                 violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
                 deckIsLegal = false;
             }
+            // Debug: Log unique warlords in SA and in Main Deck for troubleshooting
+            //console.log('SA unique warlords:', Array.from(saUniqueWarlordNorms));
             return { deckIsLegal, violations };
         };
 
