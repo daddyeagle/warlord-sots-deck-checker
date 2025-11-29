@@ -493,6 +493,16 @@
                     deckIsLegal = false;
                 }
             }
+
+            // New: Check total number of unique warlords in the entire deck (SA + Main Deck), after combining
+            // This allows exceptions like Zartoch and Ferris Bachman to work as intended
+            const uniqueWarlords = Object.keys(warlordTotals);
+            if (uniqueWarlords.length > (activeRuleSet.warlordCount || 1)) {
+                // Show display names for all unique warlords
+                const warlordNames = uniqueWarlords.map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
+                violations.push(`Wrong Warlord count: ${uniqueWarlords.length} (Expected ${(activeRuleSet.warlordCount || 1)}) [${warlordNames}]`);
+                deckIsLegal = false;
+            }
             return { deckIsLegal, violations };
         };
 
