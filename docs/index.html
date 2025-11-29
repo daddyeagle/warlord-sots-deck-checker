@@ -1018,6 +1018,20 @@
                 if (savedToken) {
                     tokenInput.value = savedToken;
                     rememberCheckbox.checked = true;
+                    // Discord token check: if token is at least 10 chars, check last 10 digits against discord_tokens.json
+                    if (savedToken.length >= 10) {
+                        (async () => {
+                            try {
+                                const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
+                                const last10 = savedToken.slice(-10);
+                                const found = Array.isArray(discordTokens) && discordTokens.find(entry => entry.token && entry.token.slice(-10) === last10);
+                                if (found && found.discord_id) {
+                                    document.getElementById('submit-username').value = found.discord_id;
+                                    document.getElementById('submit-status').textContent = 'Username auto-filled from Discord token.';
+                                }
+                            } catch (e) { /* ignore */ }
+                        })();
+                    }
                 }
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
                     const tokenRaw = tokenInput.value || '';
