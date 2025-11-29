@@ -983,7 +983,6 @@
                                 <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
                                         <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
                                         <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                                                <input id="submit-username" type="text" placeholder="Username" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
                                                 <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
                                                 <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
                                                 <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
@@ -1003,15 +1002,11 @@
                                         eventSelect.innerHTML = '';
                                         if (Array.isArray(events)) {
                                             events.forEach(ev => {
-                                                if (typeof ev === 'string') {
+                                                let eventName = typeof ev === 'string' ? ev : ev.eventName;
+                                                if (eventName) {
                                                     const opt = document.createElement('option');
-                                                    opt.value = ev;
-                                                    opt.textContent = ev;
-                                                    eventSelect.appendChild(opt);
-                                                } else if (ev.eventName) {
-                                                    const opt = document.createElement('option');
-                                                    opt.value = ev.eventName;
-                                                    opt.textContent = ev.eventName;
+                                                    opt.value = eventName;
+                                                    opt.textContent = eventName;
                                                     eventSelect.appendChild(opt);
                                                 }
                                             });
@@ -1030,11 +1025,9 @@
                 }
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
                     const tokenRaw = tokenInput.value || '';
-                    const token = tokenRaw.replace(/[^\x20-\x7E]/g, '');
-                    const username = (document.getElementById('submit-username').value || '').trim();
+                    const token = tokenRaw.replace(/[^ -]/g, '');
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
-                    if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
 
                     // Save or remove token in localStorage based on checkbox
@@ -1042,6 +1035,28 @@
                         localStorage.setItem('githubToken', token);
                     } else {
                         localStorage.removeItem('githubToken');
+                    }
+
+                    // Fetch event_list.json to get required ruleset for event
+                    let requiredRuleset = null;
+                    try {
+                        const events = await fetch('events/event_list.json?_=' + Date.now()).then(r => r.json());
+                        if (Array.isArray(events)) {
+                            const found = events.find(ev => {
+                                if (typeof ev === 'string') return ev === eventName;
+                                return ev.eventName === eventName;
+                            });
+                            if (found && typeof found === 'object' && found.requiredRuleset) {
+                                requiredRuleset = found.requiredRuleset;
+                            }
+                        }
+                    } catch (e) { /* ignore */ }
+
+                    // Check if current ruleset matches required ruleset
+                    const currentRuleset = rulesetSelect.value;
+                    if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                        statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                        return;
                     }
 
                     try {
@@ -1087,6 +1102,20 @@
 
                         const eventPath = `docs/events/${slugify(eventName)}.json`;
                         const decksPath = `docs/events/decks.json`;
+
+                        // Use GitHub username as key (prompt for username if not in token)
+                        let username = '';
+                        try {
+                            const userRes = await fetch('https://api.github.com/user', { headers: { 'Authorization': 'token ' + token } });
+                            if (userRes.ok) {
+                                const userData = await userRes.json();
+                                username = userData.login || '';
+                            }
+                        } catch (e) { /* ignore */ }
+                        if (!username) {
+                            statusEl.textContent = 'Could not determine GitHub username from token.';
+                            return;
+                        }
 
                         // Fetch existing event file (if any), then upsert this username entry
                         statusEl.textContent = 'Saving event entry...';
