@@ -1,0 +1,15 @@
+{
+  "name": "warlord-sots-backend",
+  "version": "1.0.0",
+  "description": "Backend for Warlord SOTS Deck Checker with Discord OAuth2 login",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  }
+}
