@@ -7,7 +7,7 @@ const axios = require('axios');
 const cors = require('cors');
 const app = express();
 const cors = require('cors');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 
 // CORS setup: allow requests from frontend (adjust origin as needed)
@@ -90,6 +90,6 @@ app.post('/api/auth/logout', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Backend listening on port ${PORT}`);
 });
