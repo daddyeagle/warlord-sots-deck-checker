@@ -491,9 +491,8 @@
                 }
             }
 
-            // Strict: Only count unique warlords in the Starting Army for the warlord count check
-            // Use the combined warlordTotals to avoid double-counting if a warlord is split between SA and Main Deck
-            // Defensive: Only count those that have at least one copy in the SA
+            // --- Unique Warlord Count Check (with robust exception handling) ---
+            // Build set of unique warlords in SA
             const saUniqueWarlordNorms = new Set();
             for (const norm in saWarlordCounts) {
                 if (warlordTotals[norm] > 0) {
@@ -502,21 +501,19 @@
             }
             const allowedWarlordCount = activeRuleSet.warlordCount || 1;
 
-            // Direct exception: If the only unique warlord is Zartoch or Ferris Bachman and there are exactly 2 total (across SA and Main Deck), always allow it
-            if (saUniqueWarlordNorms.size > allowedWarlordCount) {
-                const normList = Array.from(saUniqueWarlordNorms);
-                if (
-                    normList.length === 1 &&
-                    (normList[0] === 'zartoch' || normList[0] === 'ferrisbachman') &&
-                    warlordTotals[normList[0]] === 2
-                ) {
-                    // Always allow this case for Zartoch or Ferris Bachman
-                } else {
-                    // Normal violation
-                    const warlordNames = normList.map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
-                    violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
-                    deckIsLegal = false;
-                }
+            // Exception: If the only unique warlord is Zartoch or Ferris Bachman and there are exactly 2 total (across both sections), always allow it
+            const normList = Array.from(saUniqueWarlordNorms);
+            if (
+                normList.length === 1 &&
+                (normList[0] === 'zartoch' || normList[0] === 'ferrisbachman') &&
+                warlordTotals[normList[0]] === 2
+            ) {
+                // Always allow this case
+            } else if (saUniqueWarlordNorms.size > allowedWarlordCount) {
+                // Normal violation
+                const warlordNames = normList.map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
+                violations.push(`Wrong Warlord count: ${saUniqueWarlordNorms.size} (Expected ${allowedWarlordCount}) [${warlordNames}]`);
+                deckIsLegal = false;
             }
             // Debug: Log unique warlords in SA and in Main Deck for troubleshooting
             //console.log('SA unique warlords:', Array.from(saUniqueWarlordNorms));
