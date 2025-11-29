@@ -53,46 +53,47 @@
   "daddy_eagle2": {
     "username": "daddy_eagle2",
     "event": "December Ancients+",
-    "warlord": "Kothkah",
-    "timestamp": "2025-11-29T03:38:38.822Z",
+    "warlord": "Vactus, Spirit's Champion",
+    "timestamp": "2025-11-29T17:43:48.299Z",
     "cardList": {
       "Character": {
-        "Kothkah": 1,
-        "Nightmaster Rress": 1,
-        "Yeg-Igryll's Altar": 1,
-        "Gunda": 3,
-        "Toren Yscar": 1,
-        "The Retiarius": 1,
-        "Sar'ean": 3,
-        "SanUris": 3,
-        "Koratcghuk": 2,
-        "FirRal": 3,
-        "Carg'rag": 3,
-        "Bokos": 3,
+        "Vactus, Spirit's Champion": 1,
+        "Novice Pyro": 1,
+        "Misearean Scout": 1,
+        "Bear Legion Recruit": 2,
+        "Joleg": 3,
+        "Catapult Crew": 3,
+        "Nog, Pog, and Snivels": 3,
+        "Muddflek": 3,
+        "Ac'Vuk": 3,
         "StartingArmy": {
-          "Kothkah": 1,
-          "Nightmaster Rress": 1,
-          "Yeg-Igryll's Altar": 1,
-          "Gunda": 3
+          "Vactus, Spirit's Champion": 1,
+          "Novice Pyro": 1,
+          "Misearean Scout": 1,
+          "Bear Legion Recruit": 1,
+          "Joleg": 2
         }
       },
-      "Item": {
-        "Monkey's Paws": 2,
-        "Ring of Piercing": 1,
-        "Recruiter's Orders": 1,
-        "Nodwick": 1,
-        "Madman's Blade": 1,
-        "Fine Hilted Saber": 3,
-        "Figurine of Power": 3,
-        "Double Bladed Sword": 1,
-        "Destroyer's Armor": 3,
+      "Action": {
+        "I Have Your Back": 3,
+        "Epic Donnybrook": 2,
+        "Heroic Confrontation": 1,
+        "Noble Sacrifice": 3,
+        "Crush": 3,
+        "Berserk": 2,
+        "Arcane Approach": 3,
         "StartingArmy": {}
       },
-      "Action": {
-        "Sword Master": 2,
-        "Slow March": 2,
-        "Order of Battle": 2,
-        "Loyalty's Reward": 3,
+      "Item": {
+        "Storm Shard": 1,
+        "Spellblocker": 1,
+        "Rockarm": 1,
+        "Griffon of Andover": 2,
+        "Bruntor's Helm": 2,
+        "Deverenus' Axe": 3,
+        "Silversteel Gauntlets": 1,
+        "Breastplate of Power": 1,
+        "Ardian Greathawk": 1,
         "StartingArmy": {}
       }
     }
