@@ -97,6 +97,22 @@
     </div>
 
     <script type="module">
+        // --- HANDLE /auth-success REDIRECT ---
+        if (window.location.pathname === '/auth-success') {
+            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
+            fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
+                .then(async res => {
+                    if (res.ok) {
+                        const user = await res.json();
+                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
+                    } else {
+                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+                });
+        }
                             // --- CONFIGURABLE BACKEND URL ---
                             // Set this to your backend's public URL (e.g., Codespaces/Dev Container forwarded URL)
                             window.BACKEND_URL = window.BACKEND_URL || 'http://localhost:3001';
@@ -133,7 +149,7 @@
                             });
                         }
                         // On page load, check if user is already logged in
-                        fetchDiscordUser();
+                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
                 // --- GITHUB API HELPERS ---
                 async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
                     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
