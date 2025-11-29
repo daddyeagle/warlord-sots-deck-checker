@@ -419,7 +419,6 @@
                 const data = cardDatabase[normalizeName(name).toLowerCase()];
                 if (!data) continue;
                 const count = legalCardCounts[name];
-
                 if (data.isUnlimitedCopies) continue;
 
                 let max = defaultMax;
@@ -431,12 +430,27 @@
                     reason = `Unique in SA (Max 1)`;
                 }
 
-                if (copyException && data.normalizedName === copyException.normalizedCardName) {
-                    max = copyException.maxCopies;
-                    reason = `Warlord Exception (Max ${max})`;
-                } else if (data.isWarlord) {
-                    max = warlordMax;
-                    reason = `Warlord (Max ${max})`;
+                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
+                if (data.isWarlord) {
+                    // Check for exception in warlord configuration
+                    let warlordExceptionMax = null;
+                    if (data.normalizedName === 'zartoch' || data.normalizedName === 'ferrisbachman') {
+                        // Find the exception in warlordExceptions
+                        const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === data.normalizedName && e.copyLimitException);
+                        if (wlEx && wlEx.copyLimitException && typeof wlEx.copyLimitException.maxCopies === 'number') {
+                            warlordExceptionMax = wlEx.copyLimitException.maxCopies;
+                        }
+                    }
+                    if (warlordExceptionMax !== null) {
+                        max = warlordExceptionMax;
+                        reason = `Warlord Exception (Max ${max})`;
+                    } else if (copyException && data.normalizedName === copyException.normalizedCardName) {
+                        max = copyException.maxCopies;
+                        reason = `Warlord Exception (Max ${max})`;
+                    } else {
+                        max = warlordMax;
+                        reason = `Warlord (Max ${max})`;
+                    }
                 } else if (isCardEpic(data, selectedEditions)) {
                     max = epicMax;
                     reason = `Epic (Max ${max})`;
@@ -444,6 +458,20 @@
 
                 if (count > max) {
                     violations.push(`${name} (${count} copies, ${reason})`);
+                    deckIsLegal = false;
+                }
+            }
+
+            // Additional check: only 1 copy of any warlord is allowed in the Starting Army
+            const saWarlordCounts = {};
+            saWlLegal.forEach(c => {
+                if (c.isWarlord) {
+                    saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
+                }
+            });
+            for (const name in saWarlordCounts) {
+                if (saWarlordCounts[name] > 1) {
+                    violations.push(`${name} (${saWarlordCounts[name]} copies in Starting Army, Max 1 allowed)`);
                     deckIsLegal = false;
                 }
             }
