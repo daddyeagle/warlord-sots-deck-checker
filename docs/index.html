@@ -415,11 +415,7 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
-            // Build a set of SA card names for Unique enforcement
-            const saNames = new Set(saWlLegal.map(c => normalizeName(c.name).toLowerCase()));
-
-
-            // First, build warlordTotals by normalized name
+            // First, build warlordTotals by normalized name (across both SA and Main Deck)
             const warlordTotals = {};
             for (const norm in legalCardCounts) {
                 const data = cardDatabase[norm];
@@ -432,7 +428,8 @@
                     let max = defaultMax;
                     let reason = `Max ${defaultMax}`;
                     // ENFORCE UNIQUE ONLY FOR SA
-                    if (data.isUniqueKeyword && saNames.has(norm)) {
+                    // We'll handle unique warlord count below
+                    if (data.isUniqueKeyword && saWlLegal.some(c => normalizeName(c.name).toLowerCase() === norm)) {
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
                     }
@@ -495,14 +492,14 @@
             }
 
             // Strict: Only count unique warlords in the Starting Army for the warlord count check
-            // This is completely decoupled from copy limit logic
-            // Defensive: Main Deck warlords must NOT affect this count, only SA matters
+            // Use the combined warlordTotals to avoid double-counting if a warlord is split between SA and Main Deck
+            // Defensive: Only count those that have at least one copy in the SA
             const saUniqueWarlordNorms = new Set();
-            saWlLegal.forEach(c => {
-                if (c.isWarlord) {
-                    saUniqueWarlordNorms.add(normalizeName(c.name).toLowerCase());
+            for (const norm in saWarlordCounts) {
+                if (warlordTotals[norm] > 0) {
+                    saUniqueWarlordNorms.add(norm);
                 }
-            });
+            }
             const allowedWarlordCount = activeRuleSet.warlordCount || 1;
             if (saUniqueWarlordNorms.size > allowedWarlordCount) {
                 // Show display names for all unique warlords in SA
@@ -896,7 +893,7 @@
                 checks.unknown = { status: 'FAIL', message: `Unknown cards: ${[...new Set(unknown.map(c => c.name))].join(', ')}` };
                 deckIsLegal = false;
             }
-            
+        
             const editionViolations = [];
             allCards.forEach(card => {
                 if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name);
