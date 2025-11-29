@@ -496,11 +496,18 @@
 
             // New: Check total number of unique warlords in the entire deck (SA + Main Deck), after combining
             // This allows exceptions like Zartoch and Ferris Bachman to work as intended
-            const uniqueWarlords = Object.keys(warlordTotals);
-            if (uniqueWarlords.length > (activeRuleSet.warlordCount || 1)) {
+            // Use the union of all normalized warlord names from both SA and Main Deck
+            const allWarlordNorms = new Set();
+            saWlLegal.forEach(c => {
+                if (c.isWarlord) {
+                    allWarlordNorms.add(normalizeName(c.name).toLowerCase());
+                }
+            });
+            Object.keys(warlordTotals).forEach(norm => allWarlordNorms.add(norm));
+            if (allWarlordNorms.size > (activeRuleSet.warlordCount || 1)) {
                 // Show display names for all unique warlords
-                const warlordNames = uniqueWarlords.map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
-                violations.push(`Wrong Warlord count: ${uniqueWarlords.length} (Expected ${(activeRuleSet.warlordCount || 1)}) [${warlordNames}]`);
+                const warlordNames = Array.from(allWarlordNorms).map(norm => cardDatabase[norm] ? cardDatabase[norm].name : norm).join(', ');
+                violations.push(`Wrong Warlord count: ${allWarlordNorms.size} (Expected ${(activeRuleSet.warlordCount || 1)}) [${warlordNames}]`);
                 deckIsLegal = false;
             }
             return { deckIsLegal, violations };
