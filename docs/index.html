@@ -1128,6 +1128,7 @@
                     // Only allow printable ASCII characters (0x20-0x7E)
                     const token = tokenRaw.replace(/[^\x20-\x7E]/g, '');
                     let username = (document.getElementById('submit-username').value || '').trim();
+                    let discordUsername = '';
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
                     // Discord token check: if token is at least 10 chars, check last 10 digits against discord_tokens.json
@@ -1140,6 +1141,9 @@
                                 username = found.discord_id;
                                 document.getElementById('submit-username').value = username;
                                 statusEl.textContent = 'Username auto-filled from Discord token.';
+                            }
+                            if (found && found.discord_username) {
+                                discordUsername = found.discord_username;
                             }
                         } catch (e) { /* ignore */ }
                     }
@@ -1223,7 +1227,7 @@
                         statusEl.textContent = 'Saving event entry...';
                         const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, token) || { eventName: eventName, submissions: {} };
                         eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = { warlord: warlordName, username, timestamp };
+                        eventObj.submissions[username] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
                         await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, token);
 
                         statusEl.textContent = 'Saving deck to deck database...';
