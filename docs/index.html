@@ -876,7 +876,6 @@
                 }
             }
 
-            const copyRes = checkCopyLimits([...saList, ...mdList], saList, selectedEditions, wlException, activeRuleSet);
             // Always check copy limits on all submitted cards
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
@@ -907,7 +906,6 @@
             checks.totalCount = totalCountCheck.result;
             if (!totalCountCheck.pass) deckIsLegal = false;
 
-            const typeDominanceCheck = checkTypeDominance(allLegalCards);
             // Always check type dominance on all submitted cards
             const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
             checks.typeDominance = typeDominanceCheck.result;
