@@ -482,7 +482,8 @@
             }
 
             // Additional check: only 1 copy of any warlord is allowed in the Starting Army
-            saWarlordCounts = {};
+            // Only declare saWarlordCounts once in this function
+            let saWarlordCounts = {};
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
                     saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
@@ -496,7 +497,6 @@
             }
 
             // Additional check: only 1 copy of any warlord is allowed in the Starting Army
-            const saWarlordCounts = {};
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
                     saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
