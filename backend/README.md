@@ -12,8 +12,9 @@ This backend provides Discord OAuth2 login for secure user authentication.
 1. Copy `.env.example` to `.env` and fill in your Discord app credentials:
    - `DISCORD_CLIENT_ID`
    - `DISCORD_CLIENT_SECRET`
-   - `DISCORD_REDIRECT_URI` (default: `http://localhost:3001/api/auth/discord/callback`)
+   - `DISCORD_REDIRECT_URI` (for Railway: `https://warlord-sots-deck-checker-production.up.railway.app/api/auth/discord/callback`)
    - `SESSION_SECRET`
+   - `FRONTEND_ORIGIN` (for Railway: `https://warlord-sots-deck-checker-production.up.railway.app`)
 
 2. Install dependencies:
    ```bash
