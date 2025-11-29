@@ -101,43 +101,43 @@
   "daddyeagle": {
     "username": "daddyeagle",
     "event": "December Ancients+",
-    "warlord": "Sakar",
-    "timestamp": "2025-11-29T03:51:07.731Z",
+    "warlord": "Fo'ttr'ak'ka",
+    "timestamp": "2025-11-29T18:01:11.804Z",
     "cardList": {
       "Character": {
-        "Meri-es-anch": 3,
-        "Sakar": 1,
-        "Justinian": 1,
-        "Light": 3,
-        "Baraz": 3,
-        "The Temple of Lore": 1,
-        "Wanderetch": 3,
-        "Toren Yscar": 1,
+        "Fo'ttr'ak'ka": 1,
+        "Gunda": 2,
+        "Nightmaster Rress": 1,
+        "B'haya, the Fiend": 1,
+        "Carg'rag": 3,
+        "Yeg-Igryll's Altar": 1,
+        "FirRal": 3,
+        "Gush": 1,
+        "Nemtok": 3,
+        "SanUris": 3,
+        "Lorik": 3,
         "Jackals of Mourn": 3,
         "StartingArmy": {
-          "Meri-es-anch": 3,
-          "Sakar": 1,
-          "Justinian": 1,
-          "Light": 1
+          "Fo'ttr'ak'ka": 1,
+          "Gunda": 2,
+          "Nightmaster Rress": 1,
+          "B'haya, the Fiend": 1
         }
       },
       "Item": {
-        "Vorpal Blade": 1,
-        "Open Contract": 3,
-        "Portable Hole": 3,
-        "Votaurr Charm": 3,
-        "StartingArmy": {
-          "Vorpal Blade": 1
-        }
+        "Black Moss": 3,
+        "Destroyer's Armor": 3,
+        "StartingArmy": {}
       },
       "Action": {
-        "Stolen Destiny": 3,
-        "Meet at the Inn!": 3,
-        "Move as One": 3,
-        "Thimblerig": 3,
-        "Ill-Gotten Gains": 3,
-        "Assassination": 3,
-        "Anticipate": 3,
+        "Final Blessing": 3,
+        "Hero's Gambit": 3,
+        "Incentives": 1,
+        "Quick Strength": 3,
+        "Rescue": 1,
+        "Speed of the Falcon": 3,
+        "Back Alley Tavern": 2,
+        "Blind the Gods": 3,
         "StartingArmy": {}
       }
     }
