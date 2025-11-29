@@ -415,6 +415,8 @@
             // Build a set of SA card names for Unique enforcement
             const saNames = new Set(saWlLegal.map(c => c.name));
 
+            // Combine all copies of each warlord (by normalized name) across both SA and Main Deck
+            const warlordTotals = {};
             for (const name in legalCardCounts) {
                 const data = cardDatabase[normalizeName(name).toLowerCase()];
                 if (!data) continue;
@@ -430,34 +432,65 @@
                     reason = `Unique in SA (Max 1)`;
                 }
 
-                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
+                // Track total warlord copies by normalized name
                 if (data.isWarlord) {
-                    // Check for exception in warlord configuration
-                    let warlordExceptionMax = null;
-                    if (data.normalizedName === 'zartoch' || data.normalizedName === 'ferrisbachman') {
-                        // Find the exception in warlordExceptions
-                        const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === data.normalizedName && e.copyLimitException);
-                        if (wlEx && wlEx.copyLimitException && typeof wlEx.copyLimitException.maxCopies === 'number') {
-                            warlordExceptionMax = wlEx.copyLimitException.maxCopies;
-                        }
-                    }
-                    if (warlordExceptionMax !== null) {
-                        max = warlordExceptionMax;
-                        reason = `Warlord Exception (Max ${max})`;
-                    } else if (copyException && data.normalizedName === copyException.normalizedCardName) {
-                        max = copyException.maxCopies;
-                        reason = `Warlord Exception (Max ${max})`;
-                    } else {
-                        max = warlordMax;
-                        reason = `Warlord (Max ${max})`;
-                    }
-                } else if (isCardEpic(data, selectedEditions)) {
+                    const norm = data.normalizedName;
+                    warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
+                }
+
+                // Epic check
+                if (!data.isWarlord && isCardEpic(data, selectedEditions)) {
                     max = epicMax;
                     reason = `Epic (Max ${max})`;
                 }
 
-                if (count > max) {
+                // For non-warlords, check normal copy limits
+                if (!data.isWarlord && count > max) {
                     violations.push(`${name} (${count} copies, ${reason})`);
+                    deckIsLegal = false;
+                }
+            }
+
+            // Now check warlord copy limits (combined SA + Main Deck)
+            for (const norm in warlordTotals) {
+                const data = Object.values(cardDatabase).find(cd => cd.normalizedName === norm && cd.isWarlord);
+                if (!data) continue;
+                let max = defaultMax;
+                let reason = `Max ${defaultMax}`;
+                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
+                let warlordExceptionMax = null;
+                if (norm === 'zartoch' || norm === 'ferrisbachman') {
+                    const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === norm && e.copyLimitException);
+                    if (wlEx && wlEx.copyLimitException && typeof wlEx.copyLimitException.maxCopies === 'number') {
+                        warlordExceptionMax = wlEx.copyLimitException.maxCopies;
+                    }
+                }
+                if (warlordExceptionMax !== null) {
+                    max = warlordExceptionMax;
+                    reason = `Warlord Exception (Max ${max})`;
+                } else if (copyException && data.normalizedName === copyException.normalizedCardName) {
+                    max = copyException.maxCopies;
+                    reason = `Warlord Exception (Max ${max})`;
+                } else {
+                    max = warlordMax;
+                    reason = `Warlord (Max ${max})`;
+                }
+                if (warlordTotals[norm] > max) {
+                    violations.push(`${data.name} (${warlordTotals[norm]} copies, ${reason})`);
+                    deckIsLegal = false;
+                }
+            }
+
+            // Additional check: only 1 copy of any warlord is allowed in the Starting Army
+            saWarlordCounts = {};
+            saWlLegal.forEach(c => {
+                if (c.isWarlord) {
+                    saWarlordCounts[c.name] = (saWarlordCounts[c.name] || 0) + (c.count || 1);
+                }
+            });
+            for (const name in saWarlordCounts) {
+                if (saWarlordCounts[name] > 1) {
+                    violations.push(`${name} (${saWarlordCounts[name]} copies in Starting Army, Max 1 allowed)`);
                     deckIsLegal = false;
                 }
             }
