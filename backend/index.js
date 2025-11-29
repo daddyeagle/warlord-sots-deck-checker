@@ -6,9 +6,11 @@ const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
 
+// CORS setup: allow requests from frontend (adjust origin as needed)
 // CORS setup: allow requests from frontend (adjust origin as needed)
 app.use(cors({
   origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
