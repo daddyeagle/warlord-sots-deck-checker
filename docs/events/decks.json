@@ -93,5 +93,56 @@
         "StartingArmy": {}
       }
     }
+  },
+  "daddyeagle": {
+    "username": "daddyeagle",
+    "event": "December Ancients+",
+    "warlord": "Scyrax",
+    "timestamp": "2025-11-29T03:22:11.923Z",
+    "cardList": {
+      "Character": {
+        "Bear Legion Recruit": 3,
+        "Yeg-Igryll's Altar": 1,
+        "Krasin": 1,
+        "Scyrax": 1,
+        "Carg'rag": 3,
+        "Karn of Clan Manaka": 1,
+        "Koratcghuk": 1,
+        "Lukkot Buzzsaw": 3,
+        "Makusog Steelhorn": 3,
+        "Sar'ean": 3,
+        "The Mighty Mugg": 3,
+        "The Retiarius": 1,
+        "Toren Yscar": 1,
+        "StartingArmy": {
+          "Bear Legion Recruit": 3,
+          "Yeg-Igryll's Altar": 1,
+          "Krasin": 1,
+          "Scyrax": 1
+        }
+      },
+      "Item": {
+        "Black Journal": 1,
+        "Deverenus' Axe": 2,
+        "Dragon Buckler": 1,
+        "Glyph of Fate": 1,
+        "Nodwick": 1,
+        "Portable Hole": 3,
+        "Silverwind": 1,
+        "Staff of Secrets": 1,
+        "Storm Shard": 1,
+        "The King's Lady": 1,
+        "Vorpal Blade": 1,
+        "Wand of Negation": 1,
+        "StartingArmy": {}
+      },
+      "Action": {
+        "Extensions": 3,
+        "Fell Blow": 1,
+        "From Dust to Dust": 3,
+        "Severed of Flesh": 3,
+        "StartingArmy": {}
+      }
+    }
   }
 }
