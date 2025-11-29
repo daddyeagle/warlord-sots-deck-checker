@@ -1023,8 +1023,8 @@
                         (async () => {
                             try {
                                 const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
-                                const last10 = savedToken.slice(-10);
-                                const found = Array.isArray(discordTokens) && discordTokens.find(entry => entry.token && entry.token.slice(-10) === last10);
+                                const last10 = savedToken.substring(savedToken.length - 10);
+                                const found = Array.isArray(discordTokens) && discordTokens.find(entry => typeof entry.token === 'string' && entry.token.substring(entry.token.length - 10) === last10);
                                 if (found && found.discord_id) {
                                     document.getElementById('submit-username').value = found.discord_id;
                                     document.getElementById('submit-status').textContent = 'Username auto-filled from Discord token.';
@@ -1040,8 +1040,8 @@
                     if (val.length >= 10) {
                         try {
                             const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
-                            const last10 = val.slice(-10);
-                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => entry.token && entry.token.slice(-10) === last10);
+                            const last10 = val.substring(val.length - 10);
+                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => typeof entry.token === 'string' && entry.token.substring(entry.token.length - 10) === last10);
                             if (found && found.discord_id) {
                                 document.getElementById('submit-username').value = found.discord_id;
                                 document.getElementById('submit-status').textContent = 'Username auto-filled from Discord token.';
