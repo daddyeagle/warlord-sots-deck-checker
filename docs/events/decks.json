@@ -53,43 +53,46 @@
   "daddy_eagle2": {
     "username": "daddy_eagle2",
     "event": "December Ancients+",
-    "warlord": "Fo'ttr'ak'ka",
-    "timestamp": "2025-11-29T03:31:14.413Z",
+    "warlord": "Kothkah",
+    "timestamp": "2025-11-29T03:38:38.822Z",
     "cardList": {
       "Character": {
-        "Fo'ttr'ak'ka": 1,
-        "Gunda": 2,
+        "Kothkah": 1,
         "Nightmaster Rress": 1,
-        "B'haya, the Fiend": 1,
-        "Carg'rag": 3,
         "Yeg-Igryll's Altar": 1,
-        "FirRal": 3,
-        "Gush": 1,
-        "Nemtok": 3,
+        "Gunda": 3,
+        "Toren Yscar": 1,
+        "The Retiarius": 1,
+        "Sar'ean": 3,
         "SanUris": 3,
-        "Lorik": 3,
-        "Jackals of Mourn": 3,
+        "Koratcghuk": 2,
+        "FirRal": 3,
+        "Carg'rag": 3,
+        "Bokos": 3,
         "StartingArmy": {
-          "Fo'ttr'ak'ka": 1,
-          "Gunda": 2,
+          "Kothkah": 1,
           "Nightmaster Rress": 1,
-          "B'haya, the Fiend": 1
+          "Yeg-Igryll's Altar": 1,
+          "Gunda": 3
         }
       },
       "Item": {
-        "Black Moss": 3,
+        "Monkey's Paws": 2,
+        "Ring of Piercing": 1,
+        "Recruiter's Orders": 1,
+        "Nodwick": 1,
+        "Madman's Blade": 1,
+        "Fine Hilted Saber": 3,
+        "Figurine of Power": 3,
+        "Double Bladed Sword": 1,
         "Destroyer's Armor": 3,
         "StartingArmy": {}
       },
       "Action": {
-        "Final Blessing": 3,
-        "Hero's Gambit": 3,
-        "Incentives": 1,
-        "Quick Strength": 3,
-        "Rescue": 1,
-        "Speed of the Falcon": 3,
-        "Back Alley Tavern": 2,
-        "Blind the Gods": 3,
+        "Sword Master": 2,
+        "Slow March": 2,
+        "Order of Battle": 2,
+        "Loyalty's Reward": 3,
         "StartingArmy": {}
       }
     }
