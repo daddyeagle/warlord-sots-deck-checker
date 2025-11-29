@@ -6,7 +6,6 @@ const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
-const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 
