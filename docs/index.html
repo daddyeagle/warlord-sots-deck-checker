@@ -1025,7 +1025,8 @@
                 }
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
                     const tokenRaw = tokenInput.value || '';
-                    const token = tokenRaw.replace(/[^ -]/g, '');
+                    // Only allow printable ASCII characters (0x20-0x7E)
+                    const token = tokenRaw.replace(/[^\x20-\x7E]/g, '');
                     const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
