@@ -951,46 +951,73 @@
 
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
             
-            const displayOrder = [
-                'unknown', 
-                'editionLegality', 
-                'restrictions', 
-                'totalCount', 
-                'saComp', 
-                'saLoyalty', 
-                'mdLoyalty', 
-                'copyLimits', 
-                'overlordLimit',
-                'dragonlordLimit', 
-                'daemonlordLimit',  
-                'typeDominance',
-                'activeExceptions' 
-            ];
+                        const displayOrder = [
+                                'unknown', 
+                                'editionLegality', 
+                                'restrictions', 
+                                'totalCount', 
+                                'saComp', 
+                                'saLoyalty', 
+                                'mdLoyalty', 
+                                'copyLimits', 
+                                'overlordLimit',
+                                'dragonlordLimit', 
+                                'daemonlordLimit',  
+                                'typeDominance',
+                                'activeExceptions' 
+                        ];
 
-            for (const key of displayOrder) {
-                const res = checks[key];
-                if (res) {
-                     let icon = '🟢';
-                     if (res.status === 'FAIL') icon = '🔴';
-                     if (res.status === 'INFO') icon = '🔵';
-                     html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
-                }
-            }
-            html += `</div></div>`;
-            // If legal, include submit controls
-            if (deckIsLegal) {
-                html += `
-                <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                    <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
-                    <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                        <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
-                        <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
-                        <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
-                    </form>
-                    <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
-                </div>`;
-            }
-            document.getElementById('results').innerHTML = html;
+                        for (const key of displayOrder) {
+                                const res = checks[key];
+                                if (res) {
+                                         let icon = '🟢';
+                                         if (res.status === 'FAIL') icon = '🔴';
+                                         if (res.status === 'INFO') icon = '🔵';
+                                         html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
+                                }
+                        }
+                        html += `</div></div>`;
+                        // If legal, include submit controls
+                        if (deckIsLegal) {
+                                html += `
+                                <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                                        <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                                        <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                                                <input id="submit-username" type="text" placeholder="Username" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                                                <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                                                <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                                                <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
+                                                <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                                        </form>
+                                        <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+                                </div>`;
+                        }
+                        document.getElementById('results').innerHTML = html;
+
+                        // Populate event dropdown from event_list.json if present
+                        if (deckIsLegal) {
+                                fetch('events/event_list.json?_=' + Date.now())
+                                    .then(r => r.json())
+                                    .then(events => {
+                                        const eventSelect = document.getElementById('submit-eventname');
+                                        eventSelect.innerHTML = '';
+                                        if (Array.isArray(events)) {
+                                            events.forEach(ev => {
+                                                if (typeof ev === 'string') {
+                                                    const opt = document.createElement('option');
+                                                    opt.value = ev;
+                                                    opt.textContent = ev;
+                                                    eventSelect.appendChild(opt);
+                                                } else if (ev.eventName) {
+                                                    const opt = document.createElement('option');
+                                                    opt.value = ev.eventName;
+                                                    opt.textContent = ev.eventName;
+                                                    eventSelect.appendChild(opt);
+                                                }
+                                            });
+                                        }
+                                    });
+                        }
 
             if (deckIsLegal) {
                 const tokenInput = document.getElementById('submit-token');
@@ -1093,6 +1120,7 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
+            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
             document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
             await loadAppData();
             // Listen for admin updates signaled via localStorage and reload config when seen
@@ -1104,14 +1132,17 @@
                         if (!changed) {
                             console.warn('Config reload reported no change; attempting stronger network refresh');
                             const forced = await loadAppData(3, 1000, true);
-                            if (!forced) {
-                                console.warn('Forced reload failed; performing full page reload');
-                                try { window.location.reload(); } catch(_) { window.location.href = window.location.href; }
-                            }
+                            if (!forced) {/* ...existing code... */}
                         }
                     } catch(err) { console.warn('reload on storage failed', err); }
                 }
             });
+            // Reset legality and submission window if ruleset is changed
+            document.getElementById('ruleset-select').addEventListener('change', () => {
+                document.getElementById('results').innerHTML = '';
+            });
+            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
+        });
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
         });
 
