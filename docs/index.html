@@ -62,10 +62,6 @@
                 <div class="card-container p-6 rounded-xl">
                     <label for="sa-wl-input" class="block text-lg font-bold mb-2 text-gray-200">2. Starting Army</label>
                     <p class="text-xs text-gray-500 mb-2">Warlord + Characters/Items starting in play.</p>
-                    <div class="mb-3 flex gap-3">
-                        <input id="submit-username" type="text" placeholder="Your username" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
-                        <input id="submit-eventname" type="text" placeholder="Event name (optional)" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
-                    </div>
                     <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
                 </div>
 
@@ -981,14 +977,15 @@
                         if (deckIsLegal) {
                                 html += `
                                 <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                                        <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
-                                        <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                                                <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
-                                                <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
-                                                <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
-                                                <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
-                                        </form>
-                                        <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+                                    <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                                    <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                                        <input id="submit-username" type="text" placeholder="Your username" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                                        <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                                        <input id="submit-token" type="password" placeholder="GitHub PAT (required to save)" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg" autocomplete="off" />
+                                        <label class="flex items-center text-xs text-gray-400 ml-2"><input type="checkbox" id="remember-token" class="mr-1" /> Remember token</label>
+                                        <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                                    </form>
+                                    <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
                                 </div>`;
                         }
                         document.getElementById('results').innerHTML = html;
@@ -1002,11 +999,10 @@
                                         eventSelect.innerHTML = '';
                                         if (Array.isArray(events)) {
                                             events.forEach(ev => {
-                                                let eventName = typeof ev === 'string' ? ev : ev.eventName;
-                                                if (eventName) {
+                                                if (ev && typeof ev === 'object' && ev.eventName) {
                                                     const opt = document.createElement('option');
-                                                    opt.value = eventName;
-                                                    opt.textContent = eventName;
+                                                    opt.value = ev.eventName;
+                                                    opt.textContent = ev.eventName;
                                                     eventSelect.appendChild(opt);
                                                 }
                                             });
