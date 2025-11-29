@@ -1097,8 +1097,13 @@
                         (async () => {
                             try {
                                 const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
-                                const last10 = savedToken.substring(savedToken.length - 10);
-                                const found = Array.isArray(discordTokens) && discordTokens.find(entry => typeof entry.token === 'string' && entry.token.substring(entry.token.length - 10) === last10);
+                                const trimmedToken = savedToken.trim();
+                                const last10 = trimmedToken.substring(trimmedToken.length - 10);
+                                const found = Array.isArray(discordTokens) && discordTokens.find(entry => {
+                                    if (typeof entry.token !== 'string') return false;
+                                    const trimmedEntryToken = entry.token.trim();
+                                    return trimmedEntryToken.substring(trimmedEntryToken.length - 10) === last10;
+                                });
                                 if (found && found.discord_id) {
                                     document.getElementById('submit-username').value = found.discord_id;
                                     document.getElementById('submit-status').textContent = 'Username auto-filled from Discord token.';
@@ -1111,11 +1116,16 @@
                 // Also auto-populate username when the token field changes
                 tokenInput.addEventListener('input', async (e) => {
                     const val = e.target.value || '';
-                    if (val.length >= 10) {
+                    const trimmedVal = val.trim();
+                    if (trimmedVal.length >= 10) {
                         try {
                             const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
-                            const last10 = val.substring(val.length - 10);
-                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => typeof entry.token === 'string' && entry.token.substring(entry.token.length - 10) === last10);
+                            const last10 = trimmedVal.substring(trimmedVal.length - 10);
+                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => {
+                                if (typeof entry.token !== 'string') return false;
+                                const trimmedEntryToken = entry.token.trim();
+                                return trimmedEntryToken.substring(trimmedEntryToken.length - 10) === last10;
+                            });
                             if (found && found.discord_id) {
                                 document.getElementById('submit-username').value = found.discord_id;
                                 document.getElementById('submit-status').textContent = 'Username auto-filled from Discord token.';
@@ -1135,8 +1145,13 @@
                     if (tokenRaw.length >= 10) {
                         try {
                             const discordTokens = await fetch('docs/discord_tokens.json?_=' + Date.now()).then(r => r.json());
-                            const last10 = tokenRaw.slice(-10);
-                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => entry.token && entry.token.slice(-10) === last10);
+                            const trimmedTokenRaw = tokenRaw.trim();
+                            const last10 = trimmedTokenRaw.substring(trimmedTokenRaw.length - 10);
+                            const found = Array.isArray(discordTokens) && discordTokens.find(entry => {
+                                if (typeof entry.token !== 'string') return false;
+                                const trimmedEntryToken = entry.token.trim();
+                                return trimmedEntryToken.substring(trimmedEntryToken.length - 10) === last10;
+                            });
                             if (found && found.discord_id) {
                                 username = found.discord_id;
                                 document.getElementById('submit-username').value = username;
