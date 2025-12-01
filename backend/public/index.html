@@ -144,7 +144,7 @@
                         }
 
                         if (discordLoginBtn) {
-                            discordLoginBtn.addEventListener('click', () => {
+                            discordLoginBtn.addEventListener && discordLoginBtn.addEventListener('click', () => {
                                 window.location.href = '/api/auth/discord';
                             });
                         }
@@ -1168,7 +1168,8 @@
                     discordUserSummary.textContent = 'You must log in with Discord to submit.';
                     submitButton.disabled = true;
                 }
-                submitButton.addEventListener('click', async () => {
+                if (submitButton && submitButton.addEventListener) {
+                    submitButton.addEventListener('click', async () => {
                     if (!window.discordUser || !window.discordUser.id) {
                         statusEl.textContent = 'You must log in with Discord to submit.';
                         return;
@@ -1270,17 +1271,17 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const clearBtn = document.getElementById('clear-deck-button');
             const checkBtn = document.getElementById('check-deck-button');
-            if (clearBtn) {
+            if (clearBtn && clearBtn.addEventListener) {
                 clearBtn.addEventListener('click', window.clearDeck);
                 // If you want to add the event twice, keep this, otherwise remove duplicate
                 // clearBtn.addEventListener('click', window.clearDeck);
             }
-            if (checkBtn) {
+            if (checkBtn && checkBtn.addEventListener) {
                 checkBtn.addEventListener('click', window.checkDeck);
             }
             await loadAppData();
             // Listen for admin updates signaled via localStorage and reload config when seen
-            window.addEventListener('storage', async (e) => {
+            window.addEventListener && window.addEventListener('storage', async (e) => {
                 if (!e) return;
                 if (e.key === 'warlordConfigUpdate') {
                     try {
@@ -1296,7 +1297,7 @@
             // Reset legality and submission window if ruleset is changed
             const rulesetSelectEl = document.getElementById('ruleset-select');
             if (rulesetSelectEl) {
-                rulesetSelectEl.addEventListener('change', () => {
+                rulesetSelectEl.addEventListener && rulesetSelectEl.addEventListener('change', () => {
                     const resultsDiv = document.getElementById('results');
                     if (resultsDiv) resultsDiv.innerHTML = '';
                 });
