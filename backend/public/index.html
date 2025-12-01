@@ -1262,9 +1262,16 @@
         window.clearDeck = clearDeck;
 
         document.addEventListener('DOMContentLoaded', async () => {
-            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
-            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
-            document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
+            const clearBtn = document.getElementById('clear-deck-button');
+            const checkBtn = document.getElementById('check-deck-button');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', window.clearDeck);
+                // If you want to add the event twice, keep this, otherwise remove duplicate
+                // clearBtn.addEventListener('click', window.clearDeck);
+            }
+            if (checkBtn) {
+                checkBtn.addEventListener('click', window.checkDeck);
+            }
             await loadAppData();
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
