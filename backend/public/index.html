@@ -1157,7 +1157,7 @@
                 // Show Discord user info or require login
                 if (window.discordUser && window.discordUser.id) {
                     const displayName = window.discordUser.global_name || `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                    discordUserSummary.textContent = `Logged in as ${displayName}`;
+                    discordUserSummary.textContent = `Logged in as <b>${displayName}</b>`;
                 } else {
                     discordUserSummary.textContent = 'You must log in with Discord to submit.';
                     submitButton.disabled = true;
