@@ -1,1 +1,14 @@
-...
+[
+  {
+    "token": "7NwA89VQNz",
+    "discord_id": "daddy_eagle",
+    "discord_username": "oeagle#7884",
+    "used": true
+  },
+  {
+    "token": "xyz789uvw000",
+    "discord_id": "",
+    "discord_username": "",
+    "used": false
+  }
+]

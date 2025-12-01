@@ -1,1 +1,534 @@
-...
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Config Editor — Warlord Deck Checker</title>
+  <link href="/warlord-sots-deck-checker/assets/css/style.css" rel="stylesheet">
+  <style>
+    body { background: #0d1117; color: #e5e7eb; font-family: Inter, system-ui, -apple-system, Roboto, Arial; padding: 1rem; }
+    .card { background: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 8px; max-width: 1100px; margin: 0 auto; }
+    textarea { width: 100%; height: 420px; background:#0b1220; color: #e6eef8; border: 1px solid #233041; padding: 0.75rem; font-family: monospace; font-size: 13px; border-radius:6px }
+    .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:0.75rem }
+    button { background:#0ea5a1; color:#042d2b; padding:0.5rem 0.75rem; border-radius:6px; border:none; font-weight:700 }
+    .btn-danger { background:#ef4444; color:#fff }
+    .small { font-size:13px; color:#9ca3af }
+    .notice { background:#07202a; border:1px solid #0b5560; padding:0.6rem; border-radius:6px; color:#9fe0d6; margin-bottom:12px }
+    input[type=text], input[type=password] { padding:6px; border-radius:6px; border:1px solid #233041; background:#081018; color:#e6eef8 }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 style="margin:0 0 .5rem 0">Configuration Editor</h1>
+    <div class="small">Edit `warlord_configuration.json`. This page can download the updated file or create a Pull Request if you provide a GitHub Personal Access Token (repo scope).</div>
+
+    <div class="notice">
+      <strong>Warning:</strong> If you use the GitHub PR feature you must paste a personal access token into the form below. Tokens are sent directly to GitHub and are not stored on this server. Keep your token secret.
+    </div>
+
+    <div style="margin-bottom:.5rem">
+      <button id="loadBtn">Load current config</button>
+      <button id="validateBtn">Validate JSON</button>
+      <button id="downloadBtn">Download JSON</button>
+      <button id="copyBtn">Copy to Clipboard</button>
+    </div>
+
+    <!-- Ruleset editor: dropdown + form for single ruleset -->
+    <div class="card" style="margin-top:0.75rem;">
+      <h2 style="margin:0 0 .5rem 0">Ruleset Editor</h2>
+      <div class="small">Select a ruleset to view and edit only that ruleset's fields.</div>
+      <div style="display:flex; gap:8px; align-items:center; margin-top:0.5rem;">
+        <select id="rulesetSelect" style="min-width:280px; padding:6px; border-radius:6px; background:#081018; color:#e6eef8"></select>
+        <button id="addRulesetBtn">Add Ruleset</button>
+        <button id="deleteRulesetBtn" class="btn-danger">Delete Ruleset</button>
+      </div>
+
+      <div id="rulesetForm" style="margin-top:0.75rem; display:grid; grid-template-columns:1fr 1fr; gap:8px; align-items:start;">
+        <div>
+          <label class="small">Name</label>
+          <input id="rs_name" type="text" />
+
+          <label class="small" style="display:block; margin-top:6px">Warlord Count</label>
+          <input id="rs_warlordCount" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Max Copies</label>
+          <input id="rs_maxCopies" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Max Epic Copies</label>
+          <input id="rs_maxEpicCopies" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Min Total Deck</label>
+          <input id="rs_minTotalDeck" type="number" />
+
+          <label class="small" style="display:block; margin-top:6px">Check Main Deck Faction</label>
+          <input id="rs_checkMainDeckFaction" type="checkbox" />
+        </div>
+
+        <div>
+          <label class="small">Edit: Starting Army requirements (Level 1 / Level 2)</label>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <div style="flex:1">
+              <label class="small">Level 1 required</label>
+              <input id="rs_level1_count" type="number" min="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+            </div>
+            <div style="flex:1">
+              <label class="small">Level 2 required</label>
+              <input id="rs_level2_count" type="number" min="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+            </div>
+          </div>
+          <div style="margin-top:6px; display:flex; gap:8px; align-items:center;">
+            <label style="display:flex; align-items:center; gap:6px;"><input id="rs_hidden" type="checkbox" /> <span class="small">Mark ruleset as <strong>hidden</strong> (in development)</span></label>
+            <label style="display:flex; align-items:center; gap:6px;"><input id="rs_requiresUnifiedFaction" type="checkbox" /> <span class="small">Require unified faction (ruleset)</span></label>
+            <label style="display:flex; align-items:center; gap:6px;"><input id="rs_fullBypass" type="checkbox" /> <span class="small">Full loyalty bypass (ruleset)</span></label>
+            <button id="setDefaultBtn">Set as Default</button>
+            <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+              <label class="small" style="margin:0">Index selector limit</label>
+              <input id="indexLimit" type="number" min="1" value="10" style="width:80px; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+              <button id="saveSettingsBtn">Save Settings</button>
+            </div>
+          </div>
+
+          <label class="small" style="display:block; margin-top:6px">Edit: `editions` (comma-separated)</label>
+          <input id="rs_editions" type="text" />
+
+          <label class="small" style="display:block; margin-top:6px">Restricted (names, sets, rarities — comma separated)</label>
+          <input id="rs_restricted_names" type="text" placeholder="names" />
+          <input id="rs_restricted_sets" type="text" placeholder="sets" />
+          <input id="rs_restricted_rarities" type="text" placeholder="rarities" />
+        </div>
+      </div>
+
+      <div style="margin-top:8px; display:flex; gap:8px;">
+        <button id="updateRulesetBtn">Update Ruleset</button>
+        <button id="applyToTextareaBtn">Apply to JSON</button>
+      </div>
+    </div>
+
+    <textarea id="jsonArea" placeholder="warlord_configuration.json contents will appear here..."></textarea>
+
+    <div class="row" style="margin-top:.75rem">
+      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:280px" />
+      <button id="testTokenBtn" title="Validate token and scopes">Test Token</button>
+      <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
+      <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
+      <label style="display:flex; align-items:center; gap:6px;">
+        <input id="directApply" type="checkbox" />
+        <span class="small">Direct apply to `deploy-docs` (bypass PR)</span>
+      </label>
+      <button id="createPrBtn">Submit</button>
+      <button id="applyBtn" class="btn-danger">Apply (download)</button>
+    </div>
+
+    <pre id="feedback" class="small" style="margin-top:.75rem"></pre>
+    <hr />
+    <div class="small">Tip: use <strong>Load</strong> then edit, validate, then <strong>Download</strong> or create a PR to propose changes.</div>
+    <div class="card" style="margin-top:12px; background:#081018; border:1px solid #16323a; padding:10px;">
+      <h3 style="margin:0 0 6px 0; font-size:15px;">Documentation & Security Notes</h3>
+      <div class="small" style="line-height:1.4">
+        <strong>Direct Apply:</strong> When the <em>Direct apply to `deploy-docs`</em> checkbox is checked, the page will commit your JSON directly to the `deploy-docs` branch. This bypasses Pull Request review — only use it if you trust the token holder.
+        <br><br>
+        <strong>Token scopes:</strong> For public repositories a token with the `public_repo` scope will work; for private repos use `repo`. You can also use a fine‑grained token that grants "Contents: Read & Write" and "Pull requests: Write" for this repository. Do NOT paste tokens into other sites or share them.
+        <br><br>
+        <strong>Branch protection:</strong> If `deploy-docs` is protected (required reviews or required status checks), direct commits may fail. In that case use the PR flow (uncheck Direct Apply) and create a PR for the protected branch.
+        <br><br>
+        <strong>Hidden rulesets & default:</strong> Rulesets marked `hidden: true` are excluded from the public ruleset selector. To edit a hidden ruleset, check <em>Show hidden rulesets</em>. Use <em>Set as Default</em> to update `defaultRuleset` in the configuration so the site selects that ruleset by default.
+        <br><br>
+        <strong>Rollback & audit:</strong> Use the <em>Download JSON</em> button to create a local backup before applying changes. All commits and PRs are recorded in the repository history so you can revert or audit changes later.
+        <br><br>
+        <strong>Pages propagation:</strong> After a successful commit, GitHub Pages may take a short time (~30–120s) to rebuild and serve the updated site.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const configPath = 'warlord_configuration.json';
+    const loadBtn = document.getElementById('loadBtn');
+    const validateBtn = document.getElementById('validateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const createPrBtn = document.getElementById('createPrBtn');
+    const applyBtn = document.getElementById('applyBtn');
+    const testTokenBtn = document.getElementById('testTokenBtn');
+    const area = document.getElementById('jsonArea');
+    const feedback = document.getElementById('feedback');
+    let configObj = null;
+    const rulesetSelect = document.getElementById('rulesetSelect');
+    const addRulesetBtn = document.getElementById('addRulesetBtn');
+    const deleteRulesetBtn = document.getElementById('deleteRulesetBtn');
+    const updateRulesetBtn = document.getElementById('updateRulesetBtn');
+    const applyToTextareaBtn = document.getElementById('applyToTextareaBtn');
+
+    // Form inputs
+    const rs_name = document.getElementById('rs_name');
+    const rs_warlordCount = document.getElementById('rs_warlordCount');
+    const rs_maxCopies = document.getElementById('rs_maxCopies');
+    const rs_maxEpicCopies = document.getElementById('rs_maxEpicCopies');
+    const rs_minTotalDeck = document.getElementById('rs_minTotalDeck');
+    const rs_checkMainDeckFaction = document.getElementById('rs_checkMainDeckFaction');
+    const rs_level1_count = document.getElementById('rs_level1_count');
+    const rs_level2_count = document.getElementById('rs_level2_count');
+    const rs_hidden = document.getElementById('rs_hidden');
+    const rs_requiresUnifiedFaction = document.getElementById('rs_requiresUnifiedFaction');
+    const rs_fullBypass = document.getElementById('rs_fullBypass');
+    const indexLimit = document.getElementById('indexLimit');
+    const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+    const rs_editions = document.getElementById('rs_editions');
+    const rs_restricted_names = document.getElementById('rs_restricted_names');
+    const rs_restricted_sets = document.getElementById('rs_restricted_sets');
+    const rs_restricted_rarities = document.getElementById('rs_restricted_rarities');
+
+    function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
+
+    // Helper to call GitHub API and provide clearer errors for auth issues
+    async function ghFetch(url, options = {}, actionDesc = 'GitHub API request'){
+      const r = await fetch(url, options);
+      if (r.status === 401) {
+        throw new Error(`${actionDesc}: 401 Unauthorized — the provided token is invalid or/or missing required scopes. For public repos use 'public_repo' or a fine-grained token with 'Contents: Read & Write'.`);
+      }
+      return r;
+    }
+
+    async function loadConfig(){
+      setFeedback('Loading...');
+      try{
+        const r = await fetch(configPath, {cache:'no-store'});
+        if(!r.ok) throw new Error('HTTP '+r.status);
+        const text = await r.text();
+        // pretty-print if valid JSON
+        try { configObj = JSON.parse(text); area.value = JSON.stringify(configObj, null, 2); }
+        catch(e){ configObj = null; area.value = text; }
+        setFeedback('Loaded configuration.');
+
+        // If rulesets exist, populate the select
+        if (configObj && configObj.rulesets) {
+          renderRulesetList();
+          // populate index selector limit control from config (global setting)
+          try { indexLimit.value = configObj.indexSelectorLimit || 10; } catch(e) {}
+        }
+      }catch(err){ setFeedback('Failed to load: '+err.message, true); }
+    }
+
+    function renderRulesetList(){
+      // Admin page: always show all rulesets (including hidden) so editors can manage them
+      rulesetSelect.innerHTML = '';
+      const keys = Object.keys(configObj.rulesets || {});
+      keys.forEach(k => {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = k + ' — ' + (configObj.rulesets[k].name || '');
+        rulesetSelect.appendChild(opt);
+      });
+      if (keys.length > 0) {
+        // If a default ruleset is specified in the config, select it
+        const defaultKey = configObj.defaultRuleset || keys[0];
+        if (keys.includes(defaultKey)) rulesetSelect.value = defaultKey; else rulesetSelect.value = keys[0];
+        renderRulesetForm(rulesetSelect.value);
+      }
+    }
+
+    document.getElementById('setDefaultBtn').addEventListener('click', ()=>{
+      const key = rulesetSelect.value; if(!key) return setFeedback('No ruleset selected', true);
+      configObj.defaultRuleset = key;
+      area.value = JSON.stringify(configObj, null, 2);
+      setFeedback('Default ruleset set to '+key);
+    });
+
+    saveSettingsBtn.addEventListener('click', ()=>{
+      const v = parseInt(indexLimit.value || '10', 10);
+      if (isNaN(v) || v < 1) return setFeedback('Index selector limit must be a positive integer', true);
+      configObj.indexSelectorLimit = v;
+      area.value = JSON.stringify(configObj, null, 2);
+      setFeedback('Saved index selector limit: '+v);
+    });
+
+    function renderRulesetForm(key){
+      const rs = configObj.rulesets[key];
+      rs_name.value = rs.name || '';
+      rs_warlordCount.value = rs.warlordCount || 1;
+      rs_maxCopies.value = rs.maxCopies || 3;
+      rs_maxEpicCopies.value = rs.maxEpicCopies || 1;
+      rs_minTotalDeck.value = rs.minTotalDeck || 50;
+      rs_checkMainDeckFaction.checked = !!rs.checkMainDeckFaction;
+      // populate level inputs from saRequiredSlots array
+      const saSlots = rs.saRequiredSlots || [];
+      const lvl1 = (saSlots.find(s => s.level === 1) || {}).count || 0;
+      const lvl2 = (saSlots.find(s => s.level === 2) || {}).count || 0;
+      rs_level1_count.value = lvl1;
+      rs_level2_count.value = lvl2;
+      rs_hidden.checked = !!rs.hidden;
+      rs_requiresUnifiedFaction.checked = !!rs.requiresUnifiedFaction;
+      rs_fullBypass.checked = !!rs.fullBypass;
+      rs_editions.value = (rs.editions || []).join(', ');
+      const restricted = rs.restricted || { names:[], sets:[], rarities:[] };
+      rs_restricted_names.value = (restricted.names || []).join(', ');
+      rs_restricted_sets.value = (restricted.sets || []).join(', ');
+      rs_restricted_rarities.value = (restricted.rarities || []).join(', ');
+    }
+
+    function updateRulesetFromForm(){
+      const key = rulesetSelect.value;
+      if (!key) return setFeedback('No ruleset selected', true);
+      try{
+        const saSlots = [ { level: 1, count: parseInt(rs_level1_count.value || '0', 10) }, { level: 2, count: parseInt(rs_level2_count.value || '0', 10) } ];
+        const editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        const restricted = {
+          names: rs_restricted_names.value.split(',').map(s=>s.trim()).filter(Boolean),
+          sets: rs_restricted_sets.value.split(',').map(s=>s.trim()).filter(Boolean),
+          rarities: rs_restricted_rarities.value.split(',').map(s=>s.trim()).filter(Boolean)
+        };
+        configObj.rulesets[key] = {
+          name: rs_name.value,
+          warlordCount: parseInt(rs_warlordCount.value || '1',10),
+          saRequiredSlots: saSlots,
+          maxCopies: parseInt(rs_maxCopies.value||'3',10),
+          maxEpicCopies: parseInt(rs_maxEpicCopies.value||'1',10),
+          minTotalDeck: parseInt(rs_minTotalDeck.value||'50',10),
+          checkMainDeckFaction: !!rs_checkMainDeckFaction.checked,
+          // ruleset-level loyalty options
+          requiresUnifiedFaction: !!rs_requiresUnifiedFaction.checked,
+          fullBypass: !!rs_fullBypass.checked,
+          editions: editions,
+          restricted: restricted
+        };
+        // preserve hidden flag on the ruleset object
+        configObj.rulesets[key].hidden = !!rs_hidden.checked;
+        area.value = JSON.stringify(configObj, null, 2);
+        setFeedback('Ruleset updated in JSON textarea. Click Download or Create PR to persist.');
+        renderRulesetList();
+      }catch(e){ setFeedback('Failed to update ruleset: '+e.message, true); }
+    }
+
+    function addRuleset(){
+      const name = prompt('Enter a key for the new ruleset (no spaces, unique):');
+      if (!name) return;
+      if (!configObj) configObj = { rulesets: {} };
+      if (!configObj.rulesets) configObj.rulesets = {};
+      if (configObj.rulesets[name]) return setFeedback('Ruleset key already exists', true);
+      configObj.rulesets[name] = { name: name, warlordCount:1, saRequiredSlots:[{level:1,count:3},{level:2,count:2}], maxCopies:3, maxEpicCopies:1, minTotalDeck:50, checkMainDeckFaction:false, editions:[], restricted:{names:[],sets:[],rarities:[]} };
+      configObj.rulesets[name].hidden = false;
+      area.value = JSON.stringify(configObj, null, 2);
+      renderRulesetList();
+      setFeedback('Added new ruleset: '+name);
+    }
+
+    function deleteRuleset(){
+      const key = rulesetSelect.value; if (!key) return setFeedback('No ruleset selected', true);
+      if (!confirm('Delete ruleset "'+key+'"?')) return;
+      delete configObj.rulesets[key];
+      area.value = JSON.stringify(configObj, null, 2);
+      renderRulesetList();
+      setFeedback('Deleted ruleset: '+key);
+    }
+
+    function validate(){
+      try{ JSON.parse(area.value); setFeedback('Valid JSON.'); return true; }
+      catch(e){ setFeedback('Invalid JSON: '+e.message, true); return false; }
+    }
+
+    function download(){
+      const blob = new Blob([area.value], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'warlord_configuration.json'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+      setFeedback('Download started.');
+    }
+
+    copyBtn.addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText(area.value); setFeedback('Copied to clipboard.'); }
+      catch(e){ setFeedback('Clipboard failed: '+e.message, true); }
+    });
+
+    rulesetSelect.addEventListener('change', (e)=>{ renderRulesetForm(e.target.value); });
+    addRulesetBtn.addEventListener('click', addRuleset);
+    deleteRulesetBtn.addEventListener('click', deleteRuleset);
+    updateRulesetBtn.addEventListener('click', updateRulesetFromForm);
+    applyToTextareaBtn.addEventListener('click', updateRulesetFromForm);
+
+    loadBtn.addEventListener('click', loadConfig);
+    validateBtn.addEventListener('click', validate);
+    downloadBtn.addEventListener('click', download);
+
+    async function applyUpdate(){
+      if(!validate()) return;
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      // Sanitize token: remove non-printable / non-ISO-8859-1 characters to avoid fetch header errors
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
+      if(!token){
+        if(confirm('No token provided. Download JSON instead? Click OK to download.')){ download(); setFeedback('Downloaded JSON.'); }
+        else setFeedback('Apply cancelled.');
+        return;
+      }
+
+      setFeedback('Applying update (committing file)...');
+      const owner = 'daddyeagle';
+      const repo = 'warlord-sots-deck-checker';
+      // Always apply changes to the deploy-docs branch for Pages deployment
+      const branch = 'deploy-docs';
+      const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+
+      try{
+        // Try to get existing file sha on the target branch
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        let r = await ghFetch(contentsUrl, { headers }, 'Get existing file contents');
+        let existingSha = null;
+        if (r.ok){ const j = await r.json(); existingSha = j.sha; }
+        else if (r.status === 404) { existingSha = null; }
+        else {
+          // If branch doesn't exist and it's not main, create branch from main
+          if (branch !== 'main'){
+            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers }, 'Get main ref');
+            if(!r.ok) throw new Error('Failed to get main ref: '+r.status);
+            const ref = await r.json();
+            const baseSha = ref.object.sha;
+            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) }, 'Create branch');
+            if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create branch: '+r.status+' '+txt); }
+            existingSha = null;
+          } else {
+            const txt = await r.text(); throw new Error('Failed to check existing file: '+r.status+' '+txt);
+          }
+        }
+
+        const content = btoa(unescape(encodeURIComponent(area.value)));
+        const putBody = { message: `Apply warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
+        const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`;
+        let putRes = await fetch(putUrl, { method:'PUT', headers, body: JSON.stringify(putBody) });
+        if(!putRes.ok){ const txt = await putRes.text(); throw new Error('Failed to write file: '+putRes.status+' '+txt); }
+        const resJson = await putRes.json();
+        setFeedback('File committed: '+(resJson.content && resJson.content.html_url ? resJson.content.html_url : 'success'));
+        // Notify other open tabs that the configuration was updated
+        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'commit', url: (resJson.content && resJson.content.html_url) || null })); }catch(e){}
+        if(resJson.content && resJson.content.html_url) window.open(resJson.content.html_url, '_blank');
+      }catch(err){ setFeedback('Apply failed: '+err.message, true); }
+    }
+
+    applyBtn.addEventListener('click', applyUpdate);
+
+    // Quick token tester: performs a lightweight GET /user to validate token and scopes
+    async function testToken(){
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
+      if (!token) return setFeedback('No token provided to test.', true);
+      setFeedback('Testing token...');
+      try{
+        const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+        const r = await ghFetch('https://api.github.com/user', { headers }, 'Validate token');
+        if (!r.ok) {
+          const txt = await r.text();
+          throw new Error('Token test failed: '+r.status+' '+txt);
+        }
+        const user = await r.json();
+        setFeedback('Token valid for user: '+(user.login || user.name || user.id));
+      }catch(err){ setFeedback('Token test failed: '+err.message, true); }
+    }
+
+    testTokenBtn.addEventListener('click', testToken);
+
+    // --- GitHub PR flow (client-side) ---
+    async function createPR(){
+      if(!validate()) return;
+      const rawToken = document.getElementById('ghToken').value || '';
+      const tokenTrimmed = rawToken.trim();
+      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
+      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
+      if(!token){ setFeedback('Token required to create a PR. Provide a personal access token with repo scope.', true); return; }
+
+      setFeedback('Creating branch and committing file (This will use GitHub API).');
+
+      const owner = 'daddyeagle';
+      const repo = 'warlord-sots-deck-checker';
+      const base = 'main';
+      const branch = document.getElementById('prBranch').value.trim() || ('config-update-' + Math.floor(Date.now()/1000));
+      const title = document.getElementById('prTitle').value.trim() || `Update warlord_configuration.json (${branch})`;
+
+      try{
+        const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
+
+        // 1) Get main ref
+        let r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/${base}`, {headers}, 'Get base ref');
+        if(!r.ok) throw new Error('Failed to get base ref: '+r.status);
+        const ref = await r.json();
+        const baseSha = ref.object.sha;
+
+        // 2) Create branch (ref) if it doesn't exist
+        r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/${branch}`, { headers }, 'Check branch');
+        if (r.ok) {
+          // branch exists
+          setFeedback('Branch already exists; will attempt to update file on that branch.');
+        } else {
+          // create branch
+          r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) }, 'Create branch');
+          if(!r.ok) {
+            const txt = await r.text();
+            throw new Error('Failed to create branch: '+r.status+' '+txt);
+          }
+        }
+
+        // 3) Check if file exists on the target branch to determine whether to include `sha`
+        let existingSha = null;
+        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
+        r = await ghFetch(contentsUrl, { headers }, 'Get existing file contents');
+        if (r.ok) {
+          const j = await r.json();
+          existingSha = j.sha;
+        } else if (r.status === 404) {
+          existingSha = null; // file doesn't exist on branch
+        } else {
+          // other error - but we can still attempt to PUT (API will respond accordingly)
+        }
+
+        // 4) Commit file via PUT contents API (include sha if updating)
+        const content = btoa(unescape(encodeURIComponent(area.value)));
+        const putBody = { message: `Update warlord_configuration.json via admin page`, content, branch };
+        if (existingSha) putBody.sha = existingSha;
+
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`, { method:'PUT', headers, body: JSON.stringify(putBody) });
+        if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create commit: '+r.status+' '+txt); }
+
+        // 5) Create PR (if one doesn't already exist for this branch)
+        // For simplicity we'll attempt to create a PR; GitHub will return 422 if a PR already exists from this head to base.
+        r = await fetch(`https://api.github.com/repos/${owner}/${repo}/pulls`, { method:'POST', headers, body: JSON.stringify({ title, head: branch, base }) });
+        if(!r.ok){
+          const txt = await r.text();
+          // If PR already exists, return success message with link if possible
+          try{
+            const errObj = JSON.parse(txt);
+            if (errObj && errObj.message && errObj.message.includes('A pull request already exists')) {
+              setFeedback('PR already exists for this branch.');
+              return;
+            }
+          }catch(e){}
+          throw new Error('Failed to create PR: '+r.status+' '+txt);
+        }
+
+        const pr = await r.json();
+        setFeedback('PR created: '+pr.html_url);
+        // Notify other tabs that a PR was created (note: deployed site won't change until PR merged)
+        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'pr', url: pr.html_url })); }catch(e){}
+        window.open(pr.html_url, '_blank');
+      }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
+    }
+
+    // If the direct-apply checkbox is selected, submit will directly commit to `deploy-docs`,
+    // otherwise it will create a PR from a new branch.
+    createPrBtn.addEventListener('click', async (e)=>{
+      const direct = document.getElementById('directApply').checked;
+      if (direct) {
+        // Direct commit path
+        await applyUpdate();
+      } else {
+        await createPR();
+      }
+    });
+
+    // Auto-load when page opens
+    window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+  </script>
+</body>
+</html>
