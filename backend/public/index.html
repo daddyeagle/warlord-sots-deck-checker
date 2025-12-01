@@ -1294,9 +1294,13 @@
                 }
             });
             // Reset legality and submission window if ruleset is changed
-            document.getElementById('ruleset-select').addEventListener('change', () => {
-                document.getElementById('results').innerHTML = '';
-            });
+            const rulesetSelectEl = document.getElementById('ruleset-select');
+            if (rulesetSelectEl) {
+                rulesetSelectEl.addEventListener('change', () => {
+                    const resultsDiv = document.getElementById('results');
+                    if (resultsDiv) resultsDiv.innerHTML = '';
+                });
+            }
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
         });
