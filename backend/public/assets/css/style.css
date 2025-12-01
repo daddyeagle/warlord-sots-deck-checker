@@ -1,0 +1,4 @@
+/* Placeholder CSS to satisfy admin page link.
+   Add real styles here if needed. */
+body { background: #0d1117; color: #e5e7eb; font-family: Inter, system-ui, -apple-system, Roboto, Arial; }
+.card { background: #111827; border: 1px solid #1f2937; padding: 1rem; border-radius: 8px; }

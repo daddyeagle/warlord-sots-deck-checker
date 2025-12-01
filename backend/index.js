@@ -5,6 +5,8 @@ const express = require('express');
 const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
+
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -16,6 +18,7 @@ app.use(cors({
   credentials: true
 }));
 
+
 app.use(express.json());
 app.use(session({
   secret: process.env.SESSION_SECRET || 'replace_this_secret',
@@ -23,6 +26,9 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false } // Set to true if using HTTPS
 }));
+
+// Serve static files from /public
+app.use(express.static(path.join(__dirname, 'public')));
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
@@ -87,6 +93,17 @@ app.post('/api/auth/logout', (req, res) => {
   req.session.destroy(() => {
     res.sendStatus(200);
   });
+});
+
+
+// SPA fallback: serve index.html for any unknown route (after API routes)
+app.get('*', (req, res) => {
+  // Only handle non-API requests
+  if (!req.path.startsWith('/api/')) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  } else {
+    res.status(404).send('Not found');
+  }
 });
 
 app.listen(PORT, '0.0.0.0', () => {

@@ -1,0 +1,1290 @@
+<!-- All JS is now inside the <script type="module"> block below. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warlord Deck Legality Checker (v2.2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0d1117; }
+        .card-container {
+            border: 4px solid #1f2937;
+            background: linear-gradient(145deg, #1f2937, #111827);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .status-box {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+        }
+        .pass { background-color: #10b981; color: #064e3b; }
+        .fail { background-color: #ef4444; color: #7f1d1d; }
+        .warning { background-color: #f59e0b; color: #78350f; }
+        #edition-select { height: 120px; }
+        /* small toast for config reload notifications (removed - auto-reload on refresh) */
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex justify-center items-start min-h-screen">
+
+    <div id="app" class="w-full max-w-5xl space-y-6">
+        
+        <header class="text-center mb-6 bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-amber-400">Warlord Deck Checker</h1>
+            <p class="text-gray-400 text-lg mt-2">Enter your Starting Army and Main Deck to validate legality.</p>
+            <p class="text-gray-600 text-xs mt-1">v2.2 (External Configuration)</p>
+            <div id="discord-login-container" class="mt-4">
+                <button id="discord-login-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 mx-auto">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width:1.5em;height:1.5em;vertical-align:middle;filter:invert(1);"/>
+                    Login with Discord
+                </button>
+                <span id="discord-user-info" class="ml-4 text-gray-300 font-semibold"></span>
+            </div>
+        </header>
+
+        <div id="loading-status" class="card-container p-6 rounded-xl text-center text-lg font-semibold text-sky-400">
+            Fetching official card data and rulesets... Please wait.
+        </div>
+
+        <div id="input-section" class="hidden space-y-6">
+            
+            <!-- Rule Set Selection -->
+            <div class="card-container p-6 rounded-xl">
+                <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Format</h2>
+                <div>
+                    <select id="ruleset-select" class="w-full p-3 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
+                        <!-- Options populated by JS -->
+                    </select>
+                    <p class="text-xs mt-2 text-gray-500">
+                        Select a format to apply deck construction rules defined in <code>warlord_configuration.json</code>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Deck Inputs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card-container p-6 rounded-xl">
+                    <label for="sa-wl-input" class="block text-lg font-bold mb-2 text-gray-200">2. Starting Army</label>
+                    <p class="text-xs text-gray-500 mb-2">Warlord + Characters/Items starting in play.</p>
+                    <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
+                </div>
+
+                <div class="card-container p-6 rounded-xl">
+                    <label for="main-deck-input" class="block text-lg font-bold mb-2 text-gray-200">3. Main Deck</label>
+                    <p class="text-xs text-gray-500 mb-2">Characters, Actions, Items, etc.</p>
+                    <textarea id="main-deck-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="3 Card Name&#10;3 Another Card&#10;..."></textarea>
+                </div>
+            </div>
+            
+            <!-- Button Row -->
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <button id="clear-deck-button" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition duration-200">
+                    Clear Inputs
+                </button>
+                <button id="check-deck-button" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition duration-200 shadow-lg shadow-green-900/50">
+                    Validate Deck
+                </button>
+            </div>
+        </div>
+
+        <div id="results" class="space-y-6">
+            <!-- Results will be injected here -->
+        </div>
+
+    </div>
+
+    <script type="module">
+        // --- HANDLE /auth-success REDIRECT ---
+        if (window.location.pathname === '/auth-success') {
+            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
+            fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
+                .then(async res => {
+                    if (res.ok) {
+                        const user = await res.json();
+                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
+                    } else {
+                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+                });
+        }
+                            // --- CONFIGURABLE BACKEND URL ---
+                            // Set this to your backend's public URL (e.g., Codespaces/Dev Container forwarded URL)
+                            window.BACKEND_URL = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
+                        // --- DISCORD OAUTH2 LOGIN ---
+                        const discordLoginBtn = document.getElementById('discord-login-btn');
+                        const discordUserInfo = document.getElementById('discord-user-info');
+                        let discordUser = null;
+
+                        async function fetchDiscordUser() {
+                            try {
+                                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
+                                    credentials: 'include'
+                                });
+                                if (res.ok) {
+                                    const user = await res.json();
+                                    discordUser = user;
+                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+                                    discordLoginBtn.style.display = 'none';
+                                } else {
+                                    discordUser = null;
+                                    discordUserInfo.textContent = '';
+                                    discordLoginBtn.style.display = '';
+                                }
+                            } catch (e) {
+                                discordUser = null;
+                                discordUserInfo.textContent = '';
+                                discordLoginBtn.style.display = '';
+                            }
+                        }
+
+                        if (discordLoginBtn) {
+                            discordLoginBtn.addEventListener('click', () => {
+                                window.location.href = window.BACKEND_URL + '/api/auth/discord';
+                            });
+                        }
+                        // On page load, check if user is already logged in
+                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+                // --- GITHUB API HELPERS ---
+                async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
+                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+                    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
+                    const res = await fetch(url, { headers });
+                    if (res.status === 404) return null;
+                    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+                    return await res.json();
+                }
+
+                async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
+                    // Always fetch the latest sha before updating
+                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
+                    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
+                    let sha = undefined;
+                    let exists = false;
+                    try {
+                        const res = await fetch(getUrl, { headers });
+                        const text = await res.text();
+                        console.log('Full GET response for sha:', text);
+                        try {
+                            const data = JSON.parse(text);
+                            if (res.ok) {
+                                sha = data.sha;
+                                exists = true;
+                                if (!sha) {
+                                    console.warn('Warning: GET response did not include sha property!', data);
+                                }
+                            }
+                        } catch (jsonErr) {
+                            console.warn('Failed to parse GET response for sha:', text);
+                        }
+                    } catch (e) { console.warn('GET for sha failed:', e); }
+                    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+                    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
+                    const body = { message, content, branch };
+                    // Defensive: if file exists but sha is missing, log and abort
+                    if (exists && !sha) {
+                        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
+                        throw new Error('File exists but sha is missing. Cannot update file without sha.');
+                    }
+                    if (sha) body.sha = sha;
+                    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+                    if (!putRes.ok) {
+                        let errMsg = `GitHub PUT failed: ${putRes.status}`;
+                        try {
+                            const errText = await putRes.text();
+                            errMsg += `\nResponse: ${errText}`;
+                        } catch (e) {
+                            // ignore parse error
+                        }
+                        throw new Error(errMsg);
+                    }
+                    return await putRes.json();
+                }
+        // --- DECK SUBMISSION HELPERS ---
+        function slugify(str) {
+            return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        }
+
+        // --- CONSTANTS ----------------------------------------------------
+
+        let cardDatabase = {};
+        let lastConfigSignature = null;
+        let RULE_SETS = {};
+        let WL_SA_LOYALTY_EXCEPTIONS = [];
+        let SA_RING_EXCEPTIONS = [];
+        let SA_CHARACTER_EXCEPTIONS = [];
+        let FACTION_WILDCARD_NAMES = [];
+        
+        // Absolute URL for Cards (works everywhere), Relative for Config (works locally if served)
+        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
+        const CONFIG_DATA_URL = "warlord_configuration.json";
+
+        // --- REGEX & CONSTANTS ---
+        // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
+        // Quantity: optional number, optional space, optional 'x' or 'X' (only if followed by a space), then card name (allowable special chars: ', -, ., ,, :, !, ?)
+        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros', "X'andros", "X-andros", etc.
+        // Card name stops at first disallowed character (e.g., (, [, {, ")
+        const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
+        const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
+        const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
+        const errataEpicRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Epic/gi; 
+        const errataReservedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Reserved/gi;
+        const errataBannedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Banned/gi;
+
+        const loadingStatusDiv = document.getElementById('loading-status');
+        const inputSectionDiv = document.getElementById('input-section');
+        const resultsDiv = document.getElementById('results');
+        const rulesetSelect = document.getElementById('ruleset-select');
+
+        // --- DATABASE & PARSING ---------------------------------------------------
+
+        const normalizeName = (name) => name.replace(/[^a-zA-Z0-9]/g, '');
+
+        const getSAExceptions = (card) => {
+            const lowerText = (card.text || '').toLowerCase();
+            const saExceptions = { isItemStarter: false, isReplacement: false };
+            if (card.type && card.type.toLowerCase() === 'item') {
+                if (lowerText.includes("may start the game in play") || lowerText.includes("starts in play")) {
+                    saExceptions.isItemStarter = true;
+                }
+            } else if (card.type && card.type.toLowerCase() === 'character' && !(card.subtype && card.subtype.includes("warlord"))) {
+                if (lowerText.includes("may start in play in rank") && (lowerText.includes("instead of") || lowerText.includes("replaces"))) {
+                    saExceptions.isReplacement = true;
+                }
+            }
+            return saExceptions;
+        }
+
+        const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
+                    const [cardsResponse, configResponse] = await Promise.all([
+                        fetch(CARD_DATA_URL, cardFetchOpts),
+                        fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
+                    ]);
+
+                    if (!cardsResponse.ok) {
+                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
+                        throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
+                    }
+                    if (!configResponse.ok) {
+                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
+                        throw new Error(`Config HTTP error! status: ${configResponse.status}`);
+                    }
+
+                    const cardJson = await cardsResponse.json();
+                    const configJson = await configResponse.json();
+                    
+                    // 1. Hydrate Configuration from JSON
+                    RULE_SETS = configJson.rulesets || {};
+                    WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
+                    SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
+                    SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
+                    FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+
+                    // Populate Ruleset Select (hide rulesets marked as hidden)
+                    rulesetSelect.innerHTML = '';
+                    const rulesetKeys = Object.keys(RULE_SETS || {});
+                    const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
+                    // If a default is configured, place it first (if visible)
+                    const defaultKey = configJson.defaultRuleset;
+                    let orderedKeys = visibleKeys;
+                    if (defaultKey && visibleKeys.includes(defaultKey)) {
+                        orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                    }
+                    // Respect configured index selector limit (set via admin), default 10
+                    const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
+                    const limit = Math.min(orderedKeys.length, configuredLimit);
+                    for(let j = 0; j < limit; j++) {
+                        const key = orderedKeys[j];
+                        const option = document.createElement('option');
+                        option.value = key;
+                        option.textContent = RULE_SETS[key].name;
+                        rulesetSelect.appendChild(option);
+                    }
+                    if (defaultKey && visibleKeys.includes(defaultKey)) {
+                        rulesetSelect.value = defaultKey;
+                    }
+
+                    // 2. Process Card Data
+                    const newDatabase = {};
+                    
+                    if (Array.isArray(cardJson)) {
+                        cardJson.forEach(card => {
+                            const level = parseInt(card.level);
+                            const rawSubtype = String(card.subtype || '').toLowerCase(); 
+                            const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
+                            const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
+                                ? card.faction.map(f => String(f).toLowerCase()).join(' ') 
+                                : 'neutral';
+                            
+                            const isWarlord = rawSubtype.includes("warlord");
+                            const editions = card.editions || [];
+                            const lowerText = (card.text || '').toLowerCase(); 
+                            const lookupKey = normalizeName(card.name).toLowerCase(); 
+                            const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
+                            const saExceptions = getSAExceptions(card);
+                            const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
+                            
+                            const printInfos = card.printInfos || [];
+                            const sets = [...new Set(printInfos.map(info => info.set))];
+                            const rarities = [...new Set(printInfos.map(info => info.rarity))];
+
+                            if (newDatabase[lookupKey]) {
+                                console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
+                            }
+
+                            newDatabase[lookupKey] = { 
+                                name: card.name,
+                                normalizedName: lookupKey,
+                                type: card.type || (level > 0 ? 'Character' : 'Action'), 
+                                level: isNaN(level) ? 0 : level,
+                                isWarlord: isWarlord,
+                                rawSubtype: rawSubtype, 
+                                faction: primaryFaction, 
+                                alignment: card.alignment || '', 
+                                classes: classes, 
+                                isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
+                                isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
+                                isFactionWildcard: isFactionWildcard, 
+                                isUnlimitedCopies: isUnlimitedCopies, 
+                                editions: editions,
+                                sets: sets,
+                                rarities: rarities,
+                                printInfos: printInfos,
+                                bannedErrataFormats: [], 
+                                saReservedFormats: [],
+                                epicErrataFormats: [],
+                                isSACharacterReplacement: saExceptions.isReplacement,
+                                text: card.text || '' 
+                            };
+                            
+                            // Populate errata formats
+                             if (card.errata) {
+                                let match;
+                                errataEpicRegex.lastIndex = 0; 
+                                while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
+                                errataReservedRegex.lastIndex = 0; 
+                                while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
+                                errataBannedRegex.lastIndex = 0; 
+                                while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
+                            }
+                        });
+                    }
+
+                    if (Object.keys(newDatabase).length > 0) {
+                        cardDatabase = newDatabase;
+                        loadingStatusDiv.className = 'hidden';
+                        inputSectionDiv.classList.remove('hidden');
+                        try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
+                        return true;
+                    }
+
+                } catch (error) {
+                    loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
+                    loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
+                    loadingStatusDiv.classList.remove('text-sky-400');
+                    console.error('LoadAppData error:', error);
+                    if (i < retries - 1) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+            return false;
+        };
+
+        // --- REGULAR EXPRESSION HELPERS ---
+        const parseCardInput = (input, cardCounts, cardList) => {
+            const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
+            lines.forEach(line => {
+                // Ignore lines that start with //, #, or &
+                if (/^(\/\/|#|&)/.test(line)) return;
+                const lineMatch = lineRegex.exec(line);
+                if (!lineMatch) return;
+                const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
+                let name = lineMatch[2] ? lineMatch[2].trim() : '';
+                // Truncate at first disallowed character (anything not in allowed set)
+                const allowedChars = "A-Za-z0-9'\-\.,:!\? ";
+                const disallowedCharMatch = name.match(new RegExp(`[^${allowedChars}]`));
+                if (disallowedCharMatch) {
+                    name = name.substring(0, disallowedCharMatch.index).trim();
+                }
+                if (!name) return;
+                const slug = normalizeName(name).toLowerCase();
+                cardCounts[slug] = (cardCounts[slug] || 0) + count;
+                let card = cardDatabase[slug];
+                if (card) {
+                    cardList.push({ ...card, count });
+                } else {
+                    cardList.push({ name, isUnknown: true, count });
+                }
+            });
+        };
+
+        // --- EXCEPTION HELPERS ---
+        const getWarlordException = (warlordData) => {
+            if (!warlordData) return null;
+            const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
+            return WL_SA_LOYALTY_EXCEPTIONS.find(e => e.normalizedWarlordName === normalizedWarlordName) || null;
+        };
+
+        // --- LEGALITY HELPERS ---
+        const isEditionLegal = (card, selectedEditions) => !card.isUnknown && (selectedEditions.length === 0 || card.editions.some(e => selectedEditions.includes(e)));
+        
+        const isCardBanned = (card, selectedEditions) => {
+            if (!card || card.isUnknown) return false;
+            if (selectedEditions.length === 0) return false;
+            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+            return card.bannedErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+        };
+
+        const isCardReserved = (card, selectedEditions) => {
+            if (!card || card.isUnknown) return false;
+            if (selectedEditions.length === 0) return false;
+            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+            return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+        };
+        
+        const isCardEpic = (card, selectedEditions) => {
+            if (!card || card.isUnknown) return false;
+            if (card.isEpicKeyword) return true;
+            if (selectedEditions.length === 0) return false;
+            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+            return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+        };
+
+        const isSAForbidden = (card, selectedEditions) => {
+            if (!card || card.isUnknown) return false;
+            if (card.text) {
+                const forbiddenPhrases = [ "may not start in play", "may not start the game in play" ];
+                const lowerText = card.text.toLowerCase();
+                if (forbiddenPhrases.some(phrase => lowerText.includes(phrase))) return true;
+            }
+            return isCardReserved(card, selectedEditions);
+        };
+
+        // --- CHECKS ---
+
+        const checkCopyLimits = (allLegalCards, saWlLegal, selectedEditions, warlordException, activeRuleSet) => {
+            let deckIsLegal = true;
+            const violations = [];
+            const legalCardCounts = {};
+            allLegalCards.forEach(c => {
+                const norm = normalizeName(c.name).toLowerCase();
+                legalCardCounts[norm] = (legalCardCounts[norm] || 0) + (c.count || 1);
+            });
+
+            const defaultMax = activeRuleSet.maxCopies || 3;
+            const epicMax = activeRuleSet.maxEpicCopies || 1;
+            const warlordMax = activeRuleSet.warlordCount || 1;
+            const copyException = warlordException ? warlordException.copyLimitException : null;
+
+            // First, build warlordTotals by normalized name (across both SA and Main Deck)
+            const warlordTotals = {};
+            for (const norm in legalCardCounts) {
+                const data = cardDatabase[norm];
+                if (!data) continue;
+                const count = legalCardCounts[norm];
+                if (data.isWarlord) {
+                    warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
+                } else {
+                    if (data.isUnlimitedCopies) continue;
+                    let max = defaultMax;
+                    let reason = `Max ${defaultMax}`;
+                    // ENFORCE UNIQUE ONLY FOR SA
+                    // We'll handle unique warlord count below
+                    if (data.isUniqueKeyword && saWlLegal.some(c => normalizeName(c.name).toLowerCase() === norm)) {
+                        max = 1;
+                        reason = `Unique in SA (Max 1)`;
+                    }
+                    if (isCardEpic(data, selectedEditions)) {
+                        max = epicMax;
+                        reason = `Epic (Max ${max})`;
+                    }
+                    if (count > max) {
+                        violations.push(`${data.name} (${count} copies, ${reason})`);
+                        deckIsLegal = false;
+                    }
+                }
+            }
+
+            // Now check warlord copy limits (combined SA + Main Deck)
+            for (const norm in warlordTotals) {
+                const data = cardDatabase[norm];
+                if (!data) continue;
+                let max = defaultMax;
+                let reason = `Max ${defaultMax}`;
+                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
+                let warlordExceptionMax = null;
+                if (norm === 'zartoch' || norm === 'ferrisbachman') {
+                    const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === norm && e.copyLimitException);
+                    if (wlEx && wlEx.copyLimitException && typeof wlEx.copyLimitException.maxCopies === 'number') {
+                        warlordExceptionMax = wlEx.copyLimitException.maxCopies;
+                    }
+                }
+                if (warlordExceptionMax !== null) {
+                    max = warlordExceptionMax;
+                    reason = `Warlord Exception (Max ${max})`;
+                } else if (copyException && data.normalizedName === copyException.normalizedCardName) {
+                    max = copyException.maxCopies;
+                    reason = `Warlord Exception (Max ${max})`;
+                } else {
+                    max = warlordMax;
+                    reason = `Warlord (Max ${max})`;
+                }
+                if (warlordTotals[norm] > max) {
+                    violations.push(`${data.name} (${warlordTotals[norm]} copies, ${reason})`);
+                    deckIsLegal = false;
+                }
+            }
+
+            // Additional check: only 1 copy of any warlord is allowed in the Starting Army (by normalized name)
+            let saWarlordCounts = {};
+            saWlLegal.forEach(c => {
+                if (c.isWarlord) {
+                    const norm = normalizeName(c.name).toLowerCase();
+                    saWarlordCounts[norm] = (saWarlordCounts[norm] || 0) + (c.count || 1);
+                }
+            });
+            for (const norm in saWarlordCounts) {
+                if (saWarlordCounts[norm] > 1) {
+                    // Use display name from cardDatabase if available
+                    const displayName = cardDatabase[norm] ? cardDatabase[norm].name : norm;
+                    violations.push(`${displayName} (${saWarlordCounts[norm]} copies in Starting Army, Max 1 allowed)`);
+                    deckIsLegal = false;
+                }
+            }
+
+            // New check: For all warlords except Zartoch and Ferris Bachman, ensure they are only in the Starting Army
+            // Find all warlords in the Main Deck
+            const mainDeckWarlords = allLegalCards.filter(c => c.isWarlord && !saWlLegal.includes(c));
+            mainDeckWarlords.forEach(c => {
+                const norm = normalizeName(c.name).toLowerCase();
+                if (norm !== 'zartoch' && norm !== 'ferrisbachman') {
+                    violations.push(`${c.name} is a warlord and is only allowed in the Starting Army (found in Main Deck)`);
+                    deckIsLegal = false;
+                }
+            });
+
+            // ...existing code...
+            return { deckIsLegal, violations };
+        };
+
+        const checkOverlordLimit = (allLegalCards) => {
+            let overlordCount = 0;
+            const foundOverlords = [];
+            allLegalCards.forEach(card => {
+                if (card.rawSubtype && card.rawSubtype.includes('overlord')) {
+                    overlordCount++;
+                    foundOverlords.push(card.name);
+                }
+            });
+            if (overlordCount > 1) {
+                return {
+                    pass: false,
+                    result: { status: 'FAIL', message: `Overlord Limit: Deck contains ${overlordCount} Overlord cards (${[...new Set(foundOverlords)].join(', ')}). Max 1 allowed.` }
+                };
+            }
+            if (overlordCount === 1) {
+                 return { pass: true, result: { status: 'PASS', message: 'Overlord limit (Max 1) respected.' } };
+            }
+            return { pass: true, result: null };
+        };
+
+        const checkdragonlordLimit = (allLegalCards) => {
+            let dragonlordCount = 0;
+            const founddragonlords = [];
+            allLegalCards.forEach(card => {
+                if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
+                    dragonlordCount++;
+                    founddragonlords.push(card.name);
+                }
+            });
+            if (dragonlordCount > 1) {
+                return {
+                    pass: false,
+                    result: { status: 'FAIL', message: `Dragon Lord Limit: Deck contains ${dragonlordCount} Dragon Lord cards (${[...new Set(founddragonlords)].join(', ')}). Max 1 allowed.` }
+                };
+            }
+            if (dragonlordCount === 1) {
+                 return { pass: true, result: { status: 'PASS', message: 'Dragon Lord limit (Max 1) respected.' } };
+            }
+            return { pass: true, result: null };
+        };
+        const checkdaemonlordLimit = (allLegalCards) => {
+            let daemonlordCount = 0;
+            const founddaemonlords = [];
+            allLegalCards.forEach(card => {
+                if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
+                    daemonlordCount++;
+                    founddaemonlords.push(card.name);
+                }
+            });
+            if (daemonlordCount > 1) {
+                return {
+                    pass: false,
+                    result: { status: 'FAIL', message: `Daemonlord Limit: Deck contains ${daemonlordCount} Daemonlord cards (${[...new Set(founddaemonlords)].join(', ')}). Max 1 allowed.` }
+                };
+            }
+            if (daemonlordCount === 1) {
+                 return { pass: true, result: { status: 'PASS', message: 'Daemonlord limit (Max 1) respected.' } };
+            }
+            return { pass: true, result: null };
+        };
+
+        const checkRestrictions = (allLegalCards, activeRuleSet) => {
+            const restricted = activeRuleSet.restricted;
+            if (!restricted) return { pass: true };
+            const restrictedNames = restricted.names || [];
+            const restrictedSets = restricted.sets || [];
+            const restrictedRarities = restricted.rarities || [];
+            if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) return { pass: true };
+            
+            const violations = [];
+            const scannedCards = new Set();
+            allLegalCards.forEach(card => {
+                if (scannedCards.has(card.name)) return; 
+                scannedCards.add(card.name);
+                if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                    violations.push(`${card.name} (Banned Name)`);
+                    return;
+                }
+                if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                    const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                        return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                    });
+                    if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                         violations.push(`${card.name} (Restricted Set/Rarity)`);
+                    }
+                }
+            });
+            if (violations.length > 0) return { pass: false, result: { status: 'FAIL', message: `Restricted Cards: ${violations.join(', ')}` } };
+            return { pass: true, result: { status: 'PASS', message: 'No restricted cards found.' } };
+        };
+
+        const checkFactionLoyalty = (allSaCards, warlords, warlordException, jautyaExceptionCard, extraSACard, activeRuleSet, contextLabel) => {
+            let loyaltyStatus = 'PASS';
+            let loyaltyMessage = `${contextLabel} characters share a faction with the Warlord.`;
+            
+            const allWarlordFactions = new Set();
+            const warlordList = Array.isArray(warlords) ? warlords : (warlords ? [warlords] : []);
+
+            // Determine ruleset/exception-driven modes
+            const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
+            const requiresAlignment = warlordException?.requiresAlignment || null;
+            const requiresUnifiedFaction = !!(activeRuleSet.requiresUnifiedFaction || warlordException?.requiresUnifiedFaction);
+
+            // If there's no warlord and nothing requires enforcement, warn and skip
+            if (warlordList.length === 0 && !requiresUnifiedFaction && !requiresAlignment && !isFullBypass) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
+
+            const warlordNamesString = warlordList.map(w => w.name).join(' / ');
+            warlordList.forEach(wl => {
+                (wl.faction || '').toLowerCase().split(' ').filter(f => f && f !== 'neutral').forEach(f => allWarlordFactions.add(f));
+            });
+            const warlordFactions = Array.from(allWarlordFactions);
+            const warlordFactionDisplay = warlordFactions.map(f => f.toUpperCase()).join(', ');
+            
+            let cardsToCheck = allSaCards;
+            if (extraSACard) cardsToCheck = cardsToCheck.filter(c => c.name !== extraSACard.name);
+            else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
+
+            const violations = [];
+            // ruleset-level flags act as defaults alongside warlord-specific exceptions
+            if (isFullBypass) {
+                loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
+            } else if (requiresAlignment) {
+                loyaltyMessage = `All characters match **${requiresAlignment}** alignment (Warlord **${warlordNamesString}** requirement).`;
+                cardsToCheck.forEach(c => {
+                    if (c.type === 'Character' && !c.isFactionWildcard && c.alignment !== requiresAlignment) {
+                        violations.push(`${c.name} (${c.alignment || 'None'})`);
+                    }
+                });
+            } else if (requiresUnifiedFaction) {
+                // Enforce that all Starting Army characters share a single faction (independent of warlord faction)
+                const charCards = cardsToCheck.filter(c => c.type === 'Character' && !c.isFactionWildcard);
+                if (charCards.length === 0) {
+                    loyaltyMessage = `No character faction data available to enforce unified faction.`;
+                } else {
+                    const firstFactions = (charCards[0].faction || '').toLowerCase().split(' ').filter(Boolean);
+                    const firstSet = new Set(firstFactions);
+                    const violationsUnified = [];
+                    for (const c of charCards) {
+                        if (warlordException?.loyaltyBypass?.requiredClass && c.classes.includes(warlordException.loyaltyBypass.requiredClass)) continue;
+                        const cFactions = (c.faction || '').toLowerCase().split(' ').filter(Boolean);
+                        const intersects = cFactions.some(f => firstSet.has(f));
+                        if (!intersects) violationsUnified.push(`${c.name} (${c.faction || 'None'})`);
+                    }
+                    if (violationsUnified.length > 0) {
+                        loyaltyStatus = 'FAIL';
+                        loyaltyMessage = `Unified Faction Violations: ${violationsUnified.join(', ')}`;
+                    } else {
+                        loyaltyMessage = `All characters share a single faction (${firstFactions[0] ? firstFactions[0].toUpperCase() : 'UNKNOWN'}).`;
+                    }
+                }
+            } else if (!requiresUnifiedFaction && warlordFactions.length > 0) {
+                loyaltyMessage = `All characters match **${warlordFactionDisplay}** faction (Warlord **${warlordNamesString}**).`;
+                cardsToCheck.forEach(c => {
+                    if (c.type === 'Character' && !c.isFactionWildcard) {
+                        if (warlordException?.loyaltyBypass?.requiredClass && c.classes.includes(warlordException.loyaltyBypass.requiredClass)) return;
+                        const cFactions = (c.faction || '').toLowerCase().split(' ');
+                        if (!cFactions.some(f => warlordFactions.includes(f))) violations.push(`${c.name} (${c.faction})`);
+                    }
+                });
+            }
+
+            if (violations.length > 0) {
+                loyaltyStatus = 'FAIL';
+                loyaltyMessage = `Loyalty Violations in ${contextLabel}:<br>${violations.join('<br>')}`;
+            }
+            return { pass: loyaltyStatus === 'PASS', result: { status: loyaltyStatus, message: loyaltyMessage } };
+        };
+
+        const checkSAComposition = (allSaCards, warlords, warlordData, activeRuleSet, warlordException, selectedEditions, extraSACard) => {
+            const saRequired = activeRuleSet.saRequiredSlots || [];
+            const slotsToFill = {};
+            saRequired.forEach(s => slotsToFill[s.level] = s.count);
+            
+            let saMessage = [];
+            let saStatus = 'PASS';
+
+            let cardsToCount = [...allSaCards];
+            if (extraSACard) {
+                 const idx = cardsToCount.findIndex(c => c.name === extraSACard.name);
+                 if (idx > -1) cardsToCount.splice(idx, 1);
+            }
+
+            const exceptions = warlordException?.compositionExceptions ? [...warlordException.compositionExceptions] : [];
+            
+            cardsToCount = cardsToCount.filter(c => {
+                const charEx = SA_CHARACTER_EXCEPTIONS.find(e => e.normalizedName === normalizeName(c.name).toLowerCase());
+                if (charEx) {
+                    charEx.consumes.forEach(l => slotsToFill[l] = (slotsToFill[l] || 0) - 1);
+                    return false; 
+                }
+                return true;
+            });
+
+            if (warlordException && !warlordException.addsExtraSASlot) {
+                const wlExceptions = [...exceptions];
+                for (const card of cardsToCount) {
+                    let exceptionApplied = false;
+                     for (let i = 0; i < wlExceptions.length; i++) {
+                        const ex = wlExceptions[i];
+                        const criteria = ex.criteria;
+                        const levelMatch = card.level === criteria.level;
+                        const classMatch = criteria.isSingleClass 
+                            ? (card.classes.length === 1 && card.classes.includes(criteria.classes[0]))
+                            : card.classes.some(c => criteria.classes.includes(c));
+                        
+                        if (card.type === criteria.type && levelMatch && classMatch) {
+                            slotsToFill[ex.replaces] = (slotsToFill[ex.replaces] || 0) - 1;
+                            wlExceptions.splice(i, 1);
+                            exceptionApplied = true;
+                            break;
+                        }
+                     }
+                     if (exceptionApplied) {
+                         cardsToCount = cardsToCount.filter(c => c !== card);
+                     }
+                }
+            }
+
+            cardsToCount.forEach(c => {
+                if (c.type === 'Character') {
+                    if (slotsToFill[c.level] !== undefined) slotsToFill[c.level] -= (c.count || 1);
+                    else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
+                } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
+                     saMessage.push(`Invalid card type in SA: ${c.name}`);
+                }
+            });
+
+            // Adjusted: Allow warlord exception for multiple copies (e.g., Zartoch, Ferris Bachman)
+            const reqWl = activeRuleSet.warlordCount || 1;
+            // If there is only one unique warlord and it is a special exception (e.g., Zartoch or Ferris Bachman), and the exception allows more than 1 copy, allow it
+            if (warlords.length !== reqWl) {
+                // Check for exception: only one unique warlord, and it's a special exception, and the exception allows >1
+                const uniqueWarlordNorms = Array.from(new Set(warlords.map(w => (w.normalizedName || normalizeName(w.name).toLowerCase()))));
+                if (
+                    uniqueWarlordNorms.length === 1 &&
+                    (uniqueWarlordNorms[0] === 'zartoch' || uniqueWarlordNorms[0] === 'ferrisbachman') &&
+                    warlordException && warlordException.copyLimitException && warlordException.copyLimitException.maxCopies > 1 &&
+                    warlords.length <= warlordException.copyLimitException.maxCopies
+                ) {
+                    // Allow this case, do not fail
+                } else {
+                    saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
+                    saStatus = 'FAIL';
+                }
+            }
+
+            for (const [lvl, count] of Object.entries(slotsToFill)) {
+                if (count !== 0) {
+                    saMessage.push(`Level ${lvl} slots mismatch: ${count > 0 ? 'Missing ' + count : 'Excess ' + Math.abs(count)}`);
+                    saStatus = 'FAIL';
+                }
+            }
+            
+            const forbiddenInSA = [];
+            cardsToCount.forEach(c => {
+                 if (isSAForbidden(c, selectedEditions)) forbiddenInSA.push(c.name);
+                 if (warlordException?.saForbiddenCards && warlordException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase())) forbiddenInSA.push(c.name);
+            });
+            
+            if (forbiddenInSA.length > 0) {
+                 saMessage.push(`Forbidden in Starting Army: ${[...new Set(forbiddenInSA)].join(', ')}`);
+                 saStatus = 'FAIL';
+            }
+
+            const msg = saMessage.length ? saMessage.join('<br>') : `Starting Army structure is valid.`;
+            return { pass: saStatus === 'PASS', result: { status: saStatus, message: msg } };
+        };
+
+        // Reload configuration only (used when admin signals an update via localStorage)
+        // Returns true if the config was changed/applied, false if unchanged or failed
+        const reloadConfigOnly = async () => {
+            try {
+                const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
+                if (!r.ok) return false;
+                const configJson = await r.json();
+                const newSignature = JSON.stringify(configJson);
+                if (lastConfigSignature && newSignature === lastConfigSignature) {
+                    console.info('reloadConfigOnly: config unchanged');
+                    return false;
+                }
+
+                RULE_SETS = configJson.rulesets || {};
+                WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
+                SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
+                SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
+                FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+                lastConfigSignature = newSignature;
+
+                // Rebuild ruleset selector (hide hidden ones)
+                const rulesetKeys = Object.keys(RULE_SETS || {});
+                const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
+                const defaultKey = configJson.defaultRuleset;
+                let orderedKeys = visibleKeys;
+                if (defaultKey && visibleKeys.includes(defaultKey)) {
+                    orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                }
+                const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
+                const limit = Math.min(orderedKeys.length, configuredLimit);
+                const prev = rulesetSelect.value;
+                rulesetSelect.innerHTML = '';
+                for (let j = 0; j < limit; j++) {
+                    const key = orderedKeys[j];
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = RULE_SETS[key].name;
+                    rulesetSelect.appendChild(option);
+                }
+                // restore selection where possible
+                if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
+                    rulesetSelect.value = prev;
+                } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
+                    rulesetSelect.value = defaultKey;
+                }
+                console.info('Configuration reloaded from admin update');
+                return true;
+            } catch (e) {
+                console.warn('Failed to reload config:', e && e.message);
+                return false;
+            }
+        };
+
+        const checkTotalCount = (allLegalCards, activeRuleSet) => { 
+            const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
+            const totalLegalCount = allLegalCards.reduce((sum, card) => sum + (card.count || 1), 0);
+            let countStatus = 'PASS';
+            let countMessage = `Total legal cards in SA and Main Deck: **${totalLegalCount}** (${totalLegalCount} cards total).`;
+
+            if (totalLegalCount < minTotalDeck) {
+                countStatus = 'FAIL';
+                countMessage += ` The deck needs a minimum of **${minTotalDeck}** legal cards total. Missing ${minTotalDeck - totalLegalCount} total cards.`;
+            } 
+            return {
+                pass: countStatus === 'PASS',
+                result: { status: countStatus, message: countMessage }
+            };
+        };
+
+        const checkTypeDominance = (allLegalCards) => {
+            const typeCounts = {};
+            let total = 0;
+            allLegalCards.forEach(card => {
+                const type = card.type || 'Unknown Type';
+                const count = card.count || 1;
+                typeCounts[type] = (typeCounts[type] || 0) + count;
+                total += count;
+            });
+
+            const maxAllowedTypeCount = Math.max(25, Math.floor(total / 2));
+            const dominanceViolations = [];
+
+            for (const type in typeCounts) {
+                if (typeCounts[type] > maxAllowedTypeCount) {
+                    dominanceViolations.push(`${type} (${typeCounts[type]} copies out of ${total}, > 50%)`);
+                }
+            }
+
+            let typeDominanceStatus = 'PASS';
+            let typeDominanceMessage = `No single card type exceeds 50% of the deck (${maxAllowedTypeCount} cards allowed).`;
+
+            if (dominanceViolations.length > 0) {
+                typeDominanceStatus = 'FAIL';
+                typeDominanceMessage = `The following card types exceed the 50% maximum limit (${maxAllowedTypeCount} cards allowed): ${[...new Set(dominanceViolations)].join(', ')}.`;
+            }
+
+            return {
+                pass: typeDominanceStatus === 'PASS',
+                result: { status: typeDominanceStatus, message: typeDominanceMessage }
+            };
+        };
+
+
+        // --- MAIN CHECK ---
+        const checkDeck = () => {
+            const saInput = document.getElementById('sa-wl-input').value.trim();
+            const mdInput = document.getElementById('main-deck-input').value.trim();
+            const activeRuleSet = RULE_SETS[rulesetSelect.value] || RULE_SETS['default'];
+            const selectedEditions = activeRuleSet.editions;
+
+            const cardCounts = {};
+            const saList = [], mdList = [];
+            parseCardInput(saInput, cardCounts, saList);
+            parseCardInput(mdInput, cardCounts, mdList);
+            const allCards = [...saList, ...mdList];
+
+            const checks = {};
+            let deckIsLegal = true;
+
+            // Unknown Cards
+            const unknown = [...saList, ...mdList].filter(c => c.isUnknown);
+            if (unknown.length > 0) {
+                checks.unknown = { status: 'FAIL', message: `Unknown cards: ${[...new Set(unknown.map(c => c.name))].join(', ')}` };
+                deckIsLegal = false;
+            }
+        
+            const editionViolations = [];
+            allCards.forEach(card => {
+                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name);
+            });
+            if (editionViolations.length > 0) {
+                checks.editionLegality = { status: 'FAIL', message: `Illegal edition cards: ${[...new Set(editionViolations)].join(', ')}` };
+                deckIsLegal = false;
+            } else {
+                 checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
+            }
+
+            // Use all cards for copy/type dominance checks, not just edition-legal
+            const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const allSubmittedCards = [...saList, ...mdList];
+
+            // Count warlords in both Starting Army and Main Deck
+            const warlords = [...saList, ...mdList].filter(c => c.isWarlord);
+            const saCards = saList.filter(c => !c.isWarlord);
+            const wlData = warlords.length > 0 ? warlords[0] : null;
+            const wlException = getWarlordException(wlData);
+
+            let extraSACard = null;
+            if (wlException?.addsExtraSASlot && wlData) {
+                if (wlException.saForbiddenCards) {
+                     const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
+                     if (!forbidden) {
+                         const criteria = wlException.compositionExceptions[0]?.criteria;
+                         if (criteria) {
+                             extraSACard = saCards.find(c => {
+                                 if (criteria.type && c.type !== criteria.type) return false;
+                                 if (criteria.level && c.level > criteria.level) return false;
+                                 if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                                 if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                                 return true;
+                             });
+                         }
+                     }
+                } else {
+                     const criteria = wlException.compositionExceptions[0]?.criteria;
+                     if (criteria) {
+                         extraSACard = saCards.find(c => {
+                             if (criteria.type && c.type !== criteria.type) return false;
+                             if (criteria.level && c.level > criteria.level) return false;
+                             if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                             if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                             return true;
+                         });
+                     }
+                }
+            }
+
+            // Always check copy limits on all submitted cards
+            const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
+            checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
+            if (!copyRes.deckIsLegal) deckIsLegal = false;
+
+            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
+            if (!restrictionRes.pass) {
+                checks.restrictions = restrictionRes.result;
+                deckIsLegal = false;
+            }
+
+            const saLoyalty = checkFactionLoyalty(saCards, warlords, wlException, null, extraSACard, activeRuleSet, "Starting Army");
+            checks.saLoyalty = saLoyalty.result;
+            if (!saLoyalty.pass) deckIsLegal = false;
+
+            if (activeRuleSet.checkMainDeckFaction) {
+                const mdChars = mainDeckLegal.filter(c => c.type === 'Character');
+                const mdLoyalty = checkFactionLoyalty(mdChars, warlords, wlException, null, null, activeRuleSet, "Main Deck");
+                checks.mdLoyalty = mdLoyalty.result;
+                if (!mdLoyalty.pass) deckIsLegal = false;
+            }
+
+            const saComp = checkSAComposition(saCards, warlords, wlData, activeRuleSet, wlException, selectedEditions, extraSACard);
+            checks.saComp = saComp.result;
+            if (!saComp.pass) deckIsLegal = false;
+            
+            const totalCountCheck = checkTotalCount(allLegalCards, activeRuleSet);
+            checks.totalCount = totalCountCheck.result;
+            if (!totalCountCheck.pass) deckIsLegal = false;
+
+            // Always check type dominance on all submitted cards
+            const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
+            checks.typeDominance = typeDominanceCheck.result;
+            if (!typeDominanceCheck.pass) deckIsLegal = false;
+            
+            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
+            if (overlordCheck.result) { 
+                 checks.overlordLimit = overlordCheck.result;
+                 if (!overlordCheck.pass) deckIsLegal = false;
+            }
+            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
+            if (dragonlordCheck.result) { 
+                 checks.dragonlordLimit = dragonlordCheck.result;
+                 if (!dragonlordCheck.pass) deckIsLegal = false;
+            }
+            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
+            if (daemonlordCheck.result) { 
+                 checks.daemonlordLimit = daemonlordCheck.result;
+                 if (!daemonlordCheck.pass) deckIsLegal = false;
+            }
+            const activeExceptionsMessage = [];
+            if (extraSACard) {
+                 activeExceptionsMessage.push(`Exception Active: **${extraSACard.name}** added as extra SA card.`);
+            }
+            const activeRings = SA_RING_EXCEPTIONS.filter(r => saCards.some(c => normalizeName(c.name).toLowerCase() === r.normalizedName));
+            activeRings.forEach(r => activeExceptionsMessage.push(`Exception Active: **${r.name}** equip rule.`));
+            
+            if (activeExceptionsMessage.length > 0) {
+                 checks.activeExceptions = { status: 'INFO', message: activeExceptionsMessage.join('<br>') };
+            }
+
+            let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
+            
+                        const displayOrder = [
+                                'unknown', 
+                                'editionLegality', 
+                                'restrictions', 
+                                'totalCount', 
+                                'saComp', 
+                                'saLoyalty', 
+                                'mdLoyalty', 
+                                'copyLimits', 
+                                'overlordLimit',
+                                'dragonlordLimit', 
+                                'daemonlordLimit',  
+                                'typeDominance',
+                                'activeExceptions' 
+                        ];
+
+                        for (const key of displayOrder) {
+                                const res = checks[key];
+                                if (res) {
+                                         let icon = '🟢';
+                                         if (res.status === 'FAIL') icon = '🔴';
+                                         if (res.status === 'INFO') icon = '🔵';
+                                         html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
+                                }
+                        }
+                        html += `</div></div>`;
+                        // If legal, include submit controls
+                        if (deckIsLegal) {
+                            html += `
+                            <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                                <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                                    <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
+                                    <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                                    <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                                </form>
+                                <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+                            </div>`;
+                        }
+                        document.getElementById('results').innerHTML = html;
+
+                        // Populate event dropdown from event_list.json if present
+                        if (deckIsLegal) {
+                                fetch('events/event_list.json?_=' + Date.now())
+                                    .then(r => r.json())
+                                    .then(events => {
+                                        const eventSelect = document.getElementById('submit-eventname');
+                                        eventSelect.innerHTML = '';
+                                        if (Array.isArray(events)) {
+                                            events.forEach(ev => {
+                                                if (ev && typeof ev === 'object' && ev.eventName) {
+                                                    const opt = document.createElement('option');
+                                                    opt.value = ev.eventName;
+                                                    opt.textContent = ev.eventName;
+                                                    eventSelect.appendChild(opt);
+                                                }
+                                            });
+                                        }
+                                    });
+                        }
+
+            if (deckIsLegal) {
+                const discordUserSummary = document.getElementById('discord-user-summary');
+                const submitButton = document.getElementById('submit-deck-button');
+                const eventSelect = document.getElementById('submit-eventname');
+                const statusEl = document.getElementById('submit-status');
+                // Show Discord user info or require login
+                if (window.discordUser && window.discordUser.id) {
+                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
+                } else {
+                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                    submitButton.disabled = true;
+                }
+                submitButton.addEventListener('click', async () => {
+                    if (!window.discordUser || !window.discordUser.id) {
+                        statusEl.textContent = 'You must log in with Discord to submit.';
+                        return;
+                    }
+                    const username = window.discordUser.id;
+                    const discordUsername = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    const eventName = (eventSelect.value || '').trim() || 'default-event';
+                    // Fetch event_list.json to get required ruleset for event
+                    let requiredRuleset = null;
+                    try {
+                        const events = await fetch('events/event_list.json?_=' + Date.now()).then(r => r.json());
+                        if (Array.isArray(events)) {
+                            const found = events.find(ev => {
+                                if (typeof ev === 'string') return ev === eventName;
+                                return ev.eventName === eventName;
+                            });
+                            if (found && typeof found === 'object' && found.requiredRuleset) {
+                                requiredRuleset = found.requiredRuleset;
+                            }
+                        }
+                    } catch (e) { /* ignore */ }
+                    // Check if current ruleset matches required ruleset
+                    const currentRuleset = rulesetSelect.value;
+                    if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                        statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                        return;
+                    }
+                    try {
+                        statusEl.textContent = 'Preparing deck payload...';
+                        // Build card list structure
+                        if (typeof buildCardListByType !== 'function') {
+                            window.buildCardListByType = function(allCards, saCards) {
+                                const typeMap = {};
+                                allCards.forEach(card => {
+                                    const type = card.type || 'Unknown';
+                                    if (!typeMap[type]) typeMap[type] = {};
+                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                                });
+                                // Always include all SA cards (not just Characters) in StartingArmy
+                                const saMap = {};
+                                saCards.forEach(card => {
+                                    saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                });
+                                // Attach StartingArmy to each type present in SA
+                                Object.keys(typeMap).forEach(type => {
+                                    typeMap[type] = {
+                                        ...typeMap[type],
+                                        StartingArmy: {}
+                                    };
+                                });
+                                // Fill StartingArmy for each type
+                                saCards.forEach(card => {
+                                    if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                        typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                    }
+                                });
+                                return typeMap;
+                            };
+                        }
+                        const cardList = buildCardListByType(allCards, saList);
+                        const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                        const timestamp = new Date().toISOString();
+                        // Prepare event file object and decks.json
+                        const owner = 'daddyeagle';
+                        const repo = 'warlord-sots-deck-checker';
+                        const branch = 'deploy-docs';
+                        const eventPath = `docs/events/${slugify(eventName)}.json`;
+                        const decksPath = `docs/events/decks.json`;
+                        // Fetch existing event file (if any), then upsert this username entry
+                        statusEl.textContent = 'Saving event entry...';
+                        const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
+                        eventObj.submissions = eventObj.submissions || {};
+                        eventObj.submissions[username] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
+                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, null);
+                        statusEl.textContent = 'Saving deck to deck database...';
+                        const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
+                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
+                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, null);
+                        statusEl.textContent = 'Deck submitted successfully.';
+                    } catch (err) {
+                        console.error('Submit failed', err);
+                        statusEl.textContent = 'Submit failed: ' + (err.message || err);
+                    }
+                });
+            }
+        };
+
+        const clearDeck = () => {
+            document.getElementById('sa-wl-input').value = '';
+            document.getElementById('main-deck-input').value = '';
+            checkDeck(); 
+        };
+
+        window.checkDeck = checkDeck;
+        window.clearDeck = clearDeck;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
+            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
+            document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
+            await loadAppData();
+            // Listen for admin updates signaled via localStorage and reload config when seen
+            window.addEventListener('storage', async (e) => {
+                if (!e) return;
+                if (e.key === 'warlordConfigUpdate') {
+                    try {
+                        const changed = await reloadConfigOnly();
+                        if (!changed) {
+                            console.warn('Config reload reported no change; attempting stronger network refresh');
+                            const forced = await loadAppData(3, 1000, true);
+                            if (!forced) {/* ...existing code... */}
+                        }
+                    } catch(err) { console.warn('reload on storage failed', err); }
+                }
+            });
+            // Reset legality and submission window if ruleset is changed
+            document.getElementById('ruleset-select').addEventListener('change', () => {
+                document.getElementById('results').innerHTML = '';
+            });
+            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
+            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
+        });
+
+    </script>
+</body>
+</html>
