@@ -98,10 +98,10 @@
     </div>
 
     <script type="module">
-        // ...existing code (unchanged, but ensure all braces and parentheses are balanced and the script ends with one }); before </script>)...
-    </script>
-</body>
-            fetch('/api/auth/success', { credentials: 'include' })
+        // --- HANDLE /auth-success REDIRECT ---
+        if (window.location.pathname === '/auth-success') {
+            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
+            fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
                 .then(async res => {
                     if (res.ok) {
                         const user = await res.json();
@@ -114,10 +114,17 @@
                     document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
                 });
         }
+                            // --- CONFIGURABLE BACKEND URL ---
+                            // Set this to your backend's public URL (e.g., Codespaces/Dev Container forwarded URL)
+                            window.BACKEND_URL = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
+                        // --- DISCORD OAUTH2 LOGIN ---
+                        const discordLoginBtn = document.getElementById('discord-login-btn');
+                        const discordUserInfo = document.getElementById('discord-user-info');
+                        let discordUser = null;
 
                         async function fetchDiscordUser() {
                             try {
-                                const res = await fetch('/api/auth/success', {
+                                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
                                     credentials: 'include'
                                 });
                                 if (res.ok) {
@@ -138,8 +145,8 @@
                         }
 
                         if (discordLoginBtn) {
-                            discordLoginBtn.addEventListener && discordLoginBtn.addEventListener('click', () => {
-                                window.location.href = '/api/auth/discord';
+                            discordLoginBtn.addEventListener('click', () => {
+                                window.location.href = window.BACKEND_URL + '/api/auth/discord';
                             });
                         }
                         // On page load, check if user is already logged in
@@ -204,229 +211,7 @@
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
         }
 
-        // --- CONSTANTS ----------------------------------------------------
-
-        let cardDatabase = {};
-        let lastConfigSignature = null;
-        let RULE_SETS = {};
-        let WL_SA_LOYALTY_EXCEPTIONS = [];
-        let SA_RING_EXCEPTIONS = [];
-        let SA_CHARACTER_EXCEPTIONS = [];
-        let FACTION_WILDCARD_NAMES = [];
-        
-        // Absolute URL for Cards (works everywhere), Relative for Config (works locally if served)
-        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        const CONFIG_DATA_URL = "warlord_configuration.json";
-
-        // --- REGEX & CONSTANTS ---
-        // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
-        // Quantity: optional number, optional space, optional 'x' or 'X' (only if followed by a space), then card name (allowable special chars: ', -, ., ,, :, !, ?)
-        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros', "X'andros", "X-andros", etc.
-        // Card name stops at first disallowed character (e.g., (, [, {, ")
-        const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
-        const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
-        const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
-        const errataEpicRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Epic/gi; 
-        const errataReservedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Reserved/gi;
-        const errataBannedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Banned/gi;
-
-        const loadingStatusDiv = document.getElementById('loading-status');
-        const inputSectionDiv = document.getElementById('input-section');
-        const resultsDiv = document.getElementById('results');
-        const rulesetSelect = document.getElementById('ruleset-select');
-
-        // --- DATABASE & PARSING ---------------------------------------------------
-
-        const normalizeName = (name) => name.replace(/[^a-zA-Z0-9]/g, '');
-
-        const getSAExceptions = (card) => {
-            const lowerText = (card.text || '').toLowerCase();
-            const saExceptions = { isItemStarter: false, isReplacement: false };
-            if (card.type && card.type.toLowerCase() === 'item') {
-                if (lowerText.includes("may start the game in play") || lowerText.includes("starts in play")) {
-                    saExceptions.isItemStarter = true;
-                }
-            } else if (card.type && card.type.toLowerCase() === 'character' && !(card.subtype && card.subtype.includes("warlord"))) {
-                if (lowerText.includes("may start in play in rank") && (lowerText.includes("instead of") || lowerText.includes("replaces"))) {
-                    saExceptions.isReplacement = true;
-                }
-            }
-            return saExceptions;
-        }
-
-        const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
-            // If required elements are missing (e.g., on /auth-success), skip loading
-            if (!loadingStatusDiv || !inputSectionDiv || !rulesetSelect) return false;
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
-                    const [cardsResponse, configResponse] = await Promise.all([
-                        fetch(CARD_DATA_URL, cardFetchOpts),
-                        fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
-                    ]);
-
-                    if (!cardsResponse.ok) {
-                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
-                        throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
-                    }
-                    if (!configResponse.ok) {
-                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
-                        throw new Error(`Config HTTP error! status: ${configResponse.status}`);
-                    }
-
-                    const cardJson = await cardsResponse.json();
-                    const configJson = await configResponse.json();
-                    
-                    // 1. Hydrate Configuration from JSON
-                    RULE_SETS = configJson.rulesets || {};
-                    WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
-                    SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
-                    SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
-                    FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
-
-                    // Populate Ruleset Select (hide rulesets marked as hidden)
-                    rulesetSelect.innerHTML = '';
-                    const rulesetKeys = Object.keys(RULE_SETS || {});
-                    const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
-                    // If a default is configured, place it first (if visible)
-                    const defaultKey = configJson.defaultRuleset;
-                    let orderedKeys = visibleKeys;
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
-                    }
-                    // Respect configured index selector limit (set via admin), default 10
-                    const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
-                    const limit = Math.min(orderedKeys.length, configuredLimit);
-                    for(let j = 0; j < limit; j++) {
-                        const key = orderedKeys[j];
-                        const option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = RULE_SETS[key].name;
-                        rulesetSelect.appendChild(option);
-                    }
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        rulesetSelect.value = defaultKey;
-                    }
-
-                    // 2. Process Card Data
-                    const newDatabase = {};
-                    
-                    if (Array.isArray(cardJson)) {
-                        cardJson.forEach(card => {
-                            const level = parseInt(card.level);
-                            const rawSubtype = String(card.subtype || '').toLowerCase(); 
-                            const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
-                            const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
-                                ? card.faction.map(f => String(f).toLowerCase()).join(' ') 
-                                : 'neutral';
-                            
-                            const isWarlord = rawSubtype.includes("warlord");
-                            const editions = card.editions || [];
-                            const lowerText = (card.text || '').toLowerCase(); 
-                            const lookupKey = normalizeName(card.name).toLowerCase(); 
-                            const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
-                            const saExceptions = getSAExceptions(card);
-                            const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
-                            
-                            const printInfos = card.printInfos || [];
-                            const sets = [...new Set(printInfos.map(info => info.set))];
-                            const rarities = [...new Set(printInfos.map(info => info.rarity))];
-
-                            if (newDatabase[lookupKey]) {
-                                console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
-                            }
-
-                            newDatabase[lookupKey] = { 
-                                name: card.name,
-                                normalizedName: lookupKey,
-                                type: card.type || (level > 0 ? 'Character' : 'Action'), 
-                                level: isNaN(level) ? 0 : level,
-                                isWarlord: isWarlord,
-                                rawSubtype: rawSubtype, 
-                                faction: primaryFaction, 
-                                alignment: card.alignment || '', 
-                                classes: classes, 
-                                isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
-                                isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
-                                isFactionWildcard: isFactionWildcard, 
-                                isUnlimitedCopies: isUnlimitedCopies, 
-                                editions: editions,
-                                sets: sets,
-                                rarities: rarities,
-                                printInfos: printInfos,
-                                bannedErrataFormats: [], 
-                                saReservedFormats: [],
-                                epicErrataFormats: [],
-                                isSACharacterReplacement: saExceptions.isReplacement,
-                                text: card.text || '' 
-                            };
-                            
-                            // Populate errata formats
-                             if (card.errata) {
-                                let match;
-                                errataEpicRegex.lastIndex = 0; 
-                                while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
-                                errataReservedRegex.lastIndex = 0; 
-                                while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
-                                errataBannedRegex.lastIndex = 0; 
-                                while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
-                            }
-                        });
-                    }
-
-                    if (Object.keys(newDatabase).length > 0) {
-                        cardDatabase = newDatabase;
-                        if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
-                        if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
-                        try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
-                        return true;
-                    }
-
-                } catch (error) {
-                    if (loadingStatusDiv) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
-                        loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
-                        loadingStatusDiv.classList.remove('text-sky-400');
-                    }
-                    console.error('LoadAppData error:', error);
-                    if (i < retries - 1) {
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2;
-                    }
-                }
-            }
-            return false;
-        };
-
-        // --- REGULAR EXPRESSION HELPERS ---
-        const parseCardInput = (input, cardCounts, cardList) => {
-            const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
-            lines.forEach(line => {
-                // Ignore lines that start with //, #, or &
-                if (/^(\/\/|#|&)/.test(line)) return;
-                const lineMatch = lineRegex.exec(line);
-                if (!lineMatch) return;
-                const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
-                let name = lineMatch[2] ? lineMatch[2].trim() : '';
-                // Truncate at first disallowed character (anything not in allowed set)
-                const allowedChars = "A-Za-z0-9'\-\.,:!\? ";
-                const disallowedCharMatch = name.match(new RegExp(`[^${allowedChars}]`));
-                if (disallowedCharMatch) {
-                    name = name.substring(0, disallowedCharMatch.index).trim();
-                }
-                if (!name) return;
-                const slug = normalizeName(name).toLowerCase();
-                cardCounts[slug] = (cardCounts[slug] || 0) + count;
-                let card = cardDatabase[slug];
-                if (card) {
-                    cardList.push({ ...card, count });
-                } else {
-                    cardList.push({ name, isUnknown: true, count });
-                }
-            });
-        };
-
-        // --- EXCEPTION HELPERS ---
+        // ...existing code continues for the rest of the file...
         const getWarlordException = (warlordData) => {
             if (!warlordData) return null;
             const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
