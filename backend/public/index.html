@@ -1119,8 +1119,8 @@
                             html += `
                             <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
                                 <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                                <div id="discord-user-summary" class="mb-2 text-gray-200 text-sm"></div>
                                 <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                                    <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
                                     <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
                                     <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
                                 </form>
@@ -1157,7 +1157,9 @@
                 // Show Discord user info or require login
                 if (window.discordUser && window.discordUser.id) {
                     const displayName = window.discordUser.global_name || `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                    discordUserSummary.textContent = `Logged in as <b>${displayName}</b>`;
+                    const userKey = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    discordUserSummary.innerHTML = `Submitting as <b>${displayName}</b> <span class="text-gray-400">(${userKey})</span>`;
+                    submitButton.disabled = false;
                 } else {
                     discordUserSummary.textContent = 'You must log in with Discord to submit.';
                     submitButton.disabled = true;
