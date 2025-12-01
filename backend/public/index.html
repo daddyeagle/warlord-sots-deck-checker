@@ -1289,7 +1289,9 @@
                         if (!changed) {
                             console.warn('Config reload reported no change; attempting stronger network refresh');
                             const forced = await loadAppData(3, 1000, true);
-                            if (!forced) {/* ...existing code... */}
+                            if (!forced) {
+                                // No further action needed
+                            }
                         }
                     } catch(err) { console.warn('reload on storage failed', err); }
                 }
