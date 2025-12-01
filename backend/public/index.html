@@ -98,120 +98,124 @@
     </div>
 
     <script type="module">
-        // --- HANDLE /auth-success REDIRECT ---
-        if (window.location.pathname === '/auth-success') {
-            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
-            fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
-                .then(async res => {
-                    if (res.ok) {
-                        const user = await res.json();
-                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
-                    } else {
-                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
-                    }
-                })
-                .catch(() => {
-                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
-                });
+// --- HANDLE /auth-success REDIRECT ---
+if (window.location.pathname === '/auth-success') {
+    document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
+    fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
+        .then(async res => {
+            if (res.ok) {
+                const user = await res.json();
+                document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
+            } else {
+                document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+            }
+        })
+        .catch(() => {
+            document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+        });
+}
+
+// --- CONFIGURABLE BACKEND URL ---
+// Set this to your backend's public URL (e.g., Codespaces/Dev Container forwarded URL)
+window.BACKEND_URL = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
+
+// --- DISCORD OAUTH2 LOGIN ---
+const discordLoginBtn = document.getElementById('discord-login-btn');
+const discordUserInfo = document.getElementById('discord-user-info');
+let discordUser = null;
+
+async function fetchDiscordUser() {
+    try {
+        const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
+            credentials: 'include'
+        });
+        if (res.ok) {
+            const user = await res.json();
+            discordUser = user;
+            discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+            discordLoginBtn.style.display = 'none';
+        } else {
+            discordUser = null;
+            discordUserInfo.textContent = '';
+            discordLoginBtn.style.display = '';
         }
-                            // --- CONFIGURABLE BACKEND URL ---
-                            // Set this to your backend's public URL (e.g., Codespaces/Dev Container forwarded URL)
-                            window.BACKEND_URL = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
-                        // --- DISCORD OAUTH2 LOGIN ---
-                        const discordLoginBtn = document.getElementById('discord-login-btn');
-                        const discordUserInfo = document.getElementById('discord-user-info');
-                        let discordUser = null;
+    } catch (e) {
+        discordUser = null;
+        discordUserInfo.textContent = '';
+        discordLoginBtn.style.display = '';
+    }
+}
 
-                        async function fetchDiscordUser() {
-                            try {
-                                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
-                                    credentials: 'include'
-                                });
-                                if (res.ok) {
-                                    const user = await res.json();
-                                    discordUser = user;
-                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
-                                    discordLoginBtn.style.display = 'none';
-                                } else {
-                                    discordUser = null;
-                                    discordUserInfo.textContent = '';
-                                    discordLoginBtn.style.display = '';
-                                }
-                            } catch (e) {
-                                discordUser = null;
-                                discordUserInfo.textContent = '';
-                                discordLoginBtn.style.display = '';
-                            }
-                        }
+if (discordLoginBtn) {
+    discordLoginBtn.addEventListener('click', () => {
+        window.location.href = window.BACKEND_URL + '/api/auth/discord';
+    });
+}
+// On page load, check if user is already logged in
+if (window.location.pathname !== '/auth-success') fetchDiscordUser();
 
-                        if (discordLoginBtn) {
-                            discordLoginBtn.addEventListener('click', () => {
-                                window.location.href = window.BACKEND_URL + '/api/auth/discord';
-                            });
-                        }
-                        // On page load, check if user is already logged in
-                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
-                // --- GITHUB API HELPERS ---
-                async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
-                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-                    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
-                    const res = await fetch(url, { headers });
-                    if (res.status === 404) return null;
-                    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
-                    return await res.json();
+// --- GITHUB API HELPERS ---
+async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
+    const res = await fetch(url, { headers });
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+    return await res.json();
+}
+
+async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
+    // Always fetch the latest sha before updating
+    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
+    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
+    let sha = undefined;
+    let exists = false;
+    try {
+        const res = await fetch(getUrl, { headers });
+        const text = await res.text();
+        console.log('Full GET response for sha:', text);
+        try {
+            const data = JSON.parse(text);
+            if (res.ok) {
+                sha = data.sha;
+                exists = true;
+                if (!sha) {
+                    console.warn('Warning: GET response did not include sha property!', data);
                 }
-
-                async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
-                    // Always fetch the latest sha before updating
-                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
-                    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
-                    let sha = undefined;
-                    let exists = false;
-                    try {
-                        const res = await fetch(getUrl, { headers });
-                        const text = await res.text();
-                        console.log('Full GET response for sha:', text);
-                        try {
-                            const data = JSON.parse(text);
-                            if (res.ok) {
-                                sha = data.sha;
-                                exists = true;
-                                if (!sha) {
-                                    console.warn('Warning: GET response did not include sha property!', data);
-                                }
-                            }
-                        } catch (jsonErr) {
-                            console.warn('Failed to parse GET response for sha:', text);
-                        }
-                    } catch (e) { console.warn('GET for sha failed:', e); }
-                    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-                    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
-                    const body = { message, content, branch };
-                    // Defensive: if file exists but sha is missing, log and abort
-                    if (exists && !sha) {
-                        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
-                        throw new Error('File exists but sha is missing. Cannot update file without sha.');
-                    }
-                    if (sha) body.sha = sha;
-                    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-                    if (!putRes.ok) {
-                        let errMsg = `GitHub PUT failed: ${putRes.status}`;
-                        try {
-                            const errText = await putRes.text();
-                            errMsg += `\nResponse: ${errText}`;
-                        } catch (e) {
-                            // ignore parse error
-                        }
-                        throw new Error(errMsg);
-                    }
-                    return await putRes.json();
-                }
-        // --- DECK SUBMISSION HELPERS ---
-        function slugify(str) {
-            return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            }
+        } catch (jsonErr) {
+            console.warn('Failed to parse GET response for sha:', text);
         }
+    } catch (e) { console.warn('GET for sha failed:', e); }
+    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
+    const body = { message, content, branch };
+    // Defensive: if file exists but sha is missing, log and abort
+    if (exists && !sha) {
+        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
+        throw new Error('File exists but sha is missing. Cannot update file without sha.');
+    }
+    if (sha) body.sha = sha;
+    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+    if (!putRes.ok) {
+        let errMsg = `GitHub PUT failed: ${putRes.status}`;
+        try {
+            const errText = await putRes.text();
+            errMsg += `\nResponse: ${errText}`;
+        } catch (e) {
+            // ignore parse error
+        }
+        throw new Error(errMsg);
+    }
+    return await putRes.json();
+}
 
-        // ...existing code continues for the rest of the file...
+// --- DECK SUBMISSION HELPERS ---
+function slugify(str) {
+    return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+// ...existing code continues for the rest of the file...
         const getWarlordException = (warlordData) => {
             if (!warlordData) return null;
             const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
