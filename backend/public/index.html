@@ -1,3 +1,4 @@
+
 <!-- All JS is now inside the <script type="module"> block below. -->
 <!DOCTYPE html>
 <html lang="en">
@@ -97,10 +98,9 @@
     </div>
 
     <script type="module">
-        // --- HANDLE /auth-success REDIRECT ---
-        if (window.location.pathname === '/auth-success') {
-
-            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
+        // ...existing code (unchanged, but ensure all braces and parentheses are balanced and the script ends with one }); before </script>)...
+    </script>
+</body>
             fetch('/api/auth/success', { credentials: 'include' })
                 .then(async res => {
                     if (res.ok) {
