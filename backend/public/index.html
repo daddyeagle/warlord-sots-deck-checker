@@ -239,7 +239,6 @@
         const loadingStatusDiv = document.getElementById('loading-status');
         const inputSectionDiv = document.getElementById('input-section');
         const resultsDiv = document.getElementById('results');
-        const rulesetSelect = document.getElementById('ruleset-select');
 
         // --- DATABASE & PARSING ---------------------------------------------------
 
@@ -270,17 +269,17 @@
                     ]);
 
                     if (!cardsResponse.ok) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
                         throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     }
                     if (!configResponse.ok) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
                         throw new Error(`Config HTTP error! status: ${configResponse.status}`);
                     }
 
                     const cardJson = await cardsResponse.json();
                     const configJson = await configResponse.json();
-                    
+
                     // 1. Hydrate Configuration from JSON
                     RULE_SETS = configJson.rulesets || {};
                     WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
@@ -288,50 +287,26 @@
                     SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                     FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
 
-                    // Populate Ruleset Select (hide rulesets marked as hidden)
-                    rulesetSelect.innerHTML = '';
-                    const rulesetKeys = Object.keys(RULE_SETS || {});
-                    const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
-                    // If a default is configured, place it first (if visible)
-                    const defaultKey = configJson.defaultRuleset;
-                    let orderedKeys = visibleKeys;
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
-                    }
-                    // Respect configured index selector limit (set via admin), default 10
-                    const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
-                    const limit = Math.min(orderedKeys.length, configuredLimit);
-                    for(let j = 0; j < limit; j++) {
-                        const key = orderedKeys[j];
-                        const option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = RULE_SETS[key].name;
-                        rulesetSelect.appendChild(option);
-                    }
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        rulesetSelect.value = defaultKey;
-                    }
-
                     // 2. Process Card Data
                     const newDatabase = {};
-                    
+
                     if (Array.isArray(cardJson)) {
                         cardJson.forEach(card => {
                             const level = parseInt(card.level);
-                            const rawSubtype = String(card.subtype || '').toLowerCase(); 
+                            const rawSubtype = String(card.subtype || '').toLowerCase();
                             const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
                             const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
-                                ? card.faction.map(f => String(f).toLowerCase()).join(' ') 
+                                ? card.faction.map(f => String(f).toLowerCase()).join(' ')
                                 : 'neutral';
-                            
+
                             const isWarlord = rawSubtype.includes("warlord");
                             const editions = card.editions || [];
-                            const lowerText = (card.text || '').toLowerCase(); 
-                            const lookupKey = normalizeName(card.name).toLowerCase(); 
+                            const lowerText = (card.text || '').toLowerCase();
+                            const lookupKey = normalizeName(card.name).toLowerCase();
                             const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
                             const saExceptions = getSAExceptions(card);
                             const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
-                            
+
                             const printInfos = card.printInfos || [];
                             const sets = [...new Set(printInfos.map(info => info.set))];
                             const rarities = [...new Set(printInfos.map(info => info.rarity))];
@@ -340,39 +315,39 @@
                                 console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
                             }
 
-                            newDatabase[lookupKey] = { 
+                            newDatabase[lookupKey] = {
                                 name: card.name,
                                 normalizedName: lookupKey,
-                                type: card.type || (level > 0 ? 'Character' : 'Action'), 
+                                type: card.type || (level > 0 ? 'Character' : 'Action'),
                                 level: isNaN(level) ? 0 : level,
                                 isWarlord: isWarlord,
-                                rawSubtype: rawSubtype, 
-                                faction: primaryFaction, 
-                                alignment: card.alignment || '', 
-                                classes: classes, 
+                                rawSubtype: rawSubtype,
+                                faction: primaryFaction,
+                                alignment: card.alignment || '',
+                                classes: classes,
                                 isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
                                 isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
-                                isFactionWildcard: isFactionWildcard, 
-                                isUnlimitedCopies: isUnlimitedCopies, 
+                                isFactionWildcard: isFactionWildcard,
+                                isUnlimitedCopies: isUnlimitedCopies,
                                 editions: editions,
                                 sets: sets,
                                 rarities: rarities,
                                 printInfos: printInfos,
-                                bannedErrataFormats: [], 
+                                bannedErrataFormats: [],
                                 saReservedFormats: [],
                                 epicErrataFormats: [],
                                 isSACharacterReplacement: saExceptions.isReplacement,
-                                text: card.text || '' 
+                                text: card.text || ''
                             };
-                            
+
                             // Populate errata formats
-                             if (card.errata) {
+                            if (card.errata) {
                                 let match;
-                                errataEpicRegex.lastIndex = 0; 
+                                errataEpicRegex.lastIndex = 0;
                                 while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
-                                errataReservedRegex.lastIndex = 0; 
+                                errataReservedRegex.lastIndex = 0;
                                 while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
-                                errataBannedRegex.lastIndex = 0; 
+                                errataBannedRegex.lastIndex = 0;
                                 while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
                             }
                         });
@@ -380,16 +355,16 @@
 
                     if (Object.keys(newDatabase).length > 0) {
                         cardDatabase = newDatabase;
-                        loadingStatusDiv.className = 'hidden';
-                        inputSectionDiv.classList.remove('hidden');
+                        if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
+                        if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
                         try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
                         return true;
                     }
 
                 } catch (error) {
-                    loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
-                    loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
-                    loadingStatusDiv.classList.remove('text-sky-400');
+                    if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
+                    if (loadingStatusDiv) loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
+                    if (loadingStatusDiv) loadingStatusDiv.classList.remove('text-sky-400');
                     console.error('LoadAppData error:', error);
                     if (i < retries - 1) {
                         await new Promise(resolve => setTimeout(resolve, delay));
