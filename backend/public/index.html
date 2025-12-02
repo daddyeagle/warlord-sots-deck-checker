@@ -50,39 +50,30 @@
         </div>
 
         <div id="input-section" class="hidden space-y-6">
-            
-            <!-- Rule Set Selection -->
+            <!-- Event Selection and Deck Inputs -->
             <div class="card-container p-6 rounded-xl">
-                <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Format</h2>
+                <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Event</h2>
                 <div>
-                    <select id="ruleset-select" class="w-full p-3 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
+                    <select id="event-select" class="w-full p-3 mb-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
                         <!-- Options populated by JS -->
                     </select>
                     <p class="text-xs mt-2 text-gray-500">
-                        Select a format to apply deck construction rules defined in <code>warlord_configuration.json</code>.
+                        Select an event to submit your deck to. Events are loaded from <code>event_list.json</code>.
                     </p>
                 </div>
             </div>
-
-            <!-- Deck Inputs -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="card-container p-6 rounded-xl">
                     <label for="sa-wl-input" class="block text-lg font-bold mb-2 text-gray-200">2. Starting Army</label>
                     <p class="text-xs text-gray-500 mb-2">Warlord + Characters/Items starting in play.</p>
-                    <div class="mb-3 flex gap-3">
-                        <input id="submit-username" type="text" placeholder="Your username" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
-                        <input id="submit-eventname" type="text" placeholder="Event name (optional)" class="w-1/2 p-2 bg-gray-800 border border-gray-700 text-gray-50 rounded-lg" />
-                    </div>
                     <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
                 </div>
-
                 <div class="card-container p-6 rounded-xl">
                     <label for="main-deck-input" class="block text-lg font-bold mb-2 text-gray-200">3. Main Deck</label>
                     <p class="text-xs text-gray-500 mb-2">Characters, Actions, Items, etc.</p>
                     <textarea id="main-deck-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="3 Card Name&#10;3 Another Card&#10;..."></textarea>
                 </div>
             </div>
-            
             <!-- Button Row -->
             <div class="grid grid-cols-2 gap-4 mt-6">
                 <button id="clear-deck-button" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition duration-200">
@@ -101,38 +92,67 @@
     </div>
 
     <script type="module">
-                        // --- DISCORD OAUTH2 LOGIN ---
-                        const discordLoginBtn = document.getElementById('discord-login-btn');
-                        const discordUserInfo = document.getElementById('discord-user-info');
-                        let discordUser = null;
+        // --- DISCORD OAUTH2 LOGIN ---
+        const discordLoginBtn = document.getElementById('discord-login-btn');
+        const discordUserInfo = document.getElementById('discord-user-info');
+        let discordUser = null;
+        let discordDisplayName = null;
+        let discordUsernameTag = null;
 
-                        async function fetchDiscordUser() {
-                            try {
-                                const res = await fetch('/api/auth/success', { credentials: 'include' });
-                                if (res.ok) {
-                                    const user = await res.json();
-                                    discordUser = user;
-                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
-                                    discordLoginBtn.style.display = 'none';
-                                } else {
-                                    discordUser = null;
-                                    discordUserInfo.textContent = '';
-                                    discordLoginBtn.style.display = '';
-                                }
-                            } catch (e) {
-                                discordUser = null;
-                                discordUserInfo.textContent = '';
-                                discordLoginBtn.style.display = '';
-                            }
-                        }
+        async function fetchDiscordUser() {
+            try {
+                const res = await fetch('/api/auth/success', { credentials: 'include' });
+                if (res.ok) {
+                    const user = await res.json();
+                    discordUser = user;
+                    // Prefer display_name if available, else username#discriminator
+                    discordDisplayName = user.global_name || user.display_name || user.username;
+                    discordUsernameTag = `${user.username}#${user.discriminator}`;
+                    discordUserInfo.textContent = `Logged in as ${discordDisplayName}`;
+                    discordLoginBtn.style.display = 'none';
+                } else {
+                    discordUser = null;
+                    discordDisplayName = null;
+                    discordUsernameTag = null;
+                    discordUserInfo.textContent = '';
+                    discordLoginBtn.style.display = '';
+                }
+            } catch (e) {
+                discordUser = null;
+                discordDisplayName = null;
+                discordUsernameTag = null;
+                discordUserInfo.textContent = '';
+                discordLoginBtn.style.display = '';
+            }
+        }
 
-                        if (discordLoginBtn) {
-                            discordLoginBtn.addEventListener('click', () => {
-                                window.location.href = '/api/auth/discord';
-                            });
-                        }
-                        // On page load, check if user is already logged in
-                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+        if (discordLoginBtn) {
+            discordLoginBtn.addEventListener('click', () => {
+                window.location.href = '/api/auth/discord';
+            });
+        }
+        // On page load, check if user is already logged in
+        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+
+        // --- EVENT LIST DROPDOWN ---
+        async function populateEventDropdown() {
+            const eventSelect = document.getElementById('event-select');
+            try {
+                const res = await fetch('events/event_list.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load event list');
+                const events = await res.json();
+                eventSelect.innerHTML = '';
+                events.forEach(ev => {
+                    const opt = document.createElement('option');
+                    opt.value = ev.eventName;
+                    opt.textContent = ev.eventName;
+                    eventSelect.appendChild(opt);
+                });
+            } catch (e) {
+                eventSelect.innerHTML = '<option value="">(No events found)</option>';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', populateEventDropdown);
                 // --- GITHUB API HELPERS ---
                 async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
                     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
@@ -1017,11 +1037,10 @@
             if (deckIsLegal) {
                 document.getElementById('submit-deck-button').addEventListener('click', async () => {
                     const tokenRaw = document.getElementById('submit-token').value || '';
-                    const token = tokenRaw.replace(/[\u0100-\uFFFF]/g, '');
-                    const username = (document.getElementById('submit-username').value || '').trim();
-                    const eventName = (document.getElementById('submit-eventname').value || '').trim() || 'default-event';
+                    const token = tokenRaw.replace(/[^\x00-\xFF]/g, '');
+                    const eventName = (document.getElementById('event-select').value || '').trim() || 'default-event';
                     const statusEl = document.getElementById('submit-status');
-                    if (!username) { statusEl.textContent = 'Please enter your username before submitting.'; return; }
+                    if (!discordDisplayName || !discordUsernameTag) { statusEl.textContent = 'You must be logged in with Discord to submit.'; return; }
                     if (!token) { statusEl.textContent = 'A GitHub Personal Access Token is required to save. Use the Test Token area in admin if unsure.'; return; }
 
                     try {
@@ -1068,17 +1087,17 @@
                         const eventPath = `docs/events/${slugify(eventName)}.json`;
                         const decksPath = `docs/events/decks.json`;
 
-                        // Fetch existing event file (if any), then upsert this username entry
+                        // Fetch existing event file (if any), then upsert this user entry
                         statusEl.textContent = 'Saving event entry...';
                         const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, token) || { eventName: eventName, submissions: {} };
                         eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = { warlord: warlordName, username, timestamp };
-                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, token);
+                        eventObj.submissions[discordUsernameTag] = { warlord: warlordName, displayName: discordDisplayName, usernameTag: discordUsernameTag, timestamp };
+                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${discordUsernameTag} for ${eventName}`, branch, token);
 
                         statusEl.textContent = 'Saving deck to deck database...';
                         const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, token) || {};
-                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
-                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, token);
+                        decksObj[discordUsernameTag] = { displayName: discordDisplayName, usernameTag: discordUsernameTag, event: eventName, warlord: warlordName, timestamp, cardList };
+                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${discordUsernameTag} (${eventName})`, branch, token);
 
                         statusEl.textContent = 'Deck submitted successfully.';
                     } catch (err) {
