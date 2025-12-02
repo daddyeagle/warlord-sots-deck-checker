@@ -108,31 +108,22 @@
         const discordLoginBtn = document.getElementById('discord-login-btn');
         const discordUserInfo = document.getElementById('discord-user-info');
         let discordUser = null;
-        let discordDisplayName = null;
-        let discordUsernameTag = null;
+        // No display name or username tracking
 
         async function fetchDiscordUser() {
             try {
                 const res = await fetch('/api/auth/success', { credentials: 'include' });
                 if (res.ok) {
-                    const user = await res.json();
-                    discordUser = user;
-                    // Prefer display_name if available, else username#discriminator
-                    discordDisplayName = user.global_name || user.display_name || user.username;
-                    discordUsernameTag = `${user.username}#${user.discriminator}`;
-                    discordUserInfo.textContent = `Logged in as ${discordDisplayName}`;
+                    discordUser = await res.json();
+                    discordUserInfo.textContent = `Logged in with Discord`;
                     discordLoginBtn.style.display = 'none';
                 } else {
                     discordUser = null;
-                    discordDisplayName = null;
-                    discordUsernameTag = null;
                     discordUserInfo.textContent = '';
                     discordLoginBtn.style.display = '';
                 }
             } catch (e) {
                 discordUser = null;
-                discordDisplayName = null;
-                discordUsernameTag = null;
                 discordUserInfo.textContent = '';
                 discordLoginBtn.style.display = '';
             }
@@ -1050,12 +1041,11 @@
             html += `</div></div>`;
             // If legal, include submit controls
             if (deckIsLegal) {
-                if (discordDisplayName && discordUsernameTag) {
+                if (discordUser) {
                     html += `
                     <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                        <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (one deck per Discord account per event).</p>
+                        <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database.</p>
                         <div class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                            <span class="text-green-400 font-bold">Logged in as: ${discordDisplayName}</span>
                             <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
                         </div>
                         <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
@@ -1150,7 +1140,7 @@
         window.clearDeck = clearDeck;
 
         document.addEventListener('DOMContentLoaded', async () => {
-                if (discordDisplayName && discordUsernameTag) {
+                if (discordUser) {
                     document.getElementById('submit-deck-button').addEventListener('click', async () => {
                         const eventName = (document.getElementById('event-select').value || '').trim() || 'default-event';
                         const statusEl = document.getElementById('submit-status');
@@ -1191,7 +1181,6 @@
                             const timestamp = new Date().toISOString();
 
                             // Prepare event file object and decks.json
-                            // For December Ancients+ event, update december-ancients.json
                             let eventFile = 'docs/events/' + slugify(eventName) + '.json';
                             if (eventName === 'December Ancients+') eventFile = 'docs/events/december-ancients.json';
                             const decksPath = 'docs/events/decks.json';
@@ -1201,16 +1190,16 @@
                             let eventObj = await fetchJsonFromGitHub('daddyeagle', 'warlord-sots-deck-checker', eventFile, 'deploy-docs');
                             if (!eventObj) eventObj = { eventName: eventName, submissions: {} };
                             eventObj.submissions = eventObj.submissions || {};
-                            // Only allow one deck per discordUsernameTag
-                            eventObj.submissions[discordUsernameTag] = { warlord: warlordName, username: discordDisplayName, discord_username: discordUsernameTag, timestamp };
-                            await putJsonToGitHub('daddyeagle', 'warlord-sots-deck-checker', eventFile, eventObj, `Add/Update event submission by ${discordUsernameTag} for ${eventName}`, 'deploy-docs');
+                            // Only allow one deck per user (by Discord ID, if available)
+                            const userKey = discordUser && discordUser.id ? discordUser.id : 'anonymous';
+                            eventObj.submissions[userKey] = { warlord: warlordName, timestamp };
+                            await putJsonToGitHub('daddyeagle', 'warlord-sots-deck-checker', eventFile, eventObj, `Add/Update event submission by ${userKey} for ${eventName}`, 'deploy-docs');
 
                             statusEl.textContent = 'Saving deck to deck database...';
                             let decksObj = await fetchJsonFromGitHub('daddyeagle', 'warlord-sots-deck-checker', decksPath, 'deploy-docs');
                             if (!decksObj) decksObj = {};
-                            // Only allow one deck per discordUsernameTag
-                            decksObj[discordUsernameTag] = { username: discordDisplayName, discord_username: discordUsernameTag, event: eventName, warlord: warlordName, timestamp, cardList };
-                            await putJsonToGitHub('daddyeagle', 'warlord-sots-deck-checker', decksPath, decksObj, `Add/Update deck for ${discordUsernameTag} (${eventName})`, 'deploy-docs');
+                            decksObj[userKey] = { event: eventName, warlord: warlordName, timestamp, cardList };
+                            await putJsonToGitHub('daddyeagle', 'warlord-sots-deck-checker', decksPath, decksObj, `Add/Update deck for ${userKey} (${eventName})`, 'deploy-docs');
 
                             statusEl.textContent = 'Deck submitted successfully.';
                         } catch (err) {
