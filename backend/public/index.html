@@ -36,6 +36,13 @@
             <h1 class="text-3xl sm:text-4xl font-extrabold text-amber-400">Warlord Deck Checker</h1>
             <p class="text-gray-400 text-lg mt-2">Enter your Starting Army and Main Deck to validate legality.</p>
             <p class="text-gray-600 text-xs mt-1">v2.2 (External Configuration)</p>
+            <div id="discord-login-container" class="mt-4">
+                <button id="discord-login-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 mx-auto">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width:1.5em;height:1.5em;vertical-align:middle;filter:invert(1);"/>
+                    Login with Discord
+                </button>
+                <span id="discord-user-info" class="ml-4 text-gray-300 font-semibold"></span>
+            </div>
         </header>
 
         <div id="loading-status" class="card-container p-6 rounded-xl text-center text-lg font-semibold text-sky-400">
@@ -94,6 +101,38 @@
     </div>
 
     <script type="module">
+                        // --- DISCORD OAUTH2 LOGIN ---
+                        const discordLoginBtn = document.getElementById('discord-login-btn');
+                        const discordUserInfo = document.getElementById('discord-user-info');
+                        let discordUser = null;
+
+                        async function fetchDiscordUser() {
+                            try {
+                                const res = await fetch('/api/auth/success', { credentials: 'include' });
+                                if (res.ok) {
+                                    const user = await res.json();
+                                    discordUser = user;
+                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+                                    discordLoginBtn.style.display = 'none';
+                                } else {
+                                    discordUser = null;
+                                    discordUserInfo.textContent = '';
+                                    discordLoginBtn.style.display = '';
+                                }
+                            } catch (e) {
+                                discordUser = null;
+                                discordUserInfo.textContent = '';
+                                discordLoginBtn.style.display = '';
+                            }
+                        }
+
+                        if (discordLoginBtn) {
+                            discordLoginBtn.addEventListener('click', () => {
+                                window.location.href = '/api/auth/discord';
+                            });
+                        }
+                        // On page load, check if user is already logged in
+                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
                 // --- GITHUB API HELPERS ---
                 async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
                     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
