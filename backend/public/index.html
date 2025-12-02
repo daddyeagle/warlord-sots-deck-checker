@@ -50,6 +50,18 @@
         </div>
 
         <div id="input-section" class="hidden space-y-6">
+                        <!-- Rule Set Selection -->
+                        <div class="card-container p-6 rounded-xl">
+                            <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Format</h2>
+                            <div>
+                                <select id="ruleset-select" class="w-full p-3 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
+                                    <!-- Options populated by JS -->
+                                </select>
+                                <p class="text-xs mt-2 text-gray-500">
+                                    Select a format to apply deck construction rules defined in <code>warlord_configuration.json</code>.
+                                </p>
+                            </div>
+                        </div>
             <!-- Event Selection and Deck Inputs -->
             <div class="card-container p-6 rounded-xl">
                 <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Event</h2>
@@ -237,6 +249,7 @@
         const errataBannedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Banned/gi;
 
         const loadingStatusDiv = document.getElementById('loading-status');
+            const rulesetSelect = document.getElementById('ruleset-select');
         const inputSectionDiv = document.getElementById('input-section');
         const resultsDiv = document.getElementById('results');
 
@@ -260,6 +273,31 @@
         }
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
+                        // Repopulate ruleset selector
+                        function populateRulesetSelector(configJson) {
+                            if (!rulesetSelect) return;
+                            RULE_SETS = configJson.rulesets || {};
+                            rulesetSelect.innerHTML = '';
+                            const rulesetKeys = Object.keys(RULE_SETS || {});
+                            const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
+                            const defaultKey = configJson.defaultRuleset;
+                            let orderedKeys = visibleKeys;
+                            if (defaultKey && visibleKeys.includes(defaultKey)) {
+                                orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                            }
+                            const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
+                            const limit = Math.min(orderedKeys.length, configuredLimit);
+                            for(let j = 0; j < limit; j++) {
+                                const key = orderedKeys[j];
+                                const option = document.createElement('option');
+                                option.value = key;
+                                option.textContent = RULE_SETS[key].name;
+                                rulesetSelect.appendChild(option);
+                            }
+                            if (defaultKey && visibleKeys.includes(defaultKey)) {
+                                rulesetSelect.value = defaultKey;
+                            }
+                        }
             for (let i = 0; i < retries; i++) {
                 try {
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
@@ -286,6 +324,7 @@
                     SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
                     SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                     FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+                    populateRulesetSelector(configJson);
 
                     // 2. Process Card Data
                     const newDatabase = {};
