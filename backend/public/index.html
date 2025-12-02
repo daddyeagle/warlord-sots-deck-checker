@@ -1259,9 +1259,10 @@
         window.clearDeck = clearDeck;
 
         document.addEventListener('DOMContentLoaded', async () => {
-            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
-            document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
-            document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
+            const clearBtn = document.getElementById('clear-deck-button');
+            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
+            const checkBtn = document.getElementById('check-deck-button');
+            if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
             await loadAppData();
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
@@ -1278,9 +1279,13 @@
                 }
             });
             // Reset legality and submission window if ruleset is changed
-            document.getElementById('ruleset-select').addEventListener('change', () => {
-                document.getElementById('results').innerHTML = '';
-            });
+            const rulesetSelect = document.getElementById('ruleset-select');
+            if (rulesetSelect) {
+                rulesetSelect.addEventListener('change', () => {
+                    const resultsDiv = document.getElementById('results');
+                    if (resultsDiv) resultsDiv.innerHTML = '';
+                });
+            }
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
         });
