@@ -878,8 +878,22 @@
         const checkDeck = () => {
             const saInput = document.getElementById('sa-wl-input').value.trim();
             const mdInput = document.getElementById('main-deck-input').value.trim();
-            const activeRuleSet = RULE_SETS[rulesetSelect.value] || RULE_SETS['default'];
-            const selectedEditions = activeRuleSet.editions;
+            let activeRuleSet = null;
+            let selectedEditions = [];
+            if (rulesetSelect && rulesetSelect.value && RULE_SETS[rulesetSelect.value]) {
+                activeRuleSet = RULE_SETS[rulesetSelect.value];
+                selectedEditions = activeRuleSet.editions;
+            } else {
+                // fallback to first available ruleset
+                const keys = Object.keys(RULE_SETS);
+                if (keys.length > 0) {
+                    activeRuleSet = RULE_SETS[keys[0]];
+                    selectedEditions = activeRuleSet.editions;
+                } else {
+                    activeRuleSet = {};
+                    selectedEditions = [];
+                }
+            }
 
             const cardCounts = {};
             const saList = [], mdList = [];
