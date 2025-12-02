@@ -270,129 +270,111 @@
                     ]);
 
                     if (!cardsResponse.ok) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
                         throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     }
                     if (!configResponse.ok) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
                         throw new Error(`Config HTTP error! status: ${configResponse.status}`);
                     }
 
                     const cardJson = await cardsResponse.json();
-                    for (let i = 0; i < retries; i++) {
-                        try {
-                            const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
-                            const [cardsResponse, configResponse] = await Promise.all([
-                                fetch(CARD_DATA_URL, cardFetchOpts),
-                                fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
-                            ]);
+                    const configJson = await configResponse.json();
 
-                            if (!cardsResponse.ok) {
-                                if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
-                                throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
-                            }
-                            if (!configResponse.ok) {
-                                if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
-                                throw new Error(`Config HTTP error! status: ${configResponse.status}`);
-                            }
+                    // 1. Hydrate Configuration from JSON
+                    RULE_SETS = configJson.rulesets || {};
+                    WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
+                    SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
+                    SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
+                    FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
+                    populateRulesetSelector(configJson);
 
-                            const cardJson = await cardsResponse.json();
-                            const configJson = await configResponse.json();
+                    // 2. Process Card Data
+                    const newDatabase = {};
 
-                            // 1. Hydrate Configuration from JSON
-                            RULE_SETS = configJson.rulesets || {};
-                            WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
-                            SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
-                            SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
-                            FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
-                            populateRulesetSelector(configJson);
+                    if (Array.isArray(cardJson)) {
+                        cardJson.forEach(card => {
+                            const level = parseInt(card.level);
+                            const rawSubtype = String(card.subtype || '').toLowerCase();
+                            const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
+                            const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
+                                ? card.faction.map(f => String(f).toLowerCase()).join(' ')
+                                : 'neutral';
 
-                            // 2. Process Card Data
-                            const newDatabase = {};
+                            const isWarlord = rawSubtype.includes("warlord");
+                            const editions = card.editions || [];
+                            const lowerText = (card.text || '').toLowerCase();
+                            const lookupKey = normalizeName(card.name).toLowerCase();
+                            const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
+                            const saExceptions = getSAExceptions(card);
+                            const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
 
-                            if (Array.isArray(cardJson)) {
-                                cardJson.forEach(card => {
-                                    const level = parseInt(card.level);
-                                    const rawSubtype = String(card.subtype || '').toLowerCase();
-                                    const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
-                                    const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
-                                        ? card.faction.map(f => String(f).toLowerCase()).join(' ')
-                                        : 'neutral';
+                            const printInfos = card.printInfos || [];
+                            const sets = [...new Set(printInfos.map(info => info.set))];
+                            const rarities = [...new Set(printInfos.map(info => info.rarity))];
 
-                                    const isWarlord = rawSubtype.includes("warlord");
-                                    const editions = card.editions || [];
-                                    const lowerText = (card.text || '').toLowerCase();
-                                    const lookupKey = normalizeName(card.name).toLowerCase();
-                                    const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
-                                    const saExceptions = getSAExceptions(card);
-                                    const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
-
-                                    const printInfos = card.printInfos || [];
-                                    const sets = [...new Set(printInfos.map(info => info.set))];
-                                    const rarities = [...new Set(printInfos.map(info => info.rarity))];
-
-                                    if (newDatabase[lookupKey]) {
-                                        console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
-                                    }
-
-                                    newDatabase[lookupKey] = {
-                                        name: card.name,
-                                        normalizedName: lookupKey,
-                                        type: card.type || (level > 0 ? 'Character' : 'Action'),
-                                        level: isNaN(level) ? 0 : level,
-                                        isWarlord: isWarlord,
-                                        rawSubtype: rawSubtype,
-                                        faction: primaryFaction,
-                                        alignment: card.alignment || '',
-                                        classes: classes,
-                                        isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
-                                        isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
-                                        isFactionWildcard: isFactionWildcard,
-                                        isUnlimitedCopies: isUnlimitedCopies,
-                                        editions: editions,
-                                        sets: sets,
-                                        rarities: rarities,
-                                        printInfos: printInfos,
-                                        bannedErrataFormats: [],
-                                        saReservedFormats: [],
-                                        epicErrataFormats: [],
-                                        isSACharacterReplacement: saExceptions.isReplacement,
-                                        text: card.text || ''
-                                    };
-
-                                    // Populate errata formats
-                                    if (card.errata) {
-                                        let match;
-                                        errataEpicRegex.lastIndex = 0;
-                                        while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
-                                        errataReservedRegex.lastIndex = 0;
-                                        while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
-                                        errataBannedRegex.lastIndex = 0;
-                                        while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
-                                    }
-                                });
+                            if (newDatabase[lookupKey]) {
+                                console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
                             }
 
-                            if (Object.keys(newDatabase).length > 0) {
-                                cardDatabase = newDatabase;
-                                if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
-                                if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
-                                try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
-                                return true;
-                            }
+                            newDatabase[lookupKey] = {
+                                name: card.name,
+                                normalizedName: lookupKey,
+                                type: card.type || (level > 0 ? 'Character' : 'Action'),
+                                level: isNaN(level) ? 0 : level,
+                                isWarlord: isWarlord,
+                                rawSubtype: rawSubtype,
+                                faction: primaryFaction,
+                                alignment: card.alignment || '',
+                                classes: classes,
+                                isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
+                                isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
+                                isFactionWildcard: isFactionWildcard,
+                                isUnlimitedCopies: isUnlimitedCopies,
+                                editions: editions,
+                                sets: sets,
+                                rarities: rarities,
+                                printInfos: printInfos,
+                                bannedErrataFormats: [],
+                                saReservedFormats: [],
+                                epicErrataFormats: [],
+                                isSACharacterReplacement: saExceptions.isReplacement,
+                                text: card.text || ''
+                            };
 
-                        } catch (error) {
-                            if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
-                            if (loadingStatusDiv) loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
-                            if (loadingStatusDiv) loadingStatusDiv.classList.remove('text-sky-400');
-                            console.error('LoadAppData error:', error);
-                            if (i < retries - 1) {
-                                await new Promise(resolve => setTimeout(resolve, delay));
-                                delay *= 2;
+                            // Populate errata formats
+                            if (card.errata) {
+                                let match;
+                                errataEpicRegex.lastIndex = 0;
+                                while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
+                                errataReservedRegex.lastIndex = 0;
+                                while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
+                                errataBannedRegex.lastIndex = 0;
+                                while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
                             }
-                        }
+                        });
                     }
-                    return false;
+
+                    if (Object.keys(newDatabase).length > 0) {
+                        cardDatabase = newDatabase;
+                        if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
+                        if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
+                        try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
+                        return true;
+                    }
+
+                } catch (error) {
+                    if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
+                    if (loadingStatusDiv) loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
+                    if (loadingStatusDiv) loadingStatusDiv.classList.remove('text-sky-400');
+                    console.error('LoadAppData error:', error);
+                    if (i < retries - 1) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+            return false;
                         delay *= 2;
                     }
                 }
