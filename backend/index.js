@@ -30,7 +30,7 @@ app.use(session({
     secure: process.env.NODE_ENV === 'production', // true in production (HTTPS)
     httpOnly: true,
     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    domain: process.env.COOKIE_DOMAIN || undefined, // set COOKIE_DOMAIN in .env if needed
+    //domain: process.env.COOKIE_DOMAIN || undefined, // set COOKIE_DOMAIN in .env if needed
     path: '/',
     maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
   }
