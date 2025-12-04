@@ -122,6 +122,11 @@ app.get('/api/auth/discord/callback', async (req, res) => {
 
 // Step 3: Auth success endpoint
 app.get('/api/auth/success', (req, res) => {
+  // CRITICAL FIX: Prevent browser from caching the "Not Authenticated" state
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+
   console.log("Checking session for /api/auth/success:", req.session);
   console.log("Session ID:", req.sessionID);
   
