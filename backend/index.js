@@ -10,10 +10,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// FIX 1: Trust Proxy must be first
-app.set('trust proxy', 1);
+// FIX 1: Trust ALL proxies (aggressive fix for Railway)
+app.set('trust proxy', true);
 
-// FIX 2: Debug Middleware moved to TOP so it actually runs
+// Debug Middleware
 app.use((req, res, next) => {
   console.log('--- Debug Info ---');
   console.log('Path:', req.path);
@@ -35,12 +35,12 @@ app.use(express.json());
 app.use(session({
   secret: process.env.SESSION_SECRET || 'replace_this_secret',
   resave: false,
-  saveUninitialized: false,
+  // FIX 2: Force save uninitialized to ensure cookie is always attempted
+  saveUninitialized: true,
   cookie: {
     secure: true, 
     sameSite: 'lax', 
     httpOnly: true,
-    // FIX 3: Removed explicit 'domain'. Let the browser handle it automatically.
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
@@ -86,21 +86,31 @@ app.get('/api/auth/discord/callback', async (req, res) => {
       headers: { Authorization: `Bearer ${accessToken}` }
     });
 
-    req.session.user = {
-      id: userRes.data.id,
-      username: userRes.data.username,
-      discriminator: userRes.data.discriminator
-    };
-
-    // FIX 4: CRITICAL - Force session save before redirect
-    req.session.save((err) => {
+    // FIX 3: Regenerate session to prevent fixation and force new cookie
+    req.session.regenerate(function(err) {
       if (err) {
-        console.error("Session save failed:", err);
-        return res.status(500).send("Session save failed");
+        console.error("Session regeneration failed:", err);
+        return res.status(500).send("Session error");
       }
-      console.log("Session saved successfully for user:", req.session.user.username);
-      // Redirect ONLY after save is confirmed
-      res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/auth-success');
+
+      // Store user info
+      req.session.user = {
+        id: userRes.data.id,
+        username: userRes.data.username,
+        discriminator: userRes.data.discriminator
+      };
+
+      // Force save before redirect
+      req.session.save((err) => {
+        if (err) {
+          console.error("Session save failed:", err);
+          return res.status(500).send("Session save failed");
+        }
+        console.log("Session saved successfully. ID:", req.sessionID);
+        console.log("User:", req.session.user.username);
+        
+        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/auth-success');
+      });
     });
 
   } catch (err) {
@@ -112,6 +122,8 @@ app.get('/api/auth/discord/callback', async (req, res) => {
 // Step 3: Auth success endpoint
 app.get('/api/auth/success', (req, res) => {
   console.log("Checking session for /api/auth/success:", req.session);
+  console.log("Session ID:", req.sessionID);
+  
   if (!req.session.user) return res.status(401).send('Not authenticated');
   
   res.json({
