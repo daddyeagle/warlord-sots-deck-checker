@@ -100,7 +100,8 @@
         // --- HANDLE /auth-success REDIRECT ---
         if (window.location.pathname === '/auth-success') {
             document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
-            fetch((window.BACKEND_URL || 'http://localhost:3001') + '/api/auth/success', { credentials: 'include' })
+            const backendUrl = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
+            fetch(backendUrl + '/api/auth/success', { credentials: 'include' })
                 .then(async res => {
                     if (res.ok) {
                         const user = await res.json();
