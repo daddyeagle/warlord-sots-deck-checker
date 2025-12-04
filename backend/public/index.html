@@ -107,7 +107,8 @@
                 .then(async res => {
                     if (res.ok) {
                         const user = await res.json();
-                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
+                        let displayName = user.displayName ? ` (${user.displayName})` : '';
+                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}${displayName}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
                     } else {
                         document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
                     }
@@ -129,7 +130,8 @@
                                 if (res.ok) {
                                     const user = await res.json();
                                     discordUser = user;
-                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+                                    let displayName = user.displayName ? ` (${user.displayName})` : '';
+                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}${displayName}`;
                                     discordLoginBtn.style.display = 'none';
                                 } else {
                                     discordUser = null;

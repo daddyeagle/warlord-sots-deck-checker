@@ -93,11 +93,12 @@ app.get('/api/auth/discord/callback', async (req, res) => {
         return res.status(500).send("Session error");
       }
 
-      // Store user info
+      // Store user info, including display name if available
       req.session.user = {
         id: userRes.data.id,
         username: userRes.data.username,
-        discriminator: userRes.data.discriminator
+        discriminator: userRes.data.discriminator,
+        displayName: userRes.data.global_name || userRes.data.display_name || null
       };
 
       // Force save before redirect
@@ -129,7 +130,8 @@ app.get('/api/auth/success', (req, res) => {
   res.json({
     id: req.session.user.id,
     username: req.session.user.username,
-    discriminator: req.session.user.discriminator
+    discriminator: req.session.user.discriminator,
+    displayName: req.session.user.displayName || null
   });
 });
 
