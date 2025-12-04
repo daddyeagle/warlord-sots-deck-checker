@@ -15,9 +15,7 @@ const PORT = process.env.PORT || 8080;
 // CORS setup: allow requests from frontend (adjust origin as needed)
 // CORS setup: allow requests from frontend (adjust origin as needed)
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? process.env.FRONTEND_ORIGIN
-    : 'http://localhost:3000',
+  origin: 'https://warlord-sots-deck-checker-production.up.railway.app',
   credentials: true
 }));
 
