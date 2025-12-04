@@ -96,8 +96,14 @@
 
     <script type="module">
         // --- CONFIGURATION ---
-        // Set this to your backend's public URL. Defined first so it's available immediately.
-        window.BACKEND_URL = window.BACKEND_URL || 'https://warlord-sots-deck-checker-production.up.railway.app';
+        // Determine backend URL logic:
+        // 1. If we are running on the production domain (Railway), use RELATIVE paths ('').
+        //    This is crucial for cookies to work reliably without CORS interference.
+        // 2. If we are local or in a preview blob, use the absolute production URL.
+        const PRODUCTION_HOST = 'warlord-sots-deck-checker-production.up.railway.app';
+        const isProduction = window.location.hostname === PRODUCTION_HOST || window.location.hostname.endsWith('.railway.app');
+        
+        window.BACKEND_URL = isProduction ? '' : 'https://warlord-sots-deck-checker-production.up.railway.app';
 
         // --- HANDLE /auth-success REDIRECT ---
         if (window.location.pathname === '/auth-success') {
@@ -112,12 +118,14 @@
                         // Optional: Auto-redirect after 1 second
                         setTimeout(() => window.location.href = '/', 1000);
                     } else {
-                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Session not found). <a href="/" class="underline text-red-400">Return to app</a>`;
+                        // Try to parse error text if available
+                        const errText = await res.text().catch(() => 'Unknown error');
+                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Session not found).<br><span class="text-xs text-gray-500">Status: ${res.status} - ${errText}</span><br><br><a href="/" class="underline text-red-400">Return to app</a>`;
                     }
                 })
                 .catch((err) => {
                     console.error(err);
-                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Network Error). <a href="/" class="underline text-red-400">Return to app</a>`;
+                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Network Error).<br><span class="text-xs text-gray-500">${err.message}</span><br><br><a href="/" class="underline text-red-400">Return to app</a>`;
                 });
         }
                         
@@ -137,19 +145,22 @@
                     // Make user available globally for submit logic
                     window.discordUser = user; 
                     discordUser = user;
-                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
-                    discordLoginBtn.style.display = 'none';
+                    // SAFEGUARD: Check if element exists before setting textContent
+                    if (discordUserInfo) discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+                    if (discordLoginBtn) discordLoginBtn.style.display = 'none';
                 } else {
                     window.discordUser = null;
                     discordUser = null;
-                    discordUserInfo.textContent = '';
-                    discordLoginBtn.style.display = '';
+                    // SAFEGUARD: Check if element exists before setting textContent
+                    if (discordUserInfo) discordUserInfo.textContent = '';
+                    if (discordLoginBtn) discordLoginBtn.style.display = '';
                 }
             } catch (e) {
                 window.discordUser = null;
                 discordUser = null;
-                discordUserInfo.textContent = '';
-                discordLoginBtn.style.display = '';
+                // SAFEGUARD: Check if element exists before setting textContent
+                if (discordUserInfo) discordUserInfo.textContent = '';
+                if (discordLoginBtn) discordLoginBtn.style.display = '';
             }
         }
 
