@@ -1154,20 +1154,19 @@
                 const submitButton = document.getElementById('submit-deck-button');
                 const eventSelect = document.getElementById('submit-eventname');
                 const statusEl = document.getElementById('submit-status');
-                // Show Discord user info or require login
+                // Only show Discord info if logged in
                 if (window.discordUser && window.discordUser.id) {
-                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}${window.discordUser.displayName ? ' (' + window.discordUser.displayName + ')' : ''}`;
+                    submitButton.style.display = '';
                 } else {
-                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
-                    submitButton.disabled = true;
+                    discordUserSummary.textContent = '';
+                    submitButton.style.display = 'none';
                 }
                 submitButton.addEventListener('click', async () => {
-                    if (!window.discordUser || !window.discordUser.id) {
-                        statusEl.textContent = 'You must log in with Discord to submit.';
-                        return;
-                    }
-                    const username = window.discordUser.id;
+                    if (!window.discordUser || !window.discordUser.id) return;
+                    // Use Discord display name as username, Discord tag as discord_username
                     const discordUsername = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    const username = window.discordUser.displayName || window.discordUser.global_name || window.discordUser.username;
                     const eventName = (eventSelect.value || '').trim() || 'default-event';
                     // Fetch event_list.json to get required ruleset for event
                     let requiredRuleset = null;
@@ -1230,16 +1229,16 @@
                         const branch = 'deploy-docs';
                         const eventPath = `docs/events/${slugify(eventName)}.json`;
                         const decksPath = `docs/events/decks.json`;
-                        // Fetch existing event file (if any), then upsert this username entry
+                        // Fetch existing event file (if any), then upsert this entry by Discord user
                         statusEl.textContent = 'Saving event entry...';
                         const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
                         eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
-                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, null);
+                        eventObj.submissions[discordUsername] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
+                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`, branch, null);
                         statusEl.textContent = 'Saving deck to deck database...';
                         const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
-                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
-                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, null);
+                        decksObj[discordUsername] = { username, discord_username: discordUsername, event: eventName, warlord: warlordName, timestamp, cardList };
+                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${discordUsername} (${eventName})`, branch, null);
                         statusEl.textContent = 'Deck submitted successfully.';
                     } catch (err) {
                         console.error('Submit failed', err);
