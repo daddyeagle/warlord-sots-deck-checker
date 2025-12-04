@@ -28,9 +28,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production', // true in production (HTTPS)
+    secure: true, // true in production (HTTPS)
     httpOnly: true,
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    sameSite:  'none',//process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     //domain: process.env.COOKIE_DOMAIN || undefined, // set COOKIE_DOMAIN in .env if needed
     path: '/',
     maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
