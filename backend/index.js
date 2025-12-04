@@ -28,10 +28,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true, // true in production (HTTPS)
+    secure: true, // Always true for Railway/production
     httpOnly: true,
-    sameSite:  'none',//process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    //domain: process.env.COOKIE_DOMAIN || undefined, // set COOKIE_DOMAIN in .env if needed
+    sameSite: 'none', // Always 'none' for cross-site cookies
     path: '/',
     maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
   }
