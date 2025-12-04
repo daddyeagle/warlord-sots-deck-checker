@@ -1156,13 +1156,18 @@
                 const statusEl = document.getElementById('submit-status');
     discord
                 // Only show Discord info if logged in
-                if (window.discordUser && window.discordUser.id) {
-                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}${window.discordUser.displayName ? ' (' + window.discordUser.displayName + ')' : ''}`;
-                    submitButton.style.display = '';
-                } else {
-                    discordUserSummary.textContent = '';
-                    submitButton.style.display = 'none';
-                }
+                    if (window.discordUser && window.discordUser.id) {
+                        // Show Discord Display Name (global_name or displayName) and Username#Discriminator
+                        const displayName = window.discordUser.displayName || window.discordUser.global_name || '';
+                        const usernameTag = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                        discordUserSummary.textContent = displayName
+                            ? `Logged in as ${displayName} (${usernameTag})`
+                            : `Logged in as ${usernameTag}`;
+                        submitButton.style.display = '';
+                    } else {
+                        discordUserSummary.textContent = '';
+                        submitButton.style.display = 'none';
+                    }
                 submitButton.addEventListener('click', async () => {
                     if (!window.discordUser || !window.discordUser.id) return;
                     // Use Discord display name as username, Discord tag as discord_username
