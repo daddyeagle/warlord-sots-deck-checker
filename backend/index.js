@@ -5,36 +5,47 @@ const express = require('express');
 const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
-
 const path = require('path');
+
 const app = express();
-app.set('trust proxy', 1);
 const PORT = process.env.PORT || 8080;
 
+// FIX 1: Trust Proxy must be first
+app.set('trust proxy', 1);
 
-// CORS setup: allow requests from frontend (adjust origin as needed)
-// CORS setup: allow requests from frontend (adjust origin as needed)
+// FIX 2: Debug Middleware moved to TOP so it actually runs
+app.use((req, res, next) => {
+  console.log('--- Debug Info ---');
+  console.log('Path:', req.path);
+  console.log('Protocol:', req.protocol); 
+  console.log('Secure:', req.secure);     
+  console.log('X-Forwarded-Proto:', req.get('x-forwarded-proto')); 
+  next();
+});
+
+// CORS setup
 app.use(cors({
   origin: 'https://warlord-sots-deck-checker-production.up.railway.app',
   credentials: true
 }));
 
-
 app.use(express.json());
+
+// Session Setup
 app.use(session({
   secret: process.env.SESSION_SECRET || 'replace_this_secret',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true, // Always true for Railway/production
+    secure: true, 
+    sameSite: 'lax', 
     httpOnly: true,
-    sameSite: 'none', // Always 'none' for cross-site cookies
-    path: '/',
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+    // FIX 3: Removed explicit 'domain'. Let the browser handle it automatically.
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
 
-// Serve static files from /public
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
@@ -56,8 +67,8 @@ app.get('/api/auth/discord', (req, res) => {
 app.get('/api/auth/discord/callback', async (req, res) => {
   const code = req.query.code;
   if (!code) return res.status(400).send('No code provided');
+  
   try {
-    // Exchange code for access token
     const tokenRes = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
@@ -68,26 +79,41 @@ app.get('/api/auth/discord/callback', async (req, res) => {
     }), {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     });
+
     const accessToken = tokenRes.data.access_token;
-    // Get user info
+    
     const userRes = await axios.get('https://discord.com/api/users/@me', {
       headers: { Authorization: `Bearer ${accessToken}` }
     });
-    // Store only user info in session, NOT the access token
+
     req.session.user = {
       id: userRes.data.id,
       username: userRes.data.username,
       discriminator: userRes.data.discriminator
     };
-    res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/api/auth/success');
+
+    // FIX 4: CRITICAL - Force session save before redirect
+    req.session.save((err) => {
+      if (err) {
+        console.error("Session save failed:", err);
+        return res.status(500).send("Session save failed");
+      }
+      console.log("Session saved successfully for user:", req.session.user.username);
+      // Redirect ONLY after save is confirmed
+      res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/auth-success');
+    });
+
   } catch (err) {
+    console.error('OAuth Error:', err.response ? err.response.data : err.message);
     res.status(500).send('OAuth2 Error: ' + err.message);
   }
 });
 
 // Step 3: Auth success endpoint
 app.get('/api/auth/success', (req, res) => {
+  console.log("Checking session for /api/auth/success:", req.session);
   if (!req.session.user) return res.status(401).send('Not authenticated');
+  
   res.json({
     id: req.session.user.id,
     username: req.session.user.username,
@@ -102,10 +128,8 @@ app.post('/api/auth/logout', (req, res) => {
   });
 });
 
-
-// SPA fallback: serve index.html for any unknown route (after API routes)
+// SPA fallback
 app.get('*', (req, res) => {
-  // Only handle non-API requests
   if (!req.path.startsWith('/api/')) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
   } else {
