@@ -1260,37 +1260,100 @@
         window.clearDeck = clearDeck;
 
         document.addEventListener('DOMContentLoaded', async () => {
-            const clearBtn = document.getElementById('clear-deck-button');
-            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
-            const checkBtn = document.getElementById('check-deck-button');
-            if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
-            await loadAppData();
-            // Listen for admin updates signaled via localStorage and reload config when seen
-            window.addEventListener('storage', async (e) => {
-                if (!e) return;
-                if (e.key === 'warlordConfigUpdate') {
-                    try {
-                        const changed = await reloadConfigOnly();
-                        if (!changed) {
-                            console.warn('Config reload reported no change; attempting stronger network refresh');
-                            const forced = await loadAppData(3, 1000, true);
-                            if (!forced) {/* ...existing code... */}
-                        }
-                    } catch(err) { console.warn('reload on storage failed', err); }
+                const discordUserSummary = document.getElementById('discord-user-summary');
+                const submitButton = document.getElementById('submit-deck-button');
+                const eventSelect = document.getElementById('submit-eventname');
+                const statusEl = document.getElementById('submit-status');
+                // Require Discord login to submit
+                if (window.discordUser && window.discordUser.id) {
+                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}${window.discordUser.displayName ? ' (' + window.discordUser.displayName + ')' : ''}`;
+                } else {
+                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                    submitButton.disabled = true;
                 }
-            });
-            // Reset legality and submission window if ruleset is changed
-            const rulesetSelect = document.getElementById('ruleset-select');
-            if (rulesetSelect) {
-                rulesetSelect.addEventListener('change', () => {
-                    const resultsDiv = document.getElementById('results');
-                    if (resultsDiv) resultsDiv.innerHTML = '';
+                submitButton.addEventListener('click', async () => {
+                    if (!window.discordUser || !window.discordUser.id) {
+                        statusEl.textContent = 'You must log in with Discord to submit.';
+                        return;
+                    }
+                    // Use Discord display name as username, Discord tag as discord_username
+                    const discordUsername = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    const username = window.discordUser.displayName || window.discordUser.global_name || window.discordUser.username;
+                    const eventName = (eventSelect.value || '').trim() || 'default-event';
+                    // Fetch event_list.json to get required ruleset for event
+                    let requiredRuleset = null;
+                    try {
+                        const events = await fetch('events/event_list.json?_=' + Date.now()).then(r => r.json());
+                        if (Array.isArray(events)) {
+                            const found = events.find(ev => {
+                                if (typeof ev === 'string') return ev === eventName;
+                                return ev.eventName === eventName;
+                            });
+                            if (found && typeof found === 'object' && found.requiredRuleset) {
+                                requiredRuleset = found.requiredRuleset;
+                            }
+                        }
+                    } catch (e) { /* ignore */ }
+                    // Check if current ruleset matches required ruleset
+                    const currentRuleset = rulesetSelect.value;
+                    if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                        statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                        return;
+                    }
+                    try {
+                        statusEl.textContent = 'Preparing deck payload...';
+                        // Build card list structure
+                        if (typeof buildCardListByType !== 'function') {
+                            window.buildCardListByType = function(allCards, saCards) {
+                                const typeMap = {};
+                                allCards.forEach(card => {
+                                    const type = card.type || 'Unknown';
+                                    if (!typeMap[type]) typeMap[type] = {};
+                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                                });
+                                // Always include all SA cards (not just Characters) in StartingArmy
+                                const saMap = {};
+                                saCards.forEach(card => {
+                                    saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                });
+                                // Attach StartingArmy to each type present in SA
+                                Object.keys(typeMap).forEach(type => {
+                                    typeMap[type] = {
+                                        ...typeMap[type],
+                                        StartingArmy: {}
+                                    };
+                                });
+                                // Fill StartingArmy for each type
+                                saCards.forEach(card => {
+                                    if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                        typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                    }
+                                });
+                                return typeMap;
+                            };
+                        }
+                        const cardList = buildCardListByType(allCards, saList);
+                        const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                        const timestamp = new Date().toISOString();
+                        // Prepare event file object and decks.json
+                        const owner = 'daddyeagle';
+                        const repo = 'warlord-sots-deck-checker';
+                        const branch = 'deploy-docs';
+                        const eventPath = `docs/events/${slugify(eventName)}.json`;
+                        const decksPath = `docs/events/decks.json`;
+                        // Fetch existing event file (if any), then upsert this entry by Discord user
+                        statusEl.textContent = 'Saving event entry...';
+                        const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
+                        eventObj.submissions = eventObj.submissions || {};
+                        eventObj.submissions[discordUsername] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
+                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`, branch, null);
+                        statusEl.textContent = 'Saving deck to deck database...';
+                        const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
+                        decksObj[discordUsername] = { username, discord_username: discordUsername, event: eventName, warlord: warlordName, timestamp, cardList };
+                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${discordUsername} (${eventName})`, branch, null);
+                        statusEl.textContent = 'Deck submitted successfully.';
+                    } catch (err) {
+                        console.error('Submit failed', err);
+                        statusEl.textContent = 'Submit failed: ' + (err.message || err);
+                    }
                 });
-            }
-            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
-            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
-        });
-
-    </script>
-</body>
-</html>
