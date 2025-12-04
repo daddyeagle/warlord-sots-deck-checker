@@ -1,3 +1,4 @@
+<!-- All JS is now inside the <script type="module"> block below. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,7 @@
         .fail { background-color: #ef4444; color: #7f1d1d; }
         .warning { background-color: #f59e0b; color: #78350f; }
         #edition-select { height: 120px; }
+        /* small toast for config reload notifications (removed - auto-reload on refresh) */
     </style>
 </head>
 <body class="p-4 sm:p-8 flex justify-center items-start min-h-screen">
@@ -95,141 +97,114 @@
     </div>
 
     <script type="module">
-        // --- CONFIGURATION ---
-        // Determine backend URL logic:
-        // 1. If we are running on the production domain (Railway), use RELATIVE paths ('').
-        //    This is crucial for cookies to work reliably without CORS interference.
-        // 2. If we are local or in a preview blob, use the absolute production URL.
-        const PRODUCTION_HOST = 'warlord-sots-deck-checker-production.up.railway.app';
-        const isProduction = window.location.hostname === PRODUCTION_HOST || window.location.hostname.endsWith('.railway.app');
-        
-        window.BACKEND_URL = isProduction ? '' : 'https://warlord-sots-deck-checker-production.up.railway.app';
+        // --- CONFIGURABLE BACKEND URL ---
+        window.BACKEND_URL = 'https://warlord-sots-deck-checker-production.up.railway.app';
 
         // --- HANDLE /auth-success REDIRECT ---
         if (window.location.pathname === '/auth-success') {
             document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
-            
-            // FIX: Added cache-busting timestamp to ensure we don't get a cached 401
-            fetch(window.BACKEND_URL + '/api/auth/success?_=' + Date.now(), { credentials: 'include' })
+            fetch(window.BACKEND_URL + '/api/auth/success', { credentials: 'include' })
                 .then(async res => {
                     if (res.ok) {
                         const user = await res.json();
                         document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as <b>${user.username}#${user.discriminator}</b>.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
-                        // Optional: Auto-redirect after 1 second
-                        setTimeout(() => window.location.href = '/', 1000);
                     } else {
-                        // Try to parse error text if available
-                        const errText = await res.text().catch(() => 'Unknown error');
-                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Session not found).<br><span class="text-xs text-gray-500">Status: ${res.status} - ${errText}</span><br><br><a href="/" class="underline text-red-400">Return to app</a>`;
+                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
                     }
                 })
-                .catch((err) => {
-                    console.error(err);
-                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed (Network Error).<br><span class="text-xs text-gray-500">${err.message}</span><br><br><a href="/" class="underline text-red-400">Return to app</a>`;
+                .catch(() => {
+                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
                 });
         }
-                        
-        // --- DISCORD OAUTH2 LOGIN ---
-        const discordLoginBtn = document.getElementById('discord-login-btn');
-        const discordUserInfo = document.getElementById('discord-user-info');
-        let discordUser = null;
+                        // --- DISCORD OAUTH2 LOGIN ---
+                        const discordLoginBtn = document.getElementById('discord-login-btn');
+                        const discordUserInfo = document.getElementById('discord-user-info');
+                        let discordUser = null;
 
-        async function fetchDiscordUser() {
-            try {
-                // FIX: Added cache-busting timestamp here as well
-                const res = await fetch(window.BACKEND_URL + '/api/auth/success?_=' + Date.now(), {
-                    credentials: 'include'
-                });
-                if (res.ok) {
-                    const user = await res.json();
-                    // Make user available globally for submit logic
-                    window.discordUser = user; 
-                    discordUser = user;
-                    // SAFEGUARD: Check if element exists before setting textContent
-                    if (discordUserInfo) discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
-                    if (discordLoginBtn) discordLoginBtn.style.display = 'none';
-                } else {
-                    window.discordUser = null;
-                    discordUser = null;
-                    // SAFEGUARD: Check if element exists before setting textContent
-                    if (discordUserInfo) discordUserInfo.textContent = '';
-                    if (discordLoginBtn) discordLoginBtn.style.display = '';
-                }
-            } catch (e) {
-                window.discordUser = null;
-                discordUser = null;
-                // SAFEGUARD: Check if element exists before setting textContent
-                if (discordUserInfo) discordUserInfo.textContent = '';
-                if (discordLoginBtn) discordLoginBtn.style.display = '';
-            }
-        }
-
-        if (discordLoginBtn) {
-            discordLoginBtn.addEventListener('click', () => {
-                window.location.href = window.BACKEND_URL + '/api/auth/discord';
-            });
-        }
-        
-        // On page load, check if user is already logged in
-        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
-
-        // --- GITHUB API HELPERS ---
-        async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
-            const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-            const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
-            const res = await fetch(url, { headers });
-            if (res.status === 404) return null;
-            if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
-            return await res.json();
-        }
-
-        async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
-            // Always fetch the latest sha before updating
-            const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
-            const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
-            let sha = undefined;
-            let exists = false;
-            try {
-                const res = await fetch(getUrl, { headers });
-                const text = await res.text();
-                console.log('Full GET response for sha:', text);
-                try {
-                    const data = JSON.parse(text);
-                    if (res.ok) {
-                        sha = data.sha;
-                        exists = true;
-                        if (!sha) {
-                            console.warn('Warning: GET response did not include sha property!', data);
+                        async function fetchDiscordUser() {
+                            try {
+                                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
+                                    credentials: 'include'
+                                });
+                                if (res.ok) {
+                                    const user = await res.json();
+                                    discordUser = user;
+                                    discordUserInfo.textContent = `Logged in as ${user.username}#${user.discriminator}`;
+                                    discordLoginBtn.style.display = 'none';
+                                } else {
+                                    discordUser = null;
+                                    discordUserInfo.textContent = '';
+                                    discordLoginBtn.style.display = '';
+                                }
+                            } catch (e) {
+                                discordUser = null;
+                                discordUserInfo.textContent = '';
+                                discordLoginBtn.style.display = '';
+                            }
                         }
-                    }
-                } catch (jsonErr) {
-                    console.warn('Failed to parse GET response for sha:', text);
-                }
-            } catch (e) { console.warn('GET for sha failed:', e); }
-            
-            const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-            const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
-            const body = { message, content, branch };
-            // Defensive: if file exists but sha is missing, log and abort
-            if (exists && !sha) {
-                console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
-                throw new Error('File exists but sha is missing. Cannot update file without sha.');
-            }
-            if (sha) body.sha = sha;
-            const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-            if (!putRes.ok) {
-                let errMsg = `GitHub PUT failed: ${putRes.status}`;
-                try {
-                    const errText = await putRes.text();
-                    errMsg += `\nResponse: ${errText}`;
-                } catch (e) {
-                    // ignore parse error
-                }
-                throw new Error(errMsg);
-            }
-            return await putRes.json();
-        }
 
+                        if (discordLoginBtn) {
+                            discordLoginBtn.addEventListener('click', () => {
+                                window.location.href = window.BACKEND_URL + '/api/auth/discord';
+                            });
+                        }
+                        // On page load, check if user is already logged in
+                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+                // --- GITHUB API HELPERS ---
+                async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
+                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+                    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
+                    const res = await fetch(url, { headers });
+                    if (res.status === 404) return null;
+                    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+                    return await res.json();
+                }
+
+                async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
+                    // Always fetch the latest sha before updating
+                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
+                    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
+                    let sha = undefined;
+                    let exists = false;
+                    try {
+                        const res = await fetch(getUrl, { headers });
+                        const text = await res.text();
+                        console.log('Full GET response for sha:', text);
+                        try {
+                            const data = JSON.parse(text);
+                            if (res.ok) {
+                                sha = data.sha;
+                                exists = true;
+                                if (!sha) {
+                                    console.warn('Warning: GET response did not include sha property!', data);
+                                }
+                            }
+                        } catch (jsonErr) {
+                            console.warn('Failed to parse GET response for sha:', text);
+                        }
+                    } catch (e) { console.warn('GET for sha failed:', e); }
+                    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+                    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
+                    const body = { message, content, branch };
+                    // Defensive: if file exists but sha is missing, log and abort
+                    if (exists && !sha) {
+                        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
+                        throw new Error('File exists but sha is missing. Cannot update file without sha.');
+                    }
+                    if (sha) body.sha = sha;
+                    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+                    if (!putRes.ok) {
+                        let errMsg = `GitHub PUT failed: ${putRes.status}`;
+                        try {
+                            const errText = await putRes.text();
+                            errMsg += `\nResponse: ${errText}`;
+                        } catch (e) {
+                            // ignore parse error
+                        }
+                        throw new Error(errMsg);
+                    }
+                    return await putRes.json();
+                }
         // --- DECK SUBMISSION HELPERS ---
         function slugify(str) {
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -247,32 +222,13 @@
         
         // Absolute URL for Cards (works everywhere), Relative for Config (works locally if served)
         const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        
-        // FIX: Construct absolute URL for config to avoid "Failed to parse URL" in blob/iframe contexts
-        const baseUrl = (window.BACKEND_URL || window.location.origin).replace(/\/$/, '');
-        const CONFIG_DATA_URL = `${baseUrl}/warlord_configuration.json`;
-
-        // FIX: Fallback configuration in case CORS blocks the fetch in preview mode
-        const DEFAULT_CONFIG = {
-            rulesets: {
-                "default": {
-                    "name": "Standard Format (Fallback)",
-                    "maxCopies": 3,
-                    "maxEpicCopies": 1,
-                    "warlordCount": 1,
-                    "minTotalDeck": 50,
-                    "editions": [],
-                    "restricted": {}
-                }
-            },
-            defaultRuleset: "default",
-            warlordExceptions: [],
-            ringExceptions: [],
-            characterExceptions: [],
-            factionWildcards: []
-        };
+        const CONFIG_DATA_URL = "warlord_configuration.json";
 
         // --- REGEX & CONSTANTS ---
+        // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
+        // Quantity: optional number, optional space, optional 'x' or 'X' (only if followed by a space), then card name (allowable special chars: ', -, ., ,, :, !, ?)
+        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros', "X'andros", "X-andros", etc.
+        // Card name stops at first disallowed character (e.g., (, [, {, ")
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
@@ -308,79 +264,51 @@
             for (let i = 0; i < retries; i++) {
                 try {
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
-                    
-                    // FIX: Catch config fetch errors (likely CORS in preview) and use DEFAULT_CONFIG
-                    const [cardsResponse, configJson] = await Promise.all([
+                    const [cardsResponse, configResponse] = await Promise.all([
                         fetch(CARD_DATA_URL, cardFetchOpts),
                         fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
-                            .then(res => {
-                                if(!res.ok) throw new Error("Status " + res.status);
-                                return res.json();
-                            })
-                            .catch(err => {
-                                console.warn("Config fetch failed (likely CORS in preview), using fallback:", err);
-                                return DEFAULT_CONFIG;
-                            })
                     ]);
 
                     if (!cardsResponse.ok) {
-                        loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
                         throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     }
-                    
+                    if (!configResponse.ok) {
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
+                        throw new Error(`Config HTTP error! status: ${configResponse.status}`);
+                    }
+
                     const cardJson = await cardsResponse.json();
-                    
+                    const configJson = await configResponse.json();
+
                     // 1. Hydrate Configuration from JSON
                     RULE_SETS = configJson.rulesets || {};
                     WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
                     SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
                     SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                     FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
-
-                    // Populate Ruleset Select (hide rulesets marked as hidden)
-                    rulesetSelect.innerHTML = '';
-                    const rulesetKeys = Object.keys(RULE_SETS || {});
-                    const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
-                    // If a default is configured, place it first (if visible)
-                    const defaultKey = configJson.defaultRuleset;
-                    let orderedKeys = visibleKeys;
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
-                    }
-                    // Respect configured index selector limit
-                    const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
-                    const limit = Math.min(orderedKeys.length, configuredLimit);
-                    for(let j = 0; j < limit; j++) {
-                        const key = orderedKeys[j];
-                        const option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = RULE_SETS[key].name;
-                        rulesetSelect.appendChild(option);
-                    }
-                    if (defaultKey && visibleKeys.includes(defaultKey)) {
-                        rulesetSelect.value = defaultKey;
-                    }
+                    populateRulesetSelector(configJson);
 
                     // 2. Process Card Data
                     const newDatabase = {};
-                    
+
                     if (Array.isArray(cardJson)) {
                         cardJson.forEach(card => {
                             const level = parseInt(card.level);
-                            const rawSubtype = String(card.subtype || '').toLowerCase(); 
+                            const rawSubtype = String(card.subtype || '').toLowerCase();
                             const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
                             const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
-                                ? card.faction.map(f => String(f).toLowerCase()).join(' ') 
+                                ? card.faction.map(f => String(f).toLowerCase()).join(' ')
                                 : 'neutral';
-                            
+
                             const isWarlord = rawSubtype.includes("warlord");
                             const editions = card.editions || [];
-                            const lowerText = (card.text || '').toLowerCase(); 
-                            const lookupKey = normalizeName(card.name).toLowerCase(); 
+                            const lowerText = (card.text || '').toLowerCase();
+                            const lookupKey = normalizeName(card.name).toLowerCase();
                             const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
                             const saExceptions = getSAExceptions(card);
                             const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
-                            
+
                             const printInfos = card.printInfos || [];
                             const sets = [...new Set(printInfos.map(info => info.set))];
                             const rarities = [...new Set(printInfos.map(info => info.rarity))];
@@ -389,39 +317,39 @@
                                 console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
                             }
 
-                            newDatabase[lookupKey] = { 
+                            newDatabase[lookupKey] = {
                                 name: card.name,
                                 normalizedName: lookupKey,
-                                type: card.type || (level > 0 ? 'Character' : 'Action'), 
+                                type: card.type || (level > 0 ? 'Character' : 'Action'),
                                 level: isNaN(level) ? 0 : level,
                                 isWarlord: isWarlord,
-                                rawSubtype: rawSubtype, 
-                                faction: primaryFaction, 
-                                alignment: card.alignment || '', 
-                                classes: classes, 
+                                rawSubtype: rawSubtype,
+                                faction: primaryFaction,
+                                alignment: card.alignment || '',
+                                classes: classes,
                                 isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
                                 isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
-                                isFactionWildcard: isFactionWildcard, 
-                                isUnlimitedCopies: isUnlimitedCopies, 
+                                isFactionWildcard: isFactionWildcard,
+                                isUnlimitedCopies: isUnlimitedCopies,
                                 editions: editions,
                                 sets: sets,
                                 rarities: rarities,
                                 printInfos: printInfos,
-                                bannedErrataFormats: [], 
+                                bannedErrataFormats: [],
                                 saReservedFormats: [],
                                 epicErrataFormats: [],
                                 isSACharacterReplacement: saExceptions.isReplacement,
-                                text: card.text || '' 
+                                text: card.text || ''
                             };
-                            
+
                             // Populate errata formats
-                             if (card.errata) {
+                            if (card.errata) {
                                 let match;
-                                errataEpicRegex.lastIndex = 0; 
+                                errataEpicRegex.lastIndex = 0;
                                 while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
-                                errataReservedRegex.lastIndex = 0; 
+                                errataReservedRegex.lastIndex = 0;
                                 while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
-                                errataBannedRegex.lastIndex = 0; 
+                                errataBannedRegex.lastIndex = 0;
                                 while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
                             }
                         });
@@ -429,16 +357,16 @@
 
                     if (Object.keys(newDatabase).length > 0) {
                         cardDatabase = newDatabase;
-                        loadingStatusDiv.className = 'hidden';
-                        inputSectionDiv.classList.remove('hidden');
+                        if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
+                        if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
                         try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
                         return true;
                     }
 
                 } catch (error) {
-                    loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
-                    loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
-                    loadingStatusDiv.classList.remove('text-sky-400');
+                    if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
+                    if (loadingStatusDiv) loadingStatusDiv.classList.add('bg-red-900/50', 'border-red-600');
+                    if (loadingStatusDiv) loadingStatusDiv.classList.remove('text-sky-400');
                     console.error('LoadAppData error:', error);
                     if (i < retries - 1) {
                         await new Promise(resolve => setTimeout(resolve, delay));
@@ -450,6 +378,28 @@
         };
 
         // --- REGULAR EXPRESSION HELPERS ---
+                // --- POPULATE RULESET SELECTOR ---
+                function populateRulesetSelector(configJson) {
+                    const rulesetSelect = document.getElementById('ruleset-select');
+                    if (!rulesetSelect) return;
+                    // Clear existing options
+                    rulesetSelect.innerHTML = '';
+                    const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
+                    const keys = Object.keys(rulesets);
+                    if (keys.length === 0) {
+                        const opt = document.createElement('option');
+                        opt.value = '';
+                        opt.textContent = 'No formats available';
+                        rulesetSelect.appendChild(opt);
+                        return;
+                    }
+                    keys.forEach(key => {
+                        const opt = document.createElement('option');
+                        opt.value = key;
+                        opt.textContent = rulesets[key].displayName || key;
+                        rulesetSelect.appendChild(opt);
+                    });
+                }
         const parseCardInput = (input, cardCounts, cardList) => {
             const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
             lines.forEach(line => {
@@ -548,6 +498,7 @@
                     let max = defaultMax;
                     let reason = `Max ${defaultMax}`;
                     // ENFORCE UNIQUE ONLY FOR SA
+                    // We'll handle unique warlord count below
                     if (data.isUniqueKeyword && saWlLegal.some(c => normalizeName(c.name).toLowerCase() === norm)) {
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
@@ -563,13 +514,13 @@
                 }
             }
 
-            // Now check warlord copy limits
+            // Now check warlord copy limits (combined SA + Main Deck)
             for (const norm in warlordTotals) {
                 const data = cardDatabase[norm];
                 if (!data) continue;
                 let max = defaultMax;
                 let reason = `Max ${defaultMax}`;
-                
+                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
                 let warlordExceptionMax = null;
                 if (norm === 'zartoch' || norm === 'ferrisbachman') {
                     const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === norm && e.copyLimitException);
@@ -593,7 +544,7 @@
                 }
             }
 
-            // Additional check: only 1 copy of any warlord is allowed in the Starting Army
+            // Additional check: only 1 copy of any warlord is allowed in the Starting Army (by normalized name)
             let saWarlordCounts = {};
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
@@ -603,6 +554,7 @@
             });
             for (const norm in saWarlordCounts) {
                 if (saWarlordCounts[norm] > 1) {
+                    // Use display name from cardDatabase if available
                     const displayName = cardDatabase[norm] ? cardDatabase[norm].name : norm;
                     violations.push(`${displayName} (${saWarlordCounts[norm]} copies in Starting Army, Max 1 allowed)`);
                     deckIsLegal = false;
@@ -610,6 +562,7 @@
             }
 
             // New check: For all warlords except Zartoch and Ferris Bachman, ensure they are only in the Starting Army
+            // Find all warlords in the Main Deck
             const mainDeckWarlords = allLegalCards.filter(c => c.isWarlord && !saWlLegal.includes(c));
             mainDeckWarlords.forEach(c => {
                 const norm = normalizeName(c.name).toLowerCase();
@@ -619,6 +572,7 @@
                 }
             });
 
+            // ...existing code...
             return { deckIsLegal, violations };
         };
 
@@ -741,7 +695,7 @@
             else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
 
             const violations = [];
-            
+            // ruleset-level flags act as defaults alongside warlord-specific exceptions
             if (isFullBypass) {
                 loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
             } else if (requiresAlignment) {
@@ -752,7 +706,7 @@
                     }
                 });
             } else if (requiresUnifiedFaction) {
-                // Enforce that all Starting Army characters share a single faction
+                // Enforce that all Starting Army characters share a single faction (independent of warlord faction)
                 const charCards = cardsToCheck.filter(c => c.type === 'Character' && !c.isFactionWildcard);
                 if (charCards.length === 0) {
                     loyaltyMessage = `No character faction data available to enforce unified faction.`;
@@ -850,9 +804,11 @@
                 }
             });
 
+            // Adjusted: Allow warlord exception for multiple copies (e.g., Zartoch, Ferris Bachman)
             const reqWl = activeRuleSet.warlordCount || 1;
-            // Check for exception: only one unique warlord, and it's a special exception, and the exception allows >1
+            // If there is only one unique warlord and it is a special exception (e.g., Zartoch or Ferris Bachman), and the exception allows more than 1 copy, allow it
             if (warlords.length !== reqWl) {
+                // Check for exception: only one unique warlord, and it's a special exception, and the exception allows >1
                 const uniqueWarlordNorms = Array.from(new Set(warlords.map(w => (w.normalizedName || normalizeName(w.name).toLowerCase()))));
                 if (
                     uniqueWarlordNorms.length === 1 &&
@@ -860,7 +816,7 @@
                     warlordException && warlordException.copyLimitException && warlordException.copyLimitException.maxCopies > 1 &&
                     warlords.length <= warlordException.copyLimitException.maxCopies
                 ) {
-                    // Allow this case
+                    // Allow this case, do not fail
                 } else {
                     saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
                     saStatus = 'FAIL';
@@ -889,7 +845,8 @@
             return { pass: saStatus === 'PASS', result: { status: saStatus, message: msg } };
         };
 
-        // Reload configuration only
+        // Reload configuration only (used when admin signals an update via localStorage)
+        // Returns true if the config was changed/applied, false if unchanged or failed
         const reloadConfigOnly = async () => {
             try {
                 const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
@@ -1040,30 +997,30 @@
             let extraSACard = null;
             if (wlException?.addsExtraSASlot && wlData) {
                 if (wlException.saForbiddenCards) {
-                      const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
-                      if (!forbidden) {
-                          const criteria = wlException.compositionExceptions[0]?.criteria;
-                          if (criteria) {
-                              extraSACard = saCards.find(c => {
-                                  if (criteria.type && c.type !== criteria.type) return false;
-                                  if (criteria.level && c.level > criteria.level) return false;
-                                  if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
-                                  if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
-                                  return true;
-                              });
-                          }
-                      }
+                     const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
+                     if (!forbidden) {
+                         const criteria = wlException.compositionExceptions[0]?.criteria;
+                         if (criteria) {
+                             extraSACard = saCards.find(c => {
+                                 if (criteria.type && c.type !== criteria.type) return false;
+                                 if (criteria.level && c.level > criteria.level) return false;
+                                 if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                                 if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                                 return true;
+                             });
+                         }
+                     }
                 } else {
-                      const criteria = wlException.compositionExceptions[0]?.criteria;
-                      if (criteria) {
-                          extraSACard = saCards.find(c => {
-                              if (criteria.type && c.type !== criteria.type) return false;
-                              if (criteria.level && c.level > criteria.level) return false;
-                              if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
-                              if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
-                              return true;
-                          });
-                      }
+                     const criteria = wlException.compositionExceptions[0]?.criteria;
+                     if (criteria) {
+                         extraSACard = saCards.find(c => {
+                             if (criteria.type && c.type !== criteria.type) return false;
+                             if (criteria.level && c.level > criteria.level) return false;
+                             if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                             if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                             return true;
+                         });
+                     }
                 }
             }
 
@@ -1130,99 +1087,91 @@
 
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
             
-            const displayOrder = [
-                'unknown', 
-                'editionLegality', 
-                'restrictions', 
-                'totalCount', 
-                'saComp', 
-                'saLoyalty', 
-                'mdLoyalty', 
-                'copyLimits', 
-                'overlordLimit',
-                'dragonlordLimit', 
-                'daemonlordLimit',  
-                'typeDominance',
-                'activeExceptions' 
-            ];
+                        const displayOrder = [
+                                'unknown', 
+                                'editionLegality', 
+                                'restrictions', 
+                                'totalCount', 
+                                'saComp', 
+                                'saLoyalty', 
+                                'mdLoyalty', 
+                                'copyLimits', 
+                                'overlordLimit',
+                                'dragonlordLimit', 
+                                'daemonlordLimit',  
+                                'typeDominance',
+                                'activeExceptions' 
+                        ];
 
-            for (const key of displayOrder) {
-                const res = checks[key];
-                if (res) {
-                     let icon = '🟢';
-                     if (res.status === 'FAIL') icon = '🔴';
-                     if (res.status === 'INFO') icon = '🔵';
-                     html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
-                }
-            }
-            html += `</div></div>`;
-            // If legal, include submit controls
-            if (deckIsLegal) {
-                html += `
-                <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                    <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
-                    <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                        <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
-                        <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
-                        <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
-                    </form>
-                    <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
-                </div>`;
-            }
-            document.getElementById('results').innerHTML = html;
-
-            // Populate event dropdown from event_list.json if present
-            if (deckIsLegal) {
-                // FIX: Use absolute URL
-                fetch(`${baseUrl}/events/event_list.json?_=` + Date.now())
-                    .then(r => r.json())
-                    .then(events => {
-                        const eventSelect = document.getElementById('submit-eventname');
-                        eventSelect.innerHTML = '';
-                        if (Array.isArray(events)) {
-                            events.forEach(ev => {
-                                if (ev && typeof ev === 'object' && ev.eventName) {
-                                    const opt = document.createElement('option');
-                                    opt.value = ev.eventName;
-                                    opt.textContent = ev.eventName;
-                                    eventSelect.appendChild(opt);
+                        for (const key of displayOrder) {
+                                const res = checks[key];
+                                if (res) {
+                                         let icon = '🟢';
+                                         if (res.status === 'FAIL') icon = '🔴';
+                                         if (res.status === 'INFO') icon = '🔵';
+                                         html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
                                 }
-                            });
                         }
-                    });
-            }
+                        html += `</div></div>`;
+                        // If legal, include submit controls
+                        if (deckIsLegal) {
+                            html += `
+                            <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                                <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                                    <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
+                                    <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                                    <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                                </form>
+                                <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+                            </div>`;
+                        }
+                        document.getElementById('results').innerHTML = html;
+
+                        // Populate event dropdown from event_list.json if present
+                        if (deckIsLegal) {
+                                fetch('events/event_list.json?_=' + Date.now())
+                                    .then(r => r.json())
+                                    .then(events => {
+                                        const eventSelect = document.getElementById('submit-eventname');
+                                        eventSelect.innerHTML = '';
+                                        if (Array.isArray(events)) {
+                                            events.forEach(ev => {
+                                                if (ev && typeof ev === 'object' && ev.eventName) {
+                                                    const opt = document.createElement('option');
+                                                    opt.value = ev.eventName;
+                                                    opt.textContent = ev.eventName;
+                                                    eventSelect.appendChild(opt);
+                                                }
+                                            });
+                                        }
+                                    });
+                        }
 
             if (deckIsLegal) {
                 const discordUserSummary = document.getElementById('discord-user-summary');
                 const submitButton = document.getElementById('submit-deck-button');
                 const eventSelect = document.getElementById('submit-eventname');
                 const statusEl = document.getElementById('submit-status');
-                
-                // Only show Discord info if logged in
+                // Show Discord user info or require login
                 if (window.discordUser && window.discordUser.id) {
-                    // Show Discord Display Name (global_name or displayName) and Username#Discriminator
-                    const displayName = window.discordUser.displayName || window.discordUser.global_name || '';
-                    const usernameTag = `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                    discordUserSummary.textContent = displayName
-                        ? `Logged in as ${displayName} (${usernameTag})`
-                        : `Logged in as ${usernameTag}`;
-                    submitButton.style.display = '';
+                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
                 } else {
-                    discordUserSummary.textContent = '';
-                    submitButton.style.display = 'none';
+                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                    submitButton.disabled = true;
                 }
                 submitButton.addEventListener('click', async () => {
-                    if (!window.discordUser || !window.discordUser.id) return;
-                    // Use Discord display name as username, Discord tag as discord_username
+                    if (!window.discordUser || !window.discordUser.id) {
+                        statusEl.textContent = 'You must log in with Discord to submit.';
+                        return;
+                    }
+                    const username = window.discordUser.id;
                     const discordUsername = `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                    const username = window.discordUser.displayName || window.discordUser.global_name || window.discordUser.username;
                     const eventName = (eventSelect.value || '').trim() || 'default-event';
-                    
                     // Fetch event_list.json to get required ruleset for event
                     let requiredRuleset = null;
                     try {
-                        // FIX: Use absolute URL
-                        const events = await fetch(`${baseUrl}/events/event_list.json?_=` + Date.now()).then(r => r.json());
+                        const events = await fetch('events/event_list.json?_=' + Date.now()).then(r => r.json());
                         if (Array.isArray(events)) {
                             const found = events.find(ev => {
                                 if (typeof ev === 'string') return ev === eventName;
@@ -1280,18 +1229,16 @@
                         const branch = 'deploy-docs';
                         const eventPath = `docs/events/${slugify(eventName)}.json`;
                         const decksPath = `docs/events/decks.json`;
-                        
-                        // Fetch existing event file (if any), then upsert this entry by Discord user
+                        // Fetch existing event file (if any), then upsert this username entry
                         statusEl.textContent = 'Saving event entry...';
                         const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
                         eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[discordUsername] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
-                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`, branch, null);
-                        
+                        eventObj.submissions[username] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
+                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, null);
                         statusEl.textContent = 'Saving deck to deck database...';
                         const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
-                        decksObj[discordUsername] = { username, discord_username: discordUsername, event: eventName, warlord: warlordName, timestamp, cardList };
-                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${discordUsername} (${eventName})`, branch, null);
+                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
+                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, null);
                         statusEl.textContent = 'Deck submitted successfully.';
                     } catch (err) {
                         console.error('Submit failed', err);
@@ -1311,31 +1258,37 @@
         window.clearDeck = clearDeck;
 
         document.addEventListener('DOMContentLoaded', async () => {
-            if (window.location.pathname !== '/auth-success') {
-                document.getElementById('clear-deck-button').addEventListener('click', window.clearDeck);
-                document.getElementById('check-deck-button').addEventListener('click', window.checkDeck);
-                await loadAppData();
-                
-                // Listen for admin updates signaled via localStorage and reload config when seen
-                window.addEventListener('storage', async (e) => {
-                    if (!e) return;
-                    if (e.key === 'warlordConfigUpdate') {
-                        try {
-                            const changed = await reloadConfigOnly();
-                            if (!changed) {
-                                console.warn('Config reload reported no change; attempting stronger network refresh');
-                                const forced = await loadAppData(3, 1000, true);
-                            }
-                        } catch(err) { console.warn('reload on storage failed', err); }
-                    }
-                });
-
-                // Reset legality and submission window if ruleset is changed
-                document.getElementById('ruleset-select').addEventListener('change', () => {
-                    document.getElementById('results').innerHTML = '';
+            const clearBtn = document.getElementById('clear-deck-button');
+            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
+            const checkBtn = document.getElementById('check-deck-button');
+            if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
+            await loadAppData();
+            // Listen for admin updates signaled via localStorage and reload config when seen
+            window.addEventListener('storage', async (e) => {
+                if (!e) return;
+                if (e.key === 'warlordConfigUpdate') {
+                    try {
+                        const changed = await reloadConfigOnly();
+                        if (!changed) {
+                            console.warn('Config reload reported no change; attempting stronger network refresh');
+                            const forced = await loadAppData(3, 1000, true);
+                            if (!forced) {/* ...existing code... */}
+                        }
+                    } catch(err) { console.warn('reload on storage failed', err); }
+                }
+            });
+            // Reset legality and submission window if ruleset is changed
+            const rulesetSelect = document.getElementById('ruleset-select');
+            if (rulesetSelect) {
+                rulesetSelect.addEventListener('change', () => {
+                    const resultsDiv = document.getElementById('results');
+                    if (resultsDiv) resultsDiv.innerHTML = '';
                 });
             }
+            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
+            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
         });
+
     </script>
 </body>
 </html>
