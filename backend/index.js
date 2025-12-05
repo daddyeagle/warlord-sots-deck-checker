@@ -3,9 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const axios = require('axios');
 const { getFile, putFile } = require('./github');
-const cors = require('cors');
 const path = require('path');
-const app = express();
 
 // --- Deck Submission API ---
 app.post('/api/submit-deck', async (req, res) => {
