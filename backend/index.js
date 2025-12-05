@@ -165,53 +165,54 @@ app.post('/api/submit-deck', async (req, res) => {
     let eventObj = {};
     try {
       const { content } = await getFile(eventPath);
-      eventObj = content ? JSON.parse(content) : { eventName, submissions: {} };
-    } catch (e) { eventObj = { eventName, submissions: {} }; }
-    
-    eventObj.submissions = eventObj.submissions || {};
-    // Overwrite previous submission for this user
-    eventObj.submissions[username] = {
+      eventObj = content ? JSON.parse(content) : { eventName, submissions: [] };
+    } catch (e) { eventObj = { eventName, submissions: [] }; }
+
+    eventObj.submissions = Array.isArray(eventObj.submissions) ? eventObj.submissions : [];
+    // Remove previous submission for this user if exists
+    eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
+    // Add new submission for this user
+    eventObj.submissions.push({
       warlord,
       username,
       discord_username: discordUsername,
       display_name: displayName,
       timestamp
-    };
+    });
     await putFile(eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`);
     
     // Update decks.json
-    let decksObj = {};
+    let decksArr = [];
     try {
       const { content } = await getFile(decksPath);
-      decksObj = content ? JSON.parse(content) : {};
-    } catch (e) { decksObj = {}; }
-    
-    // Overwrite previous deck for this user
-    decksObj[username] = {
+      decksArr = content ? JSON.parse(content) : [];
+    } catch (e) { decksArr = []; }
+
+    // Remove previous deck for this user if exists
+    decksArr = Array.isArray(decksArr) ? decksArr.filter(deck => deck.username !== username) : [];
+    // Add new deck for this user
+    decksArr.push({
       username,
       event: eventName,
       warlord,
       display_name: displayName,
       timestamp,
       cardList: formatCardList(cardList)
-    };
+    });
     // Helper to format cardList for decks.json
     function formatCardList(cardList) {
-      // cardList: { [type]: { [cardName]: count, StartingArmy: { [cardName]: count } } }
       const formatted = {};
       for (const type in cardList) {
         const cards = cardList[type];
         let typeCount = 0;
         const typeCards = {};
-        // Add all cards in type, but skip those in StartingArmy
         const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
-          if (saSet.has(card)) continue; // skip cards that are in StartingArmy
+          if (saSet.has(card)) continue;
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
-        // Add StartingArmy section if present
         if (cards['StartingArmy']) {
           let saCount = 0;
           for (const saCard in cards['StartingArmy']) {
@@ -225,7 +226,7 @@ app.post('/api/submit-deck', async (req, res) => {
       }
       return formatted;
     }
-    await putFile(decksPath, decksObj, `Add/Update deck for ${discordUsername} (${eventName})`);
+    await putFile(decksPath, decksArr, `Add/Update deck for ${discordUsername} (${eventName})`);
     
     res.json({ success: true });
   } catch (err) {
