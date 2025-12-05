@@ -163,6 +163,9 @@ app.post('/api/submit-deck', async (req, res) => {
   const decksPath = `backend/public/events/decks-${safeEventName}.json`;
 
 try {
+    // Ensure parent directories exist before writing files
+    await fsp.mkdir(path.dirname(eventPath), { recursive: true });
+    await fsp.mkdir(path.dirname(decksPath), { recursive: true });
     // PART 1: Update Event File (local fs)
     let eventObj = { eventName, submissions: [] };
     try {
