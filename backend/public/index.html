@@ -132,7 +132,7 @@
                                 });
                                 if (res.ok) {
                                     const user = await res.json();
-                                    discordUser = user;
+                                    window.discordUser = user;
                                     let displayText = `Logged in as ${user.username}#${user.discriminator}`;
                                     if (user.displayName) {
                                         displayText += ` (${user.displayName})`;
@@ -140,12 +140,12 @@
                                     discordUserInfo.textContent = displayText;
                                     discordLoginBtn.style.display = 'none';
                                 } else {
-                                    discordUser = null;
+                                    window.discordUser = null;
                                     discordUserInfo.textContent = '';
                                     discordLoginBtn.style.display = '';
                                 }
                             } catch (e) {
-                                discordUser = null;
+                                window.discordUser = null;
                                 discordUserInfo.textContent = '';
                                 discordLoginBtn.style.display = '';
                             }
