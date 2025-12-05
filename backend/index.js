@@ -143,10 +143,14 @@ app.get('/api/auth/success', (req, res) => {
   });
 });
 
+
 // --- Deck Submission API ---
+// Use EVENTS_PATH env variable, default to relative path for local dev, absolute for Railway
+const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
+
 app.post('/api/submit-deck', async (req, res) => {
   if (!req.session.user) return res.status(401).json({ error: 'Not authenticated' });
-  
+
   const { eventName, warlord, cardList, deckContents } = req.body;
   if (!eventName || !warlord || !cardList || !deckContents) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -156,12 +160,11 @@ app.post('/api/submit-deck', async (req, res) => {
   const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
   const displayName = req.session.user.displayName || '';
   const timestamp = new Date().toISOString();
-  
+
   // Sanitize event name for filename
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
-  // Use absolute path for Railway volume
-  const eventPath = `/backend/public/events/${safeEventName}.json`;
-  const decksPath = `/backend/public/events/decks-${safeEventName}.json`;
+  const eventPath = `${EVENTS_PATH}/${safeEventName}.json`;
+  const decksPath = `${EVENTS_PATH}/decks-${safeEventName}.json`;
 
 try {
     // Ensure parent directories exist before writing files
