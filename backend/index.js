@@ -1,6 +1,8 @@
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
+const fs = require('fs');
+const fsp = require('fs/promises');
 const express = require('express');
 const session = require('express-session');
 const axios = require('axios');
@@ -160,34 +162,19 @@ app.post('/api/submit-deck', async (req, res) => {
   const eventPath = `backend/public/events/${safeEventName}.json`;
   const decksPath = `backend/public/events/decks-${safeEventName}.json`;
 
-  try {
-    // ---------------------------------------------------------
-    // PART 1: Update Event File
-    // ---------------------------------------------------------
-    let eventObj = { eventName, submissions: [] }; // Default structure
-    
+try {
+    // PART 1: Update Event File (local fs)
+    let eventObj = { eventName, submissions: [] };
     try {
-      const existingEvent = await getFile(eventPath);
-      if (existingEvent && existingEvent.content) {
-        eventObj = JSON.parse(existingEvent.content);
+      if (fs.existsSync(eventPath)) {
+        const raw = await fsp.readFile(eventPath, 'utf8');
+        eventObj = JSON.parse(raw);
       }
     } catch (err) {
-      // Only abort if error is not 404 and has a status code
-      const status = err.response?.status || err.status;
-      if (typeof status !== 'undefined' && status !== 404) {
-        throw new Error(`Critical error reading event file (Status ${status}). Aborting to protect data.`);
-      }
-      // If 404 or status is undefined, proceed with default eventObj
-      console.log(`Event file ${eventPath} not found or status undefined, creating new.`);
+      console.log(`Event file ${eventPath} not found or error reading, creating new.`);
     }
-
-    // Safety check: ensure submissions is an array
     if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
-
-    // Filter out previous submissions by THIS user to avoid duplicates
     eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
-    
-    // Add the new submission
     eventObj.submissions.push({
       warlord,
       username,
@@ -195,34 +182,20 @@ app.post('/api/submit-deck', async (req, res) => {
       display_name: displayName,
       timestamp
     });
+    await fsp.writeFile(eventPath, JSON.stringify(eventObj, null, 2), 'utf8');
 
-    await putFile(eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`);
-    
-    // ---------------------------------------------------------
-    // PART 2: Update Decks File
-    // ---------------------------------------------------------
-    let decksArr = []; // Default structure
-    
+    // PART 2: Update Decks File (local fs)
+    let decksArr = [];
     try {
-      const existingDecks = await getFile(decksPath);
-      if (existingDecks && existingDecks.content) {
-        decksArr = JSON.parse(existingDecks.content);
+      if (fs.existsSync(decksPath)) {
+        const rawDecks = await fsp.readFile(decksPath, 'utf8');
+        decksArr = JSON.parse(rawDecks);
       }
     } catch (err) {
-      // Only abort if error is not 404 and has a status code
-      const status = err.response?.status || err.status;
-      if (typeof status !== 'undefined' && status !== 404) {
-        throw new Error(`Critical error reading decks file (Status ${status}). Aborting to protect data.`);
-      }
-      // If 404 or status is undefined, proceed with default decksArr
-      console.log(`Decks file ${decksPath} not found or status undefined, creating new.`);
+      console.log(`Decks file ${decksPath} not found or error reading, creating new.`);
     }
-
-    // Safety check: ensure decksArr is an array
     if (!Array.isArray(decksArr)) decksArr = [];
-    console.log('Decks before filter:', JSON.stringify(decksArr));
     decksArr = decksArr.filter(deck => deck.username !== username);
-    console.log('Decks after filter:', JSON.stringify(decksArr));
     decksArr.push({
       username,
       event: eventName,
@@ -231,7 +204,7 @@ app.post('/api/submit-deck', async (req, res) => {
       timestamp,
       cardList: formatCardList(cardList)
     });
-    console.log('Decks after push:', JSON.stringify(decksArr));
+    await fsp.writeFile(decksPath, JSON.stringify(decksArr, null, 2), 'utf8');
 
     // Helper to format cardList (Internal function)
     function formatCardList(cardList) {
@@ -240,13 +213,11 @@ app.post('/api/submit-deck', async (req, res) => {
         const cards = cardList[type];
         let typeCount = 0;
         const typeCards = {};
-        // Add all cards in type except StartingArmy
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
-        // Add StartingArmy cards to typeCount only
         if (cards['StartingArmy']) {
           let saCount = 0;
           for (const saCard in cards['StartingArmy']) {
@@ -261,15 +232,13 @@ app.post('/api/submit-deck', async (req, res) => {
       return formatted;
     }
 
-    await putFile(decksPath, decksArr, `Add/Update deck for ${discordUsername} (${eventName})`);
-    
     res.json({ success: true });
-
   } catch (err) {
-    console.error('Deck submission error:', err.response ? err.response.data : err.message);
+    console.error('Deck submission error:', err.message);
     res.status(500).json({ error: 'Deck submission failed', details: err.message });
   }
 });
+
 
 // Step 4: Logout
 app.post('/api/auth/logout', (req, res) => {
