@@ -172,14 +172,13 @@ app.post('/api/submit-deck', async (req, res) => {
         eventObj = JSON.parse(existingEvent.content);
       }
     } catch (err) {
-      // SAFEGUARD: Only reset to empty if the file truly doesn't exist (404).
-      // If it's a network error (500, etc), throw error to prevent overwriting data.
+      // Only abort if error is not 404 and has a status code
       const status = err.response?.status || err.status;
-      if (status !== 404) {
+      if (typeof status !== 'undefined' && status !== 404) {
         throw new Error(`Critical error reading event file (Status ${status}). Aborting to protect data.`);
       }
-      // If 404, we proceed with the default `eventObj` created above
-      console.log(`Event file ${eventPath} not found, creating new.`);
+      // If 404 or status is undefined, proceed with default eventObj
+      console.log(`Event file ${eventPath} not found or status undefined, creating new.`);
     }
 
     // Safety check: ensure submissions is an array
@@ -210,12 +209,13 @@ app.post('/api/submit-deck', async (req, res) => {
         decksArr = JSON.parse(existingDecks.content);
       }
     } catch (err) {
-      // SAFEGUARD: Only reset to empty if the file truly doesn't exist (404).
+      // Only abort if error is not 404 and has a status code
       const status = err.response?.status || err.status;
-      if (status !== 404) {
+      if (typeof status !== 'undefined' && status !== 404) {
         throw new Error(`Critical error reading decks file (Status ${status}). Aborting to protect data.`);
       }
-      console.log(`Decks file ${decksPath} not found, creating new.`);
+      // If 404 or status is undefined, proceed with default decksArr
+      console.log(`Decks file ${decksPath} not found or status undefined, creating new.`);
     }
 
     // Safety check: ensure decksArr is an array
