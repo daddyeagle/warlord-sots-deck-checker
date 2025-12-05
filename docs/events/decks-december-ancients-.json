@@ -1,62 +1,61 @@
 {
-  "225075257822674944": [
+  "231248072204746753": [
     {
-      "username": "225075257822674944",
+      "username": "231248072204746753",
       "event": "December Ancients+",
-      "warlord": "B'alam Nak",
-      "display_name": "daddy_eagle",
-      "timestamp": "2025-12-05T04:41:38.340Z",
+      "warlord": "Adarymy",
+      "display_name": "Kynarin",
+      "timestamp": "2025-12-05T04:44:38.080Z",
       "cardList": {
         "Character": {
-          "count": 30,
+          "count": 31,
           "cards": {
-            "B'alam Nak": 2,
-            "Urnack": 2,
-            "Nightmaster Rress": 2,
-            "Joleg": 2,
-            "B'haya, the Fiend": 2,
-            "Jackals of Mourn": 3,
-            "Nog, Pog, and Snivels": 3,
-            "Yeg-Igryll's Altar": 1,
-            "Archer Tower": 1,
-            "Carg'rag": 3,
-            "D'nath": 3,
-            "Muddflek": 3,
-            "FirRal": 3
+            "Adarymy": 2,
+            "Rosalie": 4,
+            "Ryan Mornington": 4,
+            "Brother Dominy": 4,
+            "Spencer Latham": 4,
+            "Clerimonde": 3,
+            "Koranos": 2,
+            "Kun Iacob": 2,
+            "Kylia Smythe": 1,
+            "Leonora": 2,
+            "Llyr Militia": 3
           },
           "StartingArmy": {
             "cards": {
-              "B'alam Nak": 1,
-              "Urnack": 1,
-              "Nightmaster Rress": 1,
-              "Joleg": 1,
-              "B'haya, the Fiend": 1
+              "Adarymy": 1,
+              "Rosalie": 2,
+              "Ryan Mornington": 1,
+              "Brother Dominy": 1,
+              "Spencer Latham": 1
             }
           }
         },
-        "Item": {
-          "count": 9,
+        "Action": {
+          "count": 18,
           "cards": {
-            "Storm Shard": 1,
-            "Portable Hole": 3,
-            "Giant Bat": 2,
-            "Nodwick": 1,
-            "Farglass": 1,
-            "Arbalest": 1
+            "Back Alley Tavern": 1,
+            "Rescue": 1,
+            "Exhaustion": 3,
+            "Final Blessing": 2,
+            "Winter Warfare": 1,
+            "Reflect": 3,
+            "Hero's Gambit": 2,
+            "Sanctuary": 3,
+            "Bandage": 2
           },
           "StartingArmy": {
             "cards": {}
           }
         },
-        "Action": {
-          "count": 16,
+        "Item": {
+          "count": 7,
           "cards": {
-            "Wither": 3,
-            "Strain the Shot": 3,
-            "Reconnaissance": 3,
-            "Assassin's Strike": 2,
-            "Meet at the Inn!": 2,
-            "Crypt Wine": 3
+            "Blazing Medallion": 2,
+            "Portable Hole": 2,
+            "Black Moss": 2,
+            "Alliance Standard": 1
           },
           "StartingArmy": {
             "cards": {}
