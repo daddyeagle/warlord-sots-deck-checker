@@ -1241,11 +1241,25 @@
                         statusEl.textContent = 'Saving event entry...';
                         const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
                         eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = { warlord: warlordName, username, discord_username: discordUsername, timestamp };
+                        eventObj.submissions[username] = {
+                            warlord: warlordName,
+                            username,
+                            discord_username: discordUsername,
+                            display_name: window.discordUser.displayName || '',
+                            timestamp
+                        };
                         await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, null);
                         statusEl.textContent = 'Saving deck to deck database...';
                         const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
-                        decksObj[username] = { username, event: eventName, warlord: warlordName, timestamp, cardList };
+                        decksObj[username] = {
+                            username,
+                            event: eventName,
+                            warlord: warlordName,
+                            display_name: window.discordUser.displayName || '',
+                            timestamp,
+                            cardList,
+                            deckContents: allCards // Save the full deck contents for reference
+                        };
                         await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, null);
                         statusEl.textContent = 'Deck submitted successfully.';
                     } catch (err) {
