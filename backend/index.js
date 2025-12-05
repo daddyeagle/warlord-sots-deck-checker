@@ -206,13 +206,16 @@ app.post('/api/submit-deck', async (req, res) => {
         const cards = cardList[type];
         let typeCount = 0;
         const typeCards = {};
-        // Add all cards in type except StartingArmy
+        // Build a set of StartingArmy cards for this type
+        const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
+        // Add all cards in type except those in StartingArmy
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
+          if (saSet.has(card)) continue; // skip cards that are in StartingArmy
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
-        // Add StartingArmy cards to typeCount
+        // Add StartingArmy cards to typeCount only
         if (cards['StartingArmy']) {
           let saCount = 0;
           for (const saCard in cards['StartingArmy']) {
