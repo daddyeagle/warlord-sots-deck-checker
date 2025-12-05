@@ -191,9 +191,37 @@ app.post('/api/submit-deck', async (req, res) => {
       warlord,
       display_name: displayName,
       timestamp,
-      cardList,
-      deckContents
+      cardList: formatCardList(cardList)
     };
+    // Helper to format cardList for decks.json
+    function formatCardList(cardList) {
+      // cardList: { [type]: { [cardName]: count, StartingArmy: { [cardName]: count } } }
+      const formatted = {};
+      for (const type in cardList) {
+        const cards = cardList[type];
+        // Count total cards in this type (excluding StartingArmy)
+        let typeCount = 0;
+        const typeCards = {};
+        for (const card in cards) {
+          if (card === 'StartingArmy') continue;
+          // Exclude cards that are also in StartingArmy
+          if (cards['StartingArmy'] && cards['StartingArmy'][card]) continue;
+          typeCards[card] = cards[card];
+          typeCount += cards[card];
+        }
+        // Add type count at the top
+        formatted[type] = { count: typeCount, cards: typeCards };
+        // Add StartingArmy section if present
+        if (cards['StartingArmy']) {
+          let saCount = 0;
+          for (const saCard in cards['StartingArmy']) {
+            saCount += cards['StartingArmy'][saCard];
+          }
+          formatted[type]['StartingArmy'] = { count: saCount, cards: cards['StartingArmy'] };
+        }
+      }
+      return formatted;
+    }
     await putFile(decksPath, decksObj, `Add/Update deck for ${discordUsername} (${eventName})`);
     
     res.json({ success: true });
