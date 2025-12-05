@@ -6,7 +6,7 @@ const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
 const path = require('path');
-const { getFile, putFile } = require('./github'); // Added GitHub helper import
+const { getFile, putFile } = require('./github'); // GitHub helper import
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -161,17 +161,34 @@ app.post('/api/submit-deck', async (req, res) => {
   const decksPath = `docs/events/decks-${safeEventName}.json`;
 
   try {
-    // Update event file
-    let eventObj = {};
+    // ---------------------------------------------------------
+    // PART 1: Update Event File
+    // ---------------------------------------------------------
+    let eventObj = { eventName, submissions: [] }; // Default structure
+    
     try {
-      const { content } = await getFile(eventPath);
-      eventObj = content ? JSON.parse(content) : { eventName, submissions: [] };
-    } catch (e) { eventObj = { eventName, submissions: [] }; }
+      const existingEvent = await getFile(eventPath);
+      if (existingEvent && existingEvent.content) {
+        eventObj = JSON.parse(existingEvent.content);
+      }
+    } catch (err) {
+      // SAFEGUARD: Only reset to empty if the file truly doesn't exist (404).
+      // If it's a network error (500, etc), throw error to prevent overwriting data.
+      const status = err.response?.status || err.status;
+      if (status !== 404) {
+        throw new Error(`Critical error reading event file (Status ${status}). Aborting to protect data.`);
+      }
+      // If 404, we proceed with the default `eventObj` created above
+      console.log(`Event file ${eventPath} not found, creating new.`);
+    }
 
-    eventObj.submissions = Array.isArray(eventObj.submissions) ? eventObj.submissions : [];
-    // Remove previous submission for this user if exists
+    // Safety check: ensure submissions is an array
+    if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
+
+    // Filter out previous submissions by THIS user to avoid duplicates
     eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
-    // Add new submission for this user
+    
+    // Add the new submission
     eventObj.submissions.push({
       warlord,
       username,
@@ -179,18 +196,35 @@ app.post('/api/submit-deck', async (req, res) => {
       display_name: displayName,
       timestamp
     });
+
     await putFile(eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`);
     
-    // Update decks.json
-    let decksArr = [];
+    // ---------------------------------------------------------
+    // PART 2: Update Decks File
+    // ---------------------------------------------------------
+    let decksArr = []; // Default structure
+    
     try {
-      const { content } = await getFile(decksPath);
-      decksArr = content ? JSON.parse(content) : [];
-    } catch (e) { decksArr = []; }
+      const existingDecks = await getFile(decksPath);
+      if (existingDecks && existingDecks.content) {
+        decksArr = JSON.parse(existingDecks.content);
+      }
+    } catch (err) {
+      // SAFEGUARD: Only reset to empty if the file truly doesn't exist (404).
+      const status = err.response?.status || err.status;
+      if (status !== 404) {
+        throw new Error(`Critical error reading decks file (Status ${status}). Aborting to protect data.`);
+      }
+      console.log(`Decks file ${decksPath} not found, creating new.`);
+    }
 
-    // Remove previous deck for this user if exists
-    decksArr = Array.isArray(decksArr) ? decksArr.filter(deck => deck.username !== username) : [];
-    // Add new deck for this user
+    // Safety check: ensure decksArr is an array
+    if (!Array.isArray(decksArr)) decksArr = [];
+
+    // Filter out previous deck by THIS user
+    decksArr = decksArr.filter(deck => deck.username !== username);
+    
+    // Add the new deck
     decksArr.push({
       username,
       event: eventName,
@@ -199,15 +233,18 @@ app.post('/api/submit-deck', async (req, res) => {
       timestamp,
       cardList: formatCardList(cardList)
     });
-    // Helper to format cardList for decks.json
+
+    // Helper to format cardList (Internal function)
     function formatCardList(cardList) {
       const formatted = {};
       for (const type in cardList) {
         const cards = cardList[type];
         let typeCount = 0;
         const typeCards = {};
+        
         // Build a set of StartingArmy cards for this type
         const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
+        
         // Add all cards in type except those in StartingArmy
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
@@ -215,6 +252,7 @@ app.post('/api/submit-deck', async (req, res) => {
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
+        
         // Add StartingArmy cards to typeCount only
         if (cards['StartingArmy']) {
           let saCount = 0;
@@ -229,9 +267,11 @@ app.post('/api/submit-deck', async (req, res) => {
       }
       return formatted;
     }
+
     await putFile(decksPath, decksArr, `Add/Update deck for ${discordUsername} (${eventName})`);
     
     res.json({ success: true });
+
   } catch (err) {
     console.error('Deck submission error:', err.response ? err.response.data : err.message);
     res.status(500).json({ error: 'Deck submission failed', details: err.message });
