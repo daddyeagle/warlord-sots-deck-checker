@@ -157,8 +157,8 @@ app.post('/api/submit-deck', async (req, res) => {
   
   // Sanitize event name for filename
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
-  const eventPath = `docs/events/${safeEventName}.json`;
-  const decksPath = `docs/events/decks-${safeEventName}.json`;
+  const eventPath = `backend/public/events/${safeEventName}.json`;
+  const decksPath = `backend/public/events/decks-${safeEventName}.json`;
 
   try {
     // ---------------------------------------------------------
