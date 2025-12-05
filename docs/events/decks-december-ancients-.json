@@ -1,67 +1,65 @@
 {
-  "231248072204746753": [
-    {
-      "username": "231248072204746753",
-      "event": "December Ancients+",
-      "warlord": "Adarymy",
-      "display_name": "Kynarin",
-      "timestamp": "2025-12-05T04:44:38.080Z",
-      "cardList": {
-        "Character": {
-          "count": 31,
-          "cards": {
-            "Adarymy": 2,
-            "Rosalie": 4,
-            "Ryan Mornington": 4,
-            "Brother Dominy": 4,
-            "Spencer Latham": 4,
-            "Clerimonde": 3,
-            "Koranos": 2,
-            "Kun Iacob": 2,
-            "Kylia Smythe": 1,
-            "Leonora": 2,
-            "Llyr Militia": 3
-          },
-          "StartingArmy": {
-            "cards": {
-              "Adarymy": 1,
-              "Rosalie": 2,
-              "Ryan Mornington": 1,
-              "Brother Dominy": 1,
-              "Spencer Latham": 1
-            }
-          }
+  "225075257822674944": {
+    "username": "225075257822674944",
+    "event": "December Ancients+",
+    "warlord": "Scyrax",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-05T04:50:18.647Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "cards": {
+          "Carg'rag": 3,
+          "Karn of Clan Manaka": 1,
+          "Koratcghuk": 1,
+          "Lukkot Buzzsaw": 3,
+          "Makusog Steelhorn": 3,
+          "Sar'ean": 3,
+          "The Mighty Mugg": 3,
+          "The Retiarius": 1,
+          "Toren Yscar": 1
         },
-        "Action": {
-          "count": 18,
+        "StartingArmy": {
           "cards": {
-            "Back Alley Tavern": 1,
-            "Rescue": 1,
-            "Exhaustion": 3,
-            "Final Blessing": 2,
-            "Winter Warfare": 1,
-            "Reflect": 3,
-            "Hero's Gambit": 2,
-            "Sanctuary": 3,
-            "Bandage": 2
-          },
-          "StartingArmy": {
-            "cards": {}
+            "Bear Legion Recruit": 3,
+            "Yeg-Igryll's Altar": 1,
+            "Krasin": 1,
+            "Scyrax": 1
           }
+        }
+      },
+      "Item": {
+        "count": 15,
+        "cards": {
+          "Black Journal": 1,
+          "Deverenus' Axe": 2,
+          "Dragon Buckler": 1,
+          "Glyph of Fate": 1,
+          "Nodwick": 1,
+          "Portable Hole": 3,
+          "Silverwind": 1,
+          "Staff of Secrets": 1,
+          "Storm Shard": 1,
+          "The King's Lady": 1,
+          "Vorpal Blade": 1,
+          "Wand of Negation": 1
         },
-        "Item": {
-          "count": 7,
-          "cards": {
-            "Blazing Medallion": 2,
-            "Portable Hole": 2,
-            "Black Moss": 2,
-            "Alliance Standard": 1
-          },
-          "StartingArmy": {
-            "cards": {}
-          }
+        "StartingArmy": {
+          "cards": {}
+        }
+      },
+      "Action": {
+        "count": 10,
+        "cards": {
+          "Extensions": 3,
+          "Fell Blow": 1,
+          "From Dust to Dust": 3,
+          "Severed of Flesh": 3
+        },
+        "StartingArmy": {
+          "cards": {}
         }
       }
     }
-  ]
+  }
 }
