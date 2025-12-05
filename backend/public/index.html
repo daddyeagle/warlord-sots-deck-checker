@@ -1173,8 +1173,6 @@
                         statusEl.textContent = 'You must log in with Discord to submit.';
                         return;
                     }
-                    const username = window.discordUser.id;
-                    const discordUsername = `${window.discordUser.username}#${window.discordUser.discriminator}`;
                     const eventName = (eventSelect.value || '').trim() || 'default-event';
                     // Fetch event_list.json to get required ruleset for event
                     let requiredRuleset = null;
@@ -1230,38 +1228,25 @@
                         }
                         const cardList = buildCardListByType(allCards, saList);
                         const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                        const timestamp = new Date().toISOString();
-                        // Prepare event file object and decks.json
-                        const owner = 'daddyeagle';
-                        const repo = 'warlord-sots-deck-checker';
-                        const branch = 'deploy-docs';
-                        const eventPath = `docs/events/${slugify(eventName)}.json`;
-                        const decksPath = `docs/events/decks.json`;
-                        // Fetch existing event file (if any), then upsert this username entry
-                        statusEl.textContent = 'Saving event entry...';
-                        const eventObj = await fetchJsonFromGitHub(owner, repo, eventPath, branch, null) || { eventName: eventName, submissions: {} };
-                        eventObj.submissions = eventObj.submissions || {};
-                        eventObj.submissions[username] = {
-                            warlord: warlordName,
-                            username,
-                            discord_username: discordUsername,
-                            display_name: window.discordUser.displayName || '',
-                            timestamp
-                        };
-                        await putJsonToGitHub(owner, repo, eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`, branch, null);
-                        statusEl.textContent = 'Saving deck to deck database...';
-                        const decksObj = await fetchJsonFromGitHub(owner, repo, decksPath, branch, null) || {};
-                        decksObj[username] = {
-                            username,
-                            event: eventName,
-                            warlord: warlordName,
-                            display_name: window.discordUser.displayName || '',
-                            timestamp,
-                            cardList,
-                            deckContents: allCards // Save the full deck contents for reference
-                        };
-                        await putJsonToGitHub(owner, repo, decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`, branch, null);
-                        statusEl.textContent = 'Deck submitted successfully.';
+                        // Send to backend for GitHub update
+                        statusEl.textContent = 'Submitting deck to server...';
+                        const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                eventName,
+                                warlord: warlordName,
+                                cardList,
+                                deckContents: allCards
+                            })
+                        });
+                        const result = await resp.json();
+                        if (resp.ok && result.success) {
+                            statusEl.textContent = 'Deck submitted successfully.';
+                        } else {
+                            throw new Error(result.error || 'Unknown error');
+                        }
                     } catch (err) {
                         console.error('Submit failed', err);
                         statusEl.textContent = 'Submit failed: ' + (err.message || err);

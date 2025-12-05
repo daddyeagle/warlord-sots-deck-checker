@@ -1,3 +1,57 @@
+// --- Deck Submission API ---
+const { getFile, putFile } = require('./github');
+
+// POST /api/submit-deck
+app.post('/api/submit-deck', async (req, res) => {
+  if (!req.session.user) return res.status(401).json({ error: 'Not authenticated' });
+  const { eventName, warlord, cardList, deckContents } = req.body;
+  if (!eventName || !warlord || !cardList || !deckContents) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+  const username = req.session.user.id;
+  const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
+  const displayName = req.session.user.displayName || '';
+  const timestamp = new Date().toISOString();
+  const eventPath = `docs/events/${eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase()}.json`;
+  const decksPath = `docs/events/decks.json`;
+  try {
+    // Update event file
+    let eventObj = {};
+    try {
+      const { content } = await getFile(eventPath);
+      eventObj = content ? JSON.parse(content) : { eventName, submissions: {} };
+    } catch (e) { eventObj = { eventName, submissions: {} }; }
+    eventObj.submissions = eventObj.submissions || {};
+    eventObj.submissions[username] = {
+      warlord,
+      username,
+      discord_username: discordUsername,
+      display_name: displayName,
+      timestamp
+    };
+    await putFile(eventPath, eventObj, `Add/Update event submission by ${username} for ${eventName}`);
+    // Update decks.json
+    let decksObj = {};
+    try {
+      const { content } = await getFile(decksPath);
+      decksObj = content ? JSON.parse(content) : {};
+    } catch (e) { decksObj = {}; }
+    decksObj[username] = {
+      username,
+      event: eventName,
+      warlord,
+      display_name: displayName,
+      timestamp,
+      cardList,
+      deckContents
+    };
+    await putFile(decksPath, decksObj, `Add/Update deck for ${username} (${eventName})`);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Deck submission error:', err.response ? err.response.data : err.message);
+    res.status(500).json({ error: 'Deck submission failed', details: err.message });
+  }
+});
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
