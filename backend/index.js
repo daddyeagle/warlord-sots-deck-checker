@@ -220,11 +220,9 @@ app.post('/api/submit-deck', async (req, res) => {
 
     // Safety check: ensure decksArr is an array
     if (!Array.isArray(decksArr)) decksArr = [];
-
-    // Filter out previous deck by THIS user
+    console.log('Decks before filter:', JSON.stringify(decksArr));
     decksArr = decksArr.filter(deck => deck.username !== username);
-    
-    // Add the new deck
+    console.log('Decks after filter:', JSON.stringify(decksArr));
     decksArr.push({
       username,
       event: eventName,
@@ -233,6 +231,7 @@ app.post('/api/submit-deck', async (req, res) => {
       timestamp,
       cardList: formatCardList(cardList)
     });
+    console.log('Decks after push:', JSON.stringify(decksArr));
 
     // Helper to format cardList (Internal function)
     function formatCardList(cardList) {

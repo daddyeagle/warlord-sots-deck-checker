@@ -1,53 +1,61 @@
 [
   {
-    "username": "231248072204746753",
+    "username": "225075257822674944",
     "event": "December Ancients+",
-    "warlord": "Stonefist Gargoyle",
-    "display_name": "Kynarin",
-    "timestamp": "2025-12-05T05:25:17.957Z",
+    "warlord": "B'alam Nak",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-05T05:45:24.231Z",
     "cardList": {
       "Character": {
-        "count": 23,
+        "count": 30,
         "cards": {
-          "Door to the World": 1,
-          "Feldspar Gargoyle": 2,
-          "Icesecret Gargoyle": 2,
-          "Limestone Gargoyle": 3,
-          "Lodestone Gargoyle": 3,
-          "Nilrem": 3,
-          "Sentinel Gargoyle": 3
+          "B'alam Nak": 1,
+          "Urnack": 1,
+          "Nightmaster Rress": 1,
+          "Joleg": 1,
+          "B'haya, the Fiend": 1,
+          "Jackals of Mourn": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Yeg-Igryll's Altar": 1,
+          "Archer Tower": 1,
+          "Carg'rag": 3,
+          "D'nath": 3,
+          "Muddflek": 3,
+          "FirRal": 3
         },
         "StartingArmy": {
           "cards": {
-            "Stonefist Gargoyle": 1,
-            "Serpentscale Gargoyle": 2,
-            "Flamestone Gargoyle": 1,
-            "Lightstone Gargoyles": 1,
-            "Opal Gargoyle": 1
+            "B'alam Nak": 1,
+            "Urnack": 1,
+            "Nightmaster Rress": 1,
+            "Joleg": 1,
+            "B'haya, the Fiend": 1
           }
         }
       },
-      "Action": {
-        "count": 20,
+      "Item": {
+        "count": 9,
         "cards": {
-          "Bellicose": 3,
-          "Divine Barrier": 2,
-          "Flame Blade": 3,
-          "No Prisoners!": 3,
-          "Rescue": 1,
-          "Stubborn": 3,
-          "Sudden Reversal": 2,
-          "Summon Gargoyle": 3
+          "Storm Shard": 1,
+          "Portable Hole": 3,
+          "Giant Bat": 2,
+          "Nodwick": 1,
+          "Farglass": 1,
+          "Arbalest": 1
         },
         "StartingArmy": {
           "cards": {}
         }
       },
-      "Item": {
-        "count": 5,
+      "Action": {
+        "count": 16,
         "cards": {
-          "Pike": 3,
-          "War Horse": 2
+          "Wither": 3,
+          "Strain the Shot": 3,
+          "Reconnaissance": 3,
+          "Assassin's Strike": 2,
+          "Meet at the Inn!": 2,
+          "Crypt Wine": 3
         },
         "StartingArmy": {
           "cards": {}
