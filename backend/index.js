@@ -4,22 +4,7 @@
 
 // ...existing code...
 
-// Place this before app.listen(...)
-app.get('/api/admin/download', async (req, res) => {
-  // TODO: Add authentication/authorization for real admin security
-  const file = req.query.file;
-  if (!file || !/^[a-zA-Z0-9_.\-]+$/.test(file)) {
-    return res.status(400).json({ error: 'Invalid file name' });
-  }
-  const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
-  const filePath = `${EVENTS_PATH}/${file}`;
-  try {
-    await fsp.access(filePath);
-    res.download(filePath, file);
-  } catch (err) {
-    res.status(404).json({ error: 'File not found' });
-  }
-});
+
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
@@ -292,7 +277,22 @@ app.get('*', (req, res) => {
     res.status(404).send('Not found');
   }
 });
-
+// Place this before app.listen(...)
+app.get('/api/admin/download', async (req, res) => {
+  // TODO: Add authentication/authorization for real admin security
+  const file = req.query.file;
+  if (!file || !/^[a-zA-Z0-9_.\-]+$/.test(file)) {
+    return res.status(400).json({ error: 'Invalid file name' });
+  }
+  const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
+  const filePath = `${EVENTS_PATH}/${file}`;
+  try {
+    await fsp.access(filePath);
+    res.download(filePath, file);
+  } catch (err) {
+    res.status(404).json({ error: 'File not found' });
+  }
+});
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Backend listening on port ${PORT}`);
 });
