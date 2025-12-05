@@ -1,60 +1,53 @@
 [
   {
-    "username": "225075257822674944",
+    "username": "231248072204746753",
     "event": "December Ancients+",
-    "warlord": "Scyrax",
-    "display_name": "daddy_eagle",
-    "timestamp": "2025-12-05T05:21:56.465Z",
+    "warlord": "Stonefist Gargoyle",
+    "display_name": "Kynarin",
+    "timestamp": "2025-12-05T05:25:17.957Z",
     "cardList": {
       "Character": {
-        "count": 25,
+        "count": 23,
         "cards": {
-          "Carg'rag": 3,
-          "Karn of Clan Manaka": 1,
-          "Koratcghuk": 1,
-          "Lukkot Buzzsaw": 3,
-          "Makusog Steelhorn": 3,
-          "Sar'ean": 3,
-          "The Mighty Mugg": 3,
-          "The Retiarius": 1,
-          "Toren Yscar": 1
+          "Door to the World": 1,
+          "Feldspar Gargoyle": 2,
+          "Icesecret Gargoyle": 2,
+          "Limestone Gargoyle": 3,
+          "Lodestone Gargoyle": 3,
+          "Nilrem": 3,
+          "Sentinel Gargoyle": 3
         },
         "StartingArmy": {
           "cards": {
-            "Bear Legion Recruit": 3,
-            "Yeg-Igryll's Altar": 1,
-            "Krasin": 1,
-            "Scyrax": 1
+            "Stonefist Gargoyle": 1,
+            "Serpentscale Gargoyle": 2,
+            "Flamestone Gargoyle": 1,
+            "Lightstone Gargoyles": 1,
+            "Opal Gargoyle": 1
           }
         }
       },
-      "Item": {
-        "count": 15,
+      "Action": {
+        "count": 20,
         "cards": {
-          "Black Journal": 1,
-          "Deverenus' Axe": 2,
-          "Dragon Buckler": 1,
-          "Glyph of Fate": 1,
-          "Nodwick": 1,
-          "Portable Hole": 3,
-          "Silverwind": 1,
-          "Staff of Secrets": 1,
-          "Storm Shard": 1,
-          "The King's Lady": 1,
-          "Vorpal Blade": 1,
-          "Wand of Negation": 1
+          "Bellicose": 3,
+          "Divine Barrier": 2,
+          "Flame Blade": 3,
+          "No Prisoners!": 3,
+          "Rescue": 1,
+          "Stubborn": 3,
+          "Sudden Reversal": 2,
+          "Summon Gargoyle": 3
         },
         "StartingArmy": {
           "cards": {}
         }
       },
-      "Action": {
-        "count": 10,
+      "Item": {
+        "count": 5,
         "cards": {
-          "Extensions": 3,
-          "Fell Blow": 1,
-          "From Dust to Dust": 3,
-          "Severed of Flesh": 3
+          "Pike": 3,
+          "War Horse": 2
         },
         "StartingArmy": {
           "cards": {}
