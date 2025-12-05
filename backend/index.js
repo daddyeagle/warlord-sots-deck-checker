@@ -158,7 +158,7 @@ app.post('/api/submit-deck', async (req, res) => {
   // Sanitize event name for filename
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
   const eventPath = `docs/events/${safeEventName}.json`;
-  const decksPath = `docs/events/decks.json`;
+  const decksPath = `docs/events/decks-${safeEventName}.json`;
 
   try {
     // Update event file
@@ -169,13 +169,14 @@ app.post('/api/submit-deck', async (req, res) => {
     } catch (e) { eventObj = { eventName, submissions: {} }; }
     
     eventObj.submissions = eventObj.submissions || {};
-    eventObj.submissions[username] = {
+    if (!eventObj.submissions[username]) eventObj.submissions[username] = [];
+    eventObj.submissions[username].push({
       warlord,
       username,
       discord_username: discordUsername,
       display_name: displayName,
       timestamp
-    };
+    });
     await putFile(eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`);
     
     // Update decks.json
@@ -185,14 +186,15 @@ app.post('/api/submit-deck', async (req, res) => {
       decksObj = content ? JSON.parse(content) : {};
     } catch (e) { decksObj = {}; }
     
-    decksObj[username] = {
+    if (!decksObj[username]) decksObj[username] = [];
+    decksObj[username].push({
       username,
       event: eventName,
       warlord,
       display_name: displayName,
       timestamp,
       cardList: formatCardList(cardList)
-    };
+    });
     // Helper to format cardList for decks.json
     function formatCardList(cardList) {
       // cardList: { [type]: { [cardName]: count, StartingArmy: { [cardName]: count } } }
