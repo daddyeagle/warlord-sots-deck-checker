@@ -191,6 +191,10 @@ try {
     });
     await fsp.writeFile(eventPath, JSON.stringify(eventObj, null, 2), 'utf8');
 
+    // Debug log for event file
+    console.log('[Deck Submission] Wrote event file to:', eventPath);
+    console.log('[Deck Submission] Event file contents:', JSON.stringify(eventObj, null, 2));
+
     // PART 2: Update Decks File (local fs)
     let decksArr = [];
     try {
@@ -212,6 +216,10 @@ try {
       cardList: formatCardList(cardList)
     });
     await fsp.writeFile(decksPath, JSON.stringify(decksArr, null, 2), 'utf8');
+
+    // Debug log for decks file
+    console.log('[Deck Submission] Wrote decks file to:', decksPath);
+    console.log('[Deck Submission] Decks file contents:', JSON.stringify(decksArr, null, 2));
 
     // Helper to format cardList (Internal function)
     function formatCardList(cardList) {
