@@ -2,64 +2,62 @@
   "225075257822674944": {
     "username": "225075257822674944",
     "event": "December Ancients+",
-    "warlord": "Scyrax",
+    "warlord": "Vactus, Spirit's Champion",
     "display_name": "daddy_eagle",
-    "timestamp": "2025-12-05T04:12:55.688Z",
+    "timestamp": "2025-12-05T04:29:07.771Z",
     "cardList": {
       "Character": {
-        "count": 19,
+        "count": 26,
         "cards": {
-          "Carg'rag": 3,
-          "Karn of Clan Manaka": 1,
-          "Koratcghuk": 1,
-          "Lukkot Buzzsaw": 3,
-          "Makusog Steelhorn": 3,
-          "Sar'ean": 3,
-          "The Mighty Mugg": 3,
-          "The Retiarius": 1,
-          "Toren Yscar": 1
+          "Vactus, Spirit's Champion": 2,
+          "Novice Pyro": 2,
+          "Misearean Scout": 2,
+          "Bear Legion Recruit": 3,
+          "Joleg": 5,
+          "Catapult Crew": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Muddflek": 3,
+          "Ac'Vuk": 3
         },
         "StartingArmy": {
-          "count": 6,
           "cards": {
-            "Bear Legion Recruit": 3,
-            "Yeg-Igryll's Altar": 1,
-            "Krasin": 1,
-            "Scyrax": 1
+            "Vactus, Spirit's Champion": 1,
+            "Novice Pyro": 1,
+            "Misearean Scout": 1,
+            "Bear Legion Recruit": 1,
+            "Joleg": 2
           }
         }
       },
-      "Item": {
-        "count": 15,
+      "Action": {
+        "count": 17,
         "cards": {
-          "Black Journal": 1,
-          "Deverenus' Axe": 2,
-          "Dragon Buckler": 1,
-          "Glyph of Fate": 1,
-          "Nodwick": 1,
-          "Portable Hole": 3,
-          "Silverwind": 1,
-          "Staff of Secrets": 1,
-          "Storm Shard": 1,
-          "The King's Lady": 1,
-          "Vorpal Blade": 1,
-          "Wand of Negation": 1
+          "I Have Your Back": 3,
+          "Epic Donnybrook": 2,
+          "Heroic Confrontation": 1,
+          "Noble Sacrifice": 3,
+          "Crush": 3,
+          "Berserk": 2,
+          "Arcane Approach": 3
         },
         "StartingArmy": {
-          "count": 0,
           "cards": {}
         }
       },
-      "Action": {
-        "count": 10,
+      "Item": {
+        "count": 13,
         "cards": {
-          "Extensions": 3,
-          "Fell Blow": 1,
-          "From Dust to Dust": 3,
-          "Severed of Flesh": 3
+          "Storm Shard": 1,
+          "Spellblocker": 1,
+          "Rockarm": 1,
+          "Griffon of Andover": 2,
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Silversteel Gauntlets": 1,
+          "Breastplate of Power": 1,
+          "Ardian Greathawk": 1
         },
         "StartingArmy": {
-          "count": 0,
           "cards": {}
         }
       }
