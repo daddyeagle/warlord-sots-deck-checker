@@ -1,61 +1,60 @@
 {
-  "225075257822674944": {
-    "username": "225075257822674944",
+  "231248072204746753": {
+    "username": "231248072204746753",
     "event": "December Ancients+",
-    "warlord": "Vactus, Spirit's Champion",
-    "display_name": "daddy_eagle",
-    "timestamp": "2025-12-05T04:29:07.771Z",
+    "warlord": "Adarymy",
+    "display_name": "Kynarin",
+    "timestamp": "2025-12-05T04:34:00.206Z",
     "cardList": {
       "Character": {
-        "count": 26,
+        "count": 31,
         "cards": {
-          "Vactus, Spirit's Champion": 2,
-          "Novice Pyro": 2,
-          "Misearean Scout": 2,
-          "Bear Legion Recruit": 3,
-          "Joleg": 5,
-          "Catapult Crew": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Muddflek": 3,
-          "Ac'Vuk": 3
+          "Adarymy": 2,
+          "Rosalie": 4,
+          "Ryan Mornington": 4,
+          "Brother Dominy": 4,
+          "Spencer Latham": 4,
+          "Clerimonde": 3,
+          "Koranos": 2,
+          "Kun Iacob": 2,
+          "Kylia Smythe": 1,
+          "Leonora": 2,
+          "Llyr Militia": 3
         },
         "StartingArmy": {
           "cards": {
-            "Vactus, Spirit's Champion": 1,
-            "Novice Pyro": 1,
-            "Misearean Scout": 1,
-            "Bear Legion Recruit": 1,
-            "Joleg": 2
+            "Adarymy": 1,
+            "Rosalie": 2,
+            "Ryan Mornington": 1,
+            "Brother Dominy": 1,
+            "Spencer Latham": 1
           }
         }
       },
       "Action": {
-        "count": 17,
+        "count": 18,
         "cards": {
-          "I Have Your Back": 3,
-          "Epic Donnybrook": 2,
-          "Heroic Confrontation": 1,
-          "Noble Sacrifice": 3,
-          "Crush": 3,
-          "Berserk": 2,
-          "Arcane Approach": 3
+          "Back Alley Tavern": 1,
+          "Rescue": 1,
+          "Exhaustion": 3,
+          "Final Blessing": 2,
+          "Winter Warfare": 1,
+          "Reflect": 3,
+          "Hero's Gambit": 2,
+          "Sanctuary": 3,
+          "Bandage": 2
         },
         "StartingArmy": {
           "cards": {}
         }
       },
       "Item": {
-        "count": 13,
+        "count": 7,
         "cards": {
-          "Storm Shard": 1,
-          "Spellblocker": 1,
-          "Rockarm": 1,
-          "Griffon of Andover": 2,
-          "Bruntor's Helm": 2,
-          "Deverenus' Axe": 3,
-          "Silversteel Gauntlets": 1,
-          "Breastplate of Power": 1,
-          "Ardian Greathawk": 1
+          "Blazing Medallion": 2,
+          "Portable Hole": 2,
+          "Black Moss": 2,
+          "Alliance Standard": 1
         },
         "StartingArmy": {
           "cards": {}
