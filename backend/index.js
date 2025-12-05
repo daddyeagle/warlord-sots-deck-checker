@@ -1,5 +1,10 @@
 // --- Admin File Download Endpoint ---
 // Streams a file from the events directory for download
+// Place this after app is initialized and middleware is set up
+
+// ...existing code...
+
+// Place this before app.listen(...)
 app.get('/api/admin/download', async (req, res) => {
   // TODO: Add authentication/authorization for real admin security
   const file = req.query.file;
