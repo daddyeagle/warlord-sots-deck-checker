@@ -169,14 +169,14 @@ app.post('/api/submit-deck', async (req, res) => {
     } catch (e) { eventObj = { eventName, submissions: {} }; }
     
     eventObj.submissions = eventObj.submissions || {};
-    if (!eventObj.submissions[username]) eventObj.submissions[username] = [];
-    eventObj.submissions[username].push({
+    // Overwrite previous submission for this user
+    eventObj.submissions[username] = {
       warlord,
       username,
       discord_username: discordUsername,
       display_name: displayName,
       timestamp
-    });
+    };
     await putFile(eventPath, eventObj, `Add/Update event submission by ${discordUsername} for ${eventName}`);
     
     // Update decks.json
@@ -186,15 +186,15 @@ app.post('/api/submit-deck', async (req, res) => {
       decksObj = content ? JSON.parse(content) : {};
     } catch (e) { decksObj = {}; }
     
-    if (!decksObj[username]) decksObj[username] = [];
-    decksObj[username].push({
+    // Overwrite previous deck for this user
+    decksObj[username] = {
       username,
       event: eventName,
       warlord,
       display_name: displayName,
       timestamp,
       cardList: formatCardList(cardList)
-    });
+    };
     // Helper to format cardList for decks.json
     function formatCardList(cardList) {
       // cardList: { [type]: { [cardName]: count, StartingArmy: { [cardName]: count } } }
@@ -203,22 +203,21 @@ app.post('/api/submit-deck', async (req, res) => {
         const cards = cardList[type];
         let typeCount = 0;
         const typeCards = {};
-        // Add all cards in type
+        // Add all cards in type, but skip those in StartingArmy
+        const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
+          if (saSet.has(card)) continue; // skip cards that are in StartingArmy
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
-        // Add StartingArmy cards to type count and typeCards
+        // Add StartingArmy section if present
         if (cards['StartingArmy']) {
+          let saCount = 0;
           for (const saCard in cards['StartingArmy']) {
-            if (typeCards[saCard]) {
-              typeCards[saCard] += cards['StartingArmy'][saCard];
-            } else {
-              typeCards[saCard] = cards['StartingArmy'][saCard];
-            }
-            typeCount += cards['StartingArmy'][saCard];
+            saCount += cards['StartingArmy'][saCard];
           }
+          typeCount += saCount;
           formatted[type] = { count: typeCount, cards: typeCards, StartingArmy: { cards: cards['StartingArmy'] } };
         } else {
           formatted[type] = { count: typeCount, cards: typeCards };

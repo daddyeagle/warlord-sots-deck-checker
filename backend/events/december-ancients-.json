@@ -1,12 +1,14 @@
 {
   "eventName": "December Ancients+",
   "submissions": {
-    "231248072204746753": {
-      "warlord": "Adarymy",
-      "username": "231248072204746753",
-      "discord_username": "kynarin#0",
-      "display_name": "Kynarin",
-      "timestamp": "2025-12-05T04:34:09.751Z"
-    }
+    "231248072204746753": [
+      {
+        "warlord": "Adarymy",
+        "username": "231248072204746753",
+        "discord_username": "kynarin#0",
+        "display_name": "Kynarin",
+        "timestamp": "2025-12-05T04:44:38.080Z"
+      }
+    ]
   }
 }
