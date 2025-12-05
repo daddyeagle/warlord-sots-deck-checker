@@ -159,8 +159,9 @@ app.post('/api/submit-deck', async (req, res) => {
   
   // Sanitize event name for filename
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
-  const eventPath = `backend/public/events/${safeEventName}.json`;
-  const decksPath = `backend/public/events/decks-${safeEventName}.json`;
+  // Use absolute path for Railway volume
+  const eventPath = `/backend/public/events/${safeEventName}.json`;
+  const decksPath = `/backend/public/events/decks-${safeEventName}.json`;
 
 try {
     // Ensure parent directories exist before writing files
