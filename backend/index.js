@@ -199,25 +199,27 @@ app.post('/api/submit-deck', async (req, res) => {
       const formatted = {};
       for (const type in cardList) {
         const cards = cardList[type];
-        // Count total cards in this type (excluding StartingArmy)
         let typeCount = 0;
         const typeCards = {};
+        // Add all cards in type
         for (const card in cards) {
           if (card === 'StartingArmy') continue;
-          // Exclude cards that are also in StartingArmy
-          if (cards['StartingArmy'] && cards['StartingArmy'][card]) continue;
           typeCards[card] = cards[card];
           typeCount += cards[card];
         }
-        // Add type count at the top
-        formatted[type] = { count: typeCount, cards: typeCards };
-        // Add StartingArmy section if present
+        // Add StartingArmy cards to type count and typeCards
         if (cards['StartingArmy']) {
-          let saCount = 0;
           for (const saCard in cards['StartingArmy']) {
-            saCount += cards['StartingArmy'][saCard];
+            if (typeCards[saCard]) {
+              typeCards[saCard] += cards['StartingArmy'][saCard];
+            } else {
+              typeCards[saCard] = cards['StartingArmy'][saCard];
+            }
+            typeCount += cards['StartingArmy'][saCard];
           }
-          formatted[type]['StartingArmy'] = { count: saCount, cards: cards['StartingArmy'] };
+          formatted[type] = { count: typeCount, cards: typeCards, StartingArmy: { cards: cards['StartingArmy'] } };
+        } else {
+          formatted[type] = { count: typeCount, cards: typeCards };
         }
       }
       return formatted;
