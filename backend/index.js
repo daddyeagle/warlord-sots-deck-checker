@@ -1,7 +1,13 @@
-// --- Deck Submission API ---
+require('dotenv').config();
+const express = require('express');
+const session = require('express-session');
+const axios = require('axios');
 const { getFile, putFile } = require('./github');
+const cors = require('cors');
+const path = require('path');
+const app = express();
 
-// POST /api/submit-deck
+// --- Deck Submission API ---
 app.post('/api/submit-deck', async (req, res) => {
   if (!req.session.user) return res.status(401).json({ error: 'Not authenticated' });
   const { eventName, warlord, cardList, deckContents } = req.body;
@@ -52,12 +58,6 @@ app.post('/api/submit-deck', async (req, res) => {
     res.status(500).json({ error: 'Deck submission failed', details: err.message });
   }
 });
-// Express server for Discord OAuth2 login
-require('dotenv').config();
-
-const express = require('express');
-const session = require('express-session');
-const axios = require('axios');
 const cors = require('cors');
 const path = require('path');
 
