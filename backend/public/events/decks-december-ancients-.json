@@ -1,69 +1,5 @@
 [
   {
-    "username": "225075257822674944",
-    "event": "December Ancients+",
-    "warlord": "Vactus, Spirit's Champion",
-    "display_name": "daddy_eagle",
-    "timestamp": "2025-12-06T04:54:54.380Z",
-    "cardList": {
-      "Character": {
-        "count": 26,
-        "cards": {
-          "Vactus, Spirit's Champion": 2,
-          "Novice Pyro": 2,
-          "Misearean Scout": 2,
-          "Bear Legion Recruit": 3,
-          "Joleg": 5,
-          "Catapult Crew": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Muddflek": 3,
-          "Ac'Vuk": 3
-        },
-        "StartingArmy": {
-          "cards": {
-            "Vactus, Spirit's Champion": 1,
-            "Novice Pyro": 1,
-            "Misearean Scout": 1,
-            "Bear Legion Recruit": 1,
-            "Joleg": 2
-          }
-        }
-      },
-      "Action": {
-        "count": 17,
-        "cards": {
-          "I Have Your Back": 3,
-          "Epic Donnybrook": 2,
-          "Heroic Confrontation": 1,
-          "Noble Sacrifice": 3,
-          "Crush": 3,
-          "Berserk": 2,
-          "Arcane Approach": 3
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      },
-      "Item": {
-        "count": 13,
-        "cards": {
-          "Storm Shard": 1,
-          "Spellblocker": 1,
-          "Rockarm": 1,
-          "Griffon of Andover": 2,
-          "Bruntor's Helm": 2,
-          "Deverenus' Axe": 3,
-          "Silversteel Gauntlets": 1,
-          "Breastplate of Power": 1,
-          "Ardian Greathawk": 1
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      }
-    }
-  },
-  {
     "username": "231248072204746753",
     "event": "December Ancients+",
     "warlord": "Adarymy",
@@ -122,6 +58,155 @@
         },
         "StartingArmy": {
           "cards": {}
+        }
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "event": "December Ancients+",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-06T05:02:24.399Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "cards": {
+          "Vactus, Spirit's Champion": {
+            "total": 2,
+            "mainDeck": 1,
+            "startingArmy": 1
+          },
+          "Novice Pyro": {
+            "total": 2,
+            "mainDeck": 1,
+            "startingArmy": 1
+          },
+          "Misearean Scout": {
+            "total": 2,
+            "mainDeck": 1,
+            "startingArmy": 1
+          },
+          "Bear Legion Recruit": {
+            "total": 3,
+            "mainDeck": 2,
+            "startingArmy": 1
+          },
+          "Joleg": {
+            "total": 5,
+            "mainDeck": 3,
+            "startingArmy": 2
+          },
+          "Catapult Crew": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Nog, Pog, and Snivels": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Muddflek": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Ac'Vuk": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          }
+        }
+      },
+      "Action": {
+        "count": 17,
+        "cards": {
+          "I Have Your Back": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Epic Donnybrook": {
+            "total": 2,
+            "mainDeck": 2,
+            "startingArmy": 0
+          },
+          "Heroic Confrontation": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Noble Sacrifice": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Crush": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Berserk": {
+            "total": 2,
+            "mainDeck": 2,
+            "startingArmy": 0
+          },
+          "Arcane Approach": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          }
+        }
+      },
+      "Item": {
+        "count": 13,
+        "cards": {
+          "Storm Shard": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Spellblocker": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Rockarm": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Griffon of Andover": {
+            "total": 2,
+            "mainDeck": 2,
+            "startingArmy": 0
+          },
+          "Bruntor's Helm": {
+            "total": 2,
+            "mainDeck": 2,
+            "startingArmy": 0
+          },
+          "Deverenus' Axe": {
+            "total": 3,
+            "mainDeck": 3,
+            "startingArmy": 0
+          },
+          "Silversteel Gauntlets": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Breastplate of Power": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          },
+          "Ardian Greathawk": {
+            "total": 1,
+            "mainDeck": 1,
+            "startingArmy": 0
+          }
         }
       }
     }
