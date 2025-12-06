@@ -245,25 +245,25 @@ function formatCardList(cardList) {
   for (const type in cardList) {
     const cards = cardList[type];
     let typeCount = 0;
-    const typeCards = {};
-    const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
-    
+    const combinedCards = {};
+    // Add all main deck cards
     for (const card in cards) {
       if (card === 'StartingArmy') continue;
-      if (saSet.has(card)) continue;
-      typeCards[card] = cards[card];
-      typeCount += cards[card];
+      combinedCards[card] = (combinedCards[card] || 0) + cards[card];
     }
-    
+    // Add all Starting Army cards
     if (cards['StartingArmy']) {
-      let saCount = 0;
       for (const saCard in cards['StartingArmy']) {
-        saCount += cards['StartingArmy'][saCard];
+        combinedCards[saCard] = (combinedCards[saCard] || 0) + cards['StartingArmy'][saCard];
       }
-      typeCount += saCount;
-      formatted[type] = { count: typeCount, cards: typeCards, StartingArmy: { cards: cards['StartingArmy'] } };
-    } else {
-      formatted[type] = { count: typeCount, cards: typeCards };
+    }
+    // Count total for this type
+    for (const card in combinedCards) {
+      typeCount += combinedCards[card];
+    }
+    formatted[type] = { count: typeCount, cards: combinedCards };
+    if (cards['StartingArmy']) {
+      formatted[type].StartingArmy = { cards: cards['StartingArmy'] };
     }
   }
   return formatted;
