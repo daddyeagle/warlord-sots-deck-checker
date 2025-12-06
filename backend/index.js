@@ -73,17 +73,18 @@ const jsonToCsv = (json, type) => {
     let rows = [];
     for (const deck of arr) {
       // Header for each deck: event name, month, year
-      let eventName = deck.eventName || '';
+      // Use 'event' and 'timestamp' fields for header, and include 'username' (discord_username) in user info
+      let eventName = deck.event || '';
       let month = '';
       let year = '';
-      if (deck.submittedAt) {
-        const date = new Date(deck.submittedAt);
+      if (deck.timestamp) {
+        const date = new Date(deck.timestamp);
         if (!isNaN(date)) {
           month = date.toLocaleString('default', { month: 'long' });
           year = date.getFullYear();
         }
       }
-      const eventHeader = [`// Event: ${eventName}`, `// Month: ${month}`, `// Year: ${year}`];
+      const eventHeader = [`// ${eventName}`, `// ${month}`, `// ${year}`];
       const userHeader = ['// discord_username', '// display_name', '// warlord'];
       // Find max header length for this deck
       let maxLen = Math.max(
@@ -96,7 +97,7 @@ const jsonToCsv = (json, type) => {
       rows.push(hyphenRow(eventHeader, maxLen));
       rows.push(userHeader);
       rows.push(hyphenRow(userHeader, maxLen));
-      let discord = (deck.discord_username || '').replace(/#0$/, '');
+      let discord = (deck.username || '').replace(/#0$/, '');
       rows.push([
         `// ${discord}`,
         `// ${deck.display_name || ''}`,
