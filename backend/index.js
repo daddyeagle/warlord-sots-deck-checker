@@ -1,6 +1,10 @@
+// --- Admin File Download Endpoint ---
+// Streams a file from the events directory for download
+// Place this after app is initialized and middleware is set up
 // --- Admin: List Event Files Endpoint ---
 // Returns a list of event/deck files in the events directory
 app.get('/api/admin/list-event-files', async (req, res) => {
+  const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
   try {
     const files = await fsp.readdir(EVENTS_PATH);
     // Only include .json files
@@ -10,9 +14,6 @@ app.get('/api/admin/list-event-files', async (req, res) => {
     res.status(500).json({ error: 'Failed to list files', details: err.message });
   }
 });
-// --- Admin File Download Endpoint ---
-// Streams a file from the events directory for download
-// Place this after app is initialized and middleware is set up
 
 // ...existing code...
 
