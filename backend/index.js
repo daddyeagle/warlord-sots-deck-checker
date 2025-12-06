@@ -361,9 +361,10 @@ app.post('/api/submit-deck', async (req, res) => {
     // CRITICAL LOGIC: Filter out OLD deck by this user
     decksArr = decksArr.filter(d => d.username !== username);
 
-    // Append NEW deck
+    // Append NEW deck (include discord_username for admin export)
     decksArr.push({
       username,
+      discord_username: discordUsername,
       event: eventName,
       warlord,
       display_name: displayName,
