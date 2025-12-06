@@ -77,16 +77,15 @@ const jsonToCsv = (json, type) => {
       let eventName = deck.eventName || '';
       let month = '';
       let year = '';
-      // Try to extract month/year from eventName (e.g., 'december-ancients-2025')
       const match = eventName.match(/([a-z]+)[^0-9]*([0-9]{4})?/i);
       if (match) {
         month = match[1] ? match[1].charAt(0).toUpperCase() + match[1].slice(1) : '';
         year = match[2] || '';
       }
-      const eventHeader = [`Event: ${eventName}`, `Month: ${month}`, `Year: ${year}`];
+      const eventHeader = [`// Event: ${eventName}`, `// Month: ${month}`, `// Year: ${year}`];
       rows.push(eventHeader);
       rows.push(hyphenRow(eventHeader));
-      const userHeader = ['discord_username', 'display_name', 'warlord'];
+      const userHeader = ['// discord_username', '// display_name', '// warlord'];
       rows.push(userHeader);
       rows.push(hyphenRow(userHeader));
       let discord = (deck.discord_username || '').replace(/#0$/, '');
@@ -100,20 +99,20 @@ const jsonToCsv = (json, type) => {
       for (const type in cardList) {
         if (!firstType) rows.push([]); // Space between card types
         firstType = false;
-        rows.push([type]);
+        rows.push([`// ${type}`]);
         rows.push(hyphenRow([type]));
         // Starting Army cards (at top, warlord first)
         if (cardList[type].startingArmy && Object.keys(cardList[type].startingArmy).length > 0) {
-          rows.push(['Starting Army']);
+          rows.push(['// Starting Army']);
           rows.push(hyphenRow(['Starting Army']));
           const saCards = Object.entries(cardList[type].startingArmy);
           let warlordCard = saCards.find(([card]) => card === deck.warlord);
           if (warlordCard) {
-            rows.push([warlordCard[0], warlordCard[1]]);
+            rows.push([`${warlordCard[1]} ${warlordCard[0]}`]);
           }
           for (const [card, qty] of saCards) {
             if (card === deck.warlord) continue;
-            rows.push([card, qty]);
+            rows.push([`${qty} ${card}`]);
           }
           // Space between Starting Army and Main Deck
           rows.push([]);
@@ -121,14 +120,15 @@ const jsonToCsv = (json, type) => {
         // Main Deck cards
         if (cardList[type].mainDeck && Object.keys(cardList[type].mainDeck).length > 0) {
           for (const [card, qty] of Object.entries(cardList[type].mainDeck)) {
-            rows.push([card, qty]);
+            rows.push([`${qty} ${card}`]);
           }
         }
       }
       // Blank line between decks
       rows.push([]);
     }
-    return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+    // Custom CSV: do not quote single-value rows (card lines), only quote multi-value rows (headers/user info)
+    return rows.map(r => r.length > 1 ? r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',') : r[0]).join('\n');
   }
   return '';
 }
