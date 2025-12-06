@@ -97,7 +97,8 @@ const jsonToCsv = (json, type) => {
       rows.push(hyphenRow(eventHeader, maxLen));
       rows.push(userHeader);
       rows.push(hyphenRow(userHeader, maxLen));
-      let discord = (deck.username || '').replace(/#0$/, '');
+      // Prefer discord_username, then discordId, then username
+      let discord = (deck.discord_username || deck.discordId || deck.username || '').replace(/#0$/, '');
       rows.push([
         `// ${discord}`,
         `// ${deck.display_name || ''}`,
