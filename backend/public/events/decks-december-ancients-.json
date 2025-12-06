@@ -1,64 +1,5 @@
 [
   {
-    "username": "225075257822674944",
-    "event": "December Ancients+",
-    "warlord": "Kothkah",
-    "display_name": "daddy_eagle",
-    "timestamp": "2025-12-06T04:40:10.030Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "cards": {
-          "Toren Yscar": 1,
-          "The Retiarius": 1,
-          "Sar'ean": 3,
-          "SanUris": 3,
-          "Koratcghuk": 2,
-          "FirRal": 3,
-          "Carg'rag": 3,
-          "Bokos": 3
-        },
-        "StartingArmy": {
-          "cards": {
-            "Kothkah": 1,
-            "Nightmaster Rress": 1,
-            "Yeg-Igryll's Altar": 1,
-            "Gunda": 3
-          }
-        }
-      },
-      "Item": {
-        "count": 16,
-        "cards": {
-          "Monkey's Paws": 2,
-          "Ring of Piercing": 1,
-          "Recruiter's Orders": 1,
-          "Nodwick": 1,
-          "Madman's Blade": 1,
-          "Fine Hilted Saber": 3,
-          "Figurine of Power": 3,
-          "Double Bladed Sword": 1,
-          "Destroyer's Armor": 3
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      },
-      "Action": {
-        "count": 9,
-        "cards": {
-          "Sword Master": 2,
-          "Slow March": 2,
-          "Order of Battle": 2,
-          "Loyalty's Reward": 3
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      }
-    }
-  },
-  {
     "username": "231248072204746753",
     "event": "December Ancients+",
     "warlord": "Stonefist Gargoyle",
@@ -107,6 +48,65 @@
         "cards": {
           "Pike": 3,
           "War Horse": 2
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "event": "December Ancients+",
+    "warlord": "B'alam Nak",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-06T04:44:23.345Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "cards": {
+          "Jackals of Mourn": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Yeg-Igryll's Altar": 1,
+          "Archer Tower": 1,
+          "Carg'rag": 3,
+          "D'nath": 3,
+          "Muddflek": 3,
+          "FirRal": 3
+        },
+        "StartingArmy": {
+          "cards": {
+            "B'alam Nak": 1,
+            "Urnack": 1,
+            "Nightmaster Rress": 1,
+            "Joleg": 1,
+            "B'haya, the Fiend": 1
+          }
+        }
+      },
+      "Item": {
+        "count": 9,
+        "cards": {
+          "Storm Shard": 1,
+          "Portable Hole": 3,
+          "Giant Bat": 2,
+          "Nodwick": 1,
+          "Farglass": 1,
+          "Arbalest": 1
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      },
+      "Action": {
+        "count": 16,
+        "cards": {
+          "Wither": 3,
+          "Strain the Shot": 3,
+          "Reconnaissance": 3,
+          "Assassin's Strike": 2,
+          "Meet at the Inn!": 2,
+          "Crypt Wine": 3
         },
         "StartingArmy": {
           "cards": {}
