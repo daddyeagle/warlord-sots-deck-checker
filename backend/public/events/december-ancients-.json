@@ -2,13 +2,6 @@
   "eventName": "December Ancients+",
   "submissions": [
     {
-      "warlord": "Adarymy",
-      "username": "231248072204746753",
-      "discord_username": "kynarin#0",
-      "display_name": "Kynarin",
-      "timestamp": "2025-12-06T05:25:10.207Z"
-    },
-    {
       "warlord": "Fo'ttr'ak'ka",
       "username": "225075257822674944",
       "discord_username": "oeagle#0",
@@ -21,6 +14,13 @@
       "discord_username": ".atomic_tomato.#0",
       "display_name": "Atomic_Tomato",
       "timestamp": "2025-12-06T20:16:36.352Z"
+    },
+    {
+      "warlord": "Memoriam",
+      "username": "231248072204746753",
+      "discord_username": "kynarin#0",
+      "display_name": "Kynarin",
+      "timestamp": "2025-12-06T20:17:00.349Z"
     }
   ]
 }
