@@ -166,6 +166,11 @@ document.getElementById('downloadDecksBtn').addEventListener('click', function()
         <strong>Pages propagation:</strong> After a successful commit, GitHub Pages may take a short time (~30–120s) to rebuild and serve the updated site.
       </div>
     </div>
+
+    <div class="card" style="margin-top:1.5rem;">
+      <h2>Event Files</h2>
+      <div id="eventFileList" class="small">Loading event files...</div>
+    </div>
   </div>
 
   <script>
@@ -557,6 +562,32 @@ document.getElementById('downloadDecksBtn').addEventListener('click', function()
 
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+
+    async function loadEventFiles() {
+  const listDiv = document.getElementById('eventFileList');
+  listDiv.textContent = 'Loading event files...';
+  try {
+    const res = await fetch('/api/admin/list-event-files');
+    if (!res.ok) throw new Error('Failed to fetch file list');
+    const data = await res.json();
+    if (!data.files || !data.files.length) {
+      listDiv.textContent = 'No event files found.';
+      return;
+    }
+    listDiv.innerHTML = '';
+    data.files.forEach(file => {
+      const link = document.createElement('a');
+      link.href = `/api/admin/download?file=${encodeURIComponent(file)}`;
+      link.textContent = file;
+      link.download = file;
+      link.style.display = 'block';
+      listDiv.appendChild(link);
+    });
+  } catch (err) {
+    listDiv.textContent = 'Error loading event files.';
+  }
+}
+window.addEventListener('DOMContentLoaded', loadEventFiles);
   </script>
 </body>
 </html>

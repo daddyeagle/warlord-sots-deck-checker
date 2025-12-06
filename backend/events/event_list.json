@@ -1,6 +1,8 @@
 [
   {
     "eventName": "December Ancients+",
-    "requiredRuleset": "December Ancients+"
+    "requiredRuleset": "December Ancients+",
+    "eventFile": "december-ancients-.json",
+    "decksFile": "decks-december-ancients-.json"
   }
 ]
