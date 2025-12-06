@@ -184,19 +184,6 @@ app.post('/api/submit-deck', async (req, res) => {
   const filename = `${safeEvent}__${safeWarlord}__${safeUser}__${timestamp}.json`;
   const githubPath = `backend/public/events/${filename}`;
 
-  const deckData = {
-    eventName,
-    warlord,
-    cardList,
-    submittedBy: {
-      id: req.session.user.id,
-      username: req.session.user.username,
-      discriminator: req.session.user.discriminator,
-      displayName: req.session.user.displayName || null
-    },
-    submittedAt: new Date().toISOString()
-  };
-
   try {
     // Step 1: GET for SHA (if file exists)
     let sha = undefined;
@@ -218,7 +205,7 @@ app.post('/api/submit-deck', async (req, res) => {
       }
     }
 
-    // Step 2: PUT to create/update file
+    // Step 2: PUT to create/update deck file
     const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${githubPath}`;
     const content = Buffer.from(JSON.stringify(deckData, null, 2)).toString('base64');
     const body = {
@@ -233,11 +220,58 @@ app.post('/api/submit-deck', async (req, res) => {
         'Accept': 'application/vnd.github.v3+json'
       }
     });
-    if (putRes.status === 201 || putRes.status === 200) {
-      return res.json({ success: true });
-    } else {
+    if (!(putRes.status === 201 || putRes.status === 200)) {
       throw new Error('GitHub PUT failed');
     }
+
+    // Step 3: Update event file in same path (e.g., backend/public/events/<eventName>.json)
+    const eventFileName = `${safeEvent}.json`;
+    const eventFilePath = `backend/public/events/${eventFileName}`;
+    let eventSha = undefined;
+    let eventList = [];
+    try {
+      const eventGetUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${eventFilePath}?ref=${branch}`;
+      const eventGetRes = await axiosGithub.get(eventGetUrl, {
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      if (eventGetRes.data && eventGetRes.data.sha) {
+        eventSha = eventGetRes.data.sha;
+        // Decode and parse the existing event file
+        const buff = Buffer.from(eventGetRes.data.content, 'base64');
+        eventList = JSON.parse(buff.toString('utf8'));
+      }
+    } catch (err) {
+      // 404 is expected for new files
+      if (!(err.response && err.response.status === 404)) {
+        throw err;
+      }
+    }
+    // Add new deck metadata to event list
+    eventList.push({
+      warlord,
+      submittedBy: deckData.submittedBy,
+      submittedAt: deckData.submittedAt,
+      deckFile: filename
+    });
+    const eventPutUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${eventFilePath}`;
+    const eventContent = Buffer.from(JSON.stringify(eventList, null, 2)).toString('base64');
+    const eventBody = {
+      message: `Update event file for ${eventName} (add deck by ${safeUser})`,
+      content: eventContent,
+      branch
+    };
+    if (eventSha) eventBody.sha = eventSha;
+    await axiosGithub.put(eventPutUrl, eventBody, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    return res.json({ success: true });
   } catch (err) {
     console.error('GitHub deck submit error:', err.response ? err.response.data : err.message);
     return res.status(500).json({ success: false, error: 'Failed to submit deck to GitHub' });
