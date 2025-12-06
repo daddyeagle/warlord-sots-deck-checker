@@ -1,6 +1,6 @@
-// --- Admin File Download Endpoint ---
-// Streams a file from the events directory for download
-// Place this after app is initialized and middleware is set up
+
+// Express server for Discord OAuth2 login
+require('dotenv').config();
 // --- Admin: List Event Files Endpoint ---
 // Returns a list of event/deck files in the events directory
 app.get('/api/admin/list-event-files', async (req, res) => {
@@ -14,12 +14,6 @@ app.get('/api/admin/list-event-files', async (req, res) => {
     res.status(500).json({ error: 'Failed to list files', details: err.message });
   }
 });
-
-// ...existing code...
-
-
-// Express server for Discord OAuth2 login
-require('dotenv').config();
 
 const fs = require('fs');
 const fsp = require('fs/promises');
