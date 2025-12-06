@@ -1,0 +1,1087 @@
+{
+  "eventName": "December Ancients+",
+  "warlord": "Z'adok, Prey Herder",
+  "cardList": {
+    "Character": {
+      "Z'adok, Prey Herder": 1,
+      "Shambling Horror": 2,
+      "Sutek Razorclaw": 3,
+      "Sutek Slimefang": 3,
+      "Thunic Yeti": 2,
+      "Brinewater Croc": 3,
+      "Dwarf-Eater": 3,
+      "Oracle of Kavara": 3,
+      "Blitzer": 2,
+      "Master Dresden": 3,
+      "StartingArmy": {
+        "Z'adok, Prey Herder": 1,
+        "Shambling Horror": 1,
+        "Sutek Razorclaw": 1,
+        "Sutek Slimefang": 3
+      }
+    },
+    "Action": {
+      "Lights of Revealing Sword": 3,
+      "Viscous Goo": 3,
+      "Terrorize": 3,
+      "Kor's Patience": 3,
+      "Glaciate": 3,
+      "Assassin's Strike": 2,
+      "StartingArmy": {}
+    },
+    "Item": {
+      "Sutek Shank": 3,
+      "Revenger": 2,
+      "Teufeltiger's Shroud": 1,
+      "Unicorn of Thun": 1,
+      "Ardian Greathawk": 1,
+      "StartingArmy": {}
+    }
+  },
+  "deckContents": [
+    {
+      "name": "Z'adok, Prey Herder",
+      "normalizedName": "zadokpreyherder",
+      "type": "Character",
+      "level": 4,
+      "isWarlord": true,
+      "rawSubtype": "warlord",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "rogue",
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 132,
+          "rarity": "Rare",
+          "flavorText": "\"We shall drown the world in the crimson light of Bascaron!\"",
+          "artist": "Jeff Miracola",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/132+-+ITA+-+Z_adok%2C+Prey+Herder.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Your Sutek gain +2 to strike rolls while targeting spent characters.\r\nLimited Order: Perform a melee strike. Z'adok, Prey Herder gains Reach for the strike. If the strike hits, spend the target.",
+      "count": 1
+    },
+    {
+      "name": "Shambling Horror",
+      "normalizedName": "shamblinghorror",
+      "type": "Character",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "cleric"
+      ],
+      "isEpicKeyword": false,
+      "isUniqueKeyword": false,
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Common"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 119,
+          "rarity": "Common",
+          "flavorText": "\"No, no, that's not one of mine...\" - Tazian",
+          "artist": "Jason Engle",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/119+-+ITA+-+Shambling+Horror.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Characters killed by Shambling Horror are banished instead.",
+      "count": 1
+    },
+    {
+      "name": "Sutek Razorclaw",
+      "normalizedName": "sutekrazorclaw",
+      "type": "Character",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 123,
+          "rarity": "Uncommon",
+          "flavorText": "\"There are so many...\" - Huggins",
+          "artist": "Jim Pavelec",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/123+-+ITA+-+Sutek+Razorclaw.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Sutek Razorclaw's melee strikes may target spent characters an additional rank away.",
+      "count": 1
+    },
+    {
+      "name": "Sutek Slimefang",
+      "normalizedName": "sutekslimefang",
+      "type": "Character",
+      "level": 1,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Common"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 124,
+          "rarity": "Common",
+          "flavorText": "\"Itz eazy, poison onz the blade, poison inz the enemy!\"",
+          "artist": "Max Yenin",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/124+-+ITA+-+Sutek+Slimefang.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Death React: Spend target opposing character within one rank.",
+      "count": 3
+    },
+    {
+      "name": "Lights of Revealing Sword",
+      "normalizedName": "lightsofrevealingsword",
+      "type": "Action",
+      "level": 3,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "fighter",
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 246,
+          "rarity": "Rare",
+          "artist": "Lisa Hunt",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/246+-+ITA+-+Lights+of+Revealing+Sword.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Order: Reveal the top 10 cards of your deck: Put a Weapon revealed this way into your hand, then shuffle.\r\nOrder: Target character gains +5 ATK this turn.",
+      "count": 3
+    },
+    {
+      "name": "Sutek Razorclaw",
+      "normalizedName": "sutekrazorclaw",
+      "type": "Character",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 123,
+          "rarity": "Uncommon",
+          "flavorText": "\"There are so many...\" - Huggins",
+          "artist": "Jim Pavelec",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/123+-+ITA+-+Sutek+Razorclaw.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Sutek Razorclaw's melee strikes may target spent characters an additional rank away.",
+      "count": 2
+    },
+    {
+      "name": "Thunic Yeti",
+      "normalizedName": "thunicyeti",
+      "type": "Character",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "fighter"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 127,
+          "rarity": "Uncommon",
+          "flavorText": "\"I'd rather freeze to death than see the Yeti's tracks. Keep moving!\"",
+          "artist": "Svetlin Velinov",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/127+-+ITA+-+Thunic+Yeti.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Kill React: Characters that were adjacent to the killed character must succeed with a fortitude save (DC 18) or spend.",
+      "count": 2
+    },
+    {
+      "name": "Shambling Horror",
+      "normalizedName": "shamblinghorror",
+      "type": "Character",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "cleric"
+      ],
+      "isEpicKeyword": false,
+      "isUniqueKeyword": false,
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Common"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 119,
+          "rarity": "Common",
+          "flavorText": "\"No, no, that's not one of mine...\" - Tazian",
+          "artist": "Jason Engle",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/119+-+ITA+-+Shambling+Horror.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Characters killed by Shambling Horror are banished instead.",
+      "count": 1
+    },
+    {
+      "name": "Brinewater Croc",
+      "normalizedName": "brinewatercroc",
+      "type": "Character",
+      "level": 3,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "classless"
+      ],
+      "isEpicKeyword": false,
+      "isUniqueKeyword": false,
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 105,
+          "rarity": "Uncommon",
+          "flavorText": "\"If there's one thing you can say for the sutek, they ride in style.\" - Rone",
+          "artist": "Mateusz Wisniewski",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/105+-+ITA+-+Brinewater+Croc.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Adjacent Sutek gain +2 ATK and \"Limited Order: Perform a melee strike that spends instead of wounds.\"",
+      "count": 3
+    },
+    {
+      "name": "Dwarf-Eater",
+      "normalizedName": "dwarfeater",
+      "type": "Character",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "4th Edition",
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)",
+        "City of Gold (CoG)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 108,
+          "rarity": "Uncommon",
+          "flavorText": "\"They're too tough for my tassste, but to each their own.\" - Sta'ash",
+          "artist": "Empty Room Studios",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/108+-+ITA+-+Dwarf-Eater.png"
+        },
+        {
+          "set": "City of Gold (CoG)",
+          "setNumber": 18,
+          "rarity": "Uncommon",
+          "flavorText": "\"His name cannot be spoken in Common.\"",
+          "artist": "Empty Room Studios",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/CityOfGold/Dwarf-Eater.jpg"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Dwarf-Eater's Melee Strikes gain +4 ATK while targeting Dwarven Forges characters and +3 ATK for each wound on the target.\r\nLimited React: After Dwarf-Eater performs a melee strike that hit target character: Perform a melee strike against the target.",
+      "count": 3
+    },
+    {
+      "name": "Oracle of Kavara",
+      "normalizedName": "oracleofkavara",
+      "type": "Character",
+      "level": 3,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Good",
+      "classes": [
+        "cleric"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 115,
+          "rarity": "Uncommon",
+          "flavorText": "\"Be warned - if you ask the question, you'll have to learn the answer.\"",
+          "artist": "Ray Greaves",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/115+-+ITA+-+Oracle+of+Kavara.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Spend Order: Discard a card: Survey. Draw a card.",
+      "count": 3
+    },
+    {
+      "name": "Blitzer",
+      "normalizedName": "blitzer",
+      "type": "Character",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Evil",
+      "classes": [
+        "fighter"
+      ],
+      "isEpicKeyword": false,
+      "isUniqueKeyword": true,
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Epic",
+        "Pre-Campaign",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)",
+        "Epic Edition (EE)",
+        "Promo (PM)"
+      ],
+      "rarities": [
+        "Rare",
+        "Promo"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 103,
+          "rarity": "Rare",
+          "artist": "Chris Dornaus",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/103+-+ITA+-+Blitzer.png",
+          "flavorText": "\"What a strange looking elk. Why isn't it running?\""
+        },
+        {
+          "set": "Epic Edition (EE)",
+          "rarity": "Rare",
+          "flavorText": "Faster than falcons to his summons they came. He shouted to the demons and called their true names:",
+          "artist": "Miguel Coimbra",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/EpicEdition/Blitzer.jpg",
+          "setNumber": 227
+        },
+        {
+          "set": "Promo (PM)",
+          "rarity": "Promo",
+          "flavorText": "Faster than falcons to his summons they came. He shouted to the demons and called their true names:",
+          "artist": "Cris Dornaus",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/Promo/Blitzer.jpg"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Blitzer's melee strikes inflict an additional wound.\r\nSpend Order: Perform a melee strike that may target an additional rank away.",
+      "count": 2
+    },
+    {
+      "name": "Master Dresden",
+      "normalizedName": "masterdresden",
+      "type": "Character",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "mercenary guilds",
+      "alignment": "Good",
+      "classes": [
+        "rogue",
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Legendary"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 113,
+          "rarity": "Legendary",
+          "flavorText": "\"It shall be done, Commander.\"",
+          "artist": "Jason Engle",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/113+-+ITA+-+Master+Dresden.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Limited React: After your character moves: Target opposing character must succeed with a will save (DC 15) or spend. If you control a Mercenary Guilds Warlord, you may use this ability twice per turn.",
+      "count": 3
+    },
+    {
+      "name": "Sutek Shank",
+      "normalizedName": "sutekshank",
+      "type": "Item",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "classless"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Common"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 352,
+          "rarity": "Common",
+          "flavorText": "A crude weapon for a cruel task.",
+          "artist": "Milan Thapa",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/352+-+ITA+-+Sutek+Shank.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "This character's melee strikes inflict an additional wound against stunned characters.\r\nDeath React: Equip this item to an adjacent Sutek ignoring level requirements.",
+      "count": 3
+    },
+    {
+      "name": "Viscous Goo",
+      "normalizedName": "viscousgoo",
+      "type": "Action",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "classless"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 262,
+          "rarity": "Uncommon",
+          "flavorText": "One touch and you'll never see again.",
+          "artist": "Ray Greaves",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/262+-+ITA+-+Viscous+Goo.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Sutek may perform this action without spending.\r\nSpend Order: Perform a +5 ranged strike that stuns instead of wounds.",
+      "count": 3
+    },
+    {
+      "name": "Revenger",
+      "normalizedName": "revenger",
+      "type": "Item",
+      "level": 6,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 309,
+          "rarity": "Rare",
+          "flavorText": "\"That's to kill you! And that's to make sure you stay dead!\" - Rone",
+          "artist": "Riccardo Rullo",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/309+-+ITA+-+Revenger.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "This character gains Dual Wield.\r\nThis character inflicts an additional wound with melee strikes while they have two or more Weapons equipped.",
+      "count": 2
+    },
+    {
+      "name": "Terrorize",
+      "normalizedName": "terrorize",
+      "type": "Action",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 237,
+          "rarity": "Uncommon",
+          "flavorText": "\"Flesh, Blood, Spirit. A mind can be twisted the same as a body.\" - Tazian",
+          "artist": "Jason Engle",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/237+-+ITA+-+Terrorize.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Roll Order: Target a character within two ranks,\r\n1-9: The target suffers -2 AC and skill this turn.\r\n10-19: The target suffers -4 AC and skill this turn. \r\n20: The target suffers -4 AC and skill this turn. Its controller banishes a card from their hand.",
+      "count": 3
+    },
+    {
+      "name": "Kor's Patience",
+      "normalizedName": "korspatience",
+      "type": "Action",
+      "level": 2,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "cleric"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "4th Edition",
+        "Alliance",
+        "Ancients",
+        "Campaign",
+        "Epic",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)",
+        "Treasure Chest (TCH)",
+        "4th Edition (4E)",
+        "Dragon's Fury (DF)"
+      ],
+      "rarities": [
+        "Uncommon",
+        "Common"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 173,
+          "rarity": "Uncommon",
+          "flavorText": "\"Best not try it further.\" - Memoriam",
+          "artist": "Storn Cook",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/173+-+ITA+-+Kor_s+Patience.png"
+        },
+        {
+          "set": "Treasure Chest (TCH)",
+          "setNumber": 25,
+          "rarity": "Common",
+          "flavorText": "\"...has its limits.\" - Wall",
+          "artist": "Storn Cook",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/TreasureChest/Kor_s+Patience.jpg"
+        },
+        {
+          "set": "4th Edition (4E)",
+          "setNumber": 187,
+          "rarity": "Common",
+          "flavorText": "\"...has its limits.\" - Wall",
+          "artist": "Storn Cook",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/4E/Kor_s+Patience.jpg"
+        },
+        {
+          "set": "Dragon's Fury (DF)",
+          "setNumber": 18,
+          "rarity": "Common",
+          "flavorText": "\"Just because it's ugly and mean, don't make it our enemy.\" - Labor",
+          "artist": "Storn Cook",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/DragonsFury/Kor_s+Patience.jpg"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Order: Perform a +5 ranged strike that stuns instead of wounds.",
+      "count": 3
+    },
+    {
+      "name": "Teufeltiger's Shroud",
+      "normalizedName": "teufeltigersshroud",
+      "type": "Item",
+      "level": 7,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Legendary"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 314,
+          "rarity": "Legendary",
+          "flavorText": "Teufeltiger crept into the Dragon's lair and stole its eggs, saving the world and damning it.",
+          "artist": "Chris Rallis",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/314+-+ITA+-+Teufeltiger_s+Shroud.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Limited React: After this character is targeted by a strike: Redirect the strike to an adjacent character.",
+      "count": 1
+    },
+    {
+      "name": "Glaciate",
+      "normalizedName": "glaciate",
+      "type": "Action",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 225,
+          "rarity": "Rare",
+          "flavorText": "\"I am sorry, but you must be stopped.\" - Wa'San Wolf-Spirit",
+          "artist": "Jason Engle",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/225+-+ITA+-+Glaciate.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "Order: Target character within three ranks must succeed with a fortitude save (DC 5 + this wizard's skill) or stun and attach Glaciate. Attached character suffers -2 ATK, AC, and Skill.",
+      "count": 3
+    },
+    {
+      "name": "Unicorn of Thun",
+      "normalizedName": "unicornofthun",
+      "type": "Item",
+      "level": 6,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "wizard"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 327,
+          "rarity": "Rare",
+          "flavorText": "\"They are here to be found by the worthy.\" - Wa'San",
+          "artist": "Lisa Hunt",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/327+-+ITA+-+Unicorn+of+Thun.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "+2 Skill\r\nOrder: Spend Unicorn of Thun: Journey.\r\nOrder: Spend Unicorn of Thun and banish two action cards from your discard pile: Heal this character.",
+      "count": 1
+    },
+    {
+      "name": "Assassin's Strike",
+      "normalizedName": "assassinsstrike",
+      "type": "Action",
+      "level": 4,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "rogue"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Uncommon"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 198,
+          "rarity": "Uncommon",
+          "flavorText": "A knife in the back is worth two in the bush.",
+          "artist": "Ray Greaves",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/198+-+ITA+-+Assassin_s+Strike.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "React: Before this character makes a strike roll against a spent character: This character gains advantage for the strike. The strike inflicts an additional wound.",
+      "count": 2
+    },
+    {
+      "name": "Ardian Greathawk",
+      "normalizedName": "ardiangreathawk",
+      "type": "Item",
+      "level": 6,
+      "isWarlord": false,
+      "rawSubtype": "",
+      "faction": "neutral",
+      "alignment": "",
+      "classes": [
+        "classless"
+      ],
+      "isFactionWildcard": false,
+      "isUnlimitedCopies": false,
+      "editions": [
+        "Alliance",
+        "Ancients",
+        "Saga"
+      ],
+      "sets": [
+        "Into the Accordlands (ITA)"
+      ],
+      "rarities": [
+        "Rare"
+      ],
+      "printInfos": [
+        {
+          "set": "Into the Accordlands (ITA)",
+          "setNumber": 344,
+          "rarity": "Rare",
+          "flavorText": "\"A terrible servitude for a free spirit.\" - Wa'San",
+          "artist": "Chris Arneson",
+          "imageUrl": "https://images.theaccordlands.com/file/WarlordCards/Warlord+Card+Images/IntotheAccordlands/344+-+ITA+-+Ardian+Greathawk.png"
+        }
+      ],
+      "bannedErrataFormats": [],
+      "saReservedFormats": [],
+      "epicErrataFormats": [],
+      "isSACharacterReplacement": false,
+      "text": "+3 Skill\r\nReact: After an opposing character moves, spend Ardian Greathawk: Journey.",
+      "count": 1
+    }
+  ],
+  "submittedBy": {
+    "id": "225075257822674944",
+    "username": "oeagle",
+    "discriminator": "0",
+    "displayName": "daddy_eagle"
+  },
+  "submittedAt": "2025-12-06T03:32:16.257Z"
+}
