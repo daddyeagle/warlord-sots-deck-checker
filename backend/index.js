@@ -1,6 +1,7 @@
 
 // Express server for Discord OAuth2 login
 require('dotenv').config();
+
 // --- Admin: List Event Files Endpoint ---
 // Returns a list of event/deck files in the events directory
 app.get('/api/admin/list-event-files', async (req, res) => {
