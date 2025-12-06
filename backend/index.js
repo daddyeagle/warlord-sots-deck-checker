@@ -131,7 +131,6 @@ async function jsonToExcel(json, type) {
   const buffer = await workbook.xlsx.writeBuffer();
   return buffer;
 }
-};
 
 // Download event file as CSV
 app.get('/api/admin/download-event/:eventName', async (req, res) => {
