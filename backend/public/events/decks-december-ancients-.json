@@ -1,61 +1,5 @@
 [
   {
-    "username": "231248072204746753",
-    "event": "December Ancients+",
-    "warlord": "Stonefist Gargoyle",
-    "display_name": "Kynarin",
-    "timestamp": "2025-12-06T04:43:01.174Z",
-    "cardList": {
-      "Character": {
-        "count": 23,
-        "cards": {
-          "Door to the World": 1,
-          "Feldspar Gargoyle": 2,
-          "Icesecret Gargoyle": 2,
-          "Limestone Gargoyle": 3,
-          "Lodestone Gargoyle": 3,
-          "Nilrem": 3,
-          "Sentinel Gargoyle": 3
-        },
-        "StartingArmy": {
-          "cards": {
-            "Stonefist Gargoyle": 1,
-            "Serpentscale Gargoyle": 2,
-            "Flamestone Gargoyle": 1,
-            "Lightstone Gargoyles": 1,
-            "Opal Gargoyle": 1
-          }
-        }
-      },
-      "Action": {
-        "count": 20,
-        "cards": {
-          "Bellicose": 3,
-          "Divine Barrier": 2,
-          "Flame Blade": 3,
-          "No Prisoners!": 3,
-          "Rescue": 1,
-          "Stubborn": 3,
-          "Sudden Reversal": 2,
-          "Summon Gargoyle": 3
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      },
-      "Item": {
-        "count": 5,
-        "cards": {
-          "Pike": 3,
-          "War Horse": 2
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      }
-    }
-  },
-  {
     "username": "225075257822674944",
     "event": "December Ancients+",
     "warlord": "B'alam Nak",
@@ -107,6 +51,64 @@
           "Assassin's Strike": 2,
           "Meet at the Inn!": 2,
           "Crypt Wine": 3
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      }
+    }
+  },
+  {
+    "username": "231248072204746753",
+    "event": "December Ancients+",
+    "warlord": "Adarymy",
+    "display_name": "Kynarin",
+    "timestamp": "2025-12-06T04:44:41.327Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "cards": {
+          "Clerimonde": 3,
+          "Koranos": 2,
+          "Kun Iacob": 2,
+          "Kylia Smythe": 1,
+          "Leonora": 2,
+          "Llyr Militia": 3
+        },
+        "StartingArmy": {
+          "cards": {
+            "Adarymy": 1,
+            "Rosalie": 2,
+            "Ryan Mornington": 1,
+            "Brother Dominy": 1,
+            "Spencer Latham": 1
+          }
+        }
+      },
+      "Action": {
+        "count": 18,
+        "cards": {
+          "Back Alley Tavern": 1,
+          "Rescue": 1,
+          "Exhaustion": 3,
+          "Final Blessing": 2,
+          "Winter Warfare": 1,
+          "Reflect": 3,
+          "Hero's Gambit": 2,
+          "Sanctuary": 3,
+          "Bandage": 2
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      },
+      "Item": {
+        "count": 7,
+        "cards": {
+          "Blazing Medallion": 2,
+          "Portable Hole": 2,
+          "Black Moss": 2,
+          "Alliance Standard": 1
         },
         "StartingArmy": {
           "cards": {}
