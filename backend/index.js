@@ -241,26 +241,35 @@ app.post('/api/submit-deck', async (req, res) => {
 
 // Helper to format cardList structure
 function formatCardList(cardList) {
-  const formatted = {};
+  // Aggregate all cards across all types into a single object
+  const aggregate = {};
   for (const type in cardList) {
     const cards = cardList[type];
-    let typeCount = 0;
-    const detailedCards = {};
-    // Collect all unique card names from both main deck and Starting Army
-    const allCardNames = new Set([
-      ...Object.keys(cards).filter(c => c !== 'StartingArmy'),
-      ...(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : [])
-    ]);
-    for (const card of allCardNames) {
-      const mainDeck = cards[card] || 0;
-      const startingArmy = (cards['StartingArmy'] && cards['StartingArmy'][card]) || 0;
-      const total = mainDeck + startingArmy;
-      detailedCards[card] = { total, mainDeck, startingArmy };
-      typeCount += total;
+    // Main Deck cards
+    for (const card in cards) {
+      if (card === 'StartingArmy') continue;
+      if (!aggregate[card]) aggregate[card] = { mainDeck: 0, startingArmy: 0, total: 0 };
+      aggregate[card].mainDeck += cards[card];
     }
-    formatted[type] = { count: typeCount, cards: detailedCards };
+    // Starting Army cards
+    if (cards['StartingArmy']) {
+      for (const saCard in cards['StartingArmy']) {
+        if (!aggregate[saCard]) aggregate[saCard] = { mainDeck: 0, startingArmy: 0, total: 0 };
+        aggregate[saCard].startingArmy += cards['StartingArmy'][saCard];
+      }
+    }
   }
-  return formatted;
+  // Deduplicate: if a card is in both, total = mainDeck + startingArmy, but do not double-count
+  for (const card in aggregate) {
+    aggregate[card].total = aggregate[card].mainDeck + aggregate[card].startingArmy;
+    // If frontend double-lists SA cards in mainDeck, subtract startingArmy from mainDeck for total, but never below 0
+    if (aggregate[card].mainDeck > 0 && aggregate[card].startingArmy > 0) {
+      // If you want to strictly deduplicate, uncomment the next line:
+      // aggregate[card].mainDeck = Math.max(aggregate[card].mainDeck - aggregate[card].startingArmy, 0);
+      // aggregate[card].total = aggregate[card].mainDeck + aggregate[card].startingArmy;
+    }
+  }
+  return aggregate;
 }
 
 // SPA fallback
