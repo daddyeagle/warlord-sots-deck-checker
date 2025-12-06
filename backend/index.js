@@ -245,26 +245,20 @@ function formatCardList(cardList) {
   for (const type in cardList) {
     const cards = cardList[type];
     let typeCount = 0;
-    const combinedCards = {};
-    // Add all main deck cards
-    for (const card in cards) {
-      if (card === 'StartingArmy') continue;
-      combinedCards[card] = (combinedCards[card] || 0) + cards[card];
+    const detailedCards = {};
+    // Collect all unique card names from both main deck and Starting Army
+    const allCardNames = new Set([
+      ...Object.keys(cards).filter(c => c !== 'StartingArmy'),
+      ...(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : [])
+    ]);
+    for (const card of allCardNames) {
+      const mainDeck = cards[card] || 0;
+      const startingArmy = (cards['StartingArmy'] && cards['StartingArmy'][card]) || 0;
+      const total = mainDeck + startingArmy;
+      detailedCards[card] = { total, mainDeck, startingArmy };
+      typeCount += total;
     }
-    // Add all Starting Army cards
-    if (cards['StartingArmy']) {
-      for (const saCard in cards['StartingArmy']) {
-        combinedCards[saCard] = (combinedCards[saCard] || 0) + cards['StartingArmy'][saCard];
-      }
-    }
-    // Count total for this type
-    for (const card in combinedCards) {
-      typeCount += combinedCards[card];
-    }
-    formatted[type] = { count: typeCount, cards: combinedCards };
-    if (cards['StartingArmy']) {
-      formatted[type].StartingArmy = { cards: cards['StartingArmy'] };
-    }
+    formatted[type] = { count: typeCount, cards: detailedCards };
   }
   return formatted;
 }
