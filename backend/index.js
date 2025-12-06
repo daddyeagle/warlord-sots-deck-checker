@@ -46,6 +46,53 @@ app.use(express.static(path.join(__dirname, 'public')));
 // --- AUTHENTICATION ROUTES ---
 // --- ADMIN DOWNLOAD ENDPOINTS ---
 // Download event file
+const jsonToCsv = (json, type) => {
+  if (!json) return '';
+  if (type === 'event') {
+    // Expect { eventName, submissions: [{ username, warlord, ... }] }
+    const obj = typeof json === 'string' ? JSON.parse(json) : json;
+    const rows = [
+      ['Username', 'Warlord', 'Deck Name', 'Submitted At', 'Other Fields...']
+    ];
+    for (const sub of obj.submissions || []) {
+      rows.push([
+        sub.username || '',
+        sub.warlord || '',
+        sub.deckName || '',
+        sub.submittedAt || '',
+        JSON.stringify(sub)
+      ]);
+    }
+    return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+  }
+  if (type === 'decks') {
+    // Expect array of deck objects
+    const arr = typeof json === 'string' ? JSON.parse(json) : json;
+    const rows = [
+      ['Username', 'Warlord', 'Card Type', 'Main Deck Cards', 'Starting Army Cards']
+    ];
+    for (const deck of arr) {
+      const username = deck.username || '';
+      const warlord = deck.warlord || '';
+      const cardList = deck.cardList || {};
+      for (const type in cardList) {
+        const mainDeck = cardList[type].mainDeck ? Object.entries(cardList[type].mainDeck).map(([card, qty]) => `${card} (${qty})`).join('; ') : '';
+        const startingArmy = cardList[type].startingArmy ? Object.entries(cardList[type].startingArmy).map(([card, qty]) => `${card} (${qty})`).join('; ') : '';
+        rows.push([
+          username,
+          warlord,
+          type,
+          mainDeck,
+          startingArmy
+        ]);
+      }
+    }
+    return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+  }
+  return '';
+};
+
+// Download event file as CSV
 app.get('/api/admin/download-event/:eventName', async (req, res) => {
   const eventName = req.params.eventName;
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
@@ -53,15 +100,16 @@ app.get('/api/admin/download-event/:eventName', async (req, res) => {
   try {
     const file = await getGithubFile(eventPath);
     if (!file) return res.status(404).send('Event file not found');
-    res.setHeader('Content-Disposition', `attachment; filename="${safeEventName}.json"`);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(file.content);
+    const csv = jsonToCsv(file.content, 'event');
+    res.setHeader('Content-Disposition', `attachment; filename="${safeEventName}.csv"`);
+    res.setHeader('Content-Type', 'text/csv');
+    res.send(csv);
   } catch (err) {
     res.status(500).send('Error downloading event file');
   }
 });
 
-// Download deck list file
+// Download deck list file as CSV
 app.get('/api/admin/download-decks/:eventName', async (req, res) => {
   const eventName = req.params.eventName;
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
@@ -69,9 +117,10 @@ app.get('/api/admin/download-decks/:eventName', async (req, res) => {
   try {
     const file = await getGithubFile(decksPath);
     if (!file) return res.status(404).send('Decks file not found');
-    res.setHeader('Content-Disposition', `attachment; filename="decks-${safeEventName}.json"`);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(file.content);
+    const csv = jsonToCsv(file.content, 'decks');
+    res.setHeader('Content-Disposition', `attachment; filename="decks-${safeEventName}.csv"`);
+    res.setHeader('Content-Type', 'text/csv');
+    res.send(csv);
   } catch (err) {
     res.status(500).send('Error downloading decks file');
   }

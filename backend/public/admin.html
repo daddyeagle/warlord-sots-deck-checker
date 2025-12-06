@@ -123,8 +123,8 @@
     <div style="margin-top:1rem;">
       <label for="eventNameInput" class="small">Event Name:</label>
       <input type="text" id="eventNameInput" placeholder="Enter event name" style="min-width:220px; margin-right:8px;" />
-      <button id="downloadEventBtn">Download Event File</button>
-      <button id="downloadDecksBtn">Download Decks File</button>
+      <button id="downloadEventBtn">Download Event CSV</button>
+      <button id="downloadDecksBtn">Download Decks CSV</button>
     </div>
     <script>
     function safeEventName(name) {
@@ -146,7 +146,7 @@
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = `${safeName}.json`;
+          link.download = `${safeName}.csv`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -172,7 +172,7 @@
           const url = window.URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = `decks-${safeName}.json`;
+          link.download = `decks-${safeName}.csv`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
