@@ -1,0 +1,53 @@
+{
+  "eventName": "December Ancients+",
+  "warlord": "B'alam Nak",
+  "cardList": {
+    "Character": {
+      "B'alam Nak": 1,
+      "Urnack": 1,
+      "Nightmaster Rress": 1,
+      "Joleg": 1,
+      "B'haya, the Fiend": 1,
+      "Jackals of Mourn": 3,
+      "Nog, Pog, and Snivels": 3,
+      "Yeg-Igryll's Altar": 1,
+      "Archer Tower": 1,
+      "Carg'rag": 3,
+      "D'nath": 3,
+      "Muddflek": 3,
+      "FirRal": 3,
+      "StartingArmy": {
+        "B'alam Nak": 1,
+        "Urnack": 1,
+        "Nightmaster Rress": 1,
+        "Joleg": 1,
+        "B'haya, the Fiend": 1
+      }
+    },
+    "Item": {
+      "Storm Shard": 1,
+      "Portable Hole": 3,
+      "Giant Bat": 2,
+      "Nodwick": 1,
+      "Farglass": 1,
+      "Arbalest": 1,
+      "StartingArmy": {}
+    },
+    "Action": {
+      "Wither": 3,
+      "Strain the Shot": 3,
+      "Reconnaissance": 3,
+      "Assassin's Strike": 2,
+      "Meet at the Inn!": 2,
+      "Crypt Wine": 3,
+      "StartingArmy": {}
+    }
+  },
+  "submittedBy": {
+    "id": "225075257822674944",
+    "username": "oeagle",
+    "discriminator": "0",
+    "displayName": "daddy_eagle"
+  },
+  "submittedAt": "2025-12-06T04:08:27.344Z"
+}
