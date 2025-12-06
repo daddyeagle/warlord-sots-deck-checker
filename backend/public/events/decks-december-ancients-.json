@@ -1,63 +1,5 @@
 [
   {
-    "username": "231248072204746753",
-    "event": "December Ancients+",
-    "warlord": "Adarymy",
-    "display_name": "Kynarin",
-    "timestamp": "2025-12-06T04:44:41.327Z",
-    "cardList": {
-      "Character": {
-        "count": 19,
-        "cards": {
-          "Clerimonde": 3,
-          "Koranos": 2,
-          "Kun Iacob": 2,
-          "Kylia Smythe": 1,
-          "Leonora": 2,
-          "Llyr Militia": 3
-        },
-        "StartingArmy": {
-          "cards": {
-            "Adarymy": 1,
-            "Rosalie": 2,
-            "Ryan Mornington": 1,
-            "Brother Dominy": 1,
-            "Spencer Latham": 1
-          }
-        }
-      },
-      "Action": {
-        "count": 18,
-        "cards": {
-          "Back Alley Tavern": 1,
-          "Rescue": 1,
-          "Exhaustion": 3,
-          "Final Blessing": 2,
-          "Winter Warfare": 1,
-          "Reflect": 3,
-          "Hero's Gambit": 2,
-          "Sanctuary": 3,
-          "Bandage": 2
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      },
-      "Item": {
-        "count": 7,
-        "cards": {
-          "Blazing Medallion": 2,
-          "Portable Hole": 2,
-          "Black Moss": 2,
-          "Alliance Standard": 1
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      }
-    }
-  },
-  {
     "username": "225075257822674944",
     "event": "December Ancients+",
     "warlord": "Vactus, Spirit's Champion",
@@ -114,6 +56,69 @@
           "Silversteel Gauntlets": 1,
           "Breastplate of Power": 1,
           "Ardian Greathawk": 1
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      }
+    }
+  },
+  {
+    "username": "231248072204746753",
+    "event": "December Ancients+",
+    "warlord": "Adarymy",
+    "display_name": "Kynarin",
+    "timestamp": "2025-12-06T04:55:31.878Z",
+    "cardList": {
+      "Character": {
+        "count": 31,
+        "cards": {
+          "Adarymy": 2,
+          "Rosalie": 4,
+          "Ryan Mornington": 4,
+          "Brother Dominy": 4,
+          "Spencer Latham": 4,
+          "Clerimonde": 3,
+          "Koranos": 2,
+          "Kun Iacob": 2,
+          "Kylia Smythe": 1,
+          "Leonora": 2,
+          "Llyr Militia": 3
+        },
+        "StartingArmy": {
+          "cards": {
+            "Adarymy": 1,
+            "Rosalie": 2,
+            "Ryan Mornington": 1,
+            "Brother Dominy": 1,
+            "Spencer Latham": 1
+          }
+        }
+      },
+      "Action": {
+        "count": 18,
+        "cards": {
+          "Back Alley Tavern": 1,
+          "Rescue": 1,
+          "Exhaustion": 3,
+          "Final Blessing": 2,
+          "Winter Warfare": 1,
+          "Reflect": 3,
+          "Hero's Gambit": 2,
+          "Sanctuary": 3,
+          "Bandage": 2
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      },
+      "Item": {
+        "count": 7,
+        "cards": {
+          "Blazing Medallion": 2,
+          "Portable Hole": 2,
+          "Black Moss": 2,
+          "Alliance Standard": 1
         },
         "StartingArmy": {
           "cards": {}
