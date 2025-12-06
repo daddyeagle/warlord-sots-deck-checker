@@ -119,32 +119,69 @@
       <button id="applyBtn" class="btn-danger">Apply (download)</button>
     </div>
 
-    <button id="downloadDecksBtn">Download Decks File</button>
+
+    <div style="margin-top:1rem;">
+      <label for="eventNameInput" class="small">Event Name:</label>
+      <input type="text" id="eventNameInput" placeholder="Enter event name" style="min-width:220px; margin-right:8px;" />
+      <button id="downloadEventBtn">Download Event File</button>
+      <button id="downloadDecksBtn">Download Decks File</button>
+    </div>
     <script>
-document.getElementById('downloadDecksBtn').addEventListener('click', function() {
-  const filename = 'decks-december-ancients-.json';
-  fetch(`/api/admin/download?file=${encodeURIComponent(filename)}`)
-    .then(response => {
-      if (!response.ok) {
-        alert('File not found or download failed.');
-        throw new Error('File not found');
-      }
-      return response.blob();
-    })
-    .then(blob => {
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    })
-    .catch(err => {
-      console.error('Download error:', err);
+    function safeEventName(name) {
+      return name.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+    }
+    document.getElementById('downloadEventBtn').addEventListener('click', function() {
+      const eventName = document.getElementById('eventNameInput').value.trim();
+      if (!eventName) return alert('Please enter an event name.');
+      const safeName = safeEventName(eventName);
+      fetch(`/api/admin/download-event/${encodeURIComponent(safeName)}`)
+        .then(response => {
+          if (!response.ok) {
+            alert('Event file not found or download failed.');
+            throw new Error('File not found');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `${safeName}.json`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        })
+        .catch(err => {
+          console.error('Download error:', err);
+        });
     });
-});
+    document.getElementById('downloadDecksBtn').addEventListener('click', function() {
+      const eventName = document.getElementById('eventNameInput').value.trim();
+      if (!eventName) return alert('Please enter an event name.');
+      const safeName = safeEventName(eventName);
+      fetch(`/api/admin/download-decks/${encodeURIComponent(safeName)}`)
+        .then(response => {
+          if (!response.ok) {
+            alert('Decks file not found or download failed.');
+            throw new Error('File not found');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `decks-${safeName}.json`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        })
+        .catch(err => {
+          console.error('Download error:', err);
+        });
+    });
     </script>
 
     <pre id="feedback" class="small" style="margin-top:.75rem"></pre>

@@ -44,6 +44,38 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- AUTHENTICATION ROUTES ---
+// --- ADMIN DOWNLOAD ENDPOINTS ---
+// Download event file
+app.get('/api/admin/download-event/:eventName', async (req, res) => {
+  const eventName = req.params.eventName;
+  const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+  const eventPath = `backend/public/events/${safeEventName}.json`;
+  try {
+    const file = await getGithubFile(eventPath);
+    if (!file) return res.status(404).send('Event file not found');
+    res.setHeader('Content-Disposition', `attachment; filename="${safeEventName}.json"`);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(file.content);
+  } catch (err) {
+    res.status(500).send('Error downloading event file');
+  }
+});
+
+// Download deck list file
+app.get('/api/admin/download-decks/:eventName', async (req, res) => {
+  const eventName = req.params.eventName;
+  const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+  const decksPath = `backend/public/events/decks-${safeEventName}.json`;
+  try {
+    const file = await getGithubFile(decksPath);
+    if (!file) return res.status(404).send('Decks file not found');
+    res.setHeader('Content-Disposition', `attachment; filename="decks-${safeEventName}.json"`);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(file.content);
+  } catch (err) {
+    res.status(500).send('Error downloading decks file');
+  }
+});
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = process.env.DISCORD_REDIRECT_URI || 'https://warlord-sots-deck-checker-production.up.railway.app/api/auth/discord/callback';
