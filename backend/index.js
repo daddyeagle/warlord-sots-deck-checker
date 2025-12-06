@@ -1,30 +1,11 @@
-
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
-
-// --- Admin: List Event Files Endpoint ---
-// Returns a list of event/deck files in the events directory
-app.get('/api/admin/list-event-files', async (req, res) => {
-  const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
-  try {
-    const files = await fsp.readdir(EVENTS_PATH);
-    // Only include .json files
-    const jsonFiles = files.filter(f => f.endsWith('.json'));
-    res.json({ files: jsonFiles });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to list files', details: err.message });
-  }
-});
-
-const fs = require('fs');
-const fsp = require('fs/promises');
 const express = require('express');
 const session = require('express-session');
 const axios = require('axios');
 const cors = require('cors');
 const path = require('path');
-const { getFile, putFile } = require('./github'); // GitHub helper import
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -159,118 +140,6 @@ app.get('/api/auth/success', (req, res) => {
   });
 });
 
-
-// --- Deck Submission API ---
-// Use EVENTS_PATH env variable, default to relative path for local dev, absolute for Railway
-const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
-
-app.post('/api/submit-deck', async (req, res) => {
-  if (!req.session.user) return res.status(401).json({ error: 'Not authenticated' });
-
-  const { eventName, warlord, cardList, deckContents } = req.body;
-  if (!eventName || !warlord || !cardList || !deckContents) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
-  const username = req.session.user.id;
-  const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
-  const displayName = req.session.user.displayName || '';
-  const timestamp = new Date().toISOString();
-
-  // Sanitize event name for filename
-  const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
-  const eventPath = `${EVENTS_PATH}/${safeEventName}.json`;
-  const decksPath = `${EVENTS_PATH}/decks-${safeEventName}.json`;
-
-try {
-    // Ensure parent directories exist before writing files
-    await fsp.mkdir(path.dirname(eventPath), { recursive: true });
-    await fsp.mkdir(path.dirname(decksPath), { recursive: true });
-    // PART 1: Update Event File (local fs)
-    let eventObj = { eventName, submissions: [] };
-    try {
-      if (fs.existsSync(eventPath)) {
-        const raw = await fsp.readFile(eventPath, 'utf8');
-        eventObj = JSON.parse(raw);
-      }
-    } catch (err) {
-      console.log(`Event file ${eventPath} not found or error reading, creating new.`);
-    }
-    if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
-    eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
-    eventObj.submissions.push({
-      warlord,
-      username,
-      discord_username: discordUsername,
-      display_name: displayName,
-      timestamp
-    });
-    await fsp.writeFile(eventPath, JSON.stringify(eventObj, null, 2), 'utf8');
-
-    // Debug log for event file
-    console.log('[Deck Submission] Wrote event file to:', eventPath);
-    console.log('[Deck Submission] Event file contents:', JSON.stringify(eventObj, null, 2));
-
-    // PART 2: Update Decks File (local fs)
-    let decksArr = [];
-    try {
-      if (fs.existsSync(decksPath)) {
-        const rawDecks = await fsp.readFile(decksPath, 'utf8');
-        decksArr = JSON.parse(rawDecks);
-      }
-    } catch (err) {
-      console.log(`Decks file ${decksPath} not found or error reading, creating new.`);
-    }
-    if (!Array.isArray(decksArr)) decksArr = [];
-    decksArr = decksArr.filter(deck => deck.username !== username);
-    decksArr.push({
-      username,
-      event: eventName,
-      warlord,
-      display_name: displayName,
-      timestamp,
-      cardList: formatCardList(cardList)
-    });
-    await fsp.writeFile(decksPath, JSON.stringify(decksArr, null, 2), 'utf8');
-
-    // Debug log for decks file
-    console.log('[Deck Submission] Wrote decks file to:', decksPath);
-    console.log('[Deck Submission] Decks file contents:', JSON.stringify(decksArr, null, 2));
-
-    // Helper to format cardList (Internal function)
-    function formatCardList(cardList) {
-      const formatted = {};
-      for (const type in cardList) {
-        const cards = cardList[type];
-        let typeCount = 0;
-        const typeCards = {};
-        for (const card in cards) {
-          if (card === 'StartingArmy') continue;
-          typeCards[card] = cards[card];
-          typeCount += cards[card];
-        }
-        if (cards['StartingArmy']) {
-          let saCount = 0;
-          for (const saCard in cards['StartingArmy']) {
-            saCount += cards['StartingArmy'][saCard];
-          }
-          typeCount += saCount;
-          formatted[type] = { count: typeCount, cards: typeCards, StartingArmy: { cards: cards['StartingArmy'] } };
-        } else {
-          formatted[type] = { count: typeCount, cards: typeCards };
-        }
-      }
-      return formatted;
-    }
-
-    res.json({ success: true });
-  } catch (err) {
-    console.error('Deck submission error:', err.message);
-    res.status(500).json({ error: 'Deck submission failed', details: err.message });
-  }
-});
-
-
 // Step 4: Logout
 app.post('/api/auth/logout', (req, res) => {
   req.session.destroy(() => {
@@ -286,22 +155,7 @@ app.get('*', (req, res) => {
     res.status(404).send('Not found');
   }
 });
-// Place this before app.listen(...)
-app.get('/api/admin/download', async (req, res) => {
-  // TODO: Add authentication/authorization for real admin security
-  const file = req.query.file;
-  if (!file || !/^[a-zA-Z0-9_.\-]+$/.test(file)) {
-    return res.status(400).json({ error: 'Invalid file name' });
-  }
-  const EVENTS_PATH = process.env.EVENTS_PATH || (process.env.RAILWAY_STATIC_URL ? '/backend/public/events' : 'backend/public/events');
-  const filePath = `${EVENTS_PATH}/${file}`;
-  try {
-    await fsp.access(filePath);
-    res.download(filePath, file);
-  } catch (err) {
-    res.status(404).json({ error: 'File not found' });
-  }
-});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Backend listening on port ${PORT}`);
 });
