@@ -97,8 +97,8 @@ const jsonToCsv = (json, type) => {
       rows.push(hyphenRow(eventHeader, maxLen));
       rows.push(userHeader);
       rows.push(hyphenRow(userHeader, maxLen));
-      // Prefer discord_username, then discordId, then username
-      let discord = (deck.discord_username || deck.discordId || deck.username || '').replace(/#0$/, '');
+      // Use discord_username from event file
+      let discord = (deck.discord_username || '').replace(/#0$/, '');
       rows.push([
         `// ${discord}`,
         `// ${deck.display_name || ''}`,
@@ -137,8 +137,19 @@ const jsonToCsv = (json, type) => {
       // Blank line between decks
       rows.push([]);
     }
-    // Custom CSV: do not quote single-value rows (card lines), only quote multi-value rows (headers/user info)
-    return rows.map(r => r.length > 1 ? r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',') : r[0]).join('\n');
+    // Custom CSV: do not quote header rows or card lines; only quote user info if needed
+    return rows.map((r, i) => {
+      // Remove quotes from header rows (start with //)
+      if (r.every(v => typeof v === 'string' && v.startsWith('//'))) {
+        return r.join(',');
+      }
+      // Card lines (single value, no quotes)
+      if (r.length === 1) {
+        return r[0];
+      }
+      // User info (multi-value, keep quotes for commas in display_name/warlord)
+      return r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',');
+    }).join('\n');
   }
   return '';
 }
