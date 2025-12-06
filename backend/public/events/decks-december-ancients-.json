@@ -57,55 +57,51 @@
   {
     "username": "225075257822674944",
     "event": "December Ancients+",
-    "warlord": "Scyrax",
+    "warlord": "Kothkah",
     "display_name": "daddy_eagle",
-    "timestamp": "2025-12-06T19:28:27.025Z",
+    "timestamp": "2025-12-06T19:35:31.733Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Carg'rag": 3,
-          "Karn of Clan Manaka": 1,
-          "Koratcghuk": 1,
-          "Lukkot Buzzsaw": 3,
-          "Makusog Steelhorn": 3,
-          "Sar'ean": 3,
-          "The Mighty Mugg": 3,
+          "Toren Yscar": 1,
           "The Retiarius": 1,
-          "Toren Yscar": 1
+          "Sar'ean": 3,
+          "SanUris": 3,
+          "Koratcghuk": 2,
+          "FirRal": 3,
+          "Carg'rag": 3,
+          "Bokos": 3
         },
         "startingArmy": {
-          "Bear Legion Recruit": 3,
+          "Kothkah": 1,
+          "Nightmaster Rress": 1,
           "Yeg-Igryll's Altar": 1,
-          "Krasin": 1,
-          "Scyrax": 1
+          "Gunda": 3
         }
       },
       "Item": {
-        "count": 15,
+        "count": 16,
         "mainDeck": {
-          "Black Journal": 1,
-          "Deverenus' Axe": 2,
-          "Dragon Buckler": 1,
-          "Glyph of Fate": 1,
+          "Monkey's Paws": 2,
+          "Ring of Piercing": 1,
+          "Recruiter's Orders": 1,
           "Nodwick": 1,
-          "Portable Hole": 3,
-          "Silverwind": 1,
-          "Staff of Secrets": 1,
-          "Storm Shard": 1,
-          "The King's Lady": 1,
-          "Vorpal Blade": 1,
-          "Wand of Negation": 1
+          "Madman's Blade": 1,
+          "Fine Hilted Saber": 3,
+          "Figurine of Power": 3,
+          "Double Bladed Sword": 1,
+          "Destroyer's Armor": 3
         },
         "startingArmy": {}
       },
       "Action": {
-        "count": 10,
+        "count": 9,
         "mainDeck": {
-          "Extensions": 3,
-          "Fell Blow": 1,
-          "From Dust to Dust": 3,
-          "Severed of Flesh": 3
+          "Sword Master": 2,
+          "Slow March": 2,
+          "Order of Battle": 2,
+          "Loyalty's Reward": 3
         },
         "startingArmy": {}
       }
