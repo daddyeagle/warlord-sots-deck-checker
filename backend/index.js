@@ -171,10 +171,10 @@ app.post('/api/submit-deck', async (req, res) => {
       },
       submittedAt: new Date().toISOString()
     };
+  const { eventName, warlord, cardList } = req.body;
   if (!req.session.user) {
     return res.status(401).json({ success: false, error: 'Not authenticated' });
   }
-  const { eventName, warlord, cardList } = req.body;
   if (!eventName || !warlord || !cardList) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
