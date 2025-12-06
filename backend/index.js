@@ -153,8 +153,9 @@ app.post('/api/auth/logout', (req, res) => {
 
 // Deck submission via GitHub API (GET/PUT method)
 
-const fs = require('fs').promises;
-const EVENTS_DIR = path.join(__dirname, 'public', 'events');
+
+const axiosGithub = require('axios');
+
 
 
 app.post('/api/submit-deck', async (req, res) => {
@@ -165,13 +166,24 @@ app.post('/api/submit-deck', async (req, res) => {
   if (!eventName || !warlord || !cardList || !deckContents) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
+
+  // GitHub repo info
+  const owner = 'daddyeagle';
+  const repo = 'warlord-sots-deck-checker';
+  const branch = 'deploy-docs';
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) {
+    return res.status(500).json({ success: false, error: 'GitHub token not configured' });
+  }
+
   // Build filename: eventName-warlord-username-timestamp.json
   const safeEvent = String(eventName).replace(/[^a-zA-Z0-9_-]/g, '_');
   const safeWarlord = String(warlord).replace(/[^a-zA-Z0-9_-]/g, '_');
   const safeUser = String(req.session.user.username).replace(/[^a-zA-Z0-9_-]/g, '_');
   const timestamp = Date.now();
   const filename = `${safeEvent}__${safeWarlord}__${safeUser}__${timestamp}.json`;
-  const filePath = path.join(EVENTS_DIR, filename);
+  const githubPath = `backend/public/events/${filename}`;
+
   const deckData = {
     eventName,
     warlord,
@@ -185,13 +197,51 @@ app.post('/api/submit-deck', async (req, res) => {
     },
     submittedAt: new Date().toISOString()
   };
+
   try {
-    await fs.mkdir(EVENTS_DIR, { recursive: true });
-    await fs.writeFile(filePath, JSON.stringify(deckData, null, 2), 'utf8');
-    res.json({ success: true });
+    // Step 1: GET for SHA (if file exists)
+    let sha = undefined;
+    try {
+      const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${githubPath}?ref=${branch}`;
+      const getRes = await axiosGithub.get(getUrl, {
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      if (getRes.data && getRes.data.sha) {
+        sha = getRes.data.sha;
+      }
+    } catch (err) {
+      // 404 is expected for new files
+      if (err.response && err.response.status !== 404) {
+        throw err;
+      }
+    }
+
+    // Step 2: PUT to create/update file
+    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${githubPath}`;
+    const content = Buffer.from(JSON.stringify(deckData, null, 2)).toString('base64');
+    const body = {
+      message: `Submit deck for ${eventName} (${warlord}) by ${safeUser}`,
+      content,
+      branch
+    };
+    if (sha) body.sha = sha;
+    const putRes = await axiosGithub.put(putUrl, body, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    if (putRes.status === 201 || putRes.status === 200) {
+      return res.json({ success: true });
+    } else {
+      throw new Error('GitHub PUT failed');
+    }
   } catch (err) {
-    console.error('Error saving deck:', err);
-    res.status(500).json({ success: false, error: 'Failed to save deck' });
+    console.error('GitHub deck submit error:', err.response ? err.response.data : err.message);
+    return res.status(500).json({ success: false, error: 'Failed to submit deck to GitHub' });
   }
 });
 
