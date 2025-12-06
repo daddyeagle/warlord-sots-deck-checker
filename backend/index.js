@@ -73,8 +73,17 @@ const jsonToCsv = (json, type) => {
     const arr = typeof json === 'string' ? JSON.parse(json) : json;
     let rows = [];
     for (const deck of arr) {
-      // Header for each deck
-      const eventHeader = [`Event: ${deck.eventName || ''}`];
+      // Header for each deck: event name, month, year
+      let eventName = deck.eventName || '';
+      let month = '';
+      let year = '';
+      // Try to extract month/year from eventName (e.g., 'december-ancients-2025')
+      const match = eventName.match(/([a-z]+)[^0-9]*([0-9]{4})?/i);
+      if (match) {
+        month = match[1] ? match[1].charAt(0).toUpperCase() + match[1].slice(1) : '';
+        year = match[2] || '';
+      }
+      const eventHeader = [`Event: ${eventName}`, `Month: ${month}`, `Year: ${year}`];
       rows.push(eventHeader);
       rows.push(hyphenRow(eventHeader));
       const userHeader = ['discord_username', 'display_name', 'warlord'];
@@ -87,7 +96,10 @@ const jsonToCsv = (json, type) => {
         deck.warlord || ''
       ]);
       const cardList = deck.cardList || {};
+      let firstType = true;
       for (const type in cardList) {
+        if (!firstType) rows.push([]); // Space between card types
+        firstType = false;
         rows.push([type]);
         rows.push(hyphenRow([type]));
         // Starting Army cards (at top, warlord first)
