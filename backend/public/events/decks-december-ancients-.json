@@ -104,5 +104,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "December Ancients+",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2025-12-06T20:16:36.352Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Squire Fendric": 1,
+          "Jackals of Mourn": 3,
+          "Ghed Nuri": 3,
+          "Squire Arrigan": 3,
+          "Father Ansance": 3,
+          "Conscripts": 3
+        },
+        "startingArmy": {
+          "The Front Line": 3,
+          "Taika the Disjoined": 2,
+          "Church Enforcer Tancred": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "From Dust to Dust": 3,
+          "Aggressive Attack": 1,
+          "Final Power": 3,
+          "Flame Arrows": 3,
+          "Darkflame Bolts": 3,
+          "Evoke Crisis": 3,
+          "Sword Master": 3,
+          "Outmatched": 3,
+          "Cold Iron": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Nothrog S'sike": 1,
+          "Double Bladed Sword": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
