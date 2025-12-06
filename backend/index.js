@@ -46,59 +46,91 @@ app.use(express.static(path.join(__dirname, 'public')));
 // --- AUTHENTICATION ROUTES ---
 // --- ADMIN DOWNLOAD ENDPOINTS ---
 // Download event file
-const jsonToCsv = (json, type) => {
-  if (!json) return '';
+const ExcelJS = require('exceljs');
+
+async function jsonToExcel(json, type) {
+  if (!json) return null;
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet('Sheet1');
   if (type === 'event') {
     // Expect { eventName, submissions: [{ discord_username, display_name, warlord }] }
     const obj = typeof json === 'string' ? JSON.parse(json) : json;
-    const rows = [
-      ['discord_username', 'display_name', 'warlord']
-    ];
+    sheet.addRow(['discord_username', 'display_name', 'warlord']);
+    sheet.getRow(1).font = { bold: true };
+    let rowNum = 2;
     for (const sub of obj.submissions || []) {
-      rows.push([
-        sub.discord_username || '',
-        sub.display_name || '',
-        sub.warlord || ''
-      ]);
+      // Remove #0 from discord_username
+      let discord = (sub.discord_username || '').replace(/#0$/, '');
+      sheet.addRow([discord, sub.display_name || '', sub.warlord || '']);
+      rowNum++;
     }
-    return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
-  }
-  if (type === 'decks') {
+  } else if (type === 'decks') {
     // Expect array of deck objects
     const arr = typeof json === 'string' ? JSON.parse(json) : json;
-    let rows = [];
+    let rowNum = 1;
     for (const deck of arr) {
-      // Header for each deck
-      rows.push([`Event: ${deck.eventName || ''}`]);
-      rows.push(['discord_username', 'display_name', 'warlord']);
-      rows.push([
-        deck.discord_username || '',
-        deck.display_name || '',
-        deck.warlord || ''
-      ]);
+      // Header for each deck, stacked user info
+      sheet.addRow([`Event: ${deck.eventName || ''}`]);
+      sheet.getRow(rowNum).font = { bold: true };
+      rowNum++;
+      sheet.addRow(['discord_username']);
+      sheet.getRow(rowNum).font = { bold: true };
+      rowNum++;
+      let discord = (deck.discord_username || '').replace(/#0$/, '');
+      sheet.addRow([discord]);
+      rowNum++;
+      sheet.addRow(['display_name']);
+      sheet.getRow(rowNum).font = { bold: true };
+      rowNum++;
+      sheet.addRow([deck.display_name || '']);
+      rowNum++;
+      sheet.addRow(['warlord']);
+      sheet.getRow(rowNum).font = { bold: true };
+      rowNum++;
+      sheet.addRow([deck.warlord || '']);
+      rowNum++;
       const cardList = deck.cardList || {};
       for (const type in cardList) {
-        rows.push([type]);
+        sheet.addRow([type]);
+        sheet.getRow(rowNum).font = { bold: true };
+        rowNum++;
+        // Starting Army cards (at top, warlord first)
+        if (cardList[type].startingArmy && Object.keys(cardList[type].startingArmy).length > 0) {
+          sheet.addRow(['Starting Army']);
+          sheet.getRow(rowNum).font = { bold: true };
+          rowNum++;
+          // Warlord at top if present
+          const saCards = Object.entries(cardList[type].startingArmy);
+          let warlordCard = saCards.find(([card]) => card === deck.warlord);
+          if (warlordCard) {
+            sheet.addRow([warlordCard[0], warlordCard[1]]);
+            rowNum++;
+          }
+          for (const [card, qty] of saCards) {
+            if (card === deck.warlord) continue;
+            sheet.addRow([card, qty]);
+            rowNum++;
+          }
+          // Space between Starting Army and Main Deck
+          sheet.addRow([]);
+          rowNum++;
+        }
         // Main Deck cards
         if (cardList[type].mainDeck && Object.keys(cardList[type].mainDeck).length > 0) {
           for (const [card, qty] of Object.entries(cardList[type].mainDeck)) {
-            rows.push([card, qty]);
-          }
-        }
-        // Starting Army cards
-        if (cardList[type].startingArmy && Object.keys(cardList[type].startingArmy).length > 0) {
-          rows.push(['Starting Army']);
-          for (const [card, qty] of Object.entries(cardList[type].startingArmy)) {
-            rows.push([card, qty]);
+            sheet.addRow([card, qty]);
+            rowNum++;
           }
         }
       }
       // Blank line between decks
-      rows.push([]);
+      sheet.addRow([]);
+      rowNum++;
     }
-    return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
   }
-  return '';
+  const buffer = await workbook.xlsx.writeBuffer();
+  return buffer;
+}
 };
 
 // Download event file as CSV
@@ -109,16 +141,15 @@ app.get('/api/admin/download-event/:eventName', async (req, res) => {
   try {
     const file = await getGithubFile(eventPath);
     if (!file) return res.status(404).send('Event file not found');
-    const csv = jsonToCsv(file.content, 'event');
-    res.setHeader('Content-Disposition', `attachment; filename="${safeEventName}.csv"`);
-    res.setHeader('Content-Type', 'text/csv');
-    res.send(csv);
+    const buffer = await jsonToExcel(file.content, 'event');
+    res.setHeader('Content-Disposition', `attachment; filename="${safeEventName}.xlsx"`);
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.send(buffer);
   } catch (err) {
     res.status(500).send('Error downloading event file');
   }
 });
 
-// Download deck list file as CSV
 app.get('/api/admin/download-decks/:eventName', async (req, res) => {
   const eventName = req.params.eventName;
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
@@ -126,10 +157,10 @@ app.get('/api/admin/download-decks/:eventName', async (req, res) => {
   try {
     const file = await getGithubFile(decksPath);
     if (!file) return res.status(404).send('Decks file not found');
-    const csv = jsonToCsv(file.content, 'decks');
-    res.setHeader('Content-Disposition', `attachment; filename="decks-${safeEventName}.csv"`);
-    res.setHeader('Content-Type', 'text/csv');
-    res.send(csv);
+    const buffer = await jsonToExcel(file.content, 'decks');
+    res.setHeader('Content-Disposition', `attachment; filename="decks-${safeEventName}.xlsx"`);
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.send(buffer);
   } catch (err) {
     res.status(500).send('Error downloading decks file');
   }
