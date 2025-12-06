@@ -242,34 +242,27 @@ app.post('/api/submit-deck', async (req, res) => {
 // Helper to format cardList structure
 function formatCardList(cardList) {
   // Aggregate all cards across all types into a single object
-  const aggregate = {};
+  // Group cards by card type, and for each card, split counts into mainDeck and startingArmy, correcting for frontend's combined count
+  const grouped = {};
   for (const type in cardList) {
     const cards = cardList[type];
-    // Main Deck cards
-    for (const card in cards) {
-      if (card === 'StartingArmy') continue;
-      if (!aggregate[card]) aggregate[card] = { mainDeck: 0, startingArmy: 0, total: 0 };
-      aggregate[card].mainDeck += cards[card];
-    }
-    // Starting Army cards
-    if (cards['StartingArmy']) {
-      for (const saCard in cards['StartingArmy']) {
-        if (!aggregate[saCard]) aggregate[saCard] = { mainDeck: 0, startingArmy: 0, total: 0 };
-        aggregate[saCard].startingArmy += cards['StartingArmy'][saCard];
-      }
-    }
-  }
-  // Deduplicate: if a card is in both, total = mainDeck + startingArmy, but do not double-count
-  for (const card in aggregate) {
-    aggregate[card].total = aggregate[card].mainDeck + aggregate[card].startingArmy;
-    // If frontend double-lists SA cards in mainDeck, subtract startingArmy from mainDeck for total, but never below 0
-    if (aggregate[card].mainDeck > 0 && aggregate[card].startingArmy > 0) {
-      // If you want to strictly deduplicate, uncomment the next line:
-      // aggregate[card].mainDeck = Math.max(aggregate[card].mainDeck - aggregate[card].startingArmy, 0);
-      // aggregate[card].total = aggregate[card].mainDeck + aggregate[card].startingArmy;
+    if (!grouped[type]) grouped[type] = { count: 0, cards: {} };
+    // Collect all unique card names from both main deck and Starting Army
+    const allCardNames = new Set([
+      ...Object.keys(cards).filter(c => c !== 'StartingArmy'),
+      ...(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : [])
+    ]);
+    for (const card of allCardNames) {
+      // The frontend is reporting the combined count as the main deck value, so subtract startingArmy from mainDeck
+      const combined = cards[card] || 0;
+      const startingArmy = (cards['StartingArmy'] && cards['StartingArmy'][card]) || 0;
+      const mainDeck = Math.max(combined - startingArmy, 0);
+      const total = mainDeck + startingArmy;
+      grouped[type].cards[card] = { mainDeck, startingArmy, total };
+      grouped[type].count += total;
     }
   }
-  return aggregate;
+  return grouped;
 }
 
 // SPA fallback
