@@ -121,18 +121,30 @@
 
     <button id="downloadDecksBtn">Download Decks File</button>
     <script>
-    document.getElementById('downloadDecksBtn').addEventListener('click', function() {
-      // Change filename as needed
-      const filename = 'decks-december-ancients-.json';
-      const url = `/api/admin/download?file=${encodeURIComponent(filename)}`;
-      // Create a hidden link and click it to trigger download
+document.getElementById('downloadDecksBtn').addEventListener('click', function() {
+  const filename = 'decks-december-ancients-.json';
+  fetch(`/api/admin/download?file=${encodeURIComponent(filename)}`)
+    .then(response => {
+      if (!response.ok) {
+        alert('File not found or download failed.');
+        throw new Error('File not found');
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
       link.download = filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(err => {
+      console.error('Download error:', err);
     });
+});
     </script>
 
     <pre id="feedback" class="small" style="margin-top:.75rem"></pre>
