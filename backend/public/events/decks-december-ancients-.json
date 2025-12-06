@@ -67,132 +67,147 @@
     "event": "December Ancients+",
     "warlord": "Vactus, Spirit's Champion",
     "display_name": "daddy_eagle",
-    "timestamp": "2025-12-06T05:08:29.405Z",
+    "timestamp": "2025-12-06T05:16:33.863Z",
     "cardList": {
-      "Vactus, Spirit's Champion": {
-        "mainDeck": 1,
-        "startingArmy": 1,
-        "total": 2
+      "Character": {
+        "count": 20,
+        "cards": {
+          "Vactus, Spirit's Champion": {
+            "mainDeck": 0,
+            "startingArmy": 1,
+            "total": 1
+          },
+          "Novice Pyro": {
+            "mainDeck": 0,
+            "startingArmy": 1,
+            "total": 1
+          },
+          "Misearean Scout": {
+            "mainDeck": 0,
+            "startingArmy": 1,
+            "total": 1
+          },
+          "Bear Legion Recruit": {
+            "mainDeck": 1,
+            "startingArmy": 1,
+            "total": 2
+          },
+          "Joleg": {
+            "mainDeck": 1,
+            "startingArmy": 2,
+            "total": 3
+          },
+          "Catapult Crew": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Nog, Pog, and Snivels": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Muddflek": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Ac'Vuk": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          }
+        }
       },
-      "Novice Pyro": {
-        "mainDeck": 1,
-        "startingArmy": 1,
-        "total": 2
+      "Action": {
+        "count": 17,
+        "cards": {
+          "I Have Your Back": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Epic Donnybrook": {
+            "mainDeck": 2,
+            "startingArmy": 0,
+            "total": 2
+          },
+          "Heroic Confrontation": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Noble Sacrifice": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Crush": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Berserk": {
+            "mainDeck": 2,
+            "startingArmy": 0,
+            "total": 2
+          },
+          "Arcane Approach": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          }
+        }
       },
-      "Misearean Scout": {
-        "mainDeck": 1,
-        "startingArmy": 1,
-        "total": 2
-      },
-      "Bear Legion Recruit": {
-        "mainDeck": 2,
-        "startingArmy": 1,
-        "total": 3
-      },
-      "Joleg": {
-        "mainDeck": 3,
-        "startingArmy": 2,
-        "total": 5
-      },
-      "Catapult Crew": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Nog, Pog, and Snivels": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Muddflek": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Ac'Vuk": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "I Have Your Back": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Epic Donnybrook": {
-        "mainDeck": 2,
-        "startingArmy": 0,
-        "total": 2
-      },
-      "Heroic Confrontation": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Noble Sacrifice": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Crush": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Berserk": {
-        "mainDeck": 2,
-        "startingArmy": 0,
-        "total": 2
-      },
-      "Arcane Approach": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Storm Shard": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Spellblocker": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Rockarm": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Griffon of Andover": {
-        "mainDeck": 2,
-        "startingArmy": 0,
-        "total": 2
-      },
-      "Bruntor's Helm": {
-        "mainDeck": 2,
-        "startingArmy": 0,
-        "total": 2
-      },
-      "Deverenus' Axe": {
-        "mainDeck": 3,
-        "startingArmy": 0,
-        "total": 3
-      },
-      "Silversteel Gauntlets": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Breastplate of Power": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
-      },
-      "Ardian Greathawk": {
-        "mainDeck": 1,
-        "startingArmy": 0,
-        "total": 1
+      "Item": {
+        "count": 13,
+        "cards": {
+          "Storm Shard": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Spellblocker": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Rockarm": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Griffon of Andover": {
+            "mainDeck": 2,
+            "startingArmy": 0,
+            "total": 2
+          },
+          "Bruntor's Helm": {
+            "mainDeck": 2,
+            "startingArmy": 0,
+            "total": 2
+          },
+          "Deverenus' Axe": {
+            "mainDeck": 3,
+            "startingArmy": 0,
+            "total": 3
+          },
+          "Silversteel Gauntlets": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Breastplate of Power": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          },
+          "Ardian Greathawk": {
+            "mainDeck": 1,
+            "startingArmy": 0,
+            "total": 1
+          }
+        }
       }
     }
   }
