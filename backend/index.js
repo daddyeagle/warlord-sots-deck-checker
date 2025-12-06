@@ -159,6 +159,18 @@ const axiosGithub = require('axios');
 
 
 app.post('/api/submit-deck', async (req, res) => {
+    const deckData = {
+      eventName,
+      warlord,
+      cardList,
+      submittedBy: {
+        id: req.session.user.id,
+        username: req.session.user.username,
+        discriminator: req.session.user.discriminator,
+        displayName: req.session.user.displayName || null
+      },
+      submittedAt: new Date().toISOString()
+    };
   if (!req.session.user) {
     return res.status(401).json({ success: false, error: 'Not authenticated' });
   }
