@@ -171,7 +171,8 @@ app.post('/api/submit-deck', async (req, res) => {
       },
       submittedAt: new Date().toISOString()
     };
-  const { eventName, warlord, cardList } = req.body;
+      const { eventName, warlord, cardList } = req.body; // Move destructuring to the top
+      // Do not reference eventName, warlord, or cardList before this line!
   if (!req.session.user) {
     return res.status(401).json({ success: false, error: 'Not authenticated' });
   }
