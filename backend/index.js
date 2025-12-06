@@ -3,23 +3,19 @@ require('dotenv').config();
 
 const express = require('express');
 const session = require('express-session');
-const axios = require('axios');
+const axios = require('axios'); // Use one axios import
 const cors = require('cors');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// FIX 1: Trust ALL proxies (aggressive fix for Railway)
+// FIX 1: Trust ALL proxies (for Railway)
 app.set('trust proxy', true);
 
 // Debug Middleware
 app.use((req, res, next) => {
-  console.log('--- Debug Info ---');
-  console.log('Path:', req.path);
-  console.log('Protocol:', req.protocol); 
-  console.log('Secure:', req.secure);     
-  console.log('X-Forwarded-Proto:', req.get('x-forwarded-proto')); 
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
   next();
 });
 
@@ -35,7 +31,6 @@ app.use(express.json());
 app.use(session({
   secret: process.env.SESSION_SECRET || 'replace_this_secret',
   resave: false,
-  // FIX 2: Force save uninitialized to ensure cookie is always attempted
   saveUninitialized: true,
   cookie: {
     secure: true, 
@@ -48,11 +43,11 @@ app.use(session({
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// --- AUTHENTICATION ROUTES ---
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = process.env.DISCORD_REDIRECT_URI || 'https://warlord-sots-deck-checker-production.up.railway.app/api/auth/discord/callback';
 
-// Step 1: Redirect to Discord OAuth2
 app.get('/api/auth/discord', (req, res) => {
   const params = new URLSearchParams({
     client_id: CLIENT_ID,
@@ -63,7 +58,6 @@ app.get('/api/auth/discord', (req, res) => {
   res.redirect(`https://discord.com/api/oauth2/authorize?${params.toString()}`);
 });
 
-// Step 2: Handle Discord OAuth2 callback
 app.get('/api/auth/discord/callback', async (req, res) => {
   const code = req.query.code;
   if (!code) return res.status(400).send('No code provided');
@@ -76,220 +70,204 @@ app.get('/api/auth/discord/callback', async (req, res) => {
       code,
       redirect_uri: REDIRECT_URI,
       scope: 'identify'
-    }), {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    });
+    }), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 
     const accessToken = tokenRes.data.access_token;
-    
     const userRes = await axios.get('https://discord.com/api/users/@me', {
       headers: { Authorization: `Bearer ${accessToken}` }
     });
 
-    // FIX 3: Regenerate session to prevent fixation and force new cookie
     req.session.regenerate(function(err) {
-      if (err) {
-        console.error("Session regeneration failed:", err);
-        return res.status(500).send("Session error");
-      }
-
-      // Store user info, including display name if available
+      if (err) return res.status(500).send("Session error");
       req.session.user = {
         id: userRes.data.id,
         username: userRes.data.username,
         discriminator: userRes.data.discriminator,
         displayName: userRes.data.global_name || userRes.data.display_name || null
       };
-
-      // Force save before redirect
       req.session.save((err) => {
-        if (err) {
-          console.error("Session save failed:", err);
-          return res.status(500).send("Session save failed");
-        }
-        console.log("Session saved successfully. ID:", req.sessionID);
-        console.log("User:", req.session.user.username);
-        
+        if (err) return res.status(500).send("Session save failed");
         res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/auth-success');
       });
     });
-
   } catch (err) {
-    console.error('OAuth Error:', err.response ? err.response.data : err.message);
-    res.status(500).send('OAuth2 Error: ' + err.message);
+    console.error('OAuth Error:', err.message);
+    res.status(500).send('OAuth2 Error');
   }
 });
 
-// Step 3: Auth success endpoint
 app.get('/api/auth/success', (req, res) => {
-  // CRITICAL FIX: Prevent browser from caching the "Not Authenticated" state
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-  res.set('Pragma', 'no-cache');
-  res.set('Expires', '0');
-
-  console.log("Checking session for /api/auth/success:", req.session);
-  console.log("Session ID:", req.sessionID);
-  
   if (!req.session.user) return res.status(401).send('Not authenticated');
-  
-  res.json({
-    id: req.session.user.id,
-    username: req.session.user.username,
-    discriminator: req.session.user.discriminator,
-    displayName: req.session.user.displayName || null
-  });
+  res.json(req.session.user);
 });
 
-// Step 4: Logout
 app.post('/api/auth/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.sendStatus(200);
-  });
+  req.session.destroy(() => res.sendStatus(200));
 });
 
-// Deck submission via GitHub API (GET/PUT method)
+// --- GITHUB HELPER FUNCTIONS (Internal) ---
+// These handle the complexity of reading/writing so the route is clean
 
-// Save deck files to /backend/public/events
+const GITHUB_OWNER = 'daddyeagle';
+const GITHUB_REPO = 'warlord-sots-deck-checker';
+const GITHUB_BRANCH = 'deploy-docs';
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-// Deck submission via GitHub API (GET/PUT method)
+async function getGithubFile(path) {
+  try {
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}?ref=${GITHUB_BRANCH}`;
+    const response = await axios.get(url, {
+      headers: { 
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    // Decode Content
+    const content = Buffer.from(response.data.content, 'base64').toString('utf8');
+    return { sha: response.data.sha, content: content };
+  } catch (err) {
+    if (err.response && err.response.status === 404) return null; // File doesn't exist yet
+    throw err; // Real error
+  }
+}
 
+async function putGithubFile(path, content, message, sha = null) {
+  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`;
+  const body = {
+    message: message,
+    content: Buffer.from(JSON.stringify(content, null, 2)).toString('base64'),
+    branch: GITHUB_BRANCH
+  };
+  if (sha) body.sha = sha;
+  
+  await axios.put(url, body, {
+    headers: { 
+      'Authorization': `token ${GITHUB_TOKEN}`,
+      'Accept': 'application/vnd.github.v3+json'
+    }
+  });
+}
 
-const axiosGithub = require('axios');
-
-
+// --- DECK SUBMISSION ROUTE ---
 
 app.post('/api/submit-deck', async (req, res) => {
-    const deckData = {
-      eventName,
-      warlord,
-      cardList,
-      submittedBy: {
-        id: req.session.user.id,
-        username: req.session.user.username,
-        discriminator: req.session.user.discriminator,
-        displayName: req.session.user.displayName || null
-      },
-      submittedAt: new Date().toISOString()
-    };
-      const { eventName, warlord, cardList } = req.body; // Move destructuring to the top
-      // Do not reference eventName, warlord, or cardList before this line!
-  if (!req.session.user) {
-    return res.status(401).json({ success: false, error: 'Not authenticated' });
-  }
+  // 1. Auth Check
+  if (!req.session.user) return res.status(401).json({ success: false, error: 'Not authenticated' });
+  
+  // 2. Destructure inputs (FIXED ORDER)
+  const { eventName, warlord, cardList, deckContents } = req.body;
+  
+  // 3. Validation
   if (!eventName || !warlord || !cardList) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
 
-  // GitHub repo info
-  const owner = 'daddyeagle';
-  const repo = 'warlord-sots-deck-checker';
-  const branch = 'deploy-docs';
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) {
-    return res.status(500).json({ success: false, error: 'GitHub token not configured' });
-  }
+  // 4. Prepare User Data
+  const username = req.session.user.id;
+  const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
+  const displayName = req.session.user.displayName || req.session.user.username;
+  const timestamp = new Date().toISOString();
 
-  // Build filename: eventName-warlord-username-timestamp.json
-  const safeEvent = String(eventName).replace(/[^a-zA-Z0-9_-]/g, '_');
-  const safeWarlord = String(warlord).replace(/[^a-zA-Z0-9_-]/g, '_');
-  const safeUser = String(req.session.user.username).replace(/[^a-zA-Z0-9_-]/g, '_');
-  const timestamp = Date.now();
-  const filename = `${safeEvent}__${safeWarlord}__${safeUser}__${timestamp}.json`;
-  const githubPath = `backend/public/events/${filename}`;
+  // 5. Define Paths
+  // Note: Using 'docs/events' based on previous conversation, change to 'backend/public/events' if you prefer
+  const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+  const eventPath = `backend/public/events/${safeEventName}.json`;
+  const decksPath = `backend/public/events/decks-${safeEventName}.json`;
 
   try {
-    // Step 1: GET for SHA (if file exists)
-    let sha = undefined;
-    try {
-      const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${githubPath}?ref=${branch}`;
-      const getRes = await axiosGithub.get(getUrl, {
-        headers: {
-          'Authorization': `token ${token}`,
-          'Accept': 'application/vnd.github.v3+json'
-        }
-      });
-      if (getRes.data && getRes.data.sha) {
-        sha = getRes.data.sha;
-      }
-    } catch (err) {
-      // 404 is expected for new files
-      if (err.response && err.response.status !== 404) {
-        throw err;
-      }
+    // --- STEP A: Update Event File (The List of Submissions) ---
+    const existingEvent = await getGithubFile(eventPath);
+    
+    let eventObj = { eventName, submissions: [] };
+    let eventSha = null;
+
+    if (existingEvent) {
+      eventSha = existingEvent.sha;
+      try { eventObj = JSON.parse(existingEvent.content); } catch (e) { console.log("Parse error, resetting"); }
     }
 
-    // Step 2: PUT to create/update deck file
-    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${githubPath}`;
-    const content = Buffer.from(JSON.stringify(deckData, null, 2)).toString('base64');
-    const body = {
-      message: `Submit deck for ${eventName} (${warlord}) by ${safeUser}`,
-      content,
-      branch
-    };
-    if (sha) body.sha = sha;
-    const putRes = await axiosGithub.put(putUrl, body, {
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
-    if (!(putRes.status === 201 || putRes.status === 200)) {
-      throw new Error('GitHub PUT failed');
-    }
+    if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
 
-    // Step 3: Update event file in same path (e.g., backend/public/events/<eventName>.json)
-    const eventFileName = `${safeEvent}.json`;
-    const eventFilePath = `backend/public/events/${eventFileName}`;
-    let eventSha = undefined;
-    let eventList = [];
-    try {
-      const eventGetUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${eventFilePath}?ref=${branch}`;
-      const eventGetRes = await axiosGithub.get(eventGetUrl, {
-        headers: {
-          'Authorization': `token ${token}`,
-          'Accept': 'application/vnd.github.v3+json'
-        }
-      });
-      if (eventGetRes.data && eventGetRes.data.sha) {
-        eventSha = eventGetRes.data.sha;
-        // Decode and parse the existing event file
-        const buff = Buffer.from(eventGetRes.data.content, 'base64');
-        eventList = JSON.parse(buff.toString('utf8'));
-      }
-    } catch (err) {
-      // 404 is expected for new files
-      if (!(err.response && err.response.status === 404)) {
-        throw err;
-      }
-    }
-    // Add new deck metadata to event list
-    eventList.push({
+    // CRITICAL LOGIC: Filter out OLD submission by this user, then push NEW one
+    eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
+    
+    eventObj.submissions.push({
       warlord,
-      submittedBy: deckData.submittedBy,
-      submittedAt: deckData.submittedAt,
-      deckFile: filename
-    });
-    const eventPutUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${eventFilePath}`;
-    const eventContent = Buffer.from(JSON.stringify(eventList, null, 2)).toString('base64');
-    const eventBody = {
-      message: `Update event file for ${eventName} (add deck by ${safeUser})`,
-      content: eventContent,
-      branch
-    };
-    if (eventSha) eventBody.sha = eventSha;
-    await axiosGithub.put(eventPutUrl, eventBody, {
-      headers: {
-        'Authorization': `token ${token}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
+      username, // Discord ID
+      discord_username: discordUsername,
+      display_name: displayName,
+      timestamp,
+      // Optional: Link to specific file if you are generating one, otherwise this is enough
     });
 
-    return res.json({ success: true });
+    await putGithubFile(eventPath, eventObj, `Update event ${eventName} by ${discordUsername}`, eventSha);
+
+    // --- STEP B: Update Decks File (The Detailed Deck Lists) ---
+    const existingDecks = await getGithubFile(decksPath);
+    
+    let decksArr = [];
+    let decksSha = null;
+
+    if (existingDecks) {
+      decksSha = existingDecks.sha;
+      try { decksArr = JSON.parse(existingDecks.content); } catch (e) { console.log("Parse error, resetting"); }
+    }
+
+    if (!Array.isArray(decksArr)) decksArr = [];
+
+    // CRITICAL LOGIC: Filter out OLD deck by this user
+    decksArr = decksArr.filter(d => d.username !== username);
+
+    // Append NEW deck
+    decksArr.push({
+      username,
+      event: eventName,
+      warlord,
+      display_name: displayName,
+      timestamp,
+      cardList: formatCardList(cardList) // Use helper to format cleanly
+    });
+
+    await putGithubFile(decksPath, decksArr, `Update deck ${eventName} by ${discordUsername}`, decksSha);
+
+    res.json({ success: true });
+
   } catch (err) {
-    console.error('GitHub deck submit error:', err.response ? err.response.data : err.message);
-    return res.status(500).json({ success: false, error: 'Failed to submit deck to GitHub' });
+    console.error('Submission Error:', err.message);
+    res.status(500).json({ success: false, error: 'Failed to save to GitHub', details: err.message });
   }
 });
+
+// Helper to format cardList structure
+function formatCardList(cardList) {
+  const formatted = {};
+  for (const type in cardList) {
+    const cards = cardList[type];
+    let typeCount = 0;
+    const typeCards = {};
+    const saSet = new Set(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : []);
+    
+    for (const card in cards) {
+      if (card === 'StartingArmy') continue;
+      if (saSet.has(card)) continue;
+      typeCards[card] = cards[card];
+      typeCount += cards[card];
+    }
+    
+    if (cards['StartingArmy']) {
+      let saCount = 0;
+      for (const saCard in cards['StartingArmy']) {
+        saCount += cards['StartingArmy'][saCard];
+      }
+      typeCount += saCount;
+      formatted[type] = { count: typeCount, cards: typeCards, StartingArmy: { cards: cards['StartingArmy'] } };
+    } else {
+      formatted[type] = { count: typeCount, cards: typeCards };
+    }
+  }
+  return formatted;
+}
 
 // SPA fallback
 app.get('*', (req, res) => {
