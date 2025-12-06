@@ -48,10 +48,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Download event file
 const jsonToCsv = (json, type) => {
   if (!json) return '';
-  // Helper to create hyphen row matching the longest row
-  function hyphenRow(row) {
-    const joined = row.map(v => String(v)).join(',');
-    return [ '-'.repeat(joined.length) ];
+  // Helper to create hyphen row matching the longest header row in the deck
+  function hyphenRow(row, maxLen) {
+    return [ '//' + '-'.repeat(maxLen - 2) ];
   }
   if (type === 'event') {
     const obj = typeof json === 'string' ? JSON.parse(json) : json;
@@ -77,22 +76,31 @@ const jsonToCsv = (json, type) => {
       let eventName = deck.eventName || '';
       let month = '';
       let year = '';
-      const match = eventName.match(/([a-z]+)[^0-9]*([0-9]{4})?/i);
-      if (match) {
-        month = match[1] ? match[1].charAt(0).toUpperCase() + match[1].slice(1) : '';
-        year = match[2] || '';
+      if (deck.submittedAt) {
+        const date = new Date(deck.submittedAt);
+        if (!isNaN(date)) {
+          month = date.toLocaleString('default', { month: 'long' });
+          year = date.getFullYear();
+        }
       }
       const eventHeader = [`// Event: ${eventName}`, `// Month: ${month}`, `// Year: ${year}`];
-      rows.push(eventHeader);
-      rows.push(hyphenRow(eventHeader));
       const userHeader = ['// discord_username', '// display_name', '// warlord'];
+      // Find max header length for this deck
+      let maxLen = Math.max(
+        eventHeader.join(',').length,
+        userHeader.join(',').length,
+        ...Object.keys(deck.cardList || {}).map(type => (`// ${type}`).length),
+        '// Starting Army'.length
+      );
+      rows.push(eventHeader);
+      rows.push(hyphenRow(eventHeader, maxLen));
       rows.push(userHeader);
-      rows.push(hyphenRow(userHeader));
+      rows.push(hyphenRow(userHeader, maxLen));
       let discord = (deck.discord_username || '').replace(/#0$/, '');
       rows.push([
-        discord,
-        deck.display_name || '',
-        deck.warlord || ''
+        `// ${discord}`,
+        `// ${deck.display_name || ''}`,
+        `// ${deck.warlord || ''}`
       ]);
       const cardList = deck.cardList || {};
       let firstType = true;
@@ -100,11 +108,11 @@ const jsonToCsv = (json, type) => {
         if (!firstType) rows.push([]); // Space between card types
         firstType = false;
         rows.push([`// ${type}`]);
-        rows.push(hyphenRow([type]));
+        rows.push(hyphenRow([`// ${type}`], maxLen));
         // Starting Army cards (at top, warlord first)
         if (cardList[type].startingArmy && Object.keys(cardList[type].startingArmy).length > 0) {
           rows.push(['// Starting Army']);
-          rows.push(hyphenRow(['Starting Army']));
+          rows.push(hyphenRow(['// Starting Army'], maxLen));
           const saCards = Object.entries(cardList[type].startingArmy);
           let warlordCard = saCards.find(([card]) => card === deck.warlord);
           if (warlordCard) {
