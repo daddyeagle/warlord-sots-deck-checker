@@ -1,64 +1,5 @@
 [
   {
-    "username": "225075257822674944",
-    "event": "December Ancients+",
-    "warlord": "B'alam Nak",
-    "display_name": "daddy_eagle",
-    "timestamp": "2025-12-06T04:44:23.345Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "cards": {
-          "Jackals of Mourn": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Yeg-Igryll's Altar": 1,
-          "Archer Tower": 1,
-          "Carg'rag": 3,
-          "D'nath": 3,
-          "Muddflek": 3,
-          "FirRal": 3
-        },
-        "StartingArmy": {
-          "cards": {
-            "B'alam Nak": 1,
-            "Urnack": 1,
-            "Nightmaster Rress": 1,
-            "Joleg": 1,
-            "B'haya, the Fiend": 1
-          }
-        }
-      },
-      "Item": {
-        "count": 9,
-        "cards": {
-          "Storm Shard": 1,
-          "Portable Hole": 3,
-          "Giant Bat": 2,
-          "Nodwick": 1,
-          "Farglass": 1,
-          "Arbalest": 1
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      },
-      "Action": {
-        "count": 16,
-        "cards": {
-          "Wither": 3,
-          "Strain the Shot": 3,
-          "Reconnaissance": 3,
-          "Assassin's Strike": 2,
-          "Meet at the Inn!": 2,
-          "Crypt Wine": 3
-        },
-        "StartingArmy": {
-          "cards": {}
-        }
-      }
-    }
-  },
-  {
     "username": "231248072204746753",
     "event": "December Ancients+",
     "warlord": "Adarymy",
@@ -109,6 +50,70 @@
           "Portable Hole": 2,
           "Black Moss": 2,
           "Alliance Standard": 1
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "event": "December Ancients+",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-06T04:54:54.380Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "cards": {
+          "Vactus, Spirit's Champion": 2,
+          "Novice Pyro": 2,
+          "Misearean Scout": 2,
+          "Bear Legion Recruit": 3,
+          "Joleg": 5,
+          "Catapult Crew": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Muddflek": 3,
+          "Ac'Vuk": 3
+        },
+        "StartingArmy": {
+          "cards": {
+            "Vactus, Spirit's Champion": 1,
+            "Novice Pyro": 1,
+            "Misearean Scout": 1,
+            "Bear Legion Recruit": 1,
+            "Joleg": 2
+          }
+        }
+      },
+      "Action": {
+        "count": 17,
+        "cards": {
+          "I Have Your Back": 3,
+          "Epic Donnybrook": 2,
+          "Heroic Confrontation": 1,
+          "Noble Sacrifice": 3,
+          "Crush": 3,
+          "Berserk": 2,
+          "Arcane Approach": 3
+        },
+        "StartingArmy": {
+          "cards": {}
+        }
+      },
+      "Item": {
+        "count": 13,
+        "cards": {
+          "Storm Shard": 1,
+          "Spellblocker": 1,
+          "Rockarm": 1,
+          "Griffon of Andover": 2,
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Silversteel Gauntlets": 1,
+          "Breastplate of Power": 1,
+          "Ardian Greathawk": 1
         },
         "StartingArmy": {
           "cards": {}
