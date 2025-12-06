@@ -242,24 +242,33 @@ app.post('/api/submit-deck', async (req, res) => {
 // Helper to format cardList structure
 function formatCardList(cardList) {
   // Aggregate all cards across all types into a single object
-  // Group cards by card type, and for each card, split counts into mainDeck and startingArmy, correcting for frontend's combined count
+  // Group cards by card type, create subgroups for Main Deck and Starting Army, and keep counts for each subtype
   const grouped = {};
   for (const type in cardList) {
     const cards = cardList[type];
-    if (!grouped[type]) grouped[type] = { count: 0, cards: {} };
-    // Collect all unique card names from both main deck and Starting Army
-    const allCardNames = new Set([
-      ...Object.keys(cards).filter(c => c !== 'StartingArmy'),
-      ...(cards['StartingArmy'] ? Object.keys(cards['StartingArmy']) : [])
-    ]);
-    for (const card of allCardNames) {
+    if (!grouped[type]) grouped[type] = {
+      count: 0,
+      mainDeck: {},
+      startingArmy: {}
+    };
+    // Main Deck cards (excluding StartingArmy)
+    for (const card in cards) {
+      if (card === 'StartingArmy') continue;
       // The frontend is reporting the combined count as the main deck value, so subtract startingArmy from mainDeck
-      const combined = cards[card] || 0;
-      const startingArmy = (cards['StartingArmy'] && cards['StartingArmy'][card]) || 0;
-      const mainDeck = Math.max(combined - startingArmy, 0);
-      const total = mainDeck + startingArmy;
-      grouped[type].cards[card] = { mainDeck, startingArmy, total };
-      grouped[type].count += total;
+      const startingArmyCount = (cards['StartingArmy'] && cards['StartingArmy'][card]) || 0;
+      const mainDeckCount = Math.max(cards[card] - startingArmyCount, 0);
+      if (mainDeckCount > 0) {
+        grouped[type].mainDeck[card] = mainDeckCount;
+        grouped[type].count += mainDeckCount;
+      }
+    }
+    // Starting Army cards
+    if (cards['StartingArmy']) {
+      for (const saCard in cards['StartingArmy']) {
+        const saCount = cards['StartingArmy'][saCard];
+        grouped[type].startingArmy[saCard] = saCount;
+        grouped[type].count += saCount;
+      }
     }
   }
   return grouped;
