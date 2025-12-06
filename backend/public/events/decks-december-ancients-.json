@@ -152,5 +152,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597161294970881",
+    "discord_username": "taratherat#0",
+    "event": "December Ancients+",
+    "warlord": "Allisara",
+    "display_name": "Tara the rat",
+    "timestamp": "2025-12-06T20:20:44.811Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Vengeful Spirit": 3,
+          "Ogre": 3,
+          "Lady Tornhawk": 3,
+          "Kabyrr the Insane": 3,
+          "Fylgia": 1,
+          "Death Fog": 3,
+          "Benedric": 3
+        },
+        "startingArmy": {
+          "Amoudasi's Wrath": 2,
+          "Allisara": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Wand of Negation": 1,
+          "Robe of Eyes": 1,
+          "Ring of Vorn": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Soul Transfer": 3,
+          "Phantom Steed": 2,
+          "Phantasm": 1,
+          "Meet at the Inn!": 3,
+          "I Call Forth Valor": 2,
+          "From Dust to Dust": 3,
+          "Final Power": 3,
+          "Fiery Bolts": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
