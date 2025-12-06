@@ -49,18 +49,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 const jsonToCsv = (json, type) => {
   if (!json) return '';
   if (type === 'event') {
-    // Expect { eventName, submissions: [{ username, warlord, ... }] }
+    // Expect { eventName, submissions: [{ discord_username, display_name, warlord }] }
     const obj = typeof json === 'string' ? JSON.parse(json) : json;
     const rows = [
-      ['Username', 'Warlord', 'Deck Name', 'Submitted At', 'Other Fields...']
+      ['discord_username', 'display_name', 'warlord']
     ];
     for (const sub of obj.submissions || []) {
       rows.push([
-        sub.username || '',
-        sub.warlord || '',
-        sub.deckName || '',
-        sub.submittedAt || '',
-        JSON.stringify(sub)
+        sub.discord_username || '',
+        sub.display_name || '',
+        sub.warlord || ''
       ]);
     }
     return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
@@ -68,24 +66,35 @@ const jsonToCsv = (json, type) => {
   if (type === 'decks') {
     // Expect array of deck objects
     const arr = typeof json === 'string' ? JSON.parse(json) : json;
-    const rows = [
-      ['Username', 'Warlord', 'Card Type', 'Main Deck Cards', 'Starting Army Cards']
-    ];
+    let rows = [];
     for (const deck of arr) {
-      const username = deck.username || '';
-      const warlord = deck.warlord || '';
+      // Header for each deck
+      rows.push([`Event: ${deck.eventName || ''}`]);
+      rows.push(['discord_username', 'display_name', 'warlord']);
+      rows.push([
+        deck.discord_username || '',
+        deck.display_name || '',
+        deck.warlord || ''
+      ]);
       const cardList = deck.cardList || {};
       for (const type in cardList) {
-        const mainDeck = cardList[type].mainDeck ? Object.entries(cardList[type].mainDeck).map(([card, qty]) => `${card} (${qty})`).join('; ') : '';
-        const startingArmy = cardList[type].startingArmy ? Object.entries(cardList[type].startingArmy).map(([card, qty]) => `${card} (${qty})`).join('; ') : '';
-        rows.push([
-          username,
-          warlord,
-          type,
-          mainDeck,
-          startingArmy
-        ]);
+        rows.push([type]);
+        // Main Deck cards
+        if (cardList[type].mainDeck && Object.keys(cardList[type].mainDeck).length > 0) {
+          for (const [card, qty] of Object.entries(cardList[type].mainDeck)) {
+            rows.push([card, qty]);
+          }
+        }
+        // Starting Army cards
+        if (cardList[type].startingArmy && Object.keys(cardList[type].startingArmy).length > 0) {
+          rows.push(['Starting Army']);
+          for (const [card, qty] of Object.entries(cardList[type].startingArmy)) {
+            rows.push([card, qty]);
+          }
+        }
       }
+      // Blank line between decks
+      rows.push([]);
     }
     return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
   }
