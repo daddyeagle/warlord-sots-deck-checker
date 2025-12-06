@@ -148,6 +148,10 @@ app.post('/api/auth/logout', (req, res) => {
 });
 
 // Deck submission via GitHub API (GET/PUT method)
+
+// Save deck files to /backend/public/events
+
+// Deck submission via GitHub API (GET/PUT method)
 const axiosGithub = require('axios');
 
 app.post('/api/submit-deck', async (req, res) => {
