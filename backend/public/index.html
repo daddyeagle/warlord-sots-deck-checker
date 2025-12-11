@@ -1168,26 +1168,7 @@
                         }
                         document.getElementById('results').innerHTML = html;
 
-                        // Populate event dropdown from event_list.json via backend proxy endpoint
-                        fetch(window.BACKEND_URL + '/events/event_list.json?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
-                            .then(r => r.json())
-                            .then(events => {
-                                const eventSelect = document.getElementById('submit-eventname');
-                                eventSelect.innerHTML = '';
-                                if (Array.isArray(events)) {
-                                    events.forEach(ev => {
-                                        if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
-                                            const opt = document.createElement('option');
-                                            opt.value = ev.eventName;
-                                            opt.textContent = ev.eventName;
-                                            opt.dataset.decklistFile = ev.decklistFile || '';
-                                            opt.dataset.submissionFile = ev.submissionFile || '';
-                                            opt.dataset.ruleset = ev.ruleset || '';
-                                            eventSelect.appendChild(opt);
-                                        }
-                                    });
-                                }
-                            });
+                        // Removed redundant fetch of event_list.json for event dropdown population. Use main app data load instead.
 
             if (deckIsLegal) {
                 const discordUserSummary = document.getElementById('discord-user-summary');
