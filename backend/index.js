@@ -1,5 +1,10 @@
-// Proxy for warlord_configuration.json
 const fs = require('fs');
+
+// ...existing code...
+
+// Place these routes AFTER app is initialized
+
+// Proxy for warlord_configuration.json
 app.get('/config', (req, res) => {
   const configPath = path.join(__dirname, 'warlord_configuration.json');
   fs.readFile(configPath, 'utf8', (err, data) => {
