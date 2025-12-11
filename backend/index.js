@@ -1,8 +1,19 @@
+
+// Express server for Discord OAuth2 login
+require('dotenv').config();
+
+const express = require('express');
+const session = require('express-session');
+const axios = require('axios'); // Use one axios import
+const cors = require('cors');
+const path = require('path');
 const fs = require('fs');
 
-// ...existing code...
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Place these routes AFTER app is initialized
+// FIX 1: Trust ALL proxies (for Railway)
+app.set('trust proxy', true);
 
 // Proxy for warlord_configuration.json
 app.get('/config', (req, res) => {
@@ -23,20 +34,6 @@ app.get('/events/event_list.json', (req, res) => {
     res.send(data);
   });
 });
-// Express server for Discord OAuth2 login
-require('dotenv').config();
-
-const express = require('express');
-const session = require('express-session');
-const axios = require('axios'); // Use one axios import
-const cors = require('cors');
-const path = require('path');
-
-const app = express();
-const PORT = process.env.PORT || 8080;
-
-// FIX 1: Trust ALL proxies (for Railway)
-app.set('trust proxy', true);
 
 // Debug Middleware
 app.use((req, res, next) => {
