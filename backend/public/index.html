@@ -841,13 +841,16 @@
                     const key = orderedKeys[j];
                     const option = document.createElement('option');
                     option.value = key;
-                    option.textContent = RULE_SETS[key].name;
+                    option.textContent = RULE_SETS[key].name || key;
                     rulesetSelect.appendChild(option);
                 }
+                // Always select the default ruleset on load, unless the previous value is still present
                 if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
                     rulesetSelect.value = prev;
                 } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
                     rulesetSelect.value = defaultKey;
+                } else if (rulesetSelect.options.length > 0) {
+                    rulesetSelect.selectedIndex = 0;
                 }
                 console.info('Configuration reloaded from admin update');
                 return true;
