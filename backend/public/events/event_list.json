@@ -16,5 +16,14 @@
     "decklistFile": "decks-test1.json",
     "submissionFile": "test1.json",
     "hidden": false
+  },
+  {
+    "eventName": "Test2",
+    "ruleset": "Saga",
+    "startDate": "2026-01-01",
+    "endDate": "2026-01-07",
+    "decklistFile": "decks-test2.json",
+    "submissionFile": "test2.json",
+    "hidden": false
   }
 ]
