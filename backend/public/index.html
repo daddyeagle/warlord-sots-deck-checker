@@ -1297,11 +1297,18 @@
             // Show loading spinner until data is loaded
             if (loadingStatusDiv) loadingStatusDiv.classList.remove('hidden');
             const loaded = await loadAppData();
+            // Always show the deck checker UI, even if data fails to load
+            if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
             if (loaded) {
                 if (loadingStatusDiv) loadingStatusDiv.classList.add('hidden');
-                if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
             } else {
-                if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load app data.</p>`;
+                if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data, configuration, or event list. Deck validation and submission are disabled.</p>`;
+                // Disable deck validation and submission
+                const checkBtn = document.getElementById('check-deck-button');
+                if (checkBtn) checkBtn.disabled = true;
+                // Results area: show a warning
+                const resultsDiv = document.getElementById('results');
+                if (resultsDiv) resultsDiv.innerHTML = `<div class='text-red-400 font-bold'>Deck validation and submission are unavailable due to missing data.</div>`;
             }
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
