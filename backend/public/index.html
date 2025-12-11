@@ -1168,25 +1168,24 @@
                         }
                         document.getElementById('results').innerHTML = html;
 
-                        // Populate event dropdown from event_list.json if present
-                        if (deckIsLegal) {
-                                fetch('events/event_list.json?_=' + Date.now())
-                                    .then(r => r.json())
-                                    .then(events => {
-                                        const eventSelect = document.getElementById('submit-eventname');
-                                        eventSelect.innerHTML = '';
-                                        if (Array.isArray(events)) {
-                                            events.forEach(ev => {
-                                                if (ev && typeof ev === 'object' && ev.eventName) {
-                                                    const opt = document.createElement('option');
-                                                    opt.value = ev.eventName;
-                                                    opt.textContent = ev.eventName;
-                                                    eventSelect.appendChild(opt);
-                                                }
-                                            });
+                        // Populate event dropdown from event_list.json on deploy-docs branch (GitHub raw)
+                        const EVENT_LIST_URL = "https://raw.githubusercontent.com/daddyeagle/warlord-sots-deck-checker/deploy-docs/backend/public/events/event_list.json";
+                        fetch(EVENT_LIST_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
+                            .then(r => r.json())
+                            .then(events => {
+                                const eventSelect = document.getElementById('submit-eventname');
+                                eventSelect.innerHTML = '';
+                                if (Array.isArray(events)) {
+                                    events.forEach(ev => {
+                                        if (ev && typeof ev === 'object' && ev.eventName) {
+                                            const opt = document.createElement('option');
+                                            opt.value = ev.eventName;
+                                            opt.textContent = ev.eventName;
+                                            eventSelect.appendChild(opt);
                                         }
                                     });
-                        }
+                                }
+                            });
 
             if (deckIsLegal) {
                 const discordUserSummary = document.getElementById('discord-user-summary');
