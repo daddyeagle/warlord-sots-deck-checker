@@ -1,3 +1,23 @@
+// Proxy for warlord_configuration.json
+const fs = require('fs');
+app.get('/config', (req, res) => {
+  const configPath = path.join(__dirname, 'warlord_configuration.json');
+  fs.readFile(configPath, 'utf8', (err, data) => {
+    if (err) return res.status(404).json({ error: 'Config not found' });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
+});
+
+// Proxy for event_list.json
+app.get('/events/event_list.json', (req, res) => {
+  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  fs.readFile(eventListPath, 'utf8', (err, data) => {
+    if (err) return res.status(404).json({ error: 'Event list not found' });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
+});
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
