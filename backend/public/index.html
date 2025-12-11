@@ -1,20 +1,3 @@
-        // --- EVENT DROPDOWN POPULATOR ---
-        function populateEventDropdown() {
-            const eventSelect = document.getElementById('submit-eventname');
-            if (!eventSelect || !Array.isArray(window.EVENT_LIST)) return;
-            eventSelect.innerHTML = '';
-            window.EVENT_LIST.forEach(ev => {
-                if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
-                    const opt = document.createElement('option');
-                    opt.value = ev.eventName;
-                    opt.textContent = ev.eventName;
-                    opt.dataset.decklistFile = ev.decklistFile || '';
-                    opt.dataset.submissionFile = ev.submissionFile || '';
-                    opt.dataset.ruleset = ev.ruleset || '';
-                    eventSelect.appendChild(opt);
-                }
-            });
-        }
 <!-- All JS is now inside the <script type="module"> block below. -->
 <!DOCTYPE html>
 <html lang="en">
