@@ -913,7 +913,6 @@
                 console.warn('Failed to reload config:', e && e.message);
                 return false;
             }
-        };
 
         const checkTotalCount = (allLegalCards, activeRuleSet) => { 
             const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
@@ -1153,19 +1152,17 @@
                             }
                         }
                         html += `</div></div>`;
-                        // Only show submit controls if deck is legal AND Discord user is logged in
-                        if (deckIsLegal && window.discordUser && window.discordUser.id) {
-                            html += `
-                            <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
-                                <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                                    <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
-                                    <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
-                                    <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
-                                </form>
-                                <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
-                            </div>`;
-                        }
+                        // Always show submit controls, but disable button and show message if not ready
+                        html += `
+                        <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                            <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                            <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                                <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
+                                <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                                <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                            </form>
+                            <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+                        </div>`;
                         document.getElementById('results').innerHTML = html;
 
 
@@ -1175,6 +1172,9 @@
 
                         // Always show Discord username if available
                         const discordUserSummary = document.getElementById('discord-user-summary');
+                        const submitButton = document.getElementById('submit-deck-button');
+                        const eventSelect = document.getElementById('submit-eventname');
+                        const statusEl = document.getElementById('submit-status');
                         if (discordUserSummary) {
                             if (window.discordUser && window.discordUser.id) {
                                 discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
@@ -1182,72 +1182,75 @@
                                 discordUserSummary.textContent = 'You must log in with Discord to submit.';
                             }
                         }
-
-            if (deckIsLegal) {
-                const discordUserSummary = document.getElementById('discord-user-summary');
-                const submitButton = document.getElementById('submit-deck-button');
-                const eventSelect = document.getElementById('submit-eventname');
-                const statusEl = document.getElementById('submit-status');
-                // Show Discord user info or require login
-                if (window.discordUser && window.discordUser.id) {
-                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
-                } else {
-                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
-                    submitButton.disabled = true;
-                }
-                submitButton.addEventListener('click', async () => {
-                    if (!window.discordUser || !window.discordUser.id) {
-                        statusEl.textContent = 'You must log in with Discord to submit.';
-                        return;
-                    }
-                    const eventName = (eventSelect.value || '').trim() || 'default-event';
-                    // Use selected event's data attributes for validation and file selection
-                    const selectedOpt = eventSelect.selectedOptions[0];
-                    const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
-                    const decklistFile = selectedOpt ? selectedOpt.dataset.decklistFile : null;
-                    const submissionFile = selectedOpt ? selectedOpt.dataset.submissionFile : null;
-                    // Check if current ruleset matches required ruleset
-                    const currentRuleset = rulesetSelect.value;
-                    if (requiredRuleset && currentRuleset !== requiredRuleset) {
-                        statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
-                        return;
-                    }
-                    // (decklistFile and submissionFile can be used for custom logic or display if needed)
-                    try {
-                        statusEl.textContent = 'Preparing deck payload...';
-                        // Build card list structure
-                        if (typeof buildCardListByType !== 'function') {
-                            window.buildCardListByType = function(allCards, saCards) {
-                                const typeMap = {};
-                                allCards.forEach(card => {
-                                    const type = card.type || 'Unknown';
-                                    if (!typeMap[type]) typeMap[type] = {};
-                                    typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
-                                });
-                                // Always include all SA cards (not just Characters) in StartingArmy
-                                const saMap = {};
-                                saCards.forEach(card => {
-                                    saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
-                                });
-                                // Attach StartingArmy to each type present in SA
-                                Object.keys(typeMap).forEach(type => {
-                                    typeMap[type] = {
-                                        ...typeMap[type],
-                                        StartingArmy: {}
-                                    };
-                                });
-                                // Fill StartingArmy for each type
-                                saCards.forEach(card => {
-                                    if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
-                                        typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
-                                    }
-                                });
-                                return typeMap;
-                            };
+                        // Enable/disable submit button and show status
+                        if (!window.discordUser || !window.discordUser.id) {
+                            submitButton.disabled = true;
+                            statusEl.textContent = 'You must log in with Discord to submit.';
+                        } else if (!deckIsLegal) {
+                            submitButton.disabled = true;
+                            statusEl.textContent = 'Deck must be legal to submit.';
+                        } else {
+                            submitButton.disabled = false;
+                            statusEl.textContent = '';
                         }
-                        const cardList = buildCardListByType(allCards, saList);
-                        const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                        // Send to backend for GitHub update
+                        // Submission handler
+                        submitButton.addEventListener('click', async () => {
+                            if (!window.discordUser || !window.discordUser.id) {
+                                statusEl.textContent = 'You must log in with Discord to submit.';
+                                return;
+                            }
+                            if (!deckIsLegal) {
+                                statusEl.textContent = 'Deck must be legal to submit.';
+                                return;
+                            }
+                            const eventName = (eventSelect.value || '').trim() || 'default-event';
+                            // Use selected event's data attributes for validation and file selection
+                            const selectedOpt = eventSelect.selectedOptions[0];
+                            const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
+                            const decklistFile = selectedOpt ? selectedOpt.dataset.decklistFile : null;
+                            const submissionFile = selectedOpt ? selectedOpt.dataset.submissionFile : null;
+                            // Check if current ruleset matches requiredRuleset
+                            const currentRuleset = rulesetSelect.value;
+                            if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                                statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                                return;
+                            }
+                            // (decklistFile and submissionFile can be used for custom logic or display if needed)
+                            try {
+                                statusEl.textContent = 'Preparing deck payload...';
+                                // Build card list structure
+                                if (typeof buildCardListByType !== 'function') {
+                                    window.buildCardListByType = function(allCards, saCards) {
+                                        const typeMap = {};
+                                        allCards.forEach(card => {
+                                            const type = card.type || 'Unknown';
+                                            if (!typeMap[type]) typeMap[type] = {};
+                                            typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                                        });
+                                        // Always include all SA cards (not just Characters) in StartingArmy
+                                        const saMap = {};
+                                        saCards.forEach(card => {
+                                            saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                        });
+                                        // Attach StartingArmy to each type present in SA
+                                        Object.keys(typeMap).forEach(type => {
+                                            typeMap[type] = {
+                                                ...typeMap[type],
+                                                StartingArmy: {}
+                                            };
+                                        });
+                                        // Fill StartingArmy for each type
+                                        saCards.forEach(card => {
+                                            if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                                typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                            }
+                                        });
+                                        return typeMap;
+                                    };
+                                }
+                                const cardList = buildCardListByType(allCards, saList);
+                                const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                                // Send to backend for GitHub update
                         statusEl.textContent = 'Submitting deck to server...';
                         const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
                             method: 'POST',
