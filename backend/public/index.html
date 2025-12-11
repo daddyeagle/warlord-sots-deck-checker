@@ -1096,29 +1096,52 @@
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
             
                         const displayOrder = [
-                                'unknown', 
-                                'editionLegality', 
-                                'restrictions', 
-                                'totalCount', 
-                                'saComp', 
-                                'saLoyalty', 
-                                'mdLoyalty', 
-                                'copyLimits', 
-                                'overlordLimit',
-                                'dragonlordLimit', 
-                                'daemonlordLimit',  
-                                'typeDominance',
-                                'activeExceptions' 
+                            'unknown', 
+                            'editionLegality', 
+                            'restrictions', 
+                            'totalCount', 
+                            'saComp', 
+                            'saLoyalty', 
+                            'mdLoyalty', 
+                            'copyLimits', 
+                            'overlordLimit',
+                            'dragonlordLimit', 
+                            'daemonlordLimit',  
+                            'typeDominance',
+                            'activeExceptions' 
                         ];
 
+                        const ruleLabels = {
+                            unknown: 'General',
+                            editionLegality: 'Edition Legality',
+                            restrictions: 'Format Restrictions',
+                            totalCount: 'Deck Size',
+                            saComp: 'Starting Army Composition',
+                            saLoyalty: 'Starting Army Loyalty',
+                            mdLoyalty: 'Main Deck Loyalty',
+                            copyLimits: 'Copy Limits',
+                            overlordLimit: 'Overlord Limit',
+                            dragonlordLimit: 'Dragon Lord Limit',
+                            daemonlordLimit: 'Daemonlord Limit',
+                            typeDominance: 'Type Dominance',
+                            activeExceptions: 'Active Exceptions'
+                        };
+
                         for (const key of displayOrder) {
-                                const res = checks[key];
-                                if (res) {
-                                         let icon = '🟢';
-                                         if (res.status === 'FAIL') icon = '🔴';
-                                         if (res.status === 'INFO') icon = '🔵';
-                                         html += `<div>${icon} <strong>${key === 'saComp' ? 'SA Composition' : key === 'saLoyalty' ? 'SA Loyalty' : key === 'mdLoyalty' ? 'MD Loyalty' : key === 'restrictions' ? 'Format Restrictions' : key}:</strong> ${res.message}</div>`;
+                            const res = checks[key];
+                            if (res) {
+                                let icon = '🟢';
+                                let color = 'text-green-400';
+                                if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
+                                if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
+                                if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
+                                // Always show a message, even for PASS
+                                let msg = res.message || '';
+                                if (res.status === 'PASS' && !msg) {
+                                    msg = 'No issues found.';
                                 }
+                                html += `<div class="mb-2"><span class="${color}">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color}">${msg}</span></div>`;
+                            }
                         }
                         html += `</div></div>`;
                         // If legal, include submit controls
