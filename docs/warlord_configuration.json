@@ -109,7 +109,7 @@
       }
     },
     "Template 1": {
-      "name": "Template 1 (Ancients)",
+      "name": "Turncoat",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -125,17 +125,21 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
       "editions": [
-        "Ancients",
-        "Campaign",
-        "Pre-Campaign"
+        "Ancients"
       ],
       "restricted": {
-        "names": [],
-        "sets": [],
+        "names": [
+          "Tzin's Secret"
+        ],
+        "sets": [
+          "Into the Accordlands (ITA)"
+        ],
         "rarities": []
       },
-      "hidden": true
+      "hidden": false
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
@@ -444,5 +448,5 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "Template 1"
 }
