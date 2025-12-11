@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "username": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Test1",
+    "warlord": "Fo'ttr'ak'ka",
+    "display_name": "daddy_eagle",
+    "timestamp": "2025-12-11T05:53:32.776Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Carg'rag": 3,
+          "Yeg-Igryll's Altar": 1,
+          "FirRal": 3,
+          "Gush": 1,
+          "Nemtok": 3,
+          "SanUris": 3,
+          "Lorik": 3,
+          "Jackals of Mourn": 3
+        },
+        "startingArmy": {
+          "Fo'ttr'ak'ka": 1,
+          "Gunda": 2,
+          "Nightmaster Rress": 1,
+          "B'haya, the Fiend": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Black Moss": 3,
+          "Destroyer's Armor": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Final Blessing": 3,
+          "Hero's Gambit": 3,
+          "Incentives": 1,
+          "Quick Strength": 3,
+          "Rescue": 1,
+          "Speed of the Falcon": 3,
+          "Back Alley Tavern": 2,
+          "Blind the Gods": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
