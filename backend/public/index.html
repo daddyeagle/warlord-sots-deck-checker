@@ -827,9 +827,11 @@
                 lastConfigSignature = newSignature;
 
                 const rulesetKeys = Object.keys(RULE_SETS || {});
-                const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
                 const defaultKey = configJson.defaultRuleset;
+                // Only show rulesets that are not hidden
+                const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
                 let orderedKeys = visibleKeys;
+                // Always put defaultKey first if present and visible
                 if (defaultKey && visibleKeys.includes(defaultKey)) {
                     orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
                 }
@@ -839,6 +841,7 @@
                 rulesetSelect.innerHTML = '';
                 for (let j = 0; j < limit; j++) {
                     const key = orderedKeys[j];
+                    if (!RULE_SETS[key] || RULE_SETS[key].hidden) continue; // extra guard
                     const option = document.createElement('option');
                     option.value = key;
                     option.textContent = RULE_SETS[key].name || key;
