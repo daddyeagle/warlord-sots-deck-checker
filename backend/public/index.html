@@ -125,6 +125,7 @@
                         const discordUserInfo = document.getElementById('discord-user-info');
                         let discordUser = null;
 
+
                         async function fetchDiscordUser() {
                             try {
                                 const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
@@ -149,6 +150,8 @@
                                 discordUserInfo.textContent = '';
                                 discordLoginBtn.style.display = '';
                             }
+                            // Always refresh the UI after login state changes
+                            if (typeof window.checkDeck === 'function') window.checkDeck();
                         }
 
                         if (discordLoginBtn) {
