@@ -1291,7 +1291,15 @@
             if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
             const checkBtn = document.getElementById('check-deck-button');
             if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
-            await loadAppData();
+            // Show loading spinner until data is loaded
+            if (loadingStatusDiv) loadingStatusDiv.classList.remove('hidden');
+            const loaded = await loadAppData();
+            if (loaded) {
+                if (loadingStatusDiv) loadingStatusDiv.classList.add('hidden');
+                if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
+            } else {
+                if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load app data.</p>`;
+            }
             // Listen for admin updates signaled via localStorage and reload config when seen
             window.addEventListener('storage', async (e) => {
                 if (!e) return;
@@ -1314,7 +1322,6 @@
                     if (resultsDiv) resultsDiv.innerHTML = '';
                 });
             }
-            // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
             // No manual reload button: on page refresh the config is fetched fresh (cache-busted)
         });
 
