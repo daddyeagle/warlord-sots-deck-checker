@@ -230,7 +230,9 @@
         
         // Absolute URL for Cards (works everywhere), Relative for Config (works locally if served)
         const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        const CONFIG_DATA_URL = "warlord_configuration.json";
+        // Always fetch config and event list from deploy-docs branch on GitHub (raw)
+        const CONFIG_DATA_URL = "https://raw.githubusercontent.com/daddyeagle/warlord-sots-deck-checker/deploy-docs/backend/public/warlord_configuration.json";
+        const EVENT_LIST_URL = "https://raw.githubusercontent.com/daddyeagle/warlord-sots-deck-checker/deploy-docs/backend/public/events/event_list.json";
 
         // --- REGEX & CONSTANTS ---
         // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
@@ -272,9 +274,10 @@
             for (let i = 0; i < retries; i++) {
                 try {
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
-                    const [cardsResponse, configResponse] = await Promise.all([
+                    const [cardsResponse, configResponse, eventListResponse] = await Promise.all([
                         fetch(CARD_DATA_URL, cardFetchOpts),
-                        fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
+                        fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } }),
+                        fetch(EVENT_LIST_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
                     ]);
 
                     if (!cardsResponse.ok) {
@@ -285,9 +288,14 @@
                         if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
                         throw new Error(`Config HTTP error! status: ${configResponse.status}`);
                     }
+                    if (!eventListResponse.ok) {
+                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load event list.</p><p class='text-xs text-gray-400'>Event list HTTP error! status: ${eventListResponse.status}</p>`;
+                        throw new Error(`Event list HTTP error! status: ${eventListResponse.status}`);
+                    }
 
                     const cardJson = await cardsResponse.json();
                     const configJson = await configResponse.json();
+                    const eventListJson = await eventListResponse.json();
 
                     // 1. Hydrate Configuration from JSON
                     RULE_SETS = configJson.rulesets || {};
@@ -296,6 +304,7 @@
                     SA_CHARACTER_EXCEPTIONS = configJson.characterExceptions || [];
                     FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
                     populateRulesetSelector(configJson);
+                    window.EVENT_LIST = eventListJson;
 
                     // 2. Process Card Data
                     const newDatabase = {};
