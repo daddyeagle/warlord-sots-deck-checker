@@ -1,7 +1,12 @@
 [
   {
     "eventName": "December Ancients+",
-    "requiredRuleset": "December Ancients+"
+    "ruleset": "December Ancients+",
+    "startDate": "2025-12-01",
+    "endDate": "2025-12-31",
+    "decklistFile": "decks-december-ancients+.json",
+    "submissionFile": "december-ancients+.json",
+    "hidden": false
   },
   {
     "eventName": "Test1",

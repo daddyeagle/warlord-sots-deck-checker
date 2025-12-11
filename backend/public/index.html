@@ -1177,10 +1177,13 @@
                                 eventSelect.innerHTML = '';
                                 if (Array.isArray(events)) {
                                     events.forEach(ev => {
-                                        if (ev && typeof ev === 'object' && ev.eventName) {
+                                        if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
                                             const opt = document.createElement('option');
                                             opt.value = ev.eventName;
                                             opt.textContent = ev.eventName;
+                                            opt.dataset.decklistFile = ev.decklistFile || '';
+                                            opt.dataset.submissionFile = ev.submissionFile || '';
+                                            opt.dataset.ruleset = ev.ruleset || '';
                                             eventSelect.appendChild(opt);
                                         }
                                     });
@@ -1205,26 +1208,18 @@
                         return;
                     }
                     const eventName = (eventSelect.value || '').trim() || 'default-event';
-                    // Fetch event_list.json to get required ruleset for event
-                    let requiredRuleset = null;
-                    try {
-                        const events = await fetch('events/event_list.json?_=' + Date.now()).then(r => r.json());
-                        if (Array.isArray(events)) {
-                            const found = events.find(ev => {
-                                if (typeof ev === 'string') return ev === eventName;
-                                return ev.eventName === eventName;
-                            });
-                            if (found && typeof found === 'object' && found.requiredRuleset) {
-                                requiredRuleset = found.requiredRuleset;
-                            }
-                        }
-                    } catch (e) { /* ignore */ }
+                    // Use selected event's data attributes for validation and file selection
+                    const selectedOpt = eventSelect.selectedOptions[0];
+                    const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
+                    const decklistFile = selectedOpt ? selectedOpt.dataset.decklistFile : null;
+                    const submissionFile = selectedOpt ? selectedOpt.dataset.submissionFile : null;
                     // Check if current ruleset matches required ruleset
                     const currentRuleset = rulesetSelect.value;
                     if (requiredRuleset && currentRuleset !== requiredRuleset) {
                         statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
                         return;
                     }
+                    // (decklistFile and submissionFile can be used for custom logic or display if needed)
                     try {
                         statusEl.textContent = 'Preparing deck payload...';
                         // Build card list structure
