@@ -249,6 +249,96 @@ app.post('/api/auth/logout', (req, res) => {
 });
 
 // --- GITHUB HELPER FUNCTIONS (Internal) ---
+// --- EVENT ADMIN ENDPOINTS ---
+const EVENT_LIST_PATH = 'backend/public/events/event_list.json';
+
+// Helper: Load event list
+async function loadEventList() {
+  const file = await getGithubFile(EVENT_LIST_PATH);
+  if (!file) return [];
+  try { return JSON.parse(file.content); } catch (e) { return []; }
+}
+
+// Helper: Save event list
+async function saveEventList(events, sha = null) {
+  await putGithubFile(EVENT_LIST_PATH, events, 'Update event list', sha);
+}
+
+// Create new event
+app.post('/api/admin/create-event', async (req, res) => {
+  const { eventName, ruleset, startDate, endDate } = req.body;
+  if (!eventName || !ruleset || !startDate || !endDate) return res.status(400).json({ error: 'Missing fields' });
+  const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+  const decklistFile = `decks-${safeEventName}.json`;
+  const submissionFile = `${safeEventName}.json`;
+  try {
+    // Create empty decklist and submission files if not exist
+    for (const file of [decklistFile, submissionFile]) {
+      const path = `backend/public/events/${file}`;
+      const exists = await getGithubFile(path);
+      if (!exists) await putGithubFile(path, file === decklistFile ? [] : { eventName, submissions: [] }, `Create ${file}`);
+    }
+    // Update event list
+    const eventListFile = await getGithubFile(EVENT_LIST_PATH);
+    let events = [];
+    let sha = null;
+    if (eventListFile) { sha = eventListFile.sha; try { events = JSON.parse(eventListFile.content); } catch (e) {} }
+    if (!Array.isArray(events)) events = [];
+    // Remove any previous event with same name
+    events = events.filter(ev => ev.eventName !== eventName);
+    events.push({ eventName, ruleset, startDate, endDate, decklistFile, submissionFile, hidden: false });
+    await saveEventList(events, sha);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create event', details: err.message });
+  }
+});
+
+// List events
+app.get('/api/admin/list-events', async (req, res) => {
+  try {
+    const events = await loadEventList();
+    res.json({ events });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to list events' });
+  }
+});
+
+// Delete event
+app.post('/api/admin/delete-event', async (req, res) => {
+  const { eventName } = req.body;
+  if (!eventName) return res.status(400).json({ error: 'Missing eventName' });
+  try {
+    // Remove from event list
+    const eventListFile = await getGithubFile(EVENT_LIST_PATH);
+    let events = [];
+    let sha = null;
+    if (eventListFile) { sha = eventListFile.sha; try { events = JSON.parse(eventListFile.content); } catch (e) {} }
+    events = events.filter(ev => ev.eventName !== eventName);
+    await saveEventList(events, sha);
+    // Optionally: delete decklist and submission files (not strictly necessary, but can be added)
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete event' });
+  }
+});
+
+// Hide/unhide event
+app.post('/api/admin/hide-event', async (req, res) => {
+  const { eventName } = req.body;
+  if (!eventName) return res.status(400).json({ error: 'Missing eventName' });
+  try {
+    const eventListFile = await getGithubFile(EVENT_LIST_PATH);
+    let events = [];
+    let sha = null;
+    if (eventListFile) { sha = eventListFile.sha; try { events = JSON.parse(eventListFile.content); } catch (e) {} }
+    events = events.map(ev => ev.eventName === eventName ? { ...ev, hidden: !ev.hidden } : ev);
+    await saveEventList(events, sha);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to hide/unhide event' });
+  }
+});
 // These handle the complexity of reading/writing so the route is clean
 
 const GITHUB_OWNER = 'daddyeagle';

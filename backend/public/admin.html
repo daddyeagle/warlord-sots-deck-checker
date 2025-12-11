@@ -120,6 +120,37 @@
     </div>
 
 
+    <div class="card" style="margin-top:1.5rem;">
+      <h2>Create New Event</h2>
+      <div class="row" style="margin-bottom:0.5rem; gap:12px;">
+        <div>
+          <label class="small">Event Name</label><br>
+          <input type="text" id="newEventName" placeholder="Enter event name" style="min-width:180px;">
+        </div>
+        <div>
+          <label class="small">Ruleset</label><br>
+          <select id="newEventRuleset" style="min-width:140px;"></select>
+        </div>
+        <div>
+          <label class="small">Submission Start</label><br>
+          <input type="date" id="newEventStart" style="min-width:140px;">
+        </div>
+        <div>
+          <label class="small">Submission End</label><br>
+          <input type="date" id="newEventEnd" style="min-width:140px;">
+        </div>
+        <div style="display:flex; align-items:end;">
+          <button id="createEventBtn" style="margin-top:18px;">Create Event</button>
+        </div>
+      </div>
+      <div id="createEventFeedback" class="small" style="color:#fca5a5; margin-bottom:0.5rem;"></div>
+    </div>
+
+    <div class="card" style="margin-top:1.5rem;">
+      <h2>Manage Events</h2>
+      <div id="adminEventList" class="small">Loading events...</div>
+    </div>
+
     <div style="margin-top:1rem;">
       <label for="eventNameInput" class="small">Event Name:</label>
       <input type="text" id="eventNameInput" placeholder="Enter event name" style="min-width:220px; margin-right:8px;" />
@@ -127,6 +158,104 @@
       <button id="downloadDecksBtn">Download Decks CSV</button>
     </div>
     <script>
+        // --- Event Management Section ---
+        async function loadRulesetsForEvent() {
+          try {
+            const r = await fetch('warlord_configuration.json', {cache:'no-store'});
+            if (!r.ok) return;
+            const config = await r.json();
+            const select = document.getElementById('newEventRuleset');
+            select.innerHTML = '';
+            Object.entries(config.rulesets || {}).forEach(([key, rs]) => {
+              if (!rs.hidden) {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = rs.name || key;
+                select.appendChild(opt);
+              }
+            });
+          } catch (e) {}
+        }
+        window.addEventListener('DOMContentLoaded', loadRulesetsForEvent);
+
+        document.getElementById('createEventBtn').addEventListener('click', async function() {
+          const name = document.getElementById('newEventName').value.trim();
+          const ruleset = document.getElementById('newEventRuleset').value;
+          const start = document.getElementById('newEventStart').value;
+          const end = document.getElementById('newEventEnd').value;
+          const feedback = document.getElementById('createEventFeedback');
+          feedback.textContent = '';
+          if (!name || !ruleset || !start || !end) {
+            feedback.textContent = 'Please fill out all fields.';
+            return;
+          }
+          try {
+            const res = await fetch('/api/admin/create-event', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ eventName: name, ruleset, startDate: start, endDate: end })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Failed to create event');
+            feedback.style.color = '#9fe0d6';
+            feedback.textContent = 'Event created!';
+            loadAdminEventList();
+          } catch (e) {
+            feedback.style.color = '#fca5a5';
+            feedback.textContent = e.message;
+          }
+        });
+
+        async function loadAdminEventList() {
+          const listDiv = document.getElementById('adminEventList');
+          listDiv.textContent = 'Loading events...';
+          try {
+            const res = await fetch('/api/admin/list-events');
+            if (!res.ok) throw new Error('Failed to fetch event list');
+            const data = await res.json();
+            if (!Array.isArray(data.events) || !data.events.length) {
+              listDiv.textContent = 'No events found.';
+              return;
+            }
+            listDiv.innerHTML = '';
+            data.events.forEach(ev => {
+              const row = document.createElement('div');
+              row.style.marginBottom = '8px';
+              row.innerHTML = `<strong>${ev.eventName}</strong> (${ev.ruleset})<br>
+                <span class='small'>${ev.startDate} to ${ev.endDate}</span><br>
+                <span class='small'>Decklist: <code>${ev.decklistFile}</code> | Submissions: <code>${ev.submissionFile}</code></span>
+                <span class='small'>${ev.hidden ? '<span style="color:#fca5a5">[Hidden]</span>' : ''}</span>
+                <button data-ev='${ev.eventName}' class='deleteEventBtn btn-danger' style='margin-right:8px;'>Delete</button>
+                <button data-ev='${ev.eventName}' class='hideEventBtn' style='margin-right:8px;'>${ev.hidden ? 'Unhide' : 'Hide'}</button>`;
+              listDiv.appendChild(row);
+            });
+            // Attach button listeners
+            document.querySelectorAll('.deleteEventBtn').forEach(btn => {
+              btn.addEventListener('click', async function() {
+                if (!confirm('Delete event '+btn.dataset.ev+'?')) return;
+                await fetch('/api/admin/delete-event', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ eventName: btn.dataset.ev })
+                });
+                loadAdminEventList();
+              });
+            });
+            document.querySelectorAll('.hideEventBtn').forEach(btn => {
+              btn.addEventListener('click', async function() {
+                await fetch('/api/admin/hide-event', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ eventName: btn.dataset.ev })
+                });
+                loadAdminEventList();
+              });
+            });
+          } catch (e) {
+            listDiv.textContent = 'Error loading events.';
+          }
+        }
+        window.addEventListener('DOMContentLoaded', loadAdminEventList);
     function safeEventName(name) {
       return name.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
     }
