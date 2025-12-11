@@ -200,6 +200,7 @@
             feedback.style.color = '#9fe0d6';
             feedback.textContent = 'Event created!';
             loadAdminEventList();
+            loadRulesetsForEvent(); // Refresh ruleset dropdown after event creation
           } catch (e) {
             feedback.style.color = '#fca5a5';
             feedback.textContent = e.message;
