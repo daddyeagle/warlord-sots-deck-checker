@@ -161,7 +161,7 @@
         // --- Event Management Section ---
         async function loadRulesetsForEvent() {
           try {
-            const r = await fetch('warlord_configuration.json', {cache:'no-store'});
+            const r = await fetch('/api/config', {cache:'no-store'});
             if (!r.ok) return;
             const config = await r.json();
             const select = document.getElementById('newEventRuleset');
@@ -341,7 +341,7 @@
   </div>
 
   <script>
-    const configPath = 'warlord_configuration.json';
+    const configPath = '/api/config';
     const loadBtn = document.getElementById('loadBtn');
     const validateBtn = document.getElementById('validateBtn');
     const downloadBtn = document.getElementById('downloadBtn');
@@ -393,12 +393,10 @@
       try{
         const r = await fetch(configPath, {cache:'no-store'});
         if(!r.ok) throw new Error('HTTP '+r.status);
-        const text = await r.text();
-        // pretty-print if valid JSON
-        try { configObj = JSON.parse(text); area.value = JSON.stringify(configObj, null, 2); }
-        catch(e){ configObj = null; area.value = text; }
+        const config = await r.json();
+        configObj = config;
+        area.value = JSON.stringify(configObj, null, 2);
         setFeedback('Loaded configuration.');
-
         // If rulesets exist, populate the select
         if (configObj && configObj.rulesets) {
           renderRulesetList();
@@ -551,59 +549,21 @@
 
     async function applyUpdate(){
       if(!validate()) return;
-      const rawToken = document.getElementById('ghToken').value || '';
-      const tokenTrimmed = rawToken.trim();
-      // Sanitize token: remove non-printable / non-ISO-8859-1 characters to avoid fetch header errors
-      const token = tokenTrimmed.replace(/[^\x20-\x7E]/g, '');
-      if (token !== tokenTrimmed) setFeedback('Note: removed unsupported characters from token.', false);
-      if(!token){
-        if(confirm('No token provided. Download JSON instead? Click OK to download.')){ download(); setFeedback('Downloaded JSON.'); }
-        else setFeedback('Apply cancelled.');
-        return;
+      setFeedback('Applying update...');
+      try {
+        const configData = JSON.parse(area.value);
+        const res = await fetch('/api/config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(configData)
+        });
+        if (!res.ok) throw new Error('Failed to update config');
+        setFeedback('Configuration updated successfully.');
+        // Optionally notify other tabs
+        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'commit', url: null })); }catch(e){}
+      } catch (err) {
+        setFeedback('Apply failed: '+err.message, true);
       }
-
-      setFeedback('Applying update (committing file)...');
-      const owner = 'daddyeagle';
-      const repo = 'warlord-sots-deck-checker';
-      // Always apply changes to the deploy-docs branch for Pages deployment
-      const branch = 'deploy-docs';
-      const headers = { 'Authorization': 'token '+token, 'Accept':'application/vnd.github.v3+json' };
-
-      try{
-        // Try to get existing file sha on the target branch
-        const contentsUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json?ref=${branch}`;
-        let r = await ghFetch(contentsUrl, { headers }, 'Get existing file contents');
-        let existingSha = null;
-        if (r.ok){ const j = await r.json(); existingSha = j.sha; }
-        else if (r.status === 404) { existingSha = null; }
-        else {
-          // If branch doesn't exist and it's not main, create branch from main
-          if (branch !== 'main'){
-            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/ref/heads/main`, { headers }, 'Get main ref');
-            if(!r.ok) throw new Error('Failed to get main ref: '+r.status);
-            const ref = await r.json();
-            const baseSha = ref.object.sha;
-            r = await ghFetch(`https://api.github.com/repos/${owner}/${repo}/git/refs`, { method:'POST', headers, body: JSON.stringify({ ref: 'refs/heads/'+branch, sha: baseSha }) }, 'Create branch');
-            if(!r.ok){ const txt = await r.text(); throw new Error('Failed to create branch: '+r.status+' '+txt); }
-            existingSha = null;
-          } else {
-            const txt = await r.text(); throw new Error('Failed to check existing file: '+r.status+' '+txt);
-          }
-        }
-
-        const content = btoa(unescape(encodeURIComponent(area.value)));
-        const putBody = { message: `Apply warlord_configuration.json via admin page`, content, branch };
-        if (existingSha) putBody.sha = existingSha;
-
-        const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/docs/warlord_configuration.json`;
-        let putRes = await fetch(putUrl, { method:'PUT', headers, body: JSON.stringify(putBody) });
-        if(!putRes.ok){ const txt = await putRes.text(); throw new Error('Failed to write file: '+putRes.status+' '+txt); }
-        const resJson = await putRes.json();
-        setFeedback('File committed: '+(resJson.content && resJson.content.html_url ? resJson.content.html_url : 'success'));
-        // Notify other open tabs that the configuration was updated
-        try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'commit', url: (resJson.content && resJson.content.html_url) || null })); }catch(e){}
-        if(resJson.content && resJson.content.html_url) window.open(resJson.content.html_url, '_blank');
-      }catch(err){ setFeedback('Apply failed: '+err.message, true); }
     }
 
     applyBtn.addEventListener('click', applyUpdate);

@@ -15,13 +15,27 @@ const PORT = process.env.PORT || 8080;
 // FIX 1: Trust ALL proxies (for Railway)
 app.set('trust proxy', true);
 
-// Proxy for warlord_configuration.json
-app.get('/config', (req, res) => {
+// API for warlord_configuration.json (GET and POST)
+app.get('/api/config', (req, res) => {
   const configPath = path.join(__dirname, 'warlord_configuration.json');
   fs.readFile(configPath, 'utf8', (err, data) => {
     if (err) return res.status(404).json({ error: 'Config not found' });
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
+  });
+});
+
+app.use(express.json({ limit: '2mb' }));
+
+app.post('/api/config', (req, res) => {
+  const configPath = path.join(__dirname, 'warlord_configuration.json');
+  const configData = req.body;
+  if (!configData || typeof configData !== 'object') {
+    return res.status(400).json({ error: 'Invalid config data' });
+  }
+  fs.writeFile(configPath, JSON.stringify(configData, null, 2), 'utf8', (err) => {
+    if (err) return res.status(500).json({ error: 'Failed to write config' });
+    res.json({ success: true });
   });
 });
 
