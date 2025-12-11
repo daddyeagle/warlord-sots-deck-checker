@@ -1153,8 +1153,8 @@
                             }
                         }
                         html += `</div></div>`;
-                        // If legal, include submit controls
-                        if (deckIsLegal) {
+                        // Only show submit controls if deck is legal AND Discord user is logged in
+                        if (deckIsLegal && window.discordUser && window.discordUser.id) {
                             html += `
                             <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
                                 <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
@@ -1169,9 +1169,18 @@
                         document.getElementById('results').innerHTML = html;
 
 
-                        // Populate event dropdown from loaded event list
-                        if (deckIsLegal) {
-                            populateEventDropdown();
+
+                        // Always populate event dropdown after rendering results
+                        populateEventDropdown();
+
+                        // Always show Discord username if available
+                        const discordUserSummary = document.getElementById('discord-user-summary');
+                        if (discordUserSummary) {
+                            if (window.discordUser && window.discordUser.id) {
+                                discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
+                            } else {
+                                discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                            }
                         }
 
             if (deckIsLegal) {
