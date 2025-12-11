@@ -120,102 +120,60 @@
                     document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
                 });
         }
-                        // --- DISCORD OAUTH2 LOGIN ---
-                        const discordLoginBtn = document.getElementById('discord-login-btn');
-                        const discordUserInfo = document.getElementById('discord-user-info');
-                        let discordUser = null;
+        
+        // --- DISCORD OAUTH2 LOGIN ---
+        const discordLoginBtn = document.getElementById('discord-login-btn');
+        const discordUserInfo = document.getElementById('discord-user-info');
+        let discordUser = null;
 
-
-                        async function fetchDiscordUser() {
-                            try {
-                                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
-                                    credentials: 'include'
-                                });
-                                if (res.ok) {
-                                    const user = await res.json();
-                                    window.discordUser = user;
-                                    let displayText = `Logged in as ${user.username}#${user.discriminator}`;
-                                    if (user.displayName) {
-                                        displayText += ` (${user.displayName})`;
-                                    }
-                                    discordUserInfo.textContent = displayText;
-                                    discordLoginBtn.style.display = 'none';
-                                } else {
-                                    window.discordUser = null;
-                                    discordUserInfo.textContent = '';
-                                    discordLoginBtn.style.display = '';
-                                }
-                            } catch (e) {
-                                window.discordUser = null;
-                                discordUserInfo.textContent = '';
-                                discordLoginBtn.style.display = '';
-                            }
-                            // Always refresh the UI after login state changes
-                            if (typeof window.checkDeck === 'function') window.checkDeck();
-                        }
-
-                        if (discordLoginBtn) {
-                            discordLoginBtn.addEventListener('click', () => {
-                                window.location.href = window.BACKEND_URL + '/api/auth/discord';
-                            });
-                        }
-                        // On page load, check if user is already logged in
-                        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
-                // --- GITHUB API HELPERS ---
-                async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
-                    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
-                    const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
-                    const res = await fetch(url, { headers });
-                    if (res.status === 404) return null;
-                    if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
-                    return await res.json();
-                }
-
-                async function putJsonToGitHub(owner, repo, path, obj, message, branch, token) {
-                    // Always fetch the latest sha before updating
-                    const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}&_=${Date.now()}`;
-                    const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' };
-                    let sha = undefined;
-                    let exists = false;
-                    try {
-                        const res = await fetch(getUrl, { headers });
-                        const text = await res.text();
-                        console.log('Full GET response for sha:', text);
-                        try {
-                            const data = JSON.parse(text);
-                            if (res.ok) {
-                                sha = data.sha;
-                                exists = true;
-                                if (!sha) {
-                                    console.warn('Warning: GET response did not include sha property!', data);
-                                }
-                            }
-                        } catch (jsonErr) {
-                            console.warn('Failed to parse GET response for sha:', text);
-                        }
-                    } catch (e) { console.warn('GET for sha failed:', e); }
-                    const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-                    const content = btoa(unescape(encodeURIComponent(JSON.stringify(obj, null, 2))));
-                    const body = { message, content, branch };
-                    // Defensive: if file exists but sha is missing, log and abort
-                    if (exists && !sha) {
-                        console.error('File exists but sha is missing. Aborting PUT to prevent 422 error.', { path, branch });
-                        throw new Error('File exists but sha is missing. Cannot update file without sha.');
+        async function fetchDiscordUser() {
+            try {
+                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    const user = await res.json();
+                    window.discordUser = user;
+                    let displayText = `Logged in as ${user.username}#${user.discriminator}`;
+                    if (user.displayName) {
+                        displayText += ` (${user.displayName})`;
                     }
-                    if (sha) body.sha = sha;
-                    const putRes = await fetch(putUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
-                    if (!putRes.ok) {
-                        let errMsg = `GitHub PUT failed: ${putRes.status}`;
-                        try {
-                            const errText = await putRes.text();
-                            errMsg += `\nResponse: ${errText}`;
-                        } catch (e) {
-                            // ignore parse error
-                        }
-                        throw new Error(errMsg);
-                    }
-                    return await putRes.json();
+                    discordUserInfo.textContent = displayText;
+                    discordLoginBtn.style.display = 'none';
+                } else {
+                    window.discordUser = null;
+                    discordUserInfo.textContent = '';
+                    discordLoginBtn.style.display = '';
                 }
+            } catch (e) {
+                window.discordUser = null;
+                discordUserInfo.textContent = '';
+                discordLoginBtn.style.display = '';
+            }
+            // Always refresh the UI after login state changes if deck checked
+            if (typeof window.checkDeck === 'function' && document.getElementById('results').innerHTML !== '') {
+                 // Optional: re-check deck to update button state, or just leave it
+            }
+        }
+
+        if (discordLoginBtn) {
+            discordLoginBtn.addEventListener('click', () => {
+                window.location.href = window.BACKEND_URL + '/api/auth/discord';
+            });
+        }
+        // On page load, check if user is already logged in
+        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+
+        // --- GITHUB API HELPERS ---
+        async function fetchJsonFromGitHub(owner, repo, path, branch, token) {
+            const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+            const headers = token ? { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3.raw' } : { 'Accept': 'application/vnd.github.v3.raw' };
+            const res = await fetch(url, { headers });
+            if (res.status === 404) return null;
+            if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+            return await res.json();
+        }
+
         // --- DECK SUBMISSION HELPERS ---
         function slugify(str) {
             return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -231,17 +189,11 @@
         let SA_CHARACTER_EXCEPTIONS = [];
         let FACTION_WILDCARD_NAMES = [];
         
-        // Absolute URL for Cards (works everywhere), Relative for Config (works locally if served)
         const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        // Fetch config and event list from backend proxy endpoints to avoid CORS issues
         const CONFIG_DATA_URL = window.BACKEND_URL + "/config";
         const EVENT_LIST_URL = window.BACKEND_URL + "/events/event_list.json";
 
         // --- REGEX & CONSTANTS ---
-        // Matches: '3x Card Name', '3 x Card Name', 'Card Name', and allows names starting with X. Ignores lines starting with //, #, &
-        // Quantity: optional number, optional space, optional 'x' or 'X' (only if followed by a space), then card name (allowable special chars: ', -, ., ,, :, !, ?)
-        // Examples matched: '3x Xandros', '2 x Xandros', 'Xandros', '1 Xandros', "X'andros", "X-andros", etc.
-        // Card name stops at first disallowed character (e.g., (, [, {, ")
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
@@ -283,24 +235,14 @@
                         fetch(EVENT_LIST_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } })
                     ]);
 
-                    if (!cardsResponse.ok) {
-                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load card data.</p><p class='text-xs text-gray-400'>Cards HTTP error! status: ${cardsResponse.status}</p>`;
-                        throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
-                    }
-                    if (!configResponse.ok) {
-                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load configuration.</p><p class='text-xs text-gray-400'>Config HTTP error! status: ${configResponse.status}</p>`;
-                        throw new Error(`Config HTTP error! status: ${configResponse.status}`);
-                    }
-                    if (!eventListResponse.ok) {
-                        if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Failed to load event list.</p><p class='text-xs text-gray-400'>Event list HTTP error! status: ${eventListResponse.status}</p>`;
-                        throw new Error(`Event list HTTP error! status: ${eventListResponse.status}`);
-                    }
+                    if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
+                    if (!configResponse.ok) throw new Error(`Config HTTP error! status: ${configResponse.status}`);
+                    if (!eventListResponse.ok) throw new Error(`Event list HTTP error! status: ${eventListResponse.status}`);
 
                     const cardJson = await cardsResponse.json();
                     const configJson = await configResponse.json();
                     const eventListJson = await eventListResponse.json();
 
-                    // 1. Hydrate Configuration from JSON
                     RULE_SETS = configJson.rulesets || {};
                     WL_SA_LOYALTY_EXCEPTIONS = configJson.warlordExceptions || [];
                     SA_RING_EXCEPTIONS = configJson.ringExceptions || [];
@@ -309,7 +251,6 @@
                     populateRulesetSelector(configJson);
                     window.EVENT_LIST = eventListJson;
 
-                    // 2. Process Card Data
                     const newDatabase = {};
 
                     if (Array.isArray(cardJson)) {
@@ -362,7 +303,6 @@
                                 text: card.text || ''
                             };
 
-                            // Populate errata formats
                             if (card.errata) {
                                 let match;
                                 errataEpicRegex.lastIndex = 0;
@@ -397,39 +337,59 @@
             return false;
         };
 
-        // --- REGULAR EXPRESSION HELPERS ---
-                // --- POPULATE RULESET SELECTOR ---
-                function populateRulesetSelector(configJson) {
-                    const rulesetSelect = document.getElementById('ruleset-select');
-                    if (!rulesetSelect) return;
-                    // Clear existing options
-                    rulesetSelect.innerHTML = '';
-                    const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
-                    const keys = Object.keys(rulesets);
-                    if (keys.length === 0) {
+        function populateRulesetSelector(configJson) {
+            const rulesetSelect = document.getElementById('ruleset-select');
+            if (!rulesetSelect) return;
+            rulesetSelect.innerHTML = '';
+            const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
+            const keys = Object.keys(rulesets);
+            if (keys.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.textContent = 'No formats available';
+                rulesetSelect.appendChild(opt);
+                return;
+            }
+            keys.forEach(key => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = rulesets[key].displayName || key;
+                rulesetSelect.appendChild(opt);
+            });
+        }
+
+        // --- NEW HELPER FUNCTION: POPULATE EVENT DROPDOWN ---
+        function populateEventDropdown() {
+            const events = window.EVENT_LIST || [];
+            const eventSelect = document.getElementById('submit-eventname');
+            if (!eventSelect) return;
+            
+            // Clear current options
+            eventSelect.innerHTML = '';
+            
+            if (Array.isArray(events)) {
+                events.forEach(ev => {
+                    if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
                         const opt = document.createElement('option');
-                        opt.value = '';
-                        opt.textContent = 'No formats available';
-                        rulesetSelect.appendChild(opt);
-                        return;
+                        opt.value = ev.eventName;
+                        opt.textContent = ev.eventName;
+                        opt.dataset.decklistFile = ev.decklistFile || '';
+                        opt.dataset.submissionFile = ev.submissionFile || '';
+                        opt.dataset.ruleset = ev.ruleset || '';
+                        eventSelect.appendChild(opt);
                     }
-                    keys.forEach(key => {
-                        const opt = document.createElement('option');
-                        opt.value = key;
-                        opt.textContent = rulesets[key].displayName || key;
-                        rulesetSelect.appendChild(opt);
-                    });
-                }
+                });
+            }
+        }
+
         const parseCardInput = (input, cardCounts, cardList) => {
             const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
             lines.forEach(line => {
-                // Ignore lines that start with //, #, or &
                 if (/^(\/\/|#|&)/.test(line)) return;
                 const lineMatch = lineRegex.exec(line);
                 if (!lineMatch) return;
                 const count = lineMatch[1] ? parseInt(lineMatch[1], 10) : 1;
                 let name = lineMatch[2] ? lineMatch[2].trim() : '';
-                // Truncate at first disallowed character (anything not in allowed set)
                 const allowedChars = "A-Za-z0-9'\-\.,:!\? ";
                 const disallowedCharMatch = name.match(new RegExp(`[^${allowedChars}]`));
                 if (disallowedCharMatch) {
@@ -490,7 +450,6 @@
         };
 
         // --- CHECKS ---
-
         const checkCopyLimits = (allLegalCards, saWlLegal, selectedEditions, warlordException, activeRuleSet) => {
             let deckIsLegal = true;
             const violations = [];
@@ -505,7 +464,6 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
-            // First, build warlordTotals by normalized name (across both SA and Main Deck)
             const warlordTotals = {};
             for (const norm in legalCardCounts) {
                 const data = cardDatabase[norm];
@@ -517,8 +475,6 @@
                     if (data.isUnlimitedCopies) continue;
                     let max = defaultMax;
                     let reason = `Max ${defaultMax}`;
-                    // ENFORCE UNIQUE ONLY FOR SA
-                    // We'll handle unique warlord count below
                     if (data.isUniqueKeyword && saWlLegal.some(c => normalizeName(c.name).toLowerCase() === norm)) {
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
@@ -534,13 +490,11 @@
                 }
             }
 
-            // Now check warlord copy limits (combined SA + Main Deck)
             for (const norm in warlordTotals) {
                 const data = cardDatabase[norm];
                 if (!data) continue;
                 let max = defaultMax;
                 let reason = `Max ${defaultMax}`;
-                // Special warlord copy limit exceptions for Zartoch and Ferris Bachman
                 let warlordExceptionMax = null;
                 if (norm === 'zartoch' || norm === 'ferrisbachman') {
                     const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === norm && e.copyLimitException);
@@ -564,7 +518,6 @@
                 }
             }
 
-            // Additional check: only 1 copy of any warlord is allowed in the Starting Army (by normalized name)
             let saWarlordCounts = {};
             saWlLegal.forEach(c => {
                 if (c.isWarlord) {
@@ -574,15 +527,12 @@
             });
             for (const norm in saWarlordCounts) {
                 if (saWarlordCounts[norm] > 1) {
-                    // Use display name from cardDatabase if available
                     const displayName = cardDatabase[norm] ? cardDatabase[norm].name : norm;
                     violations.push(`${displayName} (${saWarlordCounts[norm]} copies in Starting Army, Max 1 allowed)`);
                     deckIsLegal = false;
                 }
             }
 
-            // New check: For all warlords except Zartoch and Ferris Bachman, ensure they are only in the Starting Army
-            // Find all warlords in the Main Deck
             const mainDeckWarlords = allLegalCards.filter(c => c.isWarlord && !saWlLegal.includes(c));
             mainDeckWarlords.forEach(c => {
                 const norm = normalizeName(c.name).toLowerCase();
@@ -592,7 +542,6 @@
                 }
             });
 
-            // ...existing code...
             return { deckIsLegal, violations };
         };
 
@@ -695,12 +644,10 @@
             const allWarlordFactions = new Set();
             const warlordList = Array.isArray(warlords) ? warlords : (warlords ? [warlords] : []);
 
-            // Determine ruleset/exception-driven modes
             const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
             const requiresAlignment = warlordException?.requiresAlignment || null;
             const requiresUnifiedFaction = !!(activeRuleSet.requiresUnifiedFaction || warlordException?.requiresUnifiedFaction);
 
-            // If there's no warlord and nothing requires enforcement, warn and skip
             if (warlordList.length === 0 && !requiresUnifiedFaction && !requiresAlignment && !isFullBypass) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
 
             const warlordNamesString = warlordList.map(w => w.name).join(' / ');
@@ -715,7 +662,7 @@
             else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
 
             const violations = [];
-            // ruleset-level flags act as defaults alongside warlord-specific exceptions
+            
             if (isFullBypass) {
                 loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
             } else if (requiresAlignment) {
@@ -726,7 +673,6 @@
                     }
                 });
             } else if (requiresUnifiedFaction) {
-                // Enforce that all Starting Army characters share a single faction (independent of warlord faction)
                 const charCards = cardsToCheck.filter(c => c.type === 'Character' && !c.isFactionWildcard);
                 if (charCards.length === 0) {
                     loyaltyMessage = `No character faction data available to enforce unified faction.`;
@@ -794,7 +740,7 @@
                 const wlExceptions = [...exceptions];
                 for (const card of cardsToCount) {
                     let exceptionApplied = false;
-                     for (let i = 0; i < wlExceptions.length; i++) {
+                      for (let i = 0; i < wlExceptions.length; i++) {
                         const ex = wlExceptions[i];
                         const criteria = ex.criteria;
                         const levelMatch = card.level === criteria.level;
@@ -808,10 +754,10 @@
                             exceptionApplied = true;
                             break;
                         }
-                     }
-                     if (exceptionApplied) {
-                         cardsToCount = cardsToCount.filter(c => c !== card);
-                     }
+                      }
+                      if (exceptionApplied) {
+                          cardsToCount = cardsToCount.filter(c => c !== card);
+                      }
                 }
             }
 
@@ -820,15 +766,12 @@
                     if (slotsToFill[c.level] !== undefined) slotsToFill[c.level] -= (c.count || 1);
                     else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
                 } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
-                     saMessage.push(`Invalid card type in SA: ${c.name}`);
+                      saMessage.push(`Invalid card type in SA: ${c.name}`);
                 }
             });
 
-            // Adjusted: Allow warlord exception for multiple copies (e.g., Zartoch, Ferris Bachman)
             const reqWl = activeRuleSet.warlordCount || 1;
-            // If there is only one unique warlord and it is a special exception (e.g., Zartoch or Ferris Bachman), and the exception allows more than 1 copy, allow it
             if (warlords.length !== reqWl) {
-                // Check for exception: only one unique warlord, and it's a special exception, and the exception allows >1
                 const uniqueWarlordNorms = Array.from(new Set(warlords.map(w => (w.normalizedName || normalizeName(w.name).toLowerCase()))));
                 if (
                     uniqueWarlordNorms.length === 1 &&
@@ -836,7 +779,7 @@
                     warlordException && warlordException.copyLimitException && warlordException.copyLimitException.maxCopies > 1 &&
                     warlords.length <= warlordException.copyLimitException.maxCopies
                 ) {
-                    // Allow this case, do not fail
+                    // Allow this case
                 } else {
                     saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
                     saStatus = 'FAIL';
@@ -865,8 +808,6 @@
             return { pass: saStatus === 'PASS', result: { status: saStatus, message: msg } };
         };
 
-        // Reload configuration only (used when admin signals an update via localStorage)
-        // Returns true if the config was changed/applied, false if unchanged or failed
         const reloadConfigOnly = async () => {
             try {
                 const r = await fetch(CONFIG_DATA_URL + '?_=' + Date.now(), { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
@@ -885,7 +826,6 @@
                 FACTION_WILDCARD_NAMES = configJson.factionWildcards || [];
                 lastConfigSignature = newSignature;
 
-                // Rebuild ruleset selector (hide hidden ones)
                 const rulesetKeys = Object.keys(RULE_SETS || {});
                 const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
                 const defaultKey = configJson.defaultRuleset;
@@ -904,7 +844,6 @@
                     option.textContent = RULE_SETS[key].name;
                     rulesetSelect.appendChild(option);
                 }
-                // restore selection where possible
                 if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
                     rulesetSelect.value = prev;
                 } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
@@ -916,6 +855,7 @@
                 console.warn('Failed to reload config:', e && e.message);
                 return false;
             }
+        };
 
         const checkTotalCount = (allLegalCards, activeRuleSet) => { 
             const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
@@ -1016,34 +956,33 @@
             let extraSACard = null;
             if (wlException?.addsExtraSASlot && wlData) {
                 if (wlException.saForbiddenCards) {
-                     const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
-                     if (!forbidden) {
-                         const criteria = wlException.compositionExceptions[0]?.criteria;
-                         if (criteria) {
-                             extraSACard = saCards.find(c => {
-                                 if (criteria.type && c.type !== criteria.type) return false;
-                                 if (criteria.level && c.level > criteria.level) return false;
-                                 if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
-                                 if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
-                                 return true;
-                             });
-                         }
-                     }
+                      const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
+                      if (!forbidden) {
+                          const criteria = wlException.compositionExceptions[0]?.criteria;
+                          if (criteria) {
+                              extraSACard = saCards.find(c => {
+                                  if (criteria.type && c.type !== criteria.type) return false;
+                                  if (criteria.level && c.level > criteria.level) return false;
+                                  if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                                  if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                                  return true;
+                              });
+                          }
+                      }
                 } else {
-                     const criteria = wlException.compositionExceptions[0]?.criteria;
-                     if (criteria) {
-                         extraSACard = saCards.find(c => {
-                             if (criteria.type && c.type !== criteria.type) return false;
-                             if (criteria.level && c.level > criteria.level) return false;
-                             if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
-                             if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
-                             return true;
-                         });
-                     }
+                      const criteria = wlException.compositionExceptions[0]?.criteria;
+                      if (criteria) {
+                          extraSACard = saCards.find(c => {
+                              if (criteria.type && c.type !== criteria.type) return false;
+                              if (criteria.level && c.level > criteria.level) return false;
+                              if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                              if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                              return true;
+                          });
+                      }
                 }
             }
 
-            // Always check copy limits on all submitted cards
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
             if (!copyRes.deckIsLegal) deckIsLegal = false;
@@ -1073,7 +1012,6 @@
             checks.totalCount = totalCountCheck.result;
             if (!totalCountCheck.pass) deckIsLegal = false;
 
-            // Always check type dominance on all submitted cards
             const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
             checks.typeDominance = typeDominanceCheck.result;
             if (!typeDominanceCheck.pass) deckIsLegal = false;
@@ -1106,178 +1044,174 @@
 
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
             
-                        const displayOrder = [
-                            'unknown', 
-                            'editionLegality', 
-                            'restrictions', 
-                            'totalCount', 
-                            'saComp', 
-                            'saLoyalty', 
-                            'mdLoyalty', 
-                            'copyLimits', 
-                            'overlordLimit',
-                            'dragonlordLimit', 
-                            'daemonlordLimit',  
-                            'typeDominance',
-                            'activeExceptions' 
-                        ];
+            const displayOrder = [
+                'unknown', 
+                'editionLegality', 
+                'restrictions', 
+                'totalCount', 
+                'saComp', 
+                'saLoyalty', 
+                'mdLoyalty', 
+                'copyLimits', 
+                'overlordLimit',
+                'dragonlordLimit', 
+                'daemonlordLimit',  
+                'typeDominance',
+                'activeExceptions' 
+            ];
 
-                        const ruleLabels = {
-                            unknown: 'General',
-                            editionLegality: 'Edition Legality',
-                            restrictions: 'Format Restrictions',
-                            totalCount: 'Deck Size',
-                            saComp: 'Starting Army Composition',
-                            saLoyalty: 'Starting Army Loyalty',
-                            mdLoyalty: 'Main Deck Loyalty',
-                            copyLimits: 'Copy Limits',
-                            overlordLimit: 'Overlord Limit',
-                            dragonlordLimit: 'Dragon Lord Limit',
-                            daemonlordLimit: 'Daemonlord Limit',
-                            typeDominance: 'Type Dominance',
-                            activeExceptions: 'Active Exceptions'
-                        };
+            const ruleLabels = {
+                unknown: 'General',
+                editionLegality: 'Edition Legality',
+                restrictions: 'Format Restrictions',
+                totalCount: 'Deck Size',
+                saComp: 'Starting Army Composition',
+                saLoyalty: 'Starting Army Loyalty',
+                mdLoyalty: 'Main Deck Loyalty',
+                copyLimits: 'Copy Limits',
+                overlordLimit: 'Overlord Limit',
+                dragonlordLimit: 'Dragon Lord Limit',
+                daemonlordLimit: 'Daemonlord Limit',
+                typeDominance: 'Type Dominance',
+                activeExceptions: 'Active Exceptions'
+            };
 
-                        for (const key of displayOrder) {
-                            const res = checks[key];
-                            if (res) {
-                                let icon = '🟢';
-                                let color = 'text-green-400';
-                                if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
-                                if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
-                                if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
-                                // Always show a message, even for PASS
-                                let msg = res.message || '';
-                                if (res.status === 'PASS' && !msg) {
-                                    msg = 'No issues found.';
-                                }
-                                html += `<div class="mb-2"><span class="${color}">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color}">${msg}</span></div>`;
-                            }
-                        }
-                        html += `</div></div>`;
-                        // Always show submit controls, but disable button and show message if not ready
-                        html += `
-                        <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                            <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
-                            <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
-                                <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
-                                <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
-                                <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
-                            </form>
-                            <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
-                        </div>`;
-                        document.getElementById('results').innerHTML = html;
-
-
-
-                        // Always populate event dropdown after rendering results
-                        populateEventDropdown();
-
-                        // Always show Discord username if available
-                        const discordUserSummary = document.getElementById('discord-user-summary');
-                        const submitButton = document.getElementById('submit-deck-button');
-                        const eventSelect = document.getElementById('submit-eventname');
-                        const statusEl = document.getElementById('submit-status');
-                        if (discordUserSummary) {
-                            if (window.discordUser && window.discordUser.id) {
-                                discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
-                            } else {
-                                discordUserSummary.textContent = 'You must log in with Discord to submit.';
-                            }
-                        }
-                        // Enable/disable submit button and show status
-                        if (!window.discordUser || !window.discordUser.id) {
-                            submitButton.disabled = true;
-                            statusEl.textContent = 'You must log in with Discord to submit.';
-                        } else if (!deckIsLegal) {
-                            submitButton.disabled = true;
-                            statusEl.textContent = 'Deck must be legal to submit.';
-                        } else {
-                            submitButton.disabled = false;
-                            statusEl.textContent = '';
-                        }
-                        // Submission handler
-                        submitButton.addEventListener('click', async () => {
-                            if (!window.discordUser || !window.discordUser.id) {
-                                statusEl.textContent = 'You must log in with Discord to submit.';
-                                return;
-                            }
-                            if (!deckIsLegal) {
-                                statusEl.textContent = 'Deck must be legal to submit.';
-                                return;
-                            }
-                            const eventName = (eventSelect.value || '').trim() || 'default-event';
-                            // Use selected event's data attributes for validation and file selection
-                            const selectedOpt = eventSelect.selectedOptions[0];
-                            const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
-                            const decklistFile = selectedOpt ? selectedOpt.dataset.decklistFile : null;
-                            const submissionFile = selectedOpt ? selectedOpt.dataset.submissionFile : null;
-                            // Check if current ruleset matches requiredRuleset
-                            const currentRuleset = rulesetSelect.value;
-                            if (requiredRuleset && currentRuleset !== requiredRuleset) {
-                                statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
-                                return;
-                            }
-                            // (decklistFile and submissionFile can be used for custom logic or display if needed)
-                            try {
-                                statusEl.textContent = 'Preparing deck payload...';
-                                // Build card list structure
-                                if (typeof buildCardListByType !== 'function') {
-                                    window.buildCardListByType = function(allCards, saCards) {
-                                        const typeMap = {};
-                                        allCards.forEach(card => {
-                                            const type = card.type || 'Unknown';
-                                            if (!typeMap[type]) typeMap[type] = {};
-                                            typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
-                                        });
-                                        // Always include all SA cards (not just Characters) in StartingArmy
-                                        const saMap = {};
-                                        saCards.forEach(card => {
-                                            saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
-                                        });
-                                        // Attach StartingArmy to each type present in SA
-                                        Object.keys(typeMap).forEach(type => {
-                                            typeMap[type] = {
-                                                ...typeMap[type],
-                                                StartingArmy: {}
-                                            };
-                                        });
-                                        // Fill StartingArmy for each type
-                                        saCards.forEach(card => {
-                                            if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
-                                                typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
-                                            }
-                                        });
-                                        return typeMap;
-                                    };
-                                }
-                                const cardList = buildCardListByType(allCards, saList);
-                                const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                                // Send to backend for GitHub update
-                        statusEl.textContent = 'Submitting deck to server...';
-                        const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
-                            method: 'POST',
-                            credentials: 'include',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                eventName,
-                                warlord: warlordName,
-                                cardList,
-                                deckContents: allCards
-                            })
-                        });
-                        const result = await resp.json();
-                        if (resp.ok && result.success) {
-                            statusEl.textContent = 'Deck submitted successfully.';
-                        } else {
-                            throw new Error(result.error || 'Unknown error');
-                        }
-                    } catch (err) {
-                        console.error('Submit failed', err);
-                        statusEl.textContent = 'Submit failed: ' + (err.message || err);
+            for (const key of displayOrder) {
+                const res = checks[key];
+                if (res) {
+                    let icon = '🟢';
+                    let color = 'text-green-400';
+                    if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
+                    if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
+                    if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
+                    // Always show a message, even for PASS
+                    let msg = res.message || '';
+                    if (res.status === 'PASS' && !msg) {
+                        msg = 'No issues found.';
                     }
-                });
+                    html += `<div class="mb-2"><span class="${color}">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color}">${msg}</span></div>`;
+                }
             }
+            html += `</div></div>`;
+            
+            // Always include submit controls, but disable button and show message if not ready
+            html += `
+            <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>).</p>
+                <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
+                    <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
+                    <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
+                    <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                </form>
+                <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
+            </div>`;
+            document.getElementById('results').innerHTML = html;
+
+            // --- POPULATE EVENT DROPDOWN CALL ---
+            // Now that the HTML is injected, we can populate the dropdown
+            populateEventDropdown();
+
+            // Always show Discord username if available
+            const discordUserSummary = document.getElementById('discord-user-summary');
+            const submitButton = document.getElementById('submit-deck-button');
+            const eventSelect = document.getElementById('submit-eventname');
+            const statusEl = document.getElementById('submit-status');
+            if (discordUserSummary) {
+                if (window.discordUser && window.discordUser.id) {
+                    discordUserSummary.textContent = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
+                } else {
+                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                }
+            }
+            // Enable/disable submit button and show status
+            if (!window.discordUser || !window.discordUser.id) {
+                submitButton.disabled = true;
+                statusEl.textContent = 'You must log in with Discord to submit.';
+            } else if (!deckIsLegal) {
+                submitButton.disabled = true;
+                statusEl.textContent = 'Deck must be legal to submit.';
+            } else {
+                submitButton.disabled = false;
+                statusEl.textContent = '';
+            }
+            // Submission handler
+            submitButton.addEventListener('click', async () => {
+                if (!window.discordUser || !window.discordUser.id) {
+                    statusEl.textContent = 'You must log in with Discord to submit.';
+                    return;
+                }
+                if (!deckIsLegal) {
+                    statusEl.textContent = 'Deck must be legal to submit.';
+                    return;
+                }
+                const eventName = (eventSelect.value || '').trim() || 'default-event';
+                // Use selected event's data attributes for validation and file selection
+                const selectedOpt = eventSelect.selectedOptions[0];
+                const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
+                // Check if current ruleset matches requiredRuleset
+                const currentRuleset = rulesetSelect.value;
+                if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                    statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                    return;
+                }
+                try {
+                    statusEl.textContent = 'Preparing deck payload...';
+                    // Build card list structure
+                    if (typeof buildCardListByType !== 'function') {
+                        window.buildCardListByType = function(allCards, saCards) {
+                            const typeMap = {};
+                            allCards.forEach(card => {
+                                const type = card.type || 'Unknown';
+                                if (!typeMap[type]) typeMap[type] = {};
+                                typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                            });
+                            // Always include all SA cards (not just Characters) in StartingArmy
+                            const saMap = {};
+                            saCards.forEach(card => {
+                                saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                            });
+                            // Attach StartingArmy to each type present in SA
+                            Object.keys(typeMap).forEach(type => {
+                                typeMap[type] = {
+                                    ...typeMap[type],
+                                    StartingArmy: {}
+                                };
+                            });
+                            // Fill StartingArmy for each type
+                            saCards.forEach(card => {
+                                if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                    typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                }
+                            });
+                            return typeMap;
+                        };
+                    }
+                    const cardList = buildCardListByType(allCards, saList);
+                    const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                    // Send to backend for GitHub update
+                    statusEl.textContent = 'Submitting deck to server...';
+                    const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            eventName,
+                            warlord: warlordName,
+                            cardList,
+                            deckContents: allCards
+                        })
+                    });
+                    const result = await resp.json();
+                    if (resp.ok && result.success) {
+                        statusEl.textContent = 'Deck submitted successfully.';
+                    } else {
+                        throw new Error(result.error || 'Unknown error');
+                    }
+                } catch (err) {
+                    console.error('Submit failed', err);
+                    statusEl.textContent = 'Submit failed: ' + (err.message || err);
+                }
+            });
         };
 
         const clearDeck = () => {
