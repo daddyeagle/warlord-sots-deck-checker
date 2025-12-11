@@ -671,7 +671,6 @@
         setFeedback('PR created: '+pr.html_url);
         // Notify other tabs that a PR was created (note: deployed site won't change until PR merged)
         try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'pr', url: pr.html_url })); }catch(e){}
-        window.open(pr.html_url, '_blank');
       }catch(err){ setFeedback('GitHub API error: '+err.message, true); }
     }
 
