@@ -25,5 +25,14 @@
     "decklistFile": "decks-test2.json",
     "submissionFile": "test2.json",
     "hidden": false
+  },
+  {
+    "eventName": "Test3",
+    "ruleset": "Template 1",
+    "startDate": "2026-01-01",
+    "endDate": "2026-01-08",
+    "decklistFile": "decks-test3.json",
+    "submissionFile": "test3.json",
+    "hidden": false
   }
 ]
