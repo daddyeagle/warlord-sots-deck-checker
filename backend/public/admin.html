@@ -573,6 +573,8 @@
       if(!validate()) return;
       setFeedback('Applying update...');
       try {
+        // Always sync textarea with latest configObj before saving
+        area.value = JSON.stringify(configObj, null, 2);
         const configData = JSON.parse(area.value);
         const res = await fetch('/api/config', {
           method: 'POST',
