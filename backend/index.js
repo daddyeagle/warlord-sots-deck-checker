@@ -477,25 +477,26 @@ app.post('/api/submit-deck', async (req, res) => {
   // 1. Auth Check
   if (!req.session.user) return res.status(401).json({ success: false, error: 'Not authenticated' });
   
+
   // 2. Destructure inputs (FIXED ORDER)
   const { eventName, warlord, cardList, deckContents } = req.body;
-  
-  // 3. Validation
-  if (!eventName || !warlord || !cardList) {
-    return res.status(400).json({ success: false, error: 'Missing required fields' });
-  }
 
-  // Special case: Withdraw logic
-  // If the only entry in the Starting Army is 'Withdraw' (case-insensitive), treat as withdrawal
-  // Assume deckContents is an array of all cards, and saList is available as a subset (frontend can ensure this)
+  // Special case: Withdraw logic (must come before required fields check)
   const isWithdraw =
     Array.isArray(deckContents) &&
     deckContents.length === 1 &&
     typeof deckContents[0].name === 'string' &&
     deckContents[0].name.trim().toLowerCase() === 'withdraw';
 
+  // Prepare User Data (needed for withdraw logic)
+  const username = req.session.user.id;
+  const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
+  const displayName = req.session.user.displayName || req.session.user.username;
+
   if (isWithdraw) {
-    // Remove user from event and deck lists
+    if (!eventName) {
+      return res.status(400).json({ success: false, withdrawn: true, message: 'Missing eventName' });
+    }
     const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
     const eventPath = `backend/public/events/${safeEventName}.json`;
     const decksPath = `backend/public/events/decks-${safeEventName}.json`;
@@ -534,6 +535,11 @@ app.post('/api/submit-deck', async (req, res) => {
     } else {
       return res.json({ success: false, withdrawn: true, message: 'No entry found to withdraw.' });
     }
+  }
+
+  // 3. Validation
+  if (!eventName || !warlord || !cardList) {
+    return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
 
   // 4. Prepare User Data
