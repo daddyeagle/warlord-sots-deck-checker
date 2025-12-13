@@ -434,7 +434,20 @@
       const key = rulesetSelect.value; if(!key) return setFeedback('No ruleset selected', true);
       configObj.defaultRuleset = key;
       area.value = JSON.stringify(configObj, null, 2);
-      setFeedback('Default ruleset set to '+key);
+      // Auto-save config to server after setting default
+      fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(configObj)
+      })
+      .then(r => {
+        if (r.ok) {
+          setFeedback('Default ruleset set to ' + key + ' and saved to server.');
+        } else {
+          setFeedback('Failed to save config to server.', true);
+        }
+      })
+      .catch(() => setFeedback('Failed to save config to server.', true));
     });
 
     saveSettingsBtn.addEventListener('click', ()=>{

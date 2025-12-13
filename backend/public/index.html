@@ -851,6 +851,7 @@
                     rulesetSelect.appendChild(option);
                 }
                 // Always select the default ruleset on load, unless the previous value is still present
+                // If the defaultKey is not present, fallback to first visible ruleset
                 if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
                     rulesetSelect.value = prev;
                 } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
@@ -858,6 +859,10 @@
                 } else if (rulesetSelect.options.length > 0) {
                     rulesetSelect.selectedIndex = 0;
                 }
+                // If no visible rulesets, show a warning (optional)
+                // if (rulesetSelect.options.length === 0) {
+                //     alert('No visible rulesets are available. Please contact the administrator.');
+                // }
                 console.info('Configuration reloaded from admin update');
                 return true;
             } catch (e) {
