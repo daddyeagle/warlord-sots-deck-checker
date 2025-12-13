@@ -12,120 +12,120 @@
         .card-container {
             border: 4px solid #1f2937;
             background: linear-gradient(145deg, #1f2937, #111827);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        .status-box {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-        }
-        .pass { background-color: #10b981; color: #064e3b; }
-        .fail { background-color: #ef4444; color: #7f1d1d; }
-        .warning { background-color: #f59e0b; color: #78350f; }
-        #edition-select { height: 120px; }
-        /* small toast for config reload notifications (removed - auto-reload on refresh) */
-    </style>
-</head>
-<body class="p-4 sm:p-8 flex justify-center items-start min-h-screen">
+            validateButton.onclick = async () => {
+                // ...existing code...
+                // Special case: allow Withdraw from Event as only SA card (use different variable names)
+                const saInputVal = document.getElementById('sa-wl-input').value.trim();
+                const mdInputVal = document.getElementById('main-deck-input').value.trim();
+                const isWithdrawSubmit =
+                    saInputVal &&
+                    saInputVal.split('\n').length === 1 &&
+                    saInputVal.trim().toLowerCase() === 'withdraw from event' &&
+                    (!mdInputVal || mdInputVal.trim() === '');
+                // ...existing code...
+                // Always re-assign submit handler based on current withdraw/normal state
+                submitButton.onclick = async () => {
+                    // Recheck withdraw/normal state on every submit
+                    const saInputValNow = document.getElementById('sa-wl-input').value.trim();
+                    const mdInputValNow = document.getElementById('main-deck-input').value.trim();
+                    const isWithdrawNow =
+                        saInputValNow &&
+                        saInputValNow.split('\n').length === 1 &&
+                        saInputValNow.trim().toLowerCase() === 'withdraw from event' &&
+                        (!mdInputValNow || mdInputValNow.trim() === '');
 
-    <div id="app" class="w-full max-w-5xl space-y-6">
-        
-        <header class="text-center mb-6 bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-amber-400">Bobby 2.0</h1>
-            <p class="text-gray-400 text-lg mt-2">Enter your Starting Army and Main Deck to validate legality.</p>
-            <p class="text-gray-600 text-xs mt-1">v2.2 (External Configuration)</p>
-            <div id="discord-login-container" class="mt-4">
-                <button id="discord-login-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2 mx-auto">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" style="width:1.5em;height:1.5em;vertical-align:middle;filter:invert(1);"/>
-                    Login with Discord
-                </button>
-                <span id="discord-user-info" class="ml-4 text-gray-300 font-semibold"></span>
-            </div>
-        </header>
-
-        <div id="loading-status" class="card-container p-6 rounded-xl text-center text-lg font-semibold text-sky-400">
-            Fetching official card data and rulesets... Please wait.
-        </div>
-
-        <div id="input-section" class="hidden space-y-6">
-            
-            <!-- Rule Set Selection -->
-            <div class="card-container p-6 rounded-xl">
-                <h2 class="text-xl font-bold mb-3 text-gray-200 border-b border-gray-700 pb-2">1. Select Format</h2>
-                <div>
-                    <select id="ruleset-select" class="w-full p-3 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 transition duration-150 text-white">
-                        <!-- Options populated by JS -->
-                    </select>
-                    <p class="text-xs mt-2 text-gray-500">
-                        Select a format to apply deck construction rules defined in <code>warlord_configuration.json</code>.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Deck Inputs -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="card-container p-6 rounded-xl">
-                    <label for="sa-wl-input" class="block text-lg font-bold mb-2 text-gray-200">2. Starting Army</label>
-                    <p class="text-xs text-gray-500 mb-2">Warlord + Characters/Items starting in play.</p>
-                    <textarea id="sa-wl-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="1 Warlord Name&#10;3 Level 1 Character&#10;2 Level 2 Character"></textarea>
-                </div>
-
-                <div class="card-container p-6 rounded-xl">
-                    <label for="main-deck-input" class="block text-lg font-bold mb-2 text-gray-200">3. Main Deck</label>
-                    <p class="text-xs text-gray-500 mb-2">Characters, Actions, Items, etc.</p>
-                    <textarea id="main-deck-input" rows="12" class="w-full p-4 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg focus:ring-amber-500 focus:border-amber-500 font-mono text-sm text-white" placeholder="3 Card Name&#10;3 Another Card&#10;..."></textarea>
-                </div>
-            </div>
-            
-            <!-- Button Row -->
-            <div class="grid grid-cols-2 gap-4 mt-6">
-                <button id="clear-deck-button" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition duration-200">
-                    Clear Inputs
-                </button>
-                <button id="check-deck-button" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition duration-200 shadow-lg shadow-green-900/50">
-                    Validate Deck
-                </button>
-            </div>
-        </div>
-
-        <div id="results" class="space-y-6">
-            <!-- Results will be injected here -->
-        </div>
-
-    </div>
-
-    <script type="module">
-        // --- CONFIGURABLE BACKEND URL ---
-        window.BACKEND_URL = 'https://warlord-sots-deck-checker-production.up.railway.app';
-
-        // --- HANDLE /auth-success REDIRECT ---
-        if (window.location.pathname === '/auth-success') {
-            document.body.innerHTML = `<div class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white"><h1 class="text-2xl font-bold mb-4">Logging you in with Discord...</h1><div id="discord-auth-status" class="text-lg text-gray-300">Please wait...</div></div>`;
-            fetch(window.BACKEND_URL + '/api/auth/success', { credentials: 'include' })
-                .then(async res => {
-                    if (res.ok) {
-                        const user = await res.json();
-                        let displayText = `<b>${user.username}#${user.discriminator}</b>`;
-                        if (user.displayName) {
-                            displayText += ` (${user.displayName})`;
-                        }
-                        document.getElementById('discord-auth-status').innerHTML = `✅ Logged in as ${displayText}.<br><a href="/" class="underline text-amber-400">Continue to app</a>`;
-                    } else {
-                        document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
+                    if (!window.discordUser || !window.discordUser.id) {
+                        statusEl.textContent = 'You must log in with Discord to submit.';
+                        return;
                     }
-                })
-                .catch(() => {
-                    document.getElementById('discord-auth-status').innerHTML = `❌ Login failed. <a href="/" class="underline text-red-400">Return to app</a>`;
-                });
-        }
-        
-        // --- DISCORD OAUTH2 LOGIN ---
-        const discordLoginBtn = document.getElementById('discord-login-btn');
-        const discordUserInfo = document.getElementById('discord-user-info');
-        let discordUser = null;
-
+                    if (!deckIsLegal && !isWithdrawNow) {
+                        statusEl.textContent = 'Deck must be legal to submit.';
+                        return;
+                    }
+                    const eventName = (eventSelect.value || '').trim() || 'default-event';
+                    // Use selected event's data attributes for validation and file selection
+                    const selectedOpt = eventSelect.selectedOptions[0];
+                    const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
+                    // Check if current ruleset matches requiredRuleset
+                    const currentRuleset = rulesetSelect.value;
+                    if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdrawNow) {
+                        statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                        return;
+                    }
+                    try {
+                        statusEl.textContent = 'Submitting deck to server...';
+                        let body;
+                        if (isWithdrawNow) {
+                            body = JSON.stringify({
+                                eventName,
+                                warlord: null,
+                                cardList: null,
+                                deckContents: [{ name: 'Withdraw from Event' }]
+                            });
+                        } else {
+                            // Build card list structure
+                            if (typeof buildCardListByType !== 'function') {
+                                window.buildCardListByType = function(allCards, saCards) {
+                                    const typeMap = {};
+                                    allCards.forEach(card => {
+                                        const type = card.type || 'Unknown';
+                                        if (!typeMap[type]) typeMap[type] = {};
+                                        typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                                    });
+                                    // Always include all SA cards (not just Characters) in StartingArmy
+                                    const saMap = {};
+                                    saCards.forEach(card => {
+                                        saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                                    });
+                                    // Attach StartingArmy to each type present in SA
+                                    Object.keys(typeMap).forEach(type => {
+                                        typeMap[type] = {
+                                            ...typeMap[type],
+                                            StartingArmy: {}
+                                        };
+                                    });
+                                    // Fill StartingArmy for each type
+                                    saCards.forEach(card => {
+                                        const type = card.type || 'Unknown';
+                                        if (typeMap[type] && typeMap[type].StartingArmy) {
+                                            typeMap[type].StartingArmy[card.name] = (typeMap[type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                        }
+                                    });
+                                    return typeMap;
+                                };
+                            }
+                            const cardList = buildCardListByType(allCards, saList);
+                            const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                            body = JSON.stringify({
+                                eventName,
+                                warlord: warlordName,
+                                cardList,
+                                deckContents: allCards
+                            });
+                        }
+                        // Send to backend for GitHub update
+                        const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: { 'Content-Type': 'application/json' },
+                            body
+                        });
+                        const result = await resp.json();
+                        if (resp.ok && result.success) {
+                            if (result.withdrawn) {
+                                statusEl.textContent = result.message || 'You have withdrawn from the event.';
+                            } else {
+                                statusEl.textContent = 'Deck submitted successfully.';
+                            }
+                        } else if (result.withdrawn) {
+                            statusEl.textContent = result.message || 'Withdraw failed.';
+                        } else {
+                            throw new Error(result.error || 'Unknown error');
+                        }
+                    } catch (err) {
+                        statusEl.textContent = 'Submit failed: ' + (err.message || err);
+                    }
+                };
         async function fetchDiscordUser() {
             try {
                 const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
