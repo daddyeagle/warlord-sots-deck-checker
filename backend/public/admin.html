@@ -26,11 +26,13 @@
       <strong>Warning:</strong> If you use the GitHub PR feature you must paste a personal access token into the form below. Tokens are sent directly to GitHub and are not stored on this server. Keep your token secret.
     </div>
 
-    <div style="margin-bottom:.5rem">
-      <button id="loadBtn">Load current config</button>
+    <div style="margin-bottom:.5rem; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button id="loadBtn">Reload Config</button>
       <button id="validateBtn">Validate JSON</button>
-      <button id="downloadBtn">Download JSON</button>
-      <button id="copyBtn">Copy to Clipboard</button>
+      <button id="saveServerBtn" style="background:#22c55e; color:#042d2b; font-weight:900;">Save to Server</button>
+      <span class="small" style="color:#a3e635;">(Updates live config for all users)</span>
+      <button id="downloadBtn" style="margin-left:auto;">Download JSON</button>
+      <button id="copyBtn">Copy JSON</button>
     </div>
 
     <!-- Ruleset editor: dropdown + form for single ruleset -->
@@ -106,18 +108,22 @@
 
     <textarea id="jsonArea" placeholder="warlord_configuration.json contents will appear here..."></textarea>
 
-    <div class="row" style="margin-top:.75rem">
-      <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:280px" />
-      <button id="testTokenBtn" title="Validate token and scopes">Test Token</button>
-      <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
-      <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
-      <label style="display:flex; align-items:center; gap:6px;">
-        <input id="directApply" type="checkbox" />
-        <span class="small">Direct apply to `deploy-docs` (bypass PR)</span>
-      </label>
-      <button id="createPrBtn">Submit</button>
-      <button id="applyBtn" class="btn-danger">Apply (download)</button>
-    </div>
+    <details style="margin-top:.75rem;">
+      <summary style="color:#38bdf8; cursor:pointer; font-size:14px;">Advanced: GitHub/Manual Options</summary>
+      <div class="row" style="margin-top:.5rem;">
+        <input id="ghToken" type="password" placeholder="GitHub token (optional)" style="min-width:220px" />
+        <button id="testTokenBtn" title="Validate token and scopes">Test Token</button>
+        <input id="prBranch" type="text" placeholder="PR branch name (auto if empty)" />
+        <input id="prTitle" type="text" placeholder="PR title (optional)" style="flex:1" />
+        <label style="display:flex; align-items:center; gap:6px;">
+          <input id="directApply" type="checkbox" />
+          <span class="small">Direct apply to `deploy-docs` (bypass PR)</span>
+        </label>
+        <button id="createPrBtn">Create GitHub PR</button>
+        <button id="applyBtn" class="btn-danger">Download Only</button>
+      </div>
+      <div class="small" style="color:#fca5a5; margin-top:4px;">These options are for advanced/manual workflows. Use <b>Save to Server</b> for normal updates.</div>
+    </details>
 
 
     <div class="card" style="margin-top:1.5rem;">
@@ -566,7 +572,8 @@
       }
     }
 
-    applyBtn.addEventListener('click', applyUpdate);
+    // Save to Server button
+    document.getElementById('saveServerBtn').addEventListener('click', applyUpdate);
 
     // Quick token tester: performs a lightweight GET /user to validate token and scopes
     async function testToken(){
