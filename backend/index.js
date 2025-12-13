@@ -488,7 +488,7 @@ app.post('/api/submit-deck', async (req, res) => {
     typeof deckContents[0].name === 'string' &&
     deckContents[0].name.trim().toLowerCase() === 'withdraw';
 
-  // Prepare User Data (needed for withdraw logic)
+  // Prepare User Data (needed for withdraw logic and after)
   const username = req.session.user.id;
   const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
   const displayName = req.session.user.displayName || req.session.user.username;
@@ -541,11 +541,6 @@ app.post('/api/submit-deck', async (req, res) => {
   if (!eventName || !warlord || !cardList) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
-
-  // 4. Prepare User Data
-  const username = req.session.user.id;
-  const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
-  const displayName = req.session.user.displayName || req.session.user.username;
   // Load event list to get startDate
   const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventStartDate = null;
