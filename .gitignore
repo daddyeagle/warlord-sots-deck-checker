@@ -1,2 +1,1 @@
 # Prevent live config from being overwritten by deploys
-backend/warlord_configuration.json
