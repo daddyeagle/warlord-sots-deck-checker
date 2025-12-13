@@ -1,3 +1,16 @@
+// ...existing code...
+
+// Express server for Discord OAuth2 login
+require('dotenv').config();
+
+const express = require('express');
+const session = require('express-session');
+const axios = require('axios'); // Use one axios import
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
 // Check if user has submitted a deck for an event
 app.get('/api/has-deck', async (req, res) => {
   try {
@@ -51,18 +64,6 @@ app.post('/api/withdraw-deck', async (req, res) => {
     res.status(500).json({ success: false, error: 'Server error' });
   }
 });
-
-// Express server for Discord OAuth2 login
-require('dotenv').config();
-
-const express = require('express');
-const session = require('express-session');
-const axios = require('axios'); // Use one axios import
-const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
-
-const app = express();
 const PORT = process.env.PORT || 8080;
 
 // FIX 1: Trust ALL proxies (for Railway)
