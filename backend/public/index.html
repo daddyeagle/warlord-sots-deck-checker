@@ -342,7 +342,8 @@
             if (!rulesetSelect) return;
             rulesetSelect.innerHTML = '';
             const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
-            const keys = Object.keys(rulesets);
+            // Only show rulesets that are not hidden
+            const keys = Object.keys(rulesets).filter(k => !rulesets[k].hidden);
             if (keys.length === 0) {
                 const opt = document.createElement('option');
                 opt.value = '';
@@ -353,7 +354,8 @@
             keys.forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
-                opt.textContent = rulesets[key].displayName || key;
+                // Always use the 'name' field for display, fallback to key only if missing or empty
+                opt.textContent = (rulesets[key].name && rulesets[key].name.trim()) ? rulesets[key].name : key;
                 rulesetSelect.appendChild(opt);
             });
         }
