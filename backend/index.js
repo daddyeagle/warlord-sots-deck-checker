@@ -474,6 +474,8 @@ async function putGithubFile(path, content, message, sha = null) {
 // --- DECK SUBMISSION ROUTE ---
 
 app.post('/api/submit-deck', async (req, res) => {
+    // Debug: log incoming request body for troubleshooting
+    console.log('submit-deck req.body:', JSON.stringify(req.body));
   // 1. Auth Check
   if (!req.session.user) return res.status(401).json({ success: false, error: 'Not authenticated' });
   
