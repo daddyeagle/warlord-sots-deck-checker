@@ -1205,7 +1205,7 @@
                 const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
                 // Check if current ruleset matches requiredRuleset
                 const currentRuleset = rulesetSelect.value;
-                if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdraw) {
+                if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdrawSubmit) {
                     statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
                     return;
                 }
