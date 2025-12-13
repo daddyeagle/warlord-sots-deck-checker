@@ -1140,8 +1140,14 @@
                 <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
             </div>`;
             document.getElementById('results').innerHTML = html;
-            // Withdraw button logic
+            // Always show Discord username if available
+            const discordUserSummary = document.getElementById('discord-user-summary');
+            const submitButton = document.getElementById('submit-deck-button');
+            const eventSelect = document.getElementById('submit-eventname');
+            const statusEl = document.getElementById('submit-status');
             const withdrawButton = document.getElementById('withdraw-deck-button');
+
+            // Withdraw button logic
             async function checkIfUserHasDeck() {
                 if (!window.discordUser || !window.discordUser.id) {
                     withdrawButton.style.display = 'none';
