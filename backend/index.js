@@ -485,6 +485,57 @@ app.post('/api/submit-deck', async (req, res) => {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
 
+  // Special case: Withdraw logic
+  // If the only entry in the Starting Army is 'Withdraw' (case-insensitive), treat as withdrawal
+  // Assume deckContents is an array of all cards, and saList is available as a subset (frontend can ensure this)
+  const isWithdraw =
+    Array.isArray(deckContents) &&
+    deckContents.length === 1 &&
+    typeof deckContents[0].name === 'string' &&
+    deckContents[0].name.trim().toLowerCase() === 'withdraw';
+
+  if (isWithdraw) {
+    // Remove user from event and deck lists
+    const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
+    const eventPath = `backend/public/events/${safeEventName}.json`;
+    const decksPath = `backend/public/events/decks-${safeEventName}.json`;
+    let changed = false;
+    // Remove from event file
+    try {
+      const existingEvent = await getGithubFile(eventPath);
+      if (existingEvent) {
+        let eventObj = JSON.parse(existingEvent.content);
+        if (Array.isArray(eventObj.submissions)) {
+          const newSubs = eventObj.submissions.filter(sub => sub.username !== username);
+          if (newSubs.length !== eventObj.submissions.length) {
+            eventObj.submissions = newSubs;
+            await putGithubFile(eventPath, eventObj, `Withdraw from event ${eventName} by ${discordUsername}`, existingEvent.sha);
+            changed = true;
+          }
+        }
+      }
+    } catch (e) { /* ignore */ }
+    // Remove from decks file
+    try {
+      const existingDecks = await getGithubFile(decksPath);
+      if (existingDecks) {
+        let decksArr = JSON.parse(existingDecks.content);
+        if (Array.isArray(decksArr)) {
+          const newDecks = decksArr.filter(d => d.username !== username);
+          if (newDecks.length !== decksArr.length) {
+            await putGithubFile(decksPath, newDecks, `Withdraw deck from event ${eventName} by ${discordUsername}`, existingDecks.sha);
+            changed = true;
+          }
+        }
+      }
+    } catch (e) { /* ignore */ }
+    if (changed) {
+      return res.json({ success: true, withdrawn: true, message: 'You have withdrawn from the event.' });
+    } else {
+      return res.json({ success: false, withdrawn: true, message: 'No entry found to withdraw.' });
+    }
+  }
+
   // 4. Prepare User Data
   const username = req.session.user.id;
   const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
