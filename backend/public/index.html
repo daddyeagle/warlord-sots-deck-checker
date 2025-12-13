@@ -833,6 +833,7 @@
                 let orderedKeys = [];
                 const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
                 if (Array.isArray(configJson.rulesetOrder)) {
+                                    console.log('Loaded rulesetOrder from config:', configJson.rulesetOrder);
                     // Only include visible keys in the order specified
                     orderedKeys = configJson.rulesetOrder.filter(k => visibleKeys.includes(k));
                     // Add any visible keys not in rulesetOrder at the end
@@ -842,6 +843,7 @@
                 }
                 const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
                 const limit = Math.min(orderedKeys.length, configuredLimit);
+                                console.log('Ordered ruleset keys for dropdown:', orderedKeys);
                 const prev = rulesetSelect.value;
                 rulesetSelect.innerHTML = '';
                 for (let j = 0; j < limit; j++) {
