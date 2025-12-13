@@ -1130,7 +1130,7 @@
             // Always include submit controls, but disable button and show message if not ready
             html += `
             <div class="card-container p-4 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>). To withdraw from an event, enter <b>Withdraw</b> as your only Starting Army card and submit.</p>
+                <p class="text-sm text-gray-300 mb-2">Submit this deck to the event database (saves under <code>docs/events/</code>). To withdraw from an event, enter <b>Withdraw from Event</b> as your only Starting Army card and submit.</p>
                 <form id="deck-submit-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-end">
                     <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
                     <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
@@ -1159,14 +1159,14 @@
 
             // Enable/disable submit button and show status
             {
-                // Special case: allow Withdraw as only SA card
-                const saInput = document.getElementById('sa-wl-input').value.trim();
-                const mdInput = document.getElementById('main-deck-input').value.trim();
-                const isWithdraw =
-                  saInput &&
-                  saInput.split('\n').length === 1 &&
-                  saInput.trim().toLowerCase() === 'withdraw' &&
-                  (!mdInput || mdInput.trim() === '');
+                        // Special case: allow Withdraw from Event as only SA card
+                        const saInput = document.getElementById('sa-wl-input').value.trim();
+                        const mdInput = document.getElementById('main-deck-input').value.trim();
+                        const isWithdraw =
+                            saInput &&
+                            saInput.split('\n').length === 1 &&
+                            saInput.trim().toLowerCase() === 'withdraw from event' &&
+                            (!mdInput || mdInput.trim() === '');
 
                 if (!window.discordUser || !window.discordUser.id) {
                     submitButton.disabled = true;
@@ -1186,14 +1186,14 @@
                     statusEl.textContent = 'You must log in with Discord to submit.';
                     return;
                 }
-                // Special case: allow Withdraw as only SA card (use different variable names)
-                const saInputVal = document.getElementById('sa-wl-input').value.trim();
-                const mdInputVal = document.getElementById('main-deck-input').value.trim();
-                const isWithdrawSubmit =
-                  saInputVal &&
-                  saInputVal.split('\n').length === 1 &&
-                  saInputVal.trim().toLowerCase() === 'withdraw' &&
-                  (!mdInputVal || mdInputVal.trim() === '');
+                                // Special case: allow Withdraw from Event as only SA card (use different variable names)
+                                const saInputVal = document.getElementById('sa-wl-input').value.trim();
+                                const mdInputVal = document.getElementById('main-deck-input').value.trim();
+                                const isWithdrawSubmit =
+                                    saInputVal &&
+                                    saInputVal.split('\n').length === 1 &&
+                                    saInputVal.trim().toLowerCase() === 'withdraw from event' &&
+                                    (!mdInputVal || mdInputVal.trim() === '');
 
                 if (!deckIsLegal && !isWithdrawSubmit) {
                     statusEl.textContent = 'Deck must be legal to submit.';

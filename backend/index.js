@@ -482,11 +482,16 @@ app.post('/api/submit-deck', async (req, res) => {
   const { eventName, warlord, cardList, deckContents } = req.body;
 
   // Special case: Withdraw logic (must come before required fields check)
-  const isWithdraw =
-    Array.isArray(deckContents) &&
-    deckContents.length === 1 &&
-    typeof deckContents[0].name === 'string' &&
-    deckContents[0].name.trim().toLowerCase() === 'withdraw';
+  let isWithdraw = false;
+  // Robust: check deckContents, warlord, or cardList for 'Withdraw'
+  const withdrawKeyword = 'withdraw from event';
+  if (Array.isArray(deckContents) && deckContents.length === 1 && typeof deckContents[0].name === 'string') {
+    isWithdraw = deckContents[0].name.trim().toLowerCase() === withdrawKeyword;
+  } else if (typeof warlord === 'string' && warlord.trim().toLowerCase() === withdrawKeyword) {
+    isWithdraw = true;
+  } else if (cardList && typeof cardList === 'object' && Object.keys(cardList).length === 1 && Object.keys(cardList)[0].toLowerCase() === withdrawKeyword) {
+    isWithdraw = true;
+  }
 
   // Prepare User Data (needed for withdraw logic and after)
   const username = req.session.user.id;
