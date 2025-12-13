@@ -1158,24 +1158,26 @@
             }
 
             // Enable/disable submit button and show status
-            // Special case: allow Withdraw as only SA card
-            const saInput = document.getElementById('sa-wl-input').value.trim();
-            const mdInput = document.getElementById('main-deck-input').value.trim();
-            const isWithdraw =
-              saInput &&
-              saInput.split('\n').length === 1 &&
-              saInput.trim().toLowerCase() === 'withdraw' &&
-              (!mdInput || mdInput.trim() === '');
+            {
+                // Special case: allow Withdraw as only SA card
+                const saInput = document.getElementById('sa-wl-input').value.trim();
+                const mdInput = document.getElementById('main-deck-input').value.trim();
+                const isWithdraw =
+                  saInput &&
+                  saInput.split('\n').length === 1 &&
+                  saInput.trim().toLowerCase() === 'withdraw' &&
+                  (!mdInput || mdInput.trim() === '');
 
-            if (!window.discordUser || !window.discordUser.id) {
-                submitButton.disabled = true;
-                statusEl.textContent = 'You must log in with Discord to submit.';
-            } else if (!deckIsLegal && !isWithdraw) {
-                submitButton.disabled = true;
-                statusEl.textContent = 'Deck must be legal to submit.';
-            } else {
-                submitButton.disabled = false;
-                statusEl.textContent = '';
+                if (!window.discordUser || !window.discordUser.id) {
+                    submitButton.disabled = true;
+                    statusEl.textContent = 'You must log in with Discord to submit.';
+                } else if (!deckIsLegal && !isWithdraw) {
+                    submitButton.disabled = true;
+                    statusEl.textContent = 'Deck must be legal to submit.';
+                } else {
+                    submitButton.disabled = false;
+                    statusEl.textContent = '';
+                }
             }
 
             // Submission handler (restored)
