@@ -341,20 +341,37 @@
             const rulesetSelect = document.getElementById('ruleset-select');
             if (!rulesetSelect) return;
             rulesetSelect.innerHTML = '';
+    
             const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
-            // Only show rulesets that are not hidden
-            const keys = Object.keys(rulesets).filter(k => !rulesets[k].hidden);
-            if (keys.length === 0) {
+    
+         // 1. Determine the order
+            let orderedKeys = [];
+            if (Array.isArray(configJson.rulesetOrder)) {
+                // Get keys explicitly listed in the order array (if they exist in rulesets and aren't hidden)
+                orderedKeys = configJson.rulesetOrder.filter(k => rulesets[k] && !rulesets[k].hidden);
+        
+                // Find any 'leftover' keys that exist in rulesets but weren't in the order list
+                const allKeys = Object.keys(rulesets);
+                const extraKeys = allKeys.filter(k => !orderedKeys.includes(k) && !rulesets[k].hidden);
+        
+                // Append leftovers to the end
+                orderedKeys = orderedKeys.concat(extraKeys);
+            } else {
+                // Fallback: Use default object order if no rulesetOrder exists
+                orderedKeys = Object.keys(rulesets).filter(k => !rulesets[k].hidden);
+            }
+
+            if (orderedKeys.length === 0) {
                 const opt = document.createElement('option');
                 opt.value = '';
                 opt.textContent = 'No formats available';
                 rulesetSelect.appendChild(opt);
                 return;
-            }
-            keys.forEach(key => {
+            }   
+            // 2. Build the options using the sorted keys
+            orderedKeys.forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
-                // Always use the 'name' field for display, fallback to key only if missing or empty
                 opt.textContent = (rulesets[key].name && rulesets[key].name.trim()) ? rulesets[key].name : key;
                 rulesetSelect.appendChild(opt);
             });
