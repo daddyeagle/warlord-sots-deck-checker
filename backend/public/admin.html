@@ -82,7 +82,7 @@
             <label style="display:flex; align-items:center; gap:6px;"><input id="rs_hidden" type="checkbox" /> <span class="small">Mark ruleset as <strong>hidden</strong> (in development)</span></label>
             <label style="display:flex; align-items:center; gap:6px;"><input id="rs_requiresUnifiedFaction" type="checkbox" /> <span class="small">Require unified faction (ruleset)</span></label>
             <label style="display:flex; align-items:center; gap:6px;"><input id="rs_fullBypass" type="checkbox" /> <span class="small">Full loyalty bypass (ruleset)</span></label>
-            <button id="setDefaultBtn">Set as Default</button>
+            <button id="moveToTopBtn">Move to Top</button>
             <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
               <label class="small" style="margin:0">Index selector limit</label>
               <input id="indexLimit" type="number" min="1" value="10" style="width:80px; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
@@ -430,11 +430,14 @@
       }
     }
 
-    document.getElementById('setDefaultBtn').addEventListener('click', ()=>{
+    document.getElementById('moveToTopBtn').addEventListener('click', ()=>{
       const key = rulesetSelect.value; if(!key) return setFeedback('No ruleset selected', true);
-      configObj.defaultRuleset = key;
+      if (!Array.isArray(configObj.rulesetOrder)) {
+        configObj.rulesetOrder = Object.keys(configObj.rulesets).filter(k => !configObj.rulesets[k].hidden);
+      }
+      // Remove and re-insert at front
+      configObj.rulesetOrder = [key].concat(configObj.rulesetOrder.filter(k => k !== key && configObj.rulesets[k] && !configObj.rulesets[k].hidden));
       area.value = JSON.stringify(configObj, null, 2);
-      // Auto-save config to server after setting default
       fetch('/api/config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -442,7 +445,7 @@
       })
       .then(r => {
         if (r.ok) {
-          setFeedback('Default ruleset set to ' + key + ' and saved to server.');
+          setFeedback('Ruleset moved to top and saved to server.');
         } else {
           setFeedback('Failed to save config to server.', true);
         }

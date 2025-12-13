@@ -829,13 +829,16 @@
                 lastConfigSignature = newSignature;
 
                 const rulesetKeys = Object.keys(RULE_SETS || {});
-                const defaultKey = configJson.defaultRuleset;
-                // Only show rulesets that are not hidden
+                // Use rulesetOrder array from config if present, otherwise fallback to visibleKeys
+                let orderedKeys = [];
                 const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
-                let orderedKeys = visibleKeys;
-                // Always put defaultKey first if present and visible
-                if (defaultKey && visibleKeys.includes(defaultKey)) {
-                    orderedKeys = [defaultKey].concat(visibleKeys.filter(k => k !== defaultKey));
+                if (Array.isArray(configJson.rulesetOrder)) {
+                    // Only include visible keys in the order specified
+                    orderedKeys = configJson.rulesetOrder.filter(k => visibleKeys.includes(k));
+                    // Add any visible keys not in rulesetOrder at the end
+                    orderedKeys = orderedKeys.concat(visibleKeys.filter(k => !orderedKeys.includes(k)));
+                } else {
+                    orderedKeys = visibleKeys;
                 }
                 const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
                 const limit = Math.min(orderedKeys.length, configuredLimit);
@@ -850,12 +853,9 @@
                     option.textContent = (RULE_SETS[key].name && RULE_SETS[key].name.trim()) ? RULE_SETS[key].name : key;
                     rulesetSelect.appendChild(option);
                 }
-                // Always select the default ruleset on load, unless the previous value is still present
-                // If the defaultKey is not present, fallback to first visible ruleset
+                // Always select the first ruleset in the order, unless the previous value is still present
                 if (prev && Array.from(rulesetSelect.options).some(o => o.value === prev)) {
                     rulesetSelect.value = prev;
-                } else if (defaultKey && Array.from(rulesetSelect.options).some(o => o.value === defaultKey)) {
-                    rulesetSelect.value = defaultKey;
                 } else if (rulesetSelect.options.length > 0) {
                     rulesetSelect.selectedIndex = 0;
                 }
