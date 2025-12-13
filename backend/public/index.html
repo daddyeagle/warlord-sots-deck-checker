@@ -844,7 +844,8 @@
                     if (!RULE_SETS[key] || RULE_SETS[key].hidden) continue; // extra guard
                     const option = document.createElement('option');
                     option.value = key;
-                    option.textContent = RULE_SETS[key].name || key;
+                    // Always use the 'name' field for display, fallback to key only if missing or empty
+                    option.textContent = (RULE_SETS[key].name && RULE_SETS[key].name.trim()) ? RULE_SETS[key].name : key;
                     rulesetSelect.appendChild(option);
                 }
                 // Always select the default ruleset on load, unless the previous value is still present
