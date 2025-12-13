@@ -1135,10 +1135,66 @@
                     <span id="discord-user-summary" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg flex items-center"></span>
                     <select id="submit-eventname" class="flex-1 p-2 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg"></select>
                     <button id="submit-deck-button" type="button" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg w-full sm:w-auto">Submit Deck</button>
+                    <button id="withdraw-deck-button" type="button" style="display:none" class="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-lg w-full sm:w-auto ml-2">Withdraw</button>
                 </form>
                 <p id="submit-status" class="text-xs text-gray-400 mt-2"></p>
             </div>`;
             document.getElementById('results').innerHTML = html;
+            // Withdraw button logic
+            const withdrawButton = document.getElementById('withdraw-deck-button');
+            async function checkIfUserHasDeck() {
+                if (!window.discordUser || !window.discordUser.id) {
+                    withdrawButton.style.display = 'none';
+                    return;
+                }
+                const eventName = eventSelect.value || '';
+                if (!eventName) {
+                    withdrawButton.style.display = 'none';
+                    return;
+                }
+                try {
+                    // Check if user has a deck for this event
+                    const resp = await fetch(window.BACKEND_URL + '/api/has-deck?eventName=' + encodeURIComponent(eventName), { credentials: 'include' });
+                    const data = await resp.json();
+                    if (resp.ok && data.hasDeck) {
+                        withdrawButton.style.display = '';
+                    } else {
+                        withdrawButton.style.display = 'none';
+                    }
+                } catch (e) {
+                    withdrawButton.style.display = 'none';
+                }
+            }
+            eventSelect.addEventListener('change', checkIfUserHasDeck);
+            if (window.discordUser && window.discordUser.id) {
+                checkIfUserHasDeck();
+            }
+            withdrawButton.addEventListener('click', async () => {
+                const eventName = eventSelect.value || '';
+                if (!eventName) return;
+                if (!window.confirm('Are you sure you want to withdraw from this event? This will remove your deck entry.')) return;
+                statusEl.textContent = 'Withdrawing from event...';
+                withdrawButton.disabled = true;
+                try {
+                    const resp = await fetch(window.BACKEND_URL + '/api/withdraw-deck', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ eventName })
+                    });
+                    const result = await resp.json();
+                    if (resp.ok && result.success) {
+                        statusEl.textContent = 'You have withdrawn from the event.';
+                        withdrawButton.style.display = 'none';
+                    } else {
+                        throw new Error(result.error || 'Unknown error');
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Withdraw failed: ' + (err.message || err);
+                } finally {
+                    withdrawButton.disabled = false;
+                }
+            });
 
             // --- POPULATE EVENT DROPDOWN CALL ---
             // Now that the HTML is injected, we can populate the dropdown

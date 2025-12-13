@@ -1,3 +1,56 @@
+// Check if user has submitted a deck for an event
+app.get('/api/has-deck', async (req, res) => {
+  try {
+    if (!req.session || !req.session.discordId) return res.json({ hasDeck: false });
+    const eventName = req.query.eventName;
+    if (!eventName) return res.json({ hasDeck: false });
+    const decksPath = path.join(__dirname, 'public', 'events', `decks-${eventName}.json`);
+    if (!fs.existsSync(decksPath)) return res.json({ hasDeck: false });
+    const decksRaw = fs.readFileSync(decksPath, 'utf8');
+    const decks = JSON.parse(decksRaw);
+    const found = decks.find(d => d.discordId === req.session.discordId);
+    res.json({ hasDeck: !!found });
+  } catch (e) {
+    res.json({ hasDeck: false });
+  }
+});
+
+// Withdraw deck for event (remove from event and deck lists)
+app.post('/api/withdraw-deck', async (req, res) => {
+  try {
+    if (!req.session || !req.session.discordId) return res.status(401).json({ success: false, error: 'Not logged in' });
+    const { eventName } = req.body;
+    if (!eventName) return res.status(400).json({ success: false, error: 'Missing eventName' });
+    const decksPath = path.join(__dirname, 'public', 'events', `decks-${eventName}.json`);
+    const eventPath = path.join(__dirname, 'public', 'events', `${eventName}.json`);
+    let changed = false;
+    // Remove from deck list
+    if (fs.existsSync(decksPath)) {
+      const decks = JSON.parse(fs.readFileSync(decksPath, 'utf8'));
+      const newDecks = decks.filter(d => d.discordId !== req.session.discordId);
+      if (newDecks.length !== decks.length) {
+        fs.writeFileSync(decksPath, JSON.stringify(newDecks, null, 2));
+        changed = true;
+      }
+    }
+    // Remove from event list
+    if (fs.existsSync(eventPath)) {
+      const eventEntries = JSON.parse(fs.readFileSync(eventPath, 'utf8'));
+      const newEntries = eventEntries.filter(d => d.discordId !== req.session.discordId);
+      if (newEntries.length !== eventEntries.length) {
+        fs.writeFileSync(eventPath, JSON.stringify(newEntries, null, 2));
+        changed = true;
+      }
+    }
+    if (changed) {
+      res.json({ success: true });
+    } else {
+      res.json({ success: false, error: 'No entry found to withdraw' });
+    }
+  } catch (e) {
+    res.status(500).json({ success: false, error: 'Server error' });
+  }
+});
 
 // Express server for Discord OAuth2 login
 require('dotenv').config();
