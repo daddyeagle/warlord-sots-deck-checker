@@ -1144,6 +1144,18 @@
             const submitButton = document.getElementById('submit-deck-button');
             const eventSelect = document.getElementById('submit-eventname');
             const statusEl = document.getElementById('submit-status');
+            // Show Discord user info in the deck submission field
+            if (discordUserSummary) {
+                if (window.discordUser && window.discordUser.id) {
+                    let displayText = `Logged in as ${window.discordUser.username}#${window.discordUser.discriminator}`;
+                    if (window.discordUser.displayName) {
+                        displayText += ` (${window.discordUser.displayName})`;
+                    }
+                    discordUserSummary.textContent = displayText;
+                } else {
+                    discordUserSummary.textContent = 'You must log in with Discord to submit.';
+                }
+            }
 
             // --- POPULATE EVENT DROPDOWN CALL ---
             // Now that the HTML is injected, we can populate the dropdown
