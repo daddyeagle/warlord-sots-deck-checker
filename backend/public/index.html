@@ -1184,16 +1184,16 @@
                     statusEl.textContent = 'You must log in with Discord to submit.';
                     return;
                 }
-                // Special case: allow Withdraw as only SA card
-                const saInput = document.getElementById('sa-wl-input').value.trim();
-                const mdInput = document.getElementById('main-deck-input').value.trim();
-                const isWithdraw =
-                  saInput &&
-                  saInput.split('\n').length === 1 &&
-                  saInput.trim().toLowerCase() === 'withdraw' &&
-                  (!mdInput || mdInput.trim() === '');
+                // Special case: allow Withdraw as only SA card (use different variable names)
+                const saInputVal = document.getElementById('sa-wl-input').value.trim();
+                const mdInputVal = document.getElementById('main-deck-input').value.trim();
+                const isWithdrawSubmit =
+                  saInputVal &&
+                  saInputVal.split('\n').length === 1 &&
+                  saInputVal.trim().toLowerCase() === 'withdraw' &&
+                  (!mdInputVal || mdInputVal.trim() === '');
 
-                if (!deckIsLegal && !isWithdraw) {
+                if (!deckIsLegal && !isWithdrawSubmit) {
                     statusEl.textContent = 'Deck must be legal to submit.';
                     return;
                 }
