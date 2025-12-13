@@ -848,7 +848,7 @@
                 rulesetSelect.innerHTML = '';
                 for (let j = 0; j < limit; j++) {
                     const key = orderedKeys[j];
-                    if (!RULE_SETS[key] || RULE_SETS[key].hidden) continue; // extra guard
+                    if (!RULE_SETS[key]) continue; // extra guard
                     const option = document.createElement('option');
                     option.value = key;
                     // Always use the 'name' field for display, fallback to key only if missing or empty
