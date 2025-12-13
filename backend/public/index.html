@@ -1157,6 +1157,101 @@
                 }
             }
 
+            // Enable/disable submit button and show status
+            if (!window.discordUser || !window.discordUser.id) {
+                submitButton.disabled = true;
+                statusEl.textContent = 'You must log in with Discord to submit.';
+            } else if (!deckIsLegal) {
+                submitButton.disabled = true;
+                statusEl.textContent = 'Deck must be legal to submit.';
+            } else {
+                submitButton.disabled = false;
+                statusEl.textContent = '';
+            }
+
+            // Submission handler (restored)
+            submitButton.onclick = async () => {
+                if (!window.discordUser || !window.discordUser.id) {
+                    statusEl.textContent = 'You must log in with Discord to submit.';
+                    return;
+                }
+                if (!deckIsLegal) {
+                    statusEl.textContent = 'Deck must be legal to submit.';
+                    return;
+                }
+                const eventName = (eventSelect.value || '').trim() || 'default-event';
+                // Use selected event's data attributes for validation and file selection
+                const selectedOpt = eventSelect.selectedOptions[0];
+                const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
+                // Check if current ruleset matches requiredRuleset
+                const currentRuleset = rulesetSelect.value;
+                if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                    statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
+                    return;
+                }
+                try {
+                    statusEl.textContent = 'Submitting deck to server...';
+                    // Build card list structure
+                    if (typeof buildCardListByType !== 'function') {
+                        window.buildCardListByType = function(allCards, saCards) {
+                            const typeMap = {};
+                            allCards.forEach(card => {
+                                const type = card.type || 'Unknown';
+                                if (!typeMap[type]) typeMap[type] = {};
+                                typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
+                            });
+                            // Always include all SA cards (not just Characters) in StartingArmy
+                            const saMap = {};
+                            saCards.forEach(card => {
+                                saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1);
+                            });
+                            // Attach StartingArmy to each type present in SA
+                            Object.keys(typeMap).forEach(type => {
+                                typeMap[type] = {
+                                    ...typeMap[type],
+                                    StartingArmy: {}
+                                };
+                            });
+                            // Fill StartingArmy for each type
+                            saCards.forEach(card => {
+                                if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                    typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                }
+                            });
+                            return typeMap;
+                        };
+                    }
+                    const cardList = buildCardListByType(allCards, saList);
+                    const warlordName = warlords.length > 0 ? warlords[0].name : null;
+                    // Send to backend for GitHub update
+                    const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            eventName,
+                            warlord: warlordName,
+                            cardList,
+                            deckContents: allCards
+                        })
+                    });
+                    const result = await resp.json();
+                    if (resp.ok && result.success) {
+                        if (result.withdrawn) {
+                            statusEl.textContent = result.message || 'You have withdrawn from the event.';
+                        } else {
+                            statusEl.textContent = 'Deck submitted successfully.';
+                        }
+                    } else if (result.withdrawn) {
+                        statusEl.textContent = result.message || 'Withdraw failed.';
+                    } else {
+                        throw new Error(result.error || 'Unknown error');
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Submit failed: ' + (err.message || err);
+                }
+            };
+
             // --- POPULATE EVENT DROPDOWN CALL ---
             // Now that the HTML is injected, we can populate the dropdown
             populateEventDropdown();
