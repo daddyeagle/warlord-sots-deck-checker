@@ -435,7 +435,24 @@ app.post('/api/submit-deck', async (req, res) => {
   const username = req.session.user.id;
   const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
   const displayName = req.session.user.displayName || req.session.user.username;
-  const timestamp = new Date().toISOString();
+  // Load event list to get startDate
+  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  let eventStartDate = null;
+  try {
+    const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
+    const eventList = JSON.parse(eventListRaw);
+    const eventMeta = eventList.find(e => e.eventName === eventName);
+    if (eventMeta && eventMeta.startDate) eventStartDate = eventMeta.startDate;
+  } catch (e) { /* ignore, fallback to normal timestamp */ }
+
+  const now = new Date();
+  let timestamp = now.toISOString();
+  if (eventStartDate) {
+    const start = new Date(eventStartDate);
+    if (!isNaN(start) && now < start) {
+      timestamp = start.toISOString();
+    }
+  }
 
   // 5. Define Paths
   // Note: Using 'docs/events' based on previous conversation, change to 'backend/public/events' if you prefer
