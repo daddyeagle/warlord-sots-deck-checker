@@ -1158,10 +1158,19 @@
             }
 
             // Enable/disable submit button and show status
+            // Special case: allow Withdraw as only SA card
+            const saInput = document.getElementById('sa-wl-input').value.trim();
+            const mdInput = document.getElementById('main-deck-input').value.trim();
+            const isWithdraw =
+              saInput &&
+              saInput.split('\n').length === 1 &&
+              saInput.trim().toLowerCase() === 'withdraw' &&
+              (!mdInput || mdInput.trim() === '');
+
             if (!window.discordUser || !window.discordUser.id) {
                 submitButton.disabled = true;
                 statusEl.textContent = 'You must log in with Discord to submit.';
-            } else if (!deckIsLegal) {
+            } else if (!deckIsLegal && !isWithdraw) {
                 submitButton.disabled = true;
                 statusEl.textContent = 'Deck must be legal to submit.';
             } else {
@@ -1223,7 +1232,8 @@
                             });
                             // Fill StartingArmy for each type
                             saCards.forEach(card => {
-                                if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
+                                const type = card.type || 'Unknown';
+                                if (typeMap[type] && typeMap[type].StartingArmy) {
                                     typeMap[type].StartingArmy[card.name] = (typeMap[type].StartingArmy[card.name] || 0) + (card.count || 1);
                                 }
                             });
