@@ -831,15 +831,15 @@
                 const rulesetKeys = Object.keys(RULE_SETS || {});
                 // Use rulesetOrder array from config if present, otherwise fallback to visibleKeys
                 let orderedKeys = [];
-                const visibleKeys = rulesetKeys.filter(k => !RULE_SETS[k].hidden);
                 if (Array.isArray(configJson.rulesetOrder)) {
                     console.log('Loaded rulesetOrder from config:', configJson.rulesetOrder);
-                    // Only include keys that exist in rulesets and are not hidden
-                    orderedKeys = configJson.rulesetOrder.filter(k => RULE_SETS[k] && !RULE_SETS[k].hidden);
-                    // Add any visible keys not in rulesetOrder at the end
-                    orderedKeys = orderedKeys.concat(visibleKeys.filter(k => !orderedKeys.includes(k)));
+                    // Only include keys that exist in rulesets, in the order specified
+                    orderedKeys = configJson.rulesetOrder.filter(k => RULE_SETS[k]);
+                    // Add any ruleset keys not in rulesetOrder at the end
+                    const extraKeys = rulesetKeys.filter(k => !orderedKeys.includes(k));
+                    orderedKeys = orderedKeys.concat(extraKeys);
                 } else {
-                    orderedKeys = visibleKeys;
+                    orderedKeys = rulesetKeys;
                 }
                 const configuredLimit = (configJson.indexSelectorLimit && Number.isInteger(configJson.indexSelectorLimit)) ? configJson.indexSelectorLimit : 10;
                 const limit = Math.min(orderedKeys.length, configuredLimit);
