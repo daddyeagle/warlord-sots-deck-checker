@@ -1175,7 +1175,16 @@
                     statusEl.textContent = 'You must log in with Discord to submit.';
                     return;
                 }
-                if (!deckIsLegal) {
+                // Special case: allow Withdraw as only SA card
+                const saInput = document.getElementById('sa-wl-input').value.trim();
+                const mdInput = document.getElementById('main-deck-input').value.trim();
+                const isWithdraw =
+                  saInput &&
+                  saInput.split('\n').length === 1 &&
+                  saInput.trim().toLowerCase() === 'withdraw' &&
+                  (!mdInput || mdInput.trim() === '');
+
+                if (!deckIsLegal && !isWithdraw) {
                     statusEl.textContent = 'Deck must be legal to submit.';
                     return;
                 }
@@ -1185,7 +1194,7 @@
                 const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
                 // Check if current ruleset matches requiredRuleset
                 const currentRuleset = rulesetSelect.value;
-                if (requiredRuleset && currentRuleset !== requiredRuleset) {
+                if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdraw) {
                     statusEl.textContent = `Warning: The required ruleset for this event is "${requiredRuleset}". Please select the correct ruleset before submitting.`;
                     return;
                 }
@@ -1215,7 +1224,7 @@
                             // Fill StartingArmy for each type
                             saCards.forEach(card => {
                                 if (typeMap[card.type] && typeMap[card.type].StartingArmy) {
-                                    typeMap[card.type].StartingArmy[card.name] = (typeMap[card.type].StartingArmy[card.name] || 0) + (card.count || 1);
+                                    typeMap[type].StartingArmy[card.name] = (typeMap[type].StartingArmy[card.name] || 0) + (card.count || 1);
                                 }
                             });
                             return typeMap;
