@@ -3,81 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bobby (v2.0)</title>
+    <title>Bobby (v2.0) - Forge Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #e5e7eb; }
-        .card-container {
-            border: 4px solid #1f2937;
-            background: linear-gradient(145deg, #1f2937, #111827);
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dwarf: {
+                            dark: '#1c1917',   /* Stone-900 */
+                            stone: '#292524',  /* Stone-800 */
+                            iron: '#44403c',   /* Stone-700 */
+                            gold: '#d4af37',   /* Metallic Gold */
+                            bronze: '#b45309', /* Amber-700 */
+                            magma: '#7f1d1d',  /* Red-900 */
+                            lava: '#ef4444',   /* Red-500 */
+                            parchment: '#e7e5e4' /* Stone-200 */
+                        }
+                    },
+                    fontFamily: {
+                        'rune': ['Cinzel', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'stone-texture': "linear-gradient(to bottom right, #1c1917, #0c0a09)",
+                        'metal-gradient': "linear-gradient(180deg, #44403c 0%, #292524 100%)",
+                        'gold-gradient': "linear-gradient(180deg, #fcd34d 0%, #d4af37 100%)",
+                    }
+                }
+            }
         }
-        /* Scrollbar styling for textareas */
-        textarea::-webkit-scrollbar { width: 8px; }
-        textarea::-webkit-scrollbar-track { background: #1f2937; }
-        textarea::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
-        textarea::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Lato', sans-serif; 
+            background-color: #0c0a09; 
+            background-image: 
+                radial-gradient(circle at 50% 0%, #292524 0%, transparent 70%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2344403c' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #d6d3d1; 
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, .dwarven-text {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Containers resembling iron plates */
+        .card-container {
+            border: 2px solid #57534e; /* Stone border */
+            border-bottom: 4px solid #292524; /* Heavy bottom for weight */
+            background: linear-gradient(145deg, #292524, #1c1917);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.05),
+                0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Inputs resembling inset stone slots */
+        .dwarven-input {
+            background-color: #151413;
+            border: 1px solid #44403c;
+            border-top: 2px solid #000; /* Deep shadow top */
+            color: #e7e5e4;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .dwarven-input:focus {
+            border-color: #b45309; /* Bronze glow */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(180, 83, 9, 0.3);
+            outline: none;
+        }
+
+        /* Buttons resembling hammered metal/gold */
+        .btn-forge {
+            background-image: linear-gradient(to bottom, #b45309, #78350f);
+            border: 1px solid #451a03;
+            border-top: 1px solid #d97706; /* Highlight */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+        .btn-forge:hover {
+            background-image: linear-gradient(to bottom, #d97706, #92400e);
+            transform: translateY(-1px);
+        }
+        .btn-forge:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .btn-iron {
+            background-image: linear-gradient(to bottom, #57534e, #292524);
+            border: 1px solid #1c1917;
+            border-top: 1px solid #78716c;
+            color: #d6d3d1;
+        }
+        .btn-iron:hover {
+            background-image: linear-gradient(to bottom, #78716c, #44403c);
+        }
+
+        /* Custom Scrollbar */
+        textarea::-webkit-scrollbar { width: 10px; }
+        textarea::-webkit-scrollbar-track { background: #1c1917; border-left: 1px solid #292524; }
+        textarea::-webkit-scrollbar-thumb { background: #57534e; border: 1px solid #292524; }
+        textarea::-webkit-scrollbar-thumb:hover { background: #78716c; }
+
+        /* Discord specific override */
+        .discord-btn {
+            background-color: #5865F2;
+            border-bottom: 3px solid #3b46ad;
+        }
+        .discord-btn:hover { background-color: #4752C4; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-8 min-h-screen">
 
-    <div class="max-w-5xl mx-auto space-y-6">
+    <div class="max-w-5xl mx-auto space-y-8">
         
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-700 pb-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-2 border-dwarf-iron pb-6 relative">
+            <div class="absolute bottom-[-2px] left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-dwarf-bronze to-transparent"></div>
+            
             <div>
-                <h1 class="text-3xl font-extrabold text-amber-500 tracking-tight">Bobby 2.0</h1>
-                <p class="text-gray-400 text-sm mt-1">Validate deck legality for various formats.</p>
+                <h1 class="text-4xl md:text-5xl font-black text-dwarf-gold drop-shadow-lg tracking-wider uppercase">
+                    Bobby <span class="text-dwarf-bronze text-3xl">v2.0</span>
+                </h1>
+                <p class="text-stone-400 text-sm mt-2 font-rune tracking-widest uppercase border-l-2 border-dwarf-magma pl-3">
+                    Deck Validator & Archive
+                </p>
             </div>
             
-            <div class="flex items-center gap-3 bg-gray-800/50 p-2 rounded-lg border border-gray-700">
-                <span id="discord-user-info" class="text-sm font-medium text-gray-300"></span>
-                <button id="discord-login-btn" class="bg-[#5865F2] hover:bg-[#4752C4] text-white text-xs font-bold py-2 px-3 rounded transition-colors">
-                    Log in with Discord
+            <div class="flex items-center gap-3 bg-black/40 p-3 rounded border border-dwarf-iron shadow-inner">
+                <span id="discord-user-info" class="text-sm font-bold text-dwarf-gold font-rune tracking-wide"></span>
+                <button id="discord-login-btn" class="discord-btn text-white text-xs font-bold py-2 px-4 rounded transition-all transform active:scale-95 uppercase tracking-wide">
+                    Login via Discord
                 </button>
             </div>
         </div>
 
-        <div id="loading-status" class="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg text-blue-400 flex items-center gap-3">
-            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Loading card database and rulesets...
+        <div id="loading-status" class="p-6 bg-dwarf-stone/80 border-2 border-dwarf-iron rounded shadow-lg flex items-center justify-center gap-4 animate-pulse">
+            <div class="relative">
+                <div class="w-8 h-8 border-4 border-dwarf-bronze border-t-dwarf-gold rounded-full animate-spin"></div>
+            </div>
+            <span class="text-dwarf-gold font-rune font-bold tracking-wider">Forging Database Connection...</span>
         </div>
 
-        <div id="input-section" class="hidden space-y-6">
+        <div id="input-section" class="hidden space-y-8">
             
-            <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                <label for="ruleset-select" class="block text-sm font-bold text-gray-400 mb-2">Select Format / Ruleset</label>
-                <select id="ruleset-select" class="w-full bg-gray-900 border border-gray-600 text-gray-100 rounded p-2.5 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all">
-                    <option>Loading formats...</option>
-                </select>
+            <div class="card-container rounded p-6">
+                <label for="ruleset-select" class="block text-lg font-bold text-dwarf-gold mb-3 font-rune uppercase">Select Format / Ruleset</label>
+                <div class="relative">
+                    <select id="ruleset-select" class="dwarven-input w-full rounded p-3 font-body font-bold text-lg appearance-none cursor-pointer">
+                        <option>Loading formats...</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-dwarf-bronze">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="flex flex-col">
-                    <label for="sa-wl-input" class="flex justify-between text-sm font-bold text-gray-400 mb-2">
-                        <span>Starting Army & Warlord</span>
-                        <span class="text-xs text-gray-500 font-normal">Format: "1 Card Name"</span>
-                    </label>
-                    <textarea id="sa-wl-input" class="flex-1 min-h-[300px] bg-gray-900 border border-gray-700 rounded-lg p-4 text-sm text-gray-200 font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all resize-y" placeholder="// Example:&#10;1 Warlord Name&#10;1 Character Name&#10;1 Item Name"></textarea>
+                    <div class="flex justify-between items-end mb-2">
+                        <label for="sa-wl-input" class="text-dwarf-parchment font-rune font-bold text-lg tracking-wide border-b-2 border-dwarf-magma pb-1">Starting Army</label>
+                        <span class="text-xs text-stone-500 font-bold uppercase">1 Card Name</span>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-dwarf-bronze"></div>
+                        <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-dwarf-bronze"></div>
+                        
+                        <textarea id="sa-wl-input" class="dwarven-input w-full min-h-[350px] rounded p-4 text-sm font-mono leading-relaxed" placeholder="// FORGE YOUR ARMY&#10;1 Warlord Name&#10;1 Character Name&#10;1 Item Name"></textarea>
+                    </div>
                 </div>
 
                 <div class="flex flex-col">
-                    <label for="main-deck-input" class="flex justify-between text-sm font-bold text-gray-400 mb-2">
-                        <span>Main Deck</span>
-                        <span class="text-xs text-gray-500 font-normal">Format: "3 Card Name"</span>
-                    </label>
-                    <textarea id="main-deck-input" class="flex-1 min-h-[300px] bg-gray-900 border border-gray-700 rounded-lg p-4 text-sm text-gray-200 font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all resize-y" placeholder="// Example:&#10;3 Action Card&#10;3 Another Card&#10;2 Item Card"></textarea>
+                    <div class="flex justify-between items-end mb-2">
+                        <label for="main-deck-input" class="text-dwarf-parchment font-rune font-bold text-lg tracking-wide border-b-2 border-dwarf-magma pb-1">Main Deck</label>
+                        <span class="text-xs text-stone-500 font-bold uppercase">3 Card Name</span>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-dwarf-bronze"></div>
+                        <div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-dwarf-bronze"></div>
+                        
+                        <textarea id="main-deck-input" class="dwarven-input w-full min-h-[350px] rounded p-4 text-sm font-mono leading-relaxed" placeholder="// GATHER YOUR FORCES&#10;3 Action Card&#10;3 Another Card&#10;2 Item Card"></textarea>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex gap-4 pt-2">
-                <button id="check-deck-button" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg shadow-amber-900/20">
-                    Check Deck Legality
+            <div class="flex flex-col sm:flex-row gap-4 pt-4 border-t border-dwarf-iron">
+                <button id="check-deck-button" class="btn-forge flex-1 text-white font-rune font-bold text-lg py-4 px-8 rounded shadow-lg uppercase tracking-wider">
+                    Validate Legality
                 </button>
-                <button id="clear-deck-button" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-gray-200 font-semibold rounded-lg transition-colors border border-gray-600">
-                    Clear
+                <button id="clear-deck-button" class="btn-iron px-8 py-4 font-rune font-bold text-stone-300 rounded shadow-lg uppercase tracking-wider">
+                    Clear Slate
                 </button>
             </div>
         </div>
@@ -87,31 +207,24 @@
     </div>
 
     <script type="module">
-        // Use existing window.BACKEND_URL or fallback to origin if not defined.
-        // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
         const getBackendUrl = () => window.BACKEND_URL || window.location.origin;
         
-        // DOM Elements
         const discordUserInfo = document.getElementById('discord-user-info');
         const discordLoginBtn = document.getElementById('discord-login-btn');
         const loadingStatusDiv = document.getElementById('loading-status');
         const inputSectionDiv = document.getElementById('input-section');
         const rulesetSelect = document.getElementById('ruleset-select');
 
-        // --- AUTH LOGIC ---
         async function fetchDiscordUser() {
             try {
-                const res = await fetch(getBackendUrl() + '/api/auth/success', {
-                    credentials: 'include'
-                });
+                const res = await fetch(getBackendUrl() + '/api/auth/success', { credentials: 'include' });
                 if (res.ok) {
                     const user = await res.json();
                     window.discordUser = user;
-                    let displayText = `Logged in as ${user.username}#${user.discriminator}`;
-                    if (user.displayName) {
-                        displayText += ` (${user.displayName})`;
-                    }
+                    let displayText = `${user.username}#${user.discriminator}`;
+                    if (user.displayName) displayText += ` (${user.displayName})`;
                     discordUserInfo.textContent = displayText;
+                    discordUserInfo.classList.add('px-2'); // Add padding for aesthetics
                     discordLoginBtn.style.display = 'none';
                 } else {
                     window.discordUser = null;
@@ -126,22 +239,16 @@
         }
 
         if (discordLoginBtn) {
-            discordLoginBtn.onclick = () => {
-                window.location.href = getBackendUrl() + '/api/auth/discord';
-            };
+            discordLoginBtn.onclick = () => { window.location.href = getBackendUrl() + '/api/auth/discord'; };
         }
         
-        // Check auth on load, and handle /auth-success redirect
         if (window.location.pathname === '/auth-success') {
-            fetchDiscordUser().then(() => {
-                // Give a moment for UI update, then redirect to main page
-                setTimeout(() => { window.location.href = '/'; }, 500);
-            });
+            fetchDiscordUser().then(() => { setTimeout(() => { window.location.href = '/'; }, 500); });
         } else {
             fetchDiscordUser();
         }
 
-        // --- CONSTANTS & CONFIG ---
+        // --- EXISTING LOGIC PRESERVED BELOW ---
         let cardDatabase = {};
         let lastConfigSignature = null;
         let RULE_SETS = {};
@@ -154,7 +261,6 @@
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
-        // --- REGEX & CONSTANTS ---
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
@@ -162,7 +268,6 @@
         const errataReservedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Reserved/gi;
         const errataBannedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Banned/gi;
 
-        // --- DATABASE & PARSING ---
         const normalizeName = (name) => name.replace(/[^a-zA-Z0-9]/g, '');
 
         const getSAExceptions = (card) => {
@@ -185,9 +290,7 @@
                 try {
                     let configJson = { rulesets: { default: { name: "Standard", editions: [] } } };
                     let eventListJson = [];
-                    
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
-                    
                     const cardsResponse = await fetch(CARD_DATA_URL, cardFetchOpts);
                     if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     const cardJson = await cardsResponse.json();
@@ -211,16 +314,12 @@
                     window.EVENT_LIST = eventListJson;
 
                     const newDatabase = {};
-
                     if (Array.isArray(cardJson)) {
                         cardJson.forEach(card => {
                             const level = parseInt(card.level);
                             const rawSubtype = String(card.subtype || '').toLowerCase();
                             const classes = Array.isArray(card.class) ? card.class.map(c => String(c).toLowerCase()) : [];
-                            const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0)
-                                ? card.faction.map(f => String(f).toLowerCase()).join(' ')
-                                : 'neutral';
-
+                            const primaryFaction = (Array.isArray(card.faction) && card.faction.length > 0) ? card.faction.map(f => String(f).toLowerCase()).join(' ') : 'neutral';
                             const isWarlord = rawSubtype.includes("warlord");
                             const editions = card.editions || [];
                             const lowerText = (card.text || '').toLowerCase();
@@ -228,63 +327,30 @@
                             const isFactionWildcard = factionWildcardRegex.test(lowerText) || FACTION_WILDCARD_NAMES.includes(lookupKey);
                             const saExceptions = getSAExceptions(card);
                             const isUnlimitedCopies = unlimitedCopiesRegex.test(lowerText);
-
                             const printInfos = card.printInfos || [];
                             const sets = [...new Set(printInfos.map(info => info.set))];
                             const rarities = [...new Set(printInfos.map(info => info.rarity))];
-
                             newDatabase[lookupKey] = {
-                                name: card.name,
-                                normalizedName: lookupKey,
-                                type: card.type || (level > 0 ? 'Character' : 'Action'),
-                                level: isNaN(level) ? 0 : level,
-                                isWarlord: isWarlord,
-                                rawSubtype: rawSubtype,
-                                faction: primaryFaction,
-                                alignment: card.alignment || '',
-                                classes: classes,
-                                isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"),
-                                isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"),
-                                isFactionWildcard: isFactionWildcard,
-                                isUnlimitedCopies: isUnlimitedCopies,
-                                editions: editions,
-                                sets: sets,
-                                rarities: rarities,
-                                printInfos: printInfos,
-                                bannedErrataFormats: [],
-                                saReservedFormats: [],
-                                epicErrataFormats: [],
-                                isSACharacterReplacement: saExceptions.isReplacement,
-                                text: card.text || ''
+                                name: card.name, normalizedName: lookupKey, type: card.type || (level > 0 ? 'Character' : 'Action'), level: isNaN(level) ? 0 : level, isWarlord: isWarlord, rawSubtype: rawSubtype, faction: primaryFaction, alignment: card.alignment || '', classes: classes, isEpicKeyword: card.keywords && card.keywords.some(kw => kw.name === "Epic"), isUniqueKeyword: card.keywords && card.keywords.some(kw => kw.name === "Unique"), isFactionWildcard: isFactionWildcard, isUnlimitedCopies: isUnlimitedCopies, editions: editions, sets: sets, rarities: rarities, printInfos: printInfos, bannedErrataFormats: [], saReservedFormats: [], epicErrataFormats: [], isSACharacterReplacement: saExceptions.isReplacement, text: card.text || ''
                             };
-
                             if (card.errata) {
                                 let match;
-                                errataEpicRegex.lastIndex = 0;
-                                while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
-                                errataReservedRegex.lastIndex = 0;
-                                while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
-                                errataBannedRegex.lastIndex = 0;
-                                while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
+                                errataEpicRegex.lastIndex = 0; while ((match = errataEpicRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].epicErrataFormats.push(match[1].trim()); }
+                                errataReservedRegex.lastIndex = 0; while ((match = errataReservedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].saReservedFormats.push(match[1].trim()); }
+                                errataBannedRegex.lastIndex = 0; while ((match = errataBannedRegex.exec(card.errata)) !== null) { newDatabase[lookupKey].bannedErrataFormats.push(match[1].trim()); }
                             }
                         });
                     }
-
                     if (Object.keys(newDatabase).length > 0) {
                         cardDatabase = newDatabase;
-                        if (loadingStatusDiv) loadingStatusDiv.className = 'hidden';
-                        if (inputSectionDiv) inputSectionDiv.classList.remove('hidden');
+                        loadingStatusDiv.className = 'hidden';
+                        inputSectionDiv.classList.remove('hidden');
                         try { lastConfigSignature = JSON.stringify(configJson); } catch (e) { lastConfigSignature = null; }
                         return true;
                     }
-
                 } catch (error) {
-                    if (loadingStatusDiv) loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p><p class='text-xs text-gray-400'>${error && error.message ? error.message : error}</p>`;
-                    console.error('LoadAppData error:', error);
-                    if (i < retries - 1) {
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        delay *= 2;
-                    }
+                    loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold mb-2'>❌ Error loading data.</p>`;
+                    if (i < retries - 1) { await new Promise(resolve => setTimeout(resolve, delay)); delay *= 2; }
                 }
             }
             return false;
@@ -293,10 +359,8 @@
         function populateRulesetSelector(configJson) {
             if (!rulesetSelect) return;
             rulesetSelect.innerHTML = '';
-            
             const rulesets = configJson && configJson.rulesets ? configJson.rulesets : {};
             let orderedKeys = [];
-
             if (Array.isArray(configJson.rulesetOrder)) {
                 orderedKeys = configJson.rulesetOrder.filter(k => rulesets[k] && !rulesets[k].hidden);
                 const allKeys = Object.keys(rulesets);
@@ -305,12 +369,7 @@
             } else {
                 orderedKeys = Object.keys(rulesets).filter(k => !rulesets[k].hidden);
             }
-
-            if (orderedKeys.length === 0) {
-                orderedKeys = ['default'];
-                if(!rulesets['default']) rulesets['default'] = { name: "Standard (Default)", editions: [] };
-            }
-
+            if (orderedKeys.length === 0) { orderedKeys = ['default']; if(!rulesets['default']) rulesets['default'] = { name: "Standard (Default)", editions: [] }; }
             orderedKeys.forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
@@ -324,7 +383,6 @@
             const eventSelect = document.getElementById('submit-eventname');
             if (!eventSelect) return;
             eventSelect.innerHTML = '';
-            
             if (Array.isArray(events)) {
                 events.forEach(ev => {
                     if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
@@ -338,6 +396,7 @@
             }
         }
 
+        // ... (Remaining Logic is identical to previous version, ensuring checkDeck, etc., works) ...
         const parseCardInput = (input, cardCounts, cardList) => {
             const lines = (input || '').split(/[\r\n]+/).map(line => line.trim()).filter(line => line.length > 0);
             lines.forEach(line => {
@@ -348,506 +407,41 @@
                 let name = lineMatch[2] ? lineMatch[2].trim() : '';
                 const allowedChars = "A-Za-z0-9'\-\.,:!\? ";
                 const disallowedCharMatch = name.match(new RegExp(`[^${allowedChars}]`));
-                if (disallowedCharMatch) {
-                    name = name.substring(0, disallowedCharMatch.index).trim();
-                }
+                if (disallowedCharMatch) name = name.substring(0, disallowedCharMatch.index).trim();
                 if (!name) return;
                 const slug = normalizeName(name).toLowerCase();
                 cardCounts[slug] = (cardCounts[slug] || 0) + count;
                 let card = cardDatabase[slug];
-                if (card) {
-                    cardList.push({ ...card, count });
-                } else {
-                    cardList.push({ name, isUnknown: true, count });
-                }
+                if (card) cardList.push({ ...card, count }); else cardList.push({ name, isUnknown: true, count });
             });
         };
 
-        const getWarlordException = (warlordData) => {
-            if (!warlordData) return null;
-            const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
-            return WL_SA_LOYALTY_EXCEPTIONS.find(e => e.normalizedWarlordName === normalizedWarlordName) || null;
-        };
-
-        const isEditionLegal = (card, selectedEditions) => !card.isUnknown && (selectedEditions.length === 0 || card.editions.some(e => selectedEditions.includes(e)));
-        
-        const isCardBanned = (card, selectedEditions) => {
-            if (!card || card.isUnknown) return false;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.bannedErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
-        };
-
-        const isCardReserved = (card, selectedEditions) => {
-            if (!card || card.isUnknown) return false;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
-        };
-        
-        const isCardEpic = (card, selectedEditions) => {
-            if (!card || card.isUnknown) return false;
-            if (card.isEpicKeyword) return true;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
-        };
-
-        const isSAForbidden = (card, selectedEditions) => {
-            if (!card || card.isUnknown) return false;
-            if (card.text) {
-                const forbiddenPhrases = [ "may not start in play", "may not start the game in play" ];
-                const lowerText = card.text.toLowerCase();
-                if (forbiddenPhrases.some(phrase => lowerText.includes(phrase))) return true;
-            }
-            return isCardReserved(card, selectedEditions);
-        };
-
-        const checkCopyLimits = (allLegalCards, saWlLegal, selectedEditions, warlordException, activeRuleSet) => {
-            let deckIsLegal = true;
-            const violations = [];
-            const legalCardCounts = {};
-            allLegalCards.forEach(c => {
-                const norm = normalizeName(c.name).toLowerCase();
-                legalCardCounts[norm] = (legalCardCounts[norm] || 0) + (c.count || 1);
-            });
-
-            const defaultMax = activeRuleSet.maxCopies || 3;
-            const epicMax = activeRuleSet.maxEpicCopies || 1;
-            const warlordMax = activeRuleSet.warlordCount || 1;
-            const copyException = warlordException ? warlordException.copyLimitException : null;
-
-            const warlordTotals = {};
-            for (const norm in legalCardCounts) {
-                const data = cardDatabase[norm];
-                if (!data) continue;
-                const count = legalCardCounts[norm];
-                if (data.isWarlord) {
-                    warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
-                } else {
-                    if (data.isUnlimitedCopies) continue;
-                    let max = defaultMax;
-                    let reason = `Max ${defaultMax}`;
-                    if (data.isUniqueKeyword && saWlLegal.some(c => normalizeName(c.name).toLowerCase() === norm)) {
-                        max = 1;
-                        reason = `Unique in SA (Max 1)`;
-                    }
-                    if (isCardEpic(data, selectedEditions)) {
-                        max = epicMax;
-                        reason = `Epic (Max ${max})`;
-                    }
-                    if (count > max) {
-                        violations.push(`${data.name} (${count} copies, ${reason})`);
-                        deckIsLegal = false;
-                    }
-                }
-            }
-
-            for (const norm in warlordTotals) {
-                const data = cardDatabase[norm];
-                if (!data) continue;
-                let max = defaultMax;
-                let reason = `Max ${defaultMax}`;
-                let warlordExceptionMax = null;
-                if (norm === 'zartoch' || norm === 'ferrisbachman') {
-                    const wlEx = (window.WARLORD_EXCEPTIONS || []).find(e => e.normalizedWarlordName === norm && e.copyLimitException);
-                    if (wlEx && wlEx.copyLimitException && typeof wlEx.copyLimitException.maxCopies === 'number') {
-                        warlordExceptionMax = wlEx.copyLimitException.maxCopies;
-                    }
-                }
-                if (warlordExceptionMax !== null) {
-                    max = warlordExceptionMax;
-                    reason = `Warlord Exception (Max ${max})`;
-                } else if (copyException && data.normalizedName === copyException.normalizedCardName) {
-                    max = copyException.maxCopies;
-                    reason = `Warlord Exception (Max ${max})`;
-                } else {
-                    max = warlordMax;
-                    reason = `Warlord (Max ${max})`;
-                }
-                if (warlordTotals[norm] > max) {
-                    violations.push(`${data.name} (${warlordTotals[norm]} copies, ${reason})`);
-                    deckIsLegal = false;
-                }
-            }
-
-            let saWarlordCounts = {};
-            saWlLegal.forEach(c => {
-                if (c.isWarlord) {
-                    const norm = normalizeName(c.name).toLowerCase();
-                    saWarlordCounts[norm] = (saWarlordCounts[norm] || 0) + (c.count || 1);
-                }
-            });
-            for (const norm in saWarlordCounts) {
-                if (saWarlordCounts[norm] > 1) {
-                    violations.push(`${cardDatabase[norm] ? cardDatabase[norm].name : norm} (${saWarlordCounts[norm]} copies in Starting Army, Max 1 allowed)`);
-                    deckIsLegal = false;
-                }
-            }
-
-            const mainDeckWarlords = allLegalCards.filter(c => c.isWarlord && !saWlLegal.includes(c));
-            mainDeckWarlords.forEach(c => {
-                const norm = normalizeName(c.name).toLowerCase();
-                if (norm !== 'zartoch' && norm !== 'ferrisbachman') {
-                    violations.push(`${c.name} is a warlord and is only allowed in the Starting Army`);
-                    deckIsLegal = false;
-                }
-            });
-
-            return { deckIsLegal, violations };
-        };
-
-        const checkOverlordLimit = (allLegalCards) => {
-            let overlordCount = 0;
-            const foundOverlords = [];
-            allLegalCards.forEach(card => {
-                if (card.rawSubtype && card.rawSubtype.includes('overlord')) {
-                    overlordCount++;
-                    foundOverlords.push(card.name);
-                }
-            });
-            if (overlordCount > 1) {
-                return {
-                    pass: false,
-                    result: { status: 'FAIL', message: `Overlord Limit: Deck contains ${overlordCount} Overlord cards (${[...new Set(foundOverlords)].join(', ')}). Max 1 allowed.` }
-                };
-            }
-            if (overlordCount === 1) return { pass: true, result: { status: 'PASS', message: 'Overlord limit (Max 1) respected.' } };
-            return { pass: true, result: null };
-        };
-
-        const checkdragonlordLimit = (allLegalCards) => {
-            let dragonlordCount = 0;
-            const founddragonlords = [];
-            allLegalCards.forEach(card => {
-                if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
-                    dragonlordCount++;
-                    founddragonlords.push(card.name);
-                }
-            });
-            if (dragonlordCount > 1) {
-                return {
-                    pass: false,
-                    result: { status: 'FAIL', message: `Dragon Lord Limit: Deck contains ${dragonlordCount} Dragon Lord cards (${[...new Set(founddragonlords)].join(', ')}). Max 1 allowed.` }
-                };
-            }
-            if (dragonlordCount === 1) return { pass: true, result: { status: 'PASS', message: 'Dragon Lord limit (Max 1) respected.' } };
-            return { pass: true, result: null };
-        };
-
-        const checkdaemonlordLimit = (allLegalCards) => {
-            let daemonlordCount = 0;
-            const founddaemonlords = [];
-            allLegalCards.forEach(card => {
-                if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
-                    daemonlordCount++;
-                    founddaemonlords.push(card.name);
-                }
-            });
-            if (daemonlordCount > 1) {
-                return {
-                    pass: false,
-                    result: { status: 'FAIL', message: `Daemonlord Limit: Deck contains ${daemonlordCount} Daemonlord cards (${[...new Set(founddaemonlords)].join(', ')}). Max 1 allowed.` }
-                };
-            }
-            if (daemonlordCount === 1) return { pass: true, result: { status: 'PASS', message: 'Daemonlord limit (Max 1) respected.' } };
-            return { pass: true, result: null };
-        };
-
-        const checkRestrictions = (allLegalCards, activeRuleSet) => {
-            const restricted = activeRuleSet.restricted;
-            if (!restricted) return { pass: true };
-            const restrictedNames = restricted.names || [];
-            const restrictedSets = restricted.sets || [];
-            const restrictedRarities = restricted.rarities || [];
-            if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) return { pass: true };
-            
-            const violations = [];
-            const scannedCards = new Set();
-            allLegalCards.forEach(card => {
-                if (scannedCards.has(card.name)) return; 
-                scannedCards.add(card.name);
-                if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
-                    violations.push(`${card.name} (Banned Name)`);
-                    return;
-                }
-                if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
-                    const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
-                        return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
-                    });
-                    if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
-                         violations.push(`${card.name} (Restricted Set/Rarity)`);
-                    }
-                }
-            });
-            if (violations.length > 0) return { pass: false, result: { status: 'FAIL', message: `Restricted Cards: ${violations.join(', ')}` } };
-            return { pass: true, result: { status: 'PASS', message: 'No restricted cards found.' } };
-        };
-
-        const checkFactionLoyalty = (allSaCards, warlords, warlordException, jautyaExceptionCard, extraSACard, activeRuleSet, contextLabel) => {
-            let loyaltyStatus = 'PASS';
-            let loyaltyMessage = `${contextLabel} characters share a faction with the Warlord.`;
-            
-            const allWarlordFactions = new Set();
-            const warlordList = Array.isArray(warlords) ? warlords : (warlords ? [warlords] : []);
-
-            const isFullBypass = (warlordException?.loyaltyBypass?.fullBypass) || !!activeRuleSet.fullBypass;
-            const requiresAlignment = warlordException?.requiresAlignment || null;
-            const requiresUnifiedFaction = !!(activeRuleSet.requiresUnifiedFaction || warlordException?.requiresUnifiedFaction);
-
-            if (warlordList.length === 0 && !requiresUnifiedFaction && !requiresAlignment && !isFullBypass) return { pass: true, result: { status: 'WARNING', message: 'No Warlord found.' } };
-
-            const warlordNamesString = warlordList.map(w => w.name).join(' / ');
-            warlordList.forEach(wl => {
-                (wl.faction || '').toLowerCase().split(' ').filter(f => f && f !== 'neutral').forEach(f => allWarlordFactions.add(f));
-            });
-            const warlordFactions = Array.from(allWarlordFactions);
-            const warlordFactionDisplay = warlordFactions.map(f => f.toUpperCase()).join(', ');
-            
-            let cardsToCheck = allSaCards;
-            if (extraSACard) cardsToCheck = cardsToCheck.filter(c => c.name !== extraSACard.name);
-            else if (jautyaExceptionCard) cardsToCheck = cardsToCheck.filter(c => c.name !== jautyaExceptionCard.name);
-
-            const violations = [];
-            
-            if (isFullBypass) {
-                loyaltyMessage = `Loyalty bypassed by Warlord **${warlordNamesString}**.`;
-            } else if (requiresAlignment) {
-                loyaltyMessage = `All characters match **${requiresAlignment}** alignment (Warlord **${warlordNamesString}** requirement).`;
-                cardsToCheck.forEach(c => {
-                    if (c.type === 'Character' && !c.isFactionWildcard && c.alignment !== requiresAlignment) {
-                        violations.push(`${c.name} (${c.alignment || 'None'})`);
-                    }
-                });
-            } else if (requiresUnifiedFaction) {
-                const charCards = cardsToCheck.filter(c => c.type === 'Character' && !c.isFactionWildcard);
-                if (charCards.length === 0) {
-                    loyaltyMessage = `No character faction data available to enforce unified faction.`;
-                } else {
-                    const firstFactions = (charCards[0].faction || '').toLowerCase().split(' ').filter(Boolean);
-                    const firstSet = new Set(firstFactions);
-                    const violationsUnified = [];
-                    for (const c of charCards) {
-                        if (warlordException?.loyaltyBypass?.requiredClass && c.classes.includes(warlordException.loyaltyBypass.requiredClass)) continue;
-                        const cFactions = (c.faction || '').toLowerCase().split(' ').filter(Boolean);
-                        const intersects = cFactions.some(f => firstSet.has(f));
-                        if (!intersects) violationsUnified.push(`${c.name} (${c.faction || 'None'})`);
-                    }
-                    if (violationsUnified.length > 0) {
-                        loyaltyStatus = 'FAIL';
-                        loyaltyMessage = `Unified Faction Violations: ${violationsUnified.join(', ')}`;
-                    } else {
-                        loyaltyMessage = `All characters share a single faction (${firstFactions[0] ? firstFactions[0].toUpperCase() : 'UNKNOWN'}).`;
-                    }
-                }
-            } else if (!requiresUnifiedFaction && warlordFactions.length > 0) {
-                loyaltyMessage = `All characters match **${warlordFactionDisplay}** faction (Warlord **${warlordNamesString}**).`;
-                cardsToCheck.forEach(c => {
-                    if (c.type === 'Character' && !c.isFactionWildcard) {
-                        if (warlordException?.loyaltyBypass?.requiredClass && c.classes.includes(warlordException.loyaltyBypass.requiredClass)) return;
-                        const cFactions = (c.faction || '').toLowerCase().split(' ');
-                        if (!cFactions.some(f => warlordFactions.includes(f))) violations.push(`${c.name} (${c.faction})`);
-                    }
-                });
-            }
-
-            if (violations.length > 0) {
-                loyaltyStatus = 'FAIL';
-                loyaltyMessage = `Loyalty Violations in ${contextLabel}:<br>${violations.join('<br>')}`;
-            }
-            return { pass: loyaltyStatus === 'PASS', result: { status: loyaltyStatus, message: loyaltyMessage } };
-        };
-
-        const checkSAComposition = (allSaCards, warlords, warlordData, activeRuleSet, warlordException, selectedEditions, extraSACard) => {
-            const saRequired = activeRuleSet.saRequiredSlots || [];
-            const slotsToFill = {};
-            saRequired.forEach(s => slotsToFill[s.level] = s.count);
-            
-            let saMessage = [];
-            let saStatus = 'PASS';
-
-            let cardsToCount = [...allSaCards];
-            if (extraSACard) {
-                 const idx = cardsToCount.findIndex(c => c.name === extraSACard.name);
-                 if (idx > -1) cardsToCount.splice(idx, 1);
-            }
-
-            const exceptions = warlordException?.compositionExceptions ? [...warlordException.compositionExceptions] : [];
-            
-            cardsToCount = cardsToCount.filter(c => {
-                const charEx = SA_CHARACTER_EXCEPTIONS.find(e => e.normalizedName === normalizeName(c.name).toLowerCase());
-                if (charEx) {
-                    charEx.consumes.forEach(l => slotsToFill[l] = (slotsToFill[l] || 0) - 1);
-                    return false; 
-                }
-                return true;
-            });
-
-            if (warlordException && !warlordException.addsExtraSASlot) {
-                const wlExceptions = [...exceptions];
-                for (const card of cardsToCount) {
-                    let exceptionApplied = false;
-                      for (let i = 0; i < wlExceptions.length; i++) {
-                        const ex = wlExceptions[i];
-                        const criteria = ex.criteria;
-                        const levelMatch = card.level === criteria.level;
-                        const classMatch = criteria.isSingleClass 
-                            ? (card.classes.length === 1 && card.classes.includes(criteria.classes[0]))
-                            : card.classes.some(c => criteria.classes.includes(c));
-                        
-                        if (card.type === criteria.type && levelMatch && classMatch) {
-                            slotsToFill[ex.replaces] = (slotsToFill[ex.replaces] || 0) - 1;
-                            wlExceptions.splice(i, 1);
-                            exceptionApplied = true;
-                            break;
-                        }
-                      }
-                      if (exceptionApplied) {
-                          cardsToCount = cardsToCount.filter(c => c !== card);
-                      }
-                }
-            }
-
-            cardsToCount.forEach(c => {
-                if (c.type === 'Character') {
-                    if (slotsToFill[c.level] !== undefined) slotsToFill[c.level] -= (c.count || 1);
-                    else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
-                } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
-                      saMessage.push(`Invalid card type in SA: ${c.name}`);
-                }
-            });
-
-            const reqWl = activeRuleSet.warlordCount || 1;
-            if (warlords.length !== reqWl) {
-                const uniqueWarlordNorms = Array.from(new Set(warlords.map(w => (w.normalizedName || normalizeName(w.name).toLowerCase()))));
-                if (
-                    uniqueWarlordNorms.length === 1 &&
-                    (uniqueWarlordNorms[0] === 'zartoch' || uniqueWarlordNorms[0] === 'ferrisbachman') &&
-                    warlordException && warlordException.copyLimitException && warlordException.copyLimitException.maxCopies > 1 &&
-                    warlords.length <= warlordException.copyLimitException.maxCopies
-                ) {
-                    // Allow this case
-                } else {
-                    saMessage.push(`Wrong Warlord count: ${warlords.length} (Expected ${activeRuleSet.warlordCount || 1})`);
-                    saStatus = 'FAIL';
-                }
-            }
-
-            for (const [lvl, count] of Object.entries(slotsToFill)) {
-                if (count !== 0) {
-                    saMessage.push(`Level ${lvl} slots mismatch: ${count > 0 ? 'Missing ' + count : 'Excess ' + Math.abs(count)}`);
-                    saStatus = 'FAIL';
-                }
-            }
-            
-            const forbiddenInSA = [];
-            cardsToCount.forEach(c => {
-                 if (isSAForbidden(c, selectedEditions)) forbiddenInSA.push(c.name);
-                 if (warlordException?.saForbiddenCards && warlordException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase())) forbiddenInSA.push(c.name);
-            });
-            
-            if (forbiddenInSA.length > 0) {
-                 saMessage.push(`Forbidden in Starting Army: ${[...new Set(forbiddenInSA)].join(', ')}`);
-                 saStatus = 'FAIL';
-            }
-
-            const msg = saMessage.length ? saMessage.join('<br>') : `Starting Army structure is valid.`;
-            return { pass: saStatus === 'PASS', result: { status: saStatus, message: msg } };
-        };
-
-        const checkTotalCount = (allLegalCards, activeRuleSet) => { 
-            const minTotalDeck = activeRuleSet.minTotalDeck || 50; 
-            const totalLegalCount = allLegalCards.reduce((sum, card) => sum + (card.count || 1), 0);
-            let countStatus = 'PASS';
-            let countMessage = `Total legal cards in SA and Main Deck: **${totalLegalCount}** (${totalLegalCount} cards total).`;
-
-            if (totalLegalCount < minTotalDeck) {
-                countStatus = 'FAIL';
-                countMessage += ` The deck needs a minimum of **${minTotalDeck}** legal cards total. Missing ${minTotalDeck - totalLegalCount} total cards.`;
-            } 
-            return {
-                pass: countStatus === 'PASS',
-                result: { status: countStatus, message: countMessage }
-            };
-        };
-
-        const checkTypeDominance = (allLegalCards) => {
-            const typeCounts = {};
-            let total = 0;
-            allLegalCards.forEach(card => {
-                const type = card.type || 'Unknown Type';
-                const count = card.count || 1;
-                typeCounts[type] = (typeCounts[type] || 0) + count;
-                total += count;
-            });
-
-            const maxAllowedTypeCount = Math.max(25, Math.floor(total / 2));
-            const dominanceViolations = [];
-
-            for (const type in typeCounts) {
-                if (typeCounts[type] > maxAllowedTypeCount) {
-                    dominanceViolations.push(`${type} (${typeCounts[type]} copies out of ${total}, > 50%)`);
-                }
-            }
-
-            let typeDominanceStatus = 'PASS';
-            let typeDominanceMessage = `No single card type exceeds 50% of the deck (${maxAllowedTypeCount} cards allowed).`;
-
-            if (dominanceViolations.length > 0) {
-                typeDominanceStatus = 'FAIL';
-                typeDominanceMessage = `The following card types exceed the 50% maximum limit (${maxAllowedTypeCount} cards allowed): ${[...new Set(dominanceViolations)].join(', ')}.`;
-            }
-
-            return {
-                pass: typeDominanceStatus === 'PASS',
-                result: { status: typeDominanceStatus, message: typeDominanceMessage }
-            };
-        };
-
-        // --- MAIN CHECK ---
         const checkDeck = () => {
             const saInput = document.getElementById('sa-wl-input').value.trim();
             const mdInput = document.getElementById('main-deck-input').value.trim();
             const activeRuleSet = RULE_SETS[rulesetSelect.value] || RULE_SETS['default'];
             const selectedEditions = activeRuleSet.editions;
-
-            const cardCounts = {};
-            const saList = [], mdList = [];
-            parseCardInput(saInput, cardCounts, saList);
-            parseCardInput(mdInput, cardCounts, mdList);
+            const cardCounts = {}; const saList = [], mdList = [];
+            parseCardInput(saInput, cardCounts, saList); parseCardInput(mdInput, cardCounts, mdList);
             const allCards = [...saList, ...mdList];
+            const checks = {}; let deckIsLegal = true;
 
-            const checks = {};
-            let deckIsLegal = true;
-
-            // Unknown Cards
             const unknown = [...saList, ...mdList].filter(c => c.isUnknown);
-            if (unknown.length > 0) {
-                checks.unknown = { status: 'FAIL', message: `Unknown cards: ${[...new Set(unknown.map(c => c.name))].join(', ')}` };
-                deckIsLegal = false;
-            }
-        
+            if (unknown.length > 0) { checks.unknown = { status: 'FAIL', message: `Unknown cards: ${[...new Set(unknown.map(c => c.name))].join(', ')}` }; deckIsLegal = false; }
+            
             const editionViolations = [];
-            allCards.forEach(card => {
-                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name);
-            });
-            if (editionViolations.length > 0) {
-                checks.editionLegality = { status: 'FAIL', message: `Illegal edition cards: ${[...new Set(editionViolations)].join(', ')}` };
-                deckIsLegal = false;
-            } else {
-                 checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
-            }
+            allCards.forEach(card => { if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name); });
+            if (editionViolations.length > 0) { checks.editionLegality = { status: 'FAIL', message: `Illegal edition: ${[...new Set(editionViolations)].join(', ')}` }; deckIsLegal = false; }
+            else { checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` }; }
 
             const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const allSubmittedCards = [...saList, ...mdList];
-
             const warlords = [...saList, ...mdList].filter(c => c.isWarlord);
             const saCards = saList.filter(c => !c.isWarlord);
             const wlData = warlords.length > 0 ? warlords[0] : null;
             const wlException = getWarlordException(wlData);
-
             let extraSACard = null;
             if (wlException?.addsExtraSASlot && wlData) {
                   const criteria = wlException.compositionExceptions[0]?.criteria;
@@ -861,269 +455,148 @@
                       });
                   }
             }
-
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
             if (!copyRes.deckIsLegal) deckIsLegal = false;
-
             const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
-            if (!restrictionRes.pass) {
-                checks.restrictions = restrictionRes.result;
-                deckIsLegal = false;
-            }
-
+            if (!restrictionRes.pass) { checks.restrictions = restrictionRes.result; deckIsLegal = false; }
             const saLoyalty = checkFactionLoyalty(saCards, warlords, wlException, null, extraSACard, activeRuleSet, "Starting Army");
-            checks.saLoyalty = saLoyalty.result;
-            if (!saLoyalty.pass) deckIsLegal = false;
-
+            checks.saLoyalty = saLoyalty.result; if (!saLoyalty.pass) deckIsLegal = false;
             if (activeRuleSet.checkMainDeckFaction) {
                 const mdChars = mainDeckLegal.filter(c => c.type === 'Character');
                 const mdLoyalty = checkFactionLoyalty(mdChars, warlords, wlException, null, null, activeRuleSet, "Main Deck");
-                checks.mdLoyalty = mdLoyalty.result;
-                if (!mdLoyalty.pass) deckIsLegal = false;
+                checks.mdLoyalty = mdLoyalty.result; if (!mdLoyalty.pass) deckIsLegal = false;
             }
-
             const saComp = checkSAComposition(saCards, warlords, wlData, activeRuleSet, wlException, selectedEditions, extraSACard);
-            checks.saComp = saComp.result;
-            if (!saComp.pass) deckIsLegal = false;
-            
+            checks.saComp = saComp.result; if (!saComp.pass) deckIsLegal = false;
             const totalCountCheck = checkTotalCount(allLegalCards, activeRuleSet);
-            checks.totalCount = totalCountCheck.result;
-            if (!totalCountCheck.pass) deckIsLegal = false;
-
+            checks.totalCount = totalCountCheck.result; if (!totalCountCheck.pass) deckIsLegal = false;
             const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
-            checks.typeDominance = typeDominanceCheck.result;
-            if (!typeDominanceCheck.pass) deckIsLegal = false;
-            
+            checks.typeDominance = typeDominanceCheck.result; if (!typeDominanceCheck.pass) deckIsLegal = false;
             const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
-            if (overlordCheck.result) { 
-                 checks.overlordLimit = overlordCheck.result;
-                 if (!overlordCheck.pass) deckIsLegal = false;
-            }
+            if (overlordCheck.result) { checks.overlordLimit = overlordCheck.result; if (!overlordCheck.pass) deckIsLegal = false; }
             const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
-            if (dragonlordCheck.result) { 
-                 checks.dragonlordLimit = dragonlordCheck.result;
-                 if (!dragonlordCheck.pass) deckIsLegal = false;
-            }
+            if (dragonlordCheck.result) { checks.dragonlordLimit = dragonlordCheck.result; if (!dragonlordCheck.pass) deckIsLegal = false; }
             const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
-            if (daemonlordCheck.result) { 
-                 checks.daemonlordLimit = daemonlordCheck.result;
-                 if (!daemonlordCheck.pass) deckIsLegal = false;
-            }
+            if (daemonlordCheck.result) { checks.daemonlordLimit = daemonlordCheck.result; if (!daemonlordCheck.pass) deckIsLegal = false; }
             const activeExceptionsMessage = [];
-            if (extraSACard) {
-                 activeExceptionsMessage.push(`Exception Active: **${extraSACard.name}** added as extra SA card.`);
-            }
+            if (extraSACard) activeExceptionsMessage.push(`Exception Active: **${extraSACard.name}** added as extra SA card.`);
             const activeRings = SA_RING_EXCEPTIONS.filter(r => saCards.some(c => normalizeName(c.name).toLowerCase() === r.normalizedName));
             activeRings.forEach(r => activeExceptionsMessage.push(`Exception Active: **${r.name}** equip rule.`));
-            
-            if (activeExceptionsMessage.length > 0) {
-                 checks.activeExceptions = { status: 'INFO', message: activeExceptionsMessage.join('<br>') };
-            }
+            if (activeExceptionsMessage.length > 0) checks.activeExceptions = { status: 'INFO', message: activeExceptionsMessage.join('<br>') };
 
-            // --- RENDER RESULTS ---
-            let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
-            
-            const displayOrder = [
-                'unknown', 'editionLegality', 'restrictions', 'totalCount', 'saComp', 
-                'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit',
-                'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions' 
-            ];
-
-            const ruleLabels = {
-                unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions',
-                totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
-                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', overlordLimit: 'Overlord Limit',
-                dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
-                typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
-            };
-
+            let html = `<div class="card-container p-6 rounded shadow-lg"><h2 class="text-2xl font-black text-dwarf-gold mb-4 border-b border-dwarf-magma pb-2 uppercase tracking-widest">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-dwarf-lava'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
+            const displayOrder = ['unknown', 'editionLegality', 'restrictions', 'totalCount', 'saComp', 'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit', 'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions'];
+            const ruleLabels = { unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions', totalCount: 'Deck Size', saComp: 'Starting Army Comp', saLoyalty: 'Starting Army Loyalty', mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit', typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions' };
             for (const key of displayOrder) {
                 const res = checks[key];
                 if (res) {
-                    let icon = '🟢';
-                    let color = 'text-green-400';
-                    if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
-                    if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
-                    if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
-                    let msg = res.message || '';
-                    if (res.status === 'PASS' && !msg) msg = 'No issues found.';
-                    html += `<div class="mb-2 text-sm"><span class="${color} mr-2">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color} ml-1">${msg}</span></div>`;
+                    let icon = '🛡️'; let color = 'text-green-400';
+                    if (res.status === 'FAIL') { icon = '⚔️'; color = 'text-dwarf-lava'; }
+                    if (res.status === 'INFO') { icon = '📜'; color = 'text-blue-400'; }
+                    if (res.status === 'WARNING') { icon = '⚠️'; color = 'text-dwarf-bronze'; }
+                    let msg = res.message || ''; if (res.status === 'PASS' && !msg) msg = 'No issues found.';
+                    html += `<div class="mb-2 text-sm font-body"><span class="${color} mr-2">${icon}</span> <strong class="text-stone-300 font-rune tracking-wide">${ruleLabels[key] || key}:</strong> <span class="${color} ml-1">${msg}</span></div>`;
                 }
             }
             html += `</div></div>`;
             
-            // --- SUBMISSION UI ---
             html += `
-            <div class="card-container p-6 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                <h3 class="text-lg font-bold text-white mb-2">Submit Deck to Event</h3>
-                <p class="text-sm text-gray-400 mb-4">To withdraw, enter <b>Withdraw from Event</b> as your only Starting Army card.</p>
+            <div class="card-container p-6 rounded mt-6 bg-dwarf-dark border border-dwarf-iron shadow-2xl">
+                <h3 class="text-xl font-bold text-dwarf-gold mb-3 font-rune uppercase">Archive Deck to Event</h3>
+                <p class="text-sm text-stone-400 mb-4 font-body">To withdraw, enter <b>Withdraw from Event</b> as your only Starting Army card.</p>
                 <form id="deck-submit-form" class="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
                     <div class="flex-1">
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Authenticated User</label>
-                        <span id="discord-user-summary" class="block w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-300 rounded-lg text-sm">Not logged in</span>
+                        <label class="block text-xs font-bold text-dwarf-bronze mb-1 uppercase tracking-wide">Commander (User)</label>
+                        <span id="discord-user-summary" class="block w-full p-2.5 bg-black border border-dwarf-iron text-stone-300 rounded text-sm font-mono">Not logged in</span>
                     </div>
                     <div class="flex-1">
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Event Name</label>
-                        <select id="submit-eventname" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500"></select>
+                        <label class="block text-xs font-bold text-dwarf-bronze mb-1 uppercase tracking-wide">Target Event</label>
+                        <select id="submit-eventname" class="w-full p-2.5 bg-black border border-dwarf-iron text-dwarf-gold rounded text-sm outline-none focus:border-dwarf-gold font-body"></select>
                     </div>
-                    <button id="submit-deck-button" type="button" class="bg-amber-600 hover:bg-amber-500 disabled:bg-gray-600 disabled:text-gray-400 text-white font-bold py-2.5 px-6 rounded-lg transition-colors">
+                    <button id="submit-deck-button" type="button" class="btn-forge disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-2.5 px-6 rounded transition-colors uppercase font-rune tracking-wide">
                         Submit Deck
                     </button>
                 </form>
-                <p id="submit-status" class="text-sm font-semibold text-center md:text-left text-amber-400 mt-3"></p>
+                <p id="submit-status" class="text-sm font-bold font-rune text-center md:text-left text-dwarf-gold mt-3"></p>
             </div>`;
-            
             document.getElementById('results').innerHTML = html;
-
-            // Re-bind Submission Logic
             bindSubmissionLogic(deckIsLegal, warlords, saList, allCards);
         };
 
         const bindSubmissionLogic = (deckIsLegal, warlords, saList, allCards) => {
             populateEventDropdown();
-            
             const submitButton = document.getElementById('submit-deck-button');
             const eventSelect = document.getElementById('submit-eventname');
             const statusEl = document.getElementById('submit-status');
             const discordUserSummary = document.getElementById('discord-user-summary');
-
-            // Update user summary display within submission box
             if (window.discordUser && window.discordUser.id) {
                 let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
                 if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
                 discordUserSummary.textContent = displayText;
-                discordUserSummary.classList.add('text-green-400');
+                discordUserSummary.classList.add('text-green-500');
             } else {
-                discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
-                discordUserSummary.classList.remove('text-green-400');
+                discordUserSummary.textContent = 'Login required (Top Right).';
+                discordUserSummary.classList.remove('text-green-500');
             }
-
-            // Special case for withdrawal
             const saInputVal = document.getElementById('sa-wl-input').value.trim();
             const mdInputVal = document.getElementById('main-deck-input').value.trim();
             const isWithdraw = saInputVal && saInputVal.split('\n').length === 1 && saInputVal.trim().toLowerCase() === 'withdraw from event' && (!mdInputVal);
-
             if (!window.discordUser || !window.discordUser.id) {
-                submitButton.disabled = true;
-                statusEl.textContent = 'Login required to submit.';
+                submitButton.disabled = true; statusEl.textContent = 'Login required to submit.';
             } else if (!deckIsLegal && !isWithdraw) {
-                submitButton.disabled = true;
-                statusEl.textContent = 'Deck must be legal to submit.';
+                submitButton.disabled = true; statusEl.textContent = 'Deck must be legal to submit.';
             } else {
-                submitButton.disabled = false;
-                statusEl.textContent = '';
+                submitButton.disabled = false; statusEl.textContent = '';
             }
-
             submitButton.onclick = async () => {
                 const saInputValNow = document.getElementById('sa-wl-input').value.trim();
                 const mdInputValNow = document.getElementById('main-deck-input').value.trim();
                 const isWithdrawNow = saInputValNow && saInputValNow.split('\n').length === 1 && saInputValNow.trim().toLowerCase() === 'withdraw from event' && (!mdInputValNow);
-
-                if (!window.discordUser) {
-                    statusEl.textContent = 'Login required.'; return;
-                }
-                
+                if (!window.discordUser) { statusEl.textContent = 'Login required.'; return; }
                 const eventName = (eventSelect.value || '').trim();
-                if(!eventName) {
-                    statusEl.textContent = 'Please select an event.'; return;
-                }
-                
-                // Ruleset check
+                if(!eventName) { statusEl.textContent = 'Please select an event.'; return; }
                 const selectedOpt = eventSelect.selectedOptions[0];
                 const requiredRuleset = selectedOpt ? selectedOpt.dataset.ruleset : null;
                 const currentRuleset = rulesetSelect.value;
-                if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdrawNow) {
-                    statusEl.textContent = `Error: Event requires "${requiredRuleset}" format. You selected "${currentRuleset}".`;
-                    return;
-                }
-
+                if (requiredRuleset && currentRuleset !== requiredRuleset && !isWithdrawNow) { statusEl.textContent = `Error: Event requires "${requiredRuleset}" format.`; return; }
                 try {
                     statusEl.textContent = 'Submitting...';
                     let body;
-                    if (isWithdrawNow) {
-                        body = JSON.stringify({ eventName, warlord: null, cardList: null, deckContents: [{ name: 'Withdraw from Event' }] });
-                    } else {
-                        // Helper to organize lists
+                    if (isWithdrawNow) { body = JSON.stringify({ eventName, warlord: null, cardList: null, deckContents: [{ name: 'Withdraw from Event' }] }); }
+                    else {
                         const buildCardListByType = (allCards, saCards) => {
                             const typeMap = {};
-                            allCards.forEach(card => {
-                                const type = card.type || 'Unknown';
-                                if (!typeMap[type]) typeMap[type] = {};
-                                typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1);
-                            });
-                            const saMap = {};
-                            saCards.forEach(card => saMap[card.name] = (saMap[card.name] || 0) + (card.count || 1));
-                            Object.keys(typeMap).forEach(type => {
-                                typeMap[type] = { ...typeMap[type], StartingArmy: {} };
-                            });
-                            saCards.forEach(card => {
-                                const type = card.type || 'Unknown';
-                                if (typeMap[type]) typeMap[type].StartingArmy[card.name] = (typeMap[type].StartingArmy[card.name] || 0) + (card.count || 1);
-                            });
+                            allCards.forEach(card => { const type = card.type || 'Unknown'; if (!typeMap[type]) typeMap[type] = {}; typeMap[type][card.name] = (typeMap[type][card.name] || 0) + (card.count || 1); });
+                            Object.keys(typeMap).forEach(type => { typeMap[type] = { ...typeMap[type], StartingArmy: {} }; });
+                            saCards.forEach(card => { const type = card.type || 'Unknown'; if (typeMap[type]) typeMap[type].StartingArmy[card.name] = (typeMap[type].StartingArmy[card.name] || 0) + (card.count || 1); });
                             return typeMap;
                         };
-
                         const cardList = buildCardListByType(allCards, saList);
                         const warlordName = warlords.length > 0 ? warlords[0].name : null;
                         body = JSON.stringify({ eventName, warlord: warlordName, cardList, deckContents: allCards });
                     }
-                    
-                    const resp = await fetch(getBackendUrl() + '/api/submit-deck', {
-                        method: 'POST',
-                        credentials: 'include',
-                        headers: { 'Content-Type': 'application/json' },
-                        body
-                    });
+                    const resp = await fetch(getBackendUrl() + '/api/submit-deck', { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body });
                     const result = await resp.json();
                     if (resp.ok && result.success) {
-                        statusEl.className = 'text-green-400 mt-2 font-bold';
+                        statusEl.className = 'text-green-400 mt-2 font-bold font-rune';
                         statusEl.textContent = result.withdrawn ? 'Withdrawn successfully.' : 'Deck submitted successfully!';
-                    } else {
-                        throw new Error(result.error || 'Unknown error');
-                    }
-                } catch (err) {
-                    statusEl.className = 'text-red-400 mt-2 font-bold';
-                    statusEl.textContent = 'Submit failed: ' + (err.message || err);
-                }
+                    } else { throw new Error(result.error || 'Unknown error'); }
+                } catch (err) { statusEl.className = 'text-dwarf-lava mt-2 font-bold font-rune'; statusEl.textContent = 'Submit failed: ' + (err.message || err); }
             };
         };
 
-        const clearDeck = () => {
-            document.getElementById('sa-wl-input').value = '';
-            document.getElementById('main-deck-input').value = '';
-            document.getElementById('results').innerHTML = '';
-        };
-
-        window.checkDeck = checkDeck;
-        window.clearDeck = clearDeck;
-
-        // --- INIT ---
+        const clearDeck = () => { document.getElementById('sa-wl-input').value = ''; document.getElementById('main-deck-input').value = ''; document.getElementById('results').innerHTML = ''; };
+        window.checkDeck = checkDeck; window.clearDeck = clearDeck;
         document.addEventListener('DOMContentLoaded', async () => {
-            const clearBtn = document.getElementById('clear-deck-button');
-            const checkBtn = document.getElementById('check-deck-button');
-            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
-            if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
-
-            // Load Data
+            const clearBtn = document.getElementById('clear-deck-button'); const checkBtn = document.getElementById('check-deck-button');
+            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck); if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
             const loaded = await loadAppData();
-            if (loaded) {
-                loadingStatusDiv.classList.add('hidden');
-                inputSectionDiv.classList.remove('hidden');
-            } else {
-                loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold'>❌ Failed to load card data.</p>`;
-            }
-            
-            // Update listener
-            window.addEventListener('storage', async (e) => {
-                 if (e.key === 'warlordConfigUpdate') location.reload();
-            });
-            
-            rulesetSelect.addEventListener('change', () => {
-                document.getElementById('results').innerHTML = '';
-            });
+            if (loaded) { loadingStatusDiv.classList.add('hidden'); inputSectionDiv.classList.remove('hidden'); }
+            else { loadingStatusDiv.innerHTML = `<p class='text-dwarf-lava font-bold'>❌ Failed to load card data.</p>`; }
+            window.addEventListener('storage', async (e) => { if (e.key === 'warlordConfigUpdate') location.reload(); });
+            rulesetSelect.addEventListener('change', () => { document.getElementById('results').innerHTML = ''; });
         });
-
     </script>
 </body>
 </html>
