@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warlord Deck Legality Checker (v2.2)</title>
+    <title>Bobby (v2.0)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -25,7 +25,7 @@
         
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-700 pb-6">
             <div>
-                <h1 class="text-3xl font-extrabold text-amber-500 tracking-tight">Warlord Deck Checker</h1>
+                <h1 class="text-3xl font-extrabold text-amber-500 tracking-tight">Bobby 2.0</h1>
                 <p class="text-gray-400 text-sm mt-1">Validate deck legality for various formats.</p>
             </div>
             
@@ -87,8 +87,9 @@
     </div>
 
     <script type="module">
-        // Globals referenced in original script
-        window.BACKEND_URL = window.location.origin; // Or define your specific backend URL here
+        // Use existing window.BACKEND_URL or fallback to origin if not defined.
+        // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
+        const getBackendUrl = () => window.BACKEND_URL || window.location.origin;
         
         // DOM Elements
         const discordUserInfo = document.getElementById('discord-user-info');
@@ -100,8 +101,7 @@
         // --- AUTH LOGIC ---
         async function fetchDiscordUser() {
             try {
-                // If running locally or without backend, this might fail, so we catch errors
-                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
+                const res = await fetch(getBackendUrl() + '/api/auth/success', {
                     credentials: 'include'
                 });
                 if (res.ok) {
@@ -119,20 +119,16 @@
                     discordLoginBtn.style.display = 'block';
                 }
             } catch (e) {
-                console.log("Auth check skipped or failed (backend might be offline).");
+                console.log("Auth check skipped or failed.");
                 window.discordUser = null;
                 discordUserInfo.textContent = '';
                 discordLoginBtn.style.display = 'block';
-            }
-            // Always refresh the UI after login state changes if deck checked
-            if (typeof window.checkDeck === 'function' && document.getElementById('results').innerHTML !== '') {
-                 // Optional: re-check deck to update button state
             }
         }
 
         if (discordLoginBtn) {
             discordLoginBtn.addEventListener('click', () => {
-                window.location.href = window.BACKEND_URL + '/api/auth/discord';
+                window.location.href = getBackendUrl() + '/api/auth/discord';
             });
         }
         
@@ -149,8 +145,8 @@
         let FACTION_WILDCARD_NAMES = [];
         
         const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        const CONFIG_DATA_URL = window.BACKEND_URL + "/api/config";
-        const EVENT_LIST_URL = window.BACKEND_URL + "/events/event_list.json";
+        const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
+        const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
         // --- REGEX & CONSTANTS ---
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
@@ -181,18 +177,15 @@
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             for (let i = 0; i < retries; i++) {
                 try {
-                    // Fallback for config/events if backend is missing (for standalone testing)
                     let configJson = { rulesets: { default: { name: "Standard", editions: [] } } };
                     let eventListJson = [];
                     
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
                     
-                    // Fetch Cards
                     const cardsResponse = await fetch(CARD_DATA_URL, cardFetchOpts);
                     if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     const cardJson = await cardsResponse.json();
 
-                    // Try Fetch Config & Events (fail gracefully if backend missing)
                     try {
                         const configResponse = await fetch(CONFIG_DATA_URL + '?_=' + Date.now());
                         if (configResponse.ok) configJson = await configResponse.json();
@@ -233,10 +226,6 @@
                             const printInfos = card.printInfos || [];
                             const sets = [...new Set(printInfos.map(info => info.set))];
                             const rarities = [...new Set(printInfos.map(info => info.rarity))];
-
-                            if (newDatabase[lookupKey]) {
-                                // console.warn(`Normalization Collision: '${card.name}' overwrites '${newDatabase[lookupKey].name}'`);
-                            }
 
                             newDatabase[lookupKey] = {
                                 name: card.name,
@@ -312,7 +301,6 @@
             }
 
             if (orderedKeys.length === 0) {
-                // If empty or default only
                 orderedKeys = ['default'];
                 if(!rulesets['default']) rulesets['default'] = { name: "Standard (Default)", editions: [] };
             }
@@ -966,6 +954,10 @@
                 <p class="text-sm text-gray-400 mb-4">To withdraw, enter <b>Withdraw from Event</b> as your only Starting Army card.</p>
                 <form id="deck-submit-form" class="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
                     <div class="flex-1">
+                        <label class="block text-xs font-bold text-gray-500 mb-1">Authenticated User</label>
+                        <span id="discord-user-summary" class="block w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-300 rounded-lg text-sm">Not logged in</span>
+                    </div>
+                    <div class="flex-1">
                         <label class="block text-xs font-bold text-gray-500 mb-1">Event Name</label>
                         <select id="submit-eventname" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500"></select>
                     </div>
@@ -988,6 +980,18 @@
             const submitButton = document.getElementById('submit-deck-button');
             const eventSelect = document.getElementById('submit-eventname');
             const statusEl = document.getElementById('submit-status');
+            const discordUserSummary = document.getElementById('discord-user-summary');
+
+            // Update user summary display within submission box
+            if (window.discordUser && window.discordUser.id) {
+                let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
+                discordUserSummary.textContent = displayText;
+                discordUserSummary.classList.add('text-green-400');
+            } else {
+                discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
+                discordUserSummary.classList.remove('text-green-400');
+            }
 
             // Special case for withdrawal
             const saInputVal = document.getElementById('sa-wl-input').value.trim();
@@ -996,7 +1000,7 @@
 
             if (!window.discordUser || !window.discordUser.id) {
                 submitButton.disabled = true;
-                statusEl.textContent = 'You must log in with Discord (top right) to submit.';
+                statusEl.textContent = 'Login required to submit.';
             } else if (!deckIsLegal && !isWithdraw) {
                 submitButton.disabled = true;
                 statusEl.textContent = 'Deck must be legal to submit.';
@@ -1059,7 +1063,7 @@
                         body = JSON.stringify({ eventName, warlord: warlordName, cardList, deckContents: allCards });
                     }
                     
-                    const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                    const resp = await fetch(getBackendUrl() + '/api/submit-deck', {
                         method: 'POST',
                         credentials: 'include',
                         headers: { 'Content-Type': 'application/json' },
