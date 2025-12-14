@@ -587,13 +587,22 @@
         };
 
         const clearDeck = () => { document.getElementById('sa-wl-input').value = ''; document.getElementById('main-deck-input').value = ''; document.getElementById('results').innerHTML = ''; };
-        window.checkDeck = checkDeck; window.clearDeck = clearDeck;
+        window.checkDeck = checkDeck;
+        window.clearDeck = clearDeck;
         document.addEventListener('DOMContentLoaded', async () => {
-            const clearBtn = document.getElementById('clear-deck-button'); const checkBtn = document.getElementById('check-deck-button');
-            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck); if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
+            const clearBtn = document.getElementById('clear-deck-button');
+            const checkBtn = document.getElementById('check-deck-button');
+            if (clearBtn) clearBtn.addEventListener('click', window.clearDeck);
+            if (checkBtn) checkBtn.addEventListener('click', window.checkDeck);
+            // Defensive: also assign onclick in case addEventListener fails
+            if (checkBtn) checkBtn.onclick = window.checkDeck;
             const loaded = await loadAppData();
-            if (loaded) { loadingStatusDiv.classList.add('hidden'); inputSectionDiv.classList.remove('hidden'); }
-            else { loadingStatusDiv.innerHTML = `<p class='text-dwarf-lava font-bold'>❌ Failed to load card data.</p>`; }
+            if (loaded) {
+                loadingStatusDiv.classList.add('hidden');
+                inputSectionDiv.classList.remove('hidden');
+            } else {
+                loadingStatusDiv.innerHTML = `<p class='text-dwarf-lava font-bold'>❌ Failed to load card data.</p>`;
+            }
             window.addEventListener('storage', async (e) => { if (e.key === 'warlordConfigUpdate') location.reload(); });
             rulesetSelect.addEventListener('change', () => { document.getElementById('results').innerHTML = ''; });
         });
