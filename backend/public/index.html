@@ -1,3 +1,74 @@
+                // --- COPY LIMITS CHECK ---
+                function checkCopyLimits(allLegalCards, saWlLegal, selectedEditions, warlordException, activeRuleSet) {
+                    let deckIsLegal = true;
+                    const violations = [];
+                    const legalCardCounts = {};
+                    allLegalCards.forEach(c => {
+                        const norm = normalizeName(c.name).toLowerCase();
+                        legalCardCounts[norm] = (legalCardCounts[norm] || 0) + (c.count || 1);
+                    });
+
+                    const defaultMax = activeRuleSet.maxCopies || 3;
+                    const epicMax = activeRuleSet.maxEpicCopies || 1;
+                    const warlordMax = activeRuleSet.warlordCount || 1;
+                    const copyException = warlordException ? warlordException.copyLimitException : null;
+
+                    const warlordTotals = {};
+                    for (const norm in legalCardCounts) {
+                        const data = cardDatabase[norm];
+                        if (!data) continue;
+                        const count = legalCardCounts[norm];
+                        if (data.isWarlord) {
+                            warlordTotals[norm] = (warlordTotals[norm] || 0) + count;
+                        } else {
+                            if (data.isUnlimitedCopies) continue;
+                            let max = defaultMax;
+                            let reason = `Max ${defaultMax}`;
+                            if (data.isEpicKeyword) { max = epicMax; reason = `Epic (Max ${epicMax})`; }
+                            if (copyException && data.normalizedName === copyException.normalizedCardName) {
+                                max = copyException.maxCopies;
+                                reason = `Warlord Exception (Max ${max})`;
+                            }
+                            if (count > max) {
+                                violations.push(`${data.name}: ${count} copies (limit ${max}) [${reason}]`);
+                                deckIsLegal = false;
+                            }
+                        }
+                    }
+
+                    for (const norm in warlordTotals) {
+                        const data = cardDatabase[norm];
+                        if (!data) continue;
+                        let max = warlordMax;
+                        let reason = `Warlord (Max ${warlordMax})`;
+                        if (copyException && data.normalizedName === copyException.normalizedCardName) {
+                            max = copyException.maxCopies;
+                            reason = `Warlord Exception (Max ${max})`;
+                        }
+                        if (warlordTotals[norm] > max) {
+                            violations.push(`${data.name}: ${warlordTotals[norm]} copies (limit ${max}) [${reason}]`);
+                            deckIsLegal = false;
+                        }
+                    }
+
+                    let saWarlordCounts = {};
+                    saWlLegal.forEach(c => {
+                        if (c.isWarlord) {
+                            const norm = normalizeName(c.name).toLowerCase();
+                            saWarlordCounts[norm] = (saWarlordCounts[norm] || 0) + (c.count || 1);
+                        }
+                    });
+                    for (const norm in saWarlordCounts) {
+                        const data = cardDatabase[norm];
+                        if (!data) continue;
+                        if (saWarlordCounts[norm] > 1) {
+                            violations.push(`${data.name}: ${saWarlordCounts[norm]} in Starting Army (only 1 allowed)`);
+                            deckIsLegal = false;
+                        }
+                    }
+
+                    return { deckIsLegal, violations };
+                }
         
 <!DOCTYPE html>
 <html lang="en">
