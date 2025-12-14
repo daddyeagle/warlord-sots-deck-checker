@@ -123,39 +123,44 @@
 
         async function fetchDiscordUser() {
             try {
-                // If BACKEND_URL is invalid (e.g. file://), this might throw.
                 if (window.BACKEND_URL.startsWith('file:')) throw new Error("Local file execution");
-
-                const res = await fetch(window.BACKEND_URL + '/api/auth/success', {
-                    credentials: 'include'
-                });
-                
+                const res = await fetch(window.BACKEND_URL + '/api/auth/success', { credentials: 'include' });
                 if (res.ok) {
                     const user = await res.json();
                     window.discordUser = user;
-                    
-                    // Update UI: Hide Login Button, Show User Info
                     let displayText = `Logged in as ${user.username}#${user.discriminator}`;
                     if (user.displayName) displayText += ` (${user.displayName})`;
-                    
                     discordUserInfo.textContent = displayText;
                     discordUserInfo.classList.remove('hidden');
-                    discordLoginBtn.style.display = 'none'; // Explicitly hide button
+                    discordLoginBtn.style.display = 'none';
                 } else {
-                    // Not logged in: Ensure button is visible
                     window.discordUser = null;
                     discordUserInfo.textContent = '';
                     discordUserInfo.classList.add('hidden');
                     discordLoginBtn.style.display = 'block';
                 }
             } catch (e) {
-                console.log("Auth check skipped or failed:", e);
-                // On failure/offline: Ensure button is visible so user can try again
                 window.discordUser = null;
                 discordUserInfo.textContent = '';
                 discordUserInfo.classList.add('hidden');
                 discordLoginBtn.style.display = 'block';
             }
+            // Always update deck submission UI if present
+            if (typeof updateSubmissionUserInfo === 'function') updateSubmissionUserInfo();
+                // Helper to update user info in the deck submission area
+                function updateSubmissionUserInfo() {
+                    const discordUserSummary = document.getElementById('discord-user-summary');
+                    if (!discordUserSummary) return;
+                    if (window.discordUser && window.discordUser.id) {
+                        let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                        if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
+                        discordUserSummary.textContent = displayText;
+                        discordUserSummary.classList.add('text-green-400');
+                    } else {
+                        discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
+                        discordUserSummary.classList.remove('text-green-400');
+                    }
+                }
         }
 
         // Check auth on page load (unless on auth-success intermediate page)
@@ -1017,16 +1022,8 @@
             const statusEl = document.getElementById('submit-status');
             const discordUserSummary = document.getElementById('discord-user-summary');
 
-            // Update user summary display within submission box
-            if (window.discordUser && window.discordUser.id) {
-                let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
-                discordUserSummary.textContent = displayText;
-                discordUserSummary.classList.add('text-green-400');
-            } else {
-                discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
-                discordUserSummary.classList.remove('text-green-400');
-            }
+            // Always update user info in submission area
+            updateSubmissionUserInfo();
 
             // Special case for withdrawal
             const saInputVal = document.getElementById('sa-wl-input').value.trim();
@@ -1142,15 +1139,11 @@
             } else {
                 loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold'>❌ Failed to load card data.</p>`;
             }
-            
             // Update listener
-            window.addEventListener('storage', async (e) => {
-                 if (e.key === 'warlordConfigUpdate') location.reload();
-            });
-            
-            rulesetSelect.addEventListener('change', () => {
-                document.getElementById('results').innerHTML = '';
-            });
+            window.addEventListener('storage', async (e) => { if (e.key === 'warlordConfigUpdate') location.reload(); });
+            rulesetSelect.addEventListener('change', () => { document.getElementById('results').innerHTML = ''; });
+            // Always update user info on load
+            updateSubmissionUserInfo();
         });
 
     </script>
