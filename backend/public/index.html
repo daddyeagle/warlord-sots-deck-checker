@@ -7,6 +7,16 @@
     <title>Bobby (v2.0) - Forge Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+    // Helper: Check if a card is legal for the selected ruleset's editions from config
+    window.isEditionLegal = function(card, selectedEditions) {
+        // selectedEditions comes from the ruleset in configJson (see checkDeck)
+        if (!card || card.isUnknown) return false;
+        if (!Array.isArray(selectedEditions) || selectedEditions.length === 0) return true;
+        if (!Array.isArray(card.editions)) return false;
+        return card.editions.some(e => selectedEditions.includes(e));
+    };
+    </script>
     
     <script>
         tailwind.config = {
