@@ -26,11 +26,11 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-gray-700 pb-6">
             <div>
                 <h1 class="text-3xl font-extrabold text-amber-500 tracking-tight">Bobby 2.0</h1>
-                <p class="text-gray-400 text-sm mt-1">Warlord Saga of the Storm Deck Checker</p>
+                <p class="text-gray-400 text-sm mt-1">Validate deck legality for various formats.</p>
             </div>
             
             <div class="flex items-center gap-3 bg-gray-800/50 p-2 rounded-lg border border-gray-700">
-                <span id="discord-user-info" class="text-sm font-medium text-gray-300 hidden"></span>
+                <span id="discord-user-info" class="text-sm font-medium text-gray-300"></span>
                 <button id="discord-login-btn" class="bg-[#5865F2] hover:bg-[#4752C4] text-white text-xs font-bold py-2 px-3 rounded transition-colors">
                     Log in with Discord
                 </button>
@@ -87,96 +87,61 @@
     </div>
 
     <script type="module">
-        // =========================================================================
-        // CONFIGURATION
-        // =========================================================================
+        // Use existing window.BACKEND_URL or fallback to origin if not defined.
+        // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
+        const getBackendUrl = () => window.BACKEND_URL || window.location.origin;
         
-        // AUTO-DETECT BACKEND URL
-        // If you are running this file locally but your API is on localhost:3000, 
-        // uncomment the second line below:
-        window.BACKEND_URL = window.location.origin;
-        // window.BACKEND_URL = "http://localhost:3000"; // UNCOMMENT IF RUNNING LOCALLY SEPARATE FROM API
-
-        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        const CONFIG_DATA_URL = window.BACKEND_URL + "/api/config";
-        const EVENT_LIST_URL = window.BACKEND_URL + "/events/event_list.json";
-
-        // =========================================================================
-        // AUTHENTICATION LOGIC
-        // =========================================================================
-        
+        // DOM Elements
         const discordUserInfo = document.getElementById('discord-user-info');
         const discordLoginBtn = document.getElementById('discord-login-btn');
+        const loadingStatusDiv = document.getElementById('loading-status');
+        const inputSectionDiv = document.getElementById('input-section');
+        const rulesetSelect = document.getElementById('ruleset-select');
 
-        // Attach Login Listener Immediately
-        if (discordLoginBtn) {
-            discordLoginBtn.addEventListener('click', () => {
-                // Determine redirect URL
-                let baseUrl = window.BACKEND_URL;
-                if (baseUrl === 'null' || baseUrl.startsWith('file:')) {
-                    alert("Cannot log in from a local file without a backend server URL configured.");
-                    return;
-                }
-                window.location.href = baseUrl + '/api/auth/discord';
-            });
-        }
-
+        // --- AUTH LOGIC ---
         async function fetchDiscordUser() {
             try {
-                if (window.BACKEND_URL.startsWith('file:')) throw new Error("Local file execution");
-                const res = await fetch(window.BACKEND_URL + '/api/auth/success', { credentials: 'include' });
+                const res = await fetch(getBackendUrl() + '/api/auth/success', {
+                    credentials: 'include'
+                });
                 if (res.ok) {
                     const user = await res.json();
                     window.discordUser = user;
                     let displayText = `Logged in as ${user.username}#${user.discriminator}`;
-                    if (user.displayName) displayText += ` (${user.displayName})`;
+                    if (user.displayName) {
+                        displayText += ` (${user.displayName})`;
+                    }
                     discordUserInfo.textContent = displayText;
-                    discordUserInfo.classList.remove('hidden');
                     discordLoginBtn.style.display = 'none';
                 } else {
                     window.discordUser = null;
                     discordUserInfo.textContent = '';
-                    discordUserInfo.classList.add('hidden');
                     discordLoginBtn.style.display = 'block';
                 }
             } catch (e) {
                 window.discordUser = null;
                 discordUserInfo.textContent = '';
-                discordUserInfo.classList.add('hidden');
                 discordLoginBtn.style.display = 'block';
             }
-            // Always update deck submission UI if present
-            if (typeof updateSubmissionUserInfo === 'function') updateSubmissionUserInfo();
-                // Helper to update user info in the deck submission area
-                function updateSubmissionUserInfo() {
-                    const discordUserSummary = document.getElementById('discord-user-summary');
-                    if (!discordUserSummary) return;
-                    if (window.discordUser && window.discordUser.id) {
-                        let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
-                        if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
-                        discordUserSummary.textContent = displayText;
-                        discordUserSummary.classList.add('text-green-400');
-                    } else {
-                        discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
-                        discordUserSummary.classList.remove('text-green-400');
-                    }
-                }
         }
 
-        // Check auth on page load (unless on auth-success intermediate page)
-        if (window.location.pathname !== '/auth-success') {
+        if (discordLoginBtn) {
+            discordLoginBtn.onclick = () => {
+                window.location.href = getBackendUrl() + '/api/auth/discord';
+            };
+        }
+        
+        // Check auth on load, and handle /auth-success redirect
+        if (window.location.pathname === '/auth-success') {
+            fetchDiscordUser().then(() => {
+                // Give a moment for UI update, then redirect to main page
+                setTimeout(() => { window.location.href = '/'; }, 500);
+            });
+        } else {
             fetchDiscordUser();
         }
 
-        // =========================================================================
-        // DECK CHECKER LOGIC
-        // =========================================================================
-
-        const loadingStatusDiv = document.getElementById('loading-status');
-        const inputSectionDiv = document.getElementById('input-section');
-        const rulesetSelect = document.getElementById('ruleset-select');
-
-        // --- CONSTANTS ---
+        // --- CONSTANTS & CONFIG ---
         let cardDatabase = {};
         let lastConfigSignature = null;
         let RULE_SETS = {};
@@ -185,7 +150,11 @@
         let SA_CHARACTER_EXCEPTIONS = [];
         let FACTION_WILDCARD_NAMES = [];
         
-        // --- REGEX ---
+        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
+        const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
+        const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
+
+        // --- REGEX & CONSTANTS ---
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
         const unlimitedCopiesRegex = /(you may have (more than 3|any number of) copies|you may have any number|your deck may include any number)/i;
         const factionWildcardRegex = /same.*?faction(s)?.*?as your warlord(s)?/i;
@@ -193,7 +162,7 @@
         const errataReservedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Reserved/gi;
         const errataBannedRegex = /Format Notes:\s*-?\s*([^-\r\n]+)\s*-\s*Banned/gi;
 
-        // --- DATABASE HELPERS ---
+        // --- DATABASE & PARSING ---
         const normalizeName = (name) => name.replace(/[^a-zA-Z0-9]/g, '');
 
         const getSAExceptions = (card) => {
@@ -219,18 +188,15 @@
                     
                     const cardFetchOpts = forceNoCache ? { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } } : undefined;
                     
-                    // 1. Load Cards (External)
                     const cardsResponse = await fetch(CARD_DATA_URL, cardFetchOpts);
                     if (!cardsResponse.ok) throw new Error(`Cards HTTP error! status: ${cardsResponse.status}`);
                     const cardJson = await cardsResponse.json();
 
-                    // 2. Load Config (Backend)
                     try {
                         const configResponse = await fetch(CONFIG_DATA_URL + '?_=' + Date.now());
                         if (configResponse.ok) configJson = await configResponse.json();
-                    } catch(e) { console.warn("Config fetch failed, using defaults."); }
+                    } catch(e) { console.warn("Config fetch failed, using default."); }
 
-                    // 3. Load Events (Backend)
                     try {
                         const eventListResponse = await fetch(EVENT_LIST_URL + '?_=' + Date.now());
                         if (eventListResponse.ok) eventListJson = await eventListResponse.json();
@@ -1022,8 +988,16 @@
             const statusEl = document.getElementById('submit-status');
             const discordUserSummary = document.getElementById('discord-user-summary');
 
-            // Always update user info in submission area
-            updateSubmissionUserInfo();
+            // Update user summary display within submission box
+            if (window.discordUser && window.discordUser.id) {
+                let displayText = `${window.discordUser.username}#${window.discordUser.discriminator}`;
+                if (window.discordUser.displayName) displayText += ` (${window.discordUser.displayName})`;
+                discordUserSummary.textContent = displayText;
+                discordUserSummary.classList.add('text-green-400');
+            } else {
+                discordUserSummary.textContent = 'You must log in with Discord (top right) to submit.';
+                discordUserSummary.classList.remove('text-green-400');
+            }
 
             // Special case for withdrawal
             const saInputVal = document.getElementById('sa-wl-input').value.trim();
@@ -1095,7 +1069,7 @@
                         body = JSON.stringify({ eventName, warlord: warlordName, cardList, deckContents: allCards });
                     }
                     
-                    const resp = await fetch(window.BACKEND_URL + '/api/submit-deck', {
+                    const resp = await fetch(getBackendUrl() + '/api/submit-deck', {
                         method: 'POST',
                         credentials: 'include',
                         headers: { 'Content-Type': 'application/json' },
@@ -1139,11 +1113,15 @@
             } else {
                 loadingStatusDiv.innerHTML = `<p class='text-red-400 font-bold'>❌ Failed to load card data.</p>`;
             }
+            
             // Update listener
-            window.addEventListener('storage', async (e) => { if (e.key === 'warlordConfigUpdate') location.reload(); });
-            rulesetSelect.addEventListener('change', () => { document.getElementById('results').innerHTML = ''; });
-            // Always update user info on load
-            updateSubmissionUserInfo();
+            window.addEventListener('storage', async (e) => {
+                 if (e.key === 'warlordConfigUpdate') location.reload();
+            });
+            
+            rulesetSelect.addEventListener('change', () => {
+                document.getElementById('results').innerHTML = '';
+            });
         });
 
     </script>
