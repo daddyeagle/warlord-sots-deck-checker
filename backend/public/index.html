@@ -1,3 +1,11 @@
+        // Helper: Check if a card is legal for the selected ruleset's editions from config
+        const isEditionLegal = (card, selectedEditions) => {
+            // selectedEditions comes from the ruleset in configJson (see checkDeck)
+            if (!card || card.isUnknown) return false;
+            if (!Array.isArray(selectedEditions) || selectedEditions.length === 0) return true;
+            if (!Array.isArray(card.editions)) return false;
+            return card.editions.some(e => selectedEditions.includes(e));
+        };
 <!DOCTYPE html>
 <html lang="en">
 <head>
