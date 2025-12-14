@@ -131,8 +131,15 @@
             };
         }
         
-        // Check auth on load
-        if (window.location.pathname !== '/auth-success') fetchDiscordUser();
+        // Check auth on load, and handle /auth-success redirect
+        if (window.location.pathname === '/auth-success') {
+            fetchDiscordUser().then(() => {
+                // Give a moment for UI update, then redirect to main page
+                setTimeout(() => { window.location.href = '/'; }, 500);
+            });
+        } else {
+            fetchDiscordUser();
+        }
 
         // --- CONSTANTS & CONFIG ---
         let cardDatabase = {};
