@@ -260,6 +260,12 @@
         }
 
         // --- EXISTING LOGIC PRESERVED BELOW ---
+        // Helper: Get warlord exception data for a given warlord card
+        function getWarlordException(warlordData) {
+            if (!warlordData) return null;
+            const normalizedWarlordName = normalizeName(warlordData.name).toLowerCase();
+            return WL_SA_LOYALTY_EXCEPTIONS.find(e => e.normalizedWarlordName === normalizedWarlordName) || null;
+        }
         let cardDatabase = {};
         let lastConfigSignature = null;
         let RULE_SETS = {};
