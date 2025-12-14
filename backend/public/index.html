@@ -461,16 +461,32 @@
             const wlException = getWarlordException(wlData);
             let extraSACard = null;
             if (wlException?.addsExtraSASlot && wlData) {
-                  const criteria = wlException.compositionExceptions[0]?.criteria;
-                  if (criteria) {
-                      extraSACard = saCards.find(c => {
-                          if (criteria.type && c.type !== criteria.type) return false;
-                          if (criteria.level && c.level > criteria.level) return false;
-                          if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
-                          if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
-                          return true;
-                      });
-                  }
+                if (wlException.saForbiddenCards) {
+                    const forbidden = saCards.find(c => wlException.saForbiddenCards.includes(normalizeName(c.name).toLowerCase()));
+                    if (!forbidden) {
+                        const criteria = wlException.compositionExceptions[0]?.criteria;
+                        if (criteria) {
+                            extraSACard = saCards.find(c => {
+                                if (criteria.type && c.type !== criteria.type) return false;
+                                if (criteria.level && c.level > criteria.level) return false;
+                                if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                                if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                                return true;
+                            });
+                        }
+                    }
+                } else {
+                    const criteria = wlException.compositionExceptions[0]?.criteria;
+                    if (criteria) {
+                        extraSACard = saCards.find(c => {
+                            if (criteria.type && c.type !== criteria.type) return false;
+                            if (criteria.level && c.level > criteria.level) return false;
+                            if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                            if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                            return true;
+                        });
+                    }
+                }
             }
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
