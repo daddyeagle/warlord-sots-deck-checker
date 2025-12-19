@@ -98,7 +98,7 @@
         const loadingStatusDiv = document.getElementById('loading-status');
         const inputSectionDiv = document.getElementById('input-section');
         const rulesetSelect = document.getElementById('ruleset-select');
-
+        const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
         // --- AUTH LOGIC ---
         async function fetchDiscordUser() {
             try {
@@ -152,7 +152,7 @@
         let FACTION_WILDCARD_NAMES = [];
         
         const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.22ae1421.json"; 
-        const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
+        
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
         // --- REGEX & CONSTANTS ---
