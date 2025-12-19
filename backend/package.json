@@ -4,7 +4,8 @@
   "description": "Backend for Warlord SOTS Deck Checker with Discord OAuth2 login",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "postbuild": "cp warlord_configuration.json public/warlord_configuration.json"
   },
   "engines": {
     "node": ">=18.0.0"
