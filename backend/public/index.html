@@ -89,6 +89,7 @@
     <script type="module">
         // Use existing window.BACKEND_URL or fallback to origin if not defined.
         // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
+        window.BACKEND_URL = "https://warlord-sots-deck-checker-production.up.railway.app";
         const getBackendUrl = () => window.BACKEND_URL || window.location.origin;
         
         // DOM Elements
