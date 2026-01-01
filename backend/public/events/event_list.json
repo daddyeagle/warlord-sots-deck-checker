@@ -7,5 +7,14 @@
     "decklistFile": "decks-december-ancients+.json",
     "submissionFile": "december-ancients+.json",
     "hidden": false
+  },
+  {
+    "eventName": "Saga Shuffle Jan '26",
+    "ruleset": "Saga",
+    "startDate": "2026-01-02",
+    "endDate": "2026-01-07",
+    "decklistFile": "decks-saga-shuffle-jan-26.json",
+    "submissionFile": "saga-shuffle-jan-26.json",
+    "hidden": false
   }
 ]
