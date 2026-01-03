@@ -2,18 +2,18 @@
   "eventName": "Saga Shuffle Jan '26",
   "submissions": [
     {
-      "warlord": "Efrim Dawntreader",
-      "username": "354280712578400267",
-      "discord_username": "aaron1002#0",
-      "display_name": "A-A-ron",
-      "timestamp": "2026-01-03T02:33:09.497Z"
-    },
-    {
       "warlord": "Adathan, Celestial Messenger",
       "username": "151512634573717504",
       "discord_username": "chrisvac#0",
       "display_name": "ChrisVac",
       "timestamp": "2026-01-03T02:39:12.601Z"
+    },
+    {
+      "warlord": "Efrim Dawntreader",
+      "username": "354280712578400267",
+      "discord_username": "aaron1002#0",
+      "display_name": "A-A-ron",
+      "timestamp": "2026-01-03T03:02:07.651Z"
     }
   ]
 }
