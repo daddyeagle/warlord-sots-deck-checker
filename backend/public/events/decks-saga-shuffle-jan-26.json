@@ -148,5 +148,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "356100504591269900",
+    "discord_username": "godinho10#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Commander Retsov",
+    "display_name": "Godinho",
+    "timestamp": "2026-01-03T16:31:26.837Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blackwind": 1,
+          "Brightwing": 2,
+          "Kingslayer": 2,
+          "Swiftcloud": 1,
+          "Ashveil": 1,
+          "Dreadfang": 1,
+          "Darkwatcher": 1,
+          "Flamefall": 1,
+          "Master Dresden": 3,
+          "Blitzer": 2,
+          "Thunic Yeti": 2,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 2,
+          "Commander Retsov": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Blade of Antiquity": 3,
+          "Steelforge Regalia": 3,
+          "Fineltour's Draught": 2,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 3,
+          "Griffon of Andover": 3,
+          "Havat-lahn Stance": 2,
+          "Rockarm": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
