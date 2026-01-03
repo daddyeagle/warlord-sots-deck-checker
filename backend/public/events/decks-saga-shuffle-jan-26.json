@@ -202,5 +202,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "Hosh",
+    "timestamp": "2026-01-03T21:06:26.191Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Hinterlands Griffon": 1,
+          "Tunnel Worm": 3,
+          "Sutek Slimefang": 3,
+          "Starbinder": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Alrayn Gaunt": 1,
+          "Shambling Horror": 1,
+          "Hinterlands Griffon": 1,
+          "Trogid": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 1,
+          "Storm Shard": 1,
+          "Revenger": 3,
+          "Medical Kit": 1,
+          "Fineltour's Draught": 1,
+          "Cutlass": 2,
+          "Cloudracer": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Rapid Dash": 2,
+          "Pin Down": 2,
+          "Noble Sacrifice": 2,
+          "Epic Betrayal": 2,
+          "Dupe": 2,
+          "Curse of Greed": 2,
+          "Assassin's Strike": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
