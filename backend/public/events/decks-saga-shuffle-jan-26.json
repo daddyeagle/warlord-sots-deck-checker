@@ -47,5 +47,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-01-03T02:39:12.601Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardent Griffon": 1,
+          "Albrecht Novice": 3,
+          "Birdsong Druid": 3,
+          "Field Marshal Malexin": 3,
+          "Leonora": 3,
+          "Shannon the Daring": 3,
+          "Squire Argos": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Ardent Griffon": 1,
+          "Crownland Strategist": 1,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Final Blessing": 3,
+          "Leveled!": 3,
+          "Pack Tactics": 3,
+          "Pin Down": 3,
+          "Sacrifice": 3,
+          "Wither": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
