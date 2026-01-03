@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "username": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-01-03T02:33:09.497Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Blitzer": 2,
+          "Brightwing": 2,
+          "Field Marshal Malexin": 3,
+          "Huggins": 3,
+          "Master Dresden": 2,
+          "Oracle of Kavara": 3,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Efrim Dawntreader": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Blade of Antiquity": 3,
+          "Fineltour's Draught": 2,
+          "Griffon of Andover": 3,
+          "Havat-lahn Stance": 3,
+          "Rockarm": 2,
+          "Steelforge Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
