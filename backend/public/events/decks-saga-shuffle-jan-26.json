@@ -1,54 +1,5 @@
 [
   {
-    "username": "151512634573717504",
-    "discord_username": "chrisvac#0",
-    "event": "Saga Shuffle Jan '26",
-    "warlord": "Adathan, Celestial Messenger",
-    "display_name": "ChrisVac",
-    "timestamp": "2026-01-03T02:39:12.601Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Ardent Griffon": 1,
-          "Albrecht Novice": 3,
-          "Birdsong Druid": 3,
-          "Field Marshal Malexin": 3,
-          "Leonora": 3,
-          "Shannon the Daring": 3,
-          "Squire Argos": 3
-        },
-        "startingArmy": {
-          "Adathan, Celestial Messenger": 1,
-          "Ardent Griffon": 1,
-          "Crownland Strategist": 1,
-          "Keen Eared Sentry": 3
-        }
-      },
-      "Action": {
-        "count": 24,
-        "mainDeck": {
-          "Divine Respite": 3,
-          "Epic Judgment": 3,
-          "Final Blessing": 3,
-          "Leveled!": 3,
-          "Pack Tactics": 3,
-          "Pin Down": 3,
-          "Sacrifice": 3,
-          "Wither": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 1,
-        "mainDeck": {
-          "Hod's Legacy": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "354280712578400267",
     "discord_username": "aaron1002#0",
     "event": "Saga Shuffle Jan '26",
@@ -470,6 +421,56 @@
           "Darkflame Bolts": 3,
           "Flamelance": 3,
           "Shadow Bolts": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Hunter Merril",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-01-05T21:08:16.766Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Arika Ketchum": 2,
+          "Bikram Bullstrength": 3,
+          "Field Marshal Malexin": 3,
+          "Graham Heyward": 2,
+          "Huggins": 3,
+          "Master Dresden": 3,
+          "Sanguicorn": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Hunter Merril": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Pin Down": 3,
+          "Arcane Approach": 3,
+          "Bolt of Unrest": 2,
+          "Change of Hands": 2,
+          "Epic Evocation": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Hunting Staff": 3,
+          "Nightfire Manacles": 1,
+          "Storm Shard": 1,
+          "Well of Screams": 1
         },
         "startingArmy": {}
       }
