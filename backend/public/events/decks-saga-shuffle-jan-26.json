@@ -370,5 +370,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-01-05T15:27:56.982Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Beacon": 3,
+          "Oracle of Kavara": 3,
+          "Frenzy": 3,
+          "Chovan Voidcaller": 3,
+          "Anvil": 3
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 2
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Bruntor's Helm": 1,
+          "Blessed Vestments": 1,
+          "Storm Shard": 1,
+          "Rockarm": 2,
+          "Kor's Aegis": 1,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Gift From Above": 2,
+          "Curse of Greed": 2,
+          "Spiritual Weapon": 3,
+          "Sacrifice": 3,
+          "Lights of Revealing Sword": 3,
+          "Holy Might": 3,
+          "Heroic Confrontation": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
