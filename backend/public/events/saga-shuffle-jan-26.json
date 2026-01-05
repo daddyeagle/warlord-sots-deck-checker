@@ -2,13 +2,6 @@
   "eventName": "Saga Shuffle Jan '26",
   "submissions": [
     {
-      "warlord": "Adathan, Celestial Messenger",
-      "username": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-01-03T02:39:12.601Z"
-    },
-    {
       "warlord": "Efrim Dawntreader",
       "username": "354280712578400267",
       "discord_username": "aaron1002#0",
@@ -63,6 +56,13 @@
       "discord_username": "themelyk#0",
       "display_name": "TheMelyK",
       "timestamp": "2026-01-05T17:16:42.628Z"
+    },
+    {
+      "warlord": "Hunter Merril",
+      "username": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-01-05T21:08:16.766Z"
     }
   ]
 }
