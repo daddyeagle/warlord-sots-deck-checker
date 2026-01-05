@@ -316,5 +316,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Anacaona",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-01-05T15:27:30.705Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Swiftcloud": 2,
+          "Recruiter of Misear": 2,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Kingslayer": 1,
+          "Flamefall": 1,
+          "Dreadfang": 2,
+          "Darkwatcher": 1,
+          "Brightwing": 1,
+          "Blitzer": 1,
+          "Blackwind": 2
+        },
+        "startingArmy": {
+          "Sutek Slimefang": 3,
+          "Shambling Horror": 1,
+          "Sutek Razorclaw": 1,
+          "Anacaona": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Wither": 2,
+          "Skulk in the Shallows": 2,
+          "Noble Sacrifice": 3,
+          "Meet at the Inn!": 3,
+          "Divine Respite": 3,
+          "Curse of Greed": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Storm Shard": 1,
+          "Hunting Staff": 2,
+          "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
