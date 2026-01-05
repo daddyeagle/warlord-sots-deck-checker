@@ -421,5 +421,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Nisha",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-01-05T17:16:42.628Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Novice Pyro": 2,
+          "Ac'Vuk": 3,
+          "Master Dresden": 3,
+          "Mo'can": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Draljaca Tar": 1,
+          "Greenflower Warden": 1,
+          "Joleg": 2,
+          "Nisha": 1,
+          "Novice Pyro": 1
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloak of Flight": 1,
+          "Cloudracer": 3,
+          "Nehil": 1,
+          "Spellblocker": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Blast": 3,
+          "Crypt Wine": 2,
+          "Darkflame Bolts": 3,
+          "Flamelance": 3,
+          "Shadow Bolts": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
