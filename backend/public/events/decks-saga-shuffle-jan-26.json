@@ -682,5 +682,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Temperance",
+    "timestamp": "2026-01-06T09:30:03.360Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Alaya": 3,
+          "Ciane": 3,
+          "Flame Jester": 3,
+          "Grimfey Prowler": 3,
+          "Tresven": 3,
+          "Veteran Bowman": 3
+        },
+        "startingArmy": {
+          "Rone of the Deepbrook": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 3,
+          "Fatestring Bow": 1,
+          "Leopard Claws": 2,
+          "Revenger": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Epic Betrayal": 3,
+          "Meet at the Inn!": 3,
+          "Rapid Dash": 3,
+          "Sneak Attack": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
