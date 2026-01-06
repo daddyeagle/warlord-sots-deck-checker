@@ -630,5 +630,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-01-06T07:48:11.561Z",
+    "cardList": {
+      "Character": {
+        "count": 14,
+        "mainDeck": {
+          "Ra'Gar Root-Strength": 2,
+          "Oracle of Kavara": 1,
+          "Nog, Pog, and Snivels": 3,
+          "Doo'run": 2
+        },
+        "startingArmy": {
+          "Vactus, Spirit's Champion": 1,
+          "Joleg": 3,
+          "Greenflower Warden": 2
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Scale Mail": 2,
+          "Shield of Spurning": 2,
+          "Myerdeth Mare": 2,
+          "Storm Shard": 1,
+          "Rockarm": 1,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Tide Turner": 2,
+          "Shadow Bolts": 3,
+          "Prime Positioning": 2,
+          "Lights of Revealing Sword": 3,
+          "Heroic Confrontation": 2,
+          "Epic Donnybrook": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
