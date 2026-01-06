@@ -732,5 +732,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Lord Belasco",
+    "display_name": "DireScrub",
+    "timestamp": "2026-01-06T14:01:58.189Z",
+    "cardList": {
+      "Item": {
+        "count": 19,
+        "mainDeck": {},
+        "startingArmy": {
+          "Sunseeker's Goggles": 1,
+          "Scale Mail": 1,
+          "Myerdeth Mare": 3,
+          "Havat-lahn Stance": 3,
+          "Griffon of Andover": 3,
+          "Cloak of Flight": 1,
+          "Burning Scroll": 2,
+          "Bruntor's Helm": 2,
+          "Bardiche": 3
+        }
+      },
+      "Character": {
+        "count": 19,
+        "mainDeck": {},
+        "startingArmy": {
+          "Sister Kiren": 3,
+          "Kingslayer": 1,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Squire Fendric": 2,
+          "Lord Belasco": 1,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {},
+        "startingArmy": {
+          "Meet at the Inn!": 3,
+          "Heroic Confrontation": 3,
+          "Crush": 3,
+          "Arcane Approach": 3
+        }
+      }
+    }
   }
 ]
