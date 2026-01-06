@@ -51,13 +51,6 @@
       "timestamp": "2026-01-05T21:08:16.766Z"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "617965315166437390",
-      "discord_username": "sangington#0",
-      "display_name": "Sangington - Delta Cubes",
-      "timestamp": "2026-01-06T03:02:41.567Z"
-    },
-    {
       "warlord": "Shyessa the Weaver",
       "username": "225075257822674944",
       "discord_username": "oeagle#0",
@@ -112,6 +105,13 @@
       "discord_username": "baptiste.bach#0",
       "display_name": "Bach",
       "timestamp": "2026-01-06T17:02:10.106Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "617965315166437390",
+      "discord_username": "sangington#0",
+      "display_name": "Sangington - Delta Cubes",
+      "timestamp": "2026-01-06T18:15:49.568Z"
     }
   ]
 }
