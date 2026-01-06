@@ -781,5 +781,55 @@
         }
       }
     }
+  },
+  {
+    "username": "1097993099822759966",
+    "discord_username": "baptiste.bach#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Bach",
+    "timestamp": "2026-01-06T17:02:10.106Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 2,
+          "Oracle of Kavara": 2,
+          "Sister Kiren": 3,
+          "Thunic Yeti": 3,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Dissolve": 3,
+          "Holy Might": 3,
+          "Fateshift": 3,
+          "Pious Rebuke": 3,
+          "Quick Strength": 3,
+          "Quick Shielding": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
