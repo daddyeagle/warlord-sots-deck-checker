@@ -526,5 +526,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "231248072204746753",
+    "discord_username": "kynarin#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Sklot the Cruel",
+    "display_name": "Kynarin",
+    "timestamp": "2026-01-06T04:08:41.175Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ac'Vuk": 3,
+          "Tyren Ruskin": 2,
+          "Sutek Razorclaw": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Draljaca Tar": 2,
+          "Muddflek": 3,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Sklot the Cruel": 1,
+          "Novice Pyro": 2,
+          "Joleg": 3
+        }
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Swivel": 2,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Trinket of Malice": 3,
+          "Teufeltiger's Shroud": 2,
+          "Steel Darts": 2,
+          "Medical Kit": 2,
+          "Fatestring Bow": 3,
+          "Hunting Staff": 2,
+          "Heavy Crossbow": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
