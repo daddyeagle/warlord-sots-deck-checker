@@ -575,5 +575,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "333097080543379457",
+    "discord_username": "shockzula#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Restomagus",
+    "timestamp": "2026-01-06T05:54:01.849Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Blitzer": 2,
+          "Duke Richter": 3,
+          "Ghed Bane": 2,
+          "Ghed Daucet": 2,
+          "Kingslayer": 1,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Enforcer Tancred": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Crush": 2,
+          "Epic Donnybrook": 2,
+          "Leveled!": 3,
+          "Lights of Revealing Sword": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 2,
+          "Medical Kit": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 2,
+          "Spellblocker": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
