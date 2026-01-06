@@ -782,56 +782,6 @@
     }
   },
   {
-    "username": "617965315166437390",
-    "discord_username": "sangington#0",
-    "event": "Saga Shuffle Jan '26",
-    "warlord": "Alrayn Gaunt",
-    "display_name": "Sangington - Delta Cubes",
-    "timestamp": "2026-01-06T18:15:49.568Z",
-    "cardList": {
-      "Character": {
-        "count": 23,
-        "mainDeck": {
-          "Bikram Bullstrength": 3,
-          "Hinterlands Griffon": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Starbinder": 3,
-          "Tunnel Worm": 3
-        },
-        "startingArmy": {
-          "Alrayn Gaunt": 1,
-          "Shambling Horror": 2,
-          "Trogid": 3
-        }
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 1,
-          "Cloudracer": 3,
-          "Gapfinder": 3,
-          "Revenger": 3,
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Dupe": 2,
-          "Epic Betrayal": 2,
-          "Hunt From Above": 2,
-          "Lights of Revealing Sword": 2,
-          "Rapid Dash": 3,
-          "Sneak": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "673010482755534868",
     "discord_username": "drrandolphcarter#0",
     "event": "Saga Shuffle Jan '26",
@@ -876,6 +826,57 @@
           "Epic Betrayal": 3,
           "Rapid Dash": 3,
           "Dupe": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-01-06T22:00:15.844Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Hinterlands Griffon": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Starbinder": 3,
+          "Tunnel Worm": 3
+        },
+        "startingArmy": {
+          "Alrayn Gaunt": 1,
+          "Shambling Horror": 2,
+          "Trogid": 3
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 3,
+          "Gapfinder": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Dupe": 2,
+          "Epic Betrayal": 2,
+          "Hunt From Above": 2,
+          "Lights of Revealing Sword": 2,
+          "Rapid Dash": 3,
+          "Sneak": 2
         },
         "startingArmy": {}
       }
