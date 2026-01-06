@@ -475,5 +475,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-01-06T03:48:04.819Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Treyik Netheryn": 2,
+          "Treyik": 3,
+          "Blitzer": 1,
+          "Callow Rowan": 1,
+          "Skitterleap": 3,
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Wither": 3,
+          "Invoke the Storm": 2,
+          "Resurrection": 2,
+          "Meet at the Inn!": 3,
+          "Quick Strength": 2,
+          "Noble Sacrifice": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 2,
+          "Dissolve": 2,
+          "Curse of Greed": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
