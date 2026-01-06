@@ -23,13 +23,6 @@
       "timestamp": "2026-01-03T21:06:26.191Z"
     },
     {
-      "warlord": "Gorthos, Shadow's Axe",
-      "username": "193190910329094144",
-      "discord_username": "shockgunn#0",
-      "display_name": "Gunn",
-      "timestamp": "2026-01-05T15:16:56.214Z"
-    },
-    {
       "warlord": "Anacaona",
       "username": "423473617180033035",
       "discord_username": "graccustheold#0",
@@ -84,6 +77,13 @@
       "discord_username": "shockzula#0",
       "display_name": "Restomagus",
       "timestamp": "2026-01-06T05:54:01.849Z"
+    },
+    {
+      "warlord": "Gorthos, Shadow's Axe",
+      "username": "193190910329094144",
+      "discord_username": "shockgunn#0",
+      "display_name": "Gunn",
+      "timestamp": "2026-01-06T06:54:12.942Z"
     }
   ]
 }
