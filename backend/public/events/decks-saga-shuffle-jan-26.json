@@ -1087,5 +1087,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-01-07T05:15:13.431Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sister Amanda": 1,
+          "Brightwing": 1,
+          "Alaya": 1,
+          "Birdsong Druid": 3,
+          "Field Marshal Malexin": 3,
+          "Starbinder": 2,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Leonora": 3
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Efrim Dawntreader": 1,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Breastplate of Power": 1,
+          "Aroch Mail": 1,
+          "Deverenus' Axe": 3,
+          "Shield of Spurning": 3,
+          "Ardian Greathawk": 3,
+          "Rockarm": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Epic Donnybrook": 1,
+          "Noble Sacrifice": 2,
+          "Sacrifice": 2,
+          "Pin Down": 3,
+          "Lights of Revealing Sword": 2,
+          "Heroic Confrontation": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
