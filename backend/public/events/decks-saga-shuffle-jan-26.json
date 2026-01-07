@@ -1033,5 +1033,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Grovewarden Elumera",
+    "display_name": "Oremm",
+    "timestamp": "2026-01-07T04:40:45.529Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Goldengrove Mage": 2,
+          "Lord's Assailant": 3,
+          "Oracle of Kavara": 2,
+          "Callow Rowan": 3,
+          "Master Dresden": 3,
+          "Skitterleap": 2,
+          "Ashveil": 1,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Blackwind": 1
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Grovewarden Elumera": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Darkflame Bolts": 3,
+          "Glimmer": 2,
+          "Flamelance": 2,
+          "Melt Metal": 2,
+          "Glaciate": 3,
+          "Epic Evocation": 2,
+          "Grave Exchange": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Ardian Greathawk": 2,
+          "Unicorn of Thun": 1,
+          "Storm Shard": 1,
+          "Well of Screams": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
