@@ -1141,5 +1141,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Ramesh, Elder Sage",
+    "display_name": "yotakafish",
+    "timestamp": "2026-01-07T12:30:05.734Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Tyren Ruskin": 1,
+          "Master Dresden": 3,
+          "Blitzer": 1,
+          "Thunic Yeti": 3,
+          "Bikram Bullstrength": 3,
+          "Oracle of Kavara": 3,
+          "Sta'ash": 1
+        },
+        "startingArmy": {
+          "Shambling Horror": 1,
+          "Ramesh, Elder Sage": 1,
+          "Brine Fiend": 3,
+          "Sutek Razorclaw": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Prime Positioning": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Talisman of Might": 1,
+          "Storm Shard": 1,
+          "Havat-lahn Stance": 1,
+          "Myerdeth Mare": 3,
+          "Strongarm Stout": 3,
+          "Ardian Greathawk": 2,
+          "Steelforge Regalia": 3,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
