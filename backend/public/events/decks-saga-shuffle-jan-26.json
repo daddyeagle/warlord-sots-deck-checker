@@ -930,5 +930,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Ramesh, Elder Sage",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2026-01-07T02:07:31.081Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Swiftcloud": 1,
+          "Thunic Yeti": 3,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 3,
+          "Blitzer": 2,
+          "Bikram Bullstrength": 3,
+          "Thicket": 3
+        },
+        "startingArmy": {
+          "Ramesh, Elder Sage": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Wraithstalker": 3,
+          "Storm Shard": 1,
+          "Revenger": 3,
+          "Hunting Staff": 3,
+          "Flail": 2,
+          "Cloudracer": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Well Supplied": 1,
+          "Lights of Revealing Sword": 3,
+          "Rapid Dash": 1,
+          "Meet at the Inn!": 3,
+          "Assassin's Strike": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
