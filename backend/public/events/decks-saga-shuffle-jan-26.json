@@ -1246,5 +1246,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Archivist Myrina",
+    "display_name": "Iceman",
+    "timestamp": "2026-01-07T22:38:30.712Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Church Inquisitor": 1,
+          "Blitzer": 1,
+          "Kingslayer": 1,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Sister Kiren": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Zaina": 3
+        },
+        "startingArmy": {
+          "Archivist Myrina": 1,
+          "Genecourt Initiate": 3,
+          "Church Inquisitor": 2
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Ardian Greathawk": 1,
+          "Gapfinder": 1,
+          "Ritual Dagger": 2,
+          "Cloudracer": 3,
+          "Wraithstalker": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Well Supplied": 2,
+          "Noble Sacrifice": 2,
+          "Sneak": 2,
+          "Rapid Dash": 3,
+          "Assassin's Strike": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
