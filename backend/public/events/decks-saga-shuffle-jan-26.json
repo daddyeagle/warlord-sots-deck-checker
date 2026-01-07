@@ -1193,5 +1193,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "djYinYangMan2112",
+    "timestamp": "2026-01-07T20:28:11.129Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Kingslayer": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Sister Kiren": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1,
+          "High Acolyte Hellene": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Gift From Above": 3,
+          "Holy Might": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Ablung's Prisms": 1,
+          "Bruntor's Helm": 1,
+          "Cyldragen's Tome": 1,
+          "Deverenus' Axe": 3,
+          "Havat-lahn Stance": 2,
+          "Heresy Ward": 1,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2,
+          "Medical Kit": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
