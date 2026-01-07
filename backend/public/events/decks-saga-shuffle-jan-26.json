@@ -881,5 +881,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Librarian Shastra",
+    "display_name": "Russel",
+    "timestamp": "2026-01-07T01:19:54.628Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sister Kiren": 2,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3,
+          "Lady Estelle": 3,
+          "Kingslayer": 3
+        },
+        "startingArmy": {
+          "Librarian Shastra": 1,
+          "Squire Fendric": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Nightfire Manacles": 3,
+          "Archivist's Journal": 3,
+          "Bloodsteed": 2,
+          "Unicorn of Thun": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Epic Evocation": 3,
+          "Unsummon": 2,
+          "Grave Exchange": 3,
+          "Arcane Approach": 3,
+          "Change of Hands": 2,
+          "Flamelance": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
