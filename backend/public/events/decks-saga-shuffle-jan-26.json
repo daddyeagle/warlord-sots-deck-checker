@@ -1551,5 +1551,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Memoriam",
+    "display_name": "Kofax",
+    "timestamp": "2026-01-08T02:16:56.073Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Beacon": 3,
+          "Frenzy": 3,
+          "Darkwatcher": 1,
+          "Brightwing": 1,
+          "Bikram Bullstrength": 2,
+          "Hazahk of Shadow": 3,
+          "Master Dresden": 2,
+          "Swiftcloud": 1,
+          "Oracle of Kavara": 1
+        },
+        "startingArmy": {
+          "Sunforge Smith": 2,
+          "Memoriam": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bardiche": 2,
+          "Cyldragen's Tome": 2,
+          "Shocksaber": 2,
+          "Hunting Staff": 2,
+          "Deverenus' Axe": 2,
+          "Hod's Legacy": 1,
+          "Griffon of Andover": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Epic Judgment": 2,
+          "Divine Respite": 2,
+          "Dissolve": 1,
+          "Solar Ray": 3,
+          "Spiritual Weapon": 3,
+          "Well Supplied": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
