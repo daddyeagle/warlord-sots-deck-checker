@@ -1447,5 +1447,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Anacaona",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-01-08T01:54:33.720Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Blitzer": 2,
+          "Dwarf-Eater": 2,
+          "Sta'ash": 2,
+          "Swiftcloud": 2,
+          "Recruiter of Misear": 1,
+          "Isadran Kennelmaster": 1
+        },
+        "startingArmy": {
+          "Anacaona": 1,
+          "Shambling Horror": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Luthlarius Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Curse of Greed": 3,
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Quick Strength": 3,
+          "Final Blessing": 3,
+          "Sacrifice": 3,
+          "Skulk in the Shallows": 2,
+          "Wither": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
