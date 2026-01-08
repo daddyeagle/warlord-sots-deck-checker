@@ -1350,5 +1350,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597161294970881",
+    "discord_username": "taratherat#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Tara the rat",
+    "timestamp": "2026-01-08T00:51:24.683Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Veteran Bowman": 3,
+          "Treyik": 3,
+          "Ciane": 3,
+          "Tresven": 3,
+          "Veera and Bones": 3,
+          "Jigoral": 3
+        },
+        "startingArmy": {
+          "Rone of the Deepbrook": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Swivel": 2,
+          "Terrorize": 3,
+          "Crypt Wine": 2,
+          "Pin Down": 3,
+          "Blackoak Arrows": 3,
+          "Assassin's Strike": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Fatestring Bow": 2,
+          "Cloudracer": 3,
+          "Merrick Regalia": 2,
+          "Angel's Tears": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
