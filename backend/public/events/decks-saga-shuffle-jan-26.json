@@ -1399,5 +1399,53 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-01-08T01:04:51.402Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Albrecht Novice": 3,
+          "Field Marshal Malexin": 3,
+          "Shannon the Daring": 3,
+          "Shambling Horror": 3,
+          "Flame Jester": 3,
+          "Leonora": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Quick Strength": 2,
+          "Epic Judgment": 3,
+          "Final Blessing": 3,
+          "Leveled!": 3,
+          "Meet at the Inn!": 3,
+          "Pack Tactics": 2,
+          "Sacrifice": 3,
+          "Wither": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
