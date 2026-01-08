@@ -1606,5 +1606,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-01-08T02:45:53.880Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Albrecht Novice": 3,
+          "Leonora": 3,
+          "Squire Argos": 3,
+          "Shannon the Daring": 3,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Efrim Dawntreader": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Epic Donnybrook": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Ardian Greathawk": 3,
+          "Shield of Spurning": 2,
+          "Breastplate of Power": 2,
+          "Aroch Mail": 2,
+          "Talisman of Might": 1,
+          "Bruntor's Helm": 1,
+          "Fineltour's Draught": 1,
+          "Rockarm": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
