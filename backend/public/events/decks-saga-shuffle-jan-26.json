@@ -1299,5 +1299,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "graham",
+    "timestamp": "2026-01-08T00:24:18.351Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Tyren Ruskin": 1,
+          "Sutek Razorclaw": 3,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 3,
+          "Brinewater Croc": 3,
+          "Brine Fiend": 2,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Z'adok, Prey Herder": 1,
+          "Sutek Slimefang": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Wither": 2,
+          "Rapid Dash": 2,
+          "Lights of Revealing Sword": 3,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1,
+          "Revenger": 3,
+          "Gapfinder": 2,
+          "Fatestring Bow": 1,
+          "Bloodsteed": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
