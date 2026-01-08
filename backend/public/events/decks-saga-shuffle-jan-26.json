@@ -836,56 +836,6 @@
     }
   },
   {
-    "username": "673010482755534868",
-    "discord_username": "drrandolphcarter#0",
-    "event": "Saga Shuffle Jan '26",
-    "warlord": "Alrayn Gaunt",
-    "display_name": "WesY",
-    "timestamp": "2026-01-06T19:34:59.374Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Shambling Horror": 1,
-          "Flame Jester": 3,
-          "Veteran Bowman": 3,
-          "Tunnel Worm": 3,
-          "Starbinder": 3,
-          "Hinterlands Griffon": 3
-        },
-        "startingArmy": {
-          "Trogid": 3,
-          "Shambling Horror": 2,
-          "Alrayn Gaunt": 1
-        }
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Leopard Claws": 2,
-          "Strongarm Stout": 3,
-          "Revenger": 3,
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 1,
-          "Gapfinder": 2,
-          "Ardian Greathawk": 1,
-          "Cloudracer": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Meet at the Inn!": 3,
-          "Epic Betrayal": 3,
-          "Rapid Dash": 3,
-          "Dupe": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "617965315166437390",
     "discord_username": "sangington#0",
     "event": "Saga Shuffle Jan '26",
@@ -1654,6 +1604,56 @@
           "Rockarm": 1,
           "Medical Kit": 1,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "673010482755534868",
+    "discord_username": "drrandolphcarter#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "WesY",
+    "timestamp": "2026-01-08T02:56:02.619Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Flame Jester": 3,
+          "Veteran Bowman": 3,
+          "Tunnel Worm": 3,
+          "Starbinder": 3,
+          "Hinterlands Griffon": 3
+        },
+        "startingArmy": {
+          "Trogid": 3,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Leopard Claws": 2,
+          "Strongarm Stout": 2,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 1,
+          "Gapfinder": 2,
+          "Cloudracer": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Epic Betrayal": 3,
+          "Hunt From Above": 2,
+          "Rapid Dash": 3,
+          "Dupe": 3
         },
         "startingArmy": {}
       }
