@@ -1711,5 +1711,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "123456789012345678",
+    "discord_username": "Aurlynne#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Aurlynne",
+    "timestamp": "2026-01-08T02:56:02.619Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ciane": 3,
+          "Flame Jester": 3,
+          "Veteran Bowman": 3,
+          "Tresven": 3,
+          "Veera and Bones": 3,
+          "Oracle of Kavara": 2,
+          "Graveyard Librarian": 1,
+          "Jubilant Hatchling": 1
+        },
+        "startingArmy": {
+          "Jigorol": 3,
+          "Graveyard Librarian": 2,
+          "Rone of the Deepbrook": 1
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Angel's Tears": 1,
+          "Teufeltiger's Shroud": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Fatestring Bow": 1,
+          "Gapfinder": 3,
+          "Cloudracer": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 7,
+        "mainDeck": {
+          "Death from Below": 2,
+          "Pin Down": 2,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
