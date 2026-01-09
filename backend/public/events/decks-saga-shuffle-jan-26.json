@@ -1658,5 +1658,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "213872286904745987",
+    "discord_username": "malendor#0",
+    "event": "Saga Shuffle Jan '26",
+    "warlord": "Nisha",
+    "display_name": "Malendor",
+    "timestamp": "2026-01-09T03:29:25.064Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Squire Fendric": 2,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 2,
+          "Aureliane": 2,
+          "Duke Richter": 2,
+          "Ghed Bane": 3,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 2,
+          "Genecourt Initiate": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Final Blessing": 2,
+          "Final Farewell": 2,
+          "Gift From Above": 3,
+          "Holy Might": 2,
+          "Meet at the Inn!": 2,
+          "Quick Shielding": 3,
+          "Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Havat-lahn Stance": 2,
+          "Myerdeth Mare": 2,
+          "Rockarm": 2,
+          "War Horse": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
