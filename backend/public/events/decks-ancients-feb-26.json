@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "username": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "The Nemesis",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-02-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Brine Fiend": 2,
+          "Archer Tower": 1,
+          "Avatar of Magic": 1,
+          "Baraz": 2,
+          "Dragonkin": 3,
+          "Fire Fiends": 1,
+          "Halo of Fire": 2,
+          "Jackals of Mourn": 3,
+          "SS-Slik": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Amoudasi's Wrath": 1,
+          "Brine Fiend": 1,
+          "Cal Blackborne": 1,
+          "Stygian Wraith": 2,
+          "The Nemesis": 1
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Black Moss": 1,
+          "Robe of the Planes": 1,
+          "Staff of Secrets": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Epic Evocation": 3,
+          "Fiery Bolts": 3,
+          "Flame Waves": 3,
+          "Pull the Strings": 3,
+          "Severed of Flesh": 3,
+          "Venom Vines": 2,
+          "Wheel of Death": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
