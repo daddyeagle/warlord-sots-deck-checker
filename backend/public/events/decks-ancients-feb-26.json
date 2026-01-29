@@ -53,5 +53,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "356100504591269900",
+    "discord_username": "godinho10#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Beastmaster Eladric",
+    "display_name": "Godinho",
+    "timestamp": "2026-02-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Banyon": 1,
+          "Aristaios": 3,
+          "Tahmores Yscar": 3,
+          "Kieran": 3,
+          "Rafkin": 2,
+          "Sir Thomas of Celinar": 1,
+          "Barrett Yscar": 3,
+          "Huggins": 3
+        },
+        "startingArmy": {
+          "Beastmaster Eladric": 1,
+          "Eloise": 1,
+          "Baqbou Umbala": 1,
+          "Yscarite Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Staff of Kizazi": 3,
+          "Signon's Armor": 1,
+          "Bascarite Mark": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Acts of Faith": 2,
+          "Embolden": 3,
+          "Treewalk": 3,
+          "Mass Blessing": 3,
+          "Reflect": 2,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
