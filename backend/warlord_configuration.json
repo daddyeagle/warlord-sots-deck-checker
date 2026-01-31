@@ -42,6 +42,8 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
       "editions": [
         "Ancients"
       ],
@@ -49,9 +51,7 @@
         "names": [
           "Tzin's Secret"
         ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "sets": [],
         "rarities": []
       },
       "hidden": false
