@@ -109,52 +109,55 @@
     "username": "225075257822674944",
     "discord_username": "oeagle#0",
     "event": "Ancients+ Feb '26",
-    "warlord": "Fo'ttr'ak'ka",
+    "warlord": "Scyrax",
     "display_name": "daddy_eagle",
     "timestamp": "2026-02-01T00:00:00.000Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Gunda": 2,
-          "Krasin": 2,
-          "B'haya, the Fiend": 1,
-          "Bokos": 2,
-          "FirRal": 3,
-          "Lorik": 3,
-          "Nemtok": 3,
-          "SanUris": 3
+          "Carg'rag": 3,
+          "Karn of Clan Manaka": 1,
+          "Koratcghuk": 1,
+          "Lukkot Buzzsaw": 3,
+          "Makusog Steelhorn": 3,
+          "Sar'ean": 3,
+          "The Mighty Mugg": 3,
+          "The Retiarius": 1,
+          "Toren Yscar": 1
         },
         "startingArmy": {
-          "Bear Legion Recruit": 2,
-          "Gunda": 1,
-          "Krasin": 1,
+          "Bear Legion Recruit": 3,
           "Yeg-Igryll's Altar": 1,
-          "Fo'ttr'ak'ka": 1
+          "Krasin": 1,
+          "Scyrax": 1
         }
       },
-      "Action": {
-        "count": 19,
+      "Item": {
+        "count": 15,
         "mainDeck": {
-          "Arcane Approach": 3,
-          "Curse of Greed": 2,
-          "Final Blessing": 3,
-          "Final Farewell": 2,
-          "Hero's Gambit": 2,
-          "Incentives": 1,
-          "Quick Strength": 2,
-          "Speed of the Falcon": 1,
-          "Suicidal Charge": 1,
-          "Sword Master": 2
+          "Black Journal": 1,
+          "Deverenus' Axe": 2,
+          "Dragon Buckler": 1,
+          "Glyph of Fate": 1,
+          "Nodwick": 1,
+          "Portable Hole": 3,
+          "Silverwind": 1,
+          "Staff of Secrets": 1,
+          "Storm Shard": 1,
+          "The King's Lady": 1,
+          "Vorpal Blade": 1,
+          "Wand of Negation": 1
         },
         "startingArmy": {}
       },
-      "Item": {
-        "count": 6,
+      "Action": {
+        "count": 10,
         "mainDeck": {
-          "Black Moss": 2,
-          "Destroyer's Armor": 3,
-          "Double Bladed Sword": 1
+          "Extensions": 3,
+          "Fell Blow": 1,
+          "From Dust to Dust": 3,
+          "Severed of Flesh": 3
         },
         "startingArmy": {}
       }
