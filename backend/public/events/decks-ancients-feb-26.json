@@ -116,45 +116,45 @@
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Krasin": 1,
-          "SanUris": 3,
-          "Nemtok": 3,
-          "Lorik": 3,
-          "Carg'rag": 3,
-          "FirRal": 3,
+          "Gunda": 2,
+          "Krasin": 2,
+          "B'haya, the Fiend": 1,
           "Bokos": 2,
-          "B'haya, the Fiend": 1
+          "FirRal": 3,
+          "Lorik": 3,
+          "Nemtok": 3,
+          "SanUris": 3
         },
         "startingArmy": {
-          "Fo'ttr'ak'ka": 1,
+          "Bear Legion Recruit": 2,
+          "Gunda": 1,
           "Krasin": 1,
           "Yeg-Igryll's Altar": 1,
-          "Bear Legion Recruit": 2,
-          "Gunda": 1
+          "Fo'ttr'ak'ka": 1
         }
       },
       "Action": {
         "count": 19,
         "mainDeck": {
-          "Sword Master": 2,
-          "Suicidal Charge": 1,
-          "Speed of the Falcon": 1,
-          "Quick Strength": 2,
-          "Incentives": 1,
-          "Hero's Gambit": 2,
-          "Final Farewell": 2,
-          "Final Blessing": 3,
+          "Arcane Approach": 3,
           "Curse of Greed": 2,
-          "Arcane Approach": 3
+          "Final Blessing": 3,
+          "Final Farewell": 2,
+          "Hero's Gambit": 2,
+          "Incentives": 1,
+          "Quick Strength": 2,
+          "Speed of the Falcon": 1,
+          "Suicidal Charge": 1,
+          "Sword Master": 2
         },
         "startingArmy": {}
       },
       "Item": {
         "count": 6,
         "mainDeck": {
-          "Double Bladed Sword": 1,
+          "Black Moss": 2,
           "Destroyer's Armor": 3,
-          "Black Moss": 2
+          "Double Bladed Sword": 1
         },
         "startingArmy": {}
       }
