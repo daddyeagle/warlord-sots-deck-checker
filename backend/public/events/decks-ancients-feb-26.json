@@ -159,5 +159,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Grand Inventor Otto",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-02-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Door to the World": 1,
+          "Duri Earthwalker": 3,
+          "Glorgrim": 1,
+          "Kiyar Undying": 1,
+          "Mentor": 1,
+          "Nepheline Gargoyle": 1,
+          "Prince Alaric": 3,
+          "Stockpile": 2,
+          "Strength": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Danres": 3,
+          "Preen": 1,
+          "Will": 1,
+          "Grand Inventor Otto": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Conjuration": 3,
+          "Epic Evocation": 3,
+          "Extensions": 3,
+          "Hand of Power": 1,
+          "Medusan Lords' Gambit": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Barakiel": 2,
+          "Infinity Codex": 1,
+          "Kcal'den's Bracers": 2,
+          "Ring of Blasting": 1,
+          "Robe of the Planes": 1,
+          "Skyborne Tome": 1,
+          "Storm Shard": 1,
+          "Tome of the Archmage": 1,
+          "Wand of Negation": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
