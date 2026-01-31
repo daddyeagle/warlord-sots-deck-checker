@@ -582,7 +582,14 @@
           body: JSON.stringify(configData)
         });
         if (!res.ok) throw new Error('Failed to update config');
-        setFeedback('Configuration updated successfully.');
+        const result = await res.json();
+        if (result.github === false) {
+          setFeedback('Config updated locally, but failed to update on GitHub: ' + (result.error || 'Unknown error'), true);
+        } else if (result.github === true) {
+          setFeedback('Configuration updated successfully and pushed to GitHub.');
+        } else {
+          setFeedback('Configuration updated successfully.');
+        }
         // Optionally notify other tabs
         try{ localStorage.setItem('warlordConfigUpdate', JSON.stringify({ ts: Date.now(), type: 'commit', url: null })); }catch(e){}
       } catch (err) {

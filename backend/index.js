@@ -87,9 +87,17 @@ app.post('/api/config', (req, res) => {
   if (!configData || typeof configData !== 'object') {
     return res.status(400).json({ error: 'Invalid config data' });
   }
-  fs.writeFile(configPath, JSON.stringify(configData, null, 2), 'utf8', (err) => {
+  fs.writeFile(configPath, JSON.stringify(configData, null, 2), 'utf8', async (err) => {
     if (err) return res.status(500).json({ error: 'Failed to write config' });
-    res.json({ success: true });
+    // Push to GitHub as well
+    try {
+      const { putFile } = require('./github');
+      await putFile('backend/warlord_configuration.json', configData, 'Update warlord_configuration.json via admin');
+      res.json({ success: true, github: true });
+    } catch (e) {
+      console.error('GitHub update failed:', e.message);
+      res.json({ success: true, github: false, error: 'Local update succeeded, GitHub update failed.' });
+    }
   });
 });
 
