@@ -274,5 +274,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Captain Dukat",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-02-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Archer Tower": 1,
+          "Baraz": 2,
+          "Calenar": 2,
+          "Enki": 3,
+          "Ghost Bog": 1,
+          "Jackals of Mourn": 3,
+          "Lawrence Pheen": 3,
+          "Peyton Latham": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Scarlett": 1,
+          "Glenn the Blaze": 1,
+          "Captain Dukat": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Assassin's Arrow": 2,
+          "Curse of Greed": 3,
+          "Exhaustion": 2,
+          "Ill-Gotten Gains": 2,
+          "Quick Shot": 2,
+          "Sniper Shot": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Blood Hawk": 1,
+          "Bracers of Archery": 1,
+          "Farglass": 3,
+          "Nodwick": 1,
+          "Hawthorne's Arrows": 1,
+          "Portable Hole": 3,
+          "Red Wyrm's Egg": 1,
+          "Sharkbone Bow": 1,
+          "Teufeltiger's Shroud": 1,
+          "Wyvernsting Bow": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
