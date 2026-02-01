@@ -337,53 +337,50 @@
     "username": "151512634573717504",
     "discord_username": "chrisvac#0",
     "event": "Ancients+ Feb '26",
-    "warlord": "Rac Ironbone",
+    "warlord": "Mair Haven",
     "display_name": "ChrisVac",
-    "timestamp": "2026-02-01T02:35:23.621Z",
+    "timestamp": "2026-02-01T02:47:31.962Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Toren Yscar": 1,
-          "The Temple of Lore": 3,
-          "Supply": 1,
-          "Strength": 3,
-          "Stockpile": 2,
-          "Prince Alaric": 3,
-          "Kohn Peacehand": 1,
-          "Drea Nexus": 2,
-          "Denali Sagebound": 3
+          "The Temple of Lore": 2,
+          "Archer Tower": 1,
+          "Arika Ketchum": 3,
+          "Birdsong Druid": 3,
+          "Calenar": 1,
+          "Jirar Huntsman": 3,
+          "Peyton Latham": 3,
+          "Rr'gent": 2,
+          "Toren Yscar": 1
         },
         "startingArmy": {
-          "Will": 1,
-          "Rac Ironbone": 1,
-          "Labor": 1,
-          "Danres": 3
+          "Keen Eared Sentry": 3,
+          "Baqbou Umbala": 1,
+          "Bradley": 1,
+          "Mair Haven": 1
         }
       },
       "Item": {
-        "count": 16,
+        "count": 14,
         "mainDeck": {
-          "Wyvernsteed": 3,
-          "Tome of the Adept": 1,
-          "Tome of Champions": 2,
-          "Sir Tython's Shield": 2,
-          "Silverwind": 2,
+          "Ardian Greathawk": 2,
+          "Farglass": 2,
+          "Frosttalon": 3,
+          "Giant Bat": 1,
           "Nodwick": 1,
-          "Medical Kit": 1,
-          "Figurine of Power": 3,
-          "Blue Wyrm's Egg": 1
+          "Portable Hole": 3,
+          "Unseen Arrow": 2
         },
         "startingArmy": {}
       },
       "Action": {
-        "count": 9,
+        "count": 11,
         "mainDeck": {
-          "Trade Routes": 1,
-          "Pit Fight": 2,
-          "Meet at the Inn!": 3,
-          "Loyalty's Reward": 2,
-          "Bar Fight": 1
+          "Crypt Wine": 2,
+          "Hunt From Above": 3,
+          "Lucky Shot": 3,
+          "Swivel": 3
         },
         "startingArmy": {}
       }
