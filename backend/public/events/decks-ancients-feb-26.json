@@ -332,5 +332,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Rac Ironbone",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-02-01T02:35:23.621Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "The Temple of Lore": 3,
+          "Supply": 1,
+          "Strength": 3,
+          "Stockpile": 2,
+          "Prince Alaric": 3,
+          "Kohn Peacehand": 1,
+          "Drea Nexus": 2,
+          "Denali Sagebound": 3
+        },
+        "startingArmy": {
+          "Will": 1,
+          "Rac Ironbone": 1,
+          "Labor": 1,
+          "Danres": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Wyvernsteed": 3,
+          "Tome of the Adept": 1,
+          "Tome of Champions": 2,
+          "Sir Tython's Shield": 2,
+          "Silverwind": 2,
+          "Nodwick": 1,
+          "Medical Kit": 1,
+          "Figurine of Power": 3,
+          "Blue Wyrm's Egg": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Trade Routes": 1,
+          "Pit Fight": 2,
+          "Meet at the Inn!": 3,
+          "Loyalty's Reward": 2,
+          "Bar Fight": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
