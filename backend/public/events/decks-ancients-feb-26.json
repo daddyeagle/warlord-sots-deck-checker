@@ -497,5 +497,48 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Sargok",
+    "display_name": "DireScrub",
+    "timestamp": "2026-02-02T20:57:29.149Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Carg'rag": 2,
+          "Trugg": 2,
+          "Rhelok": 3,
+          "FirRal": 3,
+          "Dal'kir": 3,
+          "Bokos": 3,
+          "Bludgeon": 3
+        },
+        "startingArmy": {
+          "Sargok": 1,
+          "Gunda": 3,
+          "Grudurk": 1,
+          "Yeg-Igryll's Altar": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "The Quick and the Dead": 3,
+          "Bar Fight": 3,
+          "Pouncing Lunge": 3,
+          "Outmatched": 3,
+          "Loyalty's Reward": 3,
+          "Hero's Gambit": 3,
+          "Cold Iron": 1,
+          "Close Combat": 3,
+          "Ambushed in the Snow": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
