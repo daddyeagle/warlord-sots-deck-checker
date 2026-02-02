@@ -443,5 +443,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-02-02T15:09:11.518Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Spencer Latham": 1,
+          "Brother Dominy": 2,
+          "Leonora": 2,
+          "Clerimonde": 3,
+          "Kun Iacob": 2,
+          "Ryan Mornington": 3,
+          "Mairead": 2,
+          "Field Marshal Malexin": 3,
+          "Sir Thomas of Celinar": 1
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Rosalie": 2,
+          "Spencer Latham": 2,
+          "Brother Dominy": 1
+        }
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Alliance Standard": 1,
+          "Staff of Kizazi": 1,
+          "The Cardinals' Blessing": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Mass Blessing": 3,
+          "Final Blessing": 3,
+          "Seize Life": 3,
+          "Rabble Rousing": 2,
+          "Soothing Waters": 2,
+          "Exhaustion": 2,
+          "Embolden": 2,
+          "Rescue": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
