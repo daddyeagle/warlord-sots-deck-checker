@@ -37,13 +37,6 @@
       "timestamp": "2026-02-01T22:47:14.393Z"
     },
     {
-      "warlord": "Adathan, Celestial Messenger",
-      "username": "238453317418614784",
-      "discord_username": "elvernthehero#0",
-      "display_name": "elvernthehero",
-      "timestamp": "2026-02-02T15:09:11.518Z"
-    },
-    {
       "warlord": "Sargok",
       "username": "298580168899821568",
       "discord_username": "direscrub#0",
@@ -98,6 +91,13 @@
       "discord_username": "kamacausey_#0",
       "display_name": "Kamacausey",
       "timestamp": "2026-02-03T19:23:41.817Z"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "238453317418614784",
+      "discord_username": "elvernthehero#0",
+      "display_name": "elvernthehero",
+      "timestamp": "2026-02-03T19:31:56.606Z"
     }
   ]
 }
