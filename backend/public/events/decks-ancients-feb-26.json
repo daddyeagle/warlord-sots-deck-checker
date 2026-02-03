@@ -691,5 +691,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Arden Tide",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-02-03T19:23:41.817Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "The Temple of Lore": 3,
+          "Heath Stafford": 3,
+          "Wanderetch": 3,
+          "Shadowreaver": 3,
+          "Barrett Yscar": 3,
+          "Oracle of Kavara": 2,
+          "Toren Yscar": 1,
+          "Antaelus": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Baqbou Umbala": 2,
+          "Arden Tide": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Tsunami": 3,
+          "Stone Skin": 2,
+          "Improved Invisibility": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Death's Call": 3,
+          "Kcal'den's Bracers": 3,
+          "Tome of the Archmage": 1,
+          "Dusty Shelves": 1,
+          "Red Steel Gauntlets": 1,
+          "Chime of the Aerie": 1,
+          "Crimson Diadem": 1,
+          "Ardian Greathawk": 1,
+          "Unicorn of Thun": 1,
+          "Cloak of Flight": 1,
+          "Wand of Negation": 1,
+          "Myerdeth Ring": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
