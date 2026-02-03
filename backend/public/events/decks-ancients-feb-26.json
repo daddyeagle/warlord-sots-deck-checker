@@ -584,62 +584,6 @@
     }
   },
   {
-    "username": "193190910329094144",
-    "discord_username": "shockgunn#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Kestrel the Deceiver",
-    "display_name": "Gunn",
-    "timestamp": "2026-02-03T04:54:25.689Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "The Sable Knight": 1,
-          "Taltos Rellion": 3,
-          "Takson the Intricate": 1,
-          "Sir Serane Myerdeth": 1,
-          "Mistress Brigette": 2,
-          "Kingslayer": 1,
-          "Halo of Secrets": 1,
-          "Ghed Daucet": 3,
-          "Duke Richter": 3,
-          "Davaenus": 1,
-          "Corinne Drac": 3
-        },
-        "startingArmy": {
-          "Sir Argen Undying": 1,
-          "Kestrel the Deceiver": 1,
-          "Genecourt Initiate": 3
-        }
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Tsunami": 3,
-          "Prismatic Surge": 2,
-          "Medusan Lords' Gambit": 3,
-          "Grave Exchange": 3,
-          "Boil Blood": 2,
-          "Blood Price": 2,
-          "Blink": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Staff of Secrets": 2,
-          "Robe of the Planes": 1,
-          "Narawat Ring": 1,
-          "Myerdeth Ring": 1,
-          "Medical Kit": 1,
-          "Crimson Diadem": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "307709338250903552",
     "discord_username": "themelyk#0",
     "event": "Ancients+ Feb '26",
@@ -687,6 +631,62 @@
           "Black Moss": 2,
           "Destroyer's Armor": 2,
           "Fine Hilted Saber": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Kestrel the Deceiver",
+    "display_name": "Gunn",
+    "timestamp": "2026-02-03T16:59:12.842Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Envoy Soraya": 1,
+          "The Sable Knight": 1,
+          "Taltos Rellion": 3,
+          "Takson the Intricate": 1,
+          "Sir Serane Myerdeth": 2,
+          "Kingslayer": 1,
+          "Halo of Secrets": 1,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3,
+          "Davaenus": 1,
+          "Corinne Drac": 3
+        },
+        "startingArmy": {
+          "Sir Argen Undying": 1,
+          "Kestrel the Deceiver": 1,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Prismatic Surge": 2,
+          "Tsunami": 3,
+          "Medusan Lords' Gambit": 3,
+          "Grave Exchange": 3,
+          "Boil Blood": 2,
+          "Blood Price": 2,
+          "Blink": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Spell Book": 1,
+          "Staff of Secrets": 2,
+          "Robe of the Planes": 1,
+          "Myerdeth Ring": 1,
+          "Medical Kit": 1,
+          "Crimson Diadem": 2
         },
         "startingArmy": {}
       }
