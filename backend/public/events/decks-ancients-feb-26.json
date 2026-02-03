@@ -277,59 +277,6 @@
     }
   },
   {
-    "username": "151512634573717504",
-    "discord_username": "chrisvac#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Mair Haven",
-    "display_name": "ChrisVac",
-    "timestamp": "2026-02-01T02:47:31.962Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "The Temple of Lore": 2,
-          "Archer Tower": 1,
-          "Arika Ketchum": 3,
-          "Birdsong Druid": 3,
-          "Calenar": 1,
-          "Jirar Huntsman": 3,
-          "Peyton Latham": 3,
-          "Rr'gent": 2,
-          "Toren Yscar": 1
-        },
-        "startingArmy": {
-          "Keen Eared Sentry": 3,
-          "Baqbou Umbala": 1,
-          "Bradley": 1,
-          "Mair Haven": 1
-        }
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Farglass": 2,
-          "Frosttalon": 3,
-          "Giant Bat": 1,
-          "Nodwick": 1,
-          "Portable Hole": 3,
-          "Unseen Arrow": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 11,
-        "mainDeck": {
-          "Crypt Wine": 2,
-          "Hunt From Above": 3,
-          "Lucky Shot": 3,
-          "Swivel": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "178257746494357514",
     "discord_username": "hosh5753#0",
     "event": "Ancients+ Feb '26",
@@ -580,6 +527,57 @@
           "Rescue": 1,
           "Winter Warfare": 1,
           "Incentives": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Rustiq Umbala",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-02-03T01:17:55.038Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardanaalis": 3,
+          "Ayaaba Waverunner": 1,
+          "Fayed Dythanus": 3,
+          "Kargaz Dythanus": 3,
+          "The Biting West Wind": 3,
+          "The Lost Bride": 3,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Kinnell": 1,
+          "Skyyrek": 1,
+          "Rustiq Umbala": 1
+        }
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Bascarite Mark": 1,
+          "Black Moss": 2,
+          "Chill's Razor": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Evoke Crisis": 2,
+          "Fiery Bolts": 3,
+          "Final Blessing": 2,
+          "Final Power": 3,
+          "From Dust to Dust": 3,
+          "Mass Blessing": 3,
+          "Shallow Graves": 2
         },
         "startingArmy": {}
       }
