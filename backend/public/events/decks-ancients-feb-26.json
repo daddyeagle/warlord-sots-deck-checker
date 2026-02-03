@@ -106,61 +106,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Fo'ttr'ak'ka",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-02-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Krasin": 1,
-          "SanUris": 3,
-          "Nemtok": 3,
-          "Lorik": 3,
-          "Carg'rag": 3,
-          "FirRal": 3,
-          "Bokos": 2,
-          "B'haya, the Fiend": 1
-        },
-        "startingArmy": {
-          "Fo'ttr'ak'ka": 1,
-          "Krasin": 1,
-          "Yeg-Igryll's Altar": 1,
-          "Bear Legion Recruit": 2,
-          "Gunda": 1
-        }
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Sword Master": 2,
-          "Suicidal Charge": 1,
-          "Speed of the Falcon": 1,
-          "Quick Strength": 2,
-          "Incentives": 1,
-          "Hero's Gambit": 2,
-          "Final Farewell": 2,
-          "Final Blessing": 3,
-          "Curse of Greed": 2,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 6,
-        "mainDeck": {
-          "Double Bladed Sword": 1,
-          "Destroyer's Armor": 3,
-          "Black Moss": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "354280712578400267",
     "discord_username": "aaron1002#0",
     "event": "Ancients+ Feb '26",
@@ -578,6 +523,61 @@
           "Sniper Shot": 2,
           "Distrust": 3,
           "Quick Shot": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Fo'ttr'ak'ka",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-02-03T04:12:13.177Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Krasin": 1,
+          "SanUris": 3,
+          "Nemtok": 3,
+          "Lorik": 3,
+          "Carg'rag": 3,
+          "FirRal": 3,
+          "Bokos": 2,
+          "B'haya, the Fiend": 1
+        },
+        "startingArmy": {
+          "Fo'ttr'ak'ka": 1,
+          "Krasin": 1,
+          "Yeg-Igryll's Altar": 1,
+          "Bear Legion Recruit": 2,
+          "Gunda": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Sword Master": 2,
+          "Suicidal Charge": 1,
+          "Speed of the Falcon": 1,
+          "Quick Strength": 2,
+          "Incentives": 1,
+          "Hero's Gambit": 2,
+          "Final Farewell": 2,
+          "Final Blessing": 3,
+          "Curse of Greed": 2,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Double Bladed Sword": 1,
+          "Destroyer's Armor": 3,
+          "Black Moss": 2
         },
         "startingArmy": {}
       }
