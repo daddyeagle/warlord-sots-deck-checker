@@ -540,5 +540,49 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "209747434635657217",
+    "discord_username": "woodrow#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Tavis Jape",
+    "display_name": "Woodrow",
+    "timestamp": "2026-02-03T01:13:37.248Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Flame Jester": 3,
+          "SS-Slik": 3,
+          "The Biting West Wind": 3,
+          "Baraz": 3,
+          "Jackals of Mourn": 3,
+          "Master Dresden": 3,
+          "Bosun Blacknose": 1
+        },
+        "startingArmy": {
+          "Tavis Jape": 1,
+          "Veteran Bowman": 2,
+          "Stygian Wraith": 3
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Ill-Gotten Gains": 3,
+          "Blind the Gods": 3,
+          "Curse of Greed": 3,
+          "Mass Blessing": 3,
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3,
+          "Stab": 2,
+          "Dimensional Rift": 2,
+          "Rescue": 1,
+          "Winter Warfare": 1,
+          "Incentives": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
