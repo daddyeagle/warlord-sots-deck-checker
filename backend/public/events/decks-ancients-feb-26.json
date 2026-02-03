@@ -589,7 +589,7 @@
     "event": "Ancients+ Feb '26",
     "warlord": "Kestrel the Deceiver",
     "display_name": "Gunn",
-    "timestamp": "2026-02-03T04:39:51.502Z",
+    "timestamp": "2026-02-03T04:54:25.689Z",
     "cardList": {
       "Character": {
         "count": 25,
@@ -616,7 +616,7 @@
         "count": 17,
         "mainDeck": {
           "Tsunami": 3,
-          "Meteor Swarm": 2,
+          "Prismatic Surge": 2,
           "Medusan Lords' Gambit": 3,
           "Grave Exchange": 3,
           "Boil Blood": 2,
