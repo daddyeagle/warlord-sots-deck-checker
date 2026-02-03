@@ -37,13 +37,6 @@
       "timestamp": "2026-02-01T00:00:00.000Z"
     },
     {
-      "warlord": "Mair Haven",
-      "username": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-02-01T02:47:31.962Z"
-    },
-    {
       "warlord": "Jautya Syne",
       "username": "178257746494357514",
       "discord_username": "hosh5753#0",
@@ -77,6 +70,13 @@
       "discord_username": "woodrow#0",
       "display_name": "Woodrow",
       "timestamp": "2026-02-03T01:13:37.248Z"
+    },
+    {
+      "warlord": "Rustiq Umbala",
+      "username": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-02-03T01:17:55.038Z"
     }
   ]
 }
