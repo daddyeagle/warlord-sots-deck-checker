@@ -638,5 +638,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Fo'ttr'ak'ka",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-02-03T14:31:52.640Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bithkrid": 3,
+          "Carg'rag": 3,
+          "FirRal": 3,
+          "Lorik": 3,
+          "Nemtok": 3,
+          "SanUris": 3,
+          "Toren Yscar": 1,
+          "Yeg-Igryll's Altar": 1
+        },
+        "startingArmy": {
+          "B'haya, the Fiend": 1,
+          "Fo'ttr'ak'ka": 1,
+          "Gunda": 1,
+          "Urnack": 1,
+          "Nightmaster Rress": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Final Blessing": 3,
+          "From Dust to Dust": 3,
+          "Hero's Gambit": 3,
+          "Incentives": 1,
+          "Mass Blessing": 3,
+          "Rescue": 1,
+          "Speed of the Falcon": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Black Moss": 2,
+          "Destroyer's Armor": 2,
+          "Fine Hilted Saber": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
