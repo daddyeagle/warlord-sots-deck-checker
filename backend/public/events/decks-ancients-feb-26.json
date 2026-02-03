@@ -747,5 +747,74 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Nitesh Imaran",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-02-03T23:06:19.942Z",
+    "cardList": {
+      "Character": {
+        "count": 29,
+        "mainDeck": {
+          "Strength": 1,
+          "Mentor": 1,
+          "Justice": 1,
+          "Door to the World": 1,
+          "Toren Yscar": 1,
+          "Supply": 1,
+          "Nepheline Gargoyle": 1,
+          "Darkwatcher": 1,
+          "Denali Sagebound": 3,
+          "Korin Blackstone": 3,
+          "Gadgeteer Bilder": 3,
+          "Stockpile": 3,
+          "Duri Earthwalker": 3
+        },
+        "startingArmy": {
+          "Sledge": 1,
+          "Will": 1,
+          "Danres": 3,
+          "Nitesh Imaran": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Fortune's Helm": 1,
+          "Blackwaters Steed": 1,
+          "Spiritrender": 1,
+          "Bracers of Ogre Power": 1,
+          "Kor's Banner": 1,
+          "Tome of Shadows": 1,
+          "Jelial's Bracers": 1,
+          "Nodwick": 1,
+          "Storm Shard": 1,
+          "Wraithstalker": 2,
+          "Farhaven Guide": 2,
+          "Portable Hole": 3,
+          "Logan's Ring": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 7,
+        "mainDeck": {
+          "Trade Routes": 1,
+          "Meet at the Inn!": 3,
+          "Bardic Knowledge": 3
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 3,
+        "mainDeck": {
+          "Blackthorne's Quarters": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
