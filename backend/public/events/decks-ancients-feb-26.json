@@ -816,5 +816,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Adoramus Te",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2026-02-04T01:39:21.285Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Wyvern": 1,
+          "Treyik": 3,
+          "Toren Yscar": 1,
+          "The Lost Bride": 3,
+          "Pyrothraxas": 1,
+          "Flamefang": 3,
+          "Draxon Rhull": 1,
+          "Terrorshaard": 1,
+          "Carg'rag": 3,
+          "Sirenspawn": 1
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Laurle": 1,
+          "Skyyrek": 1,
+          "Adoramus Te": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Phantasm": 1,
+          "Meet at the Inn!": 3,
+          "From Dust to Dust": 3,
+          "Burn the Inn!": 3,
+          "Dragon's Hoard": 2,
+          "Back Alley Tavern": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Heerman's Epic": 1,
+          "Storm Shard": 1,
+          "Cyldragen's Tome": 3,
+          "Strongarm Stout": 3,
+          "Deck of Many Things": 1,
+          "Blade of Antiquity": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
