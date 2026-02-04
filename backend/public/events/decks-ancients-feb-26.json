@@ -164,64 +164,6 @@
     }
   },
   {
-    "username": "178257746494357514",
-    "discord_username": "hosh5753#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Jautya Syne",
-    "display_name": "Hosh",
-    "timestamp": "2026-02-01T14:11:07.644Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Envoy Soraya": 2,
-          "Sister Kiren": 2,
-          "Ghed Daucet": 2,
-          "Toren Yscar": 1,
-          "Xaros the Mist": 2,
-          "Ramah the Cruel": 2,
-          "Duke Richter": 3,
-          "Kingslayer": 1,
-          "Sethusk": 2,
-          "Halo of Secrets": 1
-        },
-        "startingArmy": {
-          "Envoy Soraya": 1,
-          "Brine Fiend": 3,
-          "Cal Blackborne": 2,
-          "Jautya Syne": 1
-        }
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Symbol of Kerebrus": 1,
-          "Sylvan Crown": 1,
-          "Niobe's Neckpiece": 1,
-          "Girdle of Fertility": 1,
-          "Breastplate of Power": 1,
-          "Eversmoking Bottle": 1,
-          "Cloak of Protection": 1,
-          "Armlet of the Glade": 1,
-          "Bracers of the Fey": 1,
-          "Amethyst Pendant": 1,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Extensions": 3,
-          "Meet at the Inn!": 3,
-          "Face of Mirrors": 3,
-          "Lights of Revealing Sword": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "609237331320373249",
     "discord_username": "mynameis_kofax#0",
     "event": "Ancients+ Feb '26",
@@ -922,6 +864,66 @@
           "Clarion": 1,
           "Nothrog Daggers": 1,
           "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Jautya Syne",
+    "display_name": "Hosh",
+    "timestamp": "2026-02-04T02:29:30.820Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Envoy Soraya": 2,
+          "Sister Kiren": 2,
+          "Ghed Daucet": 2,
+          "Toren Yscar": 1,
+          "Xaros the Mist": 2,
+          "Ramah the Cruel": 2,
+          "Duke Richter": 3,
+          "Kingslayer": 1,
+          "Sethusk": 2,
+          "Halo of Secrets": 1
+        },
+        "startingArmy": {
+          "Envoy Soraya": 1,
+          "Brine Fiend": 3,
+          "Cal Blackborne": 1,
+          "Will O' Wisp": 1,
+          "Jautya Syne": 1
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Symbol of Kerebrus": 1,
+          "Sylvan Crown": 1,
+          "Niobe's Neckpiece": 1,
+          "Girdle of Fertility": 1,
+          "Breastplate of Power": 1,
+          "Eversmoking Bottle": 1,
+          "Cloak of Protection": 1,
+          "Armlet of the Glade": 1,
+          "Bracers of the Fey": 1,
+          "Deverenus' Axe": 3,
+          "Wand of Negation": 1,
+          "Staff of Secrets": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Extensions": 3,
+          "Meet at the Inn!": 3,
+          "Face of Mirrors": 2,
+          "Lights of Revealing Sword": 3
         },
         "startingArmy": {}
       }
