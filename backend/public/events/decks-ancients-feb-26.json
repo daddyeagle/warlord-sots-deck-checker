@@ -1259,5 +1259,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Inquisitor Dmitir",
+    "display_name": "graham",
+    "timestamp": "2026-02-04T19:20:23.686Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blade Dancer": 1,
+          "Blitzer": 1,
+          "Corinne Drac": 3,
+          "Davaenus": 1,
+          "Devourer": 1,
+          "Duke Richter": 3,
+          "Ghed Morak": 1,
+          "Halo of Secrets": 1,
+          "Prioress Sophique": 1,
+          "Queen of Lightning": 1,
+          "Taltos Rellion": 2,
+          "Temur": 1,
+          "The Sable Knight": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 3,
+          "Inquisitor Dmitir": 1,
+          "Justinian": 2
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Divine Respite": 2,
+          "Epic Judgment": 2,
+          "Exhaustion": 3,
+          "Mass Blessing": 3,
+          "Meet at the Inn!": 3,
+          "Premonition": 2,
+          "Reflect": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Ishara's Tidal Mace": 1,
+          "Mollusk Helm": 1,
+          "Peace": 2,
+          "Ring of the Savant": 1,
+          "Staff of Kizazi": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
