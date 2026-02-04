@@ -1208,5 +1208,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "673010482755534868",
+    "discord_username": "drrandolphcarter#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Raziel",
+    "display_name": "WesY",
+    "timestamp": "2026-02-04T14:21:18.326Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Isadra": 1,
+          "Veera and Bones": 2,
+          "Kapix": 1,
+          "Treyik": 3,
+          "Tresven": 3,
+          "Vivian": 3,
+          "Jackals of Mourn": 3,
+          "Dex Glyn": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Isadra": 2,
+          "Raziel": 1
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Stolen Destiny": 2,
+          "Darkflame Bolts": 1,
+          "Fiery Bolts": 3,
+          "Flame Arrows": 3,
+          "Midnight Madness": 3,
+          "Bascarite Swarm": 3,
+          "Tzin's Attention": 3,
+          "Twist of Fate": 2,
+          "Exhaustion": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Black Moss": 1,
+          "Recruiter's Orders": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
