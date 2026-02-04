@@ -164,63 +164,6 @@
     }
   },
   {
-    "username": "609237331320373249",
-    "discord_username": "mynameis_kofax#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Master Assassin Cear",
-    "display_name": "Kofax",
-    "timestamp": "2026-02-01T22:47:14.393Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Archer Tower": 1,
-          "Baraz": 2,
-          "Kapix the Cursed": 1,
-          "Pridayn Glyn": 2,
-          "Skitterleap": 2,
-          "The Lost Bride": 3,
-          "The Temple of Lore": 2,
-          "Toren Yscar": 1,
-          "Vivian": 2
-        },
-        "startingArmy": {
-          "Edonal Rowan": 1,
-          "Javvyn": 3,
-          "Master Assassin Cear": 1,
-          "Shadith Glyn": 1
-        }
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Black Steel Dagger": 2,
-          "Blade of Dark Tidings": 2,
-          "Cear's Stone": 1,
-          "Cloudracer": 1,
-          "Giant Bat": 2,
-          "Portable Hole": 3,
-          "Revenger": 3,
-          "Wraithstalker": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Assassination": 1,
-          "Boomerang": 1,
-          "Exhaustion": 3,
-          "Hunting for Sport": 2,
-          "Misear Diplomacy": 1,
-          "Threaten": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "298580168899821568",
     "discord_username": "direscrub#0",
     "event": "Ancients+ Feb '26",
@@ -1040,6 +983,67 @@
           "Faith in Steel": 3,
           "Arcane Approach": 3,
           "Aura of Protection": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Master Assassin Cear",
+    "display_name": "Kofax",
+    "timestamp": "2026-02-04T06:07:04.985Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Archer Tower": 1,
+          "Baraz": 1,
+          "Ghost Bog": 1,
+          "Kapix": 1,
+          "Kapix the Cursed": 1,
+          "Pridayn Glyn": 1,
+          "Skitterleap": 1,
+          "The Lost Bride": 3,
+          "The Temple of Lore": 2,
+          "Toren Yscar": 1,
+          "Vivian": 3
+        },
+        "startingArmy": {
+          "Edonal Rowan": 1,
+          "Javvyn": 3,
+          "Master Assassin Cear": 1,
+          "Shadith Glyn": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Wraithstalker": 2,
+          "Ardian Greathawk": 2,
+          "Black Steel Dagger": 2,
+          "Blade of Dark Tidings": 2,
+          "Cear's Stone": 1,
+          "Cloudracer": 1,
+          "Giant Bat": 1,
+          "Revenger": 3,
+          "Sewer Worm": 1,
+          "Teufeltiger's Shroud": 1,
+          "Portable Hole": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Assassination": 1,
+          "Boomerang": 1,
+          "Exhaustion": 3,
+          "Hunting for Sport": 2,
+          "Misear Diplomacy": 1,
+          "Threaten": 1
         },
         "startingArmy": {}
       }
