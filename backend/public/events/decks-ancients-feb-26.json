@@ -1157,5 +1157,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Stonefist Gargoyle",
+    "display_name": "yotakafish",
+    "timestamp": "2026-02-04T14:10:18.633Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Opal Gargoyle": 2,
+          "Shadowstone Gargoyle": 3,
+          "Magnite Gargoyle": 3,
+          "Nilrem": 3,
+          "Slag Gargoyle": 1,
+          "Obsidian Gargoyle": 3,
+          "Coal Gargoyle": 3
+        },
+        "startingArmy": {
+          "Stonefist Gargoyle": 1,
+          "Arla Favorsight": 1,
+          "Opal Gargoyle": 1,
+          "Flamestone Gargoyle": 1,
+          "Serpentscale Gargoyle": 2
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Bellicose": 3,
+          "Summon Gargoyle": 3,
+          "No Prisoners!": 3,
+          "Lights of Revealing Sword": 3,
+          "Flame Blade": 3,
+          "Stubborn": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Deverenus' Axe": 2,
+          "Griffon of Andover": 2,
+          "Griffon of Misear": 3,
+          "Boots of Mobility": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
