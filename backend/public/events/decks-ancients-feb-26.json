@@ -1493,5 +1493,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Laird Jon Hawthorne",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-02-04T22:53:44.377Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Arika Ketchum": 3,
+          "Archer Tower": 1,
+          "Gladys Tynron": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Laird Jon Hawthorne": 1,
+          "Tonvan Veen": 2,
+          "Scarlett": 2,
+          "Alanna": 1
+        }
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Amulet of Waking": 3,
+          "Bracers of Archery": 2,
+          "Cloudracer": 3,
+          "Frosttalon": 3,
+          "Giant Bat": 1,
+          "Nodwick": 1,
+          "Portable Hole": 3,
+          "Sewer Worm": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Rapid Dash": 3,
+          "Fast as the Wind": 3,
+          "Assassin's Arrow": 1,
+          "Inheritance": 2,
+          "Lucky Shot": 2,
+          "Reconnaissance": 1,
+          "Submerge": 1,
+          "Thimblerig": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
