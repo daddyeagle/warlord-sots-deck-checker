@@ -1317,5 +1317,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "392055441326211083",
+    "discord_username": "aurlynne#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Princess Alizeh",
+    "display_name": "Aurlynne",
+    "timestamp": "2026-02-04T19:20:27.810Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "The Devoted": 2,
+          "Toren Yscar": 1,
+          "Oracle of Kavara": 1,
+          "Redu Carr": 3,
+          "Redu Tam": 3,
+          "Roona": 2,
+          "Mistress Sanai": 1,
+          "Master Dresden": 3,
+          "Redu Firam": 3
+        },
+        "startingArmy": {
+          "Mitrasz": 2,
+          "The Devoted": 1,
+          "Yeg-Igryll's Altar": 1,
+          "Winti": 1,
+          "Princess Alizeh": 1
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Nodwick": 1,
+          "Griffon of Misear": 2,
+          "Portable Hole": 3,
+          "Ardian Greathawk": 3,
+          "Logan's Ring": 2,
+          "Black Steel Dagger": 2,
+          "Wraithstalker": 3,
+          "Yedraw's Tooth": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 7,
+        "mainDeck": {
+          "Equipment Shop": 2,
+          "Bardic Knowledge": 3,
+          "Lure": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
