@@ -1048,5 +1048,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "543583104221184000",
+    "discord_username": "midge8700#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Ginerva of the Moon",
+    "display_name": "Midge",
+    "timestamp": "2026-02-04T12:20:29.817Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blade Dancer": 1,
+          "Davaenus": 1,
+          "Duke Richter": 3,
+          "Ghed Invictus": 1,
+          "Ghed Morak": 1,
+          "Halo of Secrets": 1,
+          "Lord Joxanus": 1,
+          "Mother Deiane": 1,
+          "Oracle of Kavara": 1,
+          "Prioress Sophique": 1,
+          "Queen of Lightning": 2,
+          "Temur": 3,
+          "The Sable Knight": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 3,
+          "Ginerva of the Moon": 1,
+          "Justinian": 2
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Exhaustion": 2,
+          "Invoke the Storm": 3,
+          "Mass Blessing": 3,
+          "Meet at the Inn!": 3,
+          "Premonition": 2,
+          "Reflect": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Figurine of Protection": 2,
+          "Ring of the Savant": 1,
+          "Staff of Kizazi": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
