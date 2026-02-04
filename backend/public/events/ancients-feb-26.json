@@ -23,13 +23,6 @@
       "timestamp": "2026-02-01T00:00:00.000Z"
     },
     {
-      "warlord": "Master Assassin Cear",
-      "username": "609237331320373249",
-      "discord_username": "mynameis_kofax#0",
-      "display_name": "Kofax",
-      "timestamp": "2026-02-01T22:47:14.393Z"
-    },
-    {
       "warlord": "Sargok",
       "username": "298580168899821568",
       "discord_username": "direscrub#0",
@@ -133,6 +126,13 @@
       "discord_username": "rayneblythewood#0",
       "display_name": "Rayne Blythewood",
       "timestamp": "2026-02-04T05:07:03.421Z"
+    },
+    {
+      "warlord": "Master Assassin Cear",
+      "username": "609237331320373249",
+      "discord_username": "mynameis_kofax#0",
+      "display_name": "Kofax",
+      "timestamp": "2026-02-04T06:07:04.985Z"
     }
   ]
 }
