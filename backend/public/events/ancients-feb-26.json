@@ -114,13 +114,6 @@
       "timestamp": "2026-02-04T02:29:30.820Z"
     },
     {
-      "warlord": "Jodin Drac",
-      "username": "744645938546475159",
-      "discord_username": "russel2525#0",
-      "display_name": "Russel",
-      "timestamp": "2026-02-04T03:13:14.974Z"
-    },
-    {
       "warlord": "Bhaine of Misearis",
       "username": "289532101194153985",
       "discord_username": "rayneblythewood#0",
@@ -161,6 +154,13 @@
       "discord_username": "drrandolphcarter#0",
       "display_name": "WesY",
       "timestamp": "2026-02-04T14:21:18.326Z"
+    },
+    {
+      "warlord": "Jodin Drac",
+      "username": "744645938546475159",
+      "discord_username": "russel2525#0",
+      "display_name": "Russel",
+      "timestamp": "2026-02-04T17:39:55.805Z"
     }
   ]
 }
