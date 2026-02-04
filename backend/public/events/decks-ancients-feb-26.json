@@ -1371,5 +1371,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Jautya Syne",
+    "display_name": "Iceman",
+    "timestamp": "2026-02-04T20:21:41.711Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Amoudasi's Wrath": 1,
+          "Toren Yscar": 1,
+          "Mother Deiane": 1,
+          "Archer Tower": 1,
+          "Baraz": 2,
+          "Tyren Ruskin": 2,
+          "Oracle of Kavara": 2,
+          "Halo of Secrets": 2,
+          "Lord Joxanus": 2,
+          "Duke Richter": 3,
+          "Jackals of Mourn": 3
+        },
+        "startingArmy": {
+          "Jautya Syne": 1,
+          "Dame Olivia": 1,
+          "Cal Blackborne": 1,
+          "Amoudasi's Wrath": 1,
+          "Brine Fiend": 1,
+          "Stygian Wraith": 2
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Burning Scroll": 1,
+          "Wand of Negation": 2,
+          "Staff of Secrets": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Rescue": 1,
+          "Tzin's Attention": 2,
+          "Phoenix Fire": 2,
+          "From Dust to Dust": 2,
+          "Back Alley Tavern": 3,
+          "Fiery Bolts": 3,
+          "Evoke Crisis": 3,
+          "Flame Waves": 3,
+          "Flamelance": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
