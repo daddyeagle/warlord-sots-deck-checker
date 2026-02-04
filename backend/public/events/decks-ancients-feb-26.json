@@ -1548,5 +1548,78 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423494395640283145",
+    "discord_username": "beer_czar#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Scyrax",
+    "display_name": "DepressoDaDo",
+    "timestamp": "2026-02-04T23:30:51.455Z",
+    "cardList": {
+      "Character": {
+        "count": 37,
+        "mainDeck": {
+          "Vareth": 1,
+          "Toren Yscar": 1,
+          "The Retiarius": 2,
+          "Sethusk": 3,
+          "Sar'ean": 3,
+          "Nemtok": 2,
+          "Koratcghuk": 2,
+          "Kel'suk": 1,
+          "Carg'rag": 3,
+          "Bokos": 3,
+          "The Mighty Mugg": 3,
+          "Lukkot Buzzsaw": 3,
+          "Makusog Steelhorn": 3,
+          "Karn of Clan Manaka": 1
+        },
+        "startingArmy": {
+          "Scyrax": 1,
+          "Krasin": 1,
+          "Yeg-Igryll's Altar": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Item": {
+        "count": 26,
+        "mainDeck": {
+          "Wraithstalker": 2,
+          "The King's Lady": 2,
+          "Ring of Piercing": 1,
+          "Portable Hole": 3,
+          "Nodwick": 1,
+          "Monkey's Paws": 1,
+          "Giant Bat": 2,
+          "Deverenus' Axe": 3,
+          "Blade of Antiquity": 1,
+          "Black Steel Dagger": 1,
+          "Wand of Negation": 1,
+          "Royal Chariot": 1,
+          "Storm Shard": 1,
+          "Staff of Secrets": 1,
+          "Silverwind": 1,
+          "Strongarm Stout": 3,
+          "Dragon Buckler": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Meet at the Inn!": 2,
+          "Loyalty's Reward": 3,
+          "Ill-Gotten Gains": 3,
+          "Curse of Greed": 2,
+          "Lights of Revealing Sword": 2,
+          "Severed of Flesh": 3,
+          "Reckless Abandon": 3,
+          "From Dust to Dust": 3,
+          "Extensions": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
