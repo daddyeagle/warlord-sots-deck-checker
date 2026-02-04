@@ -1105,5 +1105,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Jodin Drac",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-02-04T13:56:10.237Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Halo of Secrets": 1,
+          "Toren Yscar": 1,
+          "Cardinal Scelus": 1,
+          "Sir Serane Myerdeth": 2,
+          "Sister Kiren": 3,
+          "Cardinal Bromin": 3,
+          "The Temple of Lore": 3
+        },
+        "startingArmy": {
+          "Jodin Drac": 1,
+          "Acolyte Dorra": 2,
+          "Inquisitor Chroneus": 1,
+          "Oubliette Hound": 2
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Ardian Greathawk": 1,
+          "Kringle's Sleigh": 1,
+          "Myerdeth Mare": 3,
+          "Great White": 3,
+          "Winter's Chill": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Taunting Blow": 3,
+          "Pit Fight": 3,
+          "Epic Donnybrook": 3,
+          "Hand of Might": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
