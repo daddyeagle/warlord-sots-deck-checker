@@ -928,5 +928,67 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Jodin Drac",
+    "display_name": "Russel",
+    "timestamp": "2026-02-04T03:13:14.974Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "Halo of Secrets": 1,
+          "Cardinal Scelus": 1,
+          "Sir Serane Myerdeth": 1,
+          "Corinne Drac": 2,
+          "Duke Richter": 2,
+          "Taltos the Hale": 1,
+          "Davaenus": 1,
+          "Mother Deiane": 1,
+          "Ghed Vengir": 2,
+          "Queen of Lightning": 1,
+          "Ghed Invictus": 3
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 3,
+          "Acolyte Dorra": 1,
+          "Justinian": 1,
+          "Jodin Drac": 1
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Meet at the Inn!": 2,
+          "Loyalty's Reward": 2,
+          "Epic Donnybrook": 2,
+          "Secrets of the Suns": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Tome of Champions": 2,
+          "Sir Tython's Shield": 2,
+          "Anandale's Armor": 2,
+          "Ghoststeel Gauntlets": 1,
+          "War Spikes": 2,
+          "Blood God's Basinet": 1,
+          "Wyvernsteed": 2,
+          "Deverenus' Axe": 2,
+          "Jirar Heirloom": 1,
+          "The King's Lady": 1,
+          "Blade of Antiquity": 1,
+          "Ironfang": 1,
+          "Avatar of Albrecht": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
