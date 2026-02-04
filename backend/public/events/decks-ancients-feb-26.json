@@ -990,5 +990,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Bhaine of Misearis",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-02-04T05:07:03.421Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Enki": 3,
+          "Baraz": 2,
+          "Bikram Bullstrength": 2,
+          "R'Veeka": 3,
+          "Master Dresden": 3,
+          "Amoudasi's Inferno": 2,
+          "Toren Yscar": 1,
+          "Amoudasi's Blaze": 3
+        },
+        "startingArmy": {
+          "Amoudasi's Candle": 3,
+          "Mephit": 1,
+          "Will O' Wisp": 1,
+          "Bhaine of Misearis": 1
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Bruntor's Helm": 1,
+          "Nodwick": 1,
+          "Scales of the Storm": 1,
+          "Black Sun Shield": 1,
+          "Havat-lahn Stance": 1,
+          "Deverenus' Axe": 3,
+          "Verdatha Mount": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Flame Blade": 2,
+          "Call Verdatha": 3,
+          "Faith in Steel": 3,
+          "Arcane Approach": 3,
+          "Aura of Protection": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
