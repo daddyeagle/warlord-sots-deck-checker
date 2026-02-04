@@ -871,5 +871,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "173934105090588672",
+    "discord_username": "paradigmblue.#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "paradigmblue.",
+    "timestamp": "2026-02-04T02:07:23.225Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Brother Dominy": 2,
+          "Xiantha, Centaur Soldier": 1,
+          "Kerro": 1,
+          "Sister Amanda": 1,
+          "Clerimonde": 2,
+          "Roona": 1,
+          "Mairead": 3,
+          "Rafkin": 3,
+          "Field Marshal Malexin": 2,
+          "Shannon the Daring": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Rosalie": 2,
+          "Brother Dominy": 1,
+          "Xiantha, Centaur Soldier": 2
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Seize Life": 1,
+          "Reflect": 3,
+          "Sacrifice": 3,
+          "Sword Master": 2,
+          "Divine Respite": 3,
+          "Revigorate": 3,
+          "Rabble Rousing": 3,
+          "Mass Blessing": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Double Bladed Sword": 1,
+          "Clarion": 1,
+          "Nothrog Daggers": 1,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
