@@ -1621,5 +1621,74 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Emperor Ceihallus",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-02-05T01:00:33.675Z",
+    "cardList": {
+      "Character": {
+        "count": 42,
+        "mainDeck": {
+          "Corinne Drac": 3,
+          "Ramah the Cruel": 2,
+          "Temur": 3,
+          "Mistress Brigette": 3,
+          "Antaelus": 1,
+          "The Sable Knight": 1,
+          "Jubilant Hatchling": 2,
+          "Strength": 3,
+          "Taltos Rellion": 3,
+          "Prioress Sophique": 3,
+          "Wanderetch": 3,
+          "Halo of Secrets": 1,
+          "Kingslayer": 2,
+          "Shadowreaver": 3,
+          "Avatar of Magic": 3
+        },
+        "startingArmy": {
+          "Emperor Ceihallus": 1,
+          "Ambitious Squire": 2,
+          "Inquisitor Chroneus": 1,
+          "Justinian": 1,
+          "Skyborne Initiate": 1
+        }
+      },
+      "Action": {
+        "count": 34,
+        "mainDeck": {
+          "Extensions": 3,
+          "Mana Shield": 3,
+          "Blood Price": 2,
+          "Meet at the Inn!": 3,
+          "Athanaes Falls": 1,
+          "Change of Hands": 3,
+          "Epic Evocation": 2,
+          "Flame Blade": 3,
+          "Dimensional Rift": 3,
+          "Improved Invisibility": 1,
+          "Stone Skin": 2,
+          "Severed of Flesh": 3,
+          "Medusan Lords' Gambit": 2,
+          "Tsunami": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Dark Heart of Kylnion": 3,
+          "Crimson Diadem": 1,
+          "Necklace of Spell Storing": 2,
+          "Darkwood Staff": 1,
+          "Ring of Blasting": 1,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
