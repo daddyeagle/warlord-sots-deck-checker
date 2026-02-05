@@ -177,13 +177,6 @@
       "timestamp": "2026-02-04T21:00:52.102Z"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "987033377569927248",
-      "discord_username": "yinyangman#0",
-      "display_name": "djYinYangMan2112",
-      "timestamp": "2026-02-04T21:32:06.550Z"
-    },
-    {
       "warlord": "Laird Jon Hawthorne",
       "username": "568205993100574731",
       "discord_username": "the.thing333#0",
@@ -224,6 +217,13 @@
       "discord_username": "oremm#0",
       "display_name": "Oremm",
       "timestamp": "2026-02-05T02:12:57.000Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "987033377569927248",
+      "discord_username": "yinyangman#0",
+      "display_name": "djYinYangMan2112",
+      "timestamp": "2026-02-05T02:25:30.073Z"
     }
   ]
 }
