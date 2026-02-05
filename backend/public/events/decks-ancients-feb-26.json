@@ -1690,5 +1690,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1424170258113106070",
+    "discord_username": "shinra_tenseiiii_26406#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Shinra Tensei",
+    "timestamp": "2026-02-05T01:15:37.186Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardanaalis": 1,
+          "Calix Guard": 3,
+          "Cyrus Netheryn": 1,
+          "Dex Glyn": 2,
+          "Felens Rowan": 3,
+          "Kargaz Dythanus": 3,
+          "Tresven": 3,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Isadra": 2,
+          "Javvyn": 3,
+          "Rone of the Deepbrook": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Brilliant Bound": 2,
+          "From Dust to Dust": 3,
+          "Invasion": 3,
+          "Meet at the Inn!": 3,
+          "Midnight Madness": 3,
+          "Summon Guardian": 2,
+          "Summon Planar": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Collapsing Bow": 1,
+          "Figurine of Trickery": 2,
+          "Portable Hole": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
