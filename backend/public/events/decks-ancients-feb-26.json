@@ -251,57 +251,6 @@
     }
   },
   {
-    "username": "151512634573717504",
-    "discord_username": "chrisvac#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Rustiq Umbala",
-    "display_name": "ChrisVac",
-    "timestamp": "2026-02-03T01:17:55.038Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Ardanaalis": 3,
-          "Ayaaba Waverunner": 1,
-          "Fayed Dythanus": 3,
-          "Kargaz Dythanus": 3,
-          "The Biting West Wind": 3,
-          "The Lost Bride": 3,
-          "Veera and Bones": 3
-        },
-        "startingArmy": {
-          "Javvyn": 3,
-          "Kinnell": 1,
-          "Skyyrek": 1,
-          "Rustiq Umbala": 1
-        }
-      },
-      "Item": {
-        "count": 4,
-        "mainDeck": {
-          "Bascarite Mark": 1,
-          "Black Moss": 2,
-          "Chill's Razor": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Epic Judgment": 3,
-          "Evoke Crisis": 2,
-          "Fiery Bolts": 3,
-          "Final Blessing": 2,
-          "Final Power": 3,
-          "From Dust to Dust": 3,
-          "Mass Blessing": 3,
-          "Shallow Graves": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
     "event": "Ancients+ Feb '26",
@@ -1686,6 +1635,57 @@
           "Darkwood Staff": 1,
           "Ring of Blasting": 1,
           "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Rustiq Umbala",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-02-05T01:10:18.598Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardanaalis": 3,
+          "Ayaaba Waverunner": 1,
+          "Fayed Dythanus": 3,
+          "Kargaz Dythanus": 3,
+          "The Biting West Wind": 3,
+          "The Lost Bride": 3,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Kinnell": 1,
+          "Skyyrek": 1,
+          "Rustiq Umbala": 1
+        }
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Bascarite Mark": 1,
+          "Black Moss": 2,
+          "Chill's Razor": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Evoke Crisis": 2,
+          "Fiery Bolts": 3,
+          "Final Blessing": 2,
+          "Final Power": 3,
+          "From Dust to Dust": 3,
+          "Mass Blessing": 3,
+          "Shallow Graves": 2
         },
         "startingArmy": {}
       }
