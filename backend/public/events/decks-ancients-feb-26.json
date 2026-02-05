@@ -1382,68 +1382,6 @@
     }
   },
   {
-    "username": "987033377569927248",
-    "discord_username": "yinyangman#0",
-    "event": "Ancients+ Feb '26",
-    "warlord": "Alrayn Gaunt",
-    "display_name": "djYinYangMan2112",
-    "timestamp": "2026-02-04T21:32:06.550Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Serj Vorvallyn": 2,
-          "Ghost Bog": 1,
-          "Antaelus": 1,
-          "Essila, Wild Raven": 1,
-          "Ivaas": 1,
-          "Kabyrr the Insane": 1,
-          "Kardak-Vash": 3,
-          "Master Dresden": 3,
-          "Narutep": 2,
-          "Oracle of Kavara": 2,
-          "Ravenwild": 1,
-          "Toren Yscar": 1
-        },
-        "startingArmy": {
-          "Serj Vorvallyn": 1,
-          "Trogid": 3,
-          "Tyren Ruskin": 1,
-          "Alrayn Gaunt": 1
-        }
-      },
-      "Item": {
-        "count": 21,
-        "mainDeck": {
-          "Amulet of Waking": 1,
-          "Annals of Triumph": 1,
-          "Avatar of Fineltour": 1,
-          "Cear's Stone": 1,
-          "Cloudracer": 3,
-          "Farhaven Guide": 3,
-          "Gloves of Mischief": 1,
-          "Jelial's Bracers": 1,
-          "Nodwick": 1,
-          "Portable Hole": 3,
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 1,
-          "Tome of Shadows": 1,
-          "Wyrmling Mail": 1,
-          "Yedraw's Tooth": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 4,
-        "mainDeck": {
-          "Clearing the Mark": 1,
-          "Dragon's Hoard": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "568205993100574731",
     "discord_username": "the.thing333#0",
     "event": "Ancients+ Feb '26",
@@ -1790,6 +1728,69 @@
           "Giant Bat": 3,
           "Portable Hole": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "djYinYangMan2112",
+    "timestamp": "2026-02-05T02:25:30.073Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Serj Vorvallyn": 2,
+          "Ghost Bog": 1,
+          "Antaelus": 1,
+          "Essila, Wild Raven": 1,
+          "Ivaas": 1,
+          "Kabyrr the Insane": 1,
+          "Kardak-Vash": 3,
+          "Master Dresden": 3,
+          "Narutep": 2,
+          "Oracle of Kavara": 2,
+          "Ravenwild": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Serj Vorvallyn": 1,
+          "Trogid": 3,
+          "Tyren Ruskin": 1,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Amulet of Waking": 1,
+          "Annals of Triumph": 1,
+          "Avatar of Fineltour": 1,
+          "Cear's Stone": 1,
+          "Cloudracer": 3,
+          "Farhaven Guide": 3,
+          "Gloves of Mischief": 1,
+          "Jelial's Bracers": 1,
+          "Nodwick": 1,
+          "Perpetual Pouch": 1,
+          "Portable Hole": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 1,
+          "Tome of Shadows": 1,
+          "Wyrmling Mail": 1,
+          "Yedraw's Tooth": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Clearing the Mark": 1,
+          "Dragon's Hoard": 3
         },
         "startingArmy": {}
       }
