@@ -1795,5 +1795,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Adarymy",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-02-05T02:57:27.036Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Brother Dominy": 2,
+          "Spencer Latham": 1,
+          "Novice Ruth": 3,
+          "Aida": 1,
+          "Adept Rey": 3,
+          "Jal Forsyth": 1,
+          "Clerimonde": 1,
+          "Leonora": 3,
+          "Kun Iacob": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Adarymy": 1,
+          "Rosalie": 2,
+          "Brother Dominy": 1,
+          "Spencer Latham": 2
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Hero's Gambit": 3,
+          "Sabotage": 2,
+          "Reflect": 3,
+          "Exhaustion": 3,
+          "Back Alley Tavern": 2,
+          "Meet at the Inn!": 3,
+          "Sanctuary": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Blazing Medallion": 2,
+          "Black Moss": 3,
+          "Alliance Standard": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
