@@ -1740,5 +1740,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Ancients+ Feb '26",
+    "warlord": "Acanothropis",
+    "display_name": "Oremm",
+    "timestamp": "2026-02-05T02:12:57.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Kapix": 1,
+          "Tseleuse Worm": 1,
+          "Oracle of Kavara": 1,
+          "Indariel": 3,
+          "Cyrus Netheryn": 3,
+          "Ayaaba Waverunner": 1,
+          "Toren Yscar": 1,
+          "Tyyphera": 2,
+          "Kargaz Dythanus": 3,
+          "The Lost Bride": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Elemere": 1,
+          "Skyyrek": 1,
+          "Acanothropis": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Rough Road": 2,
+          "Words of Woe": 3,
+          "Meet at the Inn!": 3,
+          "Curse of Greed": 3,
+          "Prey on the Hunter": 2,
+          "Hungry Spirits": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Nodwick": 1,
+          "Wand of Negation": 1,
+          "Giant Bat": 3,
+          "Portable Hole": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
