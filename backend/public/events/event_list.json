@@ -1,14 +1,5 @@
 [
   {
-    "eventName": "Ancients+ Feb '26",
-    "ruleset": "Ancients",
-    "startDate": "2026-02-01",
-    "endDate": "2026-02-04",
-    "decklistFile": "decks-ancients-feb-26.json",
-    "submissionFile": "ancients-feb-26.json",
-    "hidden": false
-  },
-  {
     "eventName": "March Saga (5E)",
     "ruleset": "Saga",
     "startDate": "2026-03-01",
