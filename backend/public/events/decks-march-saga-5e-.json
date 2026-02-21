@@ -52,5 +52,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "March Saga (5E)",
+    "warlord": "Mair Haven",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-03-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Arika Ketchum": 2,
+          "Birdsong Druid": 3,
+          "Graham Heyward": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 2,
+          "Fatestring Bow": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Change of Hands": 2,
+          "Crypt Wine": 3,
+          "Cunning Shot": 3,
+          "Hunt From Above": 2,
+          "Pin Down": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
