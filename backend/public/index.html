@@ -185,12 +185,7 @@
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             async function fetchLatestCardData(cardFetchOpts) {
-                // Try the current hardcoded file first
-                let cardDataUrl = CARD_DATA_URL;
-                let response = await fetch(cardDataUrl, cardFetchOpts);
-                if (response.ok) return await response.json();
-
-                // If failed, fetch the directory listing
+                // Fetch the directory listing for card data files
                 let dirResponse = await fetch(CARD_DATA_BASE);
                 if (!dirResponse.ok) throw new Error("Failed to fetch card data directory");
                 let dirText = await dirResponse.text();
@@ -200,10 +195,10 @@
                 if (!matches.length) throw new Error("No card data file found in directory");
                 // Use the last match (assuming newest is last)
                 let latestFile = matches[matches.length - 1][0];
-                cardDataUrl = CARD_DATA_BASE + latestFile;
+                let cardDataUrl = CARD_DATA_BASE + latestFile;
 
                 // Fetch the latest card data file
-                response = await fetch(cardDataUrl, cardFetchOpts);
+                let response = await fetch(cardDataUrl, cardFetchOpts);
                 if (!response.ok) throw new Error("Failed to fetch latest card data file");
                 return await response.json();
             }
