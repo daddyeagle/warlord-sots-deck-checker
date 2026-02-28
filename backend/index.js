@@ -4,6 +4,8 @@
 require('dotenv').config();
 
 const express = require('express');
+const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
+const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 const session = require('express-session');
 const axios = require('axios'); // Use one axios import
 const cors = require('cors');
@@ -11,6 +13,35 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+// Periodically download the latest card database from the remote source
+async function updateCardDatabase() {
+  try {
+    const response = await axios.get(CARDS_REMOTE_URL, { timeout: 10000 });
+    fs.mkdirSync(path.dirname(CARDS_LOCAL_PATH), { recursive: true });
+    fs.writeFileSync(CARDS_LOCAL_PATH, JSON.stringify(response.data, null, 2), 'utf8');
+    console.log('Card database updated from remote source.');
+  } catch (err) {
+    console.error('Failed to update card database:', err.message);
+  }
+}
+
+// Update every 6 hours
+// Update every 48 hours
+setInterval(updateCardDatabase, 48 * 60 * 60 * 1000);
+// Initial update on server start
+updateCardDatabase();
+
+// API endpoint to serve local card database
+app.get('/api/cards', (req, res) => {
+  if (!fs.existsSync(CARDS_LOCAL_PATH)) {
+    return res.status(404).json({ error: 'Card data not found' });
+  }
+  fs.readFile(CARDS_LOCAL_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Failed to read card data' });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
+});
 // Check if user has submitted a deck for an event
 app.get('/api/has-deck', async (req, res) => {
   try {
