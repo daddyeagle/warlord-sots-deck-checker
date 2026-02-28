@@ -40,23 +40,7 @@ app.get('/api/cards', (req, res) => {
     if (err) return res.status(500).json({ error: 'Failed to read card data' });
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
-
-  const express = require('express');
-  const session = require('express-session');
-  const axios = require('axios'); // Use one axios import
-  const cors = require('cors');
-  const path = require('path');
-  const fs = require('fs');
-
-  const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
-  const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
-    const decksRaw = fs.readFileSync(decksPath, 'utf8');
-    const decks = JSON.parse(decksRaw);
-    const found = decks.find(d => d.discordId === req.session.discordId);
-    res.json({ hasDeck: !!found });
-  } catch (e) {
-    res.json({ hasDeck: false });
-  }
+  });
 });
 
 // Withdraw deck for event (remove from event and deck lists)
