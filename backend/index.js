@@ -3,14 +3,16 @@
 // Express server for Discord OAuth2 login
 require('dotenv').config();
 
+
 const express = require('express');
-const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
-const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 const session = require('express-session');
 const axios = require('axios'); // Use one axios import
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+
+const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
+const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 
 const app = express();
 // Periodically download the latest card database from the remote source
