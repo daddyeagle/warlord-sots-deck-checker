@@ -152,7 +152,30 @@
         let FACTION_WILDCARD_NAMES = [];
 
         // Card data constants: fetch latest available file dynamically
-        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.84f36456.json";
+        // Dynamically resolve the latest card data file from the directory
+        async function getLatestCardDataUrl() {
+            const baseUrl = "https://theaccordlands.com/assets/resources/";
+            try {
+                // Try to fetch directory listing (assume JSON or HTML)
+                const res = await fetch(baseUrl);
+                if (res.ok) {
+                    const text = await res.text();
+                    // Try to find the latest cards.*.json file
+                    const matches = Array.from(text.matchAll(/cards\.(\w+)\.json/g));
+                    if (matches.length > 0) {
+                        // Pick the last match (assuming sorted by hash/timestamp)
+                        const last = matches[matches.length - 1][0];
+                        return baseUrl + last;
+                    }
+                }
+            } catch (e) {
+                // Fallback to known pattern if directory listing fails
+            }
+            // Default fallback (update this if the hash changes)
+            return baseUrl + "cards.84f36456.json";
+        }
+
+        let CARD_DATA_URL = null;
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
@@ -184,7 +207,10 @@
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             async function fetchLatestCardData(cardFetchOpts) {
-                // Directly fetch the known card data file
+                // Dynamically resolve the latest card data file URL if not already set
+                if (!CARD_DATA_URL) {
+                    CARD_DATA_URL = await getLatestCardDataUrl();
+                }
                 let response = await fetch(CARD_DATA_URL, cardFetchOpts);
                 if (!response.ok) throw new Error("Failed to fetch card data file");
                 return await response.json();
