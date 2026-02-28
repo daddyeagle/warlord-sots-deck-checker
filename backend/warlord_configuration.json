@@ -448,12 +448,5 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+",
-  "rulesetOrder": [
-    "Saga",
-    "default",
-    "Ancients",
-    "Alliance",
-    "December Ancients+"
-  ]
+  "defaultRuleset": "December Ancients+"
 }
