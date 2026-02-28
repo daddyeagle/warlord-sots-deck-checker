@@ -40,16 +40,16 @@ app.get('/api/cards', (req, res) => {
     if (err) return res.status(500).json({ error: 'Failed to read card data' });
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
-  });
-});
-// Check if user has submitted a deck for an event
-app.get('/api/has-deck', async (req, res) => {
-  try {
-    if (!req.session || !req.session.discordId) return res.json({ hasDeck: false });
-    const eventName = req.query.eventName;
-    if (!eventName) return res.json({ hasDeck: false });
-    const decksPath = path.join(__dirname, 'public', 'events', `decks-${eventName}.json`);
-    if (!fs.existsSync(decksPath)) return res.json({ hasDeck: false });
+
+  const express = require('express');
+  const session = require('express-session');
+  const axios = require('axios'); // Use one axios import
+  const cors = require('cors');
+  const path = require('path');
+  const fs = require('fs');
+
+  const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
+  const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
     const decksRaw = fs.readFileSync(decksPath, 'utf8');
     const decks = JSON.parse(decksRaw);
     const found = decks.find(d => d.discordId === req.session.discordId);
