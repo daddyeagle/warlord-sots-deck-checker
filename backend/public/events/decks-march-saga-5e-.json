@@ -264,5 +264,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "116769200181215234",
+    "discord_username": "uthanaklanath#0",
+    "event": "March Saga (5E)",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "HenriqueB (Lanath)",
+    "timestamp": "2026-03-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Master Dresden": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Kingslayer": 1,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Church Enforcer Tancred": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Rockarm": 1,
+          "Myerdeth Mare": 2,
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Spellblocker": 2,
+          "Aroch Mail": 2,
+          "Griffon of Andover": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Crush": 2,
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
