@@ -455,5 +455,6 @@
     "Ancients",
     "Alliance",
     "December Ancients+"
-  ]
+  ],
+  "indexSelectorLimit": 10
 }
