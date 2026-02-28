@@ -152,8 +152,7 @@
         let FACTION_WILDCARD_NAMES = [];
 
         // Card data constants: fetch latest available file dynamically
-        const CARD_DATA_BASE = "https://theaccordlands.com/assets/resources/";
-        const CARD_DATA_PATTERN = /cards\.[a-z0-9]+\.json/g;
+        const CARD_DATA_URL = "https://theaccordlands.com/assets/resources/cards.84f36456.json";
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
@@ -185,21 +184,9 @@
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             async function fetchLatestCardData(cardFetchOpts) {
-                // Fetch the directory listing for card data files
-                let dirResponse = await fetch(CARD_DATA_BASE);
-                if (!dirResponse.ok) throw new Error("Failed to fetch card data directory");
-                let dirText = await dirResponse.text();
-
-                // Parse for the latest cards.*.json file
-                let matches = [...dirText.matchAll(CARD_DATA_PATTERN)];
-                if (!matches.length) throw new Error("No card data file found in directory");
-                // Use the last match (assuming newest is last)
-                let latestFile = matches[matches.length - 1][0];
-                let cardDataUrl = CARD_DATA_BASE + latestFile;
-
-                // Fetch the latest card data file
-                let response = await fetch(cardDataUrl, cardFetchOpts);
-                if (!response.ok) throw new Error("Failed to fetch latest card data file");
+                // Directly fetch the known card data file
+                let response = await fetch(CARD_DATA_URL, cardFetchOpts);
+                if (!response.ok) throw new Error("Failed to fetch card data file");
                 return await response.json();
             }
 
