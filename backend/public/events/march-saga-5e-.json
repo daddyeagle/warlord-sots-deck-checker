@@ -23,13 +23,6 @@
       "timestamp": "2026-03-01T00:00:00.000Z"
     },
     {
-      "warlord": "Warboss Azh'kal",
-      "username": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-03-01T00:00:00.000Z"
-    },
-    {
       "warlord": "Church Enforcer Tancred",
       "username": "333097080543379457",
       "discord_username": "restomagus#0",
@@ -56,6 +49,13 @@
       "discord_username": "aurlynne#0",
       "display_name": "Aurlynne",
       "timestamp": "2026-03-01T00:29:41.594Z"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-03-01T07:23:18.888Z"
     }
   ]
 }
