@@ -367,5 +367,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "392055441326211083",
+    "discord_username": "aurlynne#0",
+    "event": "March Saga (5E)",
+    "warlord": "Tazian Dythanus",
+    "display_name": "Aurlynne",
+    "timestamp": "2026-03-01T00:29:41.594Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ashveil": 1,
+          "Callow Rowan": 3,
+          "Skitterleap": 3,
+          "Lord's Assailant": 3,
+          "Goldengrove Mage": 2,
+          "Tresven": 2,
+          "Veera and Bones": 2,
+          "Jigoral": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Tazian Dythanus": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Blast": 2,
+          "Essence Drain": 2,
+          "Darkflame Bolts": 3,
+          "Epic Evocation": 2,
+          "Flamelance": 3,
+          "Grave Exchange": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Well of Screams": 1,
+          "Burning Scroll": 1,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "Bloodsteed": 3,
+          "Cloak of Flight": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
