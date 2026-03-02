@@ -415,5 +415,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "March Saga (5E)",
+    "warlord": "Memoriam",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-03-02T01:54:52.187Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Hazahk of Shadow": 3,
+          "Gadgeteer Bilder": 3,
+          "Frenzy": 3,
+          "Darkwatcher": 1,
+          "Chovan Voidcaller": 2,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Tinker": 1,
+          "Sunforge Smith": 1,
+          "Memoriam": 1
+        }
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 2,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Quick Strength": 3,
+          "Meet at the Inn!": 3,
+          "Invoke the Storm": 3,
+          "Final Blessing": 2,
+          "Fateshift": 3,
+          "Epic Judgment": 2,
+          "Divine Respite": 3,
+          "Curse of Greed": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
