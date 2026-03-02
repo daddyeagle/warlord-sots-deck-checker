@@ -873,5 +873,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "184291506096439296",
+    "discord_username": "queueteapee#0",
+    "event": "March Saga (5E)",
+    "warlord": "Mair Haven",
+    "display_name": "QTP",
+    "timestamp": "2026-03-02T21:28:39.083Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Brightwing": 1,
+          "Field Marshal Malexin": 3,
+          "Master Dresden": 3,
+          "Arika Ketchum": 3,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Birdsong Druid": 3
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Swivel": 3,
+          "Assassin's Strike": 3,
+          "Change of Hands": 2,
+          "Crypt Wine": 2,
+          "Cunning Shot": 2,
+          "Pin Down": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Merrick Regalia": 1,
+          "Shrapnelball": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 1,
+          "Ardian Greathawk": 3,
+          "Fatestring Bow": 1,
+          "Angel's Tears": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
