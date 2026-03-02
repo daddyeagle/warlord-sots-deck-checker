@@ -518,5 +518,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "March Saga (5E)",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-03-02T04:18:14.211Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Catapult Crew": 2,
+          "Doo'run": 2,
+          "The Mighty Mugg": 3,
+          "Isadran Kennelmaster": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3,
+          "Makusog Steelhorn": 2,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1,
+          "Warboss Azh'kal": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Noble Sacrifice": 3,
+          "Crush": 2,
+          "Arcane Approach": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3,
+          "I Have Your Back": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Griffon of Andover": 3,
+          "Ardian Greathawk": 1,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
