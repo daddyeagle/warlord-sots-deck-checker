@@ -467,5 +467,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "328291116623331328",
+    "discord_username": "lemosguto#0",
+    "event": "March Saga (5E)",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Guto Lemos",
+    "timestamp": "2026-03-02T02:12:09.339Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 2,
+          "High Acolyte Hellene": 1
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Myerdeth Mare": 2,
+          "Medical Kit": 2,
+          "Luthlarius Regalia": 1,
+          "Hunting Staff": 3,
+          "Hod's Legacy": 1,
+          "Havat-lahn Stance": 1,
+          "Deverenus' Axe": 1,
+          "Bruntor's Helm": 3,
+          "Breastplate of Power": 1,
+          "Bardiche": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Well Supplied": 3,
+          "Holy Might": 3,
+          "Gift From Above": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
