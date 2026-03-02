@@ -674,5 +674,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106152252963553280",
+    "discord_username": "bruzzi#0",
+    "event": "March Saga (5E)",
+    "warlord": "Sklot the Cruel",
+    "display_name": "Bruzzi",
+    "timestamp": "2026-03-02T17:13:10.101Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ac'Vuk": 1,
+          "Novice Pyro": 1,
+          "Joleg": 2,
+          "Catapult Crew": 3,
+          "Flame Jester": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Sutek Razorclaw": 3
+        },
+        "startingArmy": {
+          "Ac'Vuk": 2,
+          "Sklot the Cruel": 1,
+          "Novice Pyro": 2,
+          "Joleg": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Gapfinder": 2,
+          "Heavy Crossbow": 2,
+          "Teufeltiger's Shroud": 3,
+          "Trinket of Malice": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
