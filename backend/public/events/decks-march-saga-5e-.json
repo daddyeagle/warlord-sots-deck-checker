@@ -772,5 +772,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "March Saga (5E)",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-03-02T19:12:00.679Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Aureliane": 3,
+          "Oracle of Kavara": 1,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3,
+          "Ghed Bane": 3
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Squire Fendric": 2,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Final Blessing": 3,
+          "Lights of Revealing Sword": 3,
+          "Invoke the Storm": 3,
+          "Epic Judgment": 3,
+          "Holy Might": 2,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Luthlarius Regalia": 2,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
