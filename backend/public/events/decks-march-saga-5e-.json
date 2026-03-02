@@ -621,5 +621,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "March Saga (5E)",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "DireScrub",
+    "timestamp": "2026-03-02T15:11:37.804Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Veteran Bowman": 2,
+          "Tunnel Worm": 3,
+          "Thunic Yeti": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Flame Jester": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Trogid": 2,
+          "Brine Fiend": 1,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Wither": 3,
+          "Pounce": 3,
+          "Dupe": 3,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 2,
+          "Storm Shard": 1,
+          "Revenger": 3,
+          "Medical Kit": 1,
+          "Gapfinder": 3,
+          "Fatestring Bow": 1,
+          "Cloudracer": 1,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
