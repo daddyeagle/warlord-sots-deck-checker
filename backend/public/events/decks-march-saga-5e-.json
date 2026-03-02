@@ -569,5 +569,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "March Saga (5E)",
+    "warlord": "Commander Retsov",
+    "display_name": "Russel",
+    "timestamp": "2026-03-02T13:33:17.656Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Swiftcloud": 2,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Kingslayer": 2,
+          "Dreadfang": 1,
+          "Darkwatcher": 2,
+          "Brightwing": 2,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Griffon of Andover": 2,
+          "Strongarm Stout": 2,
+          "Storm Shard": 1,
+          "Steelforge Regalia": 2,
+          "Rockarm": 2,
+          "Medical Kit": 2,
+          "Breastplate of Power": 2,
+          "Blade of Antiquity": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
