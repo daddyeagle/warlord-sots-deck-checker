@@ -724,5 +724,53 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "209747434635657217",
+    "discord_username": "woodrow#0",
+    "event": "March Saga (5E)",
+    "warlord": "Wa'San Wolf-Spirit",
+    "display_name": "Woodrow",
+    "timestamp": "2026-03-02T17:23:02.612Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Nog, Pog, and Snivels": 3,
+          "Bikram Bullstrength": 3,
+          "Doo'run": 3,
+          "Kraig'dem": 3,
+          "Sta'ash": 3,
+          "Tyren Ruskin": 3
+        },
+        "startingArmy": {
+          "Wa'San Wolf-Spirit": 1,
+          "Greenflower Warden": 2,
+          "Joleg": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Fireball": 3,
+          "Walk on Wind": 3,
+          "Retreat from the Roil": 3,
+          "Summon Avalanche": 3,
+          "Grave Exchange": 3,
+          "Dissolve": 2,
+          "Unsummon": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Burning Scroll": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
