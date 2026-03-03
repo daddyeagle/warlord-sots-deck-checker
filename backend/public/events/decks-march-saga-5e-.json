@@ -1035,5 +1035,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "March Saga (5E)",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Kofax",
+    "timestamp": "2026-03-03T05:06:08.958Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Beacon": 3,
+          "Bikram Bullstrength": 2,
+          "Brightwing": 1,
+          "Darkwatcher": 1,
+          "Flame Jester": 2,
+          "Frenzy": 3,
+          "Gadgeteer Bilder": 1,
+          "Master Dresden": 2,
+          "Oracle of Kavara": 1
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Aroch Mail": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 1,
+          "Heresy Ward": 1,
+          "Hunting Staff": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Cleave": 2,
+          "Divine Barrier": 3,
+          "Divine Respite": 2,
+          "Heroic Confrontation": 1,
+          "Lights of Revealing Sword": 3,
+          "Spiritual Weapon": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
