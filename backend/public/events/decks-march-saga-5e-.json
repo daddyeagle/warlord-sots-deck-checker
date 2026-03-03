@@ -973,5 +973,67 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "222893384832909313",
+    "discord_username": "silen7killz#0",
+    "event": "March Saga (5E)",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Silen7killz",
+    "timestamp": "2026-03-03T04:33:02.499Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Chant": 1,
+          "Valdimar": 2,
+          "Tunnel Vanguard": 2,
+          "Quicksilver Gargoyle": 1,
+          "Anvil": 1,
+          "Beacon": 1,
+          "Quazlan Rivet": 2,
+          "Salvage": 2,
+          "Shadow Clan Slayer": 2,
+          "Tinker": 2,
+          "Hrun Instigator": 2
+        },
+        "startingArmy": {
+          "Sunforge Smith": 2,
+          "Chant": 1,
+          "Valdimar": 1,
+          "Tunnel Vanguard": 1,
+          "Kurak Stonejaw": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Divine Respite": 1,
+          "Prime Positioning": 1,
+          "I Have Your Back": 1,
+          "Guard Duty": 1,
+          "Kor's Patience": 3,
+          "Quick Shielding": 2,
+          "Divine Barrier": 2,
+          "Close Wounds": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Strongarm Stout": 1,
+          "Throwing Shield": 2,
+          "Aroch Mail": 1,
+          "Scale Mail": 1,
+          "Sunforge Aspis": 2,
+          "Battleworn Helm": 2,
+          "Breastplate": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
