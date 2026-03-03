@@ -925,5 +925,53 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "March Saga (5E)",
+    "warlord": "Lord Barrow",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-03-03T03:21:55.668Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Lord's Assailant": 3,
+          "Shambling Horror": 3,
+          "Tresven": 3,
+          "Ciane": 3,
+          "Skitterleap": 3,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Lord Barrow": 1,
+          "Graveyard Librarian": 2,
+          "Jigoral": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Blast": 3,
+          "Darkflame Bolts": 3,
+          "Flamelance": 3,
+          "Grave Exchange": 3,
+          "Polymorph": 3,
+          "Jump": 3,
+          "Terrorize": 3,
+          "Epic Evocation": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
