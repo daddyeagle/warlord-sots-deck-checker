@@ -1141,5 +1141,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "344312955292090379",
+    "discord_username": "jeffscifert#0",
+    "event": "March Saga (5E)",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Jeff Scifert",
+    "timestamp": "2026-03-03T13:50:14.401Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Church Inquisitor": 2,
+          "Ghed Bane": 2,
+          "Ghed Daucet": 3,
+          "Sister Kiren": 2,
+          "Taumar the Protector": 3,
+          "Aureliane": 1,
+          "Duke Richter": 1
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Church Inquisitor": 1,
+          "Squire Parthus": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 2
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Epic Judgment": 2,
+          "Leveled!": 3,
+          "Quick Shielding": 3,
+          "Pious Rebuke": 2,
+          "Divine Respite": 3,
+          "Holy Might": 3,
+          "Invoke the Storm": 2,
+          "Lights of Revealing Sword": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Bruntor's Helm": 2,
+          "Unicorn of Thun": 1,
+          "Breastplate of Power": 1,
+          "Hod's Legacy": 1,
+          "Spellblocker": 1,
+          "Shield of Spurning": 1,
+          "Griffon of Andover": 1,
+          "Ardian Greathawk": 1,
+          "Blade of Antiquity": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
