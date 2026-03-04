@@ -11,7 +11,7 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 
-const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.84f36456.json';
+const CARDS_REMOTE_URL_PATTERN = 'https://theaccordlands.com/assets/resources/cards.*.json';
 const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 
 const app = express();
