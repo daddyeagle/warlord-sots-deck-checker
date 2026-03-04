@@ -1823,5 +1823,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "96093778674216960",
+    "discord_username": "stenner#0",
+    "event": "March Saga (5E)",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "Stenner",
+    "timestamp": "2026-03-04T20:54:15.907Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Albrecht Novice": 3,
+          "Birdsong Druid": 3,
+          "Field Marshal Malexin": 2,
+          "Keen Eared Sentry": 3,
+          "Leonora": 3,
+          "Shannon the Daring": 3,
+          "Squire Argos": 2
+        },
+        "startingArmy": {
+          "Efrim Dawntreader": 1,
+          "Percy Dorn": 3,
+          "Yscarite Berserker": 2
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Cleave": 3,
+          "Epic Donnybrook": 1,
+          "Final Farewell": 3,
+          "Punitive Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Aroch Mail": 1,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 3,
+          "Havat-lahn Stance": 2,
+          "Rockarm": 2,
+          "War Horse": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
