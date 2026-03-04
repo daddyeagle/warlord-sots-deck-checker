@@ -1772,5 +1772,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "March Saga (5E)",
+    "warlord": "Mair Haven",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-03-04T18:02:34.079Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Huggins": 3,
+          "Graham Heyward": 3,
+          "Master Dresden": 3,
+          "Arika Ketchum": 2,
+          "Thunic Yeti": 2,
+          "Blitzer": 1,
+          "Sister Amanda": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Pin Down": 3,
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Swivel": 3,
+          "Change of Hands": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Shrapnelball": 3,
+          "Ardian Greathawk": 3,
+          "Teufeltiger's Shroud": 2,
+          "Fatestring Bow": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
