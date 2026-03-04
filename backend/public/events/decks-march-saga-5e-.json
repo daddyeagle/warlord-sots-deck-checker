@@ -1873,5 +1873,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "340366136359124992",
+    "discord_username": "draight.#0",
+    "event": "March Saga (5E)",
+    "warlord": "Mair Haven",
+    "display_name": "draight",
+    "timestamp": "2026-03-04T21:32:57.896Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Arika Ketchum": 1,
+          "Birdsong Druid": 3,
+          "Field Marshal Malexin": 3,
+          "Huggins": 3,
+          "Shannon the Daring": 3,
+          "Dwarf-Eater": 3,
+          "Sanguicorn": 2
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 3,
+          "Shrapnelball": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Dupe": 3,
+          "Shadow Bolts": 3,
+          "Cunning Shot": 3,
+          "Swift": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
