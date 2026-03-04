@@ -1664,5 +1664,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "336933692427730946",
+    "discord_username": "pedrosmurf#0",
+    "event": "March Saga (5E)",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Pedrosmurf",
+    "timestamp": "2026-03-04T08:55:03.975Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Beacon": 3,
+          "Blitzer": 1,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Anvil": 3,
+          "Chovan Voidcaller": 3
+        },
+        "startingArmy": {
+          "Sunforge Smith": 2,
+          "Kurak Stonejaw": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 1,
+          "Griffon of Andover": 2,
+          "Rockarm": 2,
+          "Silversteel Gauntlets": 1,
+          "Spellblocker": 1,
+          "Sunseeker's Goggles": 1,
+          "Talisman of Faith": 1,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "Tattered Armaments": 1,
+          "Talisman of Might": 1,
+          "Scale Mail": 1,
+          "Havat-lahn Stance": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
