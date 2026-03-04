@@ -1612,5 +1612,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "March Saga (5E)",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "Oremm",
+    "timestamp": "2026-03-04T04:58:29.887Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Tresven": 3,
+          "Treyik": 3,
+          "Oracle of Kavara": 2,
+          "Callow Rowan": 3,
+          "Skitterleap": 3,
+          "Ashveil": 1,
+          "Brightwing": 1,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Treyik Netheryn": 1
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Shyessa the Weaver": 1
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Cyldragen's Tome": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Change of Hands": 3,
+          "Darkflame Bolts": 3,
+          "Final Blessing": 3,
+          "Flamelance": 2,
+          "Curse of Greed": 2,
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
