@@ -1563,5 +1563,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "90996233128128512",
+    "discord_username": "dienekes00#0",
+    "event": "March Saga (5E)",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "dienekes00",
+    "timestamp": "2026-03-04T03:54:04.880Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Huggins": 3,
+          "Field Marshal Malexin": 3,
+          "Brightwing": 2,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Efrim Dawntreader": 1
+        }
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 3,
+          "Rockarm": 2,
+          "Havat-lahn Stance": 2,
+          "Griffon of Andover": 3,
+          "Fineltour's Draught": 2,
+          "Ardian Greathawk": 3,
+          "Blade of Antiquity": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
