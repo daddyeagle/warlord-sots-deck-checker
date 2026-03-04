@@ -1922,5 +1922,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "March Saga (5E)",
+    "warlord": "Lord Belasco",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-03-04T23:25:01.635Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 2,
+          "Archivist Augustin": 1,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 2,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Lord Belasco": 1,
+          "Ambitious Squire": 3,
+          "Squire Fendric": 1,
+          "Skyborne Initiate": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Polymorph": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 1,
+          "Farhaven Guide": 3,
+          "Fineltour's Draught": 1,
+          "Myerdeth Mare": 3,
+          "Deverenus' Axe": 3,
+          "Shield of Spurning": 1,
+          "Breastplate of Power": 1,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
