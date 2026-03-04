@@ -1303,5 +1303,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "March Saga (5E)",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Gunn",
+    "timestamp": "2026-03-04T01:23:38.751Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Church Enforcer Tancred": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "The Quick and the Dead": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3,
+          "Leveled!": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Steelforge Regalia": 1,
+          "Rockarm": 2,
+          "Myerdeth Mare": 2,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
