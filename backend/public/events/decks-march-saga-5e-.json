@@ -1199,5 +1199,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "March Saga (5E)",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-03-04T01:21:51.971Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Field Marshal Malexin": 3,
+          "Huggins": 2,
+          "Leonora": 3,
+          "Shannon the Daring": 3,
+          "Squire Argos": 3,
+          "Albrecht Novice": 3,
+          "Ardent Griffon": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Divine Respite": 2,
+          "Epic Judgment": 3,
+          "Fateshift": 2,
+          "Final Blessing": 3,
+          "Gift From Above": 3,
+          "Invoke the Storm": 3,
+          "Pack Tactics": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Kor's Aegis": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1,
+          "Aroch Mail": 2,
+          "Breastplate of Power": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
