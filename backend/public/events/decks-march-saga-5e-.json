@@ -1354,5 +1354,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "March Saga (5E)",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-03-04T01:27:08.973Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Field Marshal Malexin": 3,
+          "Shannon the Daring": 2,
+          "Leonora": 3,
+          "Sutek Razorclaw": 2,
+          "Birdsong Druid": 3,
+          "Oracle of Kavara": 3,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Kingslayer": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "TFK Brigand": 3,
+          "Misearean Scout": 1,
+          "Crownland Strategist": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Noble Sacrifice": 1,
+          "Divine Respite": 3,
+          "Sacrifice": 3,
+          "Quick Strength": 3,
+          "Pin Down": 3,
+          "Dissolve": 2,
+          "Curse of Greed": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Cyldragen's Tome": 3,
+          "Hod's Legacy": 1,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
