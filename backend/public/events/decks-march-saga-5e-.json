@@ -1508,5 +1508,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1424170258113106070",
+    "discord_username": "shinra_tenseiiii_26406#0",
+    "event": "March Saga (5E)",
+    "warlord": "Mair Haven",
+    "display_name": "Shinra Tensei",
+    "timestamp": "2026-03-04T03:37:30.498Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Arika Ketchum": 1,
+          "Birdsong Druid": 3,
+          "Brightwing": 1,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Keen Eared Sentry": 3,
+          "Sanguicorn": 1,
+          "Shannon the Daring": 2,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Crypt Wine": 1,
+          "Death From Below": 2,
+          "Meet at the Inn!": 2,
+          "Pin Down": 3,
+          "Rapid Dash": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Angel's Tears": 1,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 1,
+          "Fatestring Bow": 3,
+          "Merrick Regalia": 1,
+          "Shrapnelball": 3,
+          "Teufeltiger's Shroud": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
