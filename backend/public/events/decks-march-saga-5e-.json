@@ -2296,5 +2296,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423494395640283145",
+    "discord_username": "depressodado#0",
+    "event": "March Saga (5E)",
+    "warlord": "Archivist Myrina",
+    "display_name": "DepressoDaDo",
+    "timestamp": "2026-03-05T02:41:20.569Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 2,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3,
+          "Kingslayer": 1,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Archivist Myrina": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Shield of Spurning": 1,
+          "Myerdeth Mare": 2,
+          "Farhaven Guide": 2,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Invoke the Storm": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
