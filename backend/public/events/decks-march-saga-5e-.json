@@ -2246,5 +2246,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "219131100390359040",
+    "discord_username": "valiantbd#0",
+    "event": "March Saga (5E)",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "valiantbd",
+    "timestamp": "2026-03-05T02:11:08.863Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Field Marshal Malexin": 2,
+          "Flame Jester": 3,
+          "Huggins": 3,
+          "Leonora": 3,
+          "Oracle of Kavara": 3,
+          "Shannon the Daring": 2,
+          "Yscarite Berserker": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Dissolve": 2,
+          "Epic Judgment": 3,
+          "Fateshift": 2,
+          "Meet at the Inn!": 3,
+          "Pack Tactics": 2,
+          "Quick Shielding": 3,
+          "Quick Strength": 3,
+          "Sacrifice": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
