@@ -2032,5 +2032,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "March Saga (5E)",
+    "warlord": "Annetta Yscar",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-03-05T00:55:01.411Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Arika Ketchum": 2,
+          "Blitzer": 1,
+          "Brightwing": 2,
+          "Field Marshal Malexin": 3,
+          "Huggins": 2,
+          "Master Dresden": 2,
+          "Oracle of Kavara": 3,
+          "Sister Amanda": 2,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Annetta Yscar": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Cloudracer": 2,
+          "Gapfinder": 2,
+          "Revenger": 2,
+          "Ritual Dagger": 1,
+          "Rockarm": 2,
+          "Scout Pony": 2,
+          "Wraithstalker": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Divine Respite": 2,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
