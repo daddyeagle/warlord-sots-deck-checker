@@ -2084,5 +2084,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "March Saga (5E)",
+    "warlord": "Lord Barrow",
+    "display_name": "Iceman",
+    "timestamp": "2026-03-05T00:56:36.296Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Master Dresden": 2,
+          "Skitterleap": 2,
+          "Callow Rowan": 2,
+          "Mistress Allandra": 2,
+          "Jubilant Hatchling": 2,
+          "Tresven": 2,
+          "Oracle of Kavara": 2,
+          "Lord's Assailant": 3,
+          "Ciane": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Lord Barrow": 1
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Noble Sacrifice": 2,
+          "Dissolve": 2,
+          "Grave Exchange": 2,
+          "Disperse": 2,
+          "Glaciate": 2,
+          "Flamelance": 3,
+          "Epic Evocation": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Burning Scroll": 1,
+          "Storm Shard": 1,
+          "Kaballite Regalia": 1,
+          "Ardian Greathawk": 1,
+          "Well of Screams": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
