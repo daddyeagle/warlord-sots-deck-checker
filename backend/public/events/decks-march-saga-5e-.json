@@ -1975,5 +1975,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "March Saga (5E)",
+    "warlord": "Commander Retsov",
+    "display_name": "Hosh",
+    "timestamp": "2026-03-05T00:08:27.266Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Brightwing": 2,
+          "Darkwatcher": 1,
+          "Blackwind": 1,
+          "Dreadfang": 1,
+          "Kingslayer": 2,
+          "Flamefall": 1,
+          "Swiftcloud": 1,
+          "Ashveil": 1,
+          "Oracle of Kavara": 1,
+          "Thunic Yeti": 3,
+          "Blitzer": 2,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Talisman of Might": 1,
+          "Tattered Armaments": 1,
+          "Sunseeker's Goggles": 1,
+          "Deverenus' Axe": 3,
+          "Havat-lahn Stance": 2,
+          "Storm Shard": 1,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Ardian Greathawk": 3,
+          "Fineltour's Draught": 1,
+          "Griffon of Andover": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
