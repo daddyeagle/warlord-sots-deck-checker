@@ -2140,5 +2140,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "March Saga (5E)",
+    "warlord": "Commander Retsov",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-03-05T01:38:09.235Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Swiftcloud": 2,
+          "Blitzer": 2,
+          "Brightwing": 3,
+          "Darkwatcher": 2,
+          "Dreadfang": 2,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Kingslayer": 2
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Shambling Horror": 2,
+          "Commander Retsov": 1
+        }
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Crush": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Havat-lahn Stance": 1,
+          "Griffon of Andover": 2,
+          "Deverenus' Axe": 3,
+          "Breastplate of Power": 2,
+          "Medical Kit": 1,
+          "Rockarm": 2,
+          "Shocksaber": 3,
+          "Storm Shard": 1,
+          "Bruntor's Helm": 2,
+          "Bardiche": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
