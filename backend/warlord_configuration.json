@@ -227,6 +227,31 @@
         "rarities": []
       },
       "hidden": false
+    },
+    "New Rules": {
+      "name": "New Rules",
+      "warlordCount": 1,
+      "saRequiredSlots": [
+        {
+          "level": 1,
+          "count": 3
+        },
+        {
+          "level": 2,
+          "count": 2
+        }
+      ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "editions": [],
+      "restricted": {
+        "names": [],
+        "sets": [],
+        "rarities": []
+      },
+      "hidden": false
     }
   },
   "warlordExceptions": [
