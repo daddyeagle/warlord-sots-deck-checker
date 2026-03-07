@@ -35,6 +35,7 @@
                     Log in with Discord
                 </button>
             </div>
+                <div id="user-decks-section" class="mt-4"></div>
         </div>
 
         <div id="loading-status" class="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg text-blue-400 flex items-center gap-3">
@@ -120,17 +121,51 @@
                     }
                     discordUserInfo.textContent = displayText;
                     discordLoginBtn.style.display = 'none';
+                        fetchUserDecks();
                 } else {
                     window.discordUser = null;
                     discordUserInfo.textContent = '';
                     discordLoginBtn.style.display = 'block';
+                        document.getElementById('user-decks-section').innerHTML = '';
                 }
             } catch (e) {
                 window.discordUser = null;
                 discordUserInfo.textContent = '';
                 discordLoginBtn.style.display = 'block';
+                    document.getElementById('user-decks-section').innerHTML = '';
             }
         }
+
+            // Fetch and display user's submitted decks
+            async function fetchUserDecks() {
+                const section = document.getElementById('user-decks-section');
+                section.innerHTML = '';
+                try {
+                    const res = await fetch(getBackendUrl() + '/api/user/decks', { credentials: 'include' });
+                    if (!res.ok) return;
+                    const data = await res.json();
+                    if (!data.events || !Array.isArray(data.events) || data.events.length === 0) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for active events.</div>';
+                        return;
+                    }
+                    let html = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4"><h3 class="text-lg font-bold text-amber-400 mb-2">Your Submitted Decks</h3>';
+                    html += '<ul class="space-y-3">';
+                    for (const ev of data.events) {
+                        html += `<li class="border-b border-gray-700 pb-2 mb-2"><span class="font-semibold text-blue-300">${ev.eventName}</span><br>`;
+                        html += '<span class="text-gray-300">Deck:</span><ul class="ml-4 mt-1">';
+                        for (const [key, value] of Object.entries(ev.deck)) {
+                            if (typeof value === 'string' && key !== 'discordId') {
+                                html += `<li class="text-xs text-gray-400"><span class="font-semibold text-gray-200">${key}:</span> ${value}</li>`;
+                            }
+                        }
+                        html += '</ul></li>';
+                    }
+                    html += '</ul></div>';
+                    section.innerHTML = html;
+                } catch (e) {
+                    section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-red-400 text-sm">Failed to load submitted decks.</div>';
+                }
+            }
 
         if (discordLoginBtn) {
             discordLoginBtn.onclick = () => {

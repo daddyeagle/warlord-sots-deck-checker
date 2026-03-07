@@ -172,6 +172,38 @@ app.get('/test/api/config', (req, res) => {
   });
 });
 
+// Endpoint: Get submitted decks for logged-in user
+app.get('/api/user/decks', (req, res) => {
+  if (!req.session.discordId) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+  const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  let eventList;
+  try {
+    eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
+  } catch (e) {
+    return res.status(500).json({ error: 'Failed to load event list' });
+  }
+  const results = [];
+  for (const event of eventList) {
+    const deckFile = event.decklistFile;
+    if (!deckFile) continue;
+    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
+    if (!fs.existsSync(deckPath)) continue;
+    let decks;
+    try {
+      decks = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
+    } catch (e) {
+      continue;
+    }
+    const userDeck = decks.find(d => d.discordId === req.session.discordId);
+    if (userDeck) {
+      results.push({ eventName: event.eventName, deck: userDeck });
+    }
+  }
+  res.json({ events: results });
+});
+
 // --- AUTHENTICATION ROUTES ---
 // --- ADMIN DOWNLOAD ENDPOINTS ---
 // Download event file
