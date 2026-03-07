@@ -87,6 +87,12 @@
     </div>
 
     <script type="module">
+                // Returns the currently selected ruleset object
+                function getActiveRuleSet() {
+                    if (!rulesetSelect) return null;
+                    const key = rulesetSelect.value;
+                    return RULE_SETS && RULE_SETS[key] ? RULE_SETS[key] : null;
+                }
         // Use existing window.BACKEND_URL or fallback to origin if not defined.
         // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
         window.BACKEND_URL = "https://warlord-sots-deck-checker-production.up.railway.app";
