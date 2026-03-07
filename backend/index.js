@@ -361,12 +361,16 @@ const REDIRECT_URI = process.env.DISCORD_REDIRECT_URI || 'https://warlord-sots-d
 
 app.get('/api/auth/discord', (req, res) => {
   const params = new URLSearchParams({
-    client_id: CLIENT_ID,
-    redirect_uri: REDIRECT_URI,
-    response_type: 'code',
-    scope: 'identify'
-  });
-  res.redirect(`https://discord.com/api/oauth2/authorize?${params.toString()}`);
+        // Support redirect parameter
+        const redirect = req.query.redirect || '/';
+        req.session.loginRedirect = redirect;
+        const params = new URLSearchParams({
+          client_id: CLIENT_ID,
+          redirect_uri: REDIRECT_URI,
+          response_type: 'code',
+          scope: 'identify'
+        });
+        res.redirect(`https://discord.com/api/oauth2/authorize?${params.toString()}`);
 });
 
 app.get('/api/auth/discord/callback', async (req, res) => {
@@ -390,15 +394,11 @@ app.get('/api/auth/discord/callback', async (req, res) => {
 
     req.session.regenerate(function(err) {
       if (err) return res.status(500).send("Session error");
-      req.session.user = {
-        id: userRes.data.id,
-        username: userRes.data.username,
-        discriminator: userRes.data.discriminator,
-        displayName: userRes.data.global_name || userRes.data.display_name || null
-      };
+      const redirectPath = req.session.loginRedirect || '/';
+      req.session.loginRedirect = undefined;
       req.session.save((err) => {
         if (err) return res.status(500).send("Session save failed");
-        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}/auth-success` : '/auth-success');
+        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}${redirectPath === '/' ? '/auth-success' : redirectPath}` : (redirectPath === '/' ? '/auth-success' : redirectPath));
       });
     });
   } catch (err) {

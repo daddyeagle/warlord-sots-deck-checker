@@ -168,9 +168,11 @@
             }
 
         if (discordLoginBtn) {
-            discordLoginBtn.onclick = () => {
-                window.location.href = getBackendUrl() + '/api/auth/discord';
-            };
+                discordLoginBtn.onclick = () => {
+                    // Pass redirect parameter to return to /test after login
+                    const redirectPath = window.location.pathname === '/test' ? '/test' : '/';
+                    window.location.href = getBackendUrl() + '/api/auth/discord?redirect=' + encodeURIComponent(redirectPath);
+                };
         }
         
         // Check auth on load, and handle /auth-success redirect
