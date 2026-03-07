@@ -393,11 +393,17 @@ app.get('/api/auth/discord/callback', async (req, res) => {
 
     req.session.regenerate(function(err) {
       if (err) return res.status(500).send("Session error");
-      const redirectPath = req.session.loginRedirect || '/';
+      req.session.user = {
+        id: userRes.data.id,
+        username: userRes.data.username,
+        discriminator: userRes.data.discriminator,
+        displayName: userRes.data.global_name || userRes.data.display_name || null
+      };
+      const redirectPath = req.session.loginRedirect || '/auth-success';
       req.session.loginRedirect = undefined;
       req.session.save((err) => {
         if (err) return res.status(500).send("Session save failed");
-        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}${redirectPath === '/' ? '/auth-success' : redirectPath}` : (redirectPath === '/' ? '/auth-success' : redirectPath));
+        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}${redirectPath}` : redirectPath);
       });
     });
   } catch (err) {
