@@ -148,8 +148,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: true, 
-    sameSite: 'lax', 
+    secure: process.env.NODE_ENV === 'production' || req.secure || req.headers['x-forwarded-proto'] === 'https',
+    sameSite: 'lax',
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
