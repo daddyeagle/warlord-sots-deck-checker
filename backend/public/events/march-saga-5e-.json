@@ -51,13 +51,6 @@
       "timestamp": "2026-03-01T08:48:01.537Z"
     },
     {
-      "warlord": "Warboss Azh'kal",
-      "username": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-03-02T01:31:09.659Z"
-    },
-    {
       "warlord": "Memoriam",
       "username": "247425097370042369",
       "discord_username": "forgedcaake#0",
@@ -315,6 +308,13 @@
       "discord_username": "depressodado#0",
       "display_name": "DepressoDaDo",
       "timestamp": "2026-03-05T02:41:20.569Z"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-03-07T23:19:01.096Z"
     }
   ]
 }

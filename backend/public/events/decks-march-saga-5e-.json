@@ -365,58 +365,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "March Saga (5E)",
-    "warlord": "Warboss Azh'kal",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-03-02T01:31:09.659Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 1,
-          "Doo'run": 3,
-          "Rrok": 1,
-          "The Mighty Mugg": 3,
-          "Thunic Yeti": 3,
-          "Bikram Bullstrength": 3,
-          "Isadran Kennelmaster": 3,
-          "Blitzer": 2
-        },
-        "startingArmy": {
-          "Warboss Azh'kal": 1,
-          "Bear Legion Recruit": 3,
-          "Novice Pyro": 1,
-          "'Mad' Pat Carrik": 1
-        }
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Griffon of Andover": 3,
-          "Bruntor's Helm": 2,
-          "Blade of Antiquity": 1,
-          "Steelforge Regalia": 2,
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 3,
-          "Press the Attack": 1,
-          "Prime Positioning": 3,
-          "Midnight Madness": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "247425097370042369",
     "discord_username": "forgedcaake#0",
     "event": "March Saga (5E)",
@@ -2343,6 +2291,58 @@
           "Invoke the Storm": 3,
           "Epic Judgment": 3,
           "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "March Saga (5E)",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-03-07T23:19:01.096Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 1,
+          "Doo'run": 3,
+          "Rrok": 1,
+          "The Mighty Mugg": 3,
+          "Thunic Yeti": 3,
+          "Bikram Bullstrength": 3,
+          "Isadran Kennelmaster": 3,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Griffon of Andover": 3,
+          "Bruntor's Helm": 2,
+          "Blade of Antiquity": 1,
+          "Steelforge Regalia": 2,
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 3,
+          "Press the Attack": 1,
+          "Prime Positioning": 3,
+          "Midnight Madness": 2
         },
         "startingArmy": {}
       }
