@@ -196,10 +196,18 @@ app.get('/api/user/decks', (req, res) => {
     } catch (e) {
       continue;
     }
-    const userDeck = decks.find(d => d.discordId === req.session.discordId);
-    if (userDeck) {
-      results.push({ eventName: event.eventName, deck: userDeck });
-    }
+      // Match by discordId, discord_username, or username
+      const discordId = req.session.discordId;
+      const discordUsername = req.session.discordUsername || req.session.username;
+      const userDeck = decks.find(d =>
+        d.discordId === discordId ||
+        d.discord_username === discordUsername ||
+        d.username === discordId ||
+        d.username === discordUsername
+      );
+      if (userDeck) {
+        results.push({ eventName: event.eventName, deck: userDeck });
+      }
   }
   res.json({ events: results });
 });
