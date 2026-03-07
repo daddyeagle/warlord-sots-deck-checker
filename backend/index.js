@@ -157,6 +157,20 @@ app.use(session({
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
+// Serve /test with index test.html
+app.get('/test', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'events', 'index test.html'));
+});
+
+// Serve /test/api/config with warlord_configuration test.json
+app.get('/test/api/config', (req, res) => {
+  const configPath = path.join(__dirname, 'public', 'warlord_configuration test.json');
+  fs.readFile(configPath, 'utf8', (err, data) => {
+    if (err) return res.status(404).json({ error: 'Config not found' });
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
+});
 
 // --- AUTHENTICATION ROUTES ---
 // --- ADMIN DOWNLOAD ENDPOINTS ---
