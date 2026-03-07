@@ -414,6 +414,11 @@
 
         const isCardReserved = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
+            // Check ruleset reserved list
+            const activeRuleSet = getActiveRuleSet();
+            if (activeRuleSet && Array.isArray(activeRuleSet.reserved)) {
+                if (activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            }
             if (selectedEditions.length === 0) return false;
             const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
             return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
@@ -421,6 +426,11 @@
         
         const isCardEpic = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
+            // Check ruleset epic list
+            const activeRuleSet = getActiveRuleSet();
+            if (activeRuleSet && Array.isArray(activeRuleSet.epic)) {
+                if (activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            }
             if (card.isEpicKeyword) return true;
             if (selectedEditions.length === 0) return false;
             const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
@@ -434,6 +444,7 @@
                 const lowerText = card.text.toLowerCase();
                 if (forbiddenPhrases.some(phrase => lowerText.includes(phrase))) return true;
             }
+            // Reserved cards cannot be in Starting Army
             return isCardReserved(card, selectedEditions);
         };
 
@@ -451,6 +462,15 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
+            // Reserved cards in Starting Army
+            saWlLegal.forEach(c => {
+                const norm = normalizeName(c.name).toLowerCase();
+                if (activeRuleSet.reserved && activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === norm)) {
+                    violations.push(`${c.name} is Reserved and cannot be included in the Starting Army.`);
+                    deckIsLegal = false;
+                }
+            });
+
             const warlordTotals = {};
             for (const norm in legalCardCounts) {
                 const data = cardDatabase[norm];
@@ -466,7 +486,11 @@
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
                     }
-                    if (isCardEpic(data, selectedEditions)) {
+                    // Epic card limit from ruleset
+                    if (activeRuleSet.epic && activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === norm)) {
+                        max = epicMax;
+                        reason = `Epic (Max ${max})`;
+                    } else if (isCardEpic(data, selectedEditions)) {
                         max = epicMax;
                         reason = `Epic (Max ${max})`;
                     }
