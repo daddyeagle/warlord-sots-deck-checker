@@ -1125,11 +1125,7 @@
                 checks.violationLimits = { status: 'PASS', message: 'Violation limits respected.' };
             }
 
-            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
-            if (!restrictionRes.pass) {
-                checks.restrictions = restrictionRes.result;
-                deckIsLegal = false;
-            }
+            // Duplicate declaration removed. Restriction check already performed above.
 
             const saLoyalty = checkFactionLoyalty(saCards, warlords, wlException, null, extraSACard, activeRuleSet, "Starting Army");
             checks.saLoyalty = saLoyalty.result;
