@@ -222,52 +222,17 @@
         async function loadAdminEventList() {
           const listDiv = document.getElementById('adminEventList');
           listDiv.textContent = 'Loading events...';
+
           try {
             const res = await fetch('/api/admin/list-events');
             if (!res.ok) throw new Error('Failed to fetch event list');
+
             const data = await res.json();
             if (!Array.isArray(data.events) || !data.events.length) {
-              listDiv.textContent = 'No events found.';              <script>
-                // ...existing code...
-              
-                async function loadEventFiles() {
-                  const list = document.getElementById('eventFileList');
-                  if (!list) return;
-              
-                  list.textContent = 'Loading event files...';
-              
-                  try {
-                    const res = await fetch('/api/admin/list-events', { cache: 'no-store' });
-                    if (!res.ok) throw new Error('Failed to fetch events');
-              
-                    const data = await res.json();
-                    const events = Array.isArray(data.events) ? data.events : [];
-              
-                    if (!events.length) {
-                      list.textContent = 'No event files found.';
-                      return;
-                    }
-              
-                    list.innerHTML = '';
-                    events.forEach((ev) => {
-                      const row = document.createElement('div');
-                      row.style.marginBottom = '8px';
-                      row.innerHTML = `
-                        <strong>${ev.eventName || 'Unnamed event'}</strong><br>
-                        <span class="small">Decklist: <code>${ev.decklistFile || 'N/A'}</code></span><br>
-                        <span class="small">Submissions: <code>${ev.submissionFile || 'N/A'}</code></span>
-                      `;
-                      list.appendChild(row);
-                    });
-                  } catch (err) {
-                    list.textContent = 'Error loading event files.';
-                  }
-                }
-              
-                window.addEventListener('DOMContentLoaded', loadEventFiles);
-              </script>
+              listDiv.textContent = 'No events found.';
               return;
             }
+
             listDiv.innerHTML = '';
             data.events.forEach(ev => {
               const row = document.createElement('div');
@@ -280,26 +245,125 @@
                 <button data-ev='${ev.eventName}' class='hideEventBtn' style='margin-right:8px;'>${ev.hidden ? 'Unhide' : 'Hide'}</button>`;
               listDiv.appendChild(row);
             });
-            // Attach button listeners
+
             document.querySelectorAll('.deleteEventBtn').forEach(btn => {
               btn.addEventListener('click', async function() {
-                if (!confirm('Delete event '+btn.dataset.ev+'?')) return;
+                if (!confirm('Delete event ' + btn.dataset.ev + '?')) return;
                 await fetch('/api/admin/delete-event', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ eventName: btn.dataset.ev })
                 });
                 loadAdminEventList();
+                loadEventFiles();
               });
             });
+
             document.querySelectorAll('.hideEventBtn').forEach(btn => {
               btn.addEventListener('click', async function() {
                 await fetch('/api/admin/hide-event', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ eventName: btn.dataset.ev })
-                });
+                });                <script>
+                  // ...existing code...
+                
+                  async function loadEventFiles() {
+                    const list = document.getElementById('eventFileList');
+                    if (!list) return;
+                
+                    list.textContent = 'Loading event files...';
+                    try {
+                      const res = await fetch('/api/admin/list-events', { cache: 'no-store' });
+                      if (!res.ok) throw new Error('Failed to fetch events');
+                
+                      const data = await res.json();
+                      const events = Array.isArray(data.events) ? data.events : [];
+                
+                      if (!events.length) {
+                        list.textContent = 'No event files found.';
+                        return;
+                      }
+                
+                      list.innerHTML = '';
+                      events.forEach((ev) => {
+                        const row = document.createElement('div');
+                        row.style.marginBottom = '8px';
+                        row.innerHTML = `
+                          <strong>${ev.eventName || 'Unnamed event'}</strong><br>
+                          <span class="small">Decklist: <code>${ev.decklistFile || 'N/A'}</code></span><br>
+                          <span class="small">Submissions: <code>${ev.submissionFile || 'N/A'}</code></span>
+                        `;
+                        list.appendChild(row);
+                      });
+                    } catch (err) {
+                      list.textContent = 'Error loading event files.';
+                    }
+                  }
+                
+                  async function loadAdminEventList() {
+                    const listDiv = document.getElementById('adminEventList');
+                    listDiv.textContent = 'Loading events...';
+                
+                    try {
+                      const res = await fetch('/api/admin/list-events');
+                      if (!res.ok) throw new Error('Failed to fetch event list');
+                
+                      const data = await res.json();
+                      if (!Array.isArray(data.events) || !data.events.length) {
+                        listDiv.textContent = 'No events found.';
+                        return;
+                      }
+                
+                      listDiv.innerHTML = '';
+                      data.events.forEach(ev => {
+                        const row = document.createElement('div');
+                        row.style.marginBottom = '8px';
+                        row.innerHTML = `<strong>${ev.eventName}</strong> (${ev.ruleset})<br>
+                          <span class='small'>${ev.startDate} to ${ev.endDate}</span><br>
+                          <span class='small'>Decklist: <code>${ev.decklistFile}</code> | Submissions: <code>${ev.submissionFile}</code></span>
+                          <span class='small'>${ev.hidden ? '<span style="color:#fca5a5">[Hidden]</span>' : ''}</span>
+                          <button data-ev='${ev.eventName}' class='deleteEventBtn btn-danger' style='margin-right:8px;'>Delete</button>
+                          <button data-ev='${ev.eventName}' class='hideEventBtn' style='margin-right:8px;'>${ev.hidden ? 'Unhide' : 'Hide'}</button>`;
+                        listDiv.appendChild(row);
+                      });
+                
+                      document.querySelectorAll('.deleteEventBtn').forEach(btn => {
+                        btn.addEventListener('click', async function() {
+                          if (!confirm('Delete event ' + btn.dataset.ev + '?')) return;
+                          await fetch('/api/admin/delete-event', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ eventName: btn.dataset.ev })
+                          });
+                          loadAdminEventList();
+                          loadEventFiles();
+                        });
+                      });
+                
+                      document.querySelectorAll('.hideEventBtn').forEach(btn => {
+                        btn.addEventListener('click', async function() {
+                          await fetch('/api/admin/hide-event', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ eventName: btn.dataset.ev })
+                          });
+                          loadAdminEventList();
+                          loadEventFiles();
+                        });
+                      });
+                    } catch (e) {
+                      listDiv.textContent = 'Error loading events.';
+                    }
+                  }
+                
+                  window.addEventListener('DOMContentLoaded', loadAdminEventList);
+                  window.addEventListener('DOMContentLoaded', loadEventFiles);
+                
+                  // ...existing code...
+                </script>
                 loadAdminEventList();
+                loadEventFiles();
               });
             });
           } catch (e) {
