@@ -169,7 +169,7 @@ app.post('/api/config', (req, res) => {
 
 // Proxy for event_list.json
 app.get('/events/event_list.json', (req, res) => {
-  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  const eventListPath = path.join(__dirname, 'events', 'event_list.json');
   fs.readFile(eventListPath, 'utf8', (err, data) => {
     if (err) return res.status(404).json({ error: 'Event list not found' });
     res.setHeader('Content-Type', 'application/json');
@@ -485,7 +485,7 @@ app.post('/api/auth/logout', (req, res) => {
 
 // --- GITHUB HELPER FUNCTIONS (Internal) ---
 // --- EVENT ADMIN ENDPOINTS ---
-const EVENT_LIST_PATH = 'backend/public/events/event_list.json';
+const EVENT_LIST_PATH = 'backend/events/event_list.json';
 
 // Helper: Load event list
 async function loadEventList() {
@@ -694,7 +694,7 @@ app.post('/api/submit-deck', async (req, res) => {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
   // Load event list to get startDate
-  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  const eventListPath = path.join(__dirname, 'events', 'event_list.json');
   let eventStartDate = null;
   try {
     const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
