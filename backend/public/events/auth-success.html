@@ -33,6 +33,12 @@
       const section = document.getElementById('user-decks-section');
       section.innerHTML = '';
       try {
+        // Fetch current events
+        const eventRes = await fetch('/events/event_list.json');
+        const eventList = eventRes.ok ? await eventRes.json() : [];
+        const currentEventNames = eventList.map(ev => ev.eventName);
+
+        // Fetch all decks
         const res = await fetch('/api/all-decks');
         if (!res.ok) return;
         const data = await res.json();
@@ -51,7 +57,9 @@
         html += '<ul class="space-y-3">';
         let found = false;
         let deckIdx = 0;
+        // Only show decks for current events
         for (const ev of data.events) {
+          if (!currentEventNames.includes(ev.eventName)) continue;
           const userDecks = (ev.decks || []).filter(d => {
             if (typeof d.username === 'string' && d.username === userId) return true;
             if (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName) return true;
@@ -75,7 +83,7 @@
         }
         html += '</ul></div>';
         if (!found) {
-          section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for your account.</div>';
+          section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for your account for current events.</div>';
         } else {
           section.innerHTML = html;
         }
