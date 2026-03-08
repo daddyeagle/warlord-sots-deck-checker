@@ -746,18 +746,19 @@
       }
     });
 
-    // Auto-load when page opens - MUST run before dropdown is populated
+    // Auto-load when page opens - load config FIRST, then everything else
     window.addEventListener('load', async () => {
-      await loadConfig().catch((err) => {
-        console.error('Failed to load config:', err);
+      try {
+        await loadConfig();
+        // After config is loaded, populate all dropdowns
+        loadRulesetsForEvent();
+        loadAdminEventList();
+        loadEventFiles();
+      } catch (err) {
+        console.error('Failed during initialization:', err);
         document.getElementById('jsonArea').value = 'Error loading configuration. Check console.';
-      });
-      // Then populate dropdowns after config is loaded
-      loadRulesetsForEvent();
-      loadAdminEventList();
-      loadEventFiles();
+      }
     });
-
   </script>
 </body>
 </html>
