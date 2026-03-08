@@ -749,7 +749,9 @@
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
 
-window.addEventListener('DOMContentLoaded', loadEventFiles);
+    window.addEventListener('DOMContentLoaded', loadEventFiles);
+    window.addEventListener('DOMContentLoaded', loadAdminEventList);
+    window.addEventListener('DOMContentLoaded', loadRulesetsForEvent);
   </script>
 </body>
 </html>
