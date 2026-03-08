@@ -1,6 +1,15 @@
-// ...existing code...
+// Express server for Discord OAuth2 login
+require('dotenv').config();
 
-// ...existing code...
+const express = require('express');
+const session = require('express-session');
+const axios = require('axios'); // Use one axios import
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+
+const CARDS_REMOTE_URL_PATTERN = 'https://theaccordlands.com/assets/resources/cards.*.json';
+const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 
 const app = express();
 
@@ -29,22 +38,6 @@ app.get('/api/all-decks', (req, res) => {
   }
   res.json({ events: results });
 });
-
-// Express server for Discord OAuth2 login
-require('dotenv').config();
-
-
-const express = require('express');
-const session = require('express-session');
-const axios = require('axios'); // Use one axios import
-const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
-
-const CARDS_REMOTE_URL_PATTERN = 'https://theaccordlands.com/assets/resources/cards.*.json';
-const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
-
-const app = express();
 // Periodically download the latest card database from the remote source
 async function updateCardDatabase() {
   try {
