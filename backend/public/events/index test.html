@@ -154,16 +154,16 @@
                         section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">Not logged in.</div>';
                         return;
                     }
-                    const username = user.username.toLowerCase();
+                    const userId = user.id;
+                    const displayName = user.displayName ? user.displayName.toLowerCase() : null;
                     let html = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4"><h3 class="text-lg font-bold text-amber-400 mb-2">Your Submitted Decks</h3>';
                     html += '<ul class="space-y-3">';
                     let found = false;
                     for (const ev of data.events) {
                         const userDecks = (ev.decks || []).filter(d => {
-                            // Match username (case-insensitive, ignore #number)
-                            if (typeof d.username === 'string') {
-                                return d.username.toLowerCase() === username;
-                            }
+                            // Match by Discord user ID or display_name
+                            if (typeof d.username === 'string' && d.username === userId) return true;
+                            if (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName) return true;
                             return false;
                         });
                         for (const deck of userDecks) {
@@ -180,7 +180,7 @@
                     }
                     html += '</ul></div>';
                     if (!found) {
-                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for your username.</div>';
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for your account.</div>';
                     } else {
                         section.innerHTML = html;
                     }

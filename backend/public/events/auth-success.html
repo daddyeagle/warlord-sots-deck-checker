@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Auth Success - Your Submitted Decks</title>
+  <link rel="stylesheet" href="/events/assets/css/style.css">
+</head>
+<body>
+  <h1>Discord Authentication Successful</h1>
+  <div id="user-info"></div>
+  <div id="deck-list"></div>
+  <script>
+    async function fetchUserInfo() {
+      const res = await fetch('/api/user');
+      if (!res.ok) return null;
+      return await res.json();
+    }
+
+    async function fetchAllDecks() {
+      const res = await fetch('/api/all-decks');
+      if (!res.ok) return [];
+      return await res.json();
+    }
+
+    async function showUserDecks() {
+      const user = await fetchUserInfo();
+      if (!user) {
+        document.getElementById('user-info').innerHTML = '<p>Could not load user info. Please log in again.</p>';
+        return;
+      }
+      document.getElementById('user-info').innerHTML = `<p>Welcome, <b>${user.display_name || user.username}</b>!</p>`;
+      const decks = await fetchAllDecks();
+      const userDecks = decks.filter(deck =>
+        deck.username === user.id ||
+        deck.display_name === user.display_name ||
+        deck.discord_username === user.username
+      );
+      if (userDecks.length === 0) {
+        document.getElementById('deck-list').innerHTML = '<p>No decks submitted for active events.</p>';
+        return;
+      }
+      let html = '<h2>Your Submitted Decks</h2>';
+      userDecks.forEach(deck => {
+        html += `<div class="deck">
+          <h3>${deck.event} - ${deck.warlord}</h3>
+          <p>Submitted as: <b>${deck.display_name}</b> (${deck.discord_username})</p>
+          <pre>${JSON.stringify(deck.cardList, null, 2)}</pre>
+        </div>`;
+      });
+      document.getElementById('deck-list').innerHTML = html;
+    }
+    showUserDecks();
+  </script>
+</body>
+</html>
