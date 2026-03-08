@@ -29,13 +29,22 @@ app.get('/api/all-decks', (req, res) => {
   const results = [];
   for (const event of eventList) {
     const deckFile = event.decksFile;
-    if (!deckFile) continue;
+    console.log('DEBUG event:', event.eventName, 'deckFile:', deckFile);
+    if (!deckFile) {
+      console.log('DEBUG: No deckFile for event', event.eventName);
+      continue;
+    }
     const deckPath = path.join(__dirname, 'events', deckFile);
-    if (!fs.existsSync(deckPath)) continue;
+    console.log('DEBUG deckPath:', deckPath);
+    if (!fs.existsSync(deckPath)) {
+      console.log('DEBUG: Deck file does not exist:', deckPath);
+      continue;
+    }
     let decks;
     try {
       decks = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
     } catch (e) {
+      console.log('DEBUG: Failed to read deck file:', deckPath, e);
       continue;
     }
     results.push({ eventName: event.eventName, decks });
