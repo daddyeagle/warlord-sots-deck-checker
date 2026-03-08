@@ -32,7 +32,7 @@ app.get('/api/all-decks', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  const eventsPath = path.join(__dirname, 'events', 'event_list.json');
+    const eventsPath = path.join(__dirname, 'events', 'event_list.json');
   let eventList;
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
@@ -41,7 +41,7 @@ app.get('/api/all-decks', (req, res) => {
   }
   const results = [];
   for (const event of eventList) {
-    const deckFile = event.decksFile;
+    const deckFile = event.decklistFile;
     console.log('DEBUG event:', event.eventName, 'deckFile:', deckFile);
     if (!deckFile) {
       console.log('DEBUG: No deckFile for event', event.eventName);
@@ -238,7 +238,7 @@ app.get('/api/user/decks', (req, res) => {
   }
   const results = [];
   for (const event of eventList) {
-      const deckFile = event.decksFile;
+      const deckFile = event.decklistFile;
     if (!deckFile) continue;
     const deckPath = path.join(__dirname, 'events', deckFile);
     if (!fs.existsSync(deckPath)) continue;
