@@ -47,7 +47,7 @@ app.get('/api/all-decks', (req, res) => {
       console.log('DEBUG: No deckFile for event', event.eventName);
       continue;
     }
-    const deckPath = path.join(__dirname, 'events', deckFile);
+    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
     console.log('DEBUG deckPath:', deckPath);
     if (!fs.existsSync(deckPath)) {
       console.log('DEBUG: Deck file does not exist:', deckPath);
