@@ -32,7 +32,7 @@ app.get('/api/all-decks', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-    const eventsPath = path.join(__dirname, 'events', 'event_list.json');
+    const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventList;
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
@@ -169,7 +169,7 @@ app.post('/api/config', (req, res) => {
 
 // Proxy for event_list.json
 app.get('/events/event_list.json', (req, res) => {
-  const eventListPath = path.join(__dirname, 'events', 'event_list.json');
+  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   fs.readFile(eventListPath, 'utf8', (err, data) => {
     if (err) return res.status(404).json({ error: 'Event list not found' });
     res.setHeader('Content-Type', 'application/json');
@@ -212,6 +212,11 @@ app.get('/test', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'events', 'index test.html'));
 });
 
+// Serve /auth-success with auth-success.html
+app.get('/auth-success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'events', 'auth-success.html'));
+});
+
 // Serve /test/api/config with warlord_configuration test.json
 app.get('/test/api/config', (req, res) => {
   const configPath = path.join(__dirname, 'public', 'warlord_configuration test.json');
@@ -229,7 +234,7 @@ app.get('/api/user/decks', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-    const eventsPath = path.join(__dirname, 'events', 'event_list.json');
+    const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventList;
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
@@ -485,7 +490,7 @@ app.post('/api/auth/logout', (req, res) => {
 
 // --- GITHUB HELPER FUNCTIONS (Internal) ---
 // --- EVENT ADMIN ENDPOINTS ---
-const EVENT_LIST_PATH = 'backend/events/event_list.json';
+const EVENT_LIST_PATH = 'backend/public/events/event_list.json';
 
 // Helper: Load event list
 async function loadEventList() {
@@ -694,7 +699,7 @@ app.post('/api/submit-deck', async (req, res) => {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
   // Load event list to get startDate
-  const eventListPath = path.join(__dirname, 'events', 'event_list.json');
+  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventStartDate = null;
   try {
     const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
