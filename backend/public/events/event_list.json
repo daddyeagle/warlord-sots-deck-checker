@@ -7,14 +7,5 @@
     "decklistFile": "decks-march-saga-5e-.json",
     "submissionFile": "march-saga-5e-.json",
     "hidden": false
-  },
-  {
-    "eventName": "Test event",
-    "ruleset": "New Rules",
-    "startDate": "2026-04-01",
-    "endDate": "2026-04-08",
-    "decklistFile": "decks-test-event.json",
-    "submissionFile": "test-event.json",
-    "hidden": false
   }
 ]
