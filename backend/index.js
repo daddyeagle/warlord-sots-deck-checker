@@ -1,3 +1,9 @@
+// ...existing code...
+
+// ...existing code...
+
+const app = express();
+
 // Endpoint: Get all deck submissions for all events
 app.get('/api/all-decks', (req, res) => {
   const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
@@ -23,7 +29,6 @@ app.get('/api/all-decks', (req, res) => {
   }
   res.json({ events: results });
 });
-// ...existing code...
 
 // Express server for Discord OAuth2 login
 require('dotenv').config();
