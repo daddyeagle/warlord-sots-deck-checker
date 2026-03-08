@@ -208,12 +208,19 @@ app.use(session({
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 // Serve /test with index test.html
+
+// Serve /test with index test.html
 app.get('/test', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'events', 'index test.html'));
 });
 
 // Serve /auth-success with auth-success.html
 app.get('/auth-success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'events', 'auth-success.html'));
+});
+
+// Serve /test/auth-success with auth-success.html (same decklist logic as /test)
+app.get('/test/auth-success', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'events', 'auth-success.html'));
 });
 
