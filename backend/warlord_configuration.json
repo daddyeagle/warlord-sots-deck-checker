@@ -216,6 +216,8 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
       "editions": [
         "Ancients"
       ],
