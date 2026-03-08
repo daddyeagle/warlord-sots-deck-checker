@@ -491,59 +491,78 @@
       rs_requiresUnifiedFaction.checked = !!rs.requiresUnifiedFaction;
       rs_fullBypass.checked = !!rs.fullBypass;
       rs_editions.value = (rs.editions || []).join(', ');
+      
       const restricted = rs.restricted || { names:[], sets:[], rarities:[] };
       rs_restricted_names.value = (restricted.names || []).join(', ');
       rs_restricted_sets.value = (restricted.sets || []).join(', ');
       rs_restricted_rarities.value = (restricted.rarities || []).join(', ');
 
-      const reserved = rs.reserved || { names:[], sets:[] };
-      rs_reserved_names.value = (reserved.names || []).join(', ');
-      rs_reserved_sets.value = (reserved.sets || []).join(', ');
+      // Reserved and Epic: Store as simple arrays of card names
+      // The deck checker expects: Array.isArray(activeRuleSet.reserved) and Array.isArray(activeRuleSet.epic)
+      const reserved = rs.reserved || [];
+      const epic = rs.epic || [];
+      
+      // Handle backward compatibility: if stored as object, extract names only
+      if (typeof reserved === 'object' && !Array.isArray(reserved)) {
+        rs_reserved_names.value = (reserved.names || []).join(', ');
+        rs_reserved_sets.value = (reserved.sets || []).join(', ');
+      } else {
+        // Already an array (correct format matching deck checker)
+        rs_reserved_names.value = (reserved || []).join(', ');
+        rs_reserved_sets.value = '';
+      }
 
-      const epic = rs.epic || { names:[], sets:[] };
-      rs_epic_names.value = (epic.names || []).join(', ');
-      rs_epic_sets.value = (epic.sets || []).join(', ');
+      if (typeof epic === 'object' && !Array.isArray(epic)) {
+        rs_epic_names.value = (epic.names || []).join(', ');
+        rs_epic_sets.value = (epic.sets || []).join(', ');
+      } else {
+        // Already an array (correct format matching deck checker)
+        rs_epic_names.value = (epic || []).join(', ');
+        rs_epic_sets.value = '';
+      }
     }
 
     function updateRulesetFromForm(){
       const key = rulesetSelect.value;
       if (!key) return setFeedback('No ruleset selected', true);
       try{
-        const saSlots = [ { level: 1, count: parseInt(rs_level1_count.value || '0', 10) }, { level: 2, count: parseInt(rs_level2_count.value || '0', 10) } ];
-        const editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        const rs = configObj.rulesets[key];
+        rs.name = rs_name.value.trim();
+        rs.warlordCount = parseInt(rs_warlordCount.value, 10) || 1;
+        rs.maxCopies = parseInt(rs_maxCopies.value, 10) || 3;
+        rs.maxEpicCopies = parseInt(rs_maxEpicCopies.value, 10) || 1;
+        rs.minTotalDeck = parseInt(rs_minTotalDeck.value, 10) || 50;
+        rs.checkMainDeckFaction = rs_checkMainDeckFaction.checked;
+        const lvl1 = parseInt(rs_level1_count.value, 10) || 0;
+        const lvl2 = parseInt(rs_level2_count.value, 10) || 0;
+        rs.saRequiredSlots = [];
+        if (lvl1 > 0) rs.saRequiredSlots.push({ level: 1, count: lvl1 });
+        if (lvl2 > 0) rs.saRequiredSlots.push({ level: 2, count: lvl2 });
+        rs.hidden = rs_hidden.checked;
+        rs.requiresUnifiedFaction = rs_requiresUnifiedFaction.checked;
+        rs.fullBypass = rs_fullBypass.checked;
+        rs.editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        
+        // Restricted keeps object format with names, sets, rarities
         const restricted = {
           names: rs_restricted_names.value.split(',').map(s=>s.trim()).filter(Boolean),
           sets: rs_restricted_sets.value.split(',').map(s=>s.trim()).filter(Boolean),
           rarities: rs_restricted_rarities.value.split(',').map(s=>s.trim()).filter(Boolean)
         };
-        const reserved = {
-          names: rs_reserved_names.value.split(',').map(s=>s.trim()).filter(Boolean),
-          sets: rs_reserved_sets.value.split(',').map(s=>s.trim()).filter(Boolean)
-        };
-        const epic = {
-          names: rs_epic_names.value.split(',').map(s=>s.trim()).filter(Boolean),
-          sets: rs_epic_sets.value.split(',').map(s=>s.trim()).filter(Boolean)
-        };
+        rs.restricted = restricted;
 
-        configObj.rulesets[key] = {
-          name: rs_name.value,
-          warlordCount: parseInt(rs_warlordCount.value || '1',10),
-          saRequiredSlots: saSlots,
-          maxCopies: parseInt(rs_maxCopies.value||'3',10),
-          maxEpicCopies: parseInt(rs_maxEpicCopies.value||'1',10),
-          minTotalDeck: parseInt(rs_minTotalDeck.value||'50',10),
-          checkMainDeckFaction: !!rs_checkMainDeckFaction.checked,
-          requiresUnifiedFaction: !!rs_requiresUnifiedFaction.checked,
-          fullBypass: !!rs_fullBypass.checked,
-          editions: editions,
-          restricted: restricted,
-          reserved: reserved,
-          epic: epic
-        };
-        // preserve hidden flag on the ruleset object
-        configObj.rulesets[key].hidden = !!rs_hidden.checked;
+        // Reserved: Store as simple array of card names (matching deck checker logic)
+        // The deck checker uses: Array.isArray(activeRuleSet.reserved)
+        const reservedNames = rs_reserved_names.value.split(',').map(s=>s.trim()).filter(Boolean);
+        rs.reserved = reservedNames;  // Simple array, not object
+
+        // Epic: Store as simple array of card names (matching deck checker logic)
+        // The deck checker uses: Array.isArray(activeRuleSet.epic)
+        const epicNames = rs_epic_names.value.split(',').map(s=>s.trim()).filter(Boolean);
+        rs.epic = epicNames;  // Simple array, not object
+
         area.value = JSON.stringify(configObj, null, 2);
-        setFeedback('Ruleset updated in JSON textarea. Click Download or Create PR to persist.');
+        setFeedback('Updated ruleset: ' + key);
         renderRulesetList();
       }catch(e){ setFeedback('Failed to update ruleset: '+e.message, true); }
     }

@@ -227,47 +227,6 @@
         "rarities": []
       },
       "hidden": false
-    },
-    "new rules": {
-      "name": "new rules",
-      "warlordCount": 1,
-      "saRequiredSlots": [
-        {
-          "level": 1,
-          "count": 3
-        },
-        {
-          "level": 2,
-          "count": 2
-        }
-      ],
-      "maxCopies": 3,
-      "maxEpicCopies": 1,
-      "minTotalDeck": 50,
-      "checkMainDeckFaction": false,
-      "requiresUnifiedFaction": false,
-      "fullBypass": false,
-      "editions": [
-        "Saga"
-      ],
-      "restricted": {
-        "names": [],
-        "sets": [],
-        "rarities": []
-      },
-      "reserved": {
-        "names": [
-          "Bear Legion Recruit"
-        ],
-        "sets": []
-      },
-      "epic": {
-        "names": [
-          "Joleg"
-        ],
-        "sets": []
-      },
-      "hidden": false
     }
   },
   "warlordExceptions": [
@@ -489,6 +448,5 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+",
-  "indexSelectorLimit": 10
+  "defaultRuleset": "December Ancients+"
 }
