@@ -41,14 +41,27 @@
         return;
       }
       let html = '<h2>Your Submitted Decks</h2>';
-      userDecks.forEach(deck => {
+      userDecks.forEach((deck, idx) => {
         html += `<div class="deck">
           <h3>${deck.event} - ${deck.warlord}</h3>
           <p>Submitted as: <b>${deck.display_name}</b> (${deck.discord_username})</p>
-          <pre>${JSON.stringify(deck.cardList, null, 2)}</pre>
+          <button onclick="toggleDeckContent(${idx})">Show/Hide Full Decklist</button>
+          <div id="deck-content-${idx}" style="display:none;">
+            <pre>${JSON.stringify(deck.cardList, null, 2)}</pre>
+          </div>
         </div>`;
       });
       document.getElementById('deck-list').innerHTML = html;
+    }
+
+    window.toggleDeckContent = function(idx) {
+      const el = document.getElementById(`deck-content-${idx}`);
+      if (el.style.display === 'none') {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    }
     }
     showUserDecks();
   </script>
