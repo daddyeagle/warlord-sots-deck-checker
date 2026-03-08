@@ -198,7 +198,7 @@
         }
         
         // Check auth on load, and handle /test/auth-success redirect
-        if (window.location.pathname === '/test/auth-success') {
+        if (window.location.pathname === '/test/') {
             fetchDiscordUser().then(() => {
                 // Show deck list, then redirect to /test
                 setTimeout(() => { window.location.href = '/test'; }, 1200);
