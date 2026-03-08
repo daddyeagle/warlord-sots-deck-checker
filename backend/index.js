@@ -207,7 +207,8 @@ app.get('/api/user/decks', (req, res) => {
       d.discord_username === `${username}#${discriminator}` ||
       d.username === id ||
       d.username === username ||
-      d.display_name === displayName
+      d.display_name === displayName ||
+      (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName.toLowerCase())
     );
     if (userDeck) {
       console.log('DEBUG matched deck:', userDeck);
