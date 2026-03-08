@@ -174,7 +174,9 @@ app.get('/test/api/config', (req, res) => {
 
 // Endpoint: Get submitted decks for logged-in user
 app.get('/api/user/decks', (req, res) => {
-  if (!req.session.discordId) {
+  // Debug: log session user info
+  console.log('DEBUG /api/user/decks session:', req.session.user);
+  if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
   const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
@@ -196,18 +198,20 @@ app.get('/api/user/decks', (req, res) => {
     } catch (e) {
       continue;
     }
-      // Match by discordId, discord_username, or username
-      const discordId = req.session.discordId;
-      const discordUsername = req.session.discordUsername || req.session.username;
-      const userDeck = decks.find(d =>
-        d.discordId === discordId ||
-        d.discord_username === discordUsername ||
-        d.username === discordId ||
-        d.username === discordUsername
-      );
-      if (userDeck) {
-        results.push({ eventName: event.eventName, deck: userDeck });
-      }
+    // Debug: log deck file and keys
+    console.log('DEBUG event:', event.eventName, 'deckFile:', deckFile);
+    const { id, username, discriminator, displayName } = req.session.user;
+    const userDeck = decks.find(d =>
+      d.discordId === id ||
+      d.discord_username === `${username}#${discriminator}` ||
+      d.username === id ||
+      d.username === username ||
+      d.display_name === displayName
+    );
+    if (userDeck) {
+      console.log('DEBUG matched deck:', userDeck);
+      results.push({ eventName: event.eventName, deck: userDeck });
+    }
   }
   res.json({ events: results });
 });
