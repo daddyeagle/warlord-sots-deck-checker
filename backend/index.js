@@ -15,7 +15,11 @@ const app = express();
 
 // Endpoint: Get all deck submissions for all events
 app.get('/api/all-decks', (req, res) => {
-  const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  // Restrict to authenticated users only
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+  const eventsPath = path.join(__dirname, 'events', 'event_list.json');
   let eventList;
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
@@ -26,7 +30,7 @@ app.get('/api/all-decks', (req, res) => {
   for (const event of eventList) {
     const deckFile = event.decklistFile;
     if (!deckFile) continue;
-    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
+    const deckPath = path.join(__dirname, 'events', deckFile);
     if (!fs.existsSync(deckPath)) continue;
     let decks;
     try {
@@ -203,7 +207,7 @@ app.get('/api/user/decks', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+    const eventsPath = path.join(__dirname, 'events', 'event_list.json');
   let eventList;
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
