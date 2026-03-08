@@ -166,16 +166,14 @@
                             if (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName) return true;
                             return false;
                         });
-                        for (const deck of userDecks) {
+                        for (const [i, deck] of userDecks.entries()) {
                             found = true;
+                            const deckId = `${ev.eventName.replace(/[^a-z0-9]/gi,'')}-deck-${i}`;
                             html += `<li class="border-b border-gray-700 pb-2 mb-2"><span class="font-semibold text-blue-300">${ev.eventName}</span><br>`;
-                            html += '<span class="text-gray-300">Deck:</span><ul class="ml-4 mt-1">';
-                            for (const [key, value] of Object.entries(deck)) {
-                                if (typeof value === 'string' && key !== 'discordId') {
-                                    html += `<li class="text-xs text-gray-400"><span class="font-semibold text-gray-200">${key}:</span> ${value}</li>`;
-                                }
-                            }
-                            html += '</ul></li>';
+                            html += `<button class="bg-gray-700 hover:bg-gray-600 text-xs text-amber-300 font-semibold px-3 py-1 rounded mb-2 mt-2" onclick="toggleDeck('${deckId}')">Show Full Decklist</button>`;
+                            html += `<div id="${deckId}" class="hidden mt-2">`;
+                            html += formatDeckList(deck);
+                            html += '</div></li>';
                         }
                     }
                     html += '</ul></div>';
@@ -188,6 +186,42 @@
                     section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-red-400 text-sm">Failed to load submitted decks.</div>';
                 }
             }
+            // Add toggleDeck function
+            window.toggleDeck = function(deckId) {
+                const el = document.getElementById(deckId);
+                if (el) {
+                    el.classList.toggle('hidden');
+                }
+            };
+            // Deck formatting helper
+            window.formatDeckList = function(deck) {
+                let out = '<div class="bg-gray-800 rounded-lg p-3 border border-gray-700">';
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Warlord:</span> <span class="text-gray-200">${deck.warlord || ''}</span></div>`;
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Display Name:</span> <span class="text-gray-200">${deck.display_name || ''}</span></div>`;
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Discord Username:</span> <span class="text-gray-200">${deck.discord_username || ''}</span></div>`;
+                if (deck.cardList && typeof deck.cardList === 'object') {
+                    for (const [type, cards] of Object.entries(deck.cardList)) {
+                        out += `<div class="mt-3"><span class="font-semibold text-blue-300">${type}</span>`;
+                        if (cards.startingArmy && typeof cards.startingArmy === 'object') {
+                            out += '<div class="ml-4 mt-1"><span class="font-semibold text-green-400">Starting Army:</span><ul class="ml-4">';
+                            for (const [card, qty] of Object.entries(cards.startingArmy)) {
+                                out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                            }
+                            out += '</ul></div>';
+                        }
+                        if (cards.mainDeck && typeof cards.mainDeck === 'object') {
+                            out += '<div class="ml-4 mt-1"><span class="font-semibold text-purple-400">Main Deck:</span><ul class="ml-4">';
+                            for (const [card, qty] of Object.entries(cards.mainDeck)) {
+                                out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                            }
+                            out += '</ul></div>';
+                        }
+                        out += '</div>';
+                    }
+                }
+                out += '</div>';
+                return out;
+            };
 
         if (discordLoginBtn) {
                 discordLoginBtn.onclick = () => {

@@ -214,14 +214,13 @@ app.get('/test', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'events', 'index test.html'));
 });
 
-// Serve /auth-success with auth-success.html
+// Redirect /auth-success and /test/auth-success to /test for unified decklist and submission UI
 app.get('/auth-success', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'events', 'auth-success.html'));
+  res.redirect('/test');
 });
 
-// Serve /test/auth-success with auth-success.html (same decklist logic as /test)
 app.get('/test/auth-success', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'events', 'auth-success.html'));
+  res.redirect('/test');
 });
 
 // Serve /test/api/config with warlord_configuration test.json
