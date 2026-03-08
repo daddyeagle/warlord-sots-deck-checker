@@ -1,3 +1,28 @@
+// Endpoint: Get all deck submissions for all events
+app.get('/api/all-decks', (req, res) => {
+  const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  let eventList;
+  try {
+    eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
+  } catch (e) {
+    return res.status(500).json({ error: 'Failed to load event list' });
+  }
+  const results = [];
+  for (const event of eventList) {
+    const deckFile = event.decklistFile;
+    if (!deckFile) continue;
+    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
+    if (!fs.existsSync(deckPath)) continue;
+    let decks;
+    try {
+      decks = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
+    } catch (e) {
+      continue;
+    }
+    results.push({ eventName: event.eventName, decks });
+  }
+  res.json({ events: results });
+});
 // ...existing code...
 
 // Express server for Discord OAuth2 login
