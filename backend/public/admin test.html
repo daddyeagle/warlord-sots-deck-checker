@@ -746,12 +746,18 @@
       }
     });
 
-    // Auto-load when page opens
-    window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+    // Auto-load when page opens - MUST run before dropdown is populated
+    window.addEventListener('load', async () => {
+      await loadConfig().catch((err) => {
+        console.error('Failed to load config:', err);
+        document.getElementById('jsonArea').value = 'Error loading configuration. Check console.';
+      });
+      // Then populate dropdowns after config is loaded
+      loadRulesetsForEvent();
+      loadAdminEventList();
+      loadEventFiles();
+    });
 
-    window.addEventListener('DOMContentLoaded', loadEventFiles);
-    window.addEventListener('DOMContentLoaded', loadAdminEventList);
-    window.addEventListener('DOMContentLoaded', loadRulesetsForEvent);
   </script>
 </body>
 </html>
