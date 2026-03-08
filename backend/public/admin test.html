@@ -97,6 +97,12 @@
           <input id="rs_restricted_names" type="text" placeholder="names" />
           <input id="rs_restricted_sets" type="text" placeholder="sets" />
           <input id="rs_restricted_rarities" type="text" placeholder="rarities" />
+          <input id="rs_reserved_names" type="text" placeholder="reserved names" />
+          <input id="rs_reserved_sets" type="text" placeholder="reserved sets" />
+
+          <label class="small" style="display:block; margin-top:6px">Epic (names, sets — comma separated)</label>
+          <input id="rs_epic_names" type="text" placeholder="names" />
+          <input id="rs_epic_sets" type="text" placeholder="sets" />
         </div>
       </div>
 
@@ -382,6 +388,10 @@
     const rs_restricted_names = document.getElementById('rs_restricted_names');
     const rs_restricted_sets = document.getElementById('rs_restricted_sets');
     const rs_restricted_rarities = document.getElementById('rs_restricted_rarities');
+    const rs_reserved_names = document.getElementById('rs_reserved_names');
+    const rs_reserved_sets = document.getElementById('rs_reserved_sets');
+    const rs_epic_names = document.getElementById('rs_epic_names');
+    const rs_epic_sets = document.getElementById('rs_epic_sets');
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
@@ -483,6 +493,10 @@
       rs_restricted_names.value = (restricted.names || []).join(', ');
       rs_restricted_sets.value = (restricted.sets || []).join(', ');
       rs_restricted_rarities.value = (restricted.rarities || []).join(', ');
+      rs_reserved_names.value = (restricted.names || []).join(', ');
+      rs_reserved_sets.value = (restricted.sets || []).join(', ');
+      rs_epic_names.value = (restricted.names || []).join(', ');
+      rs_epic_sets.value = (restricted.sets || []).join(', ');
     }
 
     function updateRulesetFromForm(){
@@ -725,3 +739,10 @@ window.addEventListener('DOMContentLoaded', loadEventFiles);
   </script>
 </body>
 </html>
+<label class="small" style="display:block; margin-top:6px">Reserved (names, sets — comma separated)</label>
+<input id="rs_reserved_names" type="text" placeholder="names" />
+<input id="rs_reserved_sets" type="text" placeholder="sets" />
+
+<label class="small" style="display:block; margin-top:6px">Epic (names, sets — comma separated)</label>
+<input id="rs_epic_names" type="text" placeholder="names" />
+<input id="rs_epic_sets" type="text" placeholder="sets" />
