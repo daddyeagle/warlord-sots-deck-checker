@@ -175,11 +175,11 @@
                 };
         }
         
-        // Check auth on load, and handle /auth-success redirect
-        if (window.location.pathname === '/auth-success') {
+        // Check auth on load, and handle /test/auth-success redirect
+        if (window.location.pathname === '/test/auth-success') {
             fetchDiscordUser().then(() => {
-                // Give a moment for UI update, then redirect to main page
-                setTimeout(() => { window.location.href = '/'; }, 500);
+                // Show deck list, then redirect to /test
+                setTimeout(() => { window.location.href = '/test'; }, 1200);
             });
         } else {
             fetchDiscordUser();
