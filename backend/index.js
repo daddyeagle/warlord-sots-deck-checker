@@ -28,7 +28,7 @@ app.get('/api/all-decks', (req, res) => {
   }
   const results = [];
   for (const event of eventList) {
-    const deckFile = event.decklistFile;
+    const deckFile = event.decksFile;
     if (!deckFile) continue;
     const deckPath = path.join(__dirname, 'events', deckFile);
     if (!fs.existsSync(deckPath)) continue;
@@ -216,9 +216,9 @@ app.get('/api/user/decks', (req, res) => {
   }
   const results = [];
   for (const event of eventList) {
-    const deckFile = event.decklistFile;
+      const deckFile = event.decksFile;
     if (!deckFile) continue;
-    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
+    const deckPath = path.join(__dirname, 'events', deckFile);
     if (!fs.existsSync(deckPath)) continue;
     let decks;
     try {
