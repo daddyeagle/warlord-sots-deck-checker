@@ -245,11 +245,27 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
-      "editions": [],
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "editions": [
+        "Saga"
+      ],
       "restricted": {
         "names": [],
         "sets": [],
         "rarities": []
+      },
+      "reserved": {
+        "names": [
+          "Bear Legion Recruit"
+        ],
+        "sets": []
+      },
+      "epic": {
+        "names": [
+          "Joleg"
+        ],
+        "sets": []
       },
       "hidden": false
     }
@@ -473,5 +489,6 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "December Ancients+",
+  "indexSelectorLimit": 10
 }
