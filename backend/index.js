@@ -404,8 +404,14 @@ app.get('/api/auth/discord/callback', async (req, res) => {
         discriminator: userRes.data.discriminator,
         displayName: userRes.data.global_name || userRes.data.display_name || null
       };
-      const redirectPath = req.session.loginRedirect || '/auth-success';
+      let redirectPath = req.session.loginRedirect || '/auth-success';
       req.session.loginRedirect = undefined;
+      // If login was initiated from /test, redirect to /test
+      if (redirectPath === '/test') {
+        redirectPath = '/test';
+      } else if (redirectPath === '/' || redirectPath === '/auth-success') {
+        redirectPath = '/auth-success';
+      }
       req.session.save((err) => {
         if (err) return res.status(500).send("Session save failed");
         res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}${redirectPath}` : redirectPath);
