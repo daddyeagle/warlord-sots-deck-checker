@@ -307,7 +307,26 @@
 
         let CARD_DATA_URL = null;
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
+        // Use the same event list URL logic as index.html
         const EVENT_LIST_URL = getBackendUrl() + "/events/public/events/event_list.json";
+
+        function populateEventDropdown() {
+            const events = window.EVENT_LIST || [];
+            const eventSelect = document.getElementById('submit-eventname');
+            if (!eventSelect) return;
+            eventSelect.innerHTML = '';
+            if (Array.isArray(events)) {
+                events.forEach(ev => {
+                    if (ev && typeof ev === 'object' && ev.eventName && !ev.hidden) {
+                        const opt = document.createElement('option');
+                        opt.value = ev.eventName;
+                        opt.textContent = ev.eventName;
+                        opt.dataset.ruleset = ev.ruleset || '';
+                        eventSelect.appendChild(opt);
+                    }
+                });
+            }
+        }
 
         // --- REGEX & CONSTANTS ---
         const lineRegex = /^\s*(\d+)?\s*(?:[xX](?=\s))?\s+([A-Za-z0-9'\-\.,:!\? ]+)/;
