@@ -282,7 +282,37 @@
 
       document.getElementById('createEventBtn').addEventListener('click', async function () {
         const name = document.getElementById('newEventName').value.trim();
-        const ruleset = document.getElementById('newEventRuleset').value;
+        const rule        document.getElementById('createEventBtn').addEventListener('click', async function () {
+          const name = document.getElementById('newEventName').value.trim();
+          const ruleset = document.getElementById('newEventRuleset').value;
+          const start = document.getElementById('newEventStart').value;
+          const end = document.getElementById('newEventEnd').value;
+          const feedback = document.getElementById('createEventFeedback');
+  
+          feedback.textContent = '';
+          if (!name || !ruleset || !start || !end) {
+            feedback.textContent = 'Please fill out all fields.';
+            return;
+          }
+  
+          try {
+            const res = await fetch('/api/admin/create-event', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ eventName: name, ruleset, startDate: start, endDate: end })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Failed to create event');
+  
+            feedback.style.color = '#9fe0d6';
+            feedback.textContent = 'Event created!';
+            loadAdminEventList();
+            loadEventFiles();
+          } catch (e) {
+            feedback.style.color = '#fca5a5';
+            feedback.textContent = e.message;
+          }
+        });set = document.getElementById('newEventRuleset').value;
         const start = document.getElementById('newEventStart').value;
         const end = document.getElementById('newEventEnd').value;
         const feedback = document.getElementById('createEventFeedback');
