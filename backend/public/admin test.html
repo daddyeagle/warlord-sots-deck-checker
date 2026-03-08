@@ -736,8 +736,44 @@
 
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+    window.addEventListener('DOMContentLoaded', loadEventFiles);
 
-window.addEventListener('DOMContentLoaded', loadEventFiles);
+    async function loadEventFiles() {
+      const listDiv = document.getElementById('eventFileList');
+      if (!listDiv) return;
+
+      listDiv.textContent = 'Loading event files...';
+      try {
+        const res = await fetch('/api/admin/list-events', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const data = await res.json();
+        const events = Array.isArray(data.events) ? data.events : [];
+
+        if (!events.length) {
+          listDiv.textContent = 'No event files found.';
+          return;
+        }
+
+        listDiv.innerHTML = '';
+        events.forEach((ev) => {
+          const row = document.createElement('div');
+          row.style.marginBottom = '8px';
+          row.innerHTML = `
+            <strong>${ev.eventName || 'Unnamed event'}</strong><br>
+            <span class="small">Decklist: <code>${ev.decklistFile || 'N/A'}</code> | Submissions: <code>${ev.submissionFile || 'N/A'}</code></span>
+          `;
+          listDiv.appendChild(row);
+        });
+      } catch (err) {
+        console.error('loadEventFiles failed:', err);
+        listDiv.textContent = 'Error loading event files.';
+      }
+    }
+
+    // Auto-load when page opens
+    window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+    window.addEventListener('DOMContentLoaded', loadEventFiles);
   </script>
 </body>
 </html>
