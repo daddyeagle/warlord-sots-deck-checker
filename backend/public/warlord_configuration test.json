@@ -3,6 +3,20 @@
   "rulesets": {
     "default": {
       "name": "Open Format (Standard SA)",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -29,6 +43,20 @@
     },
     "Ancients": {
       "name": "Ancients",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -60,6 +88,20 @@
     },
     "Saga": {
       "name": "Saga",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -88,6 +130,20 @@
     },
     "Alliance": {
       "name": "Alliance",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 2,
       "saRequiredSlots": [
         {
@@ -116,6 +172,20 @@
     },
     "Template 1": {
       "name": "Turncoat",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -149,6 +219,20 @@
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -178,6 +262,20 @@
     },
     "Template 3": {
       "name": "Template 3 (Ancients)",
+      "violationLimits": {
+        "cardCopy": 0,
+        "uniqueSA": 0,
+        "epic": 0,
+        "reservedSA": 0,
+        "warlordMain": 0,
+        "overlord": 0,
+        "dragonlord": 0,
+        "daemonlord": 0,
+        "edition": 0,
+        "banned": 0,
+        "forbidden": 0,
+        "total": 0
+      },
       "warlordCount": 1,
       "saRequiredSlots": [
         {

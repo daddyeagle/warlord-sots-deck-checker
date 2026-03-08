@@ -1050,9 +1050,80 @@
                   }
             }
 
+            // --- Violation Counting ---
+            const violationCounts = {
+                cardCopy: 0,
+                uniqueSA: 0,
+                epic: 0,
+                reservedSA: 0,
+                warlordMain: 0,
+                overlord: 0,
+                dragonlord: 0,
+                daemonlord: 0,
+                edition: 0,
+                banned: 0,
+                forbidden: 0,
+                total: 0
+            };
+            // Count violations for each rule
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
+            violationCounts.cardCopy = copyRes.violations.filter(v => v.includes('copies')).length;
+            violationCounts.reservedSA = copyRes.violations.filter(v => v.includes('Reserved')).length;
+            violationCounts.warlordMain = copyRes.violations.filter(v => v.includes('warlord and is only allowed in the Starting Army')).length;
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
             if (!copyRes.deckIsLegal) deckIsLegal = false;
+
+            // Edition legality
+            violationCounts.edition = editionViolations.length;
+
+            // Overlord, Dragon Lord, Daemonlord
+            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
+            violationCounts.overlord = overlordCheck.pass ? 0 : 1;
+            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
+            violationCounts.dragonlord = dragonlordCheck.pass ? 0 : 1;
+            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
+            violationCounts.daemonlord = daemonlordCheck.pass ? 0 : 1;
+
+            // Forbidden SA
+            const forbiddenInSA = saList.filter(c => isSAForbidden(c, selectedEditions));
+            violationCounts.forbidden = forbiddenInSA.length;
+
+            // Banned/Restricted
+            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
+            violationCounts.banned = restrictionRes.pass ? 0 : (restrictionRes.result.message.match(/Banned Name/g) || []).length;
+            checks.restrictions = restrictionRes.result;
+            if (!restrictionRes.pass) deckIsLegal = false;
+
+            // Unique SA
+            violationCounts.uniqueSA = saList.filter(c => c.isUniqueKeyword).length;
+
+            // Epic
+            violationCounts.epic = saList.filter(c => isCardEpic(c, selectedEditions)).length;
+
+            // Total violations
+            violationCounts.total = Object.values(violationCounts).reduce((sum, v) => sum + v, 0);
+
+            // --- Violation Limit Enforcement ---
+            const limits = activeRuleSet.violationLimits || {};
+            let violationLimitFail = false;
+            let violationLimitMessages = [];
+            Object.keys(limits).forEach(rule => {
+                const limit = limits[rule];
+                if (typeof limit === 'number' && limit > 0 && violationCounts[rule] > limit) {
+                    violationLimitFail = true;
+                    violationLimitMessages.push(`${rule} violations (${violationCounts[rule]}) exceed limit (${limit})`);
+                }
+                if (limit === 'Any') {
+                    // Rule disabled
+                    violationCounts[rule] = 0;
+                }
+            });
+            if (violationLimitFail) {
+                checks.violationLimits = { status: 'FAIL', message: violationLimitMessages.join('<br>') };
+                deckIsLegal = false;
+            } else {
+                checks.violationLimits = { status: 'PASS', message: 'Violation limits respected.' };
+            }
 
             const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
             if (!restrictionRes.pass) {
