@@ -12,6 +12,19 @@ const CARDS_REMOTE_URL_PATTERN = 'https://theaccordlands.com/assets/resources/ca
 const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 
 const app = express();
+// Session Setup (move to top)
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'replace_this_secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    path: '/'
+  }
+}));
 
 // Endpoint: Get all deck submissions for all events
 app.get('/api/all-decks', (req, res) => {
