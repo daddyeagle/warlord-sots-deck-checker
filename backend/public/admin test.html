@@ -115,6 +115,10 @@
           Set maximum allowed violations per rule type. Leave empty or 0 for strict enforcement (no violations allowed). 
           Use -1 or "Any" to disable a specific rule check entirely.
         </div>
+        <label style="display:flex; align-items:center; gap:6px; margin:6px 0 10px 0;">
+          <input id="rs_vl_ancientsListChecks" type="checkbox" />
+          <span class="small">Apply Ancients Epic/Reserved/Restricted lists to Ancients-edition exception cards</span>
+        </label>
         <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:8px;">
           <div>
             <label class="small">Card Copy Violations</label>
@@ -467,6 +471,7 @@
     const rs_vl_banned = document.getElementById('rs_vl_banned');
     const rs_vl_forbidden = document.getElementById('rs_vl_forbidden');
     const rs_vl_total = document.getElementById('rs_vl_total');
+    const rs_vl_ancientsListChecks = document.getElementById('rs_vl_ancientsListChecks');
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
@@ -608,6 +613,7 @@
       rs_vl_banned.value = (vl.banned !== undefined && vl.banned !== null) ? vl.banned : '';
       rs_vl_forbidden.value = (vl.forbidden !== undefined && vl.forbidden !== null) ? vl.forbidden : '';
       rs_vl_total.value = (vl.total !== undefined && vl.total !== null) ? vl.total : '';
+      rs_vl_ancientsListChecks.checked = !!vl.ancientsListChecks;
     }
 
     function updateRulesetFromForm(){
@@ -680,6 +686,11 @@
               violationLimits[key] = numVal;
             }
           }
+        }
+
+        // Optional boolean toggle for Ancients list checks
+        if (rs_vl_ancientsListChecks.checked) {
+          violationLimits.ancientsListChecks = true;
         }
         
         // Only set violationLimits if at least one limit is defined

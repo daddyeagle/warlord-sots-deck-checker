@@ -544,10 +544,12 @@
 
         const isCardReserved = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            // Check ruleset reserved list
-            const activeRuleSet = getActiveRuleSet();
-            if (activeRuleSet && Array.isArray(activeRuleSet.reserved)) {
-                if (activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            // Check reserved list across active + matching edition rulesets.
+            const applicableRuleSets = getApplicableRuleSetsForCard(card);
+            for (const rs of applicableRuleSets) {
+                if (rs && Array.isArray(rs.reserved)) {
+                    if (rs.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
             }
             if (selectedEditions.length === 0) return false;
             const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
@@ -556,15 +558,57 @@
         
         const isCardEpic = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            // Check ruleset epic list
-            const activeRuleSet = getActiveRuleSet();
-            if (activeRuleSet && Array.isArray(activeRuleSet.epic)) {
-                if (activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            // Check epic list across active + matching edition rulesets.
+            const applicableRuleSets = getApplicableRuleSetsForCard(card);
+            for (const rs of applicableRuleSets) {
+                if (rs && Array.isArray(rs.epic)) {
+                    if (rs.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
             }
             if (card.isEpicKeyword) return true;
             if (selectedEditions.length === 0) return false;
             const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
             return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+        };
+
+        const findRulesetByEdition = (editionName) => {
+            if (!editionName || !RULE_SETS) return null;
+            if (RULE_SETS[editionName]) return RULE_SETS[editionName];
+            const target = String(editionName).toLowerCase();
+            for (const [key, rs] of Object.entries(RULE_SETS)) {
+                if (String(key).toLowerCase() === target) return rs;
+                if (rs && rs.name && String(rs.name).toLowerCase() === target) return rs;
+            }
+            return null;
+        };
+
+        const isAncientsListChecksEnabled = () => {
+            const activeRuleSet = getActiveRuleSet();
+            return !!(activeRuleSet && activeRuleSet.violationLimits && activeRuleSet.violationLimits.ancientsListChecks === true);
+        };
+
+        const getApplicableRuleSetsForCard = (card) => {
+            const sets = [];
+            const seen = new Set();
+            const activeRuleSet = getActiveRuleSet();
+            if (activeRuleSet) {
+                sets.push(activeRuleSet);
+                seen.add(activeRuleSet);
+            }
+
+            // Optional toggle: apply Ancients lists to Ancients-edition exception cards.
+            if (isAncientsListChecksEnabled()) {
+                const editions = Array.isArray(card && card.editions) ? card.editions : [];
+                const isAncientsEdition = editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (isAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && !seen.has(ancientsRuleset)) {
+                        sets.push(ancientsRuleset);
+                        seen.add(ancientsRuleset);
+                    }
+                }
+            }
+            return sets;
         };
 
         const isSAForbidden = (card, selectedEditions) => {
@@ -742,29 +786,36 @@
             return { pass: true, result: null };
         };
 
-        const checkRestrictions = (allLegalCards, activeRuleSet) => {
-            const restricted = activeRuleSet.restricted;
-            if (!restricted) return { pass: true };
-            const restrictedNames = restricted.names || [];
-            const restrictedSets = restricted.sets || [];
-            const restrictedRarities = restricted.rarities || [];
-            if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) return { pass: true };
+        const checkRestrictions = (allKnownCards, activeRuleSet) => {
+            if (!allKnownCards || allKnownCards.length === 0) return { pass: true };
             
             const violations = [];
             const scannedCards = new Set();
-            allLegalCards.forEach(card => {
+            allKnownCards.forEach(card => {
                 if (scannedCards.has(card.name)) return; 
                 scannedCards.add(card.name);
-                if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
-                    violations.push(`${card.name} (Banned Name)`);
-                    return;
-                }
-                if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
-                    const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
-                        return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
-                    });
-                    if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
-                         violations.push(`${card.name} (Restricted Set/Rarity)`);
+                const applicableRuleSets = getApplicableRuleSetsForCard(card);
+                for (const rs of applicableRuleSets) {
+                    const restricted = rs && rs.restricted ? rs.restricted : null;
+                    if (!restricted) continue;
+                    const restrictedNames = restricted.names || [];
+                    const restrictedSets = restricted.sets || [];
+                    const restrictedRarities = restricted.rarities || [];
+                    if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) continue;
+
+                    if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                        violations.push(`${card.name} (Banned Name)`);
+                        break;
+                    }
+
+                    if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                        const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                            return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                        });
+                        if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                            violations.push(`${card.name} (Restricted Set/Rarity)`);
+                            break;
+                        }
                     }
                 }
             });
@@ -1090,7 +1141,8 @@
             violationCounts.forbidden = forbiddenInSA.length;
 
             // Banned/Restricted
-            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
+            const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
+            const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet);
             violationCounts.banned = restrictionRes.pass ? 0 : (restrictionRes.result.message.match(/Banned Name/g) || []).length;
 
             // Unique SA / Epic violations are name-based and derived from copy-limit violations.
