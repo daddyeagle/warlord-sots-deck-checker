@@ -1015,10 +1015,14 @@
                 deckIsLegal = false;
             }
         
-            // Collect edition violations (don't fail immediately - check limits first)
+            // Collect edition violations - track both names and card objects
             const editionViolations = [];
+            const editionViolationCards = [];
             allCards.forEach(card => {
-                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name);
+                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) {
+                    editionViolations.push(card.name);
+                    editionViolationCards.push(card);
+                }
             });
 
             const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
@@ -1193,7 +1197,16 @@
             checks.saComp = saComp.result;
             if (!saComp.pass) deckIsLegal = false;
             
-            const totalCountCheck = checkTotalCount(allLegalCards, activeRuleSet);
+            // Create list of countable cards for deck size check
+            // Include legally valid cards + cards that have violations but are within allowed limits
+            let allCountableCards = [...allLegalCards]; // Start with all legitimately legal cards
+            
+            // If edition violations are within limits, include those cards in the count
+            if (allowedByLimits.edition && editionViolationCards.length > 0) {
+                allCountableCards = [...allCountableCards, ...editionViolationCards];
+            }
+            
+            const totalCountCheck = checkTotalCount(allCountableCards, activeRuleSet);
             checks.totalCount = totalCountCheck.result;
             if (!totalCountCheck.pass) deckIsLegal = false;
 

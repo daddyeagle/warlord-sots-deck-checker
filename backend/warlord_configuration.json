@@ -226,48 +226,7 @@
         "sets": [],
         "rarities": []
       },
-      "hidden": false,
-      "requiresUnifiedFaction": false,
-      "fullBypass": false,
-      "reserved": [],
-      "epic": [],
-      "violationLimits": {
-        "edition": 1
-      }
-    },
-    "New Rules": {
-      "name": "New Rules",
-      "warlordCount": 1,
-      "saRequiredSlots": [
-        {
-          "level": 1,
-          "count": 3
-        },
-        {
-          "level": 2,
-          "count": 2
-        }
-      ],
-      "maxCopies": 3,
-      "maxEpicCopies": 1,
-      "minTotalDeck": 50,
-      "checkMainDeckFaction": false,
-      "editions": [
-        "Saga"
-      ],
-      "restricted": {
-        "names": [],
-        "sets": [],
-        "rarities": []
-      },
-      "reserved": [],
-      "epic": [],
-      "hidden": false,
-      "requiresUnifiedFaction": false,
-      "fullBypass": false,
-      "violationLimits": {
-        "edition": 1
-      }
+      "hidden": false
     }
   },
   "warlordExceptions": [
@@ -489,6 +448,5 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+",
-  "indexSelectorLimit": 10
+  "defaultRuleset": "December Ancients+"
 }
