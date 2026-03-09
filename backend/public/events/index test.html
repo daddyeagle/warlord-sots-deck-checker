@@ -1227,7 +1227,9 @@
             // Banned/Restricted
             const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
             const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet, selectedEditions);
-            violationCounts.banned = restrictionRes.pass ? 0 : (restrictionRes.result.message.match(/Banned Name/g) || []).length;
+            violationCounts.banned = restrictionRes.pass ? 0 : (
+                (restrictionRes.result.message.match(/Banned Name|Not on Ancients List/g) || []).length
+            );
 
             // Unique SA / Epic violations are name-based and derived from copy-limit violations.
             violationCounts.uniqueSA = copyRes.violations.filter(v => v.includes('Unique in SA')).length;
@@ -1299,7 +1301,14 @@
 
             // Restrictions - check if allowed by limits
             if (!restrictionRes.pass) {
-                if (allowedByLimits.banned) {
+                const hasAncientsHardBan = restrictionRes.result &&
+                    typeof restrictionRes.result.message === 'string' &&
+                    restrictionRes.result.message.includes('Not on Ancients List');
+
+                if (hasAncientsHardBan) {
+                    checks.restrictions = { status: 'FAIL', message: restrictionRes.result.message };
+                    deckIsLegal = false;
+                } else if (allowedByLimits.banned) {
                     checks.restrictions = { status: 'WARNING', message: 'Restriction violations allowed by limit: ' + restrictionRes.result.message };
                 } else {
                     checks.restrictions = restrictionRes.result;
