@@ -544,31 +544,74 @@
 
         const isCardReserved = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            // Check reserved list across active + matching edition rulesets.
-            const applicableRuleSets = getApplicableRuleSetsForCard(card);
-            for (const rs of applicableRuleSets) {
-                if (rs && Array.isArray(rs.reserved)) {
-                    if (rs.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            
+            // Check if card has active edition
+            const hasActiveEdition = selectedEditions.length === 0 || 
+                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            
+            // For cards with active edition, check active ruleset only
+            if (hasActiveEdition) {
+                const activeRuleSet = getActiveRuleSet();
+                if (activeRuleSet && Array.isArray(activeRuleSet.reserved)) {
+                    if (activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
+                if (selectedEditions.length === 0) return false;
+                const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+                return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            }
+            
+            // For edition violations, check Ancients rules if toggle is on
+            if (!hasActiveEdition && isAncientsListChecksEnabled()) {
+                const hasAncientsEdition = Array.isArray(card.editions) && 
+                    card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (hasAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && Array.isArray(ancientsRuleset.reserved)) {
+                        if (ancientsRuleset.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                    }
+                    // Check Ancients format notes
+                    return card.saReservedFormats.some(errataFormat => errataFormat === 'Ancients Format');
                 }
             }
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            
+            return false;
         };
         
         const isCardEpic = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            // Check epic list across active + matching edition rulesets.
-            const applicableRuleSets = getApplicableRuleSetsForCard(card);
-            for (const rs of applicableRuleSets) {
-                if (rs && Array.isArray(rs.epic)) {
-                    if (rs.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+            
+            // Check if card has active edition
+            const hasActiveEdition = selectedEditions.length === 0 || 
+                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            
+            // For cards with active edition, check active ruleset only
+            if (hasActiveEdition) {
+                const activeRuleSet = getActiveRuleSet();
+                if (activeRuleSet && Array.isArray(activeRuleSet.epic)) {
+                    if (activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
+                if (card.isEpicKeyword) return true;
+                if (selectedEditions.length === 0) return false;
+                const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+                return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            }
+            
+            // For edition violations, check Ancients rules if toggle is on
+            if (!hasActiveEdition && isAncientsListChecksEnabled()) {
+                const hasAncientsEdition = Array.isArray(card.editions) && 
+                    card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (hasAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && Array.isArray(ancientsRuleset.epic)) {
+                        if (ancientsRuleset.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                    }
+                    // Check Ancients format notes
+                    if (card.isEpicKeyword) return true;
+                    return card.epicErrataFormats.some(errataFormat => errataFormat === 'Ancients Format');
                 }
             }
-            if (card.isEpicKeyword) return true;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            
+            return false;
         };
 
         const findRulesetByEdition = (editionName) => {
