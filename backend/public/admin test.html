@@ -113,7 +113,7 @@
         <summary style="color:#38bdf8; cursor:pointer; font-size:14px; font-weight:600;">Violation Limits (Advanced)</summary>
         <div class="small" style="color:#9ca3af; margin:8px 0;">
           Set maximum allowed violations per rule type. Leave empty or 0 for strict enforcement (no violations allowed). 
-          Use -1 or "Any" to disable a specific rule check entirely.
+          Use -1 or "Any" to disable a specific rule check entirely. <strong>cardInBoth</strong> tracks cards appearing in both Starting Army and Main Deck.
         </div>
         <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:8px;">
           <div>
@@ -159,6 +159,10 @@
           <div>
             <label class="small">Forbidden in SA Violations</label>
             <input id="rs_vl_forbidden" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Cards in Both SA & Main</label>
+            <input id="rs_vl_cardInBoth" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
           </div>
           <div>
             <label class="small">Total Violations (All)</label>
@@ -466,6 +470,7 @@
     const rs_vl_edition = document.getElementById('rs_vl_edition');
     const rs_vl_banned = document.getElementById('rs_vl_banned');
     const rs_vl_forbidden = document.getElementById('rs_vl_forbidden');
+    const rs_vl_cardInBoth = document.getElementById('rs_vl_cardInBoth');
     const rs_vl_total = document.getElementById('rs_vl_total');
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
@@ -607,6 +612,7 @@
       rs_vl_edition.value = (vl.edition !== undefined && vl.edition !== null) ? vl.edition : '';
       rs_vl_banned.value = (vl.banned !== undefined && vl.banned !== null) ? vl.banned : '';
       rs_vl_forbidden.value = (vl.forbidden !== undefined && vl.forbidden !== null) ? vl.forbidden : '';
+      rs_vl_cardInBoth.value = (vl.cardInBoth !== undefined && vl.cardInBoth !== null) ? vl.cardInBoth : '';
       rs_vl_total.value = (vl.total !== undefined && vl.total !== null) ? vl.total : '';
     }
 
@@ -663,6 +669,7 @@
           edition: rs_vl_edition,
           banned: rs_vl_banned,
           forbidden: rs_vl_forbidden,
+          cardInBoth: rs_vl_cardInBoth,
           total: rs_vl_total
         };
         

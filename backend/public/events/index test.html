@@ -902,6 +902,7 @@
                     else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
                 } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
                       saMessage.push(`Invalid card type in SA: ${c.name}`);
+                      saStatus = 'FAIL';
                 }
             });
 
@@ -1062,8 +1063,21 @@
                 edition: 0,
                 banned: 0,
                 forbidden: 0,
+                cardInBoth: 0,
                 total: 0
             };
+            
+            // Check for cards appearing in both SA and main deck
+            const cardsInBothLocations = [];
+            const saCardNames = new Set(saList.map(c => normalizeName(c.name).toLowerCase()));
+            const mdCardNames = new Set(mdList.map(c => normalizeName(c.name).toLowerCase()));
+            saCardNames.forEach(name => {
+                if (mdCardNames.has(name)) {
+                    const card = cardDatabase[name];
+                    if (card) cardsInBothLocations.push(card.name);
+                }
+            });
+            violationCounts.cardInBoth = cardsInBothLocations.length;
             
             // Count violations for each rule
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
@@ -1172,6 +1186,16 @@
                 checks.restrictions = restrictionRes.result;
             }
 
+            // Check for cards in both locations (separate violation type)
+            if (cardsInBothLocations.length > 0) {
+                if (allowedByLimits.cardInBoth) {
+                    checks.cardInBothLocations = { status: 'WARNING', message: `Cards in both SA and Main Deck (allowed by limit): ${cardsInBothLocations.join(', ')}` };
+                } else {
+                    checks.cardInBothLocations = { status: 'FAIL', message: `Cards cannot be in both SA and Main Deck: ${cardsInBothLocations.join(', ')}` };
+                    deckIsLegal = false;
+                }
+            }
+
             // Violation limit summary
             if (violationLimitFail) {
                 checks.violationLimits = { status: 'FAIL', message: violationLimitMessages.join('<br>') };
@@ -1267,15 +1291,15 @@
             
             const displayOrder = [
                 'unknown', 'editionLegality', 'restrictions', 'violationLimits', 'totalCount', 'saComp', 
-                'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit',
+                'saLoyalty', 'mdLoyalty', 'copyLimits', 'cardInBothLocations', 'overlordLimit',
                 'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions' 
             ];
 
             const ruleLabels = {
                 unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions',
                 violationLimits: 'Violation Limits', totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
-                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', overlordLimit: 'Overlord Limit',
-                dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
+                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', cardInBothLocations: 'Cards in Both Locations',
+                overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
                 typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
             };
 
