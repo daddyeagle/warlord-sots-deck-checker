@@ -690,7 +690,7 @@
             const foundOverlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('overlord')) {
-                    overlordCount++;
+                    overlordCount += (card.count || 1);
                     foundOverlords.push(card.name);
                 }
             });
@@ -709,7 +709,7 @@
             const founddragonlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
-                    dragonlordCount++;
+                    dragonlordCount += (card.count || 1);
                     founddragonlords.push(card.name);
                 }
             });
@@ -728,7 +728,7 @@
             const founddaemonlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
-                    daemonlordCount++;
+                    daemonlordCount += (card.count || 1);
                     founddaemonlords.push(card.name);
                 }
             });
@@ -1063,21 +1063,8 @@
                 edition: 0,
                 banned: 0,
                 forbidden: 0,
-                cardInBoth: 0,
                 total: 0
             };
-            
-            // Check for cards appearing in both SA and main deck
-            const cardsInBothLocations = [];
-            const saCardNames = new Set(saList.map(c => normalizeName(c.name).toLowerCase()));
-            const mdCardNames = new Set(mdList.map(c => normalizeName(c.name).toLowerCase()));
-            saCardNames.forEach(name => {
-                if (mdCardNames.has(name)) {
-                    const card = cardDatabase[name];
-                    if (card) cardsInBothLocations.push(card.name);
-                }
-            });
-            violationCounts.cardInBoth = cardsInBothLocations.length;
             
             // Count violations for each rule
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
@@ -1086,7 +1073,9 @@
             violationCounts.warlordMain = copyRes.violations.filter(v => v.includes('warlord and is only allowed in the Starting Army')).length;
 
             // Edition violations
-            violationCounts.edition = editionViolations.length;
+            violationCounts.edition = new Set(
+                editionViolationCards.map(c => normalizeName(c.name).toLowerCase())
+            ).size;
 
             // Overlord, Dragon Lord, Daemonlord
             const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
@@ -1104,11 +1093,9 @@
             const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
             violationCounts.banned = restrictionRes.pass ? 0 : (restrictionRes.result.message.match(/Banned Name/g) || []).length;
 
-            // Unique SA
-            violationCounts.uniqueSA = saList.filter(c => c.isUniqueKeyword).length;
-
-            // Epic
-            violationCounts.epic = saList.filter(c => isCardEpic(c, selectedEditions)).length;
+            // Unique SA / Epic violations are name-based and derived from copy-limit violations.
+            violationCounts.uniqueSA = copyRes.violations.filter(v => v.includes('Unique in SA')).length;
+            violationCounts.epic = copyRes.violations.filter(v => v.includes('Epic (Max')).length;
 
             // Total violations
             violationCounts.total = Object.values(violationCounts).reduce((sum, v) => sum + v, 0);
@@ -1184,16 +1171,6 @@
                 }
             } else {
                 checks.restrictions = restrictionRes.result;
-            }
-
-            // Check for cards in both locations (separate violation type)
-            if (cardsInBothLocations.length > 0) {
-                if (allowedByLimits.cardInBoth) {
-                    checks.cardInBothLocations = { status: 'WARNING', message: `Cards in both SA and Main Deck (allowed by limit): ${cardsInBothLocations.join(', ')}` };
-                } else {
-                    checks.cardInBothLocations = { status: 'FAIL', message: `Cards cannot be in both SA and Main Deck: ${cardsInBothLocations.join(', ')}` };
-                    deckIsLegal = false;
-                }
             }
 
             // Violation limit summary
@@ -1291,14 +1268,14 @@
             
             const displayOrder = [
                 'unknown', 'editionLegality', 'restrictions', 'violationLimits', 'totalCount', 'saComp', 
-                'saLoyalty', 'mdLoyalty', 'copyLimits', 'cardInBothLocations', 'overlordLimit',
+                'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit',
                 'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions' 
             ];
 
             const ruleLabels = {
                 unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions',
                 violationLimits: 'Violation Limits', totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
-                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', cardInBothLocations: 'Cards in Both Locations',
+                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits',
                 overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
                 typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
             };
