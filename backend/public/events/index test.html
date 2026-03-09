@@ -1301,19 +1301,9 @@
 
             // Restrictions - check if allowed by limits
             if (!restrictionRes.pass) {
-                const hasAncientsHardBan = restrictionRes.result &&
-                    typeof restrictionRes.result.message === 'string' &&
-                    restrictionRes.result.message.includes('Not on Ancients List');
-
-                if (hasAncientsHardBan) {
-                    checks.restrictions = { status: 'FAIL', message: restrictionRes.result.message };
-                    deckIsLegal = false;
-                } else if (allowedByLimits.banned) {
-                    checks.restrictions = { status: 'WARNING', message: 'Restriction violations allowed by limit: ' + restrictionRes.result.message };
-                } else {
-                    checks.restrictions = restrictionRes.result;
-                    deckIsLegal = false;
-                }
+                // Ruleset restriction list always supersedes violation-limit exceptions.
+                checks.restrictions = restrictionRes.result;
+                deckIsLegal = false;
             } else {
                 checks.restrictions = restrictionRes.result;
             }
