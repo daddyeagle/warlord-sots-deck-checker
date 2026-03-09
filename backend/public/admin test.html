@@ -108,6 +108,65 @@
         </div>
       </div>
 
+      <!-- Violation Limits Section -->
+      <details style="margin-top:12px; border:1px solid #1f2937; border-radius:6px; padding:8px; background:#0b1220;">
+        <summary style="color:#38bdf8; cursor:pointer; font-size:14px; font-weight:600;">Violation Limits (Advanced)</summary>
+        <div class="small" style="color:#9ca3af; margin:8px 0;">
+          Set maximum allowed violations per rule type. Leave empty or 0 for strict enforcement (no violations allowed). 
+          Use -1 or "Any" to disable a specific rule check entirely.
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:8px;">
+          <div>
+            <label class="small">Card Copy Violations</label>
+            <input id="rs_vl_cardCopy" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Unique in SA Violations</label>
+            <input id="rs_vl_uniqueSA" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Epic Violations</label>
+            <input id="rs_vl_epic" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Reserved in SA Violations</label>
+            <input id="rs_vl_reservedSA" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Warlord in Main Violations</label>
+            <input id="rs_vl_warlordMain" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Overlord Violations</label>
+            <input id="rs_vl_overlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Dragon Lord Violations</label>
+            <input id="rs_vl_dragonlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Daemonlord Violations</label>
+            <input id="rs_vl_daemonlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Edition Violations</label>
+            <input id="rs_vl_edition" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Banned Cards Violations</label>
+            <input id="rs_vl_banned" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Forbidden in SA Violations</label>
+            <input id="rs_vl_forbidden" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Total Violations (All)</label>
+            <input id="rs_vl_total" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+        </div>
+      </details>
+
       <div style="margin-top:8px; display:flex; gap:8px;">
         <button id="updateRulesetBtn">Update Ruleset</button>
         <button id="applyToTextareaBtn">Apply to JSON</button>
@@ -395,6 +454,20 @@
     const rs_epic_names = document.getElementById('rs_epic_names');
     const rs_epic_sets = document.getElementById('rs_epic_sets');
 
+    // Violation Limits inputs
+    const rs_vl_cardCopy = document.getElementById('rs_vl_cardCopy');
+    const rs_vl_uniqueSA = document.getElementById('rs_vl_uniqueSA');
+    const rs_vl_epic = document.getElementById('rs_vl_epic');
+    const rs_vl_reservedSA = document.getElementById('rs_vl_reservedSA');
+    const rs_vl_warlordMain = document.getElementById('rs_vl_warlordMain');
+    const rs_vl_overlord = document.getElementById('rs_vl_overlord');
+    const rs_vl_dragonlord = document.getElementById('rs_vl_dragonlord');
+    const rs_vl_daemonlord = document.getElementById('rs_vl_daemonlord');
+    const rs_vl_edition = document.getElementById('rs_vl_edition');
+    const rs_vl_banned = document.getElementById('rs_vl_banned');
+    const rs_vl_forbidden = document.getElementById('rs_vl_forbidden');
+    const rs_vl_total = document.getElementById('rs_vl_total');
+
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
     // Helper to call GitHub API and provide clearer errors for auth issues
@@ -520,6 +593,21 @@
         rs_epic_names.value = (epic || []).join(', ');
         rs_epic_sets.value = '';
       }
+
+      // Violation Limits
+      const vl = rs.violationLimits || {};
+      rs_vl_cardCopy.value = (vl.cardCopy !== undefined && vl.cardCopy !== null) ? vl.cardCopy : '';
+      rs_vl_uniqueSA.value = (vl.uniqueSA !== undefined && vl.uniqueSA !== null) ? vl.uniqueSA : '';
+      rs_vl_epic.value = (vl.epic !== undefined && vl.epic !== null) ? vl.epic : '';
+      rs_vl_reservedSA.value = (vl.reservedSA !== undefined && vl.reservedSA !== null) ? vl.reservedSA : '';
+      rs_vl_warlordMain.value = (vl.warlordMain !== undefined && vl.warlordMain !== null) ? vl.warlordMain : '';
+      rs_vl_overlord.value = (vl.overlord !== undefined && vl.overlord !== null) ? vl.overlord : '';
+      rs_vl_dragonlord.value = (vl.dragonlord !== undefined && vl.dragonlord !== null) ? vl.dragonlord : '';
+      rs_vl_daemonlord.value = (vl.daemonlord !== undefined && vl.daemonlord !== null) ? vl.daemonlord : '';
+      rs_vl_edition.value = (vl.edition !== undefined && vl.edition !== null) ? vl.edition : '';
+      rs_vl_banned.value = (vl.banned !== undefined && vl.banned !== null) ? vl.banned : '';
+      rs_vl_forbidden.value = (vl.forbidden !== undefined && vl.forbidden !== null) ? vl.forbidden : '';
+      rs_vl_total.value = (vl.total !== undefined && vl.total !== null) ? vl.total : '';
     }
 
     function updateRulesetFromForm(){
@@ -561,6 +649,46 @@
         const epicNames = rs_epic_names.value.split(',').map(s=>s.trim()).filter(Boolean);
         rs.epic = epicNames;  // Simple array, not object
 
+        // Violation Limits
+        const violationLimits = {};
+        const vlInputs = {
+          cardCopy: rs_vl_cardCopy,
+          uniqueSA: rs_vl_uniqueSA,
+          epic: rs_vl_epic,
+          reservedSA: rs_vl_reservedSA,
+          warlordMain: rs_vl_warlordMain,
+          overlord: rs_vl_overlord,
+          dragonlord: rs_vl_dragonlord,
+          daemonlord: rs_vl_daemonlord,
+          edition: rs_vl_edition,
+          banned: rs_vl_banned,
+          forbidden: rs_vl_forbidden,
+          total: rs_vl_total
+        };
+        
+        for (const [key, input] of Object.entries(vlInputs)) {
+          const val = input.value.trim();
+          if (val === '' || val === 'undefined' || val === 'null') {
+            // Skip if empty - don't include in violationLimits
+            continue;
+          }
+          const numVal = parseInt(val, 10);
+          if (!isNaN(numVal)) {
+            if (numVal === -1) {
+              violationLimits[key] = 'Any'; // -1 means "Any" (disable this check)
+            } else {
+              violationLimits[key] = numVal;
+            }
+          }
+        }
+        
+        // Only set violationLimits if at least one limit is defined
+        if (Object.keys(violationLimits).length > 0) {
+          rs.violationLimits = violationLimits;
+        } else {
+          delete rs.violationLimits; // Clean up if no limits set
+        }
+
         area.value = JSON.stringify(configObj, null, 2);
         setFeedback('Updated ruleset: ' + key);
         renderRulesetList();
@@ -584,7 +712,8 @@
         editions: [],
         restricted: { names:[], sets:[], rarities:[] },
         reserved: { names:[], sets:[] },
-        epic: { names:[], sets:[] }
+        epic: { names:[], sets:[] },
+        violationLimits: {}
       };
       configObj.rulesets[name].hidden = false;
       area.value = JSON.stringify(configObj, null, 2);
