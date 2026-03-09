@@ -786,39 +786,76 @@
             return { pass: true, result: null };
         };
 
-        const checkRestrictions = (allKnownCards, activeRuleSet) => {
+        const checkRestrictions = (allKnownCards, activeRuleSet, selectedEditions = []) => {
             if (!allKnownCards || allKnownCards.length === 0) return { pass: true };
             
             const violations = [];
             const scannedCards = new Set();
+            const ancientsChecksEnabled = isAncientsListChecksEnabled();
+            
             allKnownCards.forEach(card => {
                 if (scannedCards.has(card.name)) return; 
                 scannedCards.add(card.name);
-                const applicableRuleSets = getApplicableRuleSetsForCard(card);
-                for (const rs of applicableRuleSets) {
-                    const restricted = rs && rs.restricted ? rs.restricted : null;
-                    if (!restricted) continue;
+                
+                // Check if card has active edition
+                const hasActiveEdition = selectedEditions.length === 0 || 
+                    (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+                
+                // Always check active ruleset restrictions for cards with active edition
+                if (hasActiveEdition && activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
                     const restrictedNames = restricted.names || [];
                     const restrictedSets = restricted.sets || [];
                     const restrictedRarities = restricted.rarities || [];
-                    if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) continue;
-
+                    
                     if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
                         violations.push(`${card.name} (Banned Name)`);
-                        break;
+                        return;
                     }
-
+                    
                     if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
                         const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
                             return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
                         });
                         if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
                             violations.push(`${card.name} (Restricted Set/Rarity)`);
-                            break;
+                            return;
+                        }
+                    }
+                }
+                
+                // For cards WITHOUT active edition (edition violations), check Ancients restrictions when toggle is on
+                if (!hasActiveEdition && ancientsChecksEnabled) {
+                    const hasAncientsEdition = Array.isArray(card.editions) && 
+                        card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                    
+                    if (hasAncientsEdition) {
+                        const ancientsRuleset = findRulesetByEdition('Ancients');
+                        if (ancientsRuleset && ancientsRuleset.restricted) {
+                            const restricted = ancientsRuleset.restricted;
+                            const restrictedNames = restricted.names || [];
+                            const restrictedSets = restricted.sets || [];
+                            const restrictedRarities = restricted.rarities || [];
+                            
+                            if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                                violations.push(`${card.name} (Ancients Banned Name)`);
+                                return;
+                            }
+                            
+                            if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                                const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                                    return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                                });
+                                if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                                    violations.push(`${card.name} (Ancients Restricted Set/Rarity)`);
+                                    return;
+                                }
+                            }
                         }
                     }
                 }
             });
+            
             if (violations.length > 0) return { pass: false, result: { status: 'FAIL', message: `Restricted Cards: ${violations.join(', ')}` } };
             return { pass: true, result: { status: 'PASS', message: 'No restricted cards found.' } };
         };
@@ -1142,7 +1179,7 @@
 
             // Banned/Restricted
             const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
-            const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet);
+            const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet, selectedEditions);
             violationCounts.banned = restrictionRes.pass ? 0 : (restrictionRes.result.message.match(/Banned Name/g) || []).length;
 
             // Unique SA / Epic violations are name-based and derived from copy-limit violations.
