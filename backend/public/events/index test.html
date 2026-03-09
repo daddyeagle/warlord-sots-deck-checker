@@ -844,18 +844,22 @@
                 const hasActiveEdition = selectedEditions.length === 0 || 
                     (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
                 
-                // Always check active ruleset restrictions for cards with active edition
-                if (hasActiveEdition && activeRuleSet && activeRuleSet.restricted) {
+                // Always check active ruleset restricted names, regardless of edition.
+                if (activeRuleSet && activeRuleSet.restricted) {
                     const restricted = activeRuleSet.restricted;
                     const restrictedNames = restricted.names || [];
-                    const restrictedSets = restricted.sets || [];
-                    const restrictedRarities = restricted.rarities || [];
-                    
                     if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
                         violations.push(`${card.name} (Banned Name)`);
                         return;
                     }
-                    
+                }
+
+                // Active ruleset set/rarity restrictions only apply to active-edition cards.
+                if (hasActiveEdition && activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
+                    const restrictedSets = restricted.sets || [];
+                    const restrictedRarities = restricted.rarities || [];
+
                     if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
                         const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
                             return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
