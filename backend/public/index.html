@@ -98,6 +98,12 @@
         const loadingStatusDiv = document.getElementById('loading-status');
         const inputSectionDiv = document.getElementById('input-section');
         const rulesetSelect = document.getElementById('ruleset-select');
+
+        function getActiveRuleSet() {
+            if (!rulesetSelect) return null;
+            const key = rulesetSelect.value;
+            return RULE_SETS && RULE_SETS[key] ? RULE_SETS[key] : null;
+        }
         
         // --- AUTH LOGIC ---
         async function fetchDiscordUser() {
