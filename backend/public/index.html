@@ -1188,6 +1188,41 @@
                 overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
                 typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
             };
+            for (const key of displayOrder) {
+                const res = checks[key];
+                if (res) {
+                    let icon = '🟢';
+                    let color = 'text-green-400';
+                    if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
+                    if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
+                    if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
+                    let msg = res.message || '';
+                    if (res.status === 'PASS' && !msg) msg = 'No issues found.';
+                    html += `<div class="mb-2 text-sm"><span class="${color} mr-2">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color} ml-1">${msg}</span></div>`;
+                }
+            }
+            html += `</div></div>`;
+
+            // --- SUBMISSION UI ---
+            html += `
+            <div class="card-container p-6 rounded-xl mt-4 bg-gray-800 border border-gray-700">
+                <h3 class="text-lg font-bold text-white mb-2">Submit Deck to Event</h3>
+                <p class="text-sm text-gray-400 mb-4">To withdraw, enter <b>Withdraw from Event</b> as your only Starting Army card.</p>
+                <form id="deck-submit-form" class="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
+                    <div class="flex-1">
+                        <label class="block text-xs font-bold text-gray-500 mb-1">Authenticated User</label>
+                        <span id="discord-user-summary" class="block w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-300 rounded-lg text-sm">Not logged in</span>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-xs font-bold text-gray-500 mb-1">Event Name</label>
+                        <select id="submit-eventname" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500"></select>
+                    </div>
+                    <button id="submit-deck-button" type="button" class="bg-amber-600 hover:bg-amber-500 disabled:bg-gray-600 disabled:text-gray-400 text-white font-bold py-2.5 px-6 rounded-lg transition-colors">
+                        Submit Deck
+                    </button>
+                </form>
+                <p id="submit-status" class="text-sm font-semibold text-center md:text-left text-amber-400 mt-3"></p>
+            </div>`;
             document.getElementById('results').innerHTML = html;
 
             // Re-bind Submission Logic
@@ -1201,6 +1236,10 @@
             const eventSelect = document.getElementById('submit-eventname');
             const statusEl = document.getElementById('submit-status');
             const discordUserSummary = document.getElementById('discord-user-summary');
+
+            if (!submitButton || !eventSelect || !statusEl || !discordUserSummary) {
+                return;
+            }
 
             // Update user summary display within submission box
             if (window.discordUser && window.discordUser.id) {
