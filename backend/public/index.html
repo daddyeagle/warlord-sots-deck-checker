@@ -445,7 +445,9 @@
         };
 
         const isAncientsListChecksEnabled = () => {
-            const activeRuleSet = getActiveRuleSet();
+            const activeRuleSet = (typeof getActiveRuleSet === 'function')
+                ? getActiveRuleSet()
+                : (rulesetSelect && RULE_SETS ? RULE_SETS[rulesetSelect.value] : null);
             return !!(activeRuleSet && activeRuleSet.violationLimits && activeRuleSet.violationLimits.ancientsListChecks === true);
         };
 
