@@ -427,6 +427,22 @@
             return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
         };
 
+        const findRulesetByEdition = (editionName) => {
+            if (!editionName || !RULE_SETS) return null;
+            if (RULE_SETS[editionName]) return RULE_SETS[editionName];
+            const target = String(editionName).toLowerCase();
+            for (const [key, rs] of Object.entries(RULE_SETS)) {
+                if (String(key).toLowerCase() === target) return rs;
+                if (rs && rs.name && String(rs.name).toLowerCase() === target) return rs;
+            }
+            return null;
+        };
+
+        const isAncientsListChecksEnabled = () => {
+            const activeRuleSet = getActiveRuleSet();
+            return !!(activeRuleSet && activeRuleSet.violationLimits && activeRuleSet.violationLimits.ancientsListChecks === true);
+        };
+
         const isSAForbidden = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
             if (card.text) {
