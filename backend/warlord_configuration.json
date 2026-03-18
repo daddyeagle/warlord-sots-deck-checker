@@ -478,7 +478,7 @@
       },
       "reserved": [],
       "epic": [],
-      "hidden": false,
+      "hidden": true,
       "requiresUnifiedFaction": false,
       "fullBypass": false,
       "violationLimits": {
