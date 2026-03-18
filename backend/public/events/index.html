@@ -673,10 +673,9 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
-            // Reserved cards in Starting Army
+            // Reserved cards are never allowed in Starting Army, including Ancients exception-list cards.
             saWlLegal.forEach(c => {
-                const norm = normalizeName(c.name).toLowerCase();
-                if (activeRuleSet.reserved && activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === norm)) {
+                if (isCardReserved(c, selectedEditions)) {
                     violations.push(`${c.name} is Reserved and cannot be included in the Starting Army.`);
                     deckIsLegal = false;
                 }
@@ -1226,7 +1225,7 @@
             const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
             const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet, selectedEditions);
             violationCounts.banned = restrictionRes.pass ? 0 : (
-                (restrictionRes.result.message.match(/Banned Name|Not on Ancients List/g) || []).length
+                (restrictionRes.result.message.match(/Banned Name|Restricted Set\/Rarity|Ancients Banned Name|Ancients Restricted Set\/Rarity|Not on Ancients List/g) || []).length
             );
 
             // Unique SA / Epic violations are name-based and derived from copy-limit violations.
