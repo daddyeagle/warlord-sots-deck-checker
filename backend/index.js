@@ -207,30 +207,10 @@ app.use(session({
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
-// Serve /test with index test.html
 
-// Serve /test with index test.html
-app.get('/test', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'events', 'index test.html'));
-});
-
-// Redirect /auth-success and /test/auth-success to /test for unified decklist and submission UI
+// Redirect /auth-success to main page after OAuth login
 app.get('/auth-success', (req, res) => {
-  res.redirect('/test');
-});
-
-app.get('/test/auth-success', (req, res) => {
-  res.redirect('/test');
-});
-
-// Serve /test/api/config with warlord_configuration test.json
-app.get('/test/api/config', (req, res) => {
-  const configPath = path.join(__dirname, 'public', 'warlord_configuration test.json');
-  fs.readFile(configPath, 'utf8', (err, data) => {
-    if (err) return res.status(404).json({ error: 'Config not found' });
-    res.setHeader('Content-Type', 'application/json');
-    res.send(data);
-  });
+  res.redirect('/');
 });
 
 // Endpoint: Get submitted decks for logged-in user
@@ -465,13 +445,10 @@ app.get('/api/auth/discord/callback', async (req, res) => {
         discriminator: userRes.data.discriminator,
         displayName: userRes.data.global_name || userRes.data.display_name || null
       };
-      let redirectPath = req.session.loginRedirect || '/auth-success';
+      let redirectPath = req.session.loginRedirect || '/';
       req.session.loginRedirect = undefined;
-      // If login was initiated from /test, redirect to /test
-      if (redirectPath === '/test') {
-        redirectPath = '/test';
-      } else if (redirectPath === '/' || redirectPath === '/auth-success') {
-        redirectPath = '/auth-success';
+      if (redirectPath === '/' || redirectPath === '/auth-success') {
+        redirectPath = '/';
       }
       req.session.save((err) => {
         if (err) return res.status(500).send("Session save failed");

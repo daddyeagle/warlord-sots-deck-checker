@@ -97,8 +97,79 @@
           <input id="rs_restricted_names" type="text" placeholder="names" />
           <input id="rs_restricted_sets" type="text" placeholder="sets" />
           <input id="rs_restricted_rarities" type="text" placeholder="rarities" />
+
+          <label class="small" style="display:block; margin-top:6px">Reserved (names, sets — comma separated)</label>
+          <input id="rs_reserved_names" type="text" placeholder="names" />
+          <input id="rs_reserved_sets" type="text" placeholder="sets" />
+
+          <label class="small" style="display:block; margin-top:6px">Epic (names, sets — comma separated)</label>
+          <input id="rs_epic_names" type="text" placeholder="names" />
+          <input id="rs_epic_sets" type="text" placeholder="sets" />
         </div>
       </div>
+
+      <!-- Violation Limits Section -->
+      <details style="margin-top:12px; border:1px solid #1f2937; border-radius:6px; padding:8px; background:#0b1220;">
+        <summary style="color:#38bdf8; cursor:pointer; font-size:14px; font-weight:600;">Violation Limits (Advanced)</summary>
+        <div class="small" style="color:#9ca3af; margin:8px 0;">
+          Set maximum allowed violations per rule type. Leave empty or 0 for strict enforcement (no violations allowed). 
+          Use -1 or "Any" to disable a specific rule check entirely.
+        </div>
+        <label style="display:flex; align-items:center; gap:6px; margin:6px 0 10px 0;">
+          <input id="rs_vl_ancientsListChecks" type="checkbox" />
+          <span class="small">Apply Ancients Epic/Reserved/Restricted lists to Ancients-edition exception cards</span>
+        </label>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:8px;">
+          <div>
+            <label class="small">Card Copy Violations</label>
+            <input id="rs_vl_cardCopy" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Unique in SA Violations</label>
+            <input id="rs_vl_uniqueSA" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Epic Violations</label>
+            <input id="rs_vl_epic" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Reserved in SA Violations</label>
+            <input id="rs_vl_reservedSA" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Warlord in Main Violations</label>
+            <input id="rs_vl_warlordMain" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Overlord Violations</label>
+            <input id="rs_vl_overlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Dragon Lord Violations</label>
+            <input id="rs_vl_dragonlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Daemonlord Violations</label>
+            <input id="rs_vl_daemonlord" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Edition Violations</label>
+            <input id="rs_vl_edition" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Banned Cards Violations</label>
+            <input id="rs_vl_banned" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Forbidden in SA Violations</label>
+            <input id="rs_vl_forbidden" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+          <div>
+            <label class="small">Total Violations (All)</label>
+            <input id="rs_vl_total" type="number" min="-1" placeholder="0" style="width:100%; padding:6px; border-radius:6px; background:#081018; color:#e6eef8; border:1px solid #233041" />
+          </div>
+        </div>
+      </details>
 
       <div style="margin-top:8px; display:flex; gap:8px;">
         <button id="updateRulesetBtn">Update Ruleset</button>
@@ -382,6 +453,25 @@
     const rs_restricted_names = document.getElementById('rs_restricted_names');
     const rs_restricted_sets = document.getElementById('rs_restricted_sets');
     const rs_restricted_rarities = document.getElementById('rs_restricted_rarities');
+    const rs_reserved_names = document.getElementById('rs_reserved_names');
+    const rs_reserved_sets = document.getElementById('rs_reserved_sets');
+    const rs_epic_names = document.getElementById('rs_epic_names');
+    const rs_epic_sets = document.getElementById('rs_epic_sets');
+
+    // Violation Limits inputs
+    const rs_vl_cardCopy = document.getElementById('rs_vl_cardCopy');
+    const rs_vl_uniqueSA = document.getElementById('rs_vl_uniqueSA');
+    const rs_vl_epic = document.getElementById('rs_vl_epic');
+    const rs_vl_reservedSA = document.getElementById('rs_vl_reservedSA');
+    const rs_vl_warlordMain = document.getElementById('rs_vl_warlordMain');
+    const rs_vl_overlord = document.getElementById('rs_vl_overlord');
+    const rs_vl_dragonlord = document.getElementById('rs_vl_dragonlord');
+    const rs_vl_daemonlord = document.getElementById('rs_vl_daemonlord');
+    const rs_vl_edition = document.getElementById('rs_vl_edition');
+    const rs_vl_banned = document.getElementById('rs_vl_banned');
+    const rs_vl_forbidden = document.getElementById('rs_vl_forbidden');
+    const rs_vl_total = document.getElementById('rs_vl_total');
+    const rs_vl_ancientsListChecks = document.getElementById('rs_vl_ancientsListChecks');
 
     function setFeedback(msg, isError) { feedback.textContent = msg; feedback.style.color = isError ? '#fca5a5' : '#9fe0d6'; }
 
@@ -479,41 +569,139 @@
       rs_requiresUnifiedFaction.checked = !!rs.requiresUnifiedFaction;
       rs_fullBypass.checked = !!rs.fullBypass;
       rs_editions.value = (rs.editions || []).join(', ');
+      
       const restricted = rs.restricted || { names:[], sets:[], rarities:[] };
       rs_restricted_names.value = (restricted.names || []).join(', ');
       rs_restricted_sets.value = (restricted.sets || []).join(', ');
       rs_restricted_rarities.value = (restricted.rarities || []).join(', ');
+
+      // Reserved and Epic: Store as simple arrays of card names
+      // The deck checker expects: Array.isArray(activeRuleSet.reserved) and Array.isArray(activeRuleSet.epic)
+      const reserved = rs.reserved || [];
+      const epic = rs.epic || [];
+      
+      // Handle backward compatibility: if stored as object, extract names only
+      if (typeof reserved === 'object' && !Array.isArray(reserved)) {
+        rs_reserved_names.value = (reserved.names || []).join(', ');
+        rs_reserved_sets.value = (reserved.sets || []).join(', ');
+      } else {
+        // Already an array (correct format matching deck checker)
+        rs_reserved_names.value = (reserved || []).join(', ');
+        rs_reserved_sets.value = '';
+      }
+
+      if (typeof epic === 'object' && !Array.isArray(epic)) {
+        rs_epic_names.value = (epic.names || []).join(', ');
+        rs_epic_sets.value = (epic.sets || []).join(', ');
+      } else {
+        // Already an array (correct format matching deck checker)
+        rs_epic_names.value = (epic || []).join(', ');
+        rs_epic_sets.value = '';
+      }
+
+      // Violation Limits
+      const vl = rs.violationLimits || {};
+      rs_vl_cardCopy.value = (vl.cardCopy !== undefined && vl.cardCopy !== null) ? vl.cardCopy : '';
+      rs_vl_uniqueSA.value = (vl.uniqueSA !== undefined && vl.uniqueSA !== null) ? vl.uniqueSA : '';
+      rs_vl_epic.value = (vl.epic !== undefined && vl.epic !== null) ? vl.epic : '';
+      rs_vl_reservedSA.value = (vl.reservedSA !== undefined && vl.reservedSA !== null) ? vl.reservedSA : '';
+      rs_vl_warlordMain.value = (vl.warlordMain !== undefined && vl.warlordMain !== null) ? vl.warlordMain : '';
+      rs_vl_overlord.value = (vl.overlord !== undefined && vl.overlord !== null) ? vl.overlord : '';
+      rs_vl_dragonlord.value = (vl.dragonlord !== undefined && vl.dragonlord !== null) ? vl.dragonlord : '';
+      rs_vl_daemonlord.value = (vl.daemonlord !== undefined && vl.daemonlord !== null) ? vl.daemonlord : '';
+      rs_vl_edition.value = (vl.edition !== undefined && vl.edition !== null) ? vl.edition : '';
+      rs_vl_banned.value = (vl.banned !== undefined && vl.banned !== null) ? vl.banned : '';
+      rs_vl_forbidden.value = (vl.forbidden !== undefined && vl.forbidden !== null) ? vl.forbidden : '';
+      rs_vl_total.value = (vl.total !== undefined && vl.total !== null) ? vl.total : '';
+      rs_vl_ancientsListChecks.checked = !!vl.ancientsListChecks;
     }
 
     function updateRulesetFromForm(){
       const key = rulesetSelect.value;
       if (!key) return setFeedback('No ruleset selected', true);
       try{
-        const saSlots = [ { level: 1, count: parseInt(rs_level1_count.value || '0', 10) }, { level: 2, count: parseInt(rs_level2_count.value || '0', 10) } ];
-        const editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        const rs = configObj.rulesets[key];
+        rs.name = rs_name.value.trim();
+        rs.warlordCount = parseInt(rs_warlordCount.value, 10) || 1;
+        rs.maxCopies = parseInt(rs_maxCopies.value, 10) || 3;
+        rs.maxEpicCopies = parseInt(rs_maxEpicCopies.value, 10) || 1;
+        rs.minTotalDeck = parseInt(rs_minTotalDeck.value, 10) || 50;
+        rs.checkMainDeckFaction = rs_checkMainDeckFaction.checked;
+        const lvl1 = parseInt(rs_level1_count.value, 10) || 0;
+        const lvl2 = parseInt(rs_level2_count.value, 10) || 0;
+        rs.saRequiredSlots = [];
+        if (lvl1 > 0) rs.saRequiredSlots.push({ level: 1, count: lvl1 });
+        if (lvl2 > 0) rs.saRequiredSlots.push({ level: 2, count: lvl2 });
+        rs.hidden = rs_hidden.checked;
+        rs.requiresUnifiedFaction = rs_requiresUnifiedFaction.checked;
+        rs.fullBypass = rs_fullBypass.checked;
+        rs.editions = rs_editions.value.split(',').map(s=>s.trim()).filter(Boolean);
+        
+        // Restricted keeps object format with names, sets, rarities
         const restricted = {
           names: rs_restricted_names.value.split(',').map(s=>s.trim()).filter(Boolean),
           sets: rs_restricted_sets.value.split(',').map(s=>s.trim()).filter(Boolean),
           rarities: rs_restricted_rarities.value.split(',').map(s=>s.trim()).filter(Boolean)
         };
-        configObj.rulesets[key] = {
-          name: rs_name.value,
-          warlordCount: parseInt(rs_warlordCount.value || '1',10),
-          saRequiredSlots: saSlots,
-          maxCopies: parseInt(rs_maxCopies.value||'3',10),
-          maxEpicCopies: parseInt(rs_maxEpicCopies.value||'1',10),
-          minTotalDeck: parseInt(rs_minTotalDeck.value||'50',10),
-          checkMainDeckFaction: !!rs_checkMainDeckFaction.checked,
-          // ruleset-level loyalty options
-          requiresUnifiedFaction: !!rs_requiresUnifiedFaction.checked,
-          fullBypass: !!rs_fullBypass.checked,
-          editions: editions,
-          restricted: restricted
+        rs.restricted = restricted;
+
+        // Reserved: Store as simple array of card names (matching deck checker logic)
+        // The deck checker uses: Array.isArray(activeRuleSet.reserved)
+        const reservedNames = rs_reserved_names.value.split(',').map(s=>s.trim()).filter(Boolean);
+        rs.reserved = reservedNames;  // Simple array, not object
+
+        // Epic: Store as simple array of card names (matching deck checker logic)
+        // The deck checker uses: Array.isArray(activeRuleSet.epic)
+        const epicNames = rs_epic_names.value.split(',').map(s=>s.trim()).filter(Boolean);
+        rs.epic = epicNames;  // Simple array, not object
+
+        // Violation Limits
+        const violationLimits = {};
+        const vlInputs = {
+          cardCopy: rs_vl_cardCopy,
+          uniqueSA: rs_vl_uniqueSA,
+          epic: rs_vl_epic,
+          reservedSA: rs_vl_reservedSA,
+          warlordMain: rs_vl_warlordMain,
+          overlord: rs_vl_overlord,
+          dragonlord: rs_vl_dragonlord,
+          daemonlord: rs_vl_daemonlord,
+          edition: rs_vl_edition,
+          banned: rs_vl_banned,
+          forbidden: rs_vl_forbidden,
+          total: rs_vl_total
         };
-        // preserve hidden flag on the ruleset object
-        configObj.rulesets[key].hidden = !!rs_hidden.checked;
+        
+        for (const [key, input] of Object.entries(vlInputs)) {
+          const val = input.value.trim();
+          if (val === '' || val === 'undefined' || val === 'null') {
+            // Skip if empty - don't include in violationLimits
+            continue;
+          }
+          const numVal = parseInt(val, 10);
+          if (!isNaN(numVal)) {
+            if (numVal === -1) {
+              violationLimits[key] = 'Any'; // -1 means "Any" (disable this check)
+            } else {
+              violationLimits[key] = numVal;
+            }
+          }
+        }
+
+        // Optional boolean toggle for Ancients list checks
+        if (rs_vl_ancientsListChecks.checked) {
+          violationLimits.ancientsListChecks = true;
+        }
+        
+        // Only set violationLimits if at least one limit is defined
+        if (Object.keys(violationLimits).length > 0) {
+          rs.violationLimits = violationLimits;
+        } else {
+          delete rs.violationLimits; // Clean up if no limits set
+        }
+
         area.value = JSON.stringify(configObj, null, 2);
-        setFeedback('Ruleset updated in JSON textarea. Click Download or Create PR to persist.');
+        setFeedback('Updated ruleset: ' + key);
         renderRulesetList();
       }catch(e){ setFeedback('Failed to update ruleset: '+e.message, true); }
     }
@@ -524,7 +712,20 @@
       if (!configObj) configObj = { rulesets: {} };
       if (!configObj.rulesets) configObj.rulesets = {};
       if (configObj.rulesets[name]) return setFeedback('Ruleset key already exists', true);
-      configObj.rulesets[name] = { name: name, warlordCount:1, saRequiredSlots:[{level:1,count:3},{level:2,count:2}], maxCopies:3, maxEpicCopies:1, minTotalDeck:50, checkMainDeckFaction:false, editions:[], restricted:{names:[],sets:[],rarities:[]} };
+      configObj.rulesets[name] = {
+        name: name,
+        warlordCount: 1,
+        saRequiredSlots: [{level:1,count:3},{level:2,count:2}],
+        maxCopies: 3,
+        maxEpicCopies: 1,
+        minTotalDeck: 50,
+        checkMainDeckFaction: false,
+        editions: [],
+        restricted: { names:[], sets:[], rarities:[] },
+        reserved: { names:[], sets:[] },
+        epic: { names:[], sets:[] },
+        violationLimits: {}
+      };
       configObj.rulesets[name].hidden = false;
       area.value = JSON.stringify(configObj, null, 2);
       renderRulesetList();
@@ -720,8 +921,44 @@
 
     // Auto-load when page opens
     window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+    window.addEventListener('DOMContentLoaded', loadEventFiles);
 
-window.addEventListener('DOMContentLoaded', loadEventFiles);
+    async function loadEventFiles() {
+      const listDiv = document.getElementById('eventFileList');
+      if (!listDiv) return;
+
+      listDiv.textContent = 'Loading event files...';
+      try {
+        const res = await fetch('/api/admin/list-events', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const data = await res.json();
+        const events = Array.isArray(data.events) ? data.events : [];
+
+        if (!events.length) {
+          listDiv.textContent = 'No event files found.';
+          return;
+        }
+
+        listDiv.innerHTML = '';
+        events.forEach((ev) => {
+          const row = document.createElement('div');
+          row.style.marginBottom = '8px';
+          row.innerHTML = `
+            <strong>${ev.eventName || 'Unnamed event'}</strong><br>
+            <span class="small">Decklist: <code>${ev.decklistFile || 'N/A'}</code> | Submissions: <code>${ev.submissionFile || 'N/A'}</code></span>
+          `;
+          listDiv.appendChild(row);
+        });
+      } catch (err) {
+        console.error('loadEventFiles failed:', err);
+        listDiv.textContent = 'Error loading event files.';
+      }
+    }
+
+    // Auto-load when page opens
+    window.addEventListener('load', ()=>{ loadConfig().catch(()=>{}); });
+    window.addEventListener('DOMContentLoaded', loadEventFiles);
   </script>
 </body>
 </html>

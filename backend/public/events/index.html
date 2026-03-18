@@ -35,6 +35,7 @@
                     Log in with Discord
                 </button>
             </div>
+                <div id="user-decks-section" class="mt-4"></div>
         </div>
 
         <div id="loading-status" class="p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg text-blue-400 flex items-center gap-3">
@@ -87,6 +88,12 @@
     </div>
 
     <script type="module">
+                // Returns the currently selected ruleset object
+                function getActiveRuleSet() {
+                    if (!rulesetSelect) return null;
+                    const key = rulesetSelect.value;
+                    return RULE_SETS && RULE_SETS[key] ? RULE_SETS[key] : null;
+                }
         // Use existing window.BACKEND_URL or fallback to origin if not defined.
         // If your API is on a specific port (e.g., localhost:3000), define it in a script before this one or ensure origin is correct.
         window.BACKEND_URL = "https://warlord-sots-deck-checker-production.up.railway.app";
@@ -114,24 +121,107 @@
                     }
                     discordUserInfo.textContent = displayText;
                     discordLoginBtn.style.display = 'none';
+                        fetchUserDecks();
                 } else {
                     window.discordUser = null;
                     discordUserInfo.textContent = '';
                     discordLoginBtn.style.display = 'block';
+                        document.getElementById('user-decks-section').innerHTML = '';
                 }
             } catch (e) {
                 window.discordUser = null;
                 discordUserInfo.textContent = '';
                 discordLoginBtn.style.display = 'block';
+                    document.getElementById('user-decks-section').innerHTML = '';
             }
         }
 
-        if (discordLoginBtn) {
-            discordLoginBtn.onclick = () => {
-                window.location.href = getBackendUrl() + '/api/auth/discord';
+            // Fetch and display user's submitted decks (filter by username)
+            async function fetchUserDecks() {
+                const section = document.getElementById('user-decks-section');
+                section.innerHTML = '';
+                try {
+                    const res = await fetch(getBackendUrl() + '/api/all-decks');
+                    if (!res.ok) return;
+                    const data = await res.json();
+                    if (!data.events || !Array.isArray(data.events) || data.events.length === 0) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for active events.</div>';
+                        return;
+                    }
+                    // Get logged-in username (without #number)
+                    const user = window.discordUser;
+                    if (!user || !user.username) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">Not logged in.</div>';
+                        return;
+                    }
+                    const userId = user.id;
+                    const displayName = user.displayName ? user.displayName.toLowerCase() : null;
+                    let html = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4"><h3 class="text-lg font-bold text-amber-400 mb-2">Your Submitted Decks</h3>';
+                    html += '<ul class="space-y-3">';
+                    let found = false;
+                    for (const ev of data.events) {
+                        const userDecks = (ev.decks || []).filter(d => {
+                            // Match by Discord user ID or display_name
+                            if (typeof d.username === 'string' && d.username === userId) return true;
+                            if (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName) return true;
+                            return false;
+                        });
+                        for (const [i, deck] of userDecks.entries()) {
+                            found = true;
+                            const deckId = `${ev.eventName.replace(/[^a-z0-9]/gi,'')}-deck-${i}`;
+                            html += `<li class="border-b border-gray-700 pb-2 mb-2"><span class="font-semibold text-blue-300">${ev.eventName}</span><br>`;
+                            html += `<button class="bg-gray-700 hover:bg-gray-600 text-xs text-amber-300 font-semibold px-3 py-1 rounded mb-2 mt-2" onclick="toggleDeck('${deckId}')">Show Full Decklist</button>`;
+                            html += `<div id="${deckId}" class="hidden mt-2">`;
+                            html += formatDeckList(deck);
+                            html += '</div></li>';
+                        }
+                    }
+                    html += '</ul></div>';
+                    if (!found) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for your account.</div>';
+                    } else {
+                        section.innerHTML = html;
+                    }
+                } catch (e) {
+                    section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-red-400 text-sm">Failed to load submitted decks.</div>';
+                }
+            }
+            // Add toggleDeck function
+            window.toggleDeck = function(deckId) {
+                const el = document.getElementById(deckId);
+                if (el) {
+                    el.classList.toggle('hidden');
+                }
             };
-        }
-        
+            // Deck formatting helper
+            window.formatDeckList = function(deck) {
+                let out = '<div class="bg-gray-800 rounded-lg p-3 border border-gray-700">';
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Warlord:</span> <span class="text-gray-200">${deck.warlord || ''}</span></div>`;
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Display Name:</span> <span class="text-gray-200">${deck.display_name || ''}</span></div>`;
+                out += `<div class="mb-2"><span class="font-semibold text-amber-400">Discord Username:</span> <span class="text-gray-200">${deck.discord_username || ''}</span></div>`;
+                if (deck.cardList && typeof deck.cardList === 'object') {
+                    for (const [type, cards] of Object.entries(deck.cardList)) {
+                        out += `<div class="mt-3"><span class="font-semibold text-blue-300">${type}</span>`;
+                        if (cards.startingArmy && typeof cards.startingArmy === 'object') {
+                            out += '<div class="ml-4 mt-1"><span class="font-semibold text-green-400">Starting Army:</span><ul class="ml-4">';
+                            for (const [card, qty] of Object.entries(cards.startingArmy)) {
+                                out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                            }
+                            out += '</ul></div>';
+                        }
+                        if (cards.mainDeck && typeof cards.mainDeck === 'object') {
+                            out += '<div class="ml-4 mt-1"><span class="font-semibold text-purple-400">Main Deck:</span><ul class="ml-4">';
+                            for (const [card, qty] of Object.entries(cards.mainDeck)) {
+                                out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                            }
+                            out += '</ul></div>';
+                        }
+                        out += '</div>';
+                    }
+                }
+                out += '</div>';
+                return out;
+            };
         // Check auth on load, and handle /auth-success redirect
         if (window.location.pathname === '/auth-success') {
             fetchDiscordUser().then(() => {
@@ -141,6 +231,37 @@
         } else {
             fetchDiscordUser();
         }
+
+
+        // Decklist logic from auth-success.html
+        window.formatDeckList = function(deck) {
+            let out = '<div class="bg-gray-800 rounded-lg p-3 border border-gray-700">';
+            out += `<div class="mb-2"><span class="font-semibold text-amber-400">Warlord:</span> <span class="text-gray-200">${deck.warlord || ''}</span></div>`;
+            out += `<div class="mb-2"><span class="font-semibold text-amber-400">Display Name:</span> <span class="text-gray-200">${deck.display_name || ''}</span></div>`;
+            out += `<div class="mb-2"><span class="font-semibold text-amber-400">Discord Username:</span> <span class="text-gray-200">${deck.discord_username || ''}</span></div>`;
+            if (deck.cardList && typeof deck.cardList === 'object') {
+                for (const [type, cards] of Object.entries(deck.cardList)) {
+                    out += `<div class="mt-3"><span class="font-semibold text-blue-300">${type}</span>`;
+                    if (cards.startingArmy && typeof cards.startingArmy === 'object') {
+                        out += '<div class="ml-4 mt-1"><span class="font-semibold text-green-400">Starting Army:</span><ul class="ml-4">';
+                        for (const [card, qty] of Object.entries(cards.startingArmy)) {
+                            out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                        }
+                        out += '</ul></div>';
+                    }
+                    if (cards.mainDeck && typeof cards.mainDeck === 'object') {
+                        out += '<div class="ml-4 mt-1"><span class="font-semibold text-purple-400">Main Deck:</span><ul class="ml-4">';
+                        for (const [card, qty] of Object.entries(cards.mainDeck)) {
+                            out += `<li class="text-xs text-gray-200">${qty} <span class="font-semibold">${card}</span></li>`;
+                        }
+                        out += '</ul></div>';
+                    }
+                    out += '</div>';
+                }
+            }
+            out += '</div>';
+            return out;
+        };
 
         // --- CONSTANTS & CONFIG ---
         let cardDatabase = {};
@@ -178,6 +299,7 @@
 
         let CARD_DATA_URL = null;
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
+        // Use the same event list URL logic as index.html
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
 
         // --- REGEX & CONSTANTS ---
@@ -414,17 +536,114 @@
 
         const isCardReserved = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            
+            // Check if card has active edition
+            const hasActiveEdition = selectedEditions.length === 0 || 
+                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            
+            // For cards with active edition, check active ruleset only
+            if (hasActiveEdition) {
+                const activeRuleSet = getActiveRuleSet();
+                if (activeRuleSet && Array.isArray(activeRuleSet.reserved)) {
+                    if (activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
+                if (selectedEditions.length === 0) return false;
+                const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+                return card.saReservedFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            }
+            
+            // For edition violations, check Ancients rules if toggle is on
+            if (!hasActiveEdition && isAncientsListChecksEnabled()) {
+                const hasAncientsEdition = Array.isArray(card.editions) && 
+                    card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (hasAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && Array.isArray(ancientsRuleset.reserved)) {
+                        if (ancientsRuleset.reserved.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                    }
+                    // Check Ancients format notes
+                    return card.saReservedFormats.some(errataFormat => errataFormat === 'Ancients Format');
+                }
+            }
+            
+            return false;
         };
         
         const isCardEpic = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
-            if (card.isEpicKeyword) return true;
-            if (selectedEditions.length === 0) return false;
-            const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
-            return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            
+            // Check if card has active edition
+            const hasActiveEdition = selectedEditions.length === 0 || 
+                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            
+            // For cards with active edition, check active ruleset only
+            if (hasActiveEdition) {
+                const activeRuleSet = getActiveRuleSet();
+                if (activeRuleSet && Array.isArray(activeRuleSet.epic)) {
+                    if (activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                }
+                if (card.isEpicKeyword) return true;
+                if (selectedEditions.length === 0) return false;
+                const activeErrataFormats = selectedEditions.map(e => `${e} Format`); 
+                return card.epicErrataFormats.some(errataFormat => activeErrataFormats.includes(errataFormat));
+            }
+            
+            // For edition violations, check Ancients rules if toggle is on
+            if (!hasActiveEdition && isAncientsListChecksEnabled()) {
+                const hasAncientsEdition = Array.isArray(card.editions) && 
+                    card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (hasAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && Array.isArray(ancientsRuleset.epic)) {
+                        if (ancientsRuleset.epic.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) return true;
+                    }
+                    // Check Ancients format notes
+                    if (card.isEpicKeyword) return true;
+                    return card.epicErrataFormats.some(errataFormat => errataFormat === 'Ancients Format');
+                }
+            }
+            
+            return false;
+        };
+
+        const findRulesetByEdition = (editionName) => {
+            if (!editionName || !RULE_SETS) return null;
+            if (RULE_SETS[editionName]) return RULE_SETS[editionName];
+            const target = String(editionName).toLowerCase();
+            for (const [key, rs] of Object.entries(RULE_SETS)) {
+                if (String(key).toLowerCase() === target) return rs;
+                if (rs && rs.name && String(rs.name).toLowerCase() === target) return rs;
+            }
+            return null;
+        };
+
+        const isAncientsListChecksEnabled = () => {
+            const activeRuleSet = getActiveRuleSet();
+            return !!(activeRuleSet && activeRuleSet.violationLimits && activeRuleSet.violationLimits.ancientsListChecks === true);
+        };
+
+        const getApplicableRuleSetsForCard = (card) => {
+            const sets = [];
+            const seen = new Set();
+            const activeRuleSet = getActiveRuleSet();
+            if (activeRuleSet) {
+                sets.push(activeRuleSet);
+                seen.add(activeRuleSet);
+            }
+
+            // Optional toggle: apply Ancients lists to Ancients-edition exception cards.
+            if (isAncientsListChecksEnabled()) {
+                const editions = Array.isArray(card && card.editions) ? card.editions : [];
+                const isAncientsEdition = editions.some(e => String(e).toLowerCase() === 'ancients');
+                if (isAncientsEdition) {
+                    const ancientsRuleset = findRulesetByEdition('Ancients');
+                    if (ancientsRuleset && !seen.has(ancientsRuleset)) {
+                        sets.push(ancientsRuleset);
+                        seen.add(ancientsRuleset);
+                    }
+                }
+            }
+            return sets;
         };
 
         const isSAForbidden = (card, selectedEditions) => {
@@ -434,6 +653,7 @@
                 const lowerText = card.text.toLowerCase();
                 if (forbiddenPhrases.some(phrase => lowerText.includes(phrase))) return true;
             }
+            // Reserved cards cannot be in Starting Army
             return isCardReserved(card, selectedEditions);
         };
 
@@ -451,6 +671,15 @@
             const warlordMax = activeRuleSet.warlordCount || 1;
             const copyException = warlordException ? warlordException.copyLimitException : null;
 
+            // Reserved cards in Starting Army
+            saWlLegal.forEach(c => {
+                const norm = normalizeName(c.name).toLowerCase();
+                if (activeRuleSet.reserved && activeRuleSet.reserved.some(n => normalizeName(n).toLowerCase() === norm)) {
+                    violations.push(`${c.name} is Reserved and cannot be included in the Starting Army.`);
+                    deckIsLegal = false;
+                }
+            });
+
             const warlordTotals = {};
             for (const norm in legalCardCounts) {
                 const data = cardDatabase[norm];
@@ -466,7 +695,11 @@
                         max = 1;
                         reason = `Unique in SA (Max 1)`;
                     }
-                    if (isCardEpic(data, selectedEditions)) {
+                    // Epic card limit from ruleset
+                    if (activeRuleSet.epic && activeRuleSet.epic.some(n => normalizeName(n).toLowerCase() === norm)) {
+                        max = epicMax;
+                        reason = `Epic (Max ${max})`;
+                    } else if (isCardEpic(data, selectedEditions)) {
                         max = epicMax;
                         reason = `Epic (Max ${max})`;
                     }
@@ -536,7 +769,7 @@
             const foundOverlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('overlord')) {
-                    overlordCount++;
+                    overlordCount += (card.count || 1);
                     foundOverlords.push(card.name);
                 }
             });
@@ -555,7 +788,7 @@
             const founddragonlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('dragon lord')) {
-                    dragonlordCount++;
+                    dragonlordCount += (card.count || 1);
                     founddragonlords.push(card.name);
                 }
             });
@@ -574,7 +807,7 @@
             const founddaemonlords = [];
             allLegalCards.forEach(card => {
                 if (card.rawSubtype && card.rawSubtype.includes('daemonlord')) {
-                    daemonlordCount++;
+                    daemonlordCount += (card.count || 1);
                     founddaemonlords.push(card.name);
                 }
             });
@@ -588,32 +821,84 @@
             return { pass: true, result: null };
         };
 
-        const checkRestrictions = (allLegalCards, activeRuleSet) => {
-            const restricted = activeRuleSet.restricted;
-            if (!restricted) return { pass: true };
-            const restrictedNames = restricted.names || [];
-            const restrictedSets = restricted.sets || [];
-            const restrictedRarities = restricted.rarities || [];
-            if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) return { pass: true };
+        const checkRestrictions = (allKnownCards, activeRuleSet, selectedEditions = []) => {
+            if (!allKnownCards || allKnownCards.length === 0) return { pass: true };
             
             const violations = [];
             const scannedCards = new Set();
-            allLegalCards.forEach(card => {
+            const ancientsChecksEnabled = isAncientsListChecksEnabled();
+            
+            allKnownCards.forEach(card => {
                 if (scannedCards.has(card.name)) return; 
                 scannedCards.add(card.name);
-                if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
-                    violations.push(`${card.name} (Banned Name)`);
-                    return;
+                
+                // Check if card has active edition
+                const hasActiveEdition = selectedEditions.length === 0 || 
+                    (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+                
+                // Always check active ruleset restricted names, regardless of edition.
+                if (activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
+                    const restrictedNames = restricted.names || [];
+                    if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                        violations.push(`${card.name} (Banned Name)`);
+                        return;
+                    }
                 }
-                if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
-                    const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
-                        return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
-                    });
-                    if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
-                         violations.push(`${card.name} (Restricted Set/Rarity)`);
+
+                // Active ruleset set/rarity restrictions only apply to active-edition cards.
+                if (hasActiveEdition && activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
+                    const restrictedSets = restricted.sets || [];
+                    const restrictedRarities = restricted.rarities || [];
+
+                    if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                        const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                            return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                        });
+                        if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                            violations.push(`${card.name} (Restricted Set/Rarity)`);
+                            return;
+                        }
+                    }
+                }
+                
+                // For cards WITHOUT active edition (edition violations), check Ancients restrictions when toggle is on
+                if (!hasActiveEdition && ancientsChecksEnabled) {
+                    const hasAncientsEdition = Array.isArray(card.editions) && 
+                        card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                    
+                    if (hasAncientsEdition) {
+                        const ancientsRuleset = findRulesetByEdition('Ancients');
+                        if (ancientsRuleset && ancientsRuleset.restricted) {
+                            const restricted = ancientsRuleset.restricted;
+                            const restrictedNames = restricted.names || [];
+                            const restrictedSets = restricted.sets || [];
+                            const restrictedRarities = restricted.rarities || [];
+                            
+                            if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                                violations.push(`${card.name} (Ancients Banned Name)`);
+                                return;
+                            }
+                            
+                            if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                                const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                                    return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                                });
+                                if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                                    violations.push(`${card.name} (Ancients Restricted Set/Rarity)`);
+                                    return;
+                                }
+                            }
+                        }
+                    } else {
+                        // Card doesn't have Ancients edition - not on Ancients list, therefore banned
+                        violations.push(`${card.name} (Not on Ancients List)`);
+                        return;
                     }
                 }
             });
+            
             if (violations.length > 0) return { pass: false, result: { status: 'FAIL', message: `Restricted Cards: ${violations.join(', ')}` } };
             return { pass: true, result: { status: 'PASS', message: 'No restricted cards found.' } };
         };
@@ -748,6 +1033,7 @@
                     else saMessage.push(`Invalid Level ${c.level} character: ${c.name}`);
                 } else if (!SA_RING_EXCEPTIONS.some(r => r.normalizedName === normalizeName(c.name).toLowerCase())) {
                       saMessage.push(`Invalid card type in SA: ${c.name}`);
+                      saStatus = 'FAIL';
                 }
             });
 
@@ -854,23 +1140,22 @@
             const checks = {};
             let deckIsLegal = true;
 
-            // Unknown Cards
+            // Unknown Cards (always fail, cannot be overridden by limits)
             const unknown = [...saList, ...mdList].filter(c => c.isUnknown);
             if (unknown.length > 0) {
                 checks.unknown = { status: 'FAIL', message: `Unknown cards: ${[...new Set(unknown.map(c => c.name))].join(', ')}` };
                 deckIsLegal = false;
             }
         
+            // Collect edition violations - track both names and card objects
             const editionViolations = [];
+            const editionViolationCards = [];
             allCards.forEach(card => {
-                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) editionViolations.push(card.name);
+                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) {
+                    editionViolations.push(card.name);
+                    editionViolationCards.push(card);
+                }
             });
-            if (editionViolations.length > 0) {
-                checks.editionLegality = { status: 'FAIL', message: `Illegal edition cards: ${[...new Set(editionViolations)].join(', ')}` };
-                deckIsLegal = false;
-            } else {
-                 checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
-            }
 
             const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
             const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
@@ -896,15 +1181,138 @@
                   }
             }
 
+            // --- Violation Counting (count all violations without failing yet) ---
+            const violationCounts = {
+                cardCopy: 0,
+                uniqueSA: 0,
+                epic: 0,
+                reservedSA: 0,
+                warlordMain: 0,
+                overlord: 0,
+                dragonlord: 0,
+                daemonlord: 0,
+                edition: 0,
+                banned: 0,
+                forbidden: 0,
+                total: 0
+            };
+            
+            // Count violations for each rule
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
-            checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
-            if (!copyRes.deckIsLegal) deckIsLegal = false;
+            violationCounts.cardCopy = copyRes.violations.filter(v => v.includes('copies')).length;
+            violationCounts.reservedSA = copyRes.violations.filter(v => v.includes('Reserved')).length;
+            violationCounts.warlordMain = copyRes.violations.filter(v => v.includes('warlord and is only allowed in the Starting Army')).length;
 
-            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
+            // Edition violations
+            violationCounts.edition = new Set(
+                editionViolationCards.map(c => normalizeName(c.name).toLowerCase())
+            ).size;
+
+            // Overlord, Dragon Lord, Daemonlord
+            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
+            violationCounts.overlord = overlordCheck.pass ? 0 : 1;
+            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
+            violationCounts.dragonlord = dragonlordCheck.pass ? 0 : 1;
+            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
+            violationCounts.daemonlord = daemonlordCheck.pass ? 0 : 1;
+
+            // Forbidden SA
+            const forbiddenInSA = saList.filter(c => isSAForbidden(c, selectedEditions));
+            violationCounts.forbidden = forbiddenInSA.length;
+
+            // Banned/Restricted
+            const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
+            const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet, selectedEditions);
+            violationCounts.banned = restrictionRes.pass ? 0 : (
+                (restrictionRes.result.message.match(/Banned Name|Not on Ancients List/g) || []).length
+            );
+
+            // Unique SA / Epic violations are name-based and derived from copy-limit violations.
+            violationCounts.uniqueSA = copyRes.violations.filter(v => v.includes('Unique in SA')).length;
+            violationCounts.epic = copyRes.violations.filter(v => v.includes('Epic (Max')).length;
+
+            // Total violations
+            violationCounts.total = Object.values(violationCounts).reduce((sum, v) => sum + v, 0);
+
+            // --- Check Violation Limits FIRST ---
+            const limits = activeRuleSet.violationLimits || {};
+            const allowedByLimits = {}; // Track which violations are within limits
+            
+            // For each violation type, check if it's within the allowed limit
+            Object.keys(violationCounts).forEach(rule => {
+                const limit = limits[rule];
+                const count = violationCounts[rule];
+                
+                if (limit === 'Any') {
+                    // Rule disabled - always allowed
+                    allowedByLimits[rule] = true;
+                } else if (typeof limit === 'number' && limit >= 0) {
+                    // Check if count is within limit
+                    allowedByLimits[rule] = count <= limit;
+                } else {
+                    // No limit set - not allowed (strict enforcement)
+                    allowedByLimits[rule] = count === 0;
+                }
+            });
+
+            // Build violation limit messages
+            let violationLimitFail = false;
+            let violationLimitMessages = [];
+            Object.keys(limits).forEach(rule => {
+                const limit = limits[rule];
+                const count = violationCounts[rule];
+                if (typeof limit === 'number' && limit >= 0 && count > limit) {
+                    violationLimitFail = true;
+                    violationLimitMessages.push(`${rule} violations (${count}) exceed limit (${limit})`);
+                }
+            });
+
+            // Now apply checks with violation limit awareness
+            if (editionViolations.length > 0) {
+                if (allowedByLimits.edition) {
+                    checks.editionLegality = { status: 'WARNING', message: `Edition violations allowed by limit: ${[...new Set(editionViolations)].join(', ')}` };
+                } else {
+                    checks.editionLegality = { status: 'FAIL', message: `Illegal edition cards: ${[...new Set(editionViolations)].join(', ')}` };
+                    deckIsLegal = false;
+                }
+            } else {
+                checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
+            }
+
+            // Copy limits - check if allowed by limits
+            if (copyRes.violations.length > 0) {
+                const cardCopyAllowed = allowedByLimits.cardCopy;
+                const reservedSAAllowed = allowedByLimits.reservedSA;
+                const warlordMainAllowed = allowedByLimits.warlordMain;
+                
+                if (!cardCopyAllowed || !reservedSAAllowed || !warlordMainAllowed) {
+                    checks.copyLimits = { status: 'FAIL', message: copyRes.violations.join('<br>') };
+                    deckIsLegal = false;
+                } else {
+                    checks.copyLimits = { status: 'WARNING', message: 'Copy violations allowed by limit: ' + copyRes.violations.join('<br>') };
+                }
+            } else {
+                checks.copyLimits = { status: 'PASS', message: 'Copy limits OK' };
+            }
+
+            // Restrictions - check if allowed by limits
             if (!restrictionRes.pass) {
+                // Ruleset restriction list always supersedes violation-limit exceptions.
                 checks.restrictions = restrictionRes.result;
                 deckIsLegal = false;
+            } else {
+                checks.restrictions = restrictionRes.result;
             }
+
+            // Violation limit summary
+            if (violationLimitFail) {
+                checks.violationLimits = { status: 'FAIL', message: violationLimitMessages.join('<br>') };
+                deckIsLegal = false;
+            } else if (Object.keys(limits).length > 0) {
+                checks.violationLimits = { status: 'PASS', message: 'Violation limits respected.' };
+            }
+
+            // Duplicate declaration removed. Restriction check already performed above.
 
             const saLoyalty = checkFactionLoyalty(saCards, warlords, wlException, null, extraSACard, activeRuleSet, "Starting Army");
             checks.saLoyalty = saLoyalty.result;
@@ -921,7 +1329,16 @@
             checks.saComp = saComp.result;
             if (!saComp.pass) deckIsLegal = false;
             
-            const totalCountCheck = checkTotalCount(allLegalCards, activeRuleSet);
+            // Create list of countable cards for deck size check
+            // Include legally valid cards + cards that have violations but are within allowed limits
+            let allCountableCards = [...allLegalCards]; // Start with all legitimately legal cards
+            
+            // If edition violations are within limits, include those cards in the count
+            if (allowedByLimits.edition && editionViolationCards.length > 0) {
+                allCountableCards = [...allCountableCards, ...editionViolationCards];
+            }
+            
+            const totalCountCheck = checkTotalCount(allCountableCards, activeRuleSet);
             checks.totalCount = totalCountCheck.result;
             if (!totalCountCheck.pass) deckIsLegal = false;
 
@@ -929,20 +1346,42 @@
             checks.typeDominance = typeDominanceCheck.result;
             if (!typeDominanceCheck.pass) deckIsLegal = false;
             
-            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
+            // Overlord, Dragon Lord, Daemonlord limits - check if allowed by violation limits
             if (overlordCheck.result) { 
-                 checks.overlordLimit = overlordCheck.result;
-                 if (!overlordCheck.pass) deckIsLegal = false;
+                if (!overlordCheck.pass) {
+                    if (allowedByLimits.overlord) {
+                        checks.overlordLimit = { status: 'WARNING', message: overlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.overlordLimit = overlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.overlordLimit = overlordCheck.result;
+                }
             }
-            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
             if (dragonlordCheck.result) { 
-                 checks.dragonlordLimit = dragonlordCheck.result;
-                 if (!dragonlordCheck.pass) deckIsLegal = false;
+                if (!dragonlordCheck.pass) {
+                    if (allowedByLimits.dragonlord) {
+                        checks.dragonlordLimit = { status: 'WARNING', message: dragonlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.dragonlordLimit = dragonlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.dragonlordLimit = dragonlordCheck.result;
+                }
             }
-            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
             if (daemonlordCheck.result) { 
-                 checks.daemonlordLimit = daemonlordCheck.result;
-                 if (!daemonlordCheck.pass) deckIsLegal = false;
+                if (!daemonlordCheck.pass) {
+                    if (allowedByLimits.daemonlord) {
+                        checks.daemonlordLimit = { status: 'WARNING', message: daemonlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.daemonlordLimit = daemonlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.daemonlordLimit = daemonlordCheck.result;
+                }
             }
             const activeExceptionsMessage = [];
             if (extraSACard) {
@@ -959,16 +1398,16 @@
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
             
             const displayOrder = [
-                'unknown', 'editionLegality', 'restrictions', 'totalCount', 'saComp', 
+                'unknown', 'editionLegality', 'restrictions', 'violationLimits', 'totalCount', 'saComp', 
                 'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit',
                 'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions' 
             ];
 
             const ruleLabels = {
                 unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions',
-                totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
-                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', overlordLimit: 'Overlord Limit',
-                dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
+                violationLimits: 'Violation Limits', totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
+                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits',
+                overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
                 typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
             };
 
