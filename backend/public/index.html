@@ -588,32 +588,84 @@
             return { pass: true, result: null };
         };
 
-        const checkRestrictions = (allLegalCards, activeRuleSet) => {
-            const restricted = activeRuleSet.restricted;
-            if (!restricted) return { pass: true };
-            const restrictedNames = restricted.names || [];
-            const restrictedSets = restricted.sets || [];
-            const restrictedRarities = restricted.rarities || [];
-            if (restrictedNames.length === 0 && restrictedSets.length === 0 && restrictedRarities.length === 0) return { pass: true };
+        const checkRestrictions = (allKnownCards, activeRuleSet, selectedEditions = []) => {
+            if (!allKnownCards || allKnownCards.length === 0) return { pass: true };
             
             const violations = [];
             const scannedCards = new Set();
-            allLegalCards.forEach(card => {
+            const ancientsChecksEnabled = isAncientsListChecksEnabled();
+            
+            allKnownCards.forEach(card => {
                 if (scannedCards.has(card.name)) return; 
                 scannedCards.add(card.name);
-                if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
-                    violations.push(`${card.name} (Banned Name)`);
-                    return;
+                
+                // Check if card has active edition
+                const hasActiveEdition = selectedEditions.length === 0 || 
+                    (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+                
+                // Always check active ruleset restricted names, regardless of edition.
+                if (activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
+                    const restrictedNames = restricted.names || [];
+                    if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                        violations.push(`${card.name} (Banned Name)`);
+                        return;
+                    }
                 }
-                if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
-                    const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
-                        return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
-                    });
-                    if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
-                         violations.push(`${card.name} (Restricted Set/Rarity)`);
+
+                // Active ruleset set/rarity restrictions only apply to active-edition cards.
+                if (hasActiveEdition && activeRuleSet && activeRuleSet.restricted) {
+                    const restricted = activeRuleSet.restricted;
+                    const restrictedSets = restricted.sets || [];
+                    const restrictedRarities = restricted.rarities || [];
+
+                    if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                        const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                            return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                        });
+                        if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                            violations.push(`${card.name} (Restricted Set/Rarity)`);
+                            return;
+                        }
+                    }
+                }
+                
+                // For cards WITHOUT active edition (edition violations), check Ancients restrictions when toggle is on
+                if (!hasActiveEdition && ancientsChecksEnabled) {
+                    const hasAncientsEdition = Array.isArray(card.editions) && 
+                        card.editions.some(e => String(e).toLowerCase() === 'ancients');
+                    
+                    if (hasAncientsEdition) {
+                        const ancientsRuleset = findRulesetByEdition('Ancients');
+                        if (ancientsRuleset && ancientsRuleset.restricted) {
+                            const restricted = ancientsRuleset.restricted;
+                            const restrictedNames = restricted.names || [];
+                            const restrictedSets = restricted.sets || [];
+                            const restrictedRarities = restricted.rarities || [];
+                            
+                            if (restrictedNames.some(n => normalizeName(n).toLowerCase() === card.normalizedName)) {
+                                violations.push(`${card.name} (Ancients Banned Name)`);
+                                return;
+                            }
+                            
+                            if (restrictedSets.length > 0 || restrictedRarities.length > 0) {
+                                const hasLegalPrinting = card.printInfos && card.printInfos.some(info => {
+                                    return !restrictedSets.includes(info.set) && !restrictedRarities.includes(info.rarity);
+                                });
+                                if (card.printInfos && card.printInfos.length > 0 && !hasLegalPrinting) {
+                                    violations.push(`${card.name} (Ancients Restricted Set/Rarity)`);
+                                    return;
+                                }
+                            }
+                        }
+                    } else {
+                        // Card doesn't have Ancients edition - not on Ancients list, therefore banned
+                        violations.push(`${card.name} (Not on Ancients List)`);
+                        return;
                     }
                 }
             });
+            
             if (violations.length > 0) return { pass: false, result: { status: 'FAIL', message: `Restricted Cards: ${violations.join(', ')}` } };
             return { pass: true, result: { status: 'PASS', message: 'No restricted cards found.' } };
         };
@@ -898,12 +950,162 @@
 
             const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
             checks.copyLimits = { status: copyRes.deckIsLegal ? 'PASS' : 'FAIL', message: copyRes.violations.length ? copyRes.violations.join('<br>') : 'Copy limits OK' };
-            if (!copyRes.deckIsLegal) deckIsLegal = false;
+            // Collect edition violations - track both names and card objects
+            const editionViolations = [];
+            const editionViolationCards = [];
+            allCards.forEach(card => {
+                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) {
+                    editionViolations.push(card.name);
+                    editionViolationCards.push(card);
+                }
+            });
 
-            const restrictionRes = checkRestrictions(allLegalCards, activeRuleSet);
+            const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const allSubmittedCards = [...saList, ...mdList];
+
+            const warlords = [...saList, ...mdList].filter(c => c.isWarlord);
+            const saCards = saList.filter(c => !c.isWarlord);
+            const wlData = warlords.length > 0 ? warlords[0] : null;
+            const wlException = getWarlordException(wlData);
+
+            let extraSACard = null;
+            if (wlException?.addsExtraSASlot && wlData) {
+                  const criteria = wlException.compositionExceptions[0]?.criteria;
+                  if (criteria) {
+                      extraSACard = saCards.find(c => {
+                          if (criteria.type && c.type !== criteria.type) return false;
+                          if (criteria.level && c.level > criteria.level) return false;
+                          if (criteria.maxClasses && c.classes.length > criteria.maxClasses) return false;
+                          if (criteria.classes && !c.classes.some(cl => criteria.classes.includes(cl))) return false;
+                          return true;
+                      });
+                  }
+            }
+
+            // --- Violation Counting (count all violations without failing yet) ---
+            const violationCounts = {
+                cardCopy: 0,
+                uniqueSA: 0,
+                epic: 0,
+                reservedSA: 0,
+                warlordMain: 0,
+                overlord: 0,
+                dragonlord: 0,
+                daemonlord: 0,
+                edition: 0,
+                banned: 0,
+                forbidden: 0,
+                total: 0
+            };
+
+            // Count violations for each rule
+            const copyRes = checkCopyLimits(allSubmittedCards, saList, selectedEditions, wlException, activeRuleSet);
+            violationCounts.cardCopy = copyRes.violations.filter(v => v.includes('copies')).length;
+            violationCounts.reservedSA = copyRes.violations.filter(v => v.includes('Reserved')).length;
+            violationCounts.warlordMain = copyRes.violations.filter(v => v.includes('warlord and is only allowed in the Starting Army')).length;
+
+            // Edition violations
+            violationCounts.edition = new Set(
+                editionViolationCards.map(c => normalizeName(c.name).toLowerCase())
+            ).size;
+
+            // Overlord, Dragon Lord, Daemonlord
+            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
+            violationCounts.overlord = overlordCheck.pass ? 0 : 1;
+            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
+            violationCounts.dragonlord = dragonlordCheck.pass ? 0 : 1;
+            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
+            violationCounts.daemonlord = daemonlordCheck.pass ? 0 : 1;
+
+            // Forbidden SA
+            const forbiddenInSA = saList.filter(c => isSAForbidden(c, selectedEditions));
+            violationCounts.forbidden = forbiddenInSA.length;
+
+            // Banned/Restricted
+            const allKnownCards = allSubmittedCards.filter(c => !c.isUnknown);
+            const restrictionRes = checkRestrictions(allKnownCards, activeRuleSet, selectedEditions);
+            violationCounts.banned = restrictionRes.pass ? 0 : (
+                (restrictionRes.result.message.match(/Banned Name|Not on Ancients List/g) || []).length
+            );
+
+            // Unique SA / Epic violations derived from copy-limit violations
+            violationCounts.uniqueSA = copyRes.violations.filter(v => v.includes('Unique in SA')).length;
+            violationCounts.epic = copyRes.violations.filter(v => v.includes('Epic (Max')).length;
+
+            // Total violations
+            violationCounts.total = Object.values(violationCounts).reduce((sum, v) => sum + v, 0);
+
+            // --- Check Violation Limits FIRST ---
+            const limits = activeRuleSet.violationLimits || {};
+            const allowedByLimits = {};
+
+            Object.keys(violationCounts).forEach(rule => {
+                const limit = limits[rule];
+                const count = violationCounts[rule];
+                if (limit === 'Any') {
+                    allowedByLimits[rule] = true;
+                } else if (typeof limit === 'number' && limit >= 0) {
+                    allowedByLimits[rule] = count <= limit;
+                } else {
+                    allowedByLimits[rule] = count === 0;
+                }
+            });
+
+            // Build violation limit messages
+            let violationLimitFail = false;
+            let violationLimitMessages = [];
+            Object.keys(limits).forEach(rule => {
+                const limit = limits[rule];
+                const count = violationCounts[rule];
+                if (typeof limit === 'number' && limit >= 0 && count > limit) {
+                    violationLimitFail = true;
+                    violationLimitMessages.push(`${rule} violations (${count}) exceed limit (${limit})`);
+                }
+            });
+
+            // Now apply checks with violation limit awareness
+            if (editionViolations.length > 0) {
+                if (allowedByLimits.edition) {
+                    checks.editionLegality = { status: 'WARNING', message: `Edition violations allowed by limit: ${[...new Set(editionViolations)].join(', ')}` };
+                } else {
+                    checks.editionLegality = { status: 'FAIL', message: `Illegal edition cards: ${[...new Set(editionViolations)].join(', ')}` };
+                    deckIsLegal = false;
+                }
+            } else {
+                checks.editionLegality = { status: 'PASS', message: `All cards are edition legal.` };
+            }
+
+            // Copy limits - check if allowed by limits
+            if (copyRes.violations.length > 0) {
+                const cardCopyAllowed = allowedByLimits.cardCopy;
+                const reservedSAAllowed = allowedByLimits.reservedSA;
+                const warlordMainAllowed = allowedByLimits.warlordMain;
+                if (!cardCopyAllowed || !reservedSAAllowed || !warlordMainAllowed) {
+                    checks.copyLimits = { status: 'FAIL', message: copyRes.violations.join('<br>') };
+                    deckIsLegal = false;
+                } else {
+                    checks.copyLimits = { status: 'WARNING', message: 'Copy violations allowed by limit: ' + copyRes.violations.join('<br>') };
+                }
+            } else {
+                checks.copyLimits = { status: 'PASS', message: 'Copy limits OK' };
+            }
+
+            // Restrictions - ruleset restriction list always supersedes violation-limit exceptions
             if (!restrictionRes.pass) {
                 checks.restrictions = restrictionRes.result;
                 deckIsLegal = false;
+            } else {
+                checks.restrictions = restrictionRes.result;
+            }
+
+            // Violation limit summary
+            if (violationLimitFail) {
+                checks.violationLimits = { status: 'FAIL', message: violationLimitMessages.join('<br>') };
+                deckIsLegal = false;
+            } else if (Object.keys(limits).length > 0) {
+                checks.violationLimits = { status: 'PASS', message: 'Violation limits respected.' };
             }
 
             const saLoyalty = checkFactionLoyalty(saCards, warlords, wlException, null, extraSACard, activeRuleSet, "Starting Army");
@@ -920,29 +1122,57 @@
             const saComp = checkSAComposition(saCards, warlords, wlData, activeRuleSet, wlException, selectedEditions, extraSACard);
             checks.saComp = saComp.result;
             if (!saComp.pass) deckIsLegal = false;
-            
-            const totalCountCheck = checkTotalCount(allLegalCards, activeRuleSet);
+
+            // Include edition-violation cards in deck size count if within allowed limits
+            let allCountableCards = [...allLegalCards];
+            if (allowedByLimits.edition && editionViolationCards.length > 0) {
+                allCountableCards = [...allCountableCards, ...editionViolationCards];
+            }
+
+            const totalCountCheck = checkTotalCount(allCountableCards, activeRuleSet);
             checks.totalCount = totalCountCheck.result;
             if (!totalCountCheck.pass) deckIsLegal = false;
 
             const typeDominanceCheck = checkTypeDominance(allSubmittedCards);
             checks.typeDominance = typeDominanceCheck.result;
             if (!typeDominanceCheck.pass) deckIsLegal = false;
-            
-            const overlordCheck = checkOverlordLimit([...saList, ...mdList]);
-            if (overlordCheck.result) { 
-                 checks.overlordLimit = overlordCheck.result;
-                 if (!overlordCheck.pass) deckIsLegal = false;
+
+            // Overlord, Dragon Lord, Daemonlord - check if allowed by violation limits
+            if (overlordCheck.result) {
+                if (!overlordCheck.pass) {
+                    if (allowedByLimits.overlord) {
+                        checks.overlordLimit = { status: 'WARNING', message: overlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.overlordLimit = overlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.overlordLimit = overlordCheck.result;
+                }
             }
-            const dragonlordCheck = checkdragonlordLimit([...saList, ...mdList]);
-            if (dragonlordCheck.result) { 
-                 checks.dragonlordLimit = dragonlordCheck.result;
-                 if (!dragonlordCheck.pass) deckIsLegal = false;
+            if (dragonlordCheck.result) {
+                if (!dragonlordCheck.pass) {
+                    if (allowedByLimits.dragonlord) {
+                        checks.dragonlordLimit = { status: 'WARNING', message: dragonlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.dragonlordLimit = dragonlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.dragonlordLimit = dragonlordCheck.result;
+                }
             }
-            const daemonlordCheck = checkdaemonlordLimit([...saList, ...mdList]);
-            if (daemonlordCheck.result) { 
-                 checks.daemonlordLimit = daemonlordCheck.result;
-                 if (!daemonlordCheck.pass) deckIsLegal = false;
+            if (daemonlordCheck.result) {
+                if (!daemonlordCheck.pass) {
+                    if (allowedByLimits.daemonlord) {
+                        checks.daemonlordLimit = { status: 'WARNING', message: daemonlordCheck.result.message + ' (allowed by limit)' };
+                    } else {
+                        checks.daemonlordLimit = daemonlordCheck.result;
+                        deckIsLegal = false;
+                    }
+                } else {
+                    checks.daemonlordLimit = daemonlordCheck.result;
+                }
             }
             const activeExceptionsMessage = [];
             if (extraSACard) {
@@ -950,64 +1180,27 @@
             }
             const activeRings = SA_RING_EXCEPTIONS.filter(r => saCards.some(c => normalizeName(c.name).toLowerCase() === r.normalizedName));
             activeRings.forEach(r => activeExceptionsMessage.push(`Exception Active: **${r.name}** equip rule.`));
-            
+
             if (activeExceptionsMessage.length > 0) {
                  checks.activeExceptions = { status: 'INFO', message: activeExceptionsMessage.join('<br>') };
             }
 
             // --- RENDER RESULTS ---
             let html = `<div class="card-container p-6 rounded-xl"><h2 class="text-2xl font-bold text-amber-400 mb-4 border-b border-gray-700 pb-2">Results: <span class="${deckIsLegal ? 'text-green-500' : 'text-red-500'}">${deckIsLegal ? 'LEGAL' : 'ILLEGAL'}</span></h2><div class="space-y-2">`;
-            
+
             const displayOrder = [
-                'unknown', 'editionLegality', 'restrictions', 'totalCount', 'saComp', 
+                'unknown', 'editionLegality', 'restrictions', 'violationLimits', 'totalCount', 'saComp',
                 'saLoyalty', 'mdLoyalty', 'copyLimits', 'overlordLimit',
-                'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions' 
+                'dragonlordLimit', 'daemonlordLimit', 'typeDominance', 'activeExceptions'
             ];
 
             const ruleLabels = {
                 unknown: 'General', editionLegality: 'Edition Legality', restrictions: 'Format Restrictions',
-                totalCount: 'Deck Size', saComp: 'Starting Army Composition', saLoyalty: 'Starting Army Loyalty',
-                mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits', overlordLimit: 'Overlord Limit',
-                dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
+                violationLimits: 'Violation Limits', totalCount: 'Deck Size', saComp: 'Starting Army Composition',
+                saLoyalty: 'Starting Army Loyalty', mdLoyalty: 'Main Deck Loyalty', copyLimits: 'Copy Limits',
+                overlordLimit: 'Overlord Limit', dragonlordLimit: 'Dragon Lord Limit', daemonlordLimit: 'Daemonlord Limit',
                 typeDominance: 'Type Dominance', activeExceptions: 'Active Exceptions'
             };
-
-            for (const key of displayOrder) {
-                const res = checks[key];
-                if (res) {
-                    let icon = '🟢';
-                    let color = 'text-green-400';
-                    if (res.status === 'FAIL') { icon = '🔴'; color = 'text-red-400'; }
-                    if (res.status === 'INFO') { icon = '🔵'; color = 'text-blue-400'; }
-                    if (res.status === 'WARNING') { icon = '🟡'; color = 'text-yellow-400'; }
-                    let msg = res.message || '';
-                    if (res.status === 'PASS' && !msg) msg = 'No issues found.';
-                    html += `<div class="mb-2 text-sm"><span class="${color} mr-2">${icon}</span> <strong>${ruleLabels[key] || key}:</strong> <span class="${color} ml-1">${msg}</span></div>`;
-                }
-            }
-            html += `</div></div>`;
-            
-            // --- SUBMISSION UI ---
-            html += `
-            <div class="card-container p-6 rounded-xl mt-4 bg-gray-800 border border-gray-700">
-                <h3 class="text-lg font-bold text-white mb-2">Submit Deck to Event</h3>
-                <p class="text-sm text-gray-400 mb-4">To withdraw, enter <b>Withdraw from Event</b> as your only Starting Army card.</p>
-                <form id="deck-submit-form" class="flex flex-col md:flex-row gap-4 items-stretch md:items-end">
-                    <div class="flex-1">
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Authenticated User</label>
-                        <span id="discord-user-summary" class="block w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-300 rounded-lg text-sm">Not logged in</span>
-                    </div>
-                    <div class="flex-1">
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Event Name</label>
-                        <select id="submit-eventname" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500"></select>
-                    </div>
-                    <button id="submit-deck-button" type="button" class="bg-amber-600 hover:bg-amber-500 disabled:bg-gray-600 disabled:text-gray-400 text-white font-bold py-2.5 px-6 rounded-lg transition-colors">
-                        Submit Deck
-                    </button>
-                </form>
-                <p id="submit-status" class="text-sm font-semibold text-center md:text-left text-amber-400 mt-3"></p>
-            </div>`;
-            
             document.getElementById('results').innerHTML = html;
 
             // Re-bind Submission Logic
