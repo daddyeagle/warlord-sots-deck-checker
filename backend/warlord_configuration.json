@@ -18,11 +18,22 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
-      "editions": [],
+      "editions": [
+        "Saga"
+      ],
       "restricted": {
         "names": [],
         "sets": [],
         "rarities": []
+      },
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "reserved": [],
+      "epic": [],
+      "violationLimits": {
+        "edition": 1,
+        "ancientsListChecks": true
       }
     },
     "Ancients": {
@@ -199,8 +210,8 @@
       },
       "hidden": true
     },
-    "December Ancients+": {
-      "name": "December Ancients+",
+    "Test": {
+      "name": "Test",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -216,16 +227,21 @@
       "maxEpicCopies": 1,
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
-      "editions": [
-        "Ancients"
-      ],
+      "editions": [],
       "restricted": {
-        "names": [
-          "Tzin's Secret"
-        ],
+        "names": [],
         "sets": [],
         "rarities": []
       },
+      "reserved": {
+        "names": [],
+        "sets": []
+      },
+      "epic": {
+        "names": [],
+        "sets": []
+      },
+      "violationLimits": {},
       "hidden": false
     }
   },
@@ -448,5 +464,6 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "December Ancients+",
+  "indexSelectorLimit": 10
 }
