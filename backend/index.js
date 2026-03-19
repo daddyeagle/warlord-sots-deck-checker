@@ -32,36 +32,57 @@ app.get('/api/all-decks', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-    const eventsPath = path.join(__dirname, 'public', 'events', 'event_list.json');
-  let eventList;
+  const eventsDir = path.join(__dirname, 'public', 'events');
+  const eventsPath = path.join(eventsDir, 'event_list.json');
+  let eventList = [];
   try {
     eventList = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
   } catch (e) {
-    return res.status(500).json({ error: 'Failed to load event list' });
+    eventList = [];
   }
+
   const results = [];
-  for (const event of eventList) {
-    const deckFile = event.decklistFile;
-    console.log('DEBUG event:', event.eventName, 'deckFile:', deckFile);
-    if (!deckFile) {
-      console.log('DEBUG: No deckFile for event', event.eventName);
-      continue;
-    }
-    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
-    console.log('DEBUG deckPath:', deckPath);
-    if (!fs.existsSync(deckPath)) {
-      console.log('DEBUG: Deck file does not exist:', deckPath);
-      continue;
-    }
+  const processedFiles = new Set();
+
+  const addDeckFile = (deckFile, eventNameHint = null) => {
+    if (!deckFile || processedFiles.has(deckFile)) return;
+    const deckPath = path.join(eventsDir, deckFile);
+    if (!fs.existsSync(deckPath)) return;
+
     let decks;
     try {
       decks = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
     } catch (e) {
-      console.log('DEBUG: Failed to read deck file:', deckPath, e);
-      continue;
+      return;
     }
-    results.push({ eventName: event.eventName, decks });
+    if (!Array.isArray(decks)) return;
+
+    const inferredEventName =
+      eventNameHint ||
+      (decks[0] && typeof decks[0].event === 'string' ? decks[0].event : null) ||
+      deckFile.replace(/^decks-/, '').replace(/\.json$/, '');
+
+    results.push({ eventName: inferredEventName, decks });
+    processedFiles.add(deckFile);
+  };
+
+  // First include deck files from configured events.
+  for (const event of eventList) {
+    addDeckFile(event && event.decklistFile, event && event.eventName ? event.eventName : null);
   }
+
+  // Then include any historical deck files present in the folder.
+  try {
+    const allFiles = fs.readdirSync(eventsDir);
+    for (const fileName of allFiles) {
+      if (/^decks-.*\.json$/i.test(fileName)) {
+        addDeckFile(fileName, null);
+      }
+    }
+  } catch (e) {
+    // Ignore directory read failures and return what we already collected.
+  }
+
   res.json({ events: results });
 });
 // Periodically download the latest card database from the remote source
