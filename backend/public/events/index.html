@@ -141,8 +141,17 @@
                 const section = document.getElementById('user-decks-section');
                 section.innerHTML = '';
                 try {
-                    const res = await fetch(getBackendUrl() + '/api/all-decks');
-                    if (!res.ok) return;
+                    const res = await fetch(getBackendUrl() + '/api/all-decks', {
+                        credentials: 'include'
+                    });
+                    if (res.status === 401) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">Session expired. Please log in again.</div>';
+                        return;
+                    }
+                    if (!res.ok) {
+                        section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-red-400 text-sm">Failed to load deck submissions.</div>';
+                        return;
+                    }
                     const data = await res.json();
                     if (!data.events || !Array.isArray(data.events) || data.events.length === 0) {
                         section.innerHTML = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4 text-gray-400 text-sm">No deck submissions found for active events.</div>';
@@ -155,14 +164,22 @@
                         return;
                     }
                     const userId = user.id;
+                    const discordTag = (user.username && user.discriminator)
+                        ? `${user.username}#${user.discriminator}`.toLowerCase()
+                        : null;
+                    const usernameLower = user.username ? user.username.toLowerCase() : null;
                     const displayName = user.displayName ? user.displayName.toLowerCase() : null;
                     let html = '<div class="bg-gray-900 border border-gray-700 rounded-lg p-4"><h3 class="text-lg font-bold text-amber-400 mb-2">Your Submitted Decks</h3>';
                     html += '<ul class="space-y-3">';
                     let found = false;
                     for (const ev of data.events) {
                         const userDecks = (ev.decks || []).filter(d => {
-                            // Match by Discord user ID or display_name
+                            // Match by Discord user ID / username / tag for legacy and current data.
                             if (typeof d.username === 'string' && d.username === userId) return true;
+                            if (typeof d.discordId === 'string' && d.discordId === userId) return true;
+                            if (usernameLower && typeof d.username === 'string' && d.username.toLowerCase() === usernameLower) return true;
+                            if (discordTag && typeof d.discord_username === 'string' && d.discord_username.toLowerCase() === discordTag) return true;
+                            if (usernameLower && typeof d.discord_username === 'string' && d.discord_username.toLowerCase().startsWith(`${usernameLower}#`)) return true;
                             if (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName) return true;
                             return false;
                         });
