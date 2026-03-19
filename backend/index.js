@@ -66,21 +66,10 @@ app.get('/api/all-decks', (req, res) => {
     processedFiles.add(deckFile);
   };
 
-  // First include deck files from configured events.
+  // Include only current admin-managed events from event_list.json.
   for (const event of eventList) {
+    if (!event || event.hidden) continue;
     addDeckFile(event && event.decklistFile, event && event.eventName ? event.eventName : null);
-  }
-
-  // Then include any historical deck files present in the folder.
-  try {
-    const allFiles = fs.readdirSync(eventsDir);
-    for (const fileName of allFiles) {
-      if (/^decks-.*\.json$/i.test(fileName)) {
-        addDeckFile(fileName, null);
-      }
-    }
-  } catch (e) {
-    // Ignore directory read failures and return what we already collected.
   }
 
   res.json({ events: results });
