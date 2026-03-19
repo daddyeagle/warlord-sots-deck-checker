@@ -132,7 +132,7 @@ app.post('/api/withdraw-deck', async (req, res) => {
       const eventEntries = JSON.parse(fs.readFileSync(eventPath, 'utf8'));
       const entries = Array.isArray(eventEntries.submissions) ? eventEntries.submissions : eventEntries;
       const newEntries = entries.filter(d => !isOwnedByUser(d));
-      if (newEntries.length !== eventEntries.length) {
+      if (newEntries.length !== entries.length) {
         if (Array.isArray(eventEntries.submissions)) {
           eventEntries.submissions = newEntries;
           fs.writeFileSync(eventPath, JSON.stringify(eventEntries, null, 2));
