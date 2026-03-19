@@ -489,12 +489,20 @@ app.get('/api/auth/discord/callback', async (req, res) => {
       };
       let redirectPath = req.session.loginRedirect || '/';
       req.session.loginRedirect = undefined;
+      if (typeof redirectPath !== 'string') redirectPath = '/';
+      if (!redirectPath.startsWith('/')) redirectPath = '/';
+      redirectPath = '/' + redirectPath.replace(/^\/+/, '');
       if (redirectPath === '/' || redirectPath === '/auth-success') {
         redirectPath = '/';
       }
       req.session.save((err) => {
         if (err) return res.status(500).send("Session save failed");
-        res.redirect(process.env.FRONTEND_ORIGIN ? `${process.env.FRONTEND_ORIGIN}${redirectPath}` : redirectPath);
+        if (process.env.FRONTEND_ORIGIN) {
+          const base = process.env.FRONTEND_ORIGIN.replace(/\/+$/, '');
+          res.redirect(`${base}${redirectPath}`);
+        } else {
+          res.redirect(redirectPath);
+        }
       });
     });
   } catch (err) {
