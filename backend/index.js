@@ -97,16 +97,31 @@ app.get('/api/cards', (req, res) => {
 // Withdraw deck for event (remove from event and deck lists)
 app.post('/api/withdraw-deck', async (req, res) => {
   try {
-    if (!req.session || !req.session.discordId) return res.status(401).json({ success: false, error: 'Not logged in' });
-    const { eventName } = req.body;
+    if (!req.session || !req.session.user || !req.session.user.id) return res.status(401).json({ success: false, error: 'Not logged in' });
+    const { eventName } = req.body || {};
     if (!eventName) return res.status(400).json({ success: false, error: 'Missing eventName' });
+    const discordId = req.session.user.id;
+    const usernameLower = req.session.user.username ? req.session.user.username.toLowerCase() : null;
+    const displayNameLower = req.session.user.displayName ? req.session.user.displayName.toLowerCase() : null;
+    const discordTagLower = (req.session.user.username && req.session.user.discriminator)
+      ? `${req.session.user.username}#${req.session.user.discriminator}`.toLowerCase()
+      : null;
+    const isOwnedByUser = (record) => {
+      if (!record || typeof record !== 'object') return false;
+      if (record.discordId === discordId || record.username === discordId) return true;
+      if (usernameLower && typeof record.username === 'string' && record.username.toLowerCase() === usernameLower) return true;
+      if (discordTagLower && typeof record.discord_username === 'string' && record.discord_username.toLowerCase() === discordTagLower) return true;
+      if (usernameLower && typeof record.discord_username === 'string' && record.discord_username.toLowerCase().startsWith(`${usernameLower}#`)) return true;
+      if (displayNameLower && typeof record.display_name === 'string' && record.display_name.toLowerCase() === displayNameLower) return true;
+      return false;
+    };
     const decksPath = path.join(__dirname, 'public', 'events', `decks-${eventName}.json`);
     const eventPath = path.join(__dirname, 'public', 'events', `${eventName}.json`);
     let changed = false;
     // Remove from deck list
     if (fs.existsSync(decksPath)) {
       const decks = JSON.parse(fs.readFileSync(decksPath, 'utf8'));
-      const newDecks = decks.filter(d => d.discordId !== req.session.discordId);
+      const newDecks = decks.filter(d => !isOwnedByUser(d));
       if (newDecks.length !== decks.length) {
         fs.writeFileSync(decksPath, JSON.stringify(newDecks, null, 2));
         changed = true;
@@ -115,9 +130,15 @@ app.post('/api/withdraw-deck', async (req, res) => {
     // Remove from event list
     if (fs.existsSync(eventPath)) {
       const eventEntries = JSON.parse(fs.readFileSync(eventPath, 'utf8'));
-      const newEntries = eventEntries.filter(d => d.discordId !== req.session.discordId);
+      const entries = Array.isArray(eventEntries.submissions) ? eventEntries.submissions : eventEntries;
+      const newEntries = entries.filter(d => !isOwnedByUser(d));
       if (newEntries.length !== eventEntries.length) {
-        fs.writeFileSync(eventPath, JSON.stringify(newEntries, null, 2));
+        if (Array.isArray(eventEntries.submissions)) {
+          eventEntries.submissions = newEntries;
+          fs.writeFileSync(eventPath, JSON.stringify(eventEntries, null, 2));
+        } else {
+          fs.writeFileSync(eventPath, JSON.stringify(newEntries, null, 2));
+        }
         changed = true;
       }
     }
@@ -630,8 +651,21 @@ app.post('/api/submit-deck', async (req, res) => {
 
   // Prepare User Data (needed for withdraw logic and after)
   const username = req.session.user.id;
+  const discordId = req.session.user.id;
   const discordUsername = `${req.session.user.username}#${req.session.user.discriminator}`;
+  const usernameLower = req.session.user.username ? req.session.user.username.toLowerCase() : null;
+  const displayNameLower = req.session.user.displayName ? req.session.user.displayName.toLowerCase() : null;
+  const discordTagLower = discordUsername.toLowerCase();
   const displayName = req.session.user.displayName || req.session.user.username;
+  const isOwnedByUser = (record) => {
+    if (!record || typeof record !== 'object') return false;
+    if (record.discordId === discordId || record.username === discordId) return true;
+    if (usernameLower && typeof record.username === 'string' && record.username.toLowerCase() === usernameLower) return true;
+    if (discordTagLower && typeof record.discord_username === 'string' && record.discord_username.toLowerCase() === discordTagLower) return true;
+    if (usernameLower && typeof record.discord_username === 'string' && record.discord_username.toLowerCase().startsWith(`${usernameLower}#`)) return true;
+    if (displayNameLower && typeof record.display_name === 'string' && record.display_name.toLowerCase() === displayNameLower) return true;
+    return false;
+  };
 
   if (isWithdraw) {
     if (!eventName) {
@@ -647,7 +681,7 @@ app.post('/api/submit-deck', async (req, res) => {
       if (existingEvent) {
         let eventObj = JSON.parse(existingEvent.content);
         if (Array.isArray(eventObj.submissions)) {
-          const newSubs = eventObj.submissions.filter(sub => sub.username !== username);
+          const newSubs = eventObj.submissions.filter(sub => !isOwnedByUser(sub));
           if (newSubs.length !== eventObj.submissions.length) {
             eventObj.submissions = newSubs;
             await putGithubFile(eventPath, eventObj, `Withdraw from event ${eventName} by ${discordUsername}`, existingEvent.sha);
@@ -662,7 +696,7 @@ app.post('/api/submit-deck', async (req, res) => {
       if (existingDecks) {
         let decksArr = JSON.parse(existingDecks.content);
         if (Array.isArray(decksArr)) {
-          const newDecks = decksArr.filter(d => d.username !== username);
+          const newDecks = decksArr.filter(d => !isOwnedByUser(d));
           if (newDecks.length !== decksArr.length) {
             await putGithubFile(decksPath, newDecks, `Withdraw deck from event ${eventName} by ${discordUsername}`, existingDecks.sha);
             changed = true;
@@ -721,11 +755,12 @@ app.post('/api/submit-deck', async (req, res) => {
     if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
 
     // CRITICAL LOGIC: Filter out OLD submission by this user, then push NEW one
-    eventObj.submissions = eventObj.submissions.filter(sub => sub.username !== username);
+    eventObj.submissions = eventObj.submissions.filter(sub => !isOwnedByUser(sub));
     
     eventObj.submissions.push({
       warlord,
-      username, // Discord ID
+      username, // Discord ID (legacy key)
+      discordId,
       discord_username: discordUsername,
       display_name: displayName,
       timestamp,
@@ -748,11 +783,12 @@ app.post('/api/submit-deck', async (req, res) => {
     if (!Array.isArray(decksArr)) decksArr = [];
 
     // CRITICAL LOGIC: Filter out OLD deck by this user
-    decksArr = decksArr.filter(d => d.username !== username);
+    decksArr = decksArr.filter(d => !isOwnedByUser(d));
 
     // Append NEW deck (include discord_username for admin export)
     decksArr.push({
       username,
+      discordId,
       discord_username: discordUsername,
       event: eventName,
       warlord,
