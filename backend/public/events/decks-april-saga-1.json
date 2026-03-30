@@ -217,39 +217,40 @@
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Master Dresden": 3,
-          "Ciane": 3,
-          "Tresven": 3,
-          "Treyik Netheryn": 2,
           "Treyik": 3,
+          "Oracle of Kavara": 2,
+          "Arva of Reclusa": 3,
+          "Blitzer": 1,
+          "Master Dresden": 3,
           "Skitterleap": 3,
-          "Oracle of Kavara": 2
+          "Thunic Yeti": 2,
+          "Treyik Netheryn": 2
         },
         "startingArmy": {
           "Corpse Crowd": 3,
-          "Graveyard Librarian": 1,
-          "Yanthorine": 1,
+          "Graveyard Librarian": 2,
           "Shyessa the Weaver": 1
         }
       },
       "Action": {
-        "count": 22,
+        "count": 20,
         "mainDeck": {
-          "Athanaes Falls": 2,
+          "Athanaes Falls": 1,
           "Meet at the Inn!": 3,
           "Sacrifice": 3,
           "Arcane Approach": 3,
+          "Change of Hands": 2,
           "Wither": 3,
-          "Revitalizing Roots": 3,
-          "Summon Avalanche": 3,
+          "Curse of Greed": 3,
           "Epic Judgment": 2
         },
         "startingArmy": {}
       },
       "Item": {
-        "count": 3,
+        "count": 5,
         "mainDeck": {
           "Annales Deverenium": 2,
+          "Farhaven Guide": 2,
           "Storm Shard": 1
         },
         "startingArmy": {}
