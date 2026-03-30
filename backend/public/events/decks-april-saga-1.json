@@ -204,5 +204,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "April Saga + 1",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "Oremm",
+    "timestamp": "2026-04-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Ciane": 3,
+          "Tresven": 3,
+          "Treyik Netheryn": 2,
+          "Treyik": 3,
+          "Skitterleap": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 1,
+          "Yanthorine": 1,
+          "Shyessa the Weaver": 1
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Athanaes Falls": 2,
+          "Meet at the Inn!": 3,
+          "Sacrifice": 3,
+          "Arcane Approach": 3,
+          "Wither": 3,
+          "Revitalizing Roots": 3,
+          "Summon Avalanche": 3,
+          "Epic Judgment": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Annales Deverenium": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
