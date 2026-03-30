@@ -98,5 +98,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "April Saga + 1",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "DireScrub",
+    "timestamp": "2026-04-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Squire Fendric": 1,
+          "Zaina": 3,
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Squire Fendric": 2,
+          "High Acolyte Hellene": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Myerdeth Mare": 1,
+          "Medical Kit": 1,
+          "Kor's Aegis": 1,
+          "Hod's Legacy": 1,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Shield Rune": 3,
+          "Mass Blessing": 3,
+          "Lights of Revealing Sword": 3,
+          "Holy Might": 3,
+          "Fateshift": 3,
+          "Epic Judgment": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
