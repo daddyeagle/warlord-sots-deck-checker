@@ -50,56 +50,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "April Saga + 1",
-    "warlord": "Shyessa the Weaver",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-04-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Treyik Netheryn": 3,
-          "Treyik": 3,
-          "Blitzer": 3,
-          "Bikram Bullstrength": 3,
-          "Skitterleap": 3,
-          "Oracle of Kavara": 1,
-          "Master Dresden": 3
-        },
-        "startingArmy": {
-          "Shyessa the Weaver": 1,
-          "Graveyard Librarian": 2,
-          "Corpse Crowd": 3
-        }
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Invoke the Storm": 2,
-          "Wither": 3,
-          "Resurrection": 2,
-          "Meet at the Inn!": 3,
-          "Quick Strength": 2,
-          "Wheel of Fate": 3,
-          "Epic Judgment": 3,
-          "Divine Respite": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 4,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Farhaven Guide": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "298580168899821568",
     "discordId": "298580168899821568",
     "discord_username": "direscrub#0",
@@ -303,6 +253,56 @@
           "Fatestring Bow": 2,
           "Ardian Greathawk": 3,
           "Shrapnelball": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "April Saga + 1",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-04-01T04:55:01.364Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Treyik Netheryn": 2,
+          "Field Marshal Malexin": 3,
+          "Treyik": 2,
+          "Blitzer": 3,
+          "Bikram Bullstrength": 3,
+          "Skitterleap": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Invoke the Storm": 2,
+          "Wither": 3,
+          "Resurrection": 2,
+          "Meet at the Inn!": 3,
+          "Quick Strength": 3,
+          "Wheel of Fate": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Farhaven Guide": 2
         },
         "startingArmy": {}
       }
