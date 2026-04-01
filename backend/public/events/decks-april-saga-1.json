@@ -307,5 +307,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "April Saga + 1",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-04-01T15:44:07.741Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Sutek Razorclaw": 3,
+          "Shambling Horror": 3,
+          "Veera and Bones": 3,
+          "Tresven": 3,
+          "Grimfey Prowler": 3,
+          "Ciane": 3
+        },
+        "startingArmy": {
+          "Jigoral": 3,
+          "Graveyard Librarian": 2,
+          "Rone of the Deepbrook": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Pin Down": 3,
+          "Subvert": 3,
+          "Swivel": 2,
+          "Cunning Shot": 3,
+          "Change of Hands": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Teufeltiger's Shroud": 3,
+          "Fatestring Bow": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
