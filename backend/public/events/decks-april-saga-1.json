@@ -356,5 +356,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "April Saga + 1",
+    "warlord": "Mair Haven",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-04-01T21:03:40.019Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Peyton Latham": 3,
+          "Birdsong Druid": 3,
+          "Arika Ketchum": 2,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Oracle of Kavara": 1,
+          "Sister Amanda": 1,
+          "Brightwing": 1,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Pin Down": 3,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Fatestring Bow": 3,
+          "Ardian Greathawk": 3,
+          "Cloudracer": 3,
+          "Angel's Tears": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
