@@ -10,14 +10,6 @@
       "timestamp": "2026-04-01T00:00:00.000Z"
     },
     {
-      "warlord": "Shyessa the Weaver",
-      "username": "225075257822674944",
-      "discordId": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-04-01T00:00:00.000Z"
-    },
-    {
       "warlord": "High Acolyte Hellene",
       "username": "298580168899821568",
       "discordId": "298580168899821568",
@@ -48,6 +40,14 @@
       "discord_username": "fox.and.otter_19171#0",
       "display_name": "fox.n.otter",
       "timestamp": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "warlord": "Shyessa the Weaver",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-04-01T04:55:01.364Z"
     }
   ]
 }
