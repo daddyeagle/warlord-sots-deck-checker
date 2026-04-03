@@ -208,57 +208,6 @@
     }
   },
   {
-    "username": "1388986791079448577",
-    "discordId": "1388986791079448577",
-    "discord_username": "fox.and.otter_19171#0",
-    "event": "April Saga + 1",
-    "warlord": "Mair Haven",
-    "display_name": "fox.n.otter",
-    "timestamp": "2026-04-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Crownland Strategist": 1,
-          "Birdsong Druid": 3,
-          "Sister Amanda": 1,
-          "Peyton Latham": 3,
-          "Graham Heyward": 2,
-          "Oracle of Kavara": 3,
-          "Sanguicorn": 3,
-          "Master Dresden": 3
-        },
-        "startingArmy": {
-          "TFK Brigand": 3,
-          "Crownland Strategist": 2,
-          "Mair Haven": 1
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Pin Down": 3,
-          "Assassin's Strike": 3,
-          "Swivel": 3,
-          "Rapid Dash": 1,
-          "Crypt Wine": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 3,
-          "Fatestring Bow": 2,
-          "Ardian Greathawk": 3,
-          "Shrapnelball": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "225075257822674944",
     "discordId": "225075257822674944",
     "discord_username": "oeagle#0",
@@ -409,6 +358,60 @@
           "Nehil": 1,
           "Swampbook": 1,
           "Bloodsteed": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "April Saga + 1",
+    "warlord": "Memoriam",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-04-03T22:53:20.840Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Destruction": 3,
+          "Frenzy": 3,
+          "Hazahk of Shadow": 1,
+          "Beacon": 3,
+          "Anvil": 2,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Memoriam": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Rockarm": 3,
+          "Ardian Greathawk": 2,
+          "Steelforge Regalia": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Noble Sacrifice": 3,
+          "Sacrifice": 2,
+          "Courage from Faith": 2,
+          "Divine Respite": 3,
+          "Kor's Patience": 2,
+          "Final Farewell": 1,
+          "Fateshift": 1,
+          "Meet at the Inn!": 1
         },
         "startingArmy": {}
       }
