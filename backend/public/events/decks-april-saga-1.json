@@ -309,55 +309,6 @@
     }
   },
   {
-    "username": "289532101194153985",
-    "discordId": "289532101194153985",
-    "discord_username": "rayneblythewood#0",
-    "event": "April Saga + 1",
-    "warlord": "Rone of the Deepbrook",
-    "display_name": "Rayne Blythewood",
-    "timestamp": "2026-04-01T15:44:07.741Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Graveyard Librarian": 1,
-          "Sutek Razorclaw": 3,
-          "Shambling Horror": 3,
-          "Veera and Bones": 3,
-          "Tresven": 3,
-          "Grimfey Prowler": 3,
-          "Ciane": 3
-        },
-        "startingArmy": {
-          "Jigoral": 3,
-          "Graveyard Librarian": 2,
-          "Rone of the Deepbrook": 1
-        }
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Pin Down": 3,
-          "Subvert": 3,
-          "Swivel": 2,
-          "Cunning Shot": 3,
-          "Change of Hands": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 11,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Cloudracer": 3,
-          "Teufeltiger's Shroud": 3,
-          "Fatestring Bow": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "686402688815988769",
     "discordId": "686402688815988769",
     "discord_username": "cathelisourking#0",
@@ -405,6 +356,59 @@
           "Cloudracer": 3,
           "Angel's Tears": 1,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "April Saga + 1",
+    "warlord": "Lord Barrow",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-04-03T22:33:50.839Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Skitterleap": 3,
+          "Lord's Assailant": 3,
+          "Goldengrove Mage": 3,
+          "Veera and Bones": 3,
+          "Tresven": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Lord Barrow": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Lightning Blast": 2,
+          "Jump": 2,
+          "From Dust to Dust": 3,
+          "Darkflame Bolts": 3,
+          "Grave Exchange": 1,
+          "Shatter": 3,
+          "Blast": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 1,
+          "Ardian Greathawk": 1,
+          "Nehil": 1,
+          "Swampbook": 1,
+          "Bloodsteed": 3
         },
         "startingArmy": {}
       }
