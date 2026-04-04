@@ -1,55 +1,5 @@
 [
   {
-    "username": "151512634573717504",
-    "discordId": "151512634573717504",
-    "discord_username": "chrisvac#0",
-    "event": "April Saga + 1",
-    "warlord": "Shyessa the Weaver",
-    "display_name": "ChrisVac",
-    "timestamp": "2026-04-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Master Dresden": 3,
-          "Arva of Reclusa": 3,
-          "Blitzer": 1,
-          "Oracle of Kavara": 3,
-          "Skitterleap": 3,
-          "Treyik": 3,
-          "Veera and Bones": 3
-        },
-        "startingArmy": {
-          "Corpse Crowd": 3,
-          "Graveyard Librarian": 1,
-          "Shyessa the Weaver": 1,
-          "Yanthorine": 1
-        }
-      },
-      "Action": {
-        "count": 24,
-        "mainDeck": {
-          "Curse of Greed": 3,
-          "Divine Respite": 3,
-          "Epic Judgment": 3,
-          "Exhaustion": 3,
-          "Fateshift": 3,
-          "Final Blessing": 3,
-          "Midnight Madness": 3,
-          "Wither": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 1,
-        "mainDeck": {
-          "Hod's Legacy": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "298580168899821568",
     "discordId": "298580168899821568",
     "discord_username": "direscrub#0",
@@ -412,6 +362,58 @@
           "Final Farewell": 1,
           "Fateshift": 1,
           "Meet at the Inn!": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "151512634573717504",
+    "discordId": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "April Saga + 1",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-04-04T02:21:14.045Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 2,
+          "Sutek Razorclaw": 2,
+          "Brinewater Croc": 3,
+          "Dwarf-Eater": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Sta'ash": 3
+        },
+        "startingArmy": {
+          "Shambling Horror": 1,
+          "Sutek Razorclaw": 1,
+          "Sutek Slimefang": 3,
+          "Z'adok, Prey Herder": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Bloodsteed": 2,
+          "Sutek Shank": 2,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Exhaustion": 3,
+          "Cunning Shot": 2,
+          "Glaciate": 3,
+          "Kor's Patience": 2,
+          "Sneak Attack": 3,
+          "Viscous Goo": 3,
+          "Wither": 3
         },
         "startingArmy": {}
       }
