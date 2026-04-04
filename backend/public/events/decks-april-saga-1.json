@@ -418,5 +418,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "344312955292090379",
+    "discordId": "344312955292090379",
+    "discord_username": "jeffscifert#0",
+    "event": "April Saga + 1",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "Jeff Scifert",
+    "timestamp": "2026-04-04T20:40:04.599Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Trogid": 2,
+          "Sutek Slimefang": 1,
+          "Sutek Razorclaw": 1,
+          "Swiftcloud": 1,
+          "Master Dresden": 3,
+          "Starbinder": 3,
+          "Mephit": 3,
+          "Hinterlands Griffon": 3
+        },
+        "startingArmy": {
+          "Trogid": 1,
+          "Sutek Slimefang": 2,
+          "Sutek Razorclaw": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Swift": 3,
+          "Rapid Dash": 3,
+          "Pounce": 3,
+          "Epic Betrayal": 3,
+          "Dupe": 3,
+          "Charm Person": 3,
+          "Arcane Approach": 3,
+          "Change of Hands": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Premonition Pendant": 3,
+          "Merrick Regalia": 1,
+          "Wraithstalker": 3,
+          "Cutlass": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
