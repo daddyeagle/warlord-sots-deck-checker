@@ -2,14 +2,6 @@
   "eventName": "April Saga + 1",
   "submissions": [
     {
-      "warlord": "Shyessa the Weaver",
-      "username": "151512634573717504",
-      "discordId": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-04-01T00:00:00.000Z"
-    },
-    {
       "warlord": "High Acolyte Hellene",
       "username": "298580168899821568",
       "discordId": "298580168899821568",
@@ -64,6 +56,14 @@
       "discord_username": "fox.and.otter_19171#0",
       "display_name": "fox.n.otter",
       "timestamp": "2026-04-03T22:53:20.840Z"
+    },
+    {
+      "warlord": "Z'adok, Prey Herder",
+      "username": "151512634573717504",
+      "discordId": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-04-04T02:21:14.045Z"
     }
   ]
 }
