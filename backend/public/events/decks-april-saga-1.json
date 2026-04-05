@@ -264,60 +264,6 @@
     }
   },
   {
-    "username": "1388986791079448577",
-    "discordId": "1388986791079448577",
-    "discord_username": "fox.and.otter_19171#0",
-    "event": "April Saga + 1",
-    "warlord": "Memoriam",
-    "display_name": "fox.n.otter",
-    "timestamp": "2026-04-03T22:53:20.840Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Destruction": 3,
-          "Frenzy": 3,
-          "Hazahk of Shadow": 1,
-          "Beacon": 3,
-          "Anvil": 2,
-          "Blitzer": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 3
-        },
-        "startingArmy": {
-          "Memoriam": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Rockarm": 3,
-          "Ardian Greathawk": 2,
-          "Steelforge Regalia": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Noble Sacrifice": 3,
-          "Sacrifice": 2,
-          "Courage from Faith": 2,
-          "Divine Respite": 3,
-          "Kor's Patience": 2,
-          "Final Farewell": 1,
-          "Fateshift": 1,
-          "Meet at the Inn!": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "344312955292090379",
     "discordId": "344312955292090379",
     "discord_username": "jeffscifert#0",
@@ -518,6 +464,58 @@
           "Unsummon": 3,
           "Fireball": 3,
           "Heaven's Wrath": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "April Saga + 1",
+    "warlord": "Memoriam",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-04-05T22:46:35.333Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Destruction": 3,
+          "Frenzy": 3,
+          "Hazahk of Shadow": 1,
+          "Beacon": 3,
+          "Anvil": 2,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Memoriam": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Rockarm": 1,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Final Blessing": 3,
+          "Epic Judgment": 3,
+          "Noble Sacrifice": 3,
+          "Sacrifice": 2,
+          "Courage from Faith": 1,
+          "Divine Respite": 3,
+          "Kor's Patience": 3
         },
         "startingArmy": {}
       }
