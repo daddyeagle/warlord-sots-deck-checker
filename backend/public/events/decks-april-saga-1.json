@@ -368,58 +368,6 @@
     }
   },
   {
-    "username": "151512634573717504",
-    "discordId": "151512634573717504",
-    "discord_username": "chrisvac#0",
-    "event": "April Saga + 1",
-    "warlord": "Z'adok, Prey Herder",
-    "display_name": "ChrisVac",
-    "timestamp": "2026-04-04T02:21:14.045Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Shambling Horror": 2,
-          "Sutek Razorclaw": 2,
-          "Brinewater Croc": 3,
-          "Dwarf-Eater": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 3,
-          "Sta'ash": 3
-        },
-        "startingArmy": {
-          "Shambling Horror": 1,
-          "Sutek Razorclaw": 1,
-          "Sutek Slimefang": 3,
-          "Z'adok, Prey Herder": 1
-        }
-      },
-      "Item": {
-        "count": 6,
-        "mainDeck": {
-          "Ardian Greathawk": 1,
-          "Bloodsteed": 2,
-          "Sutek Shank": 2,
-          "Unicorn of Thun": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Exhaustion": 3,
-          "Cunning Shot": 2,
-          "Glaciate": 3,
-          "Kor's Patience": 2,
-          "Sneak Attack": 3,
-          "Viscous Goo": 3,
-          "Wither": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "344312955292090379",
     "discordId": "344312955292090379",
     "discord_username": "jeffscifert#0",
@@ -468,6 +416,58 @@
           "Merrick Regalia": 1,
           "Wraithstalker": 3,
           "Cutlass": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "151512634573717504",
+    "discordId": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "April Saga + 1",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-04-05T01:32:37.309Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 2,
+          "Sutek Razorclaw": 2,
+          "Brinewater Croc": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Sta'ash": 3,
+          "Veteran Bowman": 3
+        },
+        "startingArmy": {
+          "Shambling Horror": 1,
+          "Sutek Razorclaw": 1,
+          "Sutek Slimefang": 3,
+          "Z'adok, Prey Herder": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Bloodsteed": 2,
+          "Gapfinder": 2,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Cunning Shot": 2,
+          "Exhaustion": 3,
+          "Flamelance": 3,
+          "Kor's Patience": 2,
+          "Sneak Attack": 3,
+          "Viscous Goo": 3,
+          "Wither": 3
         },
         "startingArmy": {}
       }
