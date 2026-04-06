@@ -520,5 +520,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "April Saga + 1",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-04-06T02:19:49.786Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Trogid": 1,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Hinterlands Griffon": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 1,
+          "Starbinder": 3,
+          "Veteran Bowman": 3
+        },
+        "startingArmy": {
+          "Brine Fiend": 2,
+          "Trogid": 1,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Assassination": 3,
+          "Dupe": 3,
+          "Epic Betrayal": 1,
+          "Lights of Revealing Sword": 2,
+          "Rapid Dash": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 3,
+          "Gapfinder": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
