@@ -573,5 +573,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "343539410978996225",
+    "discordId": "343539410978996225",
+    "discord_username": "combs6028#0",
+    "event": "April Saga + 1",
+    "warlord": "Commander Retsov",
+    "display_name": "Combs",
+    "timestamp": "2026-04-06T03:43:56.705Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Darkwatcher": 3,
+          "Brightwing": 2,
+          "Kingslayer": 2,
+          "Swiftcloud": 2,
+          "Dreadfang": 1,
+          "Ashveil": 1,
+          "Rica O'Shea": 3,
+          "Master Dresden": 2,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Ardian Greathawk": 3,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Rockarm": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3,
+          "Dissolve": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
