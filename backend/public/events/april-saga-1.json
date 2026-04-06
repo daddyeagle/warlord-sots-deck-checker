@@ -42,14 +42,6 @@
       "timestamp": "2026-04-03T22:33:50.839Z"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "344312955292090379",
-      "discordId": "344312955292090379",
-      "discord_username": "jeffscifert#0",
-      "display_name": "Jeff Scifert",
-      "timestamp": "2026-04-04T20:40:04.599Z"
-    },
-    {
       "warlord": "Z'adok, Prey Herder",
       "username": "151512634573717504",
       "discordId": "151512634573717504",
@@ -96,6 +88,14 @@
       "discord_username": "combs6028#0",
       "display_name": "Combs",
       "timestamp": "2026-04-06T03:43:56.705Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "344312955292090379",
+      "discordId": "344312955292090379",
+      "discord_username": "jeffscifert#0",
+      "display_name": "Jeff Scifert",
+      "timestamp": "2026-04-06T15:48:56.479Z"
     }
   ]
 }
