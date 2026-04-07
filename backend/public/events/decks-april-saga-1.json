@@ -786,5 +786,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546202017714929664",
+    "discordId": "546202017714929664",
+    "discord_username": "newkevlar#0",
+    "event": "April Saga + 1",
+    "warlord": "Mair Haven",
+    "display_name": "Mazzaroth",
+    "timestamp": "2026-04-07T21:07:38.688Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Brine Fiend": 3,
+          "Birdsong Druid": 3,
+          "Graham Heyward": 2,
+          "Huggins": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Nightfire Manacles": 2,
+          "Fatestring Bow": 3,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 2,
+          "Storm Shard": 1,
+          "Shrapnelball": 3,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Crypt Wine": 3,
+          "Pin Down": 2,
+          "Assassin's Strike": 3,
+          "Assassin's Arrow": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
