@@ -735,5 +735,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "336933692427730946",
+    "discordId": "336933692427730946",
+    "discord_username": "pedrosmurf#0",
+    "event": "April Saga + 1",
+    "warlord": "Memoriam",
+    "display_name": "Pedrosmurf",
+    "timestamp": "2026-04-07T16:10:30.769Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Beacon": 3,
+          "Anvil": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Salvage": 3,
+          "Chovan Voidcaller": 2,
+          "Darkwatcher": 2
+        },
+        "startingArmy": {
+          "Memoriam": 1,
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Hod's Legacy": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Curse of Greed": 3,
+          "Divine Respite": 3,
+          "Epic Judgment": 2,
+          "Final Blessing": 3,
+          "Invoke the Storm": 3,
+          "Avatar of Kor": 3,
+          "Meet at the Inn!": 3,
+          "Epic Donnybrook": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
