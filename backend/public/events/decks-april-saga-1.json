@@ -625,5 +625,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "April Saga + 1",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-04-07T00:57:10.731Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Kzarrik": 2,
+          "Alaya": 1,
+          "Thunic Yeti": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "Kzarrik": 1,
+          "Bear Legion Recruit": 3,
+          "'Mad' Pat Carrik": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 2,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Prime Positioning": 3,
+          "Press the Attack": 1,
+          "Noble Sacrifice": 2,
+          "Midnight Madness": 2,
+          "Crush": 2,
+          "Arcane Approach": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
