@@ -106,58 +106,6 @@
     }
   },
   {
-    "username": "106211008812437504",
-    "discordId": "106211008812437504",
-    "discord_username": "oremm#0",
-    "event": "April Saga + 1",
-    "warlord": "Shyessa the Weaver",
-    "display_name": "Oremm",
-    "timestamp": "2026-04-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Treyik": 3,
-          "Oracle of Kavara": 2,
-          "Arva of Reclusa": 3,
-          "Blitzer": 1,
-          "Master Dresden": 3,
-          "Skitterleap": 3,
-          "Thunic Yeti": 2,
-          "Treyik Netheryn": 2
-        },
-        "startingArmy": {
-          "Corpse Crowd": 3,
-          "Graveyard Librarian": 2,
-          "Shyessa the Weaver": 1
-        }
-      },
-      "Action": {
-        "count": 20,
-        "mainDeck": {
-          "Athanaes Falls": 1,
-          "Meet at the Inn!": 3,
-          "Sacrifice": 3,
-          "Arcane Approach": 3,
-          "Change of Hands": 2,
-          "Wither": 3,
-          "Curse of Greed": 3,
-          "Epic Judgment": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 5,
-        "mainDeck": {
-          "Annales Deverenium": 2,
-          "Farhaven Guide": 2,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "686402688815988769",
     "discordId": "686402688815988769",
     "discord_username": "cathelisourking#0",
@@ -1264,6 +1212,62 @@
           "Crimson Diadem": 1,
           "Sunseeker's Goggles": 1,
           "Cloak of Brilliance": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "April Saga + 1",
+    "warlord": "Anacaona",
+    "display_name": "Oremm",
+    "timestamp": "2026-04-08T20:50:50.555Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Tyren Ruskin": 1,
+          "Shambling Horror": 1,
+          "Oracle of Kavara": 2,
+          "Blitzer": 2,
+          "Master Dresden": 3,
+          "Recruiter of Misear": 2,
+          "Ashveil": 1,
+          "Brightwing": 1,
+          "Dreadfang": 2,
+          "Kingslayer": 1,
+          "Swiftcloud": 2,
+          "Blackwind": 1
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 1,
+          "Shambling Horror": 1,
+          "Anacaona": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Acts of Faith": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Shatter": 2,
+          "Revitalizing Roots": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Rockarm": 1,
+          "Ardian Greathawk": 2,
+          "Cyldragen's Tome": 3,
+          "Luthlarius Regalia": 2
         },
         "startingArmy": {}
       }
