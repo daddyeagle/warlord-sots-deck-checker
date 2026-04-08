@@ -1053,5 +1053,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "April Saga + 1",
+    "warlord": "Archivist Myrina",
+    "display_name": "Hosh",
+    "timestamp": "2026-04-08T05:02:23.196Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Ghed Bane": 3,
+          "Oracle of Kavara": 2,
+          "Kingslayer": 1,
+          "Sister Kiren": 3,
+          "Envoy Soraya": 3,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Archivist Myrina": 1,
+          "Ambitious Squire": 3,
+          "Skyborne Initiate": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Well Supplied": 2,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Breastplate of Power": 1,
+          "Steelforge Regalia": 2,
+          "Blade of Antiquity": 3,
+          "Ardian Greathawk": 3,
+          "Griffon of Andover": 2,
+          "Vanguard's Presence": 1,
+          "Myerdeth Mare": 2,
+          "Deverenus' Axe": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
