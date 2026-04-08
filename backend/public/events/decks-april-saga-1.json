@@ -837,5 +837,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "April Saga + 1",
+    "warlord": "Lord Belasco",
+    "display_name": "Gunn",
+    "timestamp": "2026-04-08T00:36:02.369Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Sister Kiren": 3,
+          "Master Dresden": 3,
+          "Envoy Soraya": 3,
+          "Kingslayer": 1
+        },
+        "startingArmy": {
+          "Lord Belasco": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 1,
+          "Bruntor's Helm": 1,
+          "Cloak of Brilliance": 1,
+          "Cloak of Flight": 1,
+          "Bloodsteed": 3,
+          "Spellblocker": 1,
+          "Havat-lahn Stance": 1,
+          "Rockarm": 1,
+          "Storm Shard": 1,
+          "Strongarm Stout": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3,
+          "Meet at the Inn!": 3,
+          "Shatter": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
