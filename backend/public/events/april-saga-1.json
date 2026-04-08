@@ -178,14 +178,6 @@
       "timestamp": "2026-04-08T19:58:21.748Z"
     },
     {
-      "warlord": "Anacaona",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-04-08T20:50:50.555Z"
-    },
-    {
       "warlord": "Memoriam",
       "username": "601032639452807178",
       "discordId": "601032639452807178",
@@ -200,6 +192,14 @@
       "discord_username": "aaron1002#0",
       "display_name": "A-A-ron",
       "timestamp": "2026-04-08T22:19:03.165Z"
+    },
+    {
+      "warlord": "Anacaona",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-04-08T22:57:09.011Z"
     }
   ]
 }
