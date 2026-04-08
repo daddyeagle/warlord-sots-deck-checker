@@ -1163,5 +1163,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "185396911891546112",
+    "discordId": "185396911891546112",
+    "discord_username": "ursine#0",
+    "event": "April Saga + 1",
+    "warlord": "Commander Retsov",
+    "display_name": "Ursine",
+    "timestamp": "2026-04-08T19:01:25.625Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Dreadfang": 1,
+          "Oracle of Kavara": 2,
+          "Blitzer": 2,
+          "Master Dresden": 3,
+          "Swiftcloud": 1,
+          "Thunic Yeti": 2,
+          "Flamefall": 1,
+          "Brightwing": 2,
+          "Ashveil": 1,
+          "Darkwatcher": 2,
+          "Kingslayer": 2
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 2
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 3,
+          "Steelforge Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Grave Exchange": 2,
+          "Bolt of Unrest": 3,
+          "Darkflame Bolts": 3,
+          "Invoke the Storm": 2,
+          "Magic Missiles": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
