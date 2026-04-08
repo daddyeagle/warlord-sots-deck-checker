@@ -1323,5 +1323,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "April Saga + 1",
+    "warlord": "Mair Haven",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-04-08T23:25:43.041Z",
+    "cardList": {
+      "Character": {
+        "count": 18,
+        "mainDeck": {
+          "Arika Ketchum": 2,
+          "Birdsong Druid": 3,
+          "Graham Heyward": 2,
+          "Huggins": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 2,
+          "Fatestring Bow": 2,
+          "Shrapnelball": 2,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Cunning Shot": 3,
+          "Hunt From Above": 2,
+          "Pin Down": 3,
+          "Rapid Shot": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
