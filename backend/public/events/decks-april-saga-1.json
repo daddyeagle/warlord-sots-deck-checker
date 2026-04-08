@@ -1215,5 +1215,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discordId": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "April Saga + 1",
+    "warlord": "Grand Inventor Otto",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-04-08T19:58:21.748Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Beacon": 3,
+          "Thunic Yeti": 3,
+          "Master Dresden": 3,
+          "Gadgeteer Bilder": 3,
+          "Darkwatcher": 2,
+          "Oracle of Kavara": 2,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Shadow Clan Slayer": 2,
+          "Grand Inventor Otto": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Glaciate": 3,
+          "Epic Evocation": 3,
+          "Disperse": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Death's Call": 3,
+          "Ardian Greathawk": 3,
+          "Unicorn of Thun": 3,
+          "Cyldragen's Tome": 2,
+          "Crimson Diadem": 1,
+          "Sunseeker's Goggles": 1,
+          "Cloak of Brilliance": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
