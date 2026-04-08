@@ -1165,62 +1165,6 @@
     }
   },
   {
-    "username": "106211008812437504",
-    "discordId": "106211008812437504",
-    "discord_username": "oremm#0",
-    "event": "April Saga + 1",
-    "warlord": "Anacaona",
-    "display_name": "Oremm",
-    "timestamp": "2026-04-08T20:50:50.555Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Tyren Ruskin": 1,
-          "Shambling Horror": 1,
-          "Oracle of Kavara": 2,
-          "Blitzer": 2,
-          "Master Dresden": 3,
-          "Recruiter of Misear": 2,
-          "Ashveil": 1,
-          "Brightwing": 1,
-          "Dreadfang": 2,
-          "Kingslayer": 1,
-          "Swiftcloud": 2,
-          "Blackwind": 1
-        },
-        "startingArmy": {
-          "Brine Fiend": 3,
-          "Tyren Ruskin": 1,
-          "Shambling Horror": 1,
-          "Anacaona": 1
-        }
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Acts of Faith": 3,
-          "Sacrifice": 3,
-          "Final Blessing": 3,
-          "Shatter": 2,
-          "Revitalizing Roots": 3,
-          "Divine Respite": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Rockarm": 1,
-          "Ardian Greathawk": 2,
-          "Cyldragen's Tome": 3,
-          "Luthlarius Regalia": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "601032639452807178",
     "discordId": "601032639452807178",
     "discord_username": "yotakafish#0",
@@ -1319,6 +1263,62 @@
           "Revenger": 3,
           "Storm Shard": 1,
           "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "April Saga + 1",
+    "warlord": "Anacaona",
+    "display_name": "Oremm",
+    "timestamp": "2026-04-08T22:57:09.011Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Tyren Ruskin": 1,
+          "Shambling Horror": 1,
+          "Oracle of Kavara": 2,
+          "Blitzer": 2,
+          "Master Dresden": 3,
+          "Recruiter of Misear": 2,
+          "Ashveil": 1,
+          "Brightwing": 1,
+          "Dreadfang": 2,
+          "Kingslayer": 1,
+          "Swiftcloud": 2,
+          "Blackwind": 1
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 1,
+          "Shambling Horror": 1,
+          "Anacaona": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Acts of Faith": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Shatter": 2,
+          "Revitalizing Roots": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cyldragen's Tome": 3,
+          "Hod's Legacy": 1,
+          "Luthlarius Regalia": 2
         },
         "startingArmy": {}
       }
