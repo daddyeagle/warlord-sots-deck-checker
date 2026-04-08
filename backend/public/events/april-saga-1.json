@@ -154,20 +154,20 @@
       "timestamp": "2026-04-08T03:22:46.840Z"
     },
     {
-      "warlord": "Vactus, Spirit's Champion",
-      "username": "609237331320373249",
-      "discordId": "609237331320373249",
-      "discord_username": "mynameis_kofax#0",
-      "display_name": "Kofax",
-      "timestamp": "2026-04-08T04:10:43.298Z"
-    },
-    {
       "warlord": "Archivist Myrina",
       "username": "178257746494357514",
       "discordId": "178257746494357514",
       "discord_username": "hosh5753#0",
       "display_name": "Hosh",
       "timestamp": "2026-04-08T05:02:23.196Z"
+    },
+    {
+      "warlord": "Vactus, Spirit's Champion",
+      "username": "609237331320373249",
+      "discordId": "609237331320373249",
+      "discord_username": "mynameis_kofax#0",
+      "display_name": "Kofax",
+      "timestamp": "2026-04-08T18:38:10.285Z"
     }
   ]
 }
