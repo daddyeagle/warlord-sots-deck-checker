@@ -170,20 +170,20 @@
       "timestamp": "2026-04-08T18:38:10.285Z"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "256218194635784195",
-      "discordId": "256218194635784195",
-      "discord_username": "xskeletalx#0",
-      "display_name": "xSkeletalx",
-      "timestamp": "2026-04-08T18:49:55.745Z"
-    },
-    {
       "warlord": "Commander Retsov",
       "username": "185396911891546112",
       "discordId": "185396911891546112",
       "discord_username": "ursine#0",
       "display_name": "Ursine",
       "timestamp": "2026-04-08T19:01:25.625Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "256218194635784195",
+      "discordId": "256218194635784195",
+      "discord_username": "xskeletalx#0",
+      "display_name": "xSkeletalx",
+      "timestamp": "2026-04-08T19:06:33.375Z"
     }
   ]
 }
