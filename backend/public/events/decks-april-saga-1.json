@@ -998,5 +998,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "April Saga + 1",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "Kofax",
+    "timestamp": "2026-04-08T04:10:43.298Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Doo'run": 3,
+          "Master Dresden": 1,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 1,
+          "Shambling Horror": 3,
+          "Starbinder": 2,
+          "The Mighty Mugg": 1
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Greenflower Warden": 2,
+          "Vactus, Spirit's Champion": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Crush": 2,
+          "Flamelance": 2,
+          "Lights of Revealing Sword": 2,
+          "Noble Sacrifice": 2,
+          "Obliterate": 3,
+          "Shadow Bolts": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bardiche": 2,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 2,
+          "Griffon of Andover": 2,
+          "Havat-lahn Stance": 1,
+          "Rockarm": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
