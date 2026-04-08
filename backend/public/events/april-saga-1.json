@@ -18,14 +18,6 @@
       "timestamp": "2026-04-01T00:00:00.000Z"
     },
     {
-      "warlord": "Shyessa the Weaver",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-04-01T00:00:00.000Z"
-    },
-    {
       "warlord": "Mair Haven",
       "username": "686402688815988769",
       "discordId": "686402688815988769",
@@ -192,6 +184,14 @@
       "discord_username": "kamacausey_#0",
       "display_name": "Kamacausey",
       "timestamp": "2026-04-08T19:58:21.748Z"
+    },
+    {
+      "warlord": "Anacaona",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-04-08T20:50:50.555Z"
     }
   ]
 }
