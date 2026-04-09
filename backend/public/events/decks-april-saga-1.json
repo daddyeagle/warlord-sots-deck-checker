@@ -1484,5 +1484,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "April Saga + 1",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "Raclesis",
+    "timestamp": "2026-04-09T00:46:46.671Z",
+    "cardList": {
+      "Character": {
+        "count": 16,
+        "mainDeck": {
+          "Alaya": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2,
+          "Tyren Ruskin": 2
+        },
+        "startingArmy": {
+          "Vactus, Spirit's Champion": 1,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 2,
+          "Joleg": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "A Single Motion": 3,
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 2,
+          "Tide Turner": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Blade of Antiquity": 1,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 1,
+          "Griffon of Andover": 3,
+          "Havat-lahn Stance": 1,
+          "Medical Kit": 1,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
