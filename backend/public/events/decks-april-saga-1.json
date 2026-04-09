@@ -947,62 +947,6 @@
     }
   },
   {
-    "username": "256218194635784195",
-    "discordId": "256218194635784195",
-    "discord_username": "xskeletalx#0",
-    "event": "April Saga + 1",
-    "warlord": "Alrayn Gaunt",
-    "display_name": "xSkeletalx",
-    "timestamp": "2026-04-08T19:06:33.375Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Balian": 2,
-          "Brine Fiend": 1,
-          "Trogid": 2,
-          "Tyren Ruskin": 2,
-          "Oracle of Kavara": 3,
-          "Starbinder": 3,
-          "Tunnel Worm": 3
-        },
-        "startingArmy": {
-          "Alrayn Gaunt": 1,
-          "Balian": 1,
-          "Brine Fiend": 2,
-          "Trogid": 1,
-          "Tyren Ruskin": 1
-        }
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Meet at the Inn!": 3,
-          "Assassin's Strike": 3,
-          "Dupe": 3,
-          "Epic Betrayal": 3,
-          "Hunt From Above": 3,
-          "Rapid Dash": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 21,
-        "mainDeck": {
-          "Strongarm Stout": 3,
-          "Cloudracer": 3,
-          "Cutlass": 3,
-          "Martyr's Hide": 3,
-          "Medical Kit": 2,
-          "Revenger": 3,
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "421136586705600524",
     "discordId": "421136586705600524",
     "discord_username": "kamacausey_#0",
@@ -1639,6 +1583,62 @@
           "Lights of Revealing Sword": 3,
           "Epic Donnybrook": 3,
           "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "256218194635784195",
+    "discordId": "256218194635784195",
+    "discord_username": "xskeletalx#0",
+    "event": "April Saga + 1",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "xSkeletalx",
+    "timestamp": "2026-04-09T14:33:40.602Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Balian": 2,
+          "Brine Fiend": 1,
+          "Trogid": 2,
+          "Tyren Ruskin": 2,
+          "Oracle of Kavara": 3,
+          "Starbinder": 3,
+          "Tunnel Worm": 3
+        },
+        "startingArmy": {
+          "Alrayn Gaunt": 1,
+          "Balian": 1,
+          "Brine Fiend": 2,
+          "Trogid": 1,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Black Steel Dagger": 3,
+          "Strongarm Stout": 3,
+          "Cloudracer": 3,
+          "Cutlass": 3,
+          "Medical Kit": 2,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Assassin's Strike": 3,
+          "Dupe": 3,
+          "Epic Betrayal": 3,
+          "Hunt From Above": 3,
+          "Rapid Dash": 3
         },
         "startingArmy": {}
       }
