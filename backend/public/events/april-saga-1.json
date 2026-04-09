@@ -90,14 +90,6 @@
       "timestamp": "2026-04-07T00:57:10.731Z"
     },
     {
-      "warlord": "Church Enforcer Tancred",
-      "username": "333097080543379457",
-      "discordId": "333097080543379457",
-      "discord_username": "restomagus#0",
-      "display_name": "Restomagus",
-      "timestamp": "2026-04-07T05:42:58.772Z"
-    },
-    {
       "warlord": "Memoriam",
       "username": "336933692427730946",
       "discordId": "336933692427730946",
@@ -224,6 +216,14 @@
       "discord_username": "grahammo#0",
       "display_name": "graham",
       "timestamp": "2026-04-09T00:19:45.988Z"
+    },
+    {
+      "warlord": "Church Enforcer Tancred",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-04-09T00:46:27.717Z"
     }
   ]
 }
