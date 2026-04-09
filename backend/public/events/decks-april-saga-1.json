@@ -1540,5 +1540,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "April Saga + 1",
+    "warlord": "Archivist Myrina",
+    "display_name": "djYinYangMan2112",
+    "timestamp": "2026-04-09T01:27:35.886Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Bikram Bullstrength": 2,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 1,
+          "Kingslayer": 1,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Archivist Myrina": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3,
+          "Squire Fendric": 1
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Blade of Antiquity": 3,
+          "Medical Kit": 1,
+          "Storm Shard": 1,
+          "Myerdeth Mare": 1,
+          "Havat-lahn Stance": 2,
+          "Griffon of Andover": 1,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Contest Thy Title": 3,
+          "Crush": 2,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 2,
+          "Leveled!": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
