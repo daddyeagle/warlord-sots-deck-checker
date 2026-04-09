@@ -1429,5 +1429,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discordId": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "April Saga + 1",
+    "warlord": "Librarian Shastra",
+    "display_name": "graham",
+    "timestamp": "2026-04-09T00:19:45.988Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Swiftcloud": 1,
+          "Master Dresden": 3,
+          "Lady Estelle": 3,
+          "Kingslayer": 1,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3,
+          "Dreadfang": 1,
+          "Blitzer": 1,
+          "Archivist Augustin": 3
+        },
+        "startingArmy": {
+          "Librarian Shastra": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Disperse": 2,
+          "Meet at the Inn!": 3,
+          "Grave Exchange": 1,
+          "Glimmer": 2,
+          "Glaciate": 3,
+          "Epic Evocation": 3,
+          "Boil Blood": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Well of Screams": 1,
+          "Storm Shard": 1,
+          "Crimson Diadem": 2,
+          "Bloodsteed": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
