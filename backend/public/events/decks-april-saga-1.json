@@ -576,62 +576,6 @@
     }
   },
   {
-    "username": "333097080543379457",
-    "discordId": "333097080543379457",
-    "discord_username": "restomagus#0",
-    "event": "April Saga + 1",
-    "warlord": "Church Enforcer Tancred",
-    "display_name": "Restomagus",
-    "timestamp": "2026-04-07T05:42:58.772Z",
-    "cardList": {
-      "Character": {
-        "count": 18,
-        "mainDeck": {
-          "Blitzer": 1,
-          "Duke Richter": 3,
-          "Ghed Bane": 2,
-          "Ghed Daucet": 2,
-          "Sister Kiren": 3,
-          "Taumar the Protector": 1
-        },
-        "startingArmy": {
-          "Ambitious Squire": 3,
-          "Church Enforcer Tancred": 1,
-          "Church Inquisitor": 1,
-          "Squire Fendric": 1
-        }
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 2,
-          "Epic Donnybrook": 2,
-          "Heroic Confrontation": 2,
-          "Leveled!": 3,
-          "Lights of Revealing Sword": 3,
-          "Outmatched": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Breastplate of Power": 1,
-          "Bruntor's Helm": 1,
-          "Deverenus' Axe": 3,
-          "Medical Kit": 1,
-          "Myerdeth Mare": 2,
-          "Rockarm": 2,
-          "Spellblocker": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "336933692427730946",
     "discordId": "336933692427730946",
     "discord_username": "pedrosmurf#0",
@@ -1480,6 +1424,62 @@
           "Crimson Diadem": 2,
           "Bloodsteed": 2,
           "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "April Saga + 1",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Restomagus",
+    "timestamp": "2026-04-09T00:46:27.717Z",
+    "cardList": {
+      "Character": {
+        "count": 18,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 2,
+          "Ghed Daucet": 2,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 1
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Enforcer Tancred": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Epic Donnybrook": 2,
+          "Heroic Confrontation": 2,
+          "Leveled!": 3,
+          "Lights of Revealing Sword": 3,
+          "Outmatched": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 1,
+          "Medical Kit": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 2,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
