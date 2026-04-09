@@ -159,59 +159,6 @@
     }
   },
   {
-    "username": "289532101194153985",
-    "discordId": "289532101194153985",
-    "discord_username": "rayneblythewood#0",
-    "event": "April Saga + 1",
-    "warlord": "Lord Barrow",
-    "display_name": "Rayne Blythewood",
-    "timestamp": "2026-04-03T22:33:50.839Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Graveyard Librarian": 1,
-          "Skitterleap": 3,
-          "Lord's Assailant": 3,
-          "Goldengrove Mage": 3,
-          "Veera and Bones": 3,
-          "Tresven": 3,
-          "Master Dresden": 3
-        },
-        "startingArmy": {
-          "Corpse Crowd": 3,
-          "Graveyard Librarian": 2,
-          "Lord Barrow": 1
-        }
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Lightning Blast": 2,
-          "Jump": 2,
-          "From Dust to Dust": 3,
-          "Darkflame Bolts": 3,
-          "Grave Exchange": 1,
-          "Shatter": 3,
-          "Blast": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Hunting Staff": 1,
-          "Ardian Greathawk": 1,
-          "Nehil": 1,
-          "Swampbook": 1,
-          "Bloodsteed": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "151512634573717504",
     "discordId": "151512634573717504",
     "discord_username": "chrisvac#0",
@@ -1640,6 +1587,58 @@
           "Strongarm Stout": 3,
           "Bruntor's Helm": 3,
           "Bardiche": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "April Saga + 1",
+    "warlord": "Gorthos, Shadow's Axe",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-04-09T01:34:24.343Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Chovan Voidcaller": 2,
+          "Darkwatcher": 2,
+          "Salvage": 1,
+          "Hazahk of Shadow": 3,
+          "Frenzy": 3,
+          "Anvil": 2,
+          "Oracle of Kavara": 2,
+          "Destruction": 3
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 2,
+          "Gorthos, Shadow's Axe": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Steelforge Regalia": 2,
+          "Storm Shard": 1,
+          "Griffon of Andover": 3,
+          "Ardian Greathawk": 1,
+          "Deverenus' Axe": 3,
+          "Strongarm Stout": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3,
+          "Epic Donnybrook": 3,
+          "Divine Respite": 3
         },
         "startingArmy": {}
       }
