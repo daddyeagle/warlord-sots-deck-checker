@@ -146,14 +146,6 @@
       "timestamp": "2026-04-08T19:01:25.625Z"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "256218194635784195",
-      "discordId": "256218194635784195",
-      "discord_username": "xskeletalx#0",
-      "display_name": "xSkeletalx",
-      "timestamp": "2026-04-08T19:06:33.375Z"
-    },
-    {
       "warlord": "Grand Inventor Otto",
       "username": "421136586705600524",
       "discordId": "421136586705600524",
@@ -248,6 +240,14 @@
       "discord_username": "rayneblythewood#0",
       "display_name": "Rayne Blythewood",
       "timestamp": "2026-04-09T01:34:24.343Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "256218194635784195",
+      "discordId": "256218194635784195",
+      "discord_username": "xskeletalx#0",
+      "display_name": "xSkeletalx",
+      "timestamp": "2026-04-09T14:33:40.602Z"
     }
   ]
 }
