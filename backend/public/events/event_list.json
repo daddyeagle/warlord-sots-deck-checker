@@ -1,14 +1,5 @@
 [
   {
-    "eventName": "March Saga (5E)",
-    "ruleset": "Saga",
-    "startDate": "2026-03-01",
-    "endDate": "2026-03-04",
-    "decklistFile": "decks-march-saga-5e-.json",
-    "submissionFile": "march-saga-5e-.json",
-    "hidden": false
-  },
-  {
     "eventName": "April Saga + 1",
     "ruleset": "Saga + 1",
     "startDate": "2026-04-01",
