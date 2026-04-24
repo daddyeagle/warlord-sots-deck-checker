@@ -6,7 +6,7 @@
     "endDate": "2026-04-08",
     "decklistFile": "decks-april-saga-1.json",
     "submissionFile": "april-saga-1.json",
-    "hidden": false
+    "hidden": true
   },
   {
     "eventName": "May Ancients",
