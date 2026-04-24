@@ -1,14 +1,5 @@
 [
   {
-    "eventName": "April Saga + 1",
-    "ruleset": "Saga + 1",
-    "startDate": "2026-04-01",
-    "endDate": "2026-04-08",
-    "decklistFile": "decks-april-saga-1.json",
-    "submissionFile": "april-saga-1.json",
-    "hidden": true
-  },
-  {
     "eventName": "May Ancients",
     "ruleset": "Ancients",
     "startDate": "2026-05-01",
