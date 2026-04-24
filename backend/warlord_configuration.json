@@ -711,9 +711,9 @@
   ],
   "defaultRuleset": "December Ancients+",
   "rulesetOrder": [
+    "Ancients",
     "Saga + 1",
     "default",
-    "Ancients",
     "Saga",
     "Alliance"
   ],
