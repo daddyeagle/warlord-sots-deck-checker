@@ -49,12 +49,14 @@
         "names": [
           "Tzin's Secret"
         ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "sets": [],
         "rarities": []
       },
-      "hidden": false
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "reserved": [],
+      "epic": []
     },
     "Saga": {
       "name": "Saga",
