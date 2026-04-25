@@ -49,12 +49,14 @@
         "names": [
           "Tzin's Secret"
         ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "sets": [],
         "rarities": []
       },
-      "hidden": false
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "reserved": [],
+      "epic": []
     },
     "Saga": {
       "name": "Saga",
@@ -199,37 +201,8 @@
       },
       "hidden": true
     },
-    "December Ancients+": {
-      "name": "December Ancients+",
-      "warlordCount": 1,
-      "saRequiredSlots": [
-        {
-          "level": 1,
-          "count": 3
-        },
-        {
-          "level": 2,
-          "count": 2
-        }
-      ],
-      "maxCopies": 3,
-      "maxEpicCopies": 1,
-      "minTotalDeck": 50,
-      "checkMainDeckFaction": false,
-      "editions": [
-        "Ancients"
-      ],
-      "restricted": {
-        "names": [
-          "Tzin's Secret"
-        ],
-        "sets": [],
-        "rarities": []
-      },
-      "hidden": false
-    },
-    "Test Rules": {
-      "name": "Test Rules",
+    "Saga + 1": {
+      "name": "Saga + 1",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -492,7 +465,16 @@
           "Life",
           "Scion of Kor",
           "Bhaine of Misearis",
-          "Princess Alizeh"
+          "Princess Alizeh",
+          "Glyph of Fate",
+          "Light",
+          "Martyr's Hide",
+          "Yedraw's Tooth",
+          "Cear's Stone",
+          "Reconnaissance",
+          "Temple of Lore",
+          "Loyalty's Reward",
+          "Flame Blade"
         ],
         "sets": [],
         "rarities": []
@@ -728,5 +710,12 @@
     "freelancecavalier"
   ],
   "defaultRuleset": "December Ancients+",
+  "rulesetOrder": [
+    "Ancients",
+    "Saga + 1",
+    "default",
+    "Saga",
+    "Alliance"
+  ],
   "indexSelectorLimit": 10
 }

@@ -289,29 +289,115 @@
         let SA_CHARACTER_EXCEPTIONS = [];
         let FACTION_WILDCARD_NAMES = [];
 
-        // Card data constants: fetch latest available file dynamically
-        // Dynamically resolve the latest card data file from the directory
-        async function getLatestCardDataUrl() {
+        // Card data constants: resolve the newest available hashed card file.
+        async function getLatestCardDataUrl(options = {}) {
             const baseUrl = "https://theaccordlands.com/assets/resources/";
-            try {
-                // Try to fetch directory listing (assume JSON or HTML)
-                const res = await fetch(baseUrl);
-                if (res.ok) {
-                    const text = await res.text();
-                    // Try to find the latest cards.*.json file
-                    const matches = Array.from(text.matchAll(/cards\.(\w+)\.json/g));
-                    if (matches.length > 0) {
-                        // Pick the last match (assuming sorted by hash/timestamp)
-                        const last = matches[matches.length - 1][0];
-                        return baseUrl + last;
+            const forceNoCache = options.forceNoCache === true;
+            const knownCardFiles = [
+                "cards.253921fb.json",
+                "cards.725ee9dd.json"
+            ];
+
+            const extractCardFiles = (text) => {
+                const files = [];
+                if (!text || typeof text !== 'string') return files;
+                const matches = text.match(/cards\.[a-f0-9]{6,}\.json/gi) || [];
+                const seen = new Set();
+                for (const match of matches) {
+                    const file = match.toLowerCase();
+                    if (!seen.has(file)) {
+                        seen.add(file);
+                        files.push(file);
                     }
                 }
-            } catch (e) {
-                // Fallback to known pattern if directory listing fails
+                return files;
+            };
+
+            const fetchText = async (url) => {
+                try {
+                    const target = forceNoCache ? `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}` : url;
+                    const res = await fetch(target, {
+                        cache: forceNoCache ? 'no-store' : 'default',
+                        headers: forceNoCache ? { 'Cache-Control': 'no-cache' } : undefined
+                    });
+                    if (!res.ok) return null;
+                    return await res.text();
+                } catch (_) {
+                    return null;
+                }
+            };
+
+            const inspectCandidate = async (fileName) => {
+                const url = baseUrl + fileName;
+                try {
+                    const head = await fetch(url, {
+                        method: 'HEAD',
+                        cache: 'no-store',
+                        headers: { 'Cache-Control': 'no-cache' }
+                    });
+                    if (head.ok) {
+                        const modified = Date.parse(head.headers.get('last-modified') || '') || 0;
+                        return { url, modified };
+                    }
+                } catch (_) {
+                    // Some hosts block HEAD; fall through to GET validation.
+                }
+
+                try {
+                    const get = await fetch(url, {
+                        cache: 'no-store',
+                        headers: { 'Cache-Control': 'no-cache' }
+                    });
+                    if (!get.ok) return null;
+                    const modified = Date.parse(get.headers.get('last-modified') || '') || 0;
+                    return { url, modified };
+                } catch (_) {
+                    return null;
+                }
+            };
+
+            const candidateSources = [
+                baseUrl,
+                `${baseUrl}index.html`,
+                `${baseUrl}manifest.json`,
+                `${baseUrl}asset-manifest.json`,
+                "https://theaccordlands.com/manifest.json",
+                "https://theaccordlands.com/asset-manifest.json"
+            ];
+
+            const discoveredFiles = [];
+            for (const sourceUrl of candidateSources) {
+                const text = await fetchText(sourceUrl);
+                if (text) {
+                    discoveredFiles.push(...extractCardFiles(text));
+                }
             }
-            // Default fallback: update this if the hash changes to the latest file name
-            // Example: cards.94d85a61.json (update this line when a new file is released)
-            return baseUrl + "cards.725ee9dd.json";
+
+            const orderedCandidates = [];
+            const seenCandidates = new Set();
+            for (const file of [...discoveredFiles, ...knownCardFiles]) {
+                if (!seenCandidates.has(file)) {
+                    seenCandidates.add(file);
+                    orderedCandidates.push(file);
+                }
+            }
+
+            if (orderedCandidates.length > 0) {
+                const inspected = await Promise.all(orderedCandidates.map(inspectCandidate));
+                const valid = inspected
+                    .map((value, index) => value ? { ...value, priority: index } : null)
+                    .filter(Boolean);
+
+                if (valid.length > 0) {
+                    valid.sort((a, b) => {
+                        if (b.modified !== a.modified) return b.modified - a.modified;
+                        return a.priority - b.priority;
+                    });
+                    return valid[0].url;
+                }
+            }
+
+            return baseUrl + knownCardFiles[0];
         }
 
         let CARD_DATA_URL = null;
@@ -349,9 +435,13 @@
             async function fetchLatestCardData(cardFetchOpts) {
                 // Dynamically resolve the latest card data file URL if not already set
                 if (!CARD_DATA_URL) {
-                    CARD_DATA_URL = await getLatestCardDataUrl();
+                    CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
                 }
                 let response = await fetch(CARD_DATA_URL, cardFetchOpts);
+                if (!response.ok) {
+                    CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
+                    response = await fetch(CARD_DATA_URL, cardFetchOpts);
+                }
                 if (!response.ok) throw new Error("Failed to fetch card data file");
                 return await response.json();
             }
