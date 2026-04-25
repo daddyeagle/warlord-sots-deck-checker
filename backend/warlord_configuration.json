@@ -49,12 +49,14 @@
         "names": [
           "Tzin's Secret"
         ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "sets": [],
         "rarities": []
       },
-      "hidden": false
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "reserved": [],
+      "epic": []
     },
     "Saga": {
       "name": "Saga",
@@ -448,5 +450,13 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "December Ancients+",
+  "indexSelectorLimit": 10,
+  "rulesetOrder": [
+    "Ancients",
+    "default",
+    "Saga",
+    "Alliance",
+    "December Ancients+"
+  ]
 }
