@@ -403,6 +403,7 @@
         }
 
         let CARD_DATA_URL = null;
+        const LOCAL_CARDS_URL = getBackendUrl() + "/api/cards";
         const CONFIG_DATA_URL = getBackendUrl() + "/api/config";
         // Use the same event list URL logic as index.html
         const EVENT_LIST_URL = getBackendUrl() + "/events/event_list.json";
@@ -435,7 +436,18 @@
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             async function fetchLatestCardData(cardFetchOpts) {
-                // Dynamically resolve the latest card data file URL if not already set
+                const localUrl = forceNoCache ? `${LOCAL_CARDS_URL}?_=${Date.now()}` : LOCAL_CARDS_URL;
+
+                try {
+                    const localResponse = await fetch(localUrl, cardFetchOpts);
+                    if (localResponse.ok) {
+                        return await localResponse.json();
+                    }
+                } catch (_) {
+                    // Local card endpoint unavailable, fall back to remote source.
+                }
+
+                // Dynamically resolve the latest remote card data file URL as fallback.
                 if (!CARD_DATA_URL) {
                     CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
                 }
