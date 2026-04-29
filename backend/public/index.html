@@ -277,14 +277,16 @@
             const baseUrl = "https://theaccordlands.com/assets/resources/";
             const forceNoCache = options.forceNoCache === true;
             const knownCardFiles = [
+                "cards.e1d32a9e.json",
                 "cards.253921fb.json",
-                "cards.725ee9dd.json"
+                "cards.725ee9dd.json",
+                "cards.json"
             ];
 
             const extractCardFiles = (text) => {
                 const files = [];
                 if (!text || typeof text !== 'string') return files;
-                const matches = text.match(/cards\.[a-f0-9]{6,}\.json/gi) || [];
+                const matches = text.match(/cards(?:\.[a-f0-9]{6,})?\.json/gi) || [];
                 const seen = new Set();
                 for (const match of matches) {
                     const file = match.toLowerCase();

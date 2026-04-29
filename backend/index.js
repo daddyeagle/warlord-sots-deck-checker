@@ -8,7 +8,13 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 
-const CARDS_REMOTE_URL = 'https://theaccordlands.com/assets/resources/cards.json';
+const CARDS_REMOTE_BASE_URL = 'https://theaccordlands.com/assets/resources/';
+const KNOWN_CARD_FILES = [
+  'cards.e1d32a9e.json',
+  'cards.253921fb.json',
+  'cards.725ee9dd.json',
+  'cards.json'
+];
 const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 
 const app = express();
@@ -74,13 +80,108 @@ app.get('/api/all-decks', (req, res) => {
 
   res.json({ events: results });
 });
+const extractCardFiles = (text) => {
+  if (!text || typeof text !== 'string') return [];
+  const matches = text.match(/cards(?:\.[a-f0-9]{6,})?\.json/gi) || [];
+  const unique = new Set();
+  for (const match of matches) unique.add(match.toLowerCase());
+  return [...unique];
+};
+
+async function fetchText(url) {
+  try {
+    const response = await axios.get(url, {
+      timeout: 10000,
+      validateStatus: () => true,
+      headers: { 'Cache-Control': 'no-cache' }
+    });
+    if (response.status < 200 || response.status >= 300) return null;
+    return typeof response.data === 'string' ? response.data : JSON.stringify(response.data);
+  } catch (_) {
+    return null;
+  }
+}
+
+async function inspectCandidate(fileName) {
+  const url = CARDS_REMOTE_BASE_URL + fileName;
+  try {
+    const head = await axios.head(url, {
+      timeout: 10000,
+      validateStatus: () => true,
+      headers: { 'Cache-Control': 'no-cache' }
+    });
+    if (head.status >= 200 && head.status < 300) {
+      const modified = Date.parse(head.headers['last-modified'] || '') || 0;
+      return { url, modified };
+    }
+  } catch (_) {
+    // Some hosts block HEAD; continue with GET validation.
+  }
+
+  try {
+    const get = await axios.get(url, {
+      timeout: 10000,
+      validateStatus: () => true,
+      headers: { 'Cache-Control': 'no-cache' }
+    });
+    if (get.status < 200 || get.status >= 300) return null;
+    const modified = Date.parse(get.headers['last-modified'] || '') || 0;
+    return { url, modified };
+  } catch (_) {
+    return null;
+  }
+}
+
+async function resolveLatestCardDataUrl() {
+  const candidateSources = [
+    CARDS_REMOTE_BASE_URL,
+    `${CARDS_REMOTE_BASE_URL}index.html`,
+    `${CARDS_REMOTE_BASE_URL}manifest.json`,
+    `${CARDS_REMOTE_BASE_URL}asset-manifest.json`,
+    'https://theaccordlands.com/manifest.json',
+    'https://theaccordlands.com/asset-manifest.json'
+  ];
+
+  const discovered = [];
+  for (const sourceUrl of candidateSources) {
+    const text = await fetchText(sourceUrl);
+    if (text) discovered.push(...extractCardFiles(text));
+  }
+
+  const orderedCandidates = [];
+  const seenCandidates = new Set();
+  for (const file of [...discovered, ...KNOWN_CARD_FILES]) {
+    if (seenCandidates.has(file)) continue;
+    seenCandidates.add(file);
+    orderedCandidates.push(file);
+  }
+
+  if (orderedCandidates.length > 0) {
+    const inspected = await Promise.all(orderedCandidates.map(inspectCandidate));
+    const valid = inspected
+      .map((value, index) => value ? { ...value, priority: index } : null)
+      .filter(Boolean);
+
+    if (valid.length > 0) {
+      valid.sort((a, b) => {
+        if (b.modified !== a.modified) return b.modified - a.modified;
+        return a.priority - b.priority;
+      });
+      return valid[0].url;
+    }
+  }
+
+  return CARDS_REMOTE_BASE_URL + KNOWN_CARD_FILES[0];
+}
+
 // Periodically download the latest card database from the remote source
 async function updateCardDatabase() {
   try {
-    const response = await axios.get(CARDS_REMOTE_URL, { timeout: 10000 });
+    const cardsRemoteUrl = await resolveLatestCardDataUrl();
+    const response = await axios.get(cardsRemoteUrl, { timeout: 10000 });
     fs.mkdirSync(path.dirname(CARDS_LOCAL_PATH), { recursive: true });
     fs.writeFileSync(CARDS_LOCAL_PATH, JSON.stringify(response.data, null, 2), 'utf8');
-    console.log('Card database updated from remote source.');
+    console.log(`Card database updated from remote source: ${cardsRemoteUrl}`);
   } catch (err) {
     console.error('Failed to update card database:', err.message);
   }
