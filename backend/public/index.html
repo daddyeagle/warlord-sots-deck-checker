@@ -418,18 +418,7 @@
 
         const loadAppData = async (retries = 3, delay = 1000, forceNoCache = false) => {
             async function fetchLatestCardData(cardFetchOpts) {
-                const localUrl = forceNoCache ? `${LOCAL_CARDS_URL}?_=${Date.now()}` : LOCAL_CARDS_URL;
-
-                try {
-                    const localResponse = await fetch(localUrl, cardFetchOpts);
-                    if (localResponse.ok) {
-                        return await localResponse.json();
-                    }
-                } catch (_) {
-                    // Local card endpoint unavailable, fall back to remote source.
-                }
-
-                // Dynamically resolve the latest remote card data file URL as fallback.
+                // Dynamically resolve the latest remote card data file URL first.
                 if (!CARD_DATA_URL) {
                     CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
                 }
@@ -438,8 +427,15 @@
                     CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
                     response = await fetch(CARD_DATA_URL, cardFetchOpts);
                 }
-                if (!response.ok) throw new Error("Failed to fetch card data file");
-                return await response.json();
+                if (response.ok) {
+                    return await response.json();
+                }
+
+                // Fallback to backend-served local card data.
+                const localUrl = forceNoCache ? `${LOCAL_CARDS_URL}?_=${Date.now()}` : LOCAL_CARDS_URL;
+                const localResponse = await fetch(localUrl, cardFetchOpts);
+                if (!localResponse.ok) throw new Error("Failed to fetch card data file");
+                return await localResponse.json();
             }
 
             for (let i = 0; i < retries; i++) {
