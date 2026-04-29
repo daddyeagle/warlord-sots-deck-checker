@@ -107,5 +107,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "May Ancients",
+    "warlord": "Jautya Syne",
+    "display_name": "Kofax",
+    "timestamp": "2026-05-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "FirRal": 3,
+          "Koratcghuk": 3,
+          "Kovit Treeraiser": 3,
+          "Nemtok": 3,
+          "Sethusk": 2,
+          "The Retiarius": 3,
+          "Yeg-Igryll's Altar": 1
+        },
+        "startingArmy": {
+          "Sar'ean": 1,
+          "Amoudasi's Wrath": 2,
+          "Gand Wyrian": 1,
+          "Meri-es-anch": 2,
+          "Jautya Syne": 1
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Blade of Antiquity": 2,
+          "Bloodsteed": 2,
+          "Spiritrender": 1,
+          "Storm Shard": 1,
+          "The King's Lady": 1,
+          "Wand of Negation": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Evoke Crisis": 3,
+          "Exhaustion": 2,
+          "From Dust to Dust": 2,
+          "Great Cleave": 2,
+          "Meet at the Inn!": 3,
+          "Noble Sacrifice": 2,
+          "Veiled Passing": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
