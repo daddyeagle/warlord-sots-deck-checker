@@ -423,12 +423,23 @@
                 if (!CARD_DATA_URL) {
                     CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
                 }
-                let response = await fetch(CARD_DATA_URL, cardFetchOpts);
-                if (!response.ok) {
-                    CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
+                let response = null;
+                try {
                     response = await fetch(CARD_DATA_URL, cardFetchOpts);
+                } catch (err) {
+                    console.warn("Primary remote card fetch failed, trying refreshed remote URL.", err);
                 }
-                if (response.ok) {
+
+                if (!response || !response.ok) {
+                    CARD_DATA_URL = await getLatestCardDataUrl({ forceNoCache: true });
+                    try {
+                        response = await fetch(CARD_DATA_URL, cardFetchOpts);
+                    } catch (err) {
+                        console.warn("Refreshed remote card fetch failed, falling back to backend card data.", err);
+                    }
+                }
+
+                if (response && response.ok) {
                     return await response.json();
                 }
 
