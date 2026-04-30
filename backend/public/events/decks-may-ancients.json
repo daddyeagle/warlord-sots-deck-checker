@@ -275,5 +275,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "356100504591269900",
+    "discordId": "356100504591269900",
+    "discord_username": "godinho10#0",
+    "event": "May Ancients",
+    "warlord": "Kaimi Fateseeker",
+    "display_name": "Godinho",
+    "timestamp": "2026-05-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Duri Earthwalker": 3,
+          "Justice": 1,
+          "Alloy Gargoyle": 3,
+          "Korin Blackstone": 3,
+          "Mentor": 1,
+          "Denali Sagebound": 3,
+          "Stockpile": 2,
+          "Supply": 1,
+          "Door to the World": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Kaimi Fateseeker": 1,
+          "Will": 1,
+          "Sledge": 1,
+          "Danres": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Blackwaters Steed": 1,
+          "Nightmist Cloak": 1,
+          "Logan's Ring": 2,
+          "Jelial's Bracers": 2,
+          "Tome of Shadows": 2,
+          "Yedraw's Tooth": 1,
+          "Morrigan's Coils": 1,
+          "Wraithstalker": 1,
+          "Portable Hole": 3,
+          "Kor's Banner": 1,
+          "Fortune's Helm": 1,
+          "Symbol of Kerebrus": 1
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 8,
+        "mainDeck": {
+          "Blackthorne's Quarters": 3,
+          "Hall of Legends": 3,
+          "Knights Repose": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
