@@ -162,5 +162,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "247425097370042369",
+    "discordId": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "May Ancients",
+    "warlord": "Berlian the Stout",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-05-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Frenzy": 3,
+          "Mentor": 1,
+          "Toren Yscar": 1,
+          "Supply": 1,
+          "Quicksilver Gargoyle": 3,
+          "Helt Royalwarden": 1,
+          "Destruction": 3,
+          "Grit": 3,
+          "Arika Ketchum": 3
+        },
+        "startingArmy": {
+          "K'evan of the Green": 1,
+          "Danres": 2,
+          "Profit": 1,
+          "Sunforge Smith": 1,
+          "Berlian the Stout": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Sabotage": 2,
+          "Back Alley Tavern": 2,
+          "Meet at the Inn!": 3,
+          "Loyalty's Reward": 3,
+          "By Your Word": 1,
+          "Reckless Abandon": 2,
+          "Vantage Point": 3,
+          "Well Supplied": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Calamity's Steel": 1,
+          "Strongarm Stout": 3,
+          "Nodwick": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
