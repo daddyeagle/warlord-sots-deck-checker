@@ -218,5 +218,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "617965315166437390",
+    "discordId": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "May Ancients",
+    "warlord": "Talib al-Sirr",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-05-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Cardinal Bromin": 3,
+          "Cardinal Scelus": 1,
+          "Corinne Drac": 2,
+          "Davaenus": 1,
+          "Ghed Nuri": 3,
+          "Halo of Secrets": 1,
+          "Mother Deiane": 1,
+          "Sir Serane Myerdeth": 1,
+          "Sister Kiren": 2,
+          "The Sable Knight": 1,
+          "The Temple of Lore": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 2,
+          "Genecourt Initiate": 1,
+          "Justinian": 2,
+          "Talib al-Sirr": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Blade of Dark Tidings": 3,
+          "Giant Bat": 3,
+          "Portable Hole": 3,
+          "Sewer Worm": 2,
+          "Spider Vestments": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Exhaustion": 3,
+          "Fast as the Wind": 3,
+          "Hunting for Sport": 3,
+          "Reconnaissance": 2,
+          "Threaten": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
