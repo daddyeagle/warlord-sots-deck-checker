@@ -443,5 +443,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "May Ancients",
+    "warlord": "Lekar Osud",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-05-03T17:00:54.504Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "Maes": 2,
+          "Kargaz Dythanus": 2,
+          "Corsis": 2,
+          "Avatar of Magic": 2,
+          "Ghost Bog": 2,
+          "Fayed Dythanus": 2,
+          "Skitterleap": 3,
+          "The Lost Bride": 3
+        },
+        "startingArmy": {
+          "Lekar Osud": 1,
+          "Magheline": 1,
+          "Ilvion": 1,
+          "Javvyn": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Extensions": 2,
+          "Conjuration": 2,
+          "Improved Invisibility": 1,
+          "Noble Sacrifice": 2,
+          "Sabotage": 2,
+          "Dead World Curses": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Dark Heart of Kylnion": 2,
+          "Farhaven Guide": 3,
+          "Ring of Blasting": 1,
+          "Wand of Negation": 2,
+          "Mischievous Sprite": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
