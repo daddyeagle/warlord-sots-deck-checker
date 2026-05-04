@@ -336,60 +336,6 @@
     }
   },
   {
-    "username": "1388986791079448577",
-    "discordId": "1388986791079448577",
-    "discord_username": "fox.and.otter_19171#0",
-    "event": "May Ancients",
-    "warlord": "Uriel",
-    "display_name": "fox.n.otter",
-    "timestamp": "2026-05-01T01:53:22.120Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Dreiga": 2,
-          "Oracle of Kavara": 2,
-          "Light": 3,
-          "Squire Orban": 3,
-          "Toren Yscar": 1,
-          "The Temple of Lore": 3,
-          "Heath Stafford": 2
-        },
-        "startingArmy": {
-          "Baqbou Umbala": 1,
-          "Brother Dominy": 1,
-          "Dreiga": 1,
-          "Spencer Latham": 2,
-          "Uriel": 1
-        }
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Bandage": 2,
-          "Veiled Passing": 3,
-          "Meet at the Inn!": 2,
-          "Goodwife's Parry": 3,
-          "Hammer Toss": 3,
-          "Noble Sacrifice": 3,
-          "Epic Donnybrook": 3,
-          "Cry Havoc": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Blue Wyrm's Egg": 2,
-          "Storm Shard": 1,
-          "Healing Potion": 2,
-          "Silverwind": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "151512634573717504",
     "discordId": "151512634573717504",
     "discord_username": "chrisvac#0",
@@ -696,6 +642,63 @@
           "Ring of Blasting": 1,
           "Necklace of Spell Storing": 2,
           "Living History": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "May Ancients",
+    "warlord": "Uriel",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-05-04T21:57:36.181Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Dreiga": 2,
+          "Oracle of Kavara": 2,
+          "Light": 3,
+          "Squire Orban": 3,
+          "Toren Yscar": 1,
+          "Sir Thomas of Celinar": 1,
+          "The Temple of Lore": 3,
+          "Heath Stafford": 2
+        },
+        "startingArmy": {
+          "Baqbou Umbala": 1,
+          "Brother Dominy": 1,
+          "Dreiga": 1,
+          "Spencer Latham": 2,
+          "Uriel": 1
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Exhaustion": 3,
+          "Rough Road": 2,
+          "Bandage": 2,
+          "Veiled Passing": 3,
+          "Goodwife's Parry": 3,
+          "Hammer Toss": 3,
+          "Noble Sacrifice": 2,
+          "Epic Donnybrook": 3,
+          "Cry Havoc": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Blue Wyrm's Egg": 2,
+          "Shadow of Murder": 1,
+          "Ring of Piercing": 1,
+          "Storm Shard": 1,
+          "Silverwind": 3
         },
         "startingArmy": {}
       }
