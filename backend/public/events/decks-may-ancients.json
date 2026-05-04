@@ -646,5 +646,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "May Ancients",
+    "warlord": "Yavlo the Kindled",
+    "display_name": "Raclesis",
+    "timestamp": "2026-05-04T21:52:02.006Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "The Sable Knight": 1,
+          "Sister Kiren": 3,
+          "Sir Geoffrey Drac": 1,
+          "Ramah the Cruel": 3,
+          "Halo of Secrets": 1,
+          "Ghed Daucet": 2,
+          "Duke Richter": 3,
+          "Corinne Drac": 2
+        },
+        "startingArmy": {
+          "Yavlo the Kindled": 1,
+          "Acolyte Dorra": 1,
+          "Kenton Rellion": 1,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Conjuration": 2,
+          "Meteor Swarm": 3,
+          "Incinerate": 3,
+          "Flamelance": 3,
+          "Flame Blade": 3,
+          "Conjure Storm": 3,
+          "Blink": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Ring of Blasting": 1,
+          "Necklace of Spell Storing": 2,
+          "Living History": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
