@@ -498,5 +498,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "209747434635657217",
+    "discordId": "209747434635657217",
+    "discord_username": "woodrow#0",
+    "event": "May Ancients",
+    "warlord": "Tavis Jape",
+    "display_name": "Woodrow",
+    "timestamp": "2026-05-04T03:36:24.488Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Amoudasi's Wrath": 1,
+          "Gnoll Archer": 3,
+          "SS-Slik": 3,
+          "Ogre": 3,
+          "Baraz": 3,
+          "Jackals of Mourn": 3,
+          "Salvation": 2,
+          "Bosun Blacknose": 1
+        },
+        "startingArmy": {
+          "Tavis Jape": 1,
+          "Amoudasi's Wrath": 2,
+          "Stygian Wraith": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Twist of Fate": 3,
+          "Tzin's Attention": 3,
+          "Phoenix Fire": 3,
+          "Blind the Gods": 3,
+          "Mass Blessing": 3,
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3,
+          "Rescue": 1,
+          "Winter Warfare": 1,
+          "Incentives": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
