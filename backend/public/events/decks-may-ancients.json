@@ -765,5 +765,65 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "744645938546475159",
+    "discordId": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "May Ancients",
+    "warlord": "Lord Gahid Rellion",
+    "display_name": "Russel",
+    "timestamp": "2026-05-04T23:19:55.529Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Lady Drac": 2,
+          "Ghed Vengir": 2,
+          "Kingslayer": 1,
+          "Taltos the Hale": 1,
+          "Ghed Invictus": 2,
+          "Duke Richter": 2,
+          "Corinne Drac": 2,
+          "Sir Geoffrey Drac": 1,
+          "Cardinal Scelus": 1,
+          "Mother Deiane": 1,
+          "The Sable Knight": 1,
+          "Halo of Secrets": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 3,
+          "Justinian": 2,
+          "Lord Gahid Rellion": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Loyalty's Reward": 3,
+          "Well Supplied": 2,
+          "Change of Leadership": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Blade of Antiquity": 2,
+          "Deverenus' Axe": 2,
+          "Drac Mail": 2,
+          "Kringle's Armor": 1,
+          "Black Banner": 1,
+          "Uthanak's Ring": 1,
+          "Tome of Champions": 2,
+          "Sir Tython's Shield": 1,
+          "Chariot": 2,
+          "Heavy Charger": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
