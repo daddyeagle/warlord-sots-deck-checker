@@ -550,5 +550,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "673010482755534868",
+    "discordId": "673010482755534868",
+    "discord_username": "drrandolphcarter#0",
+    "event": "May Ancients",
+    "warlord": "Trevor Magson",
+    "display_name": "WesY",
+    "timestamp": "2026-05-04T13:06:08.504Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Oracle of Kavara": 2,
+          "The Temple of Lore": 3,
+          "Nyla Silvertongue": 3,
+          "The Lost Bride": 3,
+          "Toren Yscar": 1,
+          "Archer Tower": 1
+        },
+        "startingArmy": {
+          "Jiyacin Fret": 2,
+          "Beniss Caolwader": 1,
+          "Aida": 1,
+          "Baqbou Umbala": 1,
+          "Trevor Magson": 1
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Precision": 2,
+          "Meet at the Inn!": 3,
+          "Strain the Shot": 3,
+          "Prey on the Hunter": 3,
+          "Veiled Passing": 3,
+          "Lucky Shot": 3,
+          "Swivel": 3,
+          "Crypt Wine": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Lezheer Gem": 2,
+          "Unseen Arrow": 3,
+          "Farglass": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
