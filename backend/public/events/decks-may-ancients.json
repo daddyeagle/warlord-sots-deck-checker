@@ -602,5 +602,49 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "184291506096439296",
+    "discordId": "184291506096439296",
+    "discord_username": "queueteapee#0",
+    "event": "May Ancients",
+    "warlord": "Tavis Jape",
+    "display_name": "QTP",
+    "timestamp": "2026-05-04T20:42:35.928Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "SS-Slik": 3,
+          "Archer Tower": 1,
+          "Amoudasi's Wrath": 3,
+          "Toren Yscar": 1,
+          "Ogre": 3,
+          "R'Veeka": 2,
+          "Rica O'Shea": 3,
+          "Jackals of Mourn": 3
+        },
+        "startingArmy": {
+          "Meri-es-anch": 3,
+          "Cal Blackborne": 2,
+          "Tavis Jape": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Stolen Destiny": 3,
+          "Exhaustion": 3,
+          "Evoke Crisis": 3,
+          "Fiery Bolts": 3,
+          "Incentives": 1,
+          "Flame Waves": 3,
+          "Mass Blessing": 3,
+          "Divine Respite": 3,
+          "Epic Judgment": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
