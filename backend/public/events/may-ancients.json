@@ -106,20 +106,20 @@
       "timestamp": "2026-05-04T21:57:36.181Z"
     },
     {
-      "warlord": "Adarymy",
-      "username": "333097080543379457",
-      "discordId": "333097080543379457",
-      "discord_username": "restomagus#0",
-      "display_name": "Restomagus",
-      "timestamp": "2026-05-04T22:07:30.103Z"
-    },
-    {
       "warlord": "Lord Gahid Rellion",
       "username": "744645938546475159",
       "discordId": "744645938546475159",
       "discord_username": "russel2525#0",
       "display_name": "Russel",
       "timestamp": "2026-05-04T23:19:55.529Z"
+    },
+    {
+      "warlord": "Jodin Drac",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-05-05T05:37:35.062Z"
     }
   ]
 }
