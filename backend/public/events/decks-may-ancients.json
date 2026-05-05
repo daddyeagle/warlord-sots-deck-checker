@@ -1047,5 +1047,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "May Ancients",
+    "warlord": "Master Assassin Cear",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-05-05T20:03:23.245Z",
+    "cardList": {
+      "Character": {
+        "count": 8,
+        "mainDeck": {
+          "The Temple of Lore": 3
+        },
+        "startingArmy": {
+          "Master Assassin Cear": 1,
+          "Esopa": 1,
+          "Kapix the Cursed": 1,
+          "Zachary Blaise": 1,
+          "Wretched Horde": 1
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Symbol of Kerebrus": 1,
+          "Nodwick": 1,
+          "Garrotte": 2,
+          "Amulet of Waking": 2,
+          "Potion of Blurring": 3,
+          "Revenger": 2,
+          "Leopard Claws": 2,
+          "Shadow Cloak": 2,
+          "Alchemy Kit": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Hunting for Sport": 2,
+          "On Silent Wings": 2,
+          "Paying the Price": 3,
+          "Wither": 3,
+          "Misear Diplomacy": 3,
+          "Inheritance": 3,
+          "Epic Betrayal": 3,
+          "Sneak Attack": 3,
+          "Stab": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
