@@ -927,5 +927,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "300324378829258753",
+    "discordId": "300324378829258753",
+    "discord_username": "illuvatar85#0",
+    "event": "May Ancients",
+    "warlord": "Garn Hearthstone",
+    "display_name": "ILLUVATAR85",
+    "timestamp": "2026-05-05T13:39:27.750Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Beacon": 3,
+          "The Cutting North Wind": 3,
+          "Benedric": 3,
+          "Frenzy": 3,
+          "Gallows Fiend": 2,
+          "Oracle of Kavara": 1,
+          "Drea Nexus": 2,
+          "Mentor": 1,
+          "Toren Yscar": 1,
+          "Supply": 1
+        },
+        "startingArmy": {
+          "Sunforge Smith": 1,
+          "Guardian": 1,
+          "Tunnel Vanguard": 3,
+          "Garn Hearthstone": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Hunting Staff": 1,
+          "Staff of Kizazi": 1,
+          "Nodwick": 1,
+          "Strongarm Stout": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Blood Oath": 2,
+          "Divine Respite": 3,
+          "Toughness": 3,
+          "Meet at the Inn!": 3,
+          "Treewalk": 3,
+          "Avatar of Kor": 3,
+          "Reckless Abandon": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
