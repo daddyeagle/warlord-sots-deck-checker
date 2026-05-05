@@ -820,5 +820,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "May Ancients",
+    "warlord": "Laird Jon Hawthorne",
+    "display_name": "DireScrub",
+    "timestamp": "2026-05-05T12:55:45.640Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Scarlett": 1,
+          "Toren Yscar": 1,
+          "Archer Tower": 1,
+          "Loren": 3,
+          "Josef Krieg": 3,
+          "Jiyacin Fret": 3,
+          "Celinar Guard": 1
+        },
+        "startingArmy": {
+          "Brother Dominy": 1,
+          "Kun Iacob": 2,
+          "Scarlett": 2,
+          "Laird Jon Hawthorne": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Ranging Shot": 3,
+          "Spring Attack": 3,
+          "Shot on the Run": 3,
+          "Relentless": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Sleipnir": 2,
+          "Shadow Cloak": 2,
+          "Shadow Blade": 2,
+          "Roc Fletching": 2,
+          "Portable Hole": 3,
+          "Circlet of Veiled Sight": 2,
+          "Bracers of Archery": 2,
+          "Bow of Shadows": 2,
+          "Boots of Speed": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
