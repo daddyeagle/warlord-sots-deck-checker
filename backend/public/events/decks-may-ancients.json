@@ -874,5 +874,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "May Ancients",
+    "warlord": "High Priest Nassiral",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-05-05T13:25:37.834Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Samope": 2,
+          "Bludgeon": 3,
+          "Carg'rag": 3,
+          "Doo'run": 3,
+          "FirRal": 3,
+          "Nemtok": 3,
+          "Ra'Zul": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Gunda": 3,
+          "High Priest Nassiral": 1,
+          "Samope": 1,
+          "Yeg-Igryll's Altar": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Bull Rush": 3,
+          "Close Combat": 3,
+          "Epic Judgment": 3,
+          "Hero's Gambit": 3,
+          "Incentives": 1,
+          "Mass Blessing": 3,
+          "Reflect": 3,
+          "Suicidal Charge": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Griffon of Misear": 3,
+          "Hunting Staff": 1,
+          "Signon's Armor": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
