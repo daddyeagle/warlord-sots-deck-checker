@@ -982,5 +982,69 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "336933692427730946",
+    "discordId": "336933692427730946",
+    "discord_username": "pedrosmurf#0",
+    "event": "May Ancients",
+    "warlord": "Sigrida Valora",
+    "display_name": "Pedrosmurf",
+    "timestamp": "2026-05-05T13:51:00.574Z",
+    "cardList": {
+      "Character": {
+        "count": 13,
+        "mainDeck": {
+          "Amends": 2,
+          "Toren Yscar": 1,
+          "The Temple of Lore": 1,
+          "Supply": 1,
+          "Drea Nexus": 2
+        },
+        "startingArmy": {
+          "Amends": 1,
+          "Preen": 1,
+          "Danres": 3,
+          "Sigrida Valora": 1
+        }
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Wyvern Gem": 1,
+          "Whetstone": 1,
+          "War Mace": 1,
+          "Shadow of Murder": 1,
+          "Rockarm": 1,
+          "Potion of Blurring": 3,
+          "Noble Steed": 1,
+          "Myerdeth Mare": 2,
+          "Heavy Charger": 1,
+          "Havat-lahn Stance": 1,
+          "Great White": 2,
+          "Great Axe": 3,
+          "Giant Strength Potion": 1,
+          "Collar of Damnation": 1,
+          "Chariot": 1,
+          "Battle Rhino": 1,
+          "Ardian Greathawk": 1,
+          "Amulet of Waking": 1,
+          "Steelforge Regalia": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Rescue": 1,
+          "Outmatched": 3,
+          "Obliterate": 2,
+          "No Prisoners!": 3,
+          "Epic Donnybrook": 2,
+          "Bear's Soul": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
