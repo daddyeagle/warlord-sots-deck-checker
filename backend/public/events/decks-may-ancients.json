@@ -705,68 +705,6 @@
     }
   },
   {
-    "username": "333097080543379457",
-    "discordId": "333097080543379457",
-    "discord_username": "restomagus#0",
-    "event": "May Ancients",
-    "warlord": "Adarymy",
-    "display_name": "Restomagus",
-    "timestamp": "2026-05-04T22:07:30.103Z",
-    "cardList": {
-      "Character": {
-        "count": 24,
-        "mainDeck": {
-          "Brother Dominy": 2,
-          "Adept Rey": 3,
-          "Aida": 2,
-          "Arika Ketchum": 3,
-          "Felens Rowan": 1,
-          "Kun Iacob": 1,
-          "Leonora": 3,
-          "Ryan Mornington": 2,
-          "Toren Yscar": 1
-        },
-        "startingArmy": {
-          "Adarymy": 1,
-          "Brother Dominy": 1,
-          "Novice Ruth": 1,
-          "Rosalie": 1,
-          "Spencer Latham": 2
-        }
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Blazing Medallion": 1,
-          "Breastplate of Power": 1,
-          "Commanding Presence": 1,
-          "Deverenus' Axe": 3,
-          "Kringle's Sleigh": 1,
-          "Myerdeth Mare": 1,
-          "Nodwick": 1,
-          "Portable Hole": 2,
-          "Revenger": 1,
-          "Teufeltiger's Shroud": 1,
-          "The Martyr's Helm": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Exhaustion": 3,
-          "Leveled!": 2,
-          "Lights of Revealing Sword": 2,
-          "Pack Tactics": 1,
-          "Reflect": 1,
-          "Rescue": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "744645938546475159",
     "discordId": "744645938546475159",
     "discord_username": "russel2525#0",
@@ -821,6 +759,63 @@
           "Sir Tython's Shield": 1,
           "Chariot": 2,
           "Heavy Charger": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "May Ancients",
+    "warlord": "Jodin Drac",
+    "display_name": "Restomagus",
+    "timestamp": "2026-05-05T05:37:35.062Z",
+    "cardList": {
+      "Character": {
+        "count": 14,
+        "mainDeck": {
+          "Justinian": 1,
+          "Ghed Nuri": 3,
+          "Halo of Secrets": 1,
+          "The Temple of Lore": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Jodin Drac": 1,
+          "Justinian": 2,
+          "Oubliette Hound": 3
+        }
+      },
+      "Item": {
+        "count": 23,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Boots of Mobility": 1,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 2,
+          "Flame Steed": 2,
+          "Great White": 3,
+          "Havat-lahn Stance": 1,
+          "Kringle's Sleigh": 3,
+          "Myerdeth Mare": 3,
+          "Silverwind": 1,
+          "Storm Shard": 1,
+          "Tome of the Adept": 1,
+          "Tranquility": 2,
+          "Winter's Chill": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Devastating Charge": 3,
+          "Epic Donnybrook": 3,
+          "Exhaustion": 3,
+          "Hand of Might": 2,
+          "Veiled Passing": 2
         },
         "startingArmy": {}
       }
