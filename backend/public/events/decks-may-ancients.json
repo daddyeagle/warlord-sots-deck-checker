@@ -1901,5 +1901,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discordId": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "May Ancients",
+    "warlord": "Behlial",
+    "display_name": "graham",
+    "timestamp": "2026-05-06T22:49:29.827Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Enki": 3,
+          "Kapix": 1,
+          "Kapix the Cursed": 1,
+          "Pravian": 2,
+          "Rafkin": 3,
+          "The Cutting North Wind": 3,
+          "The Lost Bride": 3,
+          "Valanthe Theridiae": 3
+        },
+        "startingArmy": {
+          "Behlial": 1,
+          "Genecourt Initiate": 3,
+          "Light": 1,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Exhaustion": 2,
+          "Mass Blessing": 3,
+          "Meet at the Inn!": 3,
+          "Premonition": 3,
+          "Reflect": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Ishara's Tidal Mace": 2,
+          "Mollusk Helm": 1,
+          "Ring of the Savant": 1,
+          "Staff of Kizazi": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
