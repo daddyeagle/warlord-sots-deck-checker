@@ -1504,5 +1504,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "784876305388273664",
+    "discordId": "784876305388273664",
+    "discord_username": "kingofglobia.#0",
+    "event": "May Ancients",
+    "warlord": "Trespass",
+    "display_name": "kingofglobia.",
+    "timestamp": "2026-05-06T12:41:05.631Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "The Temple of Lore": 3,
+          "Tseleuse Worm": 3,
+          "Drea Nexus": 3,
+          "Ghost Bog": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Trespass": 1,
+          "Will": 1,
+          "Arla Favorsight": 1,
+          "Profit": 3
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Norn's Stinger": 3,
+          "Giant Bat": 3,
+          "Portable Hole": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Knife After Dark": 3,
+          "Assassination": 2,
+          "Hunting for Sport": 3,
+          "Threaten": 3,
+          "Reconnaissance": 3,
+          "Exhaustion": 3,
+          "Guild Taxes": 2,
+          "Fast as the Wind": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
