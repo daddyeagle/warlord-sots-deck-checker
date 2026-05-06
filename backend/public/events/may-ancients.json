@@ -163,14 +163,6 @@
     },
     {
       "warlord": "Lekar Osud",
-      "username": "178257746494357514",
-      "discordId": "178257746494357514",
-      "discord_username": "hosh5753#0",
-      "display_name": "Hosh",
-      "timestamp": "2026-05-06T01:51:46.983Z"
-    },
-    {
-      "warlord": "Lekar Osud",
       "username": "423473617180033035",
       "discordId": "423473617180033035",
       "discord_username": "graccustheold#0",
@@ -184,6 +176,14 @@
       "discord_username": "cathelisourking#0",
       "display_name": "Dragonbane",
       "timestamp": "2026-05-06T02:16:14.713Z"
+    },
+    {
+      "warlord": "Lekar Osud",
+      "username": "178257746494357514",
+      "discordId": "178257746494357514",
+      "discord_username": "hosh5753#0",
+      "display_name": "Hosh",
+      "timestamp": "2026-05-06T02:19:55.412Z"
     }
   ]
 }
