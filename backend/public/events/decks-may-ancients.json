@@ -1269,5 +1269,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discordId": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "May Ancients",
+    "warlord": "Thekem Netheryn",
+    "display_name": "Iceman",
+    "timestamp": "2026-05-06T02:32:52.050Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Kapix": 1,
+          "Kapix the Cursed": 1,
+          "Toren Yscar": 1,
+          "Baraz": 2,
+          "Oracle of Kavara": 2,
+          "Kargaz Dythanus": 2,
+          "Nildrach": 3,
+          "The Cutting North Wind": 3,
+          "The Lost Bride": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Talyn": 1,
+          "Kinnell": 1,
+          "Thekem Netheryn": 1
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Kaballite Regalia": 1,
+          "Rod of Roaring Flames": 1,
+          "Amulet of Force": 1,
+          "Staff of Secrets": 1,
+          "Wand of Negation": 2,
+          "Dark Heart of Kylnion": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Rescue": 1,
+          "Pull the Strings": 2,
+          "Counterspell": 2,
+          "Severed of Flesh": 2,
+          "Flame Blade": 2,
+          "Epic Evocation": 3,
+          "Back Alley Tavern": 3,
+          "Wheel of Death": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
