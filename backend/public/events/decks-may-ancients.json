@@ -1667,5 +1667,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1097993099822759966",
+    "discordId": "1097993099822759966",
+    "discord_username": "baptiste.bach#0",
+    "event": "May Ancients",
+    "warlord": "Gethseme Steelshard",
+    "display_name": "Bach",
+    "timestamp": "2026-05-06T17:09:38.476Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "The Temple of Lore": 1,
+          "Toren Yscar": 1,
+          "Wrath": 1,
+          "Denali Sagebound": 1,
+          "Supply": 1,
+          "Steadfast": 3,
+          "Barricade": 3,
+          "Sentinel Gargoyle": 3,
+          "Alloy Gargoyle": 3,
+          "Strength": 3
+        },
+        "startingArmy": {
+          "Gethseme Steelshard": 1,
+          "Labor": 2,
+          "Quartermaster Dirge": 3
+        }
+      },
+      "Action": {
+        "count": 7,
+        "mainDeck": {
+          "Trade Routes": 1,
+          "Meet at the Inn!": 3,
+          "Loyalty's Reward": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Portable Hole": 3,
+          "Martyr's Hide": 3,
+          "Firewisp Orb": 3,
+          "The Maker's Way": 1,
+          "Black Sun Helm": 1,
+          "Steel Dragon Insignia": 1,
+          "Black Steel Dagger": 1,
+          "Blue Wyrm's Egg": 1,
+          "Boots of Mobility": 1,
+          "Scorpion Stance": 1,
+          "Fortune's Helm": 1,
+          "Amulet of Waking": 1,
+          "Nodwick": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
