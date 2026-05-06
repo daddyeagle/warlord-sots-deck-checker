@@ -1101,5 +1101,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "May Ancients",
+    "warlord": "Andeel Smrti",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-05-06T01:03:54.640Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardanaalis": 3,
+          "Ayaaba Waverunner": 1,
+          "Devourer": 1,
+          "Jackals of Mourn": 3,
+          "Kapix": 1,
+          "Kargaz Dythanus": 3,
+          "Skitterleap": 3,
+          "The Lost Bride": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Skyyrek": 1,
+          "Corpse Crowd": 3,
+          "Magheline": 1,
+          "Andeel Smrti": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Cheat Death": 3,
+          "Death for Death": 3,
+          "Final Blessing": 3,
+          "Reflect": 3,
+          "Stolen Destiny": 3,
+          "Wither": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Clarion": 1,
+          "Litany of the Dead": 2,
+          "Mollusk Helm": 1,
+          "Nodwick": 1,
+          "Peace": 1,
+          "Staff of Kizazi": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
