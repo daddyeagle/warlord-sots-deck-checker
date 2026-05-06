@@ -1102,62 +1102,6 @@
     }
   },
   {
-    "username": "178257746494357514",
-    "discordId": "178257746494357514",
-    "discord_username": "hosh5753#0",
-    "event": "May Ancients",
-    "warlord": "Lekar Osud",
-    "display_name": "Hosh",
-    "timestamp": "2026-05-06T01:51:46.983Z",
-    "cardList": {
-      "Character": {
-        "count": 28,
-        "mainDeck": {
-          "The Lost Bride": 3,
-          "Cyrus Netheryn": 2,
-          "Ayaaba Waverunner": 1,
-          "Fayed Dythanus": 2,
-          "Kargaz Dythanus": 3,
-          "Maes": 2,
-          "Avatar of Magic": 3,
-          "Corsis": 2,
-          "Skitterleap": 3,
-          "Toren Yscar": 1
-        },
-        "startingArmy": {
-          "Lekar Osud": 1,
-          "Corpse Crowd": 3,
-          "Ilvion": 2
-        }
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Sabotage": 3,
-          "Meet at the Inn!": 3,
-          "Back Alley Tavern": 3,
-          "Noble Sacrifice": 3,
-          "Extensions": 3,
-          "Puppet Mastery": 2,
-          "Dead World Curses": 3,
-          "Improved Invisibility": 1
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Farhaven Guide": 3,
-          "Mischievous Sprite": 2,
-          "Necklace of Spell Storing": 1,
-          "Wand of Negation": 1,
-          "Ring of Blasting": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "423473617180033035",
     "discordId": "423473617180033035",
     "discord_username": "graccustheold#0",
@@ -1267,6 +1211,61 @@
           "Back Alley Tavern": 3,
           "Meet at the Inn!": 3,
           "Sabotage": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "May Ancients",
+    "warlord": "Lekar Osud",
+    "display_name": "Hosh",
+    "timestamp": "2026-05-06T02:19:55.412Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Cyrus Netheryn": 2,
+          "The Lost Bride": 3,
+          "Fayed Dythanus": 2,
+          "Kargaz Dythanus": 3,
+          "Corsis": 2,
+          "Maes": 2,
+          "Avatar of Magic": 3,
+          "Skitterleap": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Lekar Osud": 1,
+          "Corpse Crowd": 3,
+          "Ilvion": 2
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Back Alley Tavern": 2,
+          "Sabotage": 2,
+          "Meet at the Inn!": 3,
+          "Extensions": 3,
+          "Puppet Mastery": 2,
+          "Noble Sacrifice": 3,
+          "Dead World Curses": 3,
+          "Improved Invisibility": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Farhaven Guide": 3,
+          "Mischievous Sprite": 2,
+          "Necklace of Spell Storing": 1,
+          "Wand of Negation": 1,
+          "Ring of Blasting": 1
         },
         "startingArmy": {}
       }
