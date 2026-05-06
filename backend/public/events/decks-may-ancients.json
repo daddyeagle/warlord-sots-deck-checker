@@ -1726,5 +1726,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discordId": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "May Ancients",
+    "warlord": "Lekar Osud",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-05-06T20:54:59.377Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ilvion": 1,
+          "The Lost Bride": 3,
+          "Kargaz Dythanus": 3,
+          "Avatar of Magic": 2,
+          "Skitterleap": 2,
+          "Maes": 2,
+          "Corsis": 2,
+          "Fayed Dythanus": 2,
+          "Oracle of Kavara": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Ilvion": 1,
+          "Elemere": 1,
+          "Lekar Osud": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Sabotage": 3,
+          "Meet at the Inn!": 3,
+          "Extensions": 3,
+          "Dead World Curses": 3,
+          "Puppet Mastery": 2,
+          "Blink": 2,
+          "Improved Invisibility": 1,
+          "Phantasm": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Farhaven Guide": 3,
+          "Mischievous Sprite": 2,
+          "Wand of Negation": 1,
+          "Ring of Blasting": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
