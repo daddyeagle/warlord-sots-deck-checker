@@ -1102,64 +1102,6 @@
     }
   },
   {
-    "username": "423473617180033035",
-    "discordId": "423473617180033035",
-    "discord_username": "graccustheold#0",
-    "event": "May Ancients",
-    "warlord": "Lekar Osud",
-    "display_name": "Graccus Lightwarden",
-    "timestamp": "2026-05-06T01:55:17.684Z",
-    "cardList": {
-      "Character": {
-        "count": 30,
-        "mainDeck": {
-          "Alaya": 2,
-          "Ayaaba Waverunner": 1,
-          "Fayed Dythanus": 2,
-          "Kargaz Dythanus": 3,
-          "Corsis": 2,
-          "Avatar of Magic": 3,
-          "The Lost Bride": 3,
-          "Toren Yscar": 1,
-          "Maes": 2,
-          "Skitterleap": 3,
-          "Cyrus Netheryn": 2
-        },
-        "startingArmy": {
-          "Corpse Crowd": 3,
-          "Ilvion": 2,
-          "Lekar Osud": 1
-        }
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Farhaven Guide": 3,
-          "Mischievous Sprite": 2,
-          "Ring of Blasting": 1,
-          "Wand of Negation": 1,
-          "Necklace of Spell Storing": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 22,
-        "mainDeck": {
-          "Phantasm": 1,
-          "Meet at the Inn!": 3,
-          "Back Alley Tavern": 3,
-          "Extensions": 3,
-          "Improved Invisibility": 1,
-          "Noble Sacrifice": 3,
-          "Dead World Curses": 3,
-          "Puppet Mastery": 2,
-          "Sabotage": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "178257746494357514",
     "discordId": "178257746494357514",
     "discord_username": "hosh5753#0",
@@ -1322,6 +1264,61 @@
           "Epic Evocation": 3,
           "Back Alley Tavern": 3,
           "Wheel of Death": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "423473617180033035",
+    "discordId": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "May Ancients",
+    "warlord": "Lekar Osud",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-05-06T03:48:34.120Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Fayed Dythanus": 2,
+          "Kargaz Dythanus": 3,
+          "Corsis": 2,
+          "Avatar of Magic": 2,
+          "The Lost Bride": 3,
+          "Toren Yscar": 1,
+          "Maes": 2,
+          "Skitterleap": 2,
+          "Cyrus Netheryn": 2
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Ilvion": 1,
+          "Elemere": 1,
+          "Lekar Osud": 1
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Farhaven Guide": 3,
+          "Mischievous Sprite": 2,
+          "Ring of Blasting": 1,
+          "Wand of Negation": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Phantasm": 1,
+          "Meet at the Inn!": 3,
+          "Back Alley Tavern": 2,
+          "Extensions": 3,
+          "Noble Sacrifice": 3,
+          "Dead World Curses": 2,
+          "Puppet Mastery": 2,
+          "Sabotage": 2
         },
         "startingArmy": {}
       }
