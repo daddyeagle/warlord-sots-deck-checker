@@ -1612,5 +1612,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "601032639452807178",
+    "discordId": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "May Ancients",
+    "warlord": "Sav'rukk",
+    "display_name": "yotakafish",
+    "timestamp": "2026-05-06T14:38:46.320Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sar'ean": 3,
+          "The Retiarius": 2,
+          "Kovit Treeraiser": 3,
+          "Sethusk": 3,
+          "Carg'rag": 3,
+          "Koratcghuk": 2,
+          "The Lost Bride": 3
+        },
+        "startingArmy": {
+          "Sav'rukk": 1,
+          "Tsinanok": 3,
+          "Azh'guttk": 1,
+          "Yeg-Igryll's Altar": 1
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Black Steel Dagger": 2,
+          "Bracers of Ogre Power": 1,
+          "Tome of Shadows": 1,
+          "Fortune's Helm": 1,
+          "Storm Shard": 1,
+          "Jelial's Bracers": 1,
+          "Martyr's Hide": 3,
+          "Cloak of Many Things": 3,
+          "Portable Hole": 3,
+          "Fatestring Bow": 1,
+          "Amulet of Waking": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Back Alley Tavern": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
