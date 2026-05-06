@@ -1554,5 +1554,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "995788844051988601",
+    "discordId": "995788844051988601",
+    "discord_username": "discgolf#0",
+    "event": "May Ancients",
+    "warlord": "Atiratu",
+    "display_name": "discgolf",
+    "timestamp": "2026-05-06T13:47:37.998Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "The Devoted": 2,
+          "The Harvest": 2,
+          "Rhomel'zard": 1,
+          "Amon-Ka": 1,
+          "Master Ashtaroth": 1,
+          "Toren Yscar": 1,
+          "Sal'Azar the Gilded": 1,
+          "Redu Tam": 3,
+          "Mistress Sanai": 1,
+          "Yil-Grayl": 1,
+          "Getraxos": 1,
+          "Shan-Kassyn": 3,
+          "Eresh q'Shedim": 1
+        },
+        "startingArmy": {
+          "The Devoted": 1,
+          "The Plentiful": 2,
+          "Mitrasz": 2,
+          "Atiratu": 1
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "The King's Lady": 1,
+          "Living History": 3,
+          "Bloodsteed": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Armageddon": 1,
+          "Meet at the Inn!": 3,
+          "Improved Invisibility": 1,
+          "Blink": 3,
+          "Severed of Flesh": 3,
+          "Extensions": 3,
+          "Rise, and Obey!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
