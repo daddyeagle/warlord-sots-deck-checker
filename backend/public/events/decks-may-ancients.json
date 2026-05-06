@@ -1782,5 +1782,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546202017714929664",
+    "discordId": "546202017714929664",
+    "discord_username": "newkevlar#0",
+    "event": "May Ancients",
+    "warlord": "Sir Rallen",
+    "display_name": "Mazzaroth",
+    "timestamp": "2026-05-06T22:01:36.218Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Father Ansance": 3,
+          "Acolyte Dorra": 3,
+          "Mozbach the Devious": 1,
+          "Archer Tower": 1,
+          "Halo of Secrets": 1,
+          "Bascia Tremayne": 2,
+          "Elaneor Tremayne": 2,
+          "Kermenes the Spry": 2,
+          "Hendric the Mirage": 2,
+          "Ghed Morak": 1,
+          "Davaenus": 1
+        },
+        "startingArmy": {
+          "Sir Rallen": 1,
+          "Church Inquisitor": 2,
+          "Deverenian Courtier": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Bracers of Archery": 2,
+          "Lezheer Gem": 1,
+          "Unseen Arrow": 2,
+          "Collapsing Bow": 2,
+          "Farglass": 2,
+          "Fatestring Bow": 1,
+          "Red Wyrm's Egg": 1,
+          "Portable Hole": 2,
+          "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Exhaustion": 3,
+          "Energy Arrow": 2,
+          "Rapid Shot": 2,
+          "Assassin's Arrow": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
