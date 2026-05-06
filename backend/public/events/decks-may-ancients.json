@@ -1323,5 +1323,75 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discordId": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "May Ancients",
+    "warlord": "King Xod",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-05-06T05:23:11.820Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Door to the World": 1,
+          "Amends": 2,
+          "Denali Sagebound": 3,
+          "Forge": 1,
+          "Stockpile": 2,
+          "Supply": 1,
+          "Toren Yscar": 1,
+          "Wrath": 2,
+          "Devourer": 1
+        },
+        "startingArmy": {
+          "Will": 1,
+          "King Xod": 1,
+          "Preen": 1,
+          "Danres": 3
+        }
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Obliterate": 2,
+          "Superior Armament": 2,
+          "Sigil of Bonding": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Spellblocker": 1,
+          "Amulet of Waking": 1,
+          "Blood God's Basinet": 1,
+          "Blue Wyrm's Egg": 1,
+          "Bone Armor": 1,
+          "Boots of Mobility": 1,
+          "Bracers of Ogre Power": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Common Blade": 1,
+          "Demonslayer": 1,
+          "Fiendish Plate": 1,
+          "Griffon of Misear": 1,
+          "Helm of Terror": 1,
+          "Kor's Banner": 1,
+          "Medical Kit": 1,
+          "Narawat Banner": 1,
+          "Potion of Blurring": 2,
+          "Staff of Secrets": 1,
+          "Symbol of Kerebrus": 1,
+          "The Cardinals' Blessing": 1,
+          "Thievesbane": 1,
+          "Tome of the Adept": 1,
+          "Tower Shield": 1,
+          "War Spikes": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
