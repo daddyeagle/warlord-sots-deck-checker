@@ -274,20 +274,20 @@
       "timestamp": "2026-05-06T22:49:29.827Z"
     },
     {
-      "warlord": "Anton Cyldragen",
-      "username": "987033377569927248",
-      "discordId": "987033377569927248",
-      "discord_username": "yinyangman#0",
-      "display_name": "djYinYangMan2112",
-      "timestamp": "2026-05-07T00:23:32.505Z"
-    },
-    {
       "warlord": "Niobe",
       "username": "568205993100574731",
       "discordId": "568205993100574731",
       "discord_username": "the.thing333#0",
       "display_name": "The.Thing333",
       "timestamp": "2026-05-07T00:30:36.306Z"
+    },
+    {
+      "warlord": "Anton Cyldragen",
+      "username": "987033377569927248",
+      "discordId": "987033377569927248",
+      "discord_username": "yinyangman#0",
+      "display_name": "djYinYangMan2112",
+      "timestamp": "2026-05-07T00:33:54.311Z"
     }
   ]
 }
