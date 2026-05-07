@@ -1955,5 +1955,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "May Ancients",
+    "warlord": "Niobe",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-05-07T00:30:36.306Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Huggins": 1,
+          "Field Marshal Malexin": 3,
+          "Banyon": 1,
+          "Rafkin": 2,
+          "Xeanara": 1,
+          "Tahmores Yscar": 3,
+          "Nellia Yscar": 2,
+          "Enki": 3,
+          "Barrett Yscar": 3,
+          "Sir Thomas of Celinar": 1
+        },
+        "startingArmy": {
+          "Niobe": 1,
+          "TFK Brigand": 3,
+          "Baqbou Umbala": 1,
+          "Eloise": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Exhaustion": 2,
+          "Divine Respite": 3,
+          "Veiled Passing": 2,
+          "Reflect": 2,
+          "Treewalk": 1,
+          "Mass Blessing": 3,
+          "Final Blessing": 2,
+          "Embolden": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Nodwick": 1,
+          "Stormwolf": 1,
+          "Signon's Armor": 2,
+          "Staff of Kizazi": 1,
+          "Spirits' Blessings": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
