@@ -1951,68 +1951,6 @@
     }
   },
   {
-    "username": "987033377569927248",
-    "discordId": "987033377569927248",
-    "discord_username": "yinyangman#0",
-    "event": "May Ancients",
-    "warlord": "Anton Cyldragen",
-    "display_name": "djYinYangMan2112",
-    "timestamp": "2026-05-07T00:33:54.311Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Envoy Soraya": 2,
-          "Taltos the Hale": 1,
-          "Taltos Rellion": 3,
-          "Stockpile": 3,
-          "Ravenwild": 1,
-          "Gorlen the Pitiless": 1,
-          "Enki": 3,
-          "Duke Richter": 3,
-          "Dar'rak": 1,
-          "Bruu'kaal": 1
-        },
-        "startingArmy": {
-          "Keen Eared Sentry": 3,
-          "Borgen Ferriss": 1,
-          "Graveyard Librarian": 1,
-          "Anton Cyldragen": 1
-        }
-      },
-      "Item": {
-        "count": 20,
-        "mainDeck": {
-          "Blade of Syneri": 1,
-          "Wand of Negation": 1,
-          "Bloodsteed": 3,
-          "Well of Screams": 1,
-          "Tome of the Archmage": 2,
-          "Tome of Champions": 2,
-          "Steelforge Regalia": 1,
-          "Ring of Vorn": 1,
-          "Nodwick": 1,
-          "Havat-lahn Stance": 1,
-          "Deverenus' Axe": 2,
-          "Darkhide Armor": 1,
-          "Blade of Antiquity": 2,
-          "Ardian Greathawk": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 5,
-        "mainDeck": {
-          "Lights of Revealing Sword": 2,
-          "Improved Invisibility": 1,
-          "Blink": 1,
-          "Arcane Approach": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "516260132229873666",
     "discordId": "516260132229873666",
     "discord_username": "rodrigo4840#0",
@@ -2241,6 +2179,69 @@
           "Giant Bat": 3,
           "Portable Hole": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "May Ancients",
+    "warlord": "Anton Cyldragen",
+    "display_name": "djYinYangMan2112",
+    "timestamp": "2026-05-07T01:42:38.749Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Envoy Soraya": 2,
+          "Taltos the Hale": 1,
+          "Taltos Rellion": 3,
+          "Stockpile": 3,
+          "Ravenwild": 1,
+          "Gorlen the Pitiless": 1,
+          "Enki": 3,
+          "Duke Richter": 3,
+          "Dar'rak": 1,
+          "Bruu'kaal": 1
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Borgen Ferriss": 1,
+          "Graveyard Librarian": 1,
+          "Anton Cyldragen": 1
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Tome of Memory": 2,
+          "Lothian, Law-Hammer": 1,
+          "Wand of Negation": 1,
+          "Bloodsteed": 3,
+          "Well of Screams": 1,
+          "Tome of the Archmage": 2,
+          "Tome of Champions": 2,
+          "Steelforge Regalia": 1,
+          "Ring of Vorn": 1,
+          "Nodwick": 1,
+          "Havat-lahn Stance": 1,
+          "Deverenus' Axe": 2,
+          "Darkhide Armor": 1,
+          "Blade of Antiquity": 2,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Lights of Revealing Sword": 2,
+          "Improved Invisibility": 1,
+          "Blink": 1,
+          "Arcane Approach": 1
         },
         "startingArmy": {}
       }
