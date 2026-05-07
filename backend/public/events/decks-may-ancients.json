@@ -2135,5 +2135,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597520931364964",
+    "discordId": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "May Ancients",
+    "warlord": "Jautya Syne",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2026-05-07T01:33:59.153Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Serj Vorvallyn": 1,
+          "Supremus": 3,
+          "Kayle Rowan": 2,
+          "Ghed Nuri": 3,
+          "The Temple of Lore": 2,
+          "Treyik": 3,
+          "The Sable Knight": 1,
+          "Yscarite Sentry": 3
+        },
+        "startingArmy": {
+          "Jautya Syne": 1,
+          "Malcolm Aedroud": 1,
+          "Serj Vorvallyn": 2,
+          "Meri-es-anch": 3
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Transference": 3,
+          "Rescue": 1,
+          "Meet at the Inn!": 3,
+          "Back Alley Tavern": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Strongarm Stout": 2,
+          "Bruntor's Helm": 1,
+          "Improvised Shield": 3,
+          "Cobalt Land Dragon": 3,
+          "Farhaven Guide": 3,
+          "Scale Mail": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
