@@ -2011,5 +2011,70 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "516260132229873666",
+    "discordId": "516260132229873666",
+    "discord_username": "rodrigo4840#0",
+    "event": "May Ancients",
+    "warlord": "Sigrida Valora",
+    "display_name": "rodrigo",
+    "timestamp": "2026-05-07T00:41:58.921Z",
+    "cardList": {
+      "Character": {
+        "count": 16,
+        "mainDeck": {
+          "Preen": 1,
+          "Amends": 3,
+          "Drea Nexus": 2,
+          "Sunforge Smith": 2,
+          "Supply": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Sigrida Valora": 1,
+          "Preen": 2,
+          "Danres": 3
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Amulet of Waking": 1,
+          "Ardian Greathawk": 1,
+          "Battle Rhino": 1,
+          "Chariot": 1,
+          "Collar of Damnation": 1,
+          "Common Blade": 1,
+          "Deverenus' Axe": 1,
+          "Giant Strength Potion": 1,
+          "Great Axe": 2,
+          "Great White": 1,
+          "Griffon of Misear": 1,
+          "Havat-lahn Stance": 1,
+          "Heavy Charger": 1,
+          "Myerdeth Mare": 1,
+          "Potion of Blurring": 2,
+          "Rockarm": 1,
+          "Skittish Charger": 1,
+          "Steelforge Regalia": 1,
+          "Whetstone": 1,
+          "Wyvern Gem": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Blood Oath": 1,
+          "Epic Donnybrook": 1,
+          "No Prisoners!": 3,
+          "Obliterate": 2,
+          "Outmatched": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
