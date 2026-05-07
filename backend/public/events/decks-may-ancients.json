@@ -2084,20 +2084,20 @@
     "event": "May Ancients",
     "warlord": "Shyessa the Weaver",
     "display_name": "AG",
-    "timestamp": "2026-05-07T00:42:06.859Z",
+    "timestamp": "2026-05-07T01:04:58.933Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
           "Ayaaba Waverunner": 1,
           "Bis": 2,
+          "Cyrus Netheryn": 2,
           "Kapix": 1,
           "Kargaz Dythanus": 2,
           "Naines": 1,
           "Skitterleap": 3,
           "Toren Yscar": 1,
           "Treyik": 3,
-          "Tybast": 2,
           "Veera and Bones": 3
         },
         "startingArmy": {
