@@ -2076,5 +2076,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "157948591380496384",
+    "discordId": "157948591380496384",
+    "discord_username": "ag_wow#0",
+    "event": "May Ancients",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "AG",
+    "timestamp": "2026-05-07T00:42:06.859Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ayaaba Waverunner": 1,
+          "Bis": 2,
+          "Kapix": 1,
+          "Kargaz Dythanus": 2,
+          "Naines": 1,
+          "Skitterleap": 3,
+          "Toren Yscar": 1,
+          "Treyik": 3,
+          "Tybast": 2,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Spectre of Madness": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Bloodoak Staff": 1,
+          "Bloodstone Rose": 1,
+          "Death Knight's Mail": 1,
+          "Journal Entry": 2,
+          "Nabu's Necklace": 1,
+          "Sjonegaard's Mace": 1,
+          "Stormwolf": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Epic Judgment": 2,
+          "Guilt-Ridden": 2,
+          "Phantasm": 1,
+          "Return to Us": 1,
+          "Sacrifice": 1,
+          "Sustaining Aura": 3,
+          "Wheel of Fate": 3,
+          "Wither": 2,
+          "Wither and Bloom": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
