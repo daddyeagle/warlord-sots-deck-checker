@@ -636,7 +636,13 @@
             return WL_SA_LOYALTY_EXCEPTIONS.find(e => e.normalizedWarlordName === normalizedWarlordName) || null;
         };
 
-        const isEditionLegal = (card, selectedEditions) => !card.isUnknown && (selectedEditions.length === 0 || card.editions.some(e => selectedEditions.includes(e)));
+        const hasActiveEditionForRuleset = (card, selectedEditions, activeRuleSet) => {
+            if (!card || card.isUnknown) return false;
+            if (card.isWarlord && activeRuleSet && activeRuleSet.allowAnySetWarlord) return true;
+            return selectedEditions.length === 0 || (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+        };
+
+        const isEditionLegal = (card, selectedEditions, activeRuleSet) => hasActiveEditionForRuleset(card, selectedEditions, activeRuleSet);
         
         const isCardBanned = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
@@ -648,8 +654,7 @@
         const isCardReserved = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
 
-            const hasActiveEdition = selectedEditions.length === 0 ||
-                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            const hasActiveEdition = hasActiveEditionForRuleset(card, selectedEditions, getActiveRuleSet());
 
             // For cards in the active ruleset, check active list + active format notes.
             if (hasActiveEdition) {
@@ -681,8 +686,7 @@
         const isCardEpic = (card, selectedEditions) => {
             if (!card || card.isUnknown) return false;
 
-            const hasActiveEdition = selectedEditions.length === 0 ||
-                (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+            const hasActiveEdition = hasActiveEditionForRuleset(card, selectedEditions, getActiveRuleSet());
 
             // For cards in the active ruleset, check active list + active format notes.
             if (hasActiveEdition) {
@@ -912,8 +916,7 @@
                 scannedCards.add(card.name);
                 
                 // Check if card has active edition
-                const hasActiveEdition = selectedEditions.length === 0 || 
-                    (Array.isArray(card.editions) && card.editions.some(e => selectedEditions.includes(e)));
+                const hasActiveEdition = hasActiveEditionForRuleset(card, selectedEditions, activeRuleSet);
                 
                 // Always check active ruleset restricted names, regardless of edition.
                 if (activeRuleSet && activeRuleSet.restricted) {
@@ -1229,15 +1232,15 @@
             const editionViolations = [];
             const editionViolationCards = [];
             allCards.forEach(card => {
-                if (!card.isUnknown && !isEditionLegal(card, selectedEditions)) {
+                if (!card.isUnknown && !isEditionLegal(card, selectedEditions, activeRuleSet)) {
                     editionViolations.push(card.name);
                     editionViolationCards.push(card);
                 }
             });
 
-            const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
-            const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
-            const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions));
+            const allLegalCards = allCards.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions, activeRuleSet));
+            const saWlLegal = saList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions, activeRuleSet));
+            const mainDeckLegal = mdList.filter(c => !c.isUnknown && isEditionLegal(c, selectedEditions, activeRuleSet));
             const allSubmittedCards = [...saList, ...mdList];
 
             const warlords = [...saList, ...mdList].filter(c => c.isWarlord);
