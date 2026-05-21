@@ -112,7 +112,7 @@
       }
     },
     "Template 1": {
-      "name": "Turncoat",
+      "name": "Kerebrus",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -131,18 +131,17 @@
       "requiresUnifiedFaction": false,
       "fullBypass": false,
       "editions": [
-        "Ancients"
+        "Saga"
       ],
       "restricted": {
-        "names": [
-          "Tzin's Secret"
-        ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "names": [],
+        "sets": [],
         "rarities": []
       },
-      "hidden": true
+      "hidden": false,
+      "allowAnySetWarlord": true,
+      "reserved": [],
+      "epic": []
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
