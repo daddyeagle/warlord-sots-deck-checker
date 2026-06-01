@@ -423,6 +423,7 @@
   ],
   "defaultRuleset": "December Ancients+",
   "rulesetOrder": [
+    "Template 1",
     "Ancients",
     "default",
     "Saga",
