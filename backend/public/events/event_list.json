@@ -1,14 +1,5 @@
 [
   {
-    "eventName": "May Ancients",
-    "ruleset": "Ancients",
-    "startDate": "2026-05-01",
-    "endDate": "2026-05-06",
-    "decklistFile": "decks-may-ancients.json",
-    "submissionFile": "may-ancients.json",
-    "hidden": false
-  },
-  {
     "eventName": "Strategic",
     "ruleset": "Template 1",
     "startDate": "2026-06-01",
