@@ -10,6 +10,7 @@ const fs = require('fs');
 
 const CARDS_REMOTE_BASE_URL = 'https://theaccordlands.com/assets/resources/';
 const KNOWN_CARD_FILES = [
+  'cards.76f06328.json',
   'cards.38a524ad.json',
   'cards.e1d32a9e.json',
   'cards.253921fb.json',
