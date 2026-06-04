@@ -49,12 +49,15 @@
         "names": [
           "Tzin's Secret"
         ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "sets": [],
         "rarities": []
       },
-      "hidden": false
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "allowAnySetWarlord": false,
+      "reserved": [],
+      "epic": []
     },
     "Saga": {
       "name": "Saga",
@@ -109,7 +112,7 @@
       }
     },
     "Template 1": {
-      "name": "Turncoat",
+      "name": "Kerebrus",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -128,18 +131,17 @@
       "requiresUnifiedFaction": false,
       "fullBypass": false,
       "editions": [
-        "Ancients"
+        "Saga"
       ],
       "restricted": {
-        "names": [
-          "Tzin's Secret"
-        ],
-        "sets": [
-          "Into the Accordlands (ITA)"
-        ],
+        "names": [],
+        "sets": [],
         "rarities": []
       },
-      "hidden": true
+      "hidden": false,
+      "allowAnySetWarlord": true,
+      "reserved": [],
+      "epic": []
     },
     "Template 2": {
       "name": "Template 2 (Ancients)",
@@ -198,35 +200,6 @@
         "rarities": []
       },
       "hidden": true
-    },
-    "December Ancients+": {
-      "name": "December Ancients+",
-      "warlordCount": 1,
-      "saRequiredSlots": [
-        {
-          "level": 1,
-          "count": 3
-        },
-        {
-          "level": 2,
-          "count": 2
-        }
-      ],
-      "maxCopies": 3,
-      "maxEpicCopies": 1,
-      "minTotalDeck": 50,
-      "checkMainDeckFaction": false,
-      "editions": [
-        "Ancients"
-      ],
-      "restricted": {
-        "names": [
-          "Tzin's Secret"
-        ],
-        "sets": [],
-        "rarities": []
-      },
-      "hidden": false
     }
   },
   "warlordExceptions": [
@@ -448,5 +421,12 @@
     "sakarianbloodknight",
     "freelancecavalier"
   ],
-  "defaultRuleset": "December Ancients+"
+  "defaultRuleset": "December Ancients+",
+  "rulesetOrder": [
+    "Template 1",
+    "Ancients",
+    "default",
+    "Saga",
+    "Alliance"
+  ]
 }
