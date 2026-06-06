@@ -262,5 +262,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "256218194635784195",
+    "discordId": "256218194635784195",
+    "discord_username": "xskeletalx#0",
+    "event": "Strategic",
+    "warlord": "Kayle, King Rowan",
+    "display_name": "xSkeletalx",
+    "timestamp": "2026-06-06T01:19:44.761Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Veteran Bowman": 2,
+          "Thunic Yeti": 2,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 2,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 2
+        },
+        "startingArmy": {
+          "Shambling Horror": 2,
+          "Brine Fiend": 3,
+          "Kayle, King Rowan": 1
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1,
+          "Medical Kit": 1,
+          "Fatestring Bow": 3,
+          "Cloudracer": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Swivel": 2,
+          "Sneak": 2,
+          "Shadow Bolts": 2,
+          "Pin Down": 2,
+          "Hunt From Above": 2,
+          "Death From Below": 2,
+          "Crypt Wine": 3,
+          "Change of Hands": 2,
+          "Assassin's Strike": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
