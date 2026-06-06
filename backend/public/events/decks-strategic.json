@@ -630,5 +630,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "336933692427730946",
+    "discordId": "336933692427730946",
+    "discord_username": "pedrosmurf#0",
+    "event": "Strategic",
+    "warlord": "Crucin Bascar",
+    "display_name": "Pedrosmurf",
+    "timestamp": "2026-06-06T05:19:30.371Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Veteran Bowman": 3,
+          "Thunic Yeti": 3,
+          "Master Dresden": 3,
+          "Hinterlands Griffon": 3,
+          "Flame Jester": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Crucin Bascar": 1,
+          "Shambling Horror": 2,
+          "Trogid": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Wither": 2,
+          "Sacrifice": 3,
+          "Quick Strength": 3,
+          "Invoke the Storm": 3,
+          "Final Blessing": 3,
+          "Fateshift": 3,
+          "Epic Judgment": 2,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Hunting Staff": 1,
+          "Hod's Legacy": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
