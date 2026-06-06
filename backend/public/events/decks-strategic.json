@@ -379,7 +379,7 @@
     "event": "Strategic",
     "warlord": "Eiael, Celestial Enforcer",
     "display_name": "fox.n.otter",
-    "timestamp": "2026-06-06T01:29:38.543Z",
+    "timestamp": "2026-06-06T01:35:30.103Z",
     "cardList": {
       "Character": {
         "count": 26,
@@ -400,10 +400,10 @@
         }
       },
       "Action": {
-        "count": 14,
+        "count": 15,
         "mainDeck": {
           "Rapid Dash": 3,
-          "Heroic Confrontation": 2,
+          "Heroic Confrontation": 3,
           "Hunt From Above": 3,
           "Lights of Revealing Sword": 3,
           "Noble Sacrifice": 3
@@ -411,10 +411,10 @@
         "startingArmy": {}
       },
       "Item": {
-        "count": 13,
+        "count": 12,
         "mainDeck": {
           "Myerdeth Mare": 2,
-          "Revenger": 2,
+          "Revenger": 1,
           "Ardian Greathawk": 3,
           "Deverenus' Axe": 3,
           "Storm Shard": 1,
