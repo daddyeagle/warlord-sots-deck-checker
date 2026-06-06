@@ -890,5 +890,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "341328809758294016",
+    "discordId": "341328809758294016",
+    "discord_username": "sonirae#0",
+    "event": "Strategic",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "PJ",
+    "timestamp": "2026-06-06T16:15:51.568Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Ac'Vuk": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Jubilant Hatchling": 3,
+          "Sutek Slimefang": 2,
+          "Oracle of Kavara": 2,
+          "Catapult Crew": 3
+        },
+        "startingArmy": {
+          "Vactus, Spirit's Champion": 1,
+          "'Mad' Pat Carrik": 1,
+          "Novice Pyro": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 1,
+          "Noble Sacrifice": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
