@@ -1263,5 +1263,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "604207671632986112",
+    "discordId": "604207671632986112",
+    "discord_username": "durdle1357#0",
+    "event": "Strategic",
+    "warlord": "Ar'tek",
+    "display_name": "Zedburger",
+    "timestamp": "2026-06-06T22:40:40.370Z",
+    "cardList": {
+      "Character": {
+        "count": 17,
+        "mainDeck": {
+          "Alaya": 2,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 3,
+          "Starbinder": 3
+        },
+        "startingArmy": {
+          "'Mad' Pat Carrik": 1,
+          "Ar'tek": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 1,
+          "Havat-lahn Stance": 2,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1,
+          "Strongarm Stout": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
