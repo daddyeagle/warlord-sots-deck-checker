@@ -785,59 +785,6 @@
     }
   },
   {
-    "username": "104932976646737920",
-    "discordId": "104932976646737920",
-    "discord_username": "sirtokealot#0",
-    "event": "Strategic",
-    "warlord": "Krenthor Gouge",
-    "display_name": "SirTokealot",
-    "timestamp": "2026-06-06T14:14:36.639Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 1,
-          "Nog, Pog, and Snivels": 3,
-          "Joleg": 2,
-          "Doo'run": 3,
-          "Ra'Gar Root-Strength": 3,
-          "The Mighty Mugg": 3,
-          "Makusog Steelhorn": 3,
-          "Master Dresden": 1
-        },
-        "startingArmy": {
-          "Bear Legion Recruit": 3,
-          "'Mad' Pat Carrik": 2,
-          "Krenthor Gouge": 1
-        }
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 3,
-          "Noble Sacrifice": 3,
-          "Final Farewell": 2,
-          "Crush": 1
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Ardian Greathawk": 3,
-          "Myerdeth Mare": 3,
-          "Storm Shard": 1,
-          "Spellblocker": 1,
-          "Medical Kit": 1,
-          "Rockarm": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "609237331320373249",
     "discordId": "609237331320373249",
     "discord_username": "mynameis_kofax#0",
@@ -1155,6 +1102,60 @@
           "Meet at the Inn!": 2,
           "Dupe": 2,
           "Epic Betrayal": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "104932976646737920",
+    "discordId": "104932976646737920",
+    "discord_username": "sirtokealot#0",
+    "event": "Strategic",
+    "warlord": "Krenthor Gouge",
+    "display_name": "SirTokealot",
+    "timestamp": "2026-06-06T20:53:05.389Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Novice Pyro": 1,
+          "Nog, Pog, and Snivels": 3,
+          "Joleg": 2,
+          "Doo'run": 3,
+          "Ra'Gar Root-Strength": 3,
+          "The Mighty Mugg": 3,
+          "Makusog Steelhorn": 3,
+          "Master Dresden": 1
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1,
+          "Krenthor Gouge": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 3,
+          "Final Farewell": 3,
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2,
+          "Myerdeth Mare": 2,
+          "Storm Shard": 1,
+          "Spellblocker": 1,
+          "Medical Kit": 1,
+          "Rockarm": 1
         },
         "startingArmy": {}
       }
