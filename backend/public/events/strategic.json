@@ -122,14 +122,6 @@
       "timestamp": "2026-06-06T13:32:48.250Z"
     },
     {
-      "warlord": "Krenthor Gouge",
-      "username": "104932976646737920",
-      "discordId": "104932976646737920",
-      "discord_username": "sirtokealot#0",
-      "display_name": "SirTokealot",
-      "timestamp": "2026-06-06T14:14:36.639Z"
-    },
-    {
       "warlord": "Lord Kestrel",
       "username": "609237331320373249",
       "discordId": "609237331320373249",
@@ -176,6 +168,14 @@
       "discord_username": "jackalofmourn#0",
       "display_name": "Jackalofmourn",
       "timestamp": "2026-06-06T20:08:23.256Z"
+    },
+    {
+      "warlord": "Krenthor Gouge",
+      "username": "104932976646737920",
+      "discordId": "104932976646737920",
+      "discord_username": "sirtokealot#0",
+      "display_name": "SirTokealot",
+      "timestamp": "2026-06-06T20:53:05.389Z"
     }
   ]
 }
