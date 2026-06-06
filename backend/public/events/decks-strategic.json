@@ -209,5 +209,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597520931364964",
+    "discordId": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "Strategic",
+    "warlord": "Marcus Shaw",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2026-06-06T01:18:26.315Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Zaina": 3,
+          "Swiftcloud": 1,
+          "Master Dresden": 3,
+          "Duke Richter": 3,
+          "Kingslayer": 2,
+          "Ghed Daucet": 3,
+          "Dwarf-Eater": 3,
+          "Dreadfang": 1
+        },
+        "startingArmy": {
+          "Tyren Ruskin": 1,
+          "Shambling Horror": 1,
+          "Marcus Shaw": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Strongarm Stout": 1,
+          "Wraithstalker": 3,
+          "Storm Shard": 1,
+          "Revenger": 3,
+          "Hunting Staff": 2,
+          "Ardian Greathawk": 2,
+          "Gapfinder": 2,
+          "Cloudracer": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Well Supplied": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
