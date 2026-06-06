@@ -683,58 +683,6 @@
     }
   },
   {
-    "username": "686402688815988769",
-    "discordId": "686402688815988769",
-    "discord_username": "cathelisourking#0",
-    "event": "Strategic",
-    "warlord": "Ferris Bachman",
-    "display_name": "Dragonbane",
-    "timestamp": "2026-06-06T12:52:48.559Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Ferris Bachman": 2,
-          "Crownland Strategist": 1,
-          "Alaya": 3,
-          "Oracle of Kavara": 1,
-          "Brightwing": 1,
-          "Darkwatcher": 1,
-          "Swiftcloud": 1,
-          "Master Dresden": 3,
-          "Huggins": 3,
-          "Field Marshal Malexin": 3
-        },
-        "startingArmy": {
-          "Ferris Bachman": 1,
-          "Crownland Strategist": 2,
-          "TFK Brigand": 3
-        }
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Wraithstalker": 3,
-          "Cloudracer": 3,
-          "Ritual Dagger": 3,
-          "Revenger": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Assassin's Strike": 2,
-          "Well Supplied": 3,
-          "Pin Down": 3,
-          "Noble Sacrifice": 2,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "105096895340244992",
     "discordId": "105096895340244992",
     "discord_username": "rollo5412#0",
@@ -778,6 +726,59 @@
           "Pin Down": 3,
           "Sneak": 3,
           "Tide Turner": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Strategic",
+    "warlord": "Ferris Bachman",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-06-06T13:32:48.250Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ferris Bachman": 2,
+          "Crownland Strategist": 1,
+          "Alaya": 3,
+          "Oracle of Kavara": 1,
+          "Brightwing": 1,
+          "Darkwatcher": 1,
+          "Swiftcloud": 1,
+          "Master Dresden": 3,
+          "Huggins": 3,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Ferris Bachman": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Wraithstalker": 3,
+          "Cloudracer": 3,
+          "Ritual Dagger": 3,
+          "Revenger": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Well Supplied": 2,
+          "Pin Down": 3,
+          "Noble Sacrifice": 2,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
