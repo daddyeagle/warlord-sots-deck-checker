@@ -318,5 +318,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Strategic",
+    "warlord": "Kothkah",
+    "display_name": "Restomagus",
+    "timestamp": "2026-06-06T01:22:33.024Z",
+    "cardList": {
+      "Character": {
+        "count": 14,
+        "mainDeck": {
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 1,
+          "Shambling Horror": 2,
+          "Sutek Slimefang": 2
+        },
+        "startingArmy": {
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 3,
+          "Kothkah": 1,
+          "Novice Pyro": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3,
+          "Noble Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 2,
+          "Medical Kit": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 2,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
