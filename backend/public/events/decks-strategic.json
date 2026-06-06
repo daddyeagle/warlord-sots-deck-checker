@@ -1049,5 +1049,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "173934105090588672",
+    "discordId": "173934105090588672",
+    "discord_username": "paradigmblue.#0",
+    "event": "Strategic",
+    "warlord": "Behlial",
+    "display_name": "paradigmblue.",
+    "timestamp": "2026-06-06T20:00:51.537Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Oracle of Kavara": 2,
+          "Ashveil": 1,
+          "Blackwind": 1,
+          "Callow Rowan": 3,
+          "Skitterleap": 3,
+          "Chovan Voidcaller": 1,
+          "Brightwing": 1,
+          "Darkwatcher": 1,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Tyren Ruskin": 2,
+          "Genecourt Initiate": 3,
+          "Behlial": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Holy Might": 3,
+          "Sacrifice": 3,
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3,
+          "Divine Respite": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "FireReign Idol": 2,
+          "Hod's Legacy": 1,
+          "Storm Shard": 1,
+          "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
