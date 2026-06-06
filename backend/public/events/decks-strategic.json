@@ -997,5 +997,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Strategic",
+    "warlord": "Yavlo the Kindled",
+    "display_name": "Raclesis",
+    "timestamp": "2026-06-06T19:30:58.875Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Taumar the Protector": 2,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Yavlo the Kindled": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Well of Screams": 1,
+          "Storm Shard": 1,
+          "Bloodsteed": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Glaciate": 2,
+          "Flamelance": 3,
+          "Fireball": 3,
+          "Epic Evocation": 2,
+          "Dissolve": 2,
+          "Darkflame Bolts": 3,
+          "Blast": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
