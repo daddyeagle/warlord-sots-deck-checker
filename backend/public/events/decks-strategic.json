@@ -423,5 +423,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "206187469178142720",
+    "discordId": "206187469178142720",
+    "discord_username": "praesum#0",
+    "event": "Strategic",
+    "warlord": "Trevaine Cartwright",
+    "display_name": "Praesum",
+    "timestamp": "2026-06-06T02:03:12.259Z",
+    "cardList": {
+      "Character": {
+        "count": 17,
+        "mainDeck": {
+          "Sutek Slimefang": 3,
+          "Yscarite Berserker": 3,
+          "Flame Jester": 3,
+          "Arika Ketchum": 2
+        },
+        "startingArmy": {
+          "Trevaine Cartwright": 1,
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Cloudracer": 3,
+          "Ardian Greathawk": 3,
+          "Merrick Regalia": 2,
+          "Gapfinder": 3,
+          "Leopard Claws": 3,
+          "Revenger": 3,
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Cunning Shot": 3,
+          "Dupe": 1,
+          "Epic Betrayal": 3,
+          "Wither": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
