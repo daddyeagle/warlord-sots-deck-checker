@@ -49,5 +49,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1151309395049857076",
+    "discordId": "1151309395049857076",
+    "discord_username": "leethemad#0",
+    "event": "Strategic",
+    "warlord": "Kerebrus",
+    "display_name": "L",
+    "timestamp": "2026-06-06T00:55:46.107Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Veteran Bowman": 3,
+          "Thunic Yeti": 2,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Shambling Horror": 2,
+          "Kerebrus": 1
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Rockarm": 2,
+          "Havat-lahn Stance": 1,
+          "Griffon of Andover": 2,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2,
+          "Aroch Mail": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Quick Strength": 2,
+          "Quick Shielding": 2,
+          "Prime Positioning": 2,
+          "Meet at the Inn!": 2,
+          "Lights of Revealing Sword": 3,
+          "Heroic Confrontation": 2,
+          "Divine Barrier": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
