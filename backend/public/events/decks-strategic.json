@@ -943,5 +943,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "892597161294970881",
+    "discordId": "892597161294970881",
+    "discord_username": "taratherat#0",
+    "event": "Strategic",
+    "warlord": "Feyd Rowan",
+    "display_name": "Tara the rat",
+    "timestamp": "2026-06-06T18:20:15.118Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Tresven": 3,
+          "Treyik": 3,
+          "Skitterleap": 3,
+          "Master Dresden": 3,
+          "Lord's Assailant": 3,
+          "Callow Rowan": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Feyd Rowan": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Meet at the Inn!": 2,
+          "Shadow Bolts": 2,
+          "Pin Down": 2,
+          "Flamelance": 3,
+          "Assassin's Strike": 3,
+          "Divine Respite": 3,
+          "Crypt Wine": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Unicorn of Thun": 1,
+          "Teufeltiger's Shroud": 1,
+          "Spellblocker": 1,
+          "Storm Shard": 1,
+          "Fatestring Bow": 1,
+          "Cloudracer": 2,
+          "Burning Scroll": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
