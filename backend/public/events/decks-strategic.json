@@ -1214,5 +1214,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "710954937189793882",
+    "discordId": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Strategic",
+    "warlord": "Ahdre",
+    "display_name": "Temperance",
+    "timestamp": "2026-06-06T22:14:44.026Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Ciane": 3,
+          "Tresven": 3,
+          "Treyik": 3,
+          "Veera and Bones": 3,
+          "Goldengrove Mage": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Ahdre": 1,
+          "Graveyard Librarian": 2,
+          "Jigoral": 3
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Pin Down": 3,
+          "Curse of Greed": 3,
+          "Crypt Wine": 3,
+          "Death From Below": 3,
+          "Wither": 1,
+          "Flurry of Knives": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Fatestring Bow": 3,
+          "Shrapnelball": 3,
+          "Merrick Regalia": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
