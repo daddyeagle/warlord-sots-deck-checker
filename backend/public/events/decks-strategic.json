@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "username": "543583104221184000",
+    "discordId": "543583104221184000",
+    "discord_username": "midge8700#0",
+    "event": "Strategic",
+    "warlord": "Shah'syss",
+    "display_name": "Midge",
+    "timestamp": "2026-06-06T00:49:38.263Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Blitzer": 1,
+          "Flame Jester": 3,
+          "Master Dresden": 3,
+          "Sta'ash": 3,
+          "Stirges": 2,
+          "Thunic Yeti": 3,
+          "Trogid": 3
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Shah'syss": 1,
+          "Shambling Horror": 2
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Lights of Revealing Sword": 3,
+          "Pounce": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Medical Kit": 1,
+          "Myerdeth Mare": 3,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
