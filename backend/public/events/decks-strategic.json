@@ -836,5 +836,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Strategic",
+    "warlord": "Lord Kestrel",
+    "display_name": "Kofax",
+    "timestamp": "2026-06-06T16:09:58.172Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Dreadfang": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Master Dresden": 3,
+          "Sister Kiren": 3,
+          "Swiftcloud": 1
+        },
+        "startingArmy": {
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3,
+          "Lord Kestrel": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Evocation": 3,
+          "Grave Exchange": 2,
+          "Lights of Revealing Sword": 2,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bloodsteed": 3,
+          "Cloak of Brilliance": 1,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3,
+          "Rockarm": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
