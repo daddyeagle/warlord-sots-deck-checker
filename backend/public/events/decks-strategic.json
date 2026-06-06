@@ -1104,5 +1104,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "435247799165255680",
+    "discordId": "435247799165255680",
+    "discord_username": "jackalofmourn#0",
+    "event": "Strategic",
+    "warlord": "Rathe",
+    "display_name": "Jackalofmourn",
+    "timestamp": "2026-06-06T20:08:23.256Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Treyik": 3,
+          "Master Dresden": 2,
+          "Jubilant Hatchling": 3,
+          "Ciane": 3,
+          "Flame Jester": 2,
+          "Tresven": 3
+        },
+        "startingArmy": {
+          "Jigoral": 3,
+          "Graveyard Librarian": 2,
+          "Rathe": 1
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Brigand Buckler": 1,
+          "Storm Shard": 1,
+          "Fatestring Bow": 2,
+          "Teufeltiger's Shroud": 2,
+          "Gapfinder": 2,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 1,
+          "Revenger": 2,
+          "Fineltour's Draught": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Pounce": 1,
+          "Meet at the Inn!": 2,
+          "Dupe": 2,
+          "Epic Betrayal": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
