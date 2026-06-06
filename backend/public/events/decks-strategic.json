@@ -371,5 +371,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "149252393630957569",
+    "discordId": "149252393630957569",
+    "discord_username": "sleeping4est#0",
+    "event": "Strategic",
+    "warlord": "Black Tom of Corinth",
+    "display_name": "Sleeping4est",
+    "timestamp": "2026-06-06T01:22:48.445Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sanguicorn": 2,
+          "Oracle of Kavara": 2,
+          "Mo'can": 3,
+          "Graham Heyward": 2,
+          "Arva of Reclusa": 2,
+          "Master Dresden": 3,
+          "Sutek Razorclaw": 2,
+          "Nog, Pog, and Snivels": 3
+        },
+        "startingArmy": {
+          "Black Tom of Corinth": 1,
+          "Shambling Horror": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1,
+          "Ritual Dagger": 2,
+          "Revenger": 3,
+          "Fineltour's Draught": 2,
+          "Farhaven Guide": 1,
+          "Cloudracer": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Pounce": 3,
+          "Dupe": 3,
+          "Curse of Greed": 2,
+          "Change of Hands": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
