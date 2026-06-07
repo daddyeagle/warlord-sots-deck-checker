@@ -2734,5 +2734,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discordId": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "Strategic",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-06-07T23:24:19.720Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Veera and Bones": 3,
+          "Thunic Yeti": 3,
+          "Swiftcloud": 1,
+          "Master Dresden": 3,
+          "Kingslayer": 1,
+          "Dreadfang": 1,
+          "Callow Rowan": 3,
+          "Brightwing": 1,
+          "Blitzer": 1,
+          "Blackwind": 1,
+          "Ashveil": 1
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Resurrection": 2,
+          "Quick Strength": 3,
+          "Meet at the Inn!": 3,
+          "Fateshift": 3,
+          "Epic Judgment": 2,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Medical Kit": 2,
+          "Kor's Aegis": 2,
+          "Hunting Staff": 3,
+          "Cyldragen's Tome": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
