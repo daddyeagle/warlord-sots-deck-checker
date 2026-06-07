@@ -1895,5 +1895,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "545496839919632384",
+    "discordId": "545496839919632384",
+    "discord_username": "brhiggins#0",
+    "event": "Strategic",
+    "warlord": "Raziel",
+    "display_name": "Korkron/Illemental",
+    "timestamp": "2026-06-07T17:06:48.207Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Skitterleap": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3,
+          "Master Dresden": 3,
+          "Veera and Bones": 3,
+          "Treyik": 3,
+          "Tresven": 3
+        },
+        "startingArmy": {
+          "Jigoral": 3,
+          "Graveyard Librarian": 2,
+          "Raziel": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Noble Sacrifice": 3,
+          "Shatter": 3,
+          "Change of Hands": 3,
+          "Arcane Approach": 3,
+          "Midnight Madness": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Nightfire Manacles": 3,
+          "Medical Kit": 1,
+          "Hunting Staff": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
