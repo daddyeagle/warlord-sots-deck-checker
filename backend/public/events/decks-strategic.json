@@ -2364,5 +2364,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1097993099822759966",
+    "discordId": "1097993099822759966",
+    "discord_username": "baptiste.bach#0",
+    "event": "Strategic",
+    "warlord": "Gnorrow Yaw",
+    "display_name": "Bach",
+    "timestamp": "2026-06-07T20:59:12.610Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Oracle of Kavara": 2,
+          "Beacon": 3,
+          "Gadgeteer Bilder": 3,
+          "Quicksilver Gargoyle": 3,
+          "Blitzer": 1,
+          "Darkwatcher": 1,
+          "Swiftcloud": 1,
+          "Dreadfang": 1,
+          "Flamefall": 1,
+          "Kingslayer": 1,
+          "Brightwing": 1,
+          "Ashveil": 1
+        },
+        "startingArmy": {
+          "Gnorrow Yaw": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 1,
+          "FireReign Idol": 3,
+          "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Quick Strength": 3,
+          "Courage from Faith": 3,
+          "Resurrection": 2,
+          "Holy Might": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
