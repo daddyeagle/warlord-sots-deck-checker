@@ -1589,14 +1589,14 @@
     "event": "Strategic",
     "warlord": "Krenthor Gouge",
     "display_name": "SirTokealot",
-    "timestamp": "2026-06-07T05:02:45.194Z",
+    "timestamp": "2026-06-07T05:09:46.051Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
+          "'Mad' Pat Carrik": 1,
           "Nog, Pog, and Snivels": 3,
           "Joleg": 2,
-          "'Mad' Pat Carrik": 1,
           "Doo'run": 3,
           "Ra'Gar Root-Strength": 3,
           "The Mighty Mugg": 3,
@@ -1605,32 +1605,32 @@
         },
         "startingArmy": {
           "Bear Legion Recruit": 3,
-          "Novice Pyro": 2,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1,
           "Krenthor Gouge": 1
         }
       },
       "Action": {
-        "count": 13,
+        "count": 14,
         "mainDeck": {
           "Noble Sacrifice": 3,
           "Final Farewell": 2,
           "Arcane Approach": 3,
-          "Epic Donnybrook": 2,
+          "Epic Donnybrook": 3,
           "Lights of Revealing Sword": 3
         },
         "startingArmy": {}
       },
       "Item": {
-        "count": 12,
+        "count": 11,
         "mainDeck": {
-          "Strongarm Stout": 3,
+          "Strongarm Stout": 1,
           "Deverenus' Axe": 3,
-          "Ardian Greathawk": 1,
-          "Myerdeth Mare": 1,
+          "Ardian Greathawk": 2,
+          "Myerdeth Mare": 2,
           "Storm Shard": 1,
           "Spellblocker": 1,
-          "Medical Kit": 1,
-          "Rockarm": 1
+          "Medical Kit": 1
         },
         "startingArmy": {}
       }
