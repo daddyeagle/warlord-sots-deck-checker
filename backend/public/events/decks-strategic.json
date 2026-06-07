@@ -1793,57 +1793,6 @@
     }
   },
   {
-    "username": "277208786069094400",
-    "discordId": "277208786069094400",
-    "discord_username": "hotshotmaster72#0",
-    "event": "Strategic",
-    "warlord": "Frost",
-    "display_name": "HotShotMaster72",
-    "timestamp": "2026-06-07T14:12:08.507Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Chant": 3,
-          "Dress": 3,
-          "Tyren Ruskin": 3,
-          "Beacon": 3,
-          "Hazahk of Shadow": 3,
-          "Anvil": 3,
-          "Gadgeteer Bilder": 1
-        },
-        "startingArmy": {
-          "Frost": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Bruntor's Helm": 3,
-          "Griffon of Andover": 3,
-          "Deverenus' Axe": 3,
-          "Havat-lahn Stance": 1,
-          "Rockarm": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Leveled!": 3,
-          "Noble Sacrifice": 3,
-          "Meet at the Inn!": 3,
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "266281128732786688",
     "discordId": "266281128732786688",
     "discord_username": "burnout383#0",
@@ -2730,6 +2679,57 @@
           "Storm Shard": 1,
           "Kaballite Regalia": 2,
           "Bloodsteed": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "277208786069094400",
+    "discordId": "277208786069094400",
+    "discord_username": "hotshotmaster72#0",
+    "event": "Strategic",
+    "warlord": "Frost",
+    "display_name": "HotShotMaster72",
+    "timestamp": "2026-06-07T22:43:19.335Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Anvil": 2,
+          "Beacon": 3,
+          "Chant": 3,
+          "Dress": 3,
+          "Hazahk of Shadow": 3
+        },
+        "startingArmy": {
+          "Frost": 1,
+          "Sunforge Smith": 1,
+          "Tinker": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3,
+          "Noble Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Bruntor's Helm": 3,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Havat-lahn Stance": 1,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
