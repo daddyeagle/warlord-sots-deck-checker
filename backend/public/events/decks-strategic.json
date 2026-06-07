@@ -2308,5 +2308,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "201031785600122880",
+    "discordId": "201031785600122880",
+    "discord_username": "innocentwrath#0",
+    "event": "Strategic",
+    "warlord": "King Xod",
+    "display_name": "innocentwrath",
+    "timestamp": "2026-06-07T20:35:25.705Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Quartermaster Dirge": 3,
+          "Anvil": 3,
+          "Hazahk of Shadow": 3,
+          "Darkwatcher": 1,
+          "Beacon": 3,
+          "Oracle of Kavara": 3,
+          "Frenzy": 3
+        },
+        "startingArmy": {
+          "King Xod": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Talisman of Might": 1,
+          "War Horse": 1,
+          "Aroch Mail": 1,
+          "Havat-lahn Stance": 1,
+          "Scale Mail": 1,
+          "Rockarm": 1,
+          "Griffon of Andover": 2,
+          "Fineltour's Draught": 1,
+          "Breastplate of Power": 1,
+          "Blade of Antiquity": 3,
+          "Spellblocker": 1,
+          "Steelforge Regalia": 2,
+          "Bruntor's Helm": 2,
+          "Kor's Aegis": 1,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 3,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
