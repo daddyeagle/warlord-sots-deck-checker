@@ -2788,5 +2788,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discordId": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Strategic",
+    "warlord": "Commander Retsov",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-06-07T23:32:02.126Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Swiftcloud": 2,
+          "Oracle of Kavara": 2,
+          "Brightwing": 2,
+          "Kingslayer": 2,
+          "Darkwatcher": 2,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Well Supplied": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Blade of Antiquity": 3,
+          "Ardian Greathawk": 3,
+          "Steelforge Regalia": 3,
+          "Rockarm": 2,
+          "Medical Kit": 1,
+          "Storm Shard": 1,
+          "Havat-lahn Stance": 1,
+          "Fineltour's Draught": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
