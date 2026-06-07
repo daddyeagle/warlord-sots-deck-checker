@@ -2473,5 +2473,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Strategic",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-06-07T21:09:43.621Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 1,
+          "Doo'run": 3,
+          "The Mighty Mugg": 3,
+          "Thunic Yeti": 3,
+          "Bikram Bullstrength": 3,
+          "Isadran Kennelmaster": 3,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 3,
+          "Press the Attack": 1,
+          "Prime Positioning": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Vanguard's Presence": 1,
+          "Storm Shard": 1,
+          "Griffon of Andover": 3,
+          "Myerdeth Mare": 3,
+          "Blade of Antiquity": 1,
+          "Steelforge Regalia": 2,
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
