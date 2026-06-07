@@ -2419,5 +2419,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Strategic",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "Hosh",
+    "timestamp": "2026-06-07T21:02:49.277Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Albrecht Novice": 3,
+          "Field Marshal Malexin": 3,
+          "Shannon the Daring": 3,
+          "Leonora": 3,
+          "Huggins": 3,
+          "Bikram Bullstrength": 3,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "Efrim Dawntreader": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 3,
+          "Griffon of Andover": 3,
+          "Shield of Spurning": 2,
+          "Rockarm": 2,
+          "Bruntor's Helm": 2,
+          "Medical Kit": 1,
+          "Fineltour's Draught": 1,
+          "Breastplate of Power": 1,
+          "Storm Shard": 1,
+          "Talisman of Might": 1,
+          "Aroch Mail": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Epic Donnybrook": 2,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
