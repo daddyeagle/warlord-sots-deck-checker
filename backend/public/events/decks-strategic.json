@@ -2207,5 +2207,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "80710986104840192",
+    "discordId": "80710986104840192",
+    "discord_username": "renkai#0",
+    "event": "Strategic",
+    "warlord": "The Lady of Pain",
+    "display_name": "Renkai",
+    "timestamp": "2026-06-07T19:36:13.677Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Ciane": 3,
+          "Goldengrove Mage": 3,
+          "Bikram Bullstrength": 3,
+          "Master Dresden": 3,
+          "Veera and Bones": 3,
+          "Treyik": 3
+        },
+        "startingArmy": {
+          "The Lady of Pain": 1,
+          "Graveyard Librarian": 2,
+          "Jigoral": 3
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Pounce": 2,
+          "Assassin's Strike": 3,
+          "Midnight Madness": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Gapfinder": 2,
+          "Trinket of Malice": 2,
+          "Storm Shard": 1,
+          "Cloudracer": 2,
+          "Teufeltiger's Shroud": 3,
+          "Revenger": 3,
+          "Fineltour's Draught": 2,
+          "Fatestring Bow": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
