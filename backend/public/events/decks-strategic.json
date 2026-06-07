@@ -1944,5 +1944,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Strategic",
+    "warlord": "De'zicrah",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-06-07T17:08:12.438Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Dwarf-Eater": 2,
+          "Master Dresden": 2,
+          "Mo'can": 2,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2,
+          "Sutek Razorclaw": 2,
+          "Veteran Bowman": 2
+        },
+        "startingArmy": {
+          "De'zicrah": 1,
+          "Novice Pyro": 2,
+          "Joleg": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Gapfinder": 3,
+          "Revenger": 2,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Cunning Shot": 2,
+          "Dupe": 2,
+          "Hunt From Above": 2,
+          "Rapid Dash": 2,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
