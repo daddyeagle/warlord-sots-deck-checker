@@ -1210,61 +1210,6 @@
     }
   },
   {
-    "username": "601032639452807178",
-    "discordId": "601032639452807178",
-    "discord_username": "yotakafish#0",
-    "event": "Strategic",
-    "warlord": "Mekk'iah",
-    "display_name": "yotakafish",
-    "timestamp": "2026-06-06T23:59:59.564Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Thunic Yeti": 3,
-          "Blitzer": 1,
-          "Oracle of Kavara": 2,
-          "Master Dresden": 2,
-          "Bikram Bullstrength": 3,
-          "The Mighty Mugg": 2,
-          "Nog, Pog, and Snivels": 3,
-          "Ac'Vuk": 3
-        },
-        "startingArmy": {
-          "Mekk'iah": 1,
-          "'Mad' Pat Carrik": 1,
-          "Novice Pyro": 1,
-          "Bear Legion Recruit": 3
-        }
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 2,
-          "Arcane Approach": 3,
-          "Epic Donnybrook": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 15,
-        "mainDeck": {
-          "Myerdeth Mare": 1,
-          "Fineltour's Draught": 1,
-          "Havat-lahn Stance": 1,
-          "Steelforge Regalia": 3,
-          "Deverenus' Axe": 3,
-          "Ardian Greathawk": 1,
-          "Storm Shard": 1,
-          "Well of Screams": 1,
-          "Bloodsteed": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "149252393630957569",
     "discordId": "149252393630957569",
     "discord_username": "sleeping4est#0",
@@ -1632,6 +1577,61 @@
           "Spellblocker": 1,
           "Medical Kit": 1,
           "Rockarm": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "601032639452807178",
+    "discordId": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Strategic",
+    "warlord": "Mekk'iah",
+    "display_name": "yotakafish",
+    "timestamp": "2026-06-07T04:57:20.450Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Blitzer": 1,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 2,
+          "Bikram Bullstrength": 3,
+          "The Mighty Mugg": 2,
+          "Nog, Pog, and Snivels": 3,
+          "Ac'Vuk": 3
+        },
+        "startingArmy": {
+          "Mekk'iah": 1,
+          "'Mad' Pat Carrik": 1,
+          "Novice Pyro": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 2,
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Myerdeth Mare": 1,
+          "Burning Scroll": 1,
+          "Fineltour's Draught": 1,
+          "Steelforge Regalia": 3,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 1,
+          "Storm Shard": 1,
+          "Well of Screams": 1,
+          "Bloodsteed": 3
         },
         "startingArmy": {}
       }
