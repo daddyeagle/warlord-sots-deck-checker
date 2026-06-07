@@ -2628,5 +2628,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "392055441326211083",
+    "discordId": "392055441326211083",
+    "discord_username": "aurlynne#0",
+    "event": "Strategic",
+    "warlord": "Brom Frostbeard",
+    "display_name": "Aurlynne",
+    "timestamp": "2026-06-07T21:21:53.667Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Kingslayer": 1,
+          "Jubilant Hatchling": 1,
+          "Oracle of Kavara": 2,
+          "Beacon": 3,
+          "Blitzer": 1,
+          "Thunic Yeti": 3,
+          "Master Dresden": 2,
+          "Darkwatcher": 2,
+          "Brightwing": 1,
+          "Swiftcloud": 2,
+          "Dreadfang": 1
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 2,
+          "Brom Frostbeard": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Noble Sacrifice": 2,
+          "Quick Strength": 3,
+          "Meet at the Inn!": 2,
+          "Dissolve": 2,
+          "Final Blessing": 2,
+          "Fateshift": 2,
+          "Divine Respite": 3,
+          "Epic Judgment": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Scepter of Djarat": 2,
+          "Cyldragen's Tome": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
