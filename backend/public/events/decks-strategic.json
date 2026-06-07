@@ -2577,5 +2577,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "231248072204746753",
+    "discordId": "231248072204746753",
+    "discord_username": "kynarin#0",
+    "event": "Strategic",
+    "warlord": "Thekk Rockbender",
+    "display_name": "Kynarin",
+    "timestamp": "2026-06-07T21:15:28.472Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Chovan Voidcaller": 3,
+          "Darkwatcher": 1,
+          "Frenzy": 3,
+          "Thunic Yeti": 3,
+          "Blitzer": 1,
+          "Hazahk of Shadow": 3,
+          "Beacon": 3,
+          "Bikram Bullstrength": 2
+        },
+        "startingArmy": {
+          "Thekk Rockbender": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Divine Respite": 3,
+          "Spiritual Weapon": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Farhaven Guide": 2,
+          "Blade of Antiquity": 2,
+          "Deverenus' Axe": 3,
+          "Luthlarius Regalia": 2,
+          "Hod's Legacy": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
