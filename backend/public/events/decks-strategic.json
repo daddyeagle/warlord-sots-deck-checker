@@ -2048,5 +2048,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "565337847905910805",
+    "discordId": "565337847905910805",
+    "discord_username": "coachdan1991#0",
+    "event": "Strategic",
+    "warlord": "Adarymy",
+    "display_name": "CoachDan",
+    "timestamp": "2026-06-07T17:31:56.340Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Leonora": 3,
+          "Alaya": 3,
+          "Birdsong Druid": 2,
+          "Field Marshal Malexin": 3,
+          "Albrecht Novice": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Adarymy": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Breastplate of Power": 2,
+          "Cloudracer": 3,
+          "Deverenus' Axe": 3,
+          "Revenger": 3,
+          "Griffon of Andover": 2,
+          "Ardian Greathawk": 3,
+          "Rockarm": 2,
+          "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 5,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Noble Sacrifice": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
