@@ -274,14 +274,6 @@
       "timestamp": "2026-06-07T12:36:00.207Z"
     },
     {
-      "warlord": "Frost",
-      "username": "277208786069094400",
-      "discordId": "277208786069094400",
-      "discord_username": "hotshotmaster72#0",
-      "display_name": "HotShotMaster72",
-      "timestamp": "2026-06-07T14:12:08.507Z"
-    },
-    {
       "warlord": "Talin Tzin",
       "username": "266281128732786688",
       "discordId": "266281128732786688",
@@ -416,6 +408,14 @@
       "discord_username": "itsnotkitty#0",
       "display_name": "itsnotkitty",
       "timestamp": "2026-06-07T21:40:43.666Z"
+    },
+    {
+      "warlord": "Frost",
+      "username": "277208786069094400",
+      "discordId": "277208786069094400",
+      "discord_username": "hotshotmaster72#0",
+      "display_name": "HotShotMaster72",
+      "timestamp": "2026-06-07T22:43:19.335Z"
     }
   ]
 }
