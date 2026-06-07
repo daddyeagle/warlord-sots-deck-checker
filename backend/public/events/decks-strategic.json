@@ -2526,5 +2526,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "300324378829258753",
+    "discordId": "300324378829258753",
+    "discord_username": "illuvatar85#0",
+    "event": "Strategic",
+    "warlord": "Father Jourdain",
+    "display_name": "ILLUVATAR85",
+    "timestamp": "2026-06-07T21:10:02.526Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Sister Kiren": 3,
+          "Duke Richter": 3,
+          "Lady Estelle": 1,
+          "Oracle of Kavara": 1,
+          "Blitzer": 1,
+          "Kingslayer": 1
+        },
+        "startingArmy": {
+          "Genecourt Initiate": 3,
+          "Church Inquisitor": 2,
+          "Father Jourdain": 1
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 3,
+          "Rockarm": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Meet at the Inn!": 3,
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3,
+          "Final Blessing": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
