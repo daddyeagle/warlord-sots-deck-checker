@@ -1635,5 +1635,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "353890794920345611",
+    "discordId": "353890794920345611",
+    "discord_username": "nhirishpunk#0",
+    "event": "Strategic",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "NHIrishPunk",
+    "timestamp": "2026-06-07T12:12:25.771Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Squire Fendric": 2,
+          "Church Enforcer Tancred": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Rockarm": 1,
+          "Steelforge Regalia": 1,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 1,
+          "Ardian Greathawk": 2,
+          "Griffon of Andover": 3,
+          "Myerdeth Mare": 3,
+          "Deverenus' Axe": 3,
+          "Bardiche": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Meet at the Inn!": 1,
+          "Crush": 1,
+          "Prime Positioning": 2,
+          "Tide Turner": 3,
+          "Arcane Approach": 3,
+          "Cleave": 3,
+          "Heroic Confrontation": 3,
+          "Epic Donnybrook": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
