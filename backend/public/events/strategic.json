@@ -186,14 +186,6 @@
       "timestamp": "2026-06-06T22:40:40.370Z"
     },
     {
-      "warlord": "Mekk'iah",
-      "username": "601032639452807178",
-      "discordId": "601032639452807178",
-      "discord_username": "yotakafish#0",
-      "display_name": "yotakafish",
-      "timestamp": "2026-06-06T23:59:59.564Z"
-    },
-    {
       "warlord": "Black Tom of Corinth",
       "username": "149252393630957569",
       "discordId": "149252393630957569",
@@ -248,6 +240,14 @@
       "discord_username": "sirtokealot#0",
       "display_name": "SirTokealot",
       "timestamp": "2026-06-07T04:55:18.803Z"
+    },
+    {
+      "warlord": "Mekk'iah",
+      "username": "601032639452807178",
+      "discordId": "601032639452807178",
+      "discord_username": "yotakafish#0",
+      "display_name": "yotakafish",
+      "timestamp": "2026-06-07T04:57:20.450Z"
     }
   ]
 }
