@@ -2684,5 +2684,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "243980221735239680",
+    "discordId": "243980221735239680",
+    "discord_username": "itsnotkitty#0",
+    "event": "Strategic",
+    "warlord": "Thalaasa",
+    "display_name": "itsnotkitty",
+    "timestamp": "2026-06-07T21:40:43.666Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Veera and Bones": 3,
+          "Goldengrove Mage": 2,
+          "Skitterleap": 3,
+          "Master Dresden": 3,
+          "Lord's Assailant": 3,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Thalaasa": 1,
+          "Graveyard Librarian": 2,
+          "Sarakian Sellsword": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Terrorize": 2,
+          "Shatter": 2,
+          "Blast": 3,
+          "Jump": 3,
+          "Glimmer": 3,
+          "Glaciate": 3,
+          "Flamelance": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Kaballite Regalia": 2,
+          "Bloodsteed": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
