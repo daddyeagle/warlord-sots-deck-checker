@@ -1478,5 +1478,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "580478373717868545",
+    "discordId": "580478373717868545",
+    "discord_username": "zydepunk#0",
+    "event": "Strategic",
+    "warlord": "Trevor Magson",
+    "display_name": "Zydepunk",
+    "timestamp": "2026-06-07T02:32:42.617Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Bikram Bullstrength": 3,
+          "Thunic Yeti": 3,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 2,
+          "Sanguicorn": 2
+        },
+        "startingArmy": {
+          "Trevor Magson": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Crypt Wine": 3,
+          "Pounce": 3,
+          "Pin Down": 2,
+          "Swivel": 2,
+          "Assassin's Strike": 2,
+          "Rapid Dash": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Fatestring Bow": 3,
+          "Cloudracer": 3,
+          "Ardian Greathawk": 2,
+          "Merrick Regalia": 2,
+          "Storm Shard": 1,
+          "Angel's Tears": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
