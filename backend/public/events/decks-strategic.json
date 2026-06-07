@@ -1531,5 +1531,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "219131100390359040",
+    "discordId": "219131100390359040",
+    "discord_username": "valiantbd#0",
+    "event": "Strategic",
+    "warlord": "Mair Haven",
+    "display_name": "valiantbd",
+    "timestamp": "2026-06-07T02:35:59.141Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Arika Ketchum": 1,
+          "Birdsong Druid": 3,
+          "Blitzer": 1,
+          "Brightwing": 1,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Crypt Wine": 3,
+          "Pin Down": 2,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Angel's Tears": 1,
+          "Ardian Greathawk": 3,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Shrapnelball": 2,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
