@@ -1742,5 +1742,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Strategic",
+    "warlord": "Rac Ironbone",
+    "display_name": "Oremm",
+    "timestamp": "2026-06-07T12:36:00.207Z",
+    "cardList": {
+      "Character": {
+        "count": 15,
+        "mainDeck": {
+          "Sunforge Smith": 3,
+          "Beacon": 3,
+          "Hazahk of Shadow": 3
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Tinker": 1,
+          "Shadow Clan Slayer": 1,
+          "Rac Ironbone": 1
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 3,
+          "Final Farewell": 3,
+          "Pounce": 3,
+          "Prime Positioning": 3,
+          "Heroic Confrontation": 3,
+          "Epic Donnybrook": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "War Horse": 2,
+          "Griffon of Andover": 3,
+          "Myerdeth Mare": 3,
+          "Rockarm": 3,
+          "Bardiche": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
