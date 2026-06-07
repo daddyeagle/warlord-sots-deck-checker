@@ -1688,5 +1688,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "374294292878983169",
+    "discordId": "374294292878983169",
+    "discord_username": "t0ma70#0",
+    "event": "Strategic",
+    "warlord": "B'alam Nak",
+    "display_name": "t0ma70",
+    "timestamp": "2026-06-07T12:17:05.289Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 1,
+          "Ac'Vuk": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Master Dresden": 3,
+          "Mo'can": 3,
+          "Oracle of Kavara": 3,
+          "Muddflek": 3
+        },
+        "startingArmy": {
+          "Misearean Scout": 1,
+          "Bear Legion Recruit": 1,
+          "'Mad' Pat Carrik": 1,
+          "Joleg": 2,
+          "B'alam Nak": 1
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Angel's Tears": 1,
+          "Gapfinder": 1,
+          "Revenger": 1,
+          "Teufeltiger's Shroud": 2,
+          "Fatestring Bow": 2,
+          "Cloudracer": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Pin Down": 2,
+          "Assassin's Strike": 3,
+          "Rapid Dash": 2,
+          "Swivel": 3,
+          "Cunning Shot": 2,
+          "Crypt Wine": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
