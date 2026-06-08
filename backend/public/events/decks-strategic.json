@@ -3154,5 +3154,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "196189498986463232",
+    "discordId": "196189498986463232",
+    "discord_username": "edgarhking#0",
+    "event": "Strategic",
+    "warlord": "Iam Unsullied",
+    "display_name": "edgarhking",
+    "timestamp": "2026-06-08T01:52:07.702Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Albrecht Novice": 3,
+          "Alaya": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Iam Unsullied": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3,
+          "Tide Turner": 3,
+          "Heroic Confrontation": 3,
+          "Prime Positioning": 3,
+          "Noble Sacrifice": 2,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Bardiche": 3,
+          "Myerdeth Mare": 3,
+          "Griffon of Andover": 2,
+          "Ardian Greathawk": 2,
+          "Rockarm": 2,
+          "Aroch Mail": 1,
+          "Talisman of Might": 1,
+          "Bruntor's Helm": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
