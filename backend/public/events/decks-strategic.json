@@ -2893,5 +2893,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423494395640283145",
+    "discordId": "423494395640283145",
+    "discord_username": "depressodado#0",
+    "event": "Strategic",
+    "warlord": "Dallen Stormlost",
+    "display_name": "DepressoDaDo",
+    "timestamp": "2026-06-08T01:08:59.611Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Master Dresden": 3,
+          "Sister Kiren": 2,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Dallen Stormlost": 1
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 2,
+          "Havat-lahn Stance": 1,
+          "Medical Kit": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Crush": 2,
+          "Divine Respite": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 2,
+          "Spiritual Weapon": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
