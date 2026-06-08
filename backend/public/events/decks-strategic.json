@@ -3099,5 +3099,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Strategic",
+    "warlord": "Goth'ak",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-06-08T01:31:26.008Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Novice Pyro": 1,
+          "Master Dresden": 1,
+          "Muddflek": 3,
+          "Hagunk": 1,
+          "Greenflower Warden": 2,
+          "Nog, Pog, and Snivels": 2,
+          "Mo'can": 3,
+          "Kraig'dem": 3,
+          "Catapult Crew": 3
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Goth'ak": 1,
+          "Novice Pyro": 2
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Fatestring Bow": 2,
+          "Teufeltiger's Shroud": 2,
+          "Storm Shard": 1,
+          "Scout Pony": 1,
+          "Cloudracer": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Swivel": 2,
+          "Shadow Bolts": 2,
+          "Flamelance": 1,
+          "Death From Below": 2,
+          "Crypt Wine": 2,
+          "Blast": 2,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
