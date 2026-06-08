@@ -338,14 +338,6 @@
       "timestamp": "2026-06-07T19:36:13.677Z"
     },
     {
-      "warlord": "Uriel",
-      "username": "228613561398722560",
-      "discordId": "228613561398722560",
-      "discord_username": "kolat#0",
-      "display_name": "Kolat",
-      "timestamp": "2026-06-07T20:25:31.205Z"
-    },
-    {
       "warlord": "King Xod",
       "username": "201031785600122880",
       "discordId": "201031785600122880",
@@ -488,6 +480,14 @@
       "discord_username": "edgarhking#0",
       "display_name": "edgarhking",
       "timestamp": "2026-06-08T01:52:07.702Z"
+    },
+    {
+      "warlord": "Uriel",
+      "username": "228613561398722560",
+      "discordId": "228613561398722560",
+      "discord_username": "kolat#0",
+      "display_name": "Kolat",
+      "timestamp": "2026-06-08T02:49:55.917Z"
     }
   ]
 }
