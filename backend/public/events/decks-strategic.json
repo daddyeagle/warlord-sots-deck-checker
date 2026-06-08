@@ -3047,5 +3047,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "248869593945341952",
+    "discordId": "248869593945341952",
+    "discord_username": "steeldraco#0",
+    "event": "Strategic",
+    "warlord": "Sorceress Ygraine",
+    "display_name": "SteelDraco",
+    "timestamp": "2026-06-08T01:20:49.960Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Squire Fendric": 2,
+          "Aureliane": 2,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Master Dresden": 3,
+          "Sister Kiren": 2,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Sorceress Ygraine": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Flamelance": 3,
+          "Glaciate": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bloodsteed": 3,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 2,
+          "Spellblocker": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
