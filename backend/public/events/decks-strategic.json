@@ -2841,5 +2841,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "90996233128128512",
+    "discordId": "90996233128128512",
+    "discord_username": "dienekes00#0",
+    "event": "Strategic",
+    "warlord": "Sir Rallen",
+    "display_name": "dienekes00",
+    "timestamp": "2026-06-08T00:51:19.872Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Dwarf-Eater": 2,
+          "Ghed Bane": 2,
+          "Ghed Daucet": 2,
+          "Master Dresden": 3,
+          "Sister Kiren": 3,
+          "Zaina": 2
+        },
+        "startingArmy": {
+          "Sir Rallen": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Merrick Regalia": 1,
+          "Shrapnelball": 2,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 2,
+          "Cunning Shot": 2,
+          "Pin Down": 2,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
