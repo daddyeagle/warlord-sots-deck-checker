@@ -2210,55 +2210,6 @@
     }
   },
   {
-    "username": "228613561398722560",
-    "discordId": "228613561398722560",
-    "discord_username": "kolat#0",
-    "event": "Strategic",
-    "warlord": "Uriel",
-    "display_name": "Kolat",
-    "timestamp": "2026-06-07T20:25:31.205Z",
-    "cardList": {
-      "Character": {
-        "count": 13,
-        "mainDeck": {
-          "Crownland Strategist": 1,
-          "Birdsong Druid": 3,
-          "Sutek Slimefang": 3
-        },
-        "startingArmy": {
-          "TFK Brigand": 3,
-          "Crownland Strategist": 2,
-          "Uriel": 1
-        }
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3,
-          "Myerdeth Mare": 3,
-          "Ardian Greathawk": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 24,
-        "mainDeck": {
-          "Crush": 3,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 3,
-          "Tide Turner": 3,
-          "Prime Positioning": 3,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "201031785600122880",
     "discordId": "201031785600122880",
     "discord_username": "innocentwrath#0",
@@ -3202,6 +3153,55 @@
           "Talisman of Might": 1,
           "Bruntor's Helm": 1,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "228613561398722560",
+    "discordId": "228613561398722560",
+    "discord_username": "kolat#0",
+    "event": "Strategic",
+    "warlord": "Uriel",
+    "display_name": "Kolat",
+    "timestamp": "2026-06-08T02:49:55.917Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Albrecht Novice": 3
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Uriel": 1
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Bardiche": 3,
+          "Griffon of Andover": 3,
+          "Myerdeth Mare": 3,
+          "Ardian Greathawk": 3,
+          "Rockarm": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Crush": 3,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 2,
+          "Tide Turner": 3,
+          "Prime Positioning": 3,
+          "Arcane Approach": 3
         },
         "startingArmy": {}
       }
