@@ -2996,5 +2996,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "141584925798170625",
+    "discordId": "141584925798170625",
+    "discord_username": "chansterling#0",
+    "event": "Strategic",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "CS_",
+    "timestamp": "2026-06-08T01:19:56.119Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Dress": 1,
+          "Darkwatcher": 2,
+          "Frenzy": 3,
+          "Salvage": 3,
+          "Hazahk of Shadow": 3,
+          "Beacon": 3,
+          "Anvil": 3
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Divine Barrier": 3,
+          "Revitalizing Roots": 3,
+          "Final Blessing": 3,
+          "Meet at the Inn!": 3,
+          "Holy Might": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Nothrog S'sike": 2,
+          "Bardiche": 2,
+          "Blessed Vestments": 2,
+          "Rockarm": 2,
+          "Griffon of Andover": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
