@@ -1947,58 +1947,6 @@
     }
   },
   {
-    "username": "354280712578400267",
-    "discordId": "354280712578400267",
-    "discord_username": "aaron1002#0",
-    "event": "Strategic",
-    "warlord": "Talib al-Sirr",
-    "display_name": "A-A-ron",
-    "timestamp": "2026-06-07T17:25:40.685Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 2,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 1,
-          "Sister Kiren": 3,
-          "Storm's Attendant": 1,
-          "Zaina": 3
-        },
-        "startingArmy": {
-          "Genecourt Initiate": 3,
-          "Church Inquisitor": 1,
-          "Misearean Scout": 1,
-          "Talib al-Sirr": 1
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Assassin's Strike": 2,
-          "Lights of Revealing Sword": 2,
-          "Meet at the Inn!": 3,
-          "Pin Down": 3,
-          "Rapid Dash": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Gapfinder": 3,
-          "Revenger": 3,
-          "Storm Shard": 1,
-          "Wraithstalker": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "565337847905910805",
     "discordId": "565337847905910805",
     "discord_username": "coachdan1991#0",
@@ -3202,6 +3150,57 @@
           "Tide Turner": 3,
           "Prime Positioning": 3,
           "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Strategic",
+    "warlord": "Brymin of the Marches",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-06-10T22:19:26.509Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Squire Fendric": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Brymin of the Marches": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Heroic Confrontation": 3,
+          "Crush": 3,
+          "Epic Donnybrook": 3,
+          "Lights of Revealing Sword": 3,
+          "Tide Turner": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 3,
+          "Rockarm": 2,
+          "Steelforge Regalia": 3,
+          "Ardian Greathawk": 1
         },
         "startingArmy": {}
       }
