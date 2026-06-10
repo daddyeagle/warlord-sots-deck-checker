@@ -138,14 +138,6 @@
       "timestamp": "2026-06-06T18:20:15.118Z"
     },
     {
-      "warlord": "Yavlo the Kindled",
-      "username": "270439545055608832",
-      "discordId": "270439545055608832",
-      "discord_username": "raclesis#0",
-      "display_name": "Raclesis",
-      "timestamp": "2026-06-06T19:30:58.875Z"
-    },
-    {
       "warlord": "Behlial",
       "username": "173934105090588672",
       "discordId": "173934105090588672",
@@ -488,6 +480,14 @@
       "discord_username": "aaron1002#0",
       "display_name": "A-A-ron",
       "timestamp": "2026-06-10T22:19:26.509Z"
+    },
+    {
+      "warlord": "Sir Rhawn d'Ilchant",
+      "username": "270439545055608832",
+      "discordId": "270439545055608832",
+      "discord_username": "raclesis#0",
+      "display_name": "Raclesis",
+      "timestamp": "2026-06-10T23:50:39.549Z"
     }
   ]
 }
