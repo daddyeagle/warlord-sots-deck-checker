@@ -394,14 +394,6 @@
       "timestamp": "2026-06-07T23:24:19.720Z"
     },
     {
-      "warlord": "Commander Retsov",
-      "username": "238453317418614784",
-      "discordId": "238453317418614784",
-      "discord_username": "elvernthehero#0",
-      "display_name": "elvernthehero",
-      "timestamp": "2026-06-07T23:32:02.126Z"
-    },
-    {
       "warlord": "Sir Rallen",
       "username": "90996233128128512",
       "discordId": "90996233128128512",
@@ -488,6 +480,14 @@
       "discord_username": "kalius404#0",
       "display_name": "Kalius404",
       "timestamp": "2026-06-11T01:51:23.093Z"
+    },
+    {
+      "warlord": "Taisia",
+      "username": "238453317418614784",
+      "discordId": "238453317418614784",
+      "discord_username": "elvernthehero#0",
+      "display_name": "elvernthehero",
+      "timestamp": "2026-06-11T13:32:44.487Z"
     }
   ]
 }
