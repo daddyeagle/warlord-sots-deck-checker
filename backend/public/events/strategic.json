@@ -426,14 +426,6 @@
       "timestamp": "2026-06-08T01:52:07.702Z"
     },
     {
-      "warlord": "Uriel",
-      "username": "228613561398722560",
-      "discordId": "228613561398722560",
-      "discord_username": "kolat#0",
-      "display_name": "Kolat",
-      "timestamp": "2026-06-08T02:49:55.917Z"
-    },
-    {
       "warlord": "Brymin of the Marches",
       "username": "354280712578400267",
       "discordId": "354280712578400267",
@@ -488,6 +480,14 @@
       "discord_username": "t0ma70#0",
       "display_name": "t0ma70",
       "timestamp": "2026-06-11T22:09:36.862Z"
+    },
+    {
+      "warlord": "Kara Wadreth",
+      "username": "228613561398722560",
+      "discordId": "228613561398722560",
+      "discord_username": "kolat#0",
+      "display_name": "Kolat",
+      "timestamp": "2026-06-11T23:47:15.366Z"
     }
   ]
 }
