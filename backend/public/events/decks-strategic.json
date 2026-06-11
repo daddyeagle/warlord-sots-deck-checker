@@ -1477,60 +1477,6 @@
     }
   },
   {
-    "username": "374294292878983169",
-    "discordId": "374294292878983169",
-    "discord_username": "t0ma70#0",
-    "event": "Strategic",
-    "warlord": "B'alam Nak",
-    "display_name": "t0ma70",
-    "timestamp": "2026-06-07T12:17:05.289Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 1,
-          "Ac'Vuk": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Master Dresden": 3,
-          "Mo'can": 3,
-          "Oracle of Kavara": 3,
-          "Muddflek": 3
-        },
-        "startingArmy": {
-          "Misearean Scout": 1,
-          "Bear Legion Recruit": 1,
-          "'Mad' Pat Carrik": 1,
-          "Joleg": 2,
-          "B'alam Nak": 1
-        }
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Angel's Tears": 1,
-          "Gapfinder": 1,
-          "Revenger": 1,
-          "Teufeltiger's Shroud": 2,
-          "Fatestring Bow": 2,
-          "Cloudracer": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Pin Down": 2,
-          "Assassin's Strike": 3,
-          "Rapid Dash": 2,
-          "Swivel": 3,
-          "Cunning Shot": 2,
-          "Crypt Wine": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "106211008812437504",
     "discordId": "106211008812437504",
     "discord_username": "oremm#0",
@@ -3200,6 +3146,61 @@
           "Well of Screams": 3,
           "Storm Shard": 1,
           "Dragon's Blood": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "374294292878983169",
+    "discordId": "374294292878983169",
+    "discord_username": "t0ma70#0",
+    "event": "Strategic",
+    "warlord": "Sargok",
+    "display_name": "t0ma70",
+    "timestamp": "2026-06-11T22:09:36.862Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Joleg": 2,
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 1,
+          "Kraig'dem": 2,
+          "Ac'Vuk": 3,
+          "Doo'run": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Bikram Bullstrength": 2,
+          "Muddflek": 2
+        },
+        "startingArmy": {
+          "Sargok": 1,
+          "Joleg": 1,
+          "'Mad' Pat Carrik": 2,
+          "Bear Legion Recruit": 2
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Breastplate of Power": 2,
+          "Shocksaber": 1,
+          "Havat-lahn Stance": 1,
+          "Ardian Greathawk": 1,
+          "Strongarm Stout": 3,
+          "Myerdeth Mare": 1,
+          "Nothrog S'sike": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Leveled!": 3,
+          "Press the Attack": 3,
+          "Final Farewell": 3,
+          "Crush": 2,
+          "Arcane Approach": 2
         },
         "startingArmy": {}
       }
