@@ -2787,55 +2787,6 @@
     }
   },
   {
-    "username": "228613561398722560",
-    "discordId": "228613561398722560",
-    "discord_username": "kolat#0",
-    "event": "Strategic",
-    "warlord": "Uriel",
-    "display_name": "Kolat",
-    "timestamp": "2026-06-08T02:49:55.917Z",
-    "cardList": {
-      "Character": {
-        "count": 12,
-        "mainDeck": {
-          "Birdsong Druid": 3,
-          "Albrecht Novice": 3
-        },
-        "startingArmy": {
-          "TFK Brigand": 3,
-          "Crownland Strategist": 2,
-          "Uriel": 1
-        }
-      },
-      "Item": {
-        "count": 15,
-        "mainDeck": {
-          "Bardiche": 3,
-          "Griffon of Andover": 3,
-          "Myerdeth Mare": 3,
-          "Ardian Greathawk": 3,
-          "Rockarm": 2,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 23,
-        "mainDeck": {
-          "Crush": 3,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 2,
-          "Tide Turner": 3,
-          "Prime Positioning": 3,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "354280712578400267",
     "discordId": "354280712578400267",
     "discord_username": "aaron1002#0",
@@ -3201,6 +3152,60 @@
           "Final Farewell": 3,
           "Crush": 2,
           "Arcane Approach": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "228613561398722560",
+    "discordId": "228613561398722560",
+    "discord_username": "kolat#0",
+    "event": "Strategic",
+    "warlord": "Kara Wadreth",
+    "display_name": "Kolat",
+    "timestamp": "2026-06-11T23:47:15.366Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Huggins": 3,
+          "Thunic Yeti": 3,
+          "Field Marshal Malexin": 3,
+          "Master Dresden": 3,
+          "Arika Ketchum": 2,
+          "Oracle of Kavara": 2,
+          "Blitzer": 1,
+          "Sister Amanda": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Kara Wadreth": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Blade of Antiquity": 3,
+          "Steelforge Regalia": 3,
+          "Griffon of Andover": 3,
+          "Ardian Greathawk": 2,
+          "Fineltour's Draught": 1,
+          "Havat-lahn Stance": 1,
+          "Rockarm": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
