@@ -226,14 +226,6 @@
       "timestamp": "2026-06-07T12:12:25.771Z"
     },
     {
-      "warlord": "B'alam Nak",
-      "username": "374294292878983169",
-      "discordId": "374294292878983169",
-      "discord_username": "t0ma70#0",
-      "display_name": "t0ma70",
-      "timestamp": "2026-06-07T12:17:05.289Z"
-    },
-    {
       "warlord": "Rac Ironbone",
       "username": "106211008812437504",
       "discordId": "106211008812437504",
@@ -488,6 +480,14 @@
       "discord_username": ".atomic_tomato.#0",
       "display_name": "Atomic_Tomato",
       "timestamp": "2026-06-11T18:55:14.040Z"
+    },
+    {
+      "warlord": "Sargok",
+      "username": "374294292878983169",
+      "discordId": "374294292878983169",
+      "discord_username": "t0ma70#0",
+      "display_name": "t0ma70",
+      "timestamp": "2026-06-11T22:09:36.862Z"
     }
   ]
 }
