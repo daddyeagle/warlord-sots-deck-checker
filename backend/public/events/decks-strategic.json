@@ -526,59 +526,6 @@
     }
   },
   {
-    "username": "412750327276765194",
-    "discordId": "412750327276765194",
-    "discord_username": "kalius404#0",
-    "event": "Strategic",
-    "warlord": "Bran Segula",
-    "display_name": "Kalius404",
-    "timestamp": "2026-06-06T03:13:43.549Z",
-    "cardList": {
-      "Character": {
-        "count": 17,
-        "mainDeck": {
-          "Oracle of Kavara": 3,
-          "Bikram Bullstrength": 3,
-          "Master Dresden": 2,
-          "Thunic Yeti": 3
-        },
-        "startingArmy": {
-          "Shambling Horror": 1,
-          "Bran Segula": 1,
-          "Mephit": 1,
-          "Brine Fiend": 3
-        }
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Noble Sacrifice": 3,
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Myerdeth Mare": 2,
-          "Ardian Greathawk": 3,
-          "Bruntor's Helm": 1,
-          "Steelforge Regalia": 3,
-          "Rockarm": 1,
-          "Havat-lahn Stance": 1,
-          "Strongarm Stout": 1,
-          "Griffon of Andover": 2,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "336933692427730946",
     "discordId": "336933692427730946",
     "discord_username": "pedrosmurf#0",
@@ -3203,6 +3150,57 @@
           "Final Blessing": 2,
           "Lights of Revealing Sword": 3,
           "Wither": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "412750327276765194",
+    "discordId": "412750327276765194",
+    "discord_username": "kalius404#0",
+    "event": "Strategic",
+    "warlord": "Drasek Berenj",
+    "display_name": "Kalius404",
+    "timestamp": "2026-06-11T01:51:23.093Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blackwind": 1,
+          "Dreadfang": 2,
+          "Swiftcloud": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Blitzer": 2,
+          "Bikram Bullstrength": 3,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Drasek Berenj": 1,
+          "Tyren Ruskin": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Courage from Faith": 2,
+          "Noble Sacrifice": 3,
+          "Divine Respite": 2,
+          "Gift From Above": 3,
+          "Epic Judgment": 3,
+          "Fateshift": 3,
+          "Quick Shielding": 3,
+          "Quick Strength": 3
         },
         "startingArmy": {}
       }
