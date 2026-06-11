@@ -82,14 +82,6 @@
       "timestamp": "2026-06-06T02:24:14.856Z"
     },
     {
-      "warlord": "Bran Segula",
-      "username": "412750327276765194",
-      "discordId": "412750327276765194",
-      "discord_username": "kalius404#0",
-      "display_name": "Kalius404",
-      "timestamp": "2026-06-06T03:13:43.549Z"
-    },
-    {
       "warlord": "Crucin Bascar",
       "username": "336933692427730946",
       "discordId": "336933692427730946",
@@ -488,6 +480,14 @@
       "discord_username": "raclesis#0",
       "display_name": "Raclesis",
       "timestamp": "2026-06-10T23:50:39.549Z"
+    },
+    {
+      "warlord": "Drasek Berenj",
+      "username": "412750327276765194",
+      "discordId": "412750327276765194",
+      "discord_username": "kalius404#0",
+      "display_name": "Kalius404",
+      "timestamp": "2026-06-11T01:51:23.093Z"
     }
   ]
 }
