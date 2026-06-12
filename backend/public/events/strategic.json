@@ -178,14 +178,6 @@
       "timestamp": "2026-06-07T01:37:06.452Z"
     },
     {
-      "warlord": "Commander Kaiten",
-      "username": "307709338250903552",
-      "discordId": "307709338250903552",
-      "discord_username": "themelyk#0",
-      "display_name": "TheMelyK",
-      "timestamp": "2026-06-07T01:47:16.304Z"
-    },
-    {
       "warlord": "Trevor Magson",
       "username": "580478373717868545",
       "discordId": "580478373717868545",
@@ -488,6 +480,14 @@
       "discord_username": "oeagle#0",
       "display_name": "daddy_eagle",
       "timestamp": "2026-06-12T01:37:17.937Z"
+    },
+    {
+      "warlord": "Ghed Mnettaor",
+      "username": "307709338250903552",
+      "discordId": "307709338250903552",
+      "discord_username": "themelyk#0",
+      "display_name": "TheMelyK",
+      "timestamp": "2026-06-12T01:54:50.827Z"
     }
   ]
 }
