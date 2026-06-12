@@ -2216,57 +2216,6 @@
     }
   },
   {
-    "username": "277208786069094400",
-    "discordId": "277208786069094400",
-    "discord_username": "hotshotmaster72#0",
-    "event": "Strategic",
-    "warlord": "Frost",
-    "display_name": "HotShotMaster72",
-    "timestamp": "2026-06-07T22:43:19.335Z",
-    "cardList": {
-      "Character": {
-        "count": 20,
-        "mainDeck": {
-          "Anvil": 2,
-          "Beacon": 3,
-          "Chant": 3,
-          "Dress": 3,
-          "Hazahk of Shadow": 3
-        },
-        "startingArmy": {
-          "Frost": 1,
-          "Sunforge Smith": 1,
-          "Tinker": 1,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Epic Donnybrook": 3,
-          "Lights of Revealing Sword": 3,
-          "Meet at the Inn!": 3,
-          "Noble Sacrifice": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 15,
-        "mainDeck": {
-          "Bruntor's Helm": 3,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3,
-          "Havat-lahn Stance": 1,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "153331120044245003",
     "discordId": "153331120044245003",
     "discord_username": "tubazilla#0",
@@ -3209,6 +3158,60 @@
           "Quick Strength": 3,
           "Spiritual Weapon": 3,
           "Steady Grip": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "277208786069094400",
+    "discordId": "277208786069094400",
+    "discord_username": "hotshotmaster72#0",
+    "event": "Strategic",
+    "warlord": "Soren Nihil",
+    "display_name": "HotShotMaster72",
+    "timestamp": "2026-06-12T01:36:50.867Z",
+    "cardList": {
+      "Character": {
+        "count": 13,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Hazahk of Shadow": 3,
+          "Dress": 3
+        },
+        "startingArmy": {
+          "Sunforge Smith": 1,
+          "Tunnel Vanguard": 3,
+          "Tinker": 1,
+          "Soren Nihil": 1
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 3,
+          "Rockarm": 1,
+          "Myerdeth Mare": 3,
+          "Medical Kit": 1,
+          "Havat-lahn Stance": 1,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Aroch Mail": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Spiritual Weapon": 3,
+          "Lights of Revealing Sword": 3,
+          "Epic Donnybrook": 2,
+          "Divine Barrier": 3,
+          "Crush": 2,
+          "Arcane Approach": 3
         },
         "startingArmy": {}
       }
