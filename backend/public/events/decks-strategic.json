@@ -1955,59 +1955,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Strategic",
-    "warlord": "Warboss Azh'kal",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-06-07T21:09:43.621Z",
-    "cardList": {
-      "Character": {
-        "count": 24,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 1,
-          "Doo'run": 3,
-          "The Mighty Mugg": 3,
-          "Thunic Yeti": 3,
-          "Bikram Bullstrength": 3,
-          "Isadran Kennelmaster": 3,
-          "Blitzer": 2
-        },
-        "startingArmy": {
-          "Warboss Azh'kal": 1,
-          "Bear Legion Recruit": 3,
-          "Novice Pyro": 1,
-          "'Mad' Pat Carrik": 1
-        }
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 3,
-          "Press the Attack": 1,
-          "Prime Positioning": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Vanguard's Presence": 1,
-          "Storm Shard": 1,
-          "Griffon of Andover": 3,
-          "Myerdeth Mare": 3,
-          "Blade of Antiquity": 1,
-          "Steelforge Regalia": 2,
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "300324378829258753",
     "discordId": "300324378829258753",
     "discord_username": "illuvatar85#0",
@@ -3212,6 +3159,58 @@
           "Divine Barrier": 3,
           "Crush": 2,
           "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Strategic",
+    "warlord": "The Nemesis",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-06-12T01:37:17.937Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Dwarf-Eater": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Recruiter of Misear": 1,
+          "Swiftcloud": 1,
+          "Thunic Yeti": 3,
+          "Veteran Bowman": 2
+        },
+        "startingArmy": {
+          "The Nemesis": 1,
+          "Shambling Horror": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Evocation": 3,
+          "Flamelance": 2,
+          "Glaciate": 3,
+          "Grave Exchange": 3,
+          "Meet at the Inn!": 3,
+          "Pin Down": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Hunting Staff": 1,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
