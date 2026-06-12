@@ -1628,58 +1628,6 @@
     }
   },
   {
-    "username": "1124729150603800616",
-    "discordId": "1124729150603800616",
-    "discord_username": "vladsod#0",
-    "event": "Strategic",
-    "warlord": "De'zicrah",
-    "display_name": "THE-REDWING-13",
-    "timestamp": "2026-06-07T17:08:12.438Z",
-    "cardList": {
-      "Character": {
-        "count": 21,
-        "mainDeck": {
-          "Dwarf-Eater": 2,
-          "Master Dresden": 2,
-          "Mo'can": 2,
-          "Nog, Pog, and Snivels": 3,
-          "Oracle of Kavara": 2,
-          "Sutek Razorclaw": 2,
-          "Veteran Bowman": 2
-        },
-        "startingArmy": {
-          "De'zicrah": 1,
-          "Novice Pyro": 2,
-          "Joleg": 3
-        }
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Cloudracer": 3,
-          "Fatestring Bow": 3,
-          "Gapfinder": 3,
-          "Revenger": 2,
-          "Teufeltiger's Shroud": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Assassin's Strike": 3,
-          "Cunning Shot": 2,
-          "Dupe": 2,
-          "Hunt From Above": 2,
-          "Rapid Dash": 2,
-          "Swivel": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "565337847905910805",
     "discordId": "565337847905910805",
     "discord_username": "coachdan1991#0",
@@ -3206,6 +3154,59 @@
         "mainDeck": {
           "Lights of Revealing Sword": 3,
           "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Strategic",
+    "warlord": "Taoth",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-06-12T00:09:11.355Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Beacon": 3,
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Muddflek": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Novice Pyro": 1,
+          "Greenflower Warden": 1,
+          "Taoth": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Blast": 3,
+          "Flamelance": 3,
+          "Grave Exchange": 3,
+          "Shadow Bolts": 3,
+          "Polymorph": 1,
+          "Glaciate": 2,
+          "Essence Drain": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Burning Scroll": 1,
+          "Well of Screams": 1,
+          "Cloak of Brilliance": 1,
+          "Bloodsteed": 3,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
