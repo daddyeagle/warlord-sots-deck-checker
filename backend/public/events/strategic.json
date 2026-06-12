@@ -250,14 +250,6 @@
       "timestamp": "2026-06-07T17:06:48.207Z"
     },
     {
-      "warlord": "De'zicrah",
-      "username": "1124729150603800616",
-      "discordId": "1124729150603800616",
-      "discord_username": "vladsod#0",
-      "display_name": "THE-REDWING-13",
-      "timestamp": "2026-06-07T17:08:12.438Z"
-    },
-    {
       "warlord": "Adarymy",
       "username": "565337847905910805",
       "discordId": "565337847905910805",
@@ -488,6 +480,14 @@
       "discord_username": "kolat#0",
       "display_name": "Kolat",
       "timestamp": "2026-06-11T23:47:15.366Z"
+    },
+    {
+      "warlord": "Taoth",
+      "username": "1124729150603800616",
+      "discordId": "1124729150603800616",
+      "discord_username": "vladsod#0",
+      "display_name": "THE-REDWING-13",
+      "timestamp": "2026-06-12T00:09:11.355Z"
     }
   ]
 }
