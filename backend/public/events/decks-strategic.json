@@ -3216,5 +3216,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Strategic",
+    "warlord": "Kalten the Bleak",
+    "display_name": "Gunn",
+    "timestamp": "2026-06-12T02:17:10.409Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Dreadfang": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 1,
+          "Sister Kiren": 3,
+          "Swiftcloud": 1
+        },
+        "startingArmy": {
+          "Kalten the Bleak": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Evocation": 3,
+          "Glaciate": 3,
+          "Grave Exchange": 2,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bloodsteed": 3,
+          "Cloak of Brilliance": 1,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
