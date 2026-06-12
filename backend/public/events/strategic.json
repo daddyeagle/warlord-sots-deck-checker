@@ -226,14 +226,6 @@
       "timestamp": "2026-06-07T12:12:25.771Z"
     },
     {
-      "warlord": "Rac Ironbone",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-06-07T12:36:00.207Z"
-    },
-    {
       "warlord": "Talin Tzin",
       "username": "266281128732786688",
       "discordId": "266281128732786688",
@@ -488,6 +480,14 @@
       "discord_username": "vladsod#0",
       "display_name": "THE-REDWING-13",
       "timestamp": "2026-06-12T00:09:11.355Z"
+    },
+    {
+      "warlord": "Gris Ironfist",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-06-12T01:13:38.993Z"
     }
   ]
 }
