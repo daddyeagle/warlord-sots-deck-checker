@@ -282,14 +282,6 @@
       "timestamp": "2026-06-07T21:10:02.526Z"
     },
     {
-      "warlord": "Thekk Rockbender",
-      "username": "231248072204746753",
-      "discordId": "231248072204746753",
-      "discord_username": "kynarin#0",
-      "display_name": "Kynarin",
-      "timestamp": "2026-06-07T21:15:28.472Z"
-    },
-    {
       "warlord": "Brom Frostbeard",
       "username": "392055441326211083",
       "discordId": "392055441326211083",
@@ -496,6 +488,14 @@
       "discord_username": "xskeletalx#0",
       "display_name": "xSkeletalx",
       "timestamp": "2026-06-14T21:34:04.323Z"
+    },
+    {
+      "warlord": "Durin Kortouched",
+      "username": "231248072204746753",
+      "discordId": "231248072204746753",
+      "discord_username": "kynarin#0",
+      "display_name": "Kynarin",
+      "timestamp": "2026-06-14T22:11:30.794Z"
     }
   ]
 }
