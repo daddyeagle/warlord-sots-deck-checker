@@ -370,14 +370,6 @@
       "timestamp": "2026-06-12T00:09:11.355Z"
     },
     {
-      "warlord": "Soren Nihil",
-      "username": "277208786069094400",
-      "discordId": "277208786069094400",
-      "discord_username": "hotshotmaster72#0",
-      "display_name": "HotShotMaster72",
-      "timestamp": "2026-06-12T01:36:50.867Z"
-    },
-    {
       "warlord": "Ghed Mnettaor",
       "username": "307709338250903552",
       "discordId": "307709338250903552",
@@ -496,6 +488,14 @@
       "discord_username": "oeagle#0",
       "display_name": "daddy_eagle",
       "timestamp": "2026-06-14T23:57:26.354Z"
+    },
+    {
+      "warlord": "King Alaric",
+      "username": "277208786069094400",
+      "discordId": "277208786069094400",
+      "discord_username": "hotshotmaster72#0",
+      "display_name": "HotShotMaster72",
+      "timestamp": "2026-06-14T23:58:58.141Z"
     }
   ]
 }
