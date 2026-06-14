@@ -442,14 +442,6 @@
       "timestamp": "2026-06-12T00:09:11.355Z"
     },
     {
-      "warlord": "Gris Ironfist",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-06-12T01:13:38.993Z"
-    },
-    {
       "warlord": "Soren Nihil",
       "username": "277208786069094400",
       "discordId": "277208786069094400",
@@ -496,6 +488,14 @@
       "discord_username": "jormunganduur#0",
       "display_name": "Jormungandur",
       "timestamp": "2026-06-14T03:21:04.471Z"
+    },
+    {
+      "warlord": "Trespass",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-06-14T04:01:10.377Z"
     }
   ]
 }
