@@ -2905,57 +2905,6 @@
     }
   },
   {
-    "username": "106211008812437504",
-    "discordId": "106211008812437504",
-    "discord_username": "oremm#0",
-    "event": "Strategic",
-    "warlord": "Gris Ironfist",
-    "display_name": "Oremm",
-    "timestamp": "2026-06-12T01:13:38.993Z",
-    "cardList": {
-      "Character": {
-        "count": 16,
-        "mainDeck": {
-          "Sunforge Smith": 1,
-          "Chant": 3,
-          "Dress": 3,
-          "Hazahk of Shadow": 3
-        },
-        "startingArmy": {
-          "Gris Ironfist": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 19,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3,
-          "Havat-lahn Stance": 1,
-          "Myerdeth Mare": 3,
-          "Riding Horse": 1,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1,
-          "War Horse": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 3,
-          "Quick Strength": 3,
-          "Spiritual Weapon": 3,
-          "Steady Grip": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "277208786069094400",
     "discordId": "277208786069094400",
     "discord_username": "hotshotmaster72#0",
@@ -3268,6 +3217,57 @@
         "mainDeck": {
           "Divine Respite": 2,
           "Well Supplied": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Strategic",
+    "warlord": "Trespass",
+    "display_name": "Oremm",
+    "timestamp": "2026-06-14T04:01:10.377Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Dwarf-Eater": 3,
+          "Master Dresden": 3,
+          "Beacon": 3,
+          "Thunic Yeti": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Shadow Clan Slayer": 1,
+          "Sunforge Smith": 1,
+          "Trespass": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Epic Betrayal": 2,
+          "Even the Odds": 3,
+          "Rapid Dash": 3,
+          "Cunning Shot": 2,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Leopard Claws": 2,
+          "Teufeltiger's Shroud": 3,
+          "Ardian Greathawk": 3,
+          "Revenger": 3,
+          "Gapfinder": 2,
+          "Cloudracer": 3,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
