@@ -3181,64 +3181,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Strategic",
-    "warlord": "Jautya Syne",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-06-14T23:46:13.838Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Thunic Yeti": 2,
-          "Shambling Horror": 1,
-          "Trogid": 1,
-          "Blitzer": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Bikram Bullstrength": 3,
-          "Veteran Bowman": 2,
-          "Hinterlands Griffon": 2,
-          "Jubilant Hatchling": 1
-        },
-        "startingArmy": {
-          "Thunic Yeti": 1,
-          "Shambling Horror": 2,
-          "Trogid": 1,
-          "Brine Fiend": 2,
-          "Jautya Syne": 1
-        }
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Havat-lahn Stance": 1,
-          "Medical Kit": 2,
-          "Breastplate of Power": 2,
-          "Spellblocker": 2,
-          "Bruntor's Helm": 2,
-          "Storm Shard": 1,
-          "Griffon of Andover": 3,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Noble Sacrifice": 1,
-          "Crush": 2,
-          "Heroic Confrontation": 2,
-          "Lights of Revealing Sword": 3,
-          "Prime Positioning": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "201031785600122880",
     "discordId": "201031785600122880",
     "discord_username": "innocentwrath#0",
@@ -3283,6 +3225,60 @@
           "Lights of Revealing Sword": 3,
           "Meet at the Inn!": 3,
           "Tide Turner": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Strategic",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-06-14T23:57:26.354Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sutek Razorclaw": 2,
+          "Hinterlands Griffon": 3,
+          "Oracle of Kavara": 2,
+          "Sta'ash": 3,
+          "Brinewater Croc": 2,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Sutek Slimefang": 2,
+          "Brine Fiend": 1,
+          "Sutek Razorclaw": 1,
+          "Shambling Horror": 1,
+          "Z'adok, Prey Herder": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Viscous Goo": 3,
+          "Assassin's Strike": 3,
+          "Flamelance": 3,
+          "Shadow Bolts": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Fatestring Bow": 2,
+          "Teufeltiger's Shroud": 2,
+          "Revenger": 2,
+          "Gapfinder": 2,
+          "Unicorn of Thun": 1,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
