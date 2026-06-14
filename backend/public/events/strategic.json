@@ -234,14 +234,6 @@
       "timestamp": "2026-06-07T19:36:13.677Z"
     },
     {
-      "warlord": "King Xod",
-      "username": "201031785600122880",
-      "discordId": "201031785600122880",
-      "discord_username": "innocentwrath#0",
-      "display_name": "innocentwrath",
-      "timestamp": "2026-06-07T20:35:25.705Z"
-    },
-    {
       "warlord": "Gnorrow Yaw",
       "username": "1097993099822759966",
       "discordId": "1097993099822759966",
@@ -496,6 +488,14 @@
       "discord_username": "oeagle#0",
       "display_name": "daddy_eagle",
       "timestamp": "2026-06-14T23:46:13.838Z"
+    },
+    {
+      "warlord": "Gorthos, Shadow's Axe",
+      "username": "201031785600122880",
+      "discordId": "201031785600122880",
+      "discord_username": "innocentwrath#0",
+      "display_name": "innocentwrath",
+      "timestamp": "2026-06-14T23:53:20.854Z"
     }
   ]
 }
