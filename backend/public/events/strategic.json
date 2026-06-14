@@ -66,14 +66,6 @@
       "timestamp": "2026-06-06T05:19:30.371Z"
     },
     {
-      "warlord": "Gethseme Steelshard",
-      "username": "105096895340244992",
-      "discordId": "105096895340244992",
-      "discord_username": "rollo5412#0",
-      "display_name": "Rollo",
-      "timestamp": "2026-06-06T13:13:05.283Z"
-    },
-    {
       "warlord": "Ferris Bachman",
       "username": "686402688815988769",
       "discordId": "686402688815988769",
@@ -496,6 +488,14 @@
       "discord_username": "chansterling#0",
       "display_name": "CS_",
       "timestamp": "2026-06-14T22:14:51.704Z"
+    },
+    {
+      "warlord": "Valhala Abyssbane",
+      "username": "105096895340244992",
+      "discordId": "105096895340244992",
+      "discord_username": "rollo5412#0",
+      "display_name": "Rollo",
+      "timestamp": "2026-06-14T22:30:50.489Z"
     }
   ]
 }
