@@ -2269,56 +2269,6 @@
     }
   },
   {
-    "username": "177273296843309057",
-    "discordId": "177273296843309057",
-    "discord_username": "jormunganduur#0",
-    "event": "Strategic",
-    "warlord": "Life, Scion of Kor",
-    "display_name": "Jormungandur",
-    "timestamp": "2026-06-08T01:17:04.349Z",
-    "cardList": {
-      "Character": {
-        "count": 14,
-        "mainDeck": {
-          "Frenzy": 3,
-          "Oracle of Kavara": 2,
-          "Beacon": 3
-        },
-        "startingArmy": {
-          "Life, Scion of Kor": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 23,
-        "mainDeck": {
-          "Ardian Greathawk": 3,
-          "Steelforge Regalia": 3,
-          "Aroch Mail": 1,
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 3,
-          "Rockarm": 3,
-          "Myerdeth Mare": 3,
-          "Havat-lahn Stance": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Wither": 2,
-          "Divine Barrier": 3,
-          "Holy Might": 2,
-          "Meet at the Inn!": 3,
-          "Spiritual Weapon": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "141584925798170625",
     "discordId": "141584925798170625",
     "discord_username": "chansterling#0",
@@ -3265,6 +3215,59 @@
           "Cloak of Flight": 1,
           "Deverenus' Axe": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "177273296843309057",
+    "discordId": "177273296843309057",
+    "discord_username": "jormunganduur#0",
+    "event": "Strategic",
+    "warlord": "Gudleifur",
+    "display_name": "Jormungandur",
+    "timestamp": "2026-06-14T03:21:04.471Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Oracle of Kavara": 3,
+          "Anvil": 3,
+          "Chovan Voidcaller": 3,
+          "Darkwatcher": 3,
+          "Frenzy": 3,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Gudleifur": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Medical Kit": 2,
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2,
+          "Hod's Legacy": 1,
+          "Griffon of Andover": 3,
+          "Kor's Aegis": 3,
+          "Luthlarius Regalia": 1,
+          "Aroch Mail": 1,
+          "Breastplate of Power": 1,
+          "Steelforge Regalia": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Divine Respite": 2,
+          "Well Supplied": 2
         },
         "startingArmy": {}
       }
