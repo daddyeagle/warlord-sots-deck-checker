@@ -1471,62 +1471,6 @@
     }
   },
   {
-    "username": "247425097370042369",
-    "discordId": "247425097370042369",
-    "discord_username": "forgedcaake#0",
-    "event": "Strategic",
-    "warlord": "Sigrida Valora",
-    "display_name": "Forgedcaake",
-    "timestamp": "2026-06-07T19:27:12.993Z",
-    "cardList": {
-      "Character": {
-        "count": 17,
-        "mainDeck": {
-          "Sunforge Smith": 2,
-          "Hazahk of Shadow": 3,
-          "Dress": 3,
-          "Chant": 3
-        },
-        "startingArmy": {
-          "Sunforge Smith": 1,
-          "Tunnel Vanguard": 3,
-          "Tinker": 1,
-          "Sigrida Valora": 1
-        }
-      },
-      "Item": {
-        "count": 21,
-        "mainDeck": {
-          "War Horse": 3,
-          "Storm Shard": 1,
-          "Rockarm": 1,
-          "Riding Horse": 2,
-          "Myerdeth Mare": 3,
-          "Medical Kit": 1,
-          "Havat-lahn Stance": 1,
-          "Griffon of Andover": 1,
-          "Fineltour's Draught": 1,
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 1,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {
-          "Steelforge Regalia": 1
-        }
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Heroic Confrontation": 3,
-          "Epic Donnybrook": 3,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "80710986104840192",
     "discordId": "80710986104840192",
     "discord_username": "renkai#0",
@@ -3288,6 +3232,57 @@
           "Lights of Revealing Sword": 3,
           "Holy Might": 2,
           "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "247425097370042369",
+    "discordId": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "Strategic",
+    "warlord": "Stonefist Gargoyle",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-06-14T22:41:10.973Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Sunforge Smith": 2,
+          "Hazahk of Shadow": 3,
+          "Dress": 3,
+          "Beacon": 3,
+          "Anvil": 2
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Stonefist Gargoyle": 1,
+          "Shadow Clan Slayer": 2
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Spiritual Weapon": 3,
+          "Pin Down": 3,
+          "Lights of Revealing Sword": 3,
+          "Kor's Patience": 3,
+          "Heroic Confrontation": 3,
+          "Gift From Above": 3,
+          "Divine Barrier": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Rockarm": 1,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Breastplate of Power": 1,
+          "Aroch Mail": 1
         },
         "startingArmy": {}
       }
