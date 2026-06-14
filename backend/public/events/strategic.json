@@ -386,14 +386,6 @@
       "timestamp": "2026-06-10T23:50:39.549Z"
     },
     {
-      "warlord": "Drasek Berenj",
-      "username": "412750327276765194",
-      "discordId": "412750327276765194",
-      "discord_username": "kalius404#0",
-      "display_name": "Kalius404",
-      "timestamp": "2026-06-11T01:51:23.093Z"
-    },
-    {
       "warlord": "Taisia",
       "username": "238453317418614784",
       "discordId": "238453317418614784",
@@ -496,6 +488,14 @@
       "discord_username": "yotakafish#0",
       "display_name": "yotakafish",
       "timestamp": "2026-06-14T14:46:14.401Z"
+    },
+    {
+      "warlord": "Tyrgen the Brave",
+      "username": "412750327276765194",
+      "discordId": "412750327276765194",
+      "discord_username": "kalius404#0",
+      "display_name": "Kalius404",
+      "timestamp": "2026-06-14T20:08:07.472Z"
     }
   ]
 }
