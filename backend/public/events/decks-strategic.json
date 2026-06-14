@@ -2537,58 +2537,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Strategic",
-    "warlord": "The Nemesis",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-06-12T01:37:17.937Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Bikram Bullstrength": 3,
-          "Blitzer": 1,
-          "Dwarf-Eater": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Recruiter of Misear": 1,
-          "Swiftcloud": 1,
-          "Thunic Yeti": 3,
-          "Veteran Bowman": 2
-        },
-        "startingArmy": {
-          "The Nemesis": 1,
-          "Shambling Horror": 2,
-          "Brine Fiend": 3
-        }
-      },
-      "Action": {
-        "count": 20,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Epic Evocation": 3,
-          "Flamelance": 2,
-          "Glaciate": 3,
-          "Grave Exchange": 3,
-          "Meet at the Inn!": 3,
-          "Pin Down": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 5,
-        "mainDeck": {
-          "Bloodsteed": 3,
-          "Hunting Staff": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "307709338250903552",
     "discordId": "307709338250903552",
     "discord_username": "themelyk#0",
@@ -3283,6 +3231,64 @@
           "Aroch Mail": 1,
           "Deverenus' Axe": 3,
           "Griffon of Andover": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Strategic",
+    "warlord": "Jautya Syne",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-06-14T23:46:13.838Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 2,
+          "Shambling Horror": 1,
+          "Trogid": 1,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Bikram Bullstrength": 3,
+          "Veteran Bowman": 2,
+          "Hinterlands Griffon": 2,
+          "Jubilant Hatchling": 1
+        },
+        "startingArmy": {
+          "Thunic Yeti": 1,
+          "Shambling Horror": 2,
+          "Trogid": 1,
+          "Brine Fiend": 2,
+          "Jautya Syne": 1
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Havat-lahn Stance": 1,
+          "Medical Kit": 2,
+          "Breastplate of Power": 2,
+          "Spellblocker": 2,
+          "Bruntor's Helm": 2,
+          "Storm Shard": 1,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Noble Sacrifice": 1,
+          "Crush": 2,
+          "Heroic Confrontation": 2,
+          "Lights of Revealing Sword": 3,
+          "Prime Positioning": 2
         },
         "startingArmy": {}
       }
