@@ -2427,60 +2427,6 @@
     }
   },
   {
-    "username": "277208786069094400",
-    "discordId": "277208786069094400",
-    "discord_username": "hotshotmaster72#0",
-    "event": "Strategic",
-    "warlord": "Soren Nihil",
-    "display_name": "HotShotMaster72",
-    "timestamp": "2026-06-12T01:36:50.867Z",
-    "cardList": {
-      "Character": {
-        "count": 13,
-        "mainDeck": {
-          "Sunforge Smith": 1,
-          "Hazahk of Shadow": 3,
-          "Dress": 3
-        },
-        "startingArmy": {
-          "Sunforge Smith": 1,
-          "Tunnel Vanguard": 3,
-          "Tinker": 1,
-          "Soren Nihil": 1
-        }
-      },
-      "Item": {
-        "count": 21,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Steelforge Regalia": 3,
-          "Rockarm": 1,
-          "Myerdeth Mare": 3,
-          "Medical Kit": 1,
-          "Havat-lahn Stance": 1,
-          "Griffon of Andover": 3,
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 1,
-          "Aroch Mail": 1,
-          "Ardian Greathawk": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 16,
-        "mainDeck": {
-          "Spiritual Weapon": 3,
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 2,
-          "Divine Barrier": 3,
-          "Crush": 2,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "307709338250903552",
     "discordId": "307709338250903552",
     "discord_username": "themelyk#0",
@@ -3279,6 +3225,56 @@
           "Gapfinder": 2,
           "Unicorn of Thun": 1,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "277208786069094400",
+    "discordId": "277208786069094400",
+    "discord_username": "hotshotmaster72#0",
+    "event": "Strategic",
+    "warlord": "King Alaric",
+    "display_name": "HotShotMaster72",
+    "timestamp": "2026-06-14T23:58:58.141Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Anvil": 3,
+          "Beacon": 3,
+          "Frenzy": 3,
+          "Hazahk of Shadow": 3,
+          "Hrun Instigator": 3
+        },
+        "startingArmy": {
+          "King Alaric": 1,
+          "Sunforge Smith": 1,
+          "Tinker": 1,
+          "Quartermaster Dirge": 3
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Blade of Antiquity": 3,
+          "Breastplate of Power": 1,
+          "Deverenus' Axe": 3,
+          "Havat-lahn Stance": 3,
+          "Myerdeth Mare": 3,
+          "Strongarm Stout": 3,
+          "Steelforge Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
