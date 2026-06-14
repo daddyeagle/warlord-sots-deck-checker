@@ -214,59 +214,6 @@
     }
   },
   {
-    "username": "333097080543379457",
-    "discordId": "333097080543379457",
-    "discord_username": "restomagus#0",
-    "event": "Strategic",
-    "warlord": "Kothkah",
-    "display_name": "Restomagus",
-    "timestamp": "2026-06-06T01:22:33.024Z",
-    "cardList": {
-      "Character": {
-        "count": 14,
-        "mainDeck": {
-          "Nog, Pog, and Snivels": 3,
-          "Oracle of Kavara": 1,
-          "Shambling Horror": 2,
-          "Sutek Slimefang": 2
-        },
-        "startingArmy": {
-          "'Mad' Pat Carrik": 1,
-          "Bear Legion Recruit": 3,
-          "Kothkah": 1,
-          "Novice Pyro": 1
-        }
-      },
-      "Action": {
-        "count": 20,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 2,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Meet at the Inn!": 3,
-          "Noble Sacrifice": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 2,
-          "Medical Kit": 1,
-          "Myerdeth Mare": 2,
-          "Rockarm": 2,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discordId": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
@@ -3270,6 +3217,60 @@
           "Storm Shard": 1,
           "Havat-lahn Stance": 1,
           "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Strategic",
+    "warlord": "Uthanak",
+    "display_name": "Restomagus",
+    "timestamp": "2026-06-14T20:18:03.648Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Ac'Vuk": 2,
+          "Alaya": 1,
+          "Catapult Crew": 2,
+          "Jubilant Hatchling": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2,
+          "Sutek Slimefang": 3
+        },
+        "startingArmy": {
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "Uthanak": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Crush": 2,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 2,
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
