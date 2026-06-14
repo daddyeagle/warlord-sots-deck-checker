@@ -226,14 +226,6 @@
       "timestamp": "2026-06-07T18:00:03.975Z"
     },
     {
-      "warlord": "Sigrida Valora",
-      "username": "247425097370042369",
-      "discordId": "247425097370042369",
-      "discord_username": "forgedcaake#0",
-      "display_name": "Forgedcaake",
-      "timestamp": "2026-06-07T19:27:12.993Z"
-    },
-    {
       "warlord": "The Lady of Pain",
       "username": "80710986104840192",
       "discordId": "80710986104840192",
@@ -496,6 +488,14 @@
       "discord_username": "rollo5412#0",
       "display_name": "Rollo",
       "timestamp": "2026-06-14T22:30:50.489Z"
+    },
+    {
+      "warlord": "Stonefist Gargoyle",
+      "username": "247425097370042369",
+      "discordId": "247425097370042369",
+      "discord_username": "forgedcaake#0",
+      "display_name": "Forgedcaake",
+      "timestamp": "2026-06-14T22:41:10.973Z"
     }
   ]
 }
