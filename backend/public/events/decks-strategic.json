@@ -1844,57 +1844,6 @@
     }
   },
   {
-    "username": "231248072204746753",
-    "discordId": "231248072204746753",
-    "discord_username": "kynarin#0",
-    "event": "Strategic",
-    "warlord": "Thekk Rockbender",
-    "display_name": "Kynarin",
-    "timestamp": "2026-06-07T21:15:28.472Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Chovan Voidcaller": 3,
-          "Darkwatcher": 1,
-          "Frenzy": 3,
-          "Thunic Yeti": 3,
-          "Blitzer": 1,
-          "Hazahk of Shadow": 3,
-          "Beacon": 3,
-          "Bikram Bullstrength": 2
-        },
-        "startingArmy": {
-          "Thekk Rockbender": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Epic Judgment": 3,
-          "Divine Respite": 3,
-          "Spiritual Weapon": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Farhaven Guide": 2,
-          "Blade of Antiquity": 2,
-          "Deverenus' Axe": 3,
-          "Luthlarius Regalia": 2,
-          "Hod's Legacy": 1,
-          "Ardian Greathawk": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "392055441326211083",
     "discordId": "392055441326211083",
     "discord_username": "aurlynne#0",
@@ -3273,6 +3222,70 @@
           "Gapfinder": 3,
           "Revenger": 2,
           "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "231248072204746753",
+    "discordId": "231248072204746753",
+    "discord_username": "kynarin#0",
+    "event": "Strategic",
+    "warlord": "Durin Kortouched",
+    "display_name": "Kynarin",
+    "timestamp": "2026-06-14T22:11:30.794Z",
+    "cardList": {
+      "Character": {
+        "count": 31,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Chovan Voidcaller": 3,
+          "Darkwatcher": 1,
+          "Frenzy": 3,
+          "Quicksilver Gargoyle": 3,
+          "Anvil": 1,
+          "Gadgeteer Bilder": 3,
+          "Blitzer": 1,
+          "Thunic Yeti": 1,
+          "Beacon": 3,
+          "Salvage": 2,
+          "Hazahk of Shadow": 2,
+          "Oracle of Kavara": 1
+        },
+        "startingArmy": {
+          "Durin Kortouched": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Blade of Antiquity": 1,
+          "Deverenus' Axe": 3,
+          "Hod's Legacy": 1,
+          "Scepter of Djarat": 1,
+          "Luthlarius Regalia": 1,
+          "Steelforge Regalia": 1,
+          "Breastplate of Power": 1,
+          "Kor's Aegis": 1,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "FireReign Idol": 2,
+          "Farhaven Guide": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Fateshift": 2,
+          "Final Blessing": 3,
+          "Spiritual Weapon": 3,
+          "Meet at the Inn!": 2
         },
         "startingArmy": {}
       }
