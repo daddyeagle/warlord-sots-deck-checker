@@ -2632,61 +2632,6 @@
     }
   },
   {
-    "username": "601032639452807178",
-    "discordId": "601032639452807178",
-    "discord_username": "yotakafish#0",
-    "event": "Strategic",
-    "warlord": "Bershar Nin",
-    "display_name": "yotakafish",
-    "timestamp": "2026-06-11T15:04:38.564Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Skitterleap": 2,
-          "Huggins": 3,
-          "Ghed Bane": 2,
-          "Field Marshal Malexin": 2,
-          "Duke Richter": 3,
-          "Blitzer": 1,
-          "Bikram Bullstrength": 3,
-          "Beacon": 3
-        },
-        "startingArmy": {
-          "Novice Pyro": 1,
-          "Bear Legion Recruit": 3,
-          "'Mad' Pat Carrik": 1,
-          "Bershar Nin": 1
-        }
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 3,
-          "Breastplate of Power": 1,
-          "Fineltour's Draught": 1,
-          "Ardian Greathawk": 3,
-          "Havat-lahn Stance": 1,
-          "Griffon of Andover": 3,
-          "Spellblocker": 1,
-          "Myerdeth Mare": 1,
-          "Rockarm": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 7,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Lights of Revealing Sword": 3,
-          "Prime Positioning": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "892597520931364964",
     "discordId": "892597520931364964",
     "discord_username": ".atomic_tomato.#0",
@@ -3268,6 +3213,62 @@
           "Gapfinder": 2,
           "Cloudracer": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "601032639452807178",
+    "discordId": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Strategic",
+    "warlord": "Rathra Dak",
+    "display_name": "yotakafish",
+    "timestamp": "2026-06-14T14:46:14.401Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Thunic Yeti": 3,
+          "The Mighty Mugg": 3,
+          "Doo'run": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1,
+          "Rathra Dak": 1
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 2,
+          "Storm Shard": 1,
+          "Rockarm": 1,
+          "Revenger": 1,
+          "Medical Kit": 1,
+          "Havat-lahn Stance": 1,
+          "Fineltour's Draught": 1,
+          "Fatestring Bow": 1,
+          "Deverenus' Axe": 3,
+          "Cloudracer": 3,
+          "Bruntor's Helm": 1,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 3,
+          "Arcane Approach": 3
         },
         "startingArmy": {}
       }
