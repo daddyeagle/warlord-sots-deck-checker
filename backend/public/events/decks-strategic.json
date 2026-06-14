@@ -158,62 +158,6 @@
     }
   },
   {
-    "username": "256218194635784195",
-    "discordId": "256218194635784195",
-    "discord_username": "xskeletalx#0",
-    "event": "Strategic",
-    "warlord": "Kayle, King Rowan",
-    "display_name": "xSkeletalx",
-    "timestamp": "2026-06-06T01:19:44.761Z",
-    "cardList": {
-      "Character": {
-        "count": 21,
-        "mainDeck": {
-          "Shambling Horror": 1,
-          "Veteran Bowman": 2,
-          "Thunic Yeti": 2,
-          "Oracle of Kavara": 2,
-          "Master Dresden": 3,
-          "Dwarf-Eater": 2,
-          "Blitzer": 1,
-          "Bikram Bullstrength": 2
-        },
-        "startingArmy": {
-          "Shambling Horror": 2,
-          "Brine Fiend": 3,
-          "Kayle, King Rowan": 1
-        }
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Teufeltiger's Shroud": 3,
-          "Storm Shard": 1,
-          "Medical Kit": 1,
-          "Fatestring Bow": 3,
-          "Cloudracer": 2,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Swivel": 2,
-          "Sneak": 2,
-          "Shadow Bolts": 2,
-          "Pin Down": 2,
-          "Hunt From Above": 2,
-          "Death From Below": 2,
-          "Crypt Wine": 3,
-          "Change of Hands": 2,
-          "Assassin's Strike": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discordId": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
@@ -3271,6 +3215,64 @@
           "Rockarm": 1,
           "Steelforge Regalia": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "256218194635784195",
+    "discordId": "256218194635784195",
+    "discord_username": "xskeletalx#0",
+    "event": "Strategic",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "xSkeletalx",
+    "timestamp": "2026-06-14T21:34:04.323Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Trogid": 1,
+          "Veteran Bowman": 1,
+          "Bikram Bullstrength": 2,
+          "Blitzer": 1,
+          "Hinterlands Griffon": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Starbinder": 3,
+          "Thunic Yeti": 2,
+          "Tunnel Worm": 2
+        },
+        "startingArmy": {
+          "Alrayn Gaunt": 1,
+          "Brine Fiend": 2,
+          "Shambling Horror": 1,
+          "Trogid": 1,
+          "Veteran Bowman": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Sneak": 1,
+          "Hunt From Above": 3,
+          "Rapid Dash": 3,
+          "Dupe": 3,
+          "Assassin's Strike": 2,
+          "Lights of Revealing Sword": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Cloudracer": 3,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "Gapfinder": 3,
+          "Revenger": 2,
+          "Teufeltiger's Shroud": 3
         },
         "startingArmy": {}
       }
