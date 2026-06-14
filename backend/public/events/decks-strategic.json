@@ -3244,16 +3244,15 @@
     "event": "Strategic",
     "warlord": "Stonefist Gargoyle",
     "display_name": "Forgedcaake",
-    "timestamp": "2026-06-14T22:41:10.973Z",
+    "timestamp": "2026-06-14T23:36:04.411Z",
     "cardList": {
       "Character": {
-        "count": 19,
+        "count": 18,
         "mainDeck": {
-          "Sunforge Smith": 2,
+          "Frenzy": 3,
           "Hazahk of Shadow": 3,
-          "Dress": 3,
-          "Beacon": 3,
-          "Anvil": 2
+          "Thunic Yeti": 3,
+          "Beacon": 3
         },
         "startingArmy": {
           "Tunnel Vanguard": 3,
@@ -3262,27 +3261,28 @@
         }
       },
       "Action": {
-        "count": 21,
+        "count": 22,
         "mainDeck": {
+          "Kor's Patience": 2,
+          "Gift From Above": 2,
+          "The Quick and the Dead": 3,
           "Spiritual Weapon": 3,
-          "Pin Down": 3,
+          "Divine Barrier": 3,
           "Lights of Revealing Sword": 3,
-          "Kor's Patience": 3,
-          "Heroic Confrontation": 3,
-          "Gift From Above": 3,
-          "Divine Barrier": 3
+          "Pin Down": 3,
+          "Heroic Confrontation": 3
         },
         "startingArmy": {}
       },
       "Item": {
         "count": 10,
         "mainDeck": {
-          "Rockarm": 1,
-          "Griffon of Andover": 3,
-          "Deverenus' Axe": 3,
           "Bruntor's Helm": 1,
+          "Rockarm": 1,
           "Breastplate of Power": 1,
-          "Aroch Mail": 1
+          "Aroch Mail": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3
         },
         "startingArmy": {}
       }
