@@ -26,14 +26,6 @@
       "timestamp": "2026-06-06T00:57:24.890Z"
     },
     {
-      "warlord": "Kayle, King Rowan",
-      "username": "256218194635784195",
-      "discordId": "256218194635784195",
-      "discord_username": "xskeletalx#0",
-      "display_name": "xSkeletalx",
-      "timestamp": "2026-06-06T01:19:44.761Z"
-    },
-    {
       "warlord": "Eiael, Celestial Enforcer",
       "username": "1388986791079448577",
       "discordId": "1388986791079448577",
@@ -496,6 +488,14 @@
       "discord_username": "restomagus#0",
       "display_name": "Restomagus",
       "timestamp": "2026-06-14T20:18:03.648Z"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "256218194635784195",
+      "discordId": "256218194635784195",
+      "discord_username": "xskeletalx#0",
+      "display_name": "xSkeletalx",
+      "timestamp": "2026-06-14T21:34:04.323Z"
     }
   ]
 }
