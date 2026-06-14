@@ -346,14 +346,6 @@
       "timestamp": "2026-06-08T01:08:59.611Z"
     },
     {
-      "warlord": "Life, Scion of Kor",
-      "username": "177273296843309057",
-      "discordId": "177273296843309057",
-      "discord_username": "jormunganduur#0",
-      "display_name": "Jormungandur",
-      "timestamp": "2026-06-08T01:17:04.349Z"
-    },
-    {
       "warlord": "Kurak Stonejaw",
       "username": "141584925798170625",
       "discordId": "141584925798170625",
@@ -496,6 +488,14 @@
       "discord_username": "shockgunn#0",
       "display_name": "Gunn",
       "timestamp": "2026-06-12T02:17:10.409Z"
+    },
+    {
+      "warlord": "Gudleifur",
+      "username": "177273296843309057",
+      "discordId": "177273296843309057",
+      "discord_username": "jormunganduur#0",
+      "display_name": "Jormungandur",
+      "timestamp": "2026-06-14T03:21:04.471Z"
     }
   ]
 }
