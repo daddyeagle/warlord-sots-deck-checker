@@ -415,55 +415,6 @@
     }
   },
   {
-    "username": "105096895340244992",
-    "discordId": "105096895340244992",
-    "discord_username": "rollo5412#0",
-    "event": "Strategic",
-    "warlord": "Gethseme Steelshard",
-    "display_name": "Rollo",
-    "timestamp": "2026-06-06T13:13:05.283Z",
-    "cardList": {
-      "Character": {
-        "count": 6,
-        "mainDeck": {},
-        "startingArmy": {
-          "Gethseme Steelshard": 1,
-          "Shadow Clan Slayer": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 20,
-        "mainDeck": {
-          "Ardian Greathawk": 3,
-          "Bruntor's Helm": 3,
-          "Cloudracer": 2,
-          "Deverenus' Axe": 2,
-          "Gapfinder": 2,
-          "Revenger": 3,
-          "Havat-lahn Stance": 2,
-          "Storm Shard": 1,
-          "War Horse": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 24,
-        "mainDeck": {
-          "Assassin's Strike": 3,
-          "Crush": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 3,
-          "Pin Down": 3,
-          "Sneak": 3,
-          "Tide Turner": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "686402688815988769",
     "discordId": "686402688815988769",
     "discord_username": "cathelisourking#0",
@@ -3286,6 +3237,57 @@
           "Lights of Revealing Sword": 3,
           "Meet at the Inn!": 3,
           "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "105096895340244992",
+    "discordId": "105096895340244992",
+    "discord_username": "rollo5412#0",
+    "event": "Strategic",
+    "warlord": "Valhala Abyssbane",
+    "display_name": "Rollo",
+    "timestamp": "2026-06-14T22:30:50.489Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Alaya": 3,
+          "Chovan Voidcaller": 3,
+          "Blitzer": 3,
+          "Hazahk of Shadow": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Valhala Abyssbane": 1,
+          "Hrun Instigator": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Blessed Vestments": 2,
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2,
+          "Rockarm": 2,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Divine Barrier": 3,
+          "Crush": 2,
+          "Lights of Revealing Sword": 3,
+          "Holy Might": 2,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
