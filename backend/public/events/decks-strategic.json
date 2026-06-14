@@ -3230,15 +3230,15 @@
     "event": "Strategic",
     "warlord": "Tyrgen the Brave",
     "display_name": "Kalius404",
-    "timestamp": "2026-06-14T20:08:07.472Z",
+    "timestamp": "2026-06-14T20:13:44.050Z",
     "cardList": {
       "Character": {
-        "count": 19,
+        "count": 21,
         "mainDeck": {
           "Shambling Horror": 2,
           "Oracle of Kavara": 3,
           "Master Dresden": 3,
-          "Bikram Bullstrength": 1,
+          "Bikram Bullstrength": 3,
           "Blitzer": 1,
           "Thunic Yeti": 3
         },
@@ -3261,16 +3261,14 @@
         "startingArmy": {}
       },
       "Item": {
-        "count": 18,
+        "count": 15,
         "mainDeck": {
           "Ardian Greathawk": 3,
           "Steelforge Regalia": 3,
           "Myerdeth Mare": 2,
           "Griffon of Andover": 2,
           "Storm Shard": 1,
-          "Bruntor's Helm": 1,
           "Havat-lahn Stance": 1,
-          "Rockarm": 2,
           "Deverenus' Axe": 3
         },
         "startingArmy": {}
