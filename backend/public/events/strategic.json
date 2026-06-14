@@ -322,14 +322,6 @@
       "timestamp": "2026-06-08T01:08:59.611Z"
     },
     {
-      "warlord": "Kurak Stonejaw",
-      "username": "141584925798170625",
-      "discordId": "141584925798170625",
-      "discord_username": "chansterling#0",
-      "display_name": "CS_",
-      "timestamp": "2026-06-08T01:19:56.119Z"
-    },
-    {
       "warlord": "Goth'ak",
       "username": "568205993100574731",
       "discordId": "568205993100574731",
@@ -496,6 +488,14 @@
       "discord_username": "kynarin#0",
       "display_name": "Kynarin",
       "timestamp": "2026-06-14T22:11:30.794Z"
+    },
+    {
+      "warlord": "Duty",
+      "username": "141584925798170625",
+      "discordId": "141584925798170625",
+      "discord_username": "chansterling#0",
+      "display_name": "CS_",
+      "timestamp": "2026-06-14T22:14:51.704Z"
     }
   ]
 }
