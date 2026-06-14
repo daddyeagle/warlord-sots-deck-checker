@@ -402,14 +402,6 @@
       "timestamp": "2026-06-11T13:32:44.487Z"
     },
     {
-      "warlord": "Bershar Nin",
-      "username": "601032639452807178",
-      "discordId": "601032639452807178",
-      "discord_username": "yotakafish#0",
-      "display_name": "yotakafish",
-      "timestamp": "2026-06-11T15:04:38.564Z"
-    },
-    {
       "warlord": "Caitlyn the Free",
       "username": "892597520931364964",
       "discordId": "892597520931364964",
@@ -496,6 +488,14 @@
       "discord_username": "oremm#0",
       "display_name": "Oremm",
       "timestamp": "2026-06-14T04:01:10.377Z"
+    },
+    {
+      "warlord": "Rathra Dak",
+      "username": "601032639452807178",
+      "discordId": "601032639452807178",
+      "discord_username": "yotakafish#0",
+      "display_name": "yotakafish",
+      "timestamp": "2026-06-14T14:46:14.401Z"
     }
   ]
 }
