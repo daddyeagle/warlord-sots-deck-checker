@@ -10,14 +10,6 @@
       "timestamp": "2026-06-06T00:49:38.263Z"
     },
     {
-      "warlord": "Kerebrus",
-      "username": "1151309395049857076",
-      "discordId": "1151309395049857076",
-      "discord_username": "leethemad#0",
-      "display_name": "L",
-      "timestamp": "2026-06-06T00:55:46.107Z"
-    },
-    {
       "warlord": "Varson Yscar",
       "username": "157948591380496384",
       "discordId": "157948591380496384",
@@ -496,6 +488,14 @@
       "discord_username": "hotshotmaster72#0",
       "display_name": "HotShotMaster72",
       "timestamp": "2026-06-14T23:58:58.141Z"
+    },
+    {
+      "warlord": "Allisara",
+      "username": "1151309395049857076",
+      "discordId": "1151309395049857076",
+      "discord_username": "leethemad#0",
+      "display_name": "L",
+      "timestamp": "2026-06-16T23:05:24.874Z"
     }
   ]
 }
