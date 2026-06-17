@@ -1996,62 +1996,6 @@
     }
   },
   {
-    "username": "892597520931364964",
-    "discordId": "892597520931364964",
-    "discord_username": ".atomic_tomato.#0",
-    "event": "Strategic",
-    "warlord": "Caitlyn the Free",
-    "display_name": "Atomic_Tomato",
-    "timestamp": "2026-06-11T18:55:14.040Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Thicket": 3,
-          "Swiftcloud": 2,
-          "Recruiter of Misear": 3,
-          "Oracle of Kavara": 3,
-          "Master Dresden": 3,
-          "Dreadfang": 1,
-          "Blitzer": 1,
-          "Blackwind": 1,
-          "Bikram Bullstrength": 2
-        },
-        "startingArmy": {
-          "Shambling Horror": 1,
-          "Mephit": 1,
-          "Caitlyn the Free": 1,
-          "Brine Fiend": 3
-        }
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Unsummon": 1,
-          "Terrorize": 2,
-          "Melt Metal": 1,
-          "Meet at the Inn!": 3,
-          "Magic Missiles": 3,
-          "Jump": 2,
-          "Glaciate": 3,
-          "Dissolve": 1,
-          "Charm Person": 1,
-          "Epic Evocation": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 6,
-        "mainDeck": {
-          "Well of Screams": 3,
-          "Storm Shard": 1,
-          "Dragon's Blood": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "374294292878983169",
     "discordId": "374294292878983169",
     "discord_username": "t0ma70#0",
@@ -3281,6 +3225,59 @@
           "Rockarm": 1,
           "Steelforge Regalia": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "892597520931364964",
+    "discordId": "892597520931364964",
+    "discord_username": ".atomic_tomato.#0",
+    "event": "Strategic",
+    "warlord": "Ja'leeque",
+    "display_name": "Atomic_Tomato",
+    "timestamp": "2026-06-17T18:17:13.203Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Thicket": 3,
+          "Sta'ash": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Ja'leeque": 1,
+          "Shambling Horror": 1,
+          "Mephit": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Walk on Wind": 2,
+          "Tide Turner": 2,
+          "Glimmer": 2,
+          "Shatter": 1,
+          "Retreat from the Roil": 1,
+          "Meet at the Inn!": 3,
+          "Glaciate": 3,
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3,
+          "Epic Evocation": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Deverenus' Axe": 1,
+          "Hunting Staff": 3
         },
         "startingArmy": {}
       }
