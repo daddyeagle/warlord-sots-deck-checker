@@ -306,14 +306,6 @@
       "timestamp": "2026-06-11T13:32:44.487Z"
     },
     {
-      "warlord": "Caitlyn the Free",
-      "username": "892597520931364964",
-      "discordId": "892597520931364964",
-      "discord_username": ".atomic_tomato.#0",
-      "display_name": "Atomic_Tomato",
-      "timestamp": "2026-06-11T18:55:14.040Z"
-    },
-    {
       "warlord": "Sargok",
       "username": "374294292878983169",
       "discordId": "374294292878983169",
@@ -496,6 +488,14 @@
       "discord_username": "sadfunction#0",
       "display_name": "sadfunction",
       "timestamp": "2026-06-17T17:36:11.925Z"
+    },
+    {
+      "warlord": "Ja'leeque",
+      "username": "892597520931364964",
+      "discordId": "892597520931364964",
+      "discord_username": ".atomic_tomato.#0",
+      "display_name": "Atomic_Tomato",
+      "timestamp": "2026-06-17T18:17:13.203Z"
     }
   ]
 }
