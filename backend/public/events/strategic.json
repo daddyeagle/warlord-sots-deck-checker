@@ -66,14 +66,6 @@
       "timestamp": "2026-06-06T13:32:48.250Z"
     },
     {
-      "warlord": "Lord Kestrel",
-      "username": "609237331320373249",
-      "discordId": "609237331320373249",
-      "discord_username": "mynameis_kofax#0",
-      "display_name": "Kofax",
-      "timestamp": "2026-06-06T16:09:58.172Z"
-    },
-    {
       "warlord": "Vactus, Spirit's Champion",
       "username": "341328809758294016",
       "discordId": "341328809758294016",
@@ -496,6 +488,14 @@
       "discord_username": "leethemad#0",
       "display_name": "L",
       "timestamp": "2026-06-16T23:05:24.874Z"
+    },
+    {
+      "warlord": "Lord Belasco",
+      "username": "609237331320373249",
+      "discordId": "609237331320373249",
+      "discord_username": "mynameis_kofax#0",
+      "display_name": "Kofax",
+      "timestamp": "2026-06-17T16:22:27.758Z"
     }
   ]
 }
