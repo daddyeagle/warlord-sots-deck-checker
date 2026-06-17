@@ -207,58 +207,6 @@
     }
   },
   {
-    "username": "189081827498131459",
-    "discordId": "189081827498131459",
-    "discord_username": "sadfunction#0",
-    "event": "Strategic",
-    "warlord": "Bhaine of Misearis",
-    "display_name": "sadfunction",
-    "timestamp": "2026-06-06T02:03:38.657Z",
-    "cardList": {
-      "Character": {
-        "count": 17,
-        "mainDeck": {
-          "Bikram Bullstrength": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 3,
-          "Thunic Yeti": 2
-        },
-        "startingArmy": {
-          "Brine Fiend": 3,
-          "Shambling Horror": 2,
-          "Bhaine of Misearis": 1
-        }
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 2,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 3,
-          "Quick Shielding": 2,
-          "Quick Strength": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3,
-          "Havat-lahn Stance": 1,
-          "Myerdeth Mare": 3,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1,
-          "War Horse": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "673010482755534868",
     "discordId": "673010482755534868",
     "discord_username": "drrandolphcarter#0",
@@ -3279,6 +3227,60 @@
           "Divine Respite": 3,
           "Curse of Greed": 3,
           "Courage from Faith": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "189081827498131459",
+    "discordId": "189081827498131459",
+    "discord_username": "sadfunction#0",
+    "event": "Strategic",
+    "warlord": "Qor-Teth Firefist",
+    "display_name": "sadfunction",
+    "timestamp": "2026-06-17T17:36:11.925Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Jubilant Hatchling": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Trogid": 2,
+          "Shambling Horror": 2,
+          "Brine Fiend": 1,
+          "Qor-Teth Firefist": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 2,
+          "Noble Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 2,
+          "Havat-lahn Stance": 1,
+          "Medical Kit": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
