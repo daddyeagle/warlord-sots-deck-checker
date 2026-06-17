@@ -42,14 +42,6 @@
       "timestamp": "2026-06-06T02:24:14.856Z"
     },
     {
-      "warlord": "Crucin Bascar",
-      "username": "336933692427730946",
-      "discordId": "336933692427730946",
-      "discord_username": "pedrosmurf#0",
-      "display_name": "Pedrosmurf",
-      "timestamp": "2026-06-06T05:19:30.371Z"
-    },
-    {
       "warlord": "Ferris Bachman",
       "username": "686402688815988769",
       "discordId": "686402688815988769",
@@ -496,6 +488,14 @@
       "discord_username": ".atomic_tomato.#0",
       "display_name": "Atomic_Tomato",
       "timestamp": "2026-06-17T18:17:18.882Z"
+    },
+    {
+      "warlord": "Xiathe",
+      "username": "336933692427730946",
+      "discordId": "336933692427730946",
+      "discord_username": "pedrosmurf#0",
+      "display_name": "Pedrosmurf",
+      "timestamp": "2026-06-17T18:41:31.939Z"
     }
   ]
 }
