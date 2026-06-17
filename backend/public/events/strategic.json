@@ -330,14 +330,6 @@
       "timestamp": "2026-06-12T02:17:10.409Z"
     },
     {
-      "warlord": "Gudleifur",
-      "username": "177273296843309057",
-      "discordId": "177273296843309057",
-      "discord_username": "jormunganduur#0",
-      "display_name": "Jormungandur",
-      "timestamp": "2026-06-14T03:21:04.471Z"
-    },
-    {
       "warlord": "Trespass",
       "username": "106211008812437504",
       "discordId": "106211008812437504",
@@ -496,6 +488,14 @@
       "discord_username": "sirtokealot#0",
       "display_name": "SirTokealot",
       "timestamp": "2026-06-17T23:03:08.547Z"
+    },
+    {
+      "warlord": "Lasan Warbreaker",
+      "username": "177273296843309057",
+      "discordId": "177273296843309057",
+      "discord_username": "jormunganduur#0",
+      "display_name": "Jorgrym",
+      "timestamp": "2026-06-17T23:20:53.684Z"
     }
   ]
 }
