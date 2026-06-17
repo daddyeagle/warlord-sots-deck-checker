@@ -1259,61 +1259,6 @@
     }
   },
   {
-    "username": "1097993099822759966",
-    "discordId": "1097993099822759966",
-    "discord_username": "baptiste.bach#0",
-    "event": "Strategic",
-    "warlord": "Gnorrow Yaw",
-    "display_name": "Bach",
-    "timestamp": "2026-06-07T20:59:12.610Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Oracle of Kavara": 2,
-          "Beacon": 3,
-          "Gadgeteer Bilder": 3,
-          "Quicksilver Gargoyle": 3,
-          "Blitzer": 1,
-          "Darkwatcher": 1,
-          "Swiftcloud": 1,
-          "Dreadfang": 1,
-          "Flamefall": 1,
-          "Kingslayer": 1,
-          "Brightwing": 1,
-          "Ashveil": 1
-        },
-        "startingArmy": {
-          "Gnorrow Yaw": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Hunting Staff": 1,
-          "FireReign Idol": 3,
-          "Cyldragen's Tome": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Meet at the Inn!": 3,
-          "Quick Strength": 3,
-          "Courage from Faith": 3,
-          "Resurrection": 2,
-          "Holy Might": 3,
-          "Divine Respite": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "178257746494357514",
     "discordId": "178257746494357514",
     "discord_username": "hosh5753#0",
@@ -3278,6 +3223,57 @@
           "Pin Down": 3,
           "Swivel": 3,
           "Leveled!": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1097993099822759966",
+    "discordId": "1097993099822759966",
+    "discord_username": "baptiste.bach#0",
+    "event": "Strategic",
+    "warlord": "Garn Hearthstone",
+    "display_name": "Bach",
+    "timestamp": "2026-06-17T21:39:24.756Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Oracle of Kavara": 1,
+          "Darkwatcher": 1,
+          "Chovan Voidcaller": 3,
+          "Quicksilver Gargoyle": 3,
+          "Frenzy": 3,
+          "Hazahk of Shadow": 3,
+          "Beacon": 3,
+          "Dress": 3
+        },
+        "startingArmy": {
+          "Garn Hearthstone": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Revitalizing Roots": 3,
+          "Holy Might": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2,
+          "Medical Kit": 2,
+          "Kor's Aegis": 2,
+          "Luthlarius Regalia": 2
         },
         "startingArmy": {}
       }
