@@ -138,14 +138,6 @@
       "timestamp": "2026-06-07T04:28:33.009Z"
     },
     {
-      "warlord": "Krenthor Gouge",
-      "username": "104932976646737920",
-      "discordId": "104932976646737920",
-      "discord_username": "sirtokealot#0",
-      "display_name": "SirTokealot",
-      "timestamp": "2026-06-07T05:09:46.051Z"
-    },
-    {
       "warlord": "Church Enforcer Tancred",
       "username": "353890794920345611",
       "discordId": "353890794920345611",
@@ -496,6 +488,14 @@
       "discord_username": "forgedcaake#0",
       "display_name": "Forgedcaake",
       "timestamp": "2026-06-17T22:09:54.126Z"
+    },
+    {
+      "warlord": "Donnar of Clan Hel",
+      "username": "104932976646737920",
+      "discordId": "104932976646737920",
+      "discord_username": "sirtokealot#0",
+      "display_name": "SirTokealot",
+      "timestamp": "2026-06-17T23:03:08.547Z"
     }
   ]
 }
