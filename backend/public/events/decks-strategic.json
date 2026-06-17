@@ -2157,59 +2157,6 @@
     }
   },
   {
-    "username": "177273296843309057",
-    "discordId": "177273296843309057",
-    "discord_username": "jormunganduur#0",
-    "event": "Strategic",
-    "warlord": "Gudleifur",
-    "display_name": "Jormungandur",
-    "timestamp": "2026-06-14T03:21:04.471Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Sunforge Smith": 1,
-          "Oracle of Kavara": 3,
-          "Anvil": 3,
-          "Chovan Voidcaller": 3,
-          "Darkwatcher": 3,
-          "Frenzy": 3,
-          "Beacon": 3
-        },
-        "startingArmy": {
-          "Gudleifur": 1,
-          "Sunforge Smith": 2,
-          "Tunnel Vanguard": 3
-        }
-      },
-      "Item": {
-        "count": 21,
-        "mainDeck": {
-          "Medical Kit": 2,
-          "Bruntor's Helm": 2,
-          "Deverenus' Axe": 3,
-          "Ardian Greathawk": 2,
-          "Hod's Legacy": 1,
-          "Griffon of Andover": 3,
-          "Kor's Aegis": 3,
-          "Luthlarius Regalia": 1,
-          "Aroch Mail": 1,
-          "Breastplate of Power": 1,
-          "Steelforge Regalia": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 4,
-        "mainDeck": {
-          "Divine Respite": 2,
-          "Well Supplied": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "106211008812437504",
     "discordId": "106211008812437504",
     "discord_username": "oremm#0",
@@ -3274,6 +3221,55 @@
           "Lights of Revealing Sword": 3,
           "Epic Donnybrook": 3,
           "Even the Odds": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "177273296843309057",
+    "discordId": "177273296843309057",
+    "discord_username": "jormunganduur#0",
+    "event": "Strategic",
+    "warlord": "Lasan Warbreaker",
+    "display_name": "Jorgrym",
+    "timestamp": "2026-06-17T23:20:53.684Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Beacon": 3,
+          "Oracle of Kavara": 3,
+          "Gadgeteer Bilder": 3,
+          "Anvil": 3,
+          "Frenzy": 3,
+          "Darkwatcher": 1,
+          "Chovan Voidcaller": 3
+        },
+        "startingArmy": {
+          "Lasan Warbreaker": 1,
+          "Shadow Clan Slayer": 2,
+          "Chant": 3
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Storm Shard": 1,
+          "Rockarm": 3,
+          "Medical Kit": 3,
+          "Myerdeth Mare": 3,
+          "Steelforge Regalia": 3,
+          "Bruntor's Helm": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 3,
+        "mainDeck": {
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
