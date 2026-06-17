@@ -2701,57 +2701,6 @@
     }
   },
   {
-    "username": "247425097370042369",
-    "discordId": "247425097370042369",
-    "discord_username": "forgedcaake#0",
-    "event": "Strategic",
-    "warlord": "Stonefist Gargoyle",
-    "display_name": "Forgedcaake",
-    "timestamp": "2026-06-14T23:36:04.411Z",
-    "cardList": {
-      "Character": {
-        "count": 18,
-        "mainDeck": {
-          "Frenzy": 3,
-          "Hazahk of Shadow": 3,
-          "Thunic Yeti": 3,
-          "Beacon": 3
-        },
-        "startingArmy": {
-          "Tunnel Vanguard": 3,
-          "Stonefist Gargoyle": 1,
-          "Shadow Clan Slayer": 2
-        }
-      },
-      "Action": {
-        "count": 22,
-        "mainDeck": {
-          "Kor's Patience": 2,
-          "Gift From Above": 2,
-          "The Quick and the Dead": 3,
-          "Spiritual Weapon": 3,
-          "Divine Barrier": 3,
-          "Lights of Revealing Sword": 3,
-          "Pin Down": 3,
-          "Heroic Confrontation": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Bruntor's Helm": 1,
-          "Rockarm": 1,
-          "Breastplate of Power": 1,
-          "Aroch Mail": 1,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "201031785600122880",
     "discordId": "201031785600122880",
     "discord_username": "innocentwrath#0",
@@ -3274,6 +3223,60 @@
           "Medical Kit": 2,
           "Kor's Aegis": 2,
           "Luthlarius Regalia": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "247425097370042369",
+    "discordId": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "Strategic",
+    "warlord": "Memoriam",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-06-17T22:09:54.126Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Blackwind": 1,
+          "Blitzer": 1,
+          "Gadgeteer Bilder": 3,
+          "Dreadfang": 1,
+          "Brightwing": 1,
+          "Darkwatcher": 1,
+          "Chovan Voidcaller": 3,
+          "Frenzy": 3,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Shadow Clan Slayer": 1,
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 1,
+          "Memoriam": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Cyldragen's Tome": 3,
+          "Strongarm Stout": 2,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Fateshift": 3,
+          "Meet at the Inn!": 3,
+          "Final Blessing": 3,
+          "Quick Shielding": 3,
+          "Divine Respite": 2,
+          "Pin Down": 3,
+          "Kor's Patience": 3
         },
         "startingArmy": {}
       }
