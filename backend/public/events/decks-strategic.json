@@ -683,61 +683,6 @@
     }
   },
   {
-    "username": "987033377569927248",
-    "discordId": "987033377569927248",
-    "discord_username": "yinyangman#0",
-    "event": "Strategic",
-    "warlord": "Grantuk Rageblade",
-    "display_name": "djYinYangMan2112",
-    "timestamp": "2026-06-07T01:37:06.452Z",
-    "cardList": {
-      "Character": {
-        "count": 18,
-        "mainDeck": {
-          "Ardent Griffon": 2,
-          "Sutek Slimefang": 2,
-          "Sutek Razorclaw": 2,
-          "Oracle of Kavara": 2,
-          "Nog, Pog, and Snivels": 3,
-          "Mephit": 1
-        },
-        "startingArmy": {
-          "Grantuk Rageblade": 1,
-          "Novice Pyro": 2,
-          "Bear Legion Recruit": 3
-        }
-      },
-      "Item": {
-        "count": 23,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Strongarm Stout": 2,
-          "Sutek Shank": 1,
-          "Myerdeth Mare": 2,
-          "Medical Kit": 1,
-          "Griffon of Andover": 2,
-          "Eager Blade": 2,
-          "Deverenus' Axe": 3,
-          "Cheap Sword": 3,
-          "Bruntor's Helm": 1,
-          "Bardiche": 3,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Noble Sacrifice": 3,
-          "Lights of Revealing Sword": 3,
-          "Crush": 1,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "580478373717868545",
     "discordId": "580478373717868545",
     "discord_username": "zydepunk#0",
@@ -3270,6 +3215,52 @@
         "count": 3,
         "mainDeck": {
           "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Strategic",
+    "warlord": "Terror of Sharn Keep",
+    "display_name": "djYinYangMan2112",
+    "timestamp": "2026-06-18T00:01:27.361Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 2,
+          "Master Dresden": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 3,
+          "Shambling Horror": 3,
+          "Beacon": 2
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Novice Pyro": 2,
+          "Terror of Sharn Keep": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Grave Exchange": 2,
+          "Epic Evocation": 2,
+          "Glaciate": 3,
+          "Polymorph": 2,
+          "Essence Drain": 3,
+          "Arcane Approach": 3,
+          "Flamelance": 3,
+          "Melt Metal": 1,
+          "Glimmer": 1,
+          "Dissolve": 2,
+          "Leveled!": 2,
+          "Charm Person": 1
         },
         "startingArmy": {}
       }
