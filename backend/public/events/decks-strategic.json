@@ -1520,61 +1520,6 @@
     }
   },
   {
-    "username": "568205993100574731",
-    "discordId": "568205993100574731",
-    "discord_username": "the.thing333#0",
-    "event": "Strategic",
-    "warlord": "Goth'ak",
-    "display_name": "The.Thing333",
-    "timestamp": "2026-06-08T01:31:26.008Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Novice Pyro": 1,
-          "Master Dresden": 1,
-          "Muddflek": 3,
-          "Hagunk": 1,
-          "Greenflower Warden": 2,
-          "Nog, Pog, and Snivels": 2,
-          "Mo'can": 3,
-          "Kraig'dem": 3,
-          "Catapult Crew": 3
-        },
-        "startingArmy": {
-          "Joleg": 3,
-          "Goth'ak": 1,
-          "Novice Pyro": 2
-        }
-      },
-      "Item": {
-        "count": 11,
-        "mainDeck": {
-          "Fatestring Bow": 2,
-          "Teufeltiger's Shroud": 2,
-          "Storm Shard": 1,
-          "Scout Pony": 1,
-          "Cloudracer": 3,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Swivel": 2,
-          "Shadow Bolts": 2,
-          "Flamelance": 1,
-          "Death From Below": 2,
-          "Crypt Wine": 2,
-          "Blast": 2,
-          "Assassin's Strike": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "196189498986463232",
     "discordId": "196189498986463232",
     "discord_username": "edgarhking#0",
@@ -3311,6 +3256,52 @@
           "Lights of Revealing Sword": 2,
           "Assassin's Strike": 2,
           "Dupe": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Strategic",
+    "warlord": "Terror of Sharn Keep",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-06-18T00:13:01.263Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Beacon": 2,
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Muddflek": 3,
+          "Master Dresden": 3,
+          "Bikram Bullstrength": 2
+        },
+        "startingArmy": {
+          "Terror of Sharn Keep": 1,
+          "Novice Pyro": 2,
+          "Joleg": 3
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Charm Person": 1,
+          "Leveled!": 2,
+          "Dissolve": 2,
+          "Glimmer": 1,
+          "Melt Metal": 1,
+          "Flamelance": 3,
+          "Arcane Approach": 3,
+          "Essence Drain": 3,
+          "Polymorph": 2,
+          "Glaciate": 3,
+          "Epic Evocation": 2,
+          "Grave Exchange": 2
         },
         "startingArmy": {}
       }
