@@ -3265,5 +3265,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423473617180033035",
+    "discordId": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "Strategic",
+    "warlord": "Nisha",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-06-18T00:07:02.549Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sutek Razorclaw": 3,
+          "Beacon": 2,
+          "Oracle of Kavara": 3,
+          "Dwarf-Eater": 3,
+          "Thunic Yeti": 3,
+          "Master Dresden": 3,
+          "Chovan Voidcaller": 2
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Scale Mail": 2,
+          "Cloudracer": 3,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2,
+          "Teufeltiger's Shroud": 3,
+          "Gapfinder": 3,
+          "Revenger": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Lights of Revealing Sword": 2,
+          "Assassin's Strike": 2,
+          "Dupe": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
