@@ -106,14 +106,6 @@
       "timestamp": "2026-06-07T01:24:29.371Z"
     },
     {
-      "warlord": "Grantuk Rageblade",
-      "username": "987033377569927248",
-      "discordId": "987033377569927248",
-      "discord_username": "yinyangman#0",
-      "display_name": "djYinYangMan2112",
-      "timestamp": "2026-06-07T01:37:06.452Z"
-    },
-    {
       "warlord": "Trevor Magson",
       "username": "580478373717868545",
       "discordId": "580478373717868545",
@@ -496,6 +488,14 @@
       "discord_username": "jormunganduur#0",
       "display_name": "Jorgrym",
       "timestamp": "2026-06-17T23:20:53.684Z"
+    },
+    {
+      "warlord": "Terror of Sharn Keep",
+      "username": "987033377569927248",
+      "discordId": "987033377569927248",
+      "discord_username": "yinyangman#0",
+      "display_name": "djYinYangMan2112",
+      "timestamp": "2026-06-18T00:01:27.361Z"
     }
   ]
 }
