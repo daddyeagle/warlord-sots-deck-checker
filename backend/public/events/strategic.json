@@ -234,14 +234,6 @@
       "timestamp": "2026-06-08T01:08:59.611Z"
     },
     {
-      "warlord": "Goth'ak",
-      "username": "568205993100574731",
-      "discordId": "568205993100574731",
-      "discord_username": "the.thing333#0",
-      "display_name": "The.Thing333",
-      "timestamp": "2026-06-08T01:31:26.008Z"
-    },
-    {
       "warlord": "Iam Unsullied",
       "username": "196189498986463232",
       "discordId": "196189498986463232",
@@ -504,6 +496,14 @@
       "discord_username": "graccustheold#0",
       "display_name": "Graccus Lightwarden",
       "timestamp": "2026-06-18T00:07:02.549Z"
+    },
+    {
+      "warlord": "Terror of Sharn Keep",
+      "username": "568205993100574731",
+      "discordId": "568205993100574731",
+      "discord_username": "the.thing333#0",
+      "display_name": "The.Thing333",
+      "timestamp": "2026-06-18T00:13:01.263Z"
     }
   ]
 }
