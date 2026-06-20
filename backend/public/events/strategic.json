@@ -242,14 +242,6 @@
       "timestamp": "2026-06-10T22:19:26.509Z"
     },
     {
-      "warlord": "Sir Rhawn d'Ilchant",
-      "username": "270439545055608832",
-      "discordId": "270439545055608832",
-      "discord_username": "raclesis#0",
-      "display_name": "Raclesis",
-      "timestamp": "2026-06-10T23:50:39.549Z"
-    },
-    {
       "warlord": "Taisia",
       "username": "238453317418614784",
       "discordId": "238453317418614784",
@@ -504,6 +496,14 @@
       "discord_username": "10greg10#0",
       "display_name": "Denzel Alpenbash",
       "timestamp": "2026-06-20T14:29:03.990Z"
+    },
+    {
+      "warlord": "Ginerva of the Moon",
+      "username": "270439545055608832",
+      "discordId": "270439545055608832",
+      "discord_username": "raclesis#0",
+      "display_name": "Raclesis",
+      "timestamp": "2026-06-20T22:24:55.965Z"
     }
   ]
 }
