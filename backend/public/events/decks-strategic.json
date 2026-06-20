@@ -1572,60 +1572,6 @@
     }
   },
   {
-    "username": "270439545055608832",
-    "discordId": "270439545055608832",
-    "discord_username": "raclesis#0",
-    "event": "Strategic",
-    "warlord": "Sir Rhawn d'Ilchant",
-    "display_name": "Raclesis",
-    "timestamp": "2026-06-10T23:50:39.549Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 3,
-          "Kingslayer": 1,
-          "Sister Kiren": 3,
-          "Taumar the Protector": 3
-        },
-        "startingArmy": {
-          "Sir Rhawn d'Ilchant": 1,
-          "Church Inquisitor": 2,
-          "Genecourt Initiate": 3
-        }
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Aroch Mail": 1,
-          "Breastplate of Power": 1,
-          "Bruntor's Helm": 1,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 3,
-          "Rockarm": 1,
-          "Silversteel Gauntlets": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Crush": 2,
-          "Divine Barrier": 2,
-          "Epic Donnybrook": 2,
-          "Final Blessing": 2,
-          "Lights of Revealing Sword": 3,
-          "Wither": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "238453317418614784",
     "discordId": "238453317418614784",
     "discord_username": "elvernthehero#0",
@@ -3302,6 +3248,58 @@
           "Epic Donnybrook": 3,
           "Crush": 3,
           "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Strategic",
+    "warlord": "Ginerva of the Moon",
+    "display_name": "Raclesis",
+    "timestamp": "2026-06-20T22:24:55.965Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ginerva of the Moon": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 1,
+          "Kor's Aegis": 1,
+          "Medical Kit": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Final Blessing": 3,
+          "Invoke the Storm": 3,
+          "Sacrifice": 3
         },
         "startingArmy": {}
       }
