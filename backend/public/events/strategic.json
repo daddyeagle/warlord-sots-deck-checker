@@ -122,14 +122,6 @@
       "timestamp": "2026-06-07T02:35:59.141Z"
     },
     {
-      "warlord": "The Bloody Countess",
-      "username": "352841470589534208",
-      "discordId": "352841470589534208",
-      "discord_username": "10greg10#0",
-      "display_name": "Denzel Alpenbash",
-      "timestamp": "2026-06-07T04:28:33.009Z"
-    },
-    {
       "warlord": "Church Enforcer Tancred",
       "username": "353890794920345611",
       "discordId": "353890794920345611",
@@ -504,6 +496,14 @@
       "discord_username": "the.thing333#0",
       "display_name": "The.Thing333",
       "timestamp": "2026-06-18T00:13:01.263Z"
+    },
+    {
+      "warlord": "Edric D'Ilchant",
+      "username": "352841470589534208",
+      "discordId": "352841470589534208",
+      "discord_username": "10greg10#0",
+      "display_name": "Denzel Alpenbash",
+      "timestamp": "2026-06-20T14:29:03.990Z"
     }
   ]
 }
