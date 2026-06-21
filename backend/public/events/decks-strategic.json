@@ -578,58 +578,6 @@
     }
   },
   {
-    "username": "604207671632986112",
-    "discordId": "604207671632986112",
-    "discord_username": "durdle1357#0",
-    "event": "Strategic",
-    "warlord": "Ar'tek",
-    "display_name": "Zedburger",
-    "timestamp": "2026-06-06T22:40:40.370Z",
-    "cardList": {
-      "Character": {
-        "count": 17,
-        "mainDeck": {
-          "Alaya": 2,
-          "Nog, Pog, and Snivels": 3,
-          "Oracle of Kavara": 3,
-          "Starbinder": 3
-        },
-        "startingArmy": {
-          "'Mad' Pat Carrik": 1,
-          "Ar'tek": 1,
-          "Bear Legion Recruit": 3,
-          "Novice Pyro": 1
-        }
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Arcane Approach": 2,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Noble Sacrifice": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 19,
-        "mainDeck": {
-          "Ardian Greathawk": 3,
-          "Deverenus' Axe": 3,
-          "Fineltour's Draught": 1,
-          "Havat-lahn Stance": 2,
-          "Myerdeth Mare": 2,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1,
-          "Strongarm Stout": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "149252393630957569",
     "discordId": "149252393630957569",
     "discord_username": "sleeping4est#0",
@@ -3300,6 +3248,60 @@
           "Final Blessing": 3,
           "Invoke the Storm": 3,
           "Sacrifice": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "604207671632986112",
+    "discordId": "604207671632986112",
+    "discord_username": "durdle1357#0",
+    "event": "Strategic",
+    "warlord": "Tactician Muddflek",
+    "display_name": "Zedburger",
+    "timestamp": "2026-06-21T02:23:02.942Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Novice Pyro": 1,
+          "Ac'Vuk": 3,
+          "Catapult Crew": 1,
+          "Doo'run": 3,
+          "Mo'can": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Novice Pyro": 2,
+          "Tactician Muddflek": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Arcane Approach": 2,
+          "Assassin's Strike": 2,
+          "Change of Hands": 2,
+          "Death From Below": 3,
+          "Spiked Pit Trap": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 1,
+          "Cutlass": 2,
+          "Fatestring Bow": 3,
+          "Fineltour's Draught": 1,
+          "Revenger": 2,
+          "Shrapnelball": 2,
+          "Teufeltiger's Shroud": 2
         },
         "startingArmy": {}
       }
