@@ -202,14 +202,6 @@
       "timestamp": "2026-06-08T01:08:59.611Z"
     },
     {
-      "warlord": "Iam Unsullied",
-      "username": "196189498986463232",
-      "discordId": "196189498986463232",
-      "discord_username": "edgarhking#0",
-      "display_name": "edgarhking",
-      "timestamp": "2026-06-08T01:52:07.702Z"
-    },
-    {
       "warlord": "Brymin of the Marches",
       "username": "354280712578400267",
       "discordId": "354280712578400267",
@@ -512,6 +504,14 @@
       "discord_username": "burnout383#0",
       "display_name": "Burnout",
       "timestamp": "2026-06-23T18:27:57.882Z"
+    },
+    {
+      "warlord": "Atu Amani",
+      "username": "196189498986463232",
+      "discordId": "196189498986463232",
+      "discord_username": "edgarhking#0",
+      "display_name": "edgarhking",
+      "timestamp": "2026-06-23T18:50:01.782Z"
     }
   ]
 }
