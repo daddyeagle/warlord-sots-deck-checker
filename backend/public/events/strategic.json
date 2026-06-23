@@ -98,14 +98,6 @@
       "timestamp": "2026-06-07T12:12:25.771Z"
     },
     {
-      "warlord": "Raziel",
-      "username": "545496839919632384",
-      "discordId": "545496839919632384",
-      "discord_username": "brhiggins#0",
-      "display_name": "Korkron/Illemental",
-      "timestamp": "2026-06-07T17:06:48.207Z"
-    },
-    {
       "warlord": "Adarymy",
       "username": "565337847905910805",
       "discordId": "565337847905910805",
@@ -512,6 +504,14 @@
       "discord_username": "temperance2443#0",
       "display_name": "Temperance",
       "timestamp": "2026-06-23T20:19:50.688Z"
+    },
+    {
+      "warlord": "Rone of the Deepbrook",
+      "username": "545496839919632384",
+      "discordId": "545496839919632384",
+      "discord_username": "brhiggins#0",
+      "display_name": "Korkron/Illemental",
+      "timestamp": "2026-06-23T20:48:24.247Z"
     }
   ]
 }
