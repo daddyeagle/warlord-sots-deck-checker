@@ -394,14 +394,6 @@
       "timestamp": "2026-06-17T16:22:27.758Z"
     },
     {
-      "warlord": "Andeel Smrti",
-      "username": "298580168899821568",
-      "discordId": "298580168899821568",
-      "discord_username": "direscrub#0",
-      "display_name": "DireScrub",
-      "timestamp": "2026-06-17T17:03:57.772Z"
-    },
-    {
       "warlord": "Qor-Teth Firefist",
       "username": "189081827498131459",
       "discordId": "189081827498131459",
@@ -504,6 +496,14 @@
       "discord_username": "durdle1357#0",
       "display_name": "Zedburger",
       "timestamp": "2026-06-21T02:23:02.942Z"
+    },
+    {
+      "warlord": "Ophinuchus",
+      "username": "298580168899821568",
+      "discordId": "298580168899821568",
+      "discord_username": "direscrub#0",
+      "display_name": "DireScrub",
+      "timestamp": "2026-06-23T02:15:04.736Z"
     }
   ]
 }
