@@ -2590,62 +2590,6 @@
     }
   },
   {
-    "username": "298580168899821568",
-    "discordId": "298580168899821568",
-    "discord_username": "direscrub#0",
-    "event": "Strategic",
-    "warlord": "Andeel Smrti",
-    "display_name": "DireScrub",
-    "timestamp": "2026-06-17T17:03:57.772Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Callow Rowan": 1,
-          "Veera and Bones": 3,
-          "Thunic Yeti": 3,
-          "Swiftcloud": 1,
-          "Skitterleap": 3,
-          "Kingslayer": 1,
-          "Goldengrove Mage": 2,
-          "Dreadfang": 1,
-          "Brightwing": 1,
-          "Blitzer": 1,
-          "Blackwind": 1,
-          "Ashveil": 1
-        },
-        "startingArmy": {
-          "Corpse Crowd": 3,
-          "Graveyard Librarian": 2,
-          "Andeel Smrti": 1
-        }
-      },
-      "Item": {
-        "count": 8,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Medical Kit": 1,
-          "Kor's Aegis": 2,
-          "Cyldragen's Tome": 3,
-          "Ardian Greathawk": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Meet at the Inn!": 3,
-          "Holy Might": 3,
-          "Epic Judgment": 3,
-          "Divine Respite": 3,
-          "Curse of Greed": 3,
-          "Courage from Faith": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "189081827498131459",
     "discordId": "189081827498131459",
     "discord_username": "sadfunction#0",
@@ -3302,6 +3246,62 @@
           "Revenger": 2,
           "Shrapnelball": 2,
           "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Strategic",
+    "warlord": "Ophinuchus",
+    "display_name": "DireScrub",
+    "timestamp": "2026-06-23T02:15:04.736Z",
+    "cardList": {
+      "Character": {
+        "count": 17,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Yanthorine": 3,
+          "Veera and Bones": 3,
+          "Oracle of Kavara": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Graveyard Librarian": 2,
+          "Ophinuchus": 1,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Tide Turner": 3,
+          "Arcane Approach": 3,
+          "Prime Positioning": 3,
+          "Pounce": 3,
+          "Lights of Revealing Sword": 3,
+          "Epic Donnybrook": 3,
+          "Crush": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Spellblocker": 1,
+          "Scale Mail": 1,
+          "Rockarm": 1,
+          "Myerdeth Mare": 1,
+          "Havat-lahn Stance": 1,
+          "Griffon of Andover": 1,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Breastplate of Power": 1,
+          "Ardian Greathawk": 1
         },
         "startingArmy": {}
       }
