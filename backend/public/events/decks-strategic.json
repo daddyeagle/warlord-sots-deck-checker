@@ -419,61 +419,6 @@
     }
   },
   {
-    "username": "173934105090588672",
-    "discordId": "173934105090588672",
-    "discord_username": "paradigmblue.#0",
-    "event": "Strategic",
-    "warlord": "Behlial",
-    "display_name": "paradigmblue.",
-    "timestamp": "2026-06-06T20:00:51.537Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Blitzer": 1,
-          "Dreadfang": 1,
-          "Swiftcloud": 1,
-          "Oracle of Kavara": 2,
-          "Ashveil": 1,
-          "Blackwind": 1,
-          "Callow Rowan": 3,
-          "Skitterleap": 3,
-          "Chovan Voidcaller": 1,
-          "Brightwing": 1,
-          "Darkwatcher": 1,
-          "Beacon": 3
-        },
-        "startingArmy": {
-          "Tyren Ruskin": 2,
-          "Genecourt Initiate": 3,
-          "Behlial": 1
-        }
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Holy Might": 3,
-          "Sacrifice": 3,
-          "Epic Judgment": 3,
-          "Invoke the Storm": 3,
-          "Divine Respite": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 7,
-        "mainDeck": {
-          "FireReign Idol": 2,
-          "Hod's Legacy": 1,
-          "Storm Shard": 1,
-          "Cyldragen's Tome": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "435247799165255680",
     "discordId": "435247799165255680",
     "discord_username": "jackalofmourn#0",
@@ -3357,6 +3302,60 @@
           "Holy Might": 2,
           "Spiritual Weapon": 2,
           "Wither": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "173934105090588672",
+    "discordId": "173934105090588672",
+    "discord_username": "paradigmblue.#0",
+    "event": "Strategic",
+    "warlord": "Keira Syneri",
+    "display_name": "paradigmblue.",
+    "timestamp": "2026-06-23T19:10:56.147Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Bone Fiend": 2,
+          "Bikram Bullstrength": 3,
+          "Thunic Yeti": 3,
+          "Master Dresden": 3,
+          "Lord's Assailant": 3,
+          "Callow Rowan": 3,
+          "Skitterleap": 3
+        },
+        "startingArmy": {
+          "Keira Syneri": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Hunting Staff": 1,
+          "Storm Shard": 1,
+          "Well of Screams": 1,
+          "Kaballite Regalia": 1,
+          "Ardian Greathawk": 3,
+          "Bloodsteed": 3,
+          "Cloak of Brilliance": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Flamelance": 3,
+          "Magic Missiles": 1,
+          "Grave Exchange": 3,
+          "Darkflame Bolts": 3,
+          "Arcane Approach": 3,
+          "Crush": 3
         },
         "startingArmy": {}
       }
