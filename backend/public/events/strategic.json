@@ -266,14 +266,6 @@
       "timestamp": "2026-06-12T00:09:11.355Z"
     },
     {
-      "warlord": "Sir Aleron d'Ilchant",
-      "username": "248869593945341952",
-      "discordId": "248869593945341952",
-      "discord_username": "steeldraco#0",
-      "display_name": "SteelDraco",
-      "timestamp": "2026-06-12T02:02:28.582Z"
-    },
-    {
       "warlord": "Kalten the Bleak",
       "username": "193190910329094144",
       "discordId": "193190910329094144",
@@ -512,6 +504,14 @@
       "discord_username": "kamacausey_#0",
       "display_name": "Kamacausey",
       "timestamp": "2026-06-23T14:06:39.692Z"
+    },
+    {
+      "warlord": "Captain Karkos Tzin",
+      "username": "248869593945341952",
+      "discordId": "248869593945341952",
+      "discord_username": "steeldraco#0",
+      "display_name": "SteelDraco",
+      "timestamp": "2026-06-23T17:34:19.329Z"
     }
   ]
 }
