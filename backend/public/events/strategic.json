@@ -266,14 +266,6 @@
       "timestamp": "2026-06-12T00:09:11.355Z"
     },
     {
-      "warlord": "Ghed Mnettaor",
-      "username": "307709338250903552",
-      "discordId": "307709338250903552",
-      "discord_username": "themelyk#0",
-      "display_name": "TheMelyK",
-      "timestamp": "2026-06-12T01:54:50.827Z"
-    },
-    {
       "warlord": "Sir Aleron d'Ilchant",
       "username": "248869593945341952",
       "discordId": "248869593945341952",
@@ -504,6 +496,14 @@
       "discord_username": "direscrub#0",
       "display_name": "DireScrub",
       "timestamp": "2026-06-23T02:15:04.736Z"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "307709338250903552",
+      "discordId": "307709338250903552",
+      "discord_username": "themelyk#0",
+      "display_name": "TheMelyK",
+      "timestamp": "2026-06-23T12:53:23.571Z"
     }
   ]
 }
