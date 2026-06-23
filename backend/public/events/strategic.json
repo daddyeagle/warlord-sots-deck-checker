@@ -106,14 +106,6 @@
       "timestamp": "2026-06-07T17:31:56.340Z"
     },
     {
-      "warlord": "Parak Soulsaver",
-      "username": "751294885750898728",
-      "discordId": "751294885750898728",
-      "discord_username": "xenomorph40#0",
-      "display_name": "Xenomorph40",
-      "timestamp": "2026-06-07T18:00:03.975Z"
-    },
-    {
       "warlord": "The Lady of Pain",
       "username": "80710986104840192",
       "discordId": "80710986104840192",
@@ -512,6 +504,14 @@
       "discord_username": "depressodado#0",
       "display_name": "DepressoDaDo",
       "timestamp": "2026-06-23T20:56:25.797Z"
+    },
+    {
+      "warlord": "Ahdi Akkhar",
+      "username": "751294885750898728",
+      "discordId": "751294885750898728",
+      "discord_username": "xenomorph40#0",
+      "display_name": "Xenomorph40",
+      "timestamp": "2026-06-23T22:45:37.582Z"
     }
   ]
 }
