@@ -170,14 +170,6 @@
       "timestamp": "2026-06-08T00:51:19.872Z"
     },
     {
-      "warlord": "Dallen Stormlost",
-      "username": "423494395640283145",
-      "discordId": "423494395640283145",
-      "discord_username": "depressodado#0",
-      "display_name": "DepressoDaDo",
-      "timestamp": "2026-06-08T01:08:59.611Z"
-    },
-    {
       "warlord": "Brymin of the Marches",
       "username": "354280712578400267",
       "discordId": "354280712578400267",
@@ -512,6 +504,14 @@
       "discord_username": "brhiggins#0",
       "display_name": "Korkron/Illemental",
       "timestamp": "2026-06-23T20:48:24.247Z"
+    },
+    {
+      "warlord": "Kestrel the Deceiver",
+      "username": "423494395640283145",
+      "discordId": "423494395640283145",
+      "discord_username": "depressodado#0",
+      "display_name": "DepressoDaDo",
+      "timestamp": "2026-06-23T20:56:25.797Z"
     }
   ]
 }
