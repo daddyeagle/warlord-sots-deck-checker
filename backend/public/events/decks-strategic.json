@@ -1311,58 +1311,6 @@
     }
   },
   {
-    "username": "196189498986463232",
-    "discordId": "196189498986463232",
-    "discord_username": "edgarhking#0",
-    "event": "Strategic",
-    "warlord": "Iam Unsullied",
-    "display_name": "edgarhking",
-    "timestamp": "2026-06-08T01:52:07.702Z",
-    "cardList": {
-      "Character": {
-        "count": 12,
-        "mainDeck": {
-          "Albrecht Novice": 3,
-          "Alaya": 3
-        },
-        "startingArmy": {
-          "Keen Eared Sentry": 3,
-          "Crownland Strategist": 2,
-          "Iam Unsullied": 1
-        }
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Arcane Approach": 3,
-          "Tide Turner": 3,
-          "Heroic Confrontation": 3,
-          "Prime Positioning": 3,
-          "Noble Sacrifice": 2,
-          "Crush": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 19,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Bardiche": 3,
-          "Myerdeth Mare": 3,
-          "Griffon of Andover": 2,
-          "Ardian Greathawk": 2,
-          "Rockarm": 2,
-          "Aroch Mail": 1,
-          "Talisman of Might": 1,
-          "Bruntor's Helm": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "354280712578400267",
     "discordId": "354280712578400267",
     "discord_username": "aaron1002#0",
@@ -3354,6 +3302,61 @@
           "Myerdeth Mare": 3,
           "Rockarm": 2,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "196189498986463232",
+    "discordId": "196189498986463232",
+    "discord_username": "edgarhking#0",
+    "event": "Strategic",
+    "warlord": "Atu Amani",
+    "display_name": "edgarhking",
+    "timestamp": "2026-06-23T18:50:01.782Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Arika Ketchum": 1,
+          "Blitzer": 1,
+          "Brightwing": 1,
+          "Field Marshal Malexin": 3,
+          "Sand Fiend": 2,
+          "Sanguicorn": 3,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Atu Amani": 1
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Balian's Helm": 1,
+          "Blessed Vestments": 2,
+          "Medical Kit": 2,
+          "Overburdened Nag": 1,
+          "Ritual Dagger": 3,
+          "Rockarm": 2,
+          "Strongarm Stout": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Dissolve": 2,
+          "Divine Barrier": 2,
+          "Epic Judgment": 3,
+          "Final Farewell": 2,
+          "Holy Might": 2,
+          "Spiritual Weapon": 2,
+          "Wither": 2
         },
         "startingArmy": {}
       }
