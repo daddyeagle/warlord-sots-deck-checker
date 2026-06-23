@@ -3304,5 +3304,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discordId": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "Strategic",
+    "warlord": "Anton Cyldragen",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-06-23T14:06:39.692Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Veera and Bones": 3,
+          "Gadgeteer Bilder": 3,
+          "Skitterleap": 3,
+          "Duke Richter": 3,
+          "Field Marshal Malexin": 3,
+          "Thunic Yeti": 3,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "Anton Cyldragen": 1,
+          "Graveyard Librarian": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3,
+          "Shatter": 3,
+          "Epic Evocation": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Hunting Staff": 2,
+          "Blade of Antiquity": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
