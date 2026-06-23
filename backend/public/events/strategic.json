@@ -74,14 +74,6 @@
       "timestamp": "2026-06-06T20:08:23.256Z"
     },
     {
-      "warlord": "Ahdre",
-      "username": "710954937189793882",
-      "discordId": "710954937189793882",
-      "discord_username": "temperance2443#0",
-      "display_name": "Temperance",
-      "timestamp": "2026-06-06T22:14:44.026Z"
-    },
-    {
       "warlord": "Black Tom of Corinth",
       "username": "149252393630957569",
       "discordId": "149252393630957569",
@@ -512,6 +504,14 @@
       "discord_username": "paradigmblue.#0",
       "display_name": "paradigmblue.",
       "timestamp": "2026-06-23T19:10:56.147Z"
+    },
+    {
+      "warlord": "Cathel Rowan",
+      "username": "710954937189793882",
+      "discordId": "710954937189793882",
+      "discord_username": "temperance2443#0",
+      "display_name": "Temperance",
+      "timestamp": "2026-06-23T20:19:50.688Z"
     }
   ]
 }
