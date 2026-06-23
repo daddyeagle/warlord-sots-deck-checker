@@ -633,55 +633,6 @@
     }
   },
   {
-    "username": "545496839919632384",
-    "discordId": "545496839919632384",
-    "discord_username": "brhiggins#0",
-    "event": "Strategic",
-    "warlord": "Raziel",
-    "display_name": "Korkron/Illemental",
-    "timestamp": "2026-06-07T17:06:48.207Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Skitterleap": 3,
-          "Blitzer": 1,
-          "Bikram Bullstrength": 3,
-          "Master Dresden": 3,
-          "Veera and Bones": 3,
-          "Treyik": 3,
-          "Tresven": 3
-        },
-        "startingArmy": {
-          "Jigoral": 3,
-          "Graveyard Librarian": 2,
-          "Raziel": 1
-        }
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Noble Sacrifice": 3,
-          "Shatter": 3,
-          "Change of Hands": 3,
-          "Arcane Approach": 3,
-          "Midnight Madness": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Nightfire Manacles": 3,
-          "Medical Kit": 1,
-          "Hunting Staff": 3,
-          "Ardian Greathawk": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "565337847905910805",
     "discordId": "565337847905910805",
     "discord_username": "coachdan1991#0",
@@ -3358,6 +3309,56 @@
           "Cloudracer": 1,
           "Teufeltiger's Shroud": 2,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "545496839919632384",
+    "discordId": "545496839919632384",
+    "discord_username": "brhiggins#0",
+    "event": "Strategic",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Korkron/Illemental",
+    "timestamp": "2026-06-23T20:48:24.247Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sutek Slimefang": 3,
+          "Tresven": 3,
+          "Veera and Bones": 3,
+          "Veteran Bowman": 3,
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Rone of the Deepbrook": 1,
+          "Graveyard Librarian": 2,
+          "Jigoral": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Teufeltiger's Shroud": 3,
+          "Fatestring Bow": 2,
+          "Storm Shard": 1,
+          "Leopard Claws": 3,
+          "Cloudracer": 2,
+          "Revenger": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Epic Betrayal": 3,
+          "Hunt From Above": 3,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
