@@ -737,59 +737,6 @@
     }
   },
   {
-    "username": "266281128732786688",
-    "discordId": "266281128732786688",
-    "discord_username": "burnout383#0",
-    "event": "Strategic",
-    "warlord": "Talin Tzin",
-    "display_name": "Burnout",
-    "timestamp": "2026-06-07T16:06:05.890Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Arika Ketchum": 2,
-          "Brightwing": 1,
-          "Field Marshal Malexin": 3,
-          "Huggins": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 1,
-          "Sister Amanda": 1,
-          "Starbinder": 2,
-          "Thunic Yeti": 3
-        },
-        "startingArmy": {
-          "Talin Tzin": 1,
-          "Crownland Strategist": 2,
-          "TFK Brigand": 3
-        }
-      },
-      "Action": {
-        "count": 11,
-        "mainDeck": {
-          "Cunning Shot": 1,
-          "Dupe": 3,
-          "Epic Betrayal": 2,
-          "Pin Down": 3,
-          "Rapid Dash": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 3,
-          "Cloudracer": 2,
-          "Gapfinder": 3,
-          "Revenger": 3,
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "545496839919632384",
     "discordId": "545496839919632384",
     "discord_username": "brhiggins#0",
@@ -3356,6 +3303,57 @@
         "mainDeck": {
           "Epic Donnybrook": 2,
           "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "266281128732786688",
+    "discordId": "266281128732786688",
+    "discord_username": "burnout383#0",
+    "event": "Strategic",
+    "warlord": "Captain Alera",
+    "display_name": "Burnout",
+    "timestamp": "2026-06-23T18:27:57.882Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Albrecht Novice": 3,
+          "Arika Ketchum": 2,
+          "Brightwing": 1,
+          "Field Marshal Malexin": 3,
+          "Huggins": 3,
+          "Leonora": 3,
+          "Shannon the Daring": 3,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "Captain Alera": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Crush": 2,
+          "Epic Donnybrook": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Bardiche": 3,
+          "Breastplate of Power": 2,
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 3,
+          "Rockarm": 2,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
