@@ -631,59 +631,6 @@
     }
   },
   {
-    "username": "580478373717868545",
-    "discordId": "580478373717868545",
-    "discord_username": "zydepunk#0",
-    "event": "Strategic",
-    "warlord": "Trevor Magson",
-    "display_name": "Zydepunk",
-    "timestamp": "2026-06-07T02:32:42.617Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Crownland Strategist": 1,
-          "Bikram Bullstrength": 3,
-          "Thunic Yeti": 3,
-          "Graham Heyward": 3,
-          "Huggins": 3,
-          "Oracle of Kavara": 2,
-          "Master Dresden": 2,
-          "Sanguicorn": 2
-        },
-        "startingArmy": {
-          "Trevor Magson": 1,
-          "Crownland Strategist": 2,
-          "TFK Brigand": 3
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Crypt Wine": 3,
-          "Pounce": 3,
-          "Pin Down": 2,
-          "Swivel": 2,
-          "Assassin's Strike": 2,
-          "Rapid Dash": 1
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 12,
-        "mainDeck": {
-          "Fatestring Bow": 3,
-          "Cloudracer": 3,
-          "Ardian Greathawk": 2,
-          "Merrick Regalia": 2,
-          "Storm Shard": 1,
-          "Angel's Tears": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "219131100390359040",
     "discordId": "219131100390359040",
     "discord_username": "valiantbd#0",
@@ -3354,6 +3301,61 @@
           "Rockarm": 1,
           "Spellblocker": 1,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "580478373717868545",
+    "discordId": "580478373717868545",
+    "discord_username": "zydepunk#0",
+    "event": "Strategic",
+    "warlord": "Serif Al Havoc",
+    "display_name": "Zydepunk",
+    "timestamp": "2026-06-23T18:17:04.831Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Leonora": 3,
+          "Albrecht Novice": 3,
+          "Huggins": 3,
+          "Field Marshal Malexin": 3,
+          "Shannon the Daring": 3,
+          "Arika Ketchum": 2,
+          "Sister Amanda": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "Serif Al Havoc": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 21,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 3,
+          "Griffon of Andover": 2,
+          "Myerdeth Mare": 2,
+          "Shield of Spurning": 2,
+          "Breastplate of Power": 2,
+          "Aroch Mail": 2,
+          "Bruntor's Helm": 1,
+          "Fineltour's Draught": 1,
+          "Rockarm": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Epic Donnybrook": 2,
+          "Crush": 2
         },
         "startingArmy": {}
       }
