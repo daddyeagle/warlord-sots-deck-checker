@@ -474,55 +474,6 @@
     }
   },
   {
-    "username": "710954937189793882",
-    "discordId": "710954937189793882",
-    "discord_username": "temperance2443#0",
-    "event": "Strategic",
-    "warlord": "Ahdre",
-    "display_name": "Temperance",
-    "timestamp": "2026-06-06T22:14:44.026Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Graveyard Librarian": 1,
-          "Ciane": 3,
-          "Tresven": 3,
-          "Treyik": 3,
-          "Veera and Bones": 3,
-          "Goldengrove Mage": 3,
-          "Master Dresden": 3
-        },
-        "startingArmy": {
-          "Ahdre": 1,
-          "Graveyard Librarian": 2,
-          "Jigoral": 3
-        }
-      },
-      "Action": {
-        "count": 16,
-        "mainDeck": {
-          "Pin Down": 3,
-          "Curse of Greed": 3,
-          "Crypt Wine": 3,
-          "Death From Below": 3,
-          "Wither": 1,
-          "Flurry of Knives": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 9,
-        "mainDeck": {
-          "Fatestring Bow": 3,
-          "Shrapnelball": 3,
-          "Merrick Regalia": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "149252393630957569",
     "discordId": "149252393630957569",
     "discord_username": "sleeping4est#0",
@@ -3356,6 +3307,57 @@
           "Darkflame Bolts": 3,
           "Arcane Approach": 3,
           "Crush": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "710954937189793882",
+    "discordId": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Strategic",
+    "warlord": "Cathel Rowan",
+    "display_name": "Temperance",
+    "timestamp": "2026-06-23T20:19:50.688Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Goldengrove Mage": 3,
+          "Grimfey Prowler": 3,
+          "Veera and Bones": 3,
+          "Tresven": 3,
+          "Ciane": 3,
+          "Veteran Bowman": 3
+        },
+        "startingArmy": {
+          "Cathel Rowan": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Rapid Dash": 3,
+          "Swivel": 3,
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Death From Below": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Fatestring Bow": 2,
+          "Cloudracer": 1,
+          "Teufeltiger's Shroud": 2,
+          "Storm Shard": 1
         },
         "startingArmy": {}
       }
