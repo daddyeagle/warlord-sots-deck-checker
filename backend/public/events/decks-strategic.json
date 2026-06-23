@@ -1731,58 +1731,6 @@
     }
   },
   {
-    "username": "248869593945341952",
-    "discordId": "248869593945341952",
-    "discord_username": "steeldraco#0",
-    "event": "Strategic",
-    "warlord": "Sir Aleron d'Ilchant",
-    "display_name": "SteelDraco",
-    "timestamp": "2026-06-12T02:02:28.582Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Taumar the Protector": 3,
-          "Sister Kiren": 3,
-          "Master Dresden": 3,
-          "Kingslayer": 1,
-          "Ghed Daucet": 3,
-          "Ghed Bane": 3,
-          "Duke Richter": 3
-        },
-        "startingArmy": {
-          "Genecourt Initiate": 3,
-          "Church Inquisitor": 2,
-          "Sir Aleron d'Ilchant": 1
-        }
-      },
-      "Item": {
-        "count": 17,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "War Horse": 2,
-          "Steelforge Regalia": 2,
-          "Rockarm": 2,
-          "Myerdeth Mare": 3,
-          "Griffon of Andover": 1,
-          "Deverenus' Axe": 3,
-          "Aroch Mail": 1,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 8,
-        "mainDeck": {
-          "Meet at the Inn!": 3,
-          "Lights of Revealing Sword": 3,
-          "Crush": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "193190910329094144",
     "discordId": "193190910329094144",
     "discord_username": "shockgunn#0",
@@ -3349,6 +3297,62 @@
           "Deverenus' Axe": 3,
           "Hunting Staff": 2,
           "Blade of Antiquity": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "248869593945341952",
+    "discordId": "248869593945341952",
+    "discord_username": "steeldraco#0",
+    "event": "Strategic",
+    "warlord": "Captain Karkos Tzin",
+    "display_name": "SteelDraco",
+    "timestamp": "2026-06-23T17:34:19.329Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Church Inquisitor": 1,
+          "Bikram Bullstrength": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Master Dresden": 2,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Captain Karkos Tzin": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 2,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Bloodsteed": 2,
+          "Bruntor's Helm": 1,
+          "Cloak of Brilliance": 1,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Spellblocker": 1,
           "Storm Shard": 1
         },
         "startingArmy": {}
