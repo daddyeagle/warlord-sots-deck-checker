@@ -683,59 +683,6 @@
     }
   },
   {
-    "username": "751294885750898728",
-    "discordId": "751294885750898728",
-    "discord_username": "xenomorph40#0",
-    "event": "Strategic",
-    "warlord": "Parak Soulsaver",
-    "display_name": "Xenomorph40",
-    "timestamp": "2026-06-07T18:00:03.975Z",
-    "cardList": {
-      "Character": {
-        "count": 8,
-        "mainDeck": {
-          "Sunforge Smith": 2
-        },
-        "startingArmy": {
-          "Quartermaster Dirge": 3,
-          "Sunforge Smith": 1,
-          "Tinker": 1,
-          "Parak Soulsaver": 1
-        }
-      },
-      "Item": {
-        "count": 25,
-        "mainDeck": {
-          "War Horse": 2,
-          "Talisman of Might": 1,
-          "Storm Shard": 1,
-          "Steelforge Regalia": 3,
-          "Rockarm": 1,
-          "Myerdeth Mare": 3,
-          "Havat-lahn Stance": 2,
-          "Griffon of Andover": 3,
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 1,
-          "Blade of Antiquity": 3,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Tide Turner": 2,
-          "Crush": 3,
-          "Another Tavern Brawl": 3,
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 3,
-          "Arcane Approach": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "80710986104840192",
     "discordId": "80710986104840192",
     "discord_username": "renkai#0",
@@ -3358,6 +3305,57 @@
           "Cloak of Brilliance": 1,
           "Cloak of Flight": 1,
           "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "751294885750898728",
+    "discordId": "751294885750898728",
+    "discord_username": "xenomorph40#0",
+    "event": "Strategic",
+    "warlord": "Ahdi Akkhar",
+    "display_name": "Xenomorph40",
+    "timestamp": "2026-06-23T22:45:37.582Z",
+    "cardList": {
+      "Character": {
+        "count": 14,
+        "mainDeck": {
+          "Hrun Instigator": 2,
+          "Beacon": 3,
+          "Hazahk of Shadow": 3
+        },
+        "startingArmy": {
+          "Tinker": 1,
+          "Tunnel Vanguard": 3,
+          "Hrun Instigator": 1,
+          "Ahdi Akkhar": 1
+        }
+      },
+      "Item": {
+        "count": 24,
+        "mainDeck": {
+          "Nothrog S'sike": 2,
+          "Rockarm": 2,
+          "War Horse": 2,
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Havat-lahn Stance": 2,
+          "Myerdeth Mare": 3,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 3,
+          "Lights of Revealing Sword": 3,
+          "Crush": 3
         },
         "startingArmy": {}
       }
