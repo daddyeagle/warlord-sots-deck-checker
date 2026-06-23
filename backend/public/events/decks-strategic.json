@@ -1105,59 +1105,6 @@
     }
   },
   {
-    "username": "423494395640283145",
-    "discordId": "423494395640283145",
-    "discord_username": "depressodado#0",
-    "event": "Strategic",
-    "warlord": "Dallen Stormlost",
-    "display_name": "DepressoDaDo",
-    "timestamp": "2026-06-08T01:08:59.611Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Blitzer": 1,
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 3,
-          "Kingslayer": 1,
-          "Master Dresden": 3,
-          "Sister Kiren": 2,
-          "Taumar the Protector": 3
-        },
-        "startingArmy": {
-          "Ambitious Squire": 3,
-          "Church Inquisitor": 1,
-          "Squire Fendric": 1,
-          "Dallen Stormlost": 1
-        }
-      },
-      "Item": {
-        "count": 9,
-        "mainDeck": {
-          "Bruntor's Helm": 2,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 2,
-          "Havat-lahn Stance": 1,
-          "Medical Kit": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 16,
-        "mainDeck": {
-          "Crush": 2,
-          "Divine Respite": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Meet at the Inn!": 2,
-          "Spiritual Weapon": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "354280712578400267",
     "discordId": "354280712578400267",
     "discord_username": "aaron1002#0",
@@ -3359,6 +3306,58 @@
           "Epic Betrayal": 3,
           "Hunt From Above": 3,
           "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "423494395640283145",
+    "discordId": "423494395640283145",
+    "discord_username": "depressodado#0",
+    "event": "Strategic",
+    "warlord": "Kestrel the Deceiver",
+    "display_name": "DepressoDaDo",
+    "timestamp": "2026-06-23T20:56:25.797Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 1,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3
+        },
+        "startingArmy": {
+          "Squire Fendric": 1,
+          "Kestrel the Deceiver": 1,
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Evocation": 3,
+          "Flamelance": 2,
+          "Glaciate": 2,
+          "Grave Exchange": 2,
+          "Meet at the Inn!": 3,
+          "Shatter": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Cloak of Brilliance": 1,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3
         },
         "startingArmy": {}
       }
