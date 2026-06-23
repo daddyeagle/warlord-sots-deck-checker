@@ -1731,60 +1731,6 @@
     }
   },
   {
-    "username": "307709338250903552",
-    "discordId": "307709338250903552",
-    "discord_username": "themelyk#0",
-    "event": "Strategic",
-    "warlord": "Ghed Mnettaor",
-    "display_name": "TheMelyK",
-    "timestamp": "2026-06-12T01:54:50.827Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 3,
-          "Master Dresden": 2,
-          "Oracle of Kavara": 2,
-          "Sister Kiren": 3,
-          "Taumar the Protector": 3
-        },
-        "startingArmy": {
-          "Ambitious Squire": 3,
-          "Ghed Mnettaor": 1,
-          "Squire Fendric": 2
-        }
-      },
-      "Action": {
-        "count": 12,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 2,
-          "Epic Donnybrook": 2,
-          "Lights of Revealing Sword": 3,
-          "Quick Strength": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Aroch Mail": 1,
-          "Breastplate of Power": 1,
-          "Deverenus' Axe": 3,
-          "Fineltour's Draught": 1,
-          "Myerdeth Mare": 2,
-          "Rockarm": 1,
-          "Spellblocker": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "248869593945341952",
     "discordId": "248869593945341952",
     "discord_username": "steeldraco#0",
@@ -3302,6 +3248,58 @@
           "Bruntor's Helm": 1,
           "Breastplate of Power": 1,
           "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Strategic",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-06-23T12:53:23.571Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Master Dresden": 2,
+          "Oracle of Kavara": 2,
+          "Sister Kiren": 3,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3,
+          "High Acolyte Hellene": 1
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3,
+          "Hod's Legacy": 1,
+          "Myerdeth Mare": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 2,
+          "Final Blessing": 2,
+          "Invoke the Storm": 3,
+          "Meet at the Inn!": 2,
+          "Quick Strength": 3
         },
         "startingArmy": {}
       }
