@@ -1261,59 +1261,6 @@
     }
   },
   {
-    "username": "1124729150603800616",
-    "discordId": "1124729150603800616",
-    "discord_username": "vladsod#0",
-    "event": "Strategic",
-    "warlord": "Taoth",
-    "display_name": "THE-REDWING-13",
-    "timestamp": "2026-06-12T00:09:11.355Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Blitzer": 1,
-          "Beacon": 3,
-          "Shambling Horror": 3,
-          "Oracle of Kavara": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Muddflek": 3,
-          "Master Dresden": 3
-        },
-        "startingArmy": {
-          "Joleg": 3,
-          "Novice Pyro": 1,
-          "Greenflower Warden": 1,
-          "Taoth": 1
-        }
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Blast": 3,
-          "Flamelance": 3,
-          "Grave Exchange": 3,
-          "Shadow Bolts": 3,
-          "Polymorph": 1,
-          "Glaciate": 2,
-          "Essence Drain": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 7,
-        "mainDeck": {
-          "Burning Scroll": 1,
-          "Well of Screams": 1,
-          "Cloak of Brilliance": 1,
-          "Bloodsteed": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "193190910329094144",
     "discordId": "193190910329094144",
     "discord_username": "shockgunn#0",
@@ -3356,6 +3303,60 @@
           "Epic Donnybrook": 3,
           "Lights of Revealing Sword": 3,
           "Crush": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Strategic",
+    "warlord": "Grilt Fenstalker",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-06-24T00:13:19.414Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Mo'can": 3,
+          "Dwarf-Eater": 3,
+          "Oracle of Kavara": 3,
+          "The Mighty Mugg": 2,
+          "Shambling Horror": 2,
+          "Sutek Razorclaw": 2,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Novice Pyro": 2,
+          "Grilt Fenstalker": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Wither": 1,
+          "Epic Betrayal": 2,
+          "Hunt From Above": 2,
+          "Rapid Dash": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Cloudracer": 3,
+          "Fatestring Bow": 2,
+          "Fineltour's Draught": 1,
+          "Gapfinder": 2,
+          "Revenger": 2,
+          "Teufeltiger's Shroud": 3,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 1
         },
         "startingArmy": {}
       }
