@@ -194,14 +194,6 @@
       "timestamp": "2026-06-11T23:47:15.366Z"
     },
     {
-      "warlord": "Taoth",
-      "username": "1124729150603800616",
-      "discordId": "1124729150603800616",
-      "discord_username": "vladsod#0",
-      "display_name": "THE-REDWING-13",
-      "timestamp": "2026-06-12T00:09:11.355Z"
-    },
-    {
       "warlord": "Kalten the Bleak",
       "username": "193190910329094144",
       "discordId": "193190910329094144",
@@ -512,6 +504,14 @@
       "discord_username": "xenomorph40#0",
       "display_name": "Xenomorph40",
       "timestamp": "2026-06-23T22:45:37.582Z"
+    },
+    {
+      "warlord": "Grilt Fenstalker",
+      "username": "1124729150603800616",
+      "discordId": "1124729150603800616",
+      "discord_username": "vladsod#0",
+      "display_name": "THE-REDWING-13",
+      "timestamp": "2026-06-24T00:13:19.414Z"
     }
   ]
 }
