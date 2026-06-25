@@ -10,14 +10,6 @@
       "timestamp": "2026-06-06T00:49:38.263Z"
     },
     {
-      "warlord": "Varson Yscar",
-      "username": "157948591380496384",
-      "discordId": "157948591380496384",
-      "discord_username": "ag_wow#0",
-      "display_name": "AG",
-      "timestamp": "2026-06-06T00:57:24.890Z"
-    },
-    {
       "warlord": "Eiael, Celestial Enforcer",
       "username": "1388986791079448577",
       "discordId": "1388986791079448577",
@@ -512,6 +504,14 @@
       "discord_username": "vladsod#0",
       "display_name": "THE-REDWING-13",
       "timestamp": "2026-06-24T00:13:19.414Z"
+    },
+    {
+      "warlord": "Vash-Arrosh",
+      "username": "157948591380496384",
+      "discordId": "157948591380496384",
+      "discord_username": "ag_wow#0",
+      "display_name": "AG",
+      "timestamp": "2026-06-25T16:18:42.037Z"
     }
   ]
 }
