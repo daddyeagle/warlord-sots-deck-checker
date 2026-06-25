@@ -51,60 +51,6 @@
     }
   },
   {
-    "username": "157948591380496384",
-    "discordId": "157948591380496384",
-    "discord_username": "ag_wow#0",
-    "event": "Strategic",
-    "warlord": "Varson Yscar",
-    "display_name": "AG",
-    "timestamp": "2026-06-06T00:57:24.890Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Brinewater Croc": 2,
-          "Swiftcloud": 1,
-          "Blitzer": 1,
-          "Thunic Yeti": 3,
-          "Tyren Ruskin": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Huggins": 3
-        },
-        "startingArmy": {
-          "Varson Yscar": 1,
-          "Shambling Horror": 2,
-          "Brine Fiend": 3
-        }
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Cloudracer": 2,
-          "Luthlarius Regalia": 3,
-          "Revenger": 3,
-          "Rockarm": 1,
-          "Shillelagh": 3,
-          "Storm Shard": 1,
-          "Strongarm Stout": 2,
-          "Ardian Greathawk": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 10,
-        "mainDeck": {
-          "Wither": 3,
-          "Spiritual Weapon": 3,
-          "Rapid Dash": 1,
-          "Divine Barrier": 1,
-          "Assassin's Strike": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discordId": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
@@ -3357,6 +3303,61 @@
           "Teufeltiger's Shroud": 3,
           "Storm Shard": 1,
           "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "157948591380496384",
+    "discordId": "157948591380496384",
+    "discord_username": "ag_wow#0",
+    "event": "Strategic",
+    "warlord": "Vash-Arrosh",
+    "display_name": "AG",
+    "timestamp": "2026-06-25T16:18:42.037Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Thunic Yeti": 3,
+          "Sta'ash": 2,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 3,
+          "Brinewater Croc": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Vash-Arrosh": 1,
+          "Shambling Horror": 2,
+          "Brine Fiend": 2,
+          "Trogid": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Wither": 3,
+          "Noble Sacrifice": 2,
+          "Rapid Dash": 2,
+          "Quick Strength": 3,
+          "Pin Down": 3,
+          "Epic Judgment": 3,
+          "Death From Below": 2,
+          "Cunning Shot": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Balian's Helm": 1,
+          "Storm Shard": 1,
+          "Blessed Vestments": 1,
+          "Hod's Legacy": 1,
+          "Ardian Greathawk": 3
         },
         "startingArmy": {}
       }
