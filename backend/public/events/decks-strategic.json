@@ -2111,52 +2111,6 @@
     }
   },
   {
-    "username": "987033377569927248",
-    "discordId": "987033377569927248",
-    "discord_username": "yinyangman#0",
-    "event": "Strategic",
-    "warlord": "Terror of Sharn Keep",
-    "display_name": "djYinYangMan2112",
-    "timestamp": "2026-06-18T00:01:27.361Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Bikram Bullstrength": 2,
-          "Master Dresden": 3,
-          "Muddflek": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Oracle of Kavara": 3,
-          "Shambling Horror": 3,
-          "Beacon": 2
-        },
-        "startingArmy": {
-          "Joleg": 3,
-          "Novice Pyro": 2,
-          "Terror of Sharn Keep": 1
-        }
-      },
-      "Action": {
-        "count": 25,
-        "mainDeck": {
-          "Grave Exchange": 2,
-          "Epic Evocation": 2,
-          "Glaciate": 3,
-          "Polymorph": 2,
-          "Essence Drain": 3,
-          "Arcane Approach": 3,
-          "Flamelance": 3,
-          "Melt Metal": 1,
-          "Glimmer": 1,
-          "Dissolve": 2,
-          "Leveled!": 2,
-          "Charm Person": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "423473617180033035",
     "discordId": "423473617180033035",
     "discord_username": "graccustheold#0",
@@ -3350,6 +3304,61 @@
           "Flamelance": 3,
           "Epic Evocation": 3,
           "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Strategic",
+    "warlord": "Nisha",
+    "display_name": "djMeatBall",
+    "timestamp": "2026-06-26T21:40:32.226Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 3,
+          "Novice Pyro": 2,
+          "Nog, Pog, and Snivels": 3,
+          "Master Dresden": 3,
+          "Kraig'dem": 2,
+          "Ac'Vuk": 2,
+          "'Mad' Pat Carrik": 1
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Misearean Scout": 1,
+          "Freelance Cavalier": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Essence Drain": 2,
+          "Noble Sacrifice": 3,
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Strongarm Stout": 2,
+          "Storm Shard": 1,
+          "Spellblocker": 1,
+          "Havat-lahn Stance": 1,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Bloodsteed": 3,
+          "Ardian Greathawk": 1,
+          "Ablung's Prisms": 1
         },
         "startingArmy": {}
       }
