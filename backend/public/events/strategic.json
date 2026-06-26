@@ -322,14 +322,6 @@
       "timestamp": "2026-06-17T23:20:53.684Z"
     },
     {
-      "warlord": "Terror of Sharn Keep",
-      "username": "987033377569927248",
-      "discordId": "987033377569927248",
-      "discord_username": "yinyangman#0",
-      "display_name": "djYinYangMan2112",
-      "timestamp": "2026-06-18T00:01:27.361Z"
-    },
-    {
       "warlord": "Nisha",
       "username": "423473617180033035",
       "discordId": "423473617180033035",
@@ -512,6 +504,14 @@
       "discord_username": "direscrub#0",
       "display_name": "DireScrub",
       "timestamp": "2026-06-26T20:13:17.697Z"
+    },
+    {
+      "warlord": "Nisha",
+      "username": "987033377569927248",
+      "discordId": "987033377569927248",
+      "discord_username": "yinyangman#0",
+      "display_name": "djMeatBall",
+      "timestamp": "2026-06-26T21:40:32.226Z"
     }
   ]
 }
