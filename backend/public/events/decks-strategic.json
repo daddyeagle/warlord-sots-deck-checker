@@ -1100,59 +1100,6 @@
     }
   },
   {
-    "username": "193190910329094144",
-    "discordId": "193190910329094144",
-    "discord_username": "shockgunn#0",
-    "event": "Strategic",
-    "warlord": "Kalten the Bleak",
-    "display_name": "Gunn",
-    "timestamp": "2026-06-12T02:17:10.409Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Dreadfang": 1,
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 3,
-          "Kingslayer": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 1,
-          "Sister Kiren": 3,
-          "Swiftcloud": 1
-        },
-        "startingArmy": {
-          "Kalten the Bleak": 1,
-          "Church Inquisitor": 2,
-          "Genecourt Initiate": 3
-        }
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Epic Evocation": 3,
-          "Glaciate": 3,
-          "Grave Exchange": 2,
-          "Lights of Revealing Sword": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 11,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Bloodsteed": 3,
-          "Cloak of Brilliance": 1,
-          "Cloak of Flight": 1,
-          "Deverenus' Axe": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "601032639452807178",
     "discordId": "601032639452807178",
     "discord_username": "yotakafish#0",
@@ -3405,6 +3352,76 @@
           "Epic Donnybrook": 3,
           "Noble Sacrifice": 3,
           "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Strategic",
+    "warlord": "Emperor Ceihallus",
+    "display_name": "Gunn",
+    "timestamp": "2026-06-26T23:55:57.359Z",
+    "cardList": {
+      "Character": {
+        "count": 50,
+        "mainDeck": {
+          "Ashveil": 1,
+          "Beacon": 3,
+          "Bikram Bullstrength": 3,
+          "Blackwind": 1,
+          "Brightwing": 2,
+          "Darkwatcher": 1,
+          "Dreadfang": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Huggins": 3,
+          "Kingslayer": 1,
+          "Lady Estelle": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Sister Kiren": 3,
+          "Skitterleap": 3,
+          "Swiftcloud": 1,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Genecourt Initiate": 3,
+          "Emperor Ceihallus": 1,
+          "Church Inquisitor": 1,
+          "Skyborne Initiate": 1
+        }
+      },
+      "Action": {
+        "count": 38,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Change of Hands": 3,
+          "Darkflame Bolts": 3,
+          "Disperse": 3,
+          "Dissolve": 3,
+          "Epic Evocation": 3,
+          "Flamelance": 3,
+          "Glaciate": 3,
+          "Glimmer": 3,
+          "Grave Exchange": 3,
+          "Meet at the Inn!": 3,
+          "Melt Metal": 2,
+          "Shatter": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Cyldragen's Tome": 3,
+          "Farhaven Guide": 3,
+          "Well of Screams": 3
         },
         "startingArmy": {}
       }
