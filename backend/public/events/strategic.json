@@ -418,14 +418,6 @@
       "timestamp": "2026-06-23T19:10:56.147Z"
     },
     {
-      "warlord": "Cathel Rowan",
-      "username": "710954937189793882",
-      "discordId": "710954937189793882",
-      "discord_username": "temperance2443#0",
-      "display_name": "Temperance",
-      "timestamp": "2026-06-23T20:19:50.688Z"
-    },
-    {
       "warlord": "Rone of the Deepbrook",
       "username": "545496839919632384",
       "discordId": "545496839919632384",
@@ -520,6 +512,14 @@
       "discord_username": "rayneblythewood#0",
       "display_name": "Rayne Blythewood",
       "timestamp": "2026-06-26T21:49:15.139Z"
+    },
+    {
+      "warlord": "Rustiq Umbala",
+      "username": "710954937189793882",
+      "discordId": "710954937189793882",
+      "discord_username": "temperance2443#0",
+      "display_name": "Temperance",
+      "timestamp": "2026-06-26T22:24:30.768Z"
     }
   ]
 }
