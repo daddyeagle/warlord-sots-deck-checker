@@ -1207,57 +1207,6 @@
     }
   },
   {
-    "username": "106211008812437504",
-    "discordId": "106211008812437504",
-    "discord_username": "oremm#0",
-    "event": "Strategic",
-    "warlord": "Trespass",
-    "display_name": "Oremm",
-    "timestamp": "2026-06-14T04:01:10.377Z",
-    "cardList": {
-      "Character": {
-        "count": 20,
-        "mainDeck": {
-          "Dwarf-Eater": 3,
-          "Master Dresden": 3,
-          "Beacon": 3,
-          "Thunic Yeti": 3,
-          "Oracle of Kavara": 2
-        },
-        "startingArmy": {
-          "Tunnel Vanguard": 3,
-          "Shadow Clan Slayer": 1,
-          "Sunforge Smith": 1,
-          "Trespass": 1
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Epic Betrayal": 2,
-          "Even the Odds": 3,
-          "Rapid Dash": 3,
-          "Cunning Shot": 2,
-          "Assassin's Strike": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 17,
-        "mainDeck": {
-          "Leopard Claws": 2,
-          "Teufeltiger's Shroud": 3,
-          "Ardian Greathawk": 3,
-          "Revenger": 3,
-          "Gapfinder": 2,
-          "Cloudracer": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "601032639452807178",
     "discordId": "601032639452807178",
     "discord_username": "yotakafish#0",
@@ -3357,6 +3306,60 @@
           "Flamelance": 3,
           "Grave Exchange": 2,
           "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Strategic",
+    "warlord": "Nitesh Imaran",
+    "display_name": "Oremm",
+    "timestamp": "2026-06-26T17:52:31.567Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Anvil": 3,
+          "Beacon": 3,
+          "Chovan Voidcaller": 1,
+          "Darkwatcher": 2,
+          "Gadgeteer Bilder": 3,
+          "Oracle of Kavara": 3,
+          "Quicksilver Gargoyle": 3,
+          "Starbinder": 1
+        },
+        "startingArmy": {
+          "Nitesh Imaran": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 2,
+          "Fineltour's Draught": 1,
+          "Gapfinder": 2,
+          "Hunting Staff": 1,
+          "Medical Kit": 1,
+          "Premonition Pendant": 1,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Strongarm Stout": 3,
+          "Wraithstalker": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Well Supplied": 3
         },
         "startingArmy": {}
       }
