@@ -170,14 +170,6 @@
       "timestamp": "2026-06-11T22:09:36.862Z"
     },
     {
-      "warlord": "Kara Wadreth",
-      "username": "228613561398722560",
-      "discordId": "228613561398722560",
-      "discord_username": "kolat#0",
-      "display_name": "Kolat",
-      "timestamp": "2026-06-11T23:47:15.366Z"
-    },
-    {
       "warlord": "Kalten the Bleak",
       "username": "193190910329094144",
       "discordId": "193190910329094144",
@@ -512,6 +504,14 @@
       "discord_username": "oremm#0",
       "display_name": "Oremm",
       "timestamp": "2026-06-26T17:52:31.567Z"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "228613561398722560",
+      "discordId": "228613561398722560",
+      "discord_username": "kolat#0",
+      "display_name": "Kolat",
+      "timestamp": "2026-06-26T18:07:38.809Z"
     }
   ]
 }
