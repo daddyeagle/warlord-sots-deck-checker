@@ -362,14 +362,6 @@
       "timestamp": "2026-06-21T02:23:02.942Z"
     },
     {
-      "warlord": "High Acolyte Hellene",
-      "username": "307709338250903552",
-      "discordId": "307709338250903552",
-      "discord_username": "themelyk#0",
-      "display_name": "TheMelyK",
-      "timestamp": "2026-06-23T12:53:23.571Z"
-    },
-    {
       "warlord": "Anton Cyldragen",
       "username": "421136586705600524",
       "discordId": "421136586705600524",
@@ -520,6 +512,14 @@
       "discord_username": "temperance2443#0",
       "display_name": "Temperance",
       "timestamp": "2026-06-26T22:24:30.768Z"
+    },
+    {
+      "warlord": "Slayer the Unkind",
+      "username": "307709338250903552",
+      "discordId": "307709338250903552",
+      "discord_username": "themelyk#0",
+      "display_name": "TheMelyK",
+      "timestamp": "2026-06-26T23:23:46.660Z"
     }
   ]
 }
