@@ -3317,43 +3317,44 @@
     "event": "Strategic",
     "warlord": "Zul'Tan Bloodletter",
     "display_name": "PJ",
-    "timestamp": "2026-06-26T15:30:21.747Z",
+    "timestamp": "2026-06-26T16:33:28.621Z",
     "cardList": {
       "Character": {
-        "count": 25,
+        "count": 24,
         "mainDeck": {
           "Ac'Vuk": 3,
           "Nog, Pog, and Snivels": 3,
           "Master Dresden": 3,
-          "Blitzer": 3,
-          "Duke Richter": 3,
           "Thunic Yeti": 3,
-          "Flamefall": 1
+          "Muddflek": 3,
+          "Oracle of Kavara": 3
         },
         "startingArmy": {
           "Zul'Tan Bloodletter": 1,
           "Joleg": 3,
-          "Greenflower Warden": 1,
-          "Novice Pyro": 1
+          "Novice Pyro": 2
         }
       },
       "Item": {
-        "count": 7,
+        "count": 13,
         "mainDeck": {
-          "Bloodsteed": 3,
-          "Deverenus' Axe": 3,
-          "Storm Shard": 1
+          "Bloodsteed": 2,
+          "Storm Shard": 1,
+          "Well of Screams": 2,
+          "Ardian Greathawk": 1,
+          "Unicorn of Thun": 1,
+          "Strongarm Stout": 3,
+          "Shocksaber": 3
         },
         "startingArmy": {}
       },
       "Action": {
-        "count": 18,
+        "count": 13,
         "mainDeck": {
-          "Blast": 3,
+          "Blast": 2,
           "Arcane Approach": 3,
           "Flamelance": 3,
-          "Grave Exchange": 3,
-          "Shadow Bolts": 3,
+          "Grave Exchange": 2,
           "Lights of Revealing Sword": 3
         },
         "startingArmy": {}
