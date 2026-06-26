@@ -2737,57 +2737,6 @@
     }
   },
   {
-    "username": "710954937189793882",
-    "discordId": "710954937189793882",
-    "discord_username": "temperance2443#0",
-    "event": "Strategic",
-    "warlord": "Cathel Rowan",
-    "display_name": "Temperance",
-    "timestamp": "2026-06-23T20:19:50.688Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Graveyard Librarian": 1,
-          "Goldengrove Mage": 3,
-          "Grimfey Prowler": 3,
-          "Veera and Bones": 3,
-          "Tresven": 3,
-          "Ciane": 3,
-          "Veteran Bowman": 3
-        },
-        "startingArmy": {
-          "Cathel Rowan": 1,
-          "Graveyard Librarian": 2,
-          "Corpse Crowd": 3
-        }
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Rapid Dash": 3,
-          "Swivel": 3,
-          "Assassin's Strike": 3,
-          "Crypt Wine": 3,
-          "Death From Below": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 7,
-        "mainDeck": {
-          "Ardian Greathawk": 1,
-          "Fatestring Bow": 2,
-          "Cloudracer": 1,
-          "Teufeltiger's Shroud": 2,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "545496839919632384",
     "discordId": "545496839919632384",
     "discord_username": "brhiggins#0",
@@ -3412,6 +3361,55 @@
         "mainDeck": {
           "Lights of Revealing Sword": 3,
           "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "710954937189793882",
+    "discordId": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Strategic",
+    "warlord": "Rustiq Umbala",
+    "display_name": "Temperance",
+    "timestamp": "2026-06-26T22:24:30.768Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Goldengrove Mage": 3,
+          "Tresven": 3,
+          "Ciane": 3,
+          "Veera and Bones": 3,
+          "Bone Fiend": 3,
+          "Shambling Horror": 3
+        },
+        "startingArmy": {
+          "Rustiq Umbala": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Final Blessing": 2,
+          "Spiritual Weapon": 3,
+          "Arcane Approach": 3,
+          "Solar Ray": 3,
+          "Magic Missiles": 3,
+          "Blast": 3,
+          "Meet at the Inn!": 3,
+          "Epic Judgment": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Scepter of Djarat": 2
         },
         "startingArmy": {}
       }
