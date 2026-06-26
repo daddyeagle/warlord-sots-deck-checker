@@ -2310,60 +2310,6 @@
     }
   },
   {
-    "username": "604207671632986112",
-    "discordId": "604207671632986112",
-    "discord_username": "durdle1357#0",
-    "event": "Strategic",
-    "warlord": "Tactician Muddflek",
-    "display_name": "Zedburger",
-    "timestamp": "2026-06-21T02:23:02.942Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Novice Pyro": 1,
-          "Ac'Vuk": 3,
-          "Catapult Crew": 1,
-          "Doo'run": 3,
-          "Mo'can": 3,
-          "Muddflek": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Oracle of Kavara": 2
-        },
-        "startingArmy": {
-          "Joleg": 3,
-          "Novice Pyro": 2,
-          "Tactician Muddflek": 1
-        }
-      },
-      "Action": {
-        "count": 11,
-        "mainDeck": {
-          "Arcane Approach": 2,
-          "Assassin's Strike": 2,
-          "Change of Hands": 2,
-          "Death From Below": 3,
-          "Spiked Pit Trap": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 1,
-          "Cloudracer": 1,
-          "Cutlass": 2,
-          "Fatestring Bow": 3,
-          "Fineltour's Draught": 1,
-          "Revenger": 2,
-          "Shrapnelball": 2,
-          "Teufeltiger's Shroud": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "421136586705600524",
     "discordId": "421136586705600524",
     "discord_username": "kamacausey_#0",
@@ -3409,6 +3355,56 @@
           "Cloak of Flight": 1,
           "Deverenus' Axe": 3,
           "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "604207671632986112",
+    "discordId": "604207671632986112",
+    "discord_username": "durdle1357#0",
+    "event": "Strategic",
+    "warlord": "Krun",
+    "display_name": "Zedburger",
+    "timestamp": "2026-06-26T23:44:35.035Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Thunic Yeti": 2,
+          "Nog, Pog, and Snivels": 3,
+          "Doo'run": 2,
+          "Oracle of Kavara": 3,
+          "Bikram Bullstrength": 3,
+          "The Mighty Mugg": 3
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 2,
+          "Krun": 1
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 3,
+          "Strongarm Stout": 2,
+          "Ardian Greathawk": 3,
+          "Havat-lahn Stance": 1,
+          "Storm Shard": 1,
+          "Steelforge Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 3,
+          "Noble Sacrifice": 3,
+          "Lights of Revealing Sword": 3
         },
         "startingArmy": {}
       }
