@@ -474,14 +474,6 @@
       "timestamp": "2026-06-24T00:13:19.414Z"
     },
     {
-      "warlord": "Vash-Arrosh",
-      "username": "157948591380496384",
-      "discordId": "157948591380496384",
-      "discord_username": "ag_wow#0",
-      "display_name": "AG",
-      "timestamp": "2026-06-25T16:18:42.037Z"
-    },
-    {
       "warlord": "Zul'Tan Bloodletter",
       "username": "341328809758294016",
       "discordId": "341328809758294016",
@@ -512,6 +504,14 @@
       "discord_username": "sadfunction#0",
       "display_name": "sadfunction",
       "timestamp": "2026-06-26T19:43:13.543Z"
+    },
+    {
+      "warlord": "Dorath Sa'dul",
+      "username": "157948591380496384",
+      "discordId": "157948591380496384",
+      "discord_username": "ag_wow#0",
+      "display_name": "AG",
+      "timestamp": "2026-06-26T19:57:06.500Z"
     }
   ]
 }
