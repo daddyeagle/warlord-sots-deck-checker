@@ -186,14 +186,6 @@
       "timestamp": "2026-06-12T02:17:10.409Z"
     },
     {
-      "warlord": "Trespass",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-06-14T04:01:10.377Z"
-    },
-    {
       "warlord": "Rathra Dak",
       "username": "601032639452807178",
       "discordId": "601032639452807178",
@@ -512,6 +504,14 @@
       "discord_username": "sonirae#0",
       "display_name": "PJ",
       "timestamp": "2026-06-26T16:47:03.739Z"
+    },
+    {
+      "warlord": "Nitesh Imaran",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-06-26T17:52:31.567Z"
     }
   ]
 }
