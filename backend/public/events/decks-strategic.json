@@ -258,59 +258,6 @@
     }
   },
   {
-    "username": "341328809758294016",
-    "discordId": "341328809758294016",
-    "discord_username": "sonirae#0",
-    "event": "Strategic",
-    "warlord": "Vactus, Spirit's Champion",
-    "display_name": "PJ",
-    "timestamp": "2026-06-06T16:15:51.568Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Ac'Vuk": 3,
-          "Nog, Pog, and Snivels": 3,
-          "Jubilant Hatchling": 3,
-          "Sutek Slimefang": 2,
-          "Oracle of Kavara": 2,
-          "Catapult Crew": 3
-        },
-        "startingArmy": {
-          "Vactus, Spirit's Champion": 1,
-          "'Mad' Pat Carrik": 1,
-          "Novice Pyro": 1,
-          "Bear Legion Recruit": 3
-        }
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Bruntor's Helm": 1,
-          "Deverenus' Axe": 3,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Myerdeth Mare": 2,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Heroic Confrontation": 3,
-          "Lights of Revealing Sword": 3,
-          "Meet at the Inn!": 1,
-          "Noble Sacrifice": 3,
-          "Crush": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "892597161294970881",
     "discordId": "892597161294970881",
     "discord_username": "taratherat#0",
@@ -3358,6 +3305,56 @@
           "Blessed Vestments": 1,
           "Hod's Legacy": 1,
           "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "341328809758294016",
+    "discordId": "341328809758294016",
+    "discord_username": "sonirae#0",
+    "event": "Strategic",
+    "warlord": "Zul'Tan Bloodletter",
+    "display_name": "PJ",
+    "timestamp": "2026-06-26T15:30:21.747Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ac'Vuk": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Master Dresden": 3,
+          "Blitzer": 3,
+          "Duke Richter": 3,
+          "Thunic Yeti": 3,
+          "Flamefall": 1
+        },
+        "startingArmy": {
+          "Zul'Tan Bloodletter": 1,
+          "Joleg": 3,
+          "Greenflower Warden": 1,
+          "Novice Pyro": 1
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Deverenus' Axe": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Blast": 3,
+          "Arcane Approach": 3,
+          "Flamelance": 3,
+          "Grave Exchange": 3,
+          "Shadow Bolts": 3,
+          "Lights of Revealing Sword": 3
         },
         "startingArmy": {}
       }
