@@ -1802,60 +1802,6 @@
     }
   },
   {
-    "username": "189081827498131459",
-    "discordId": "189081827498131459",
-    "discord_username": "sadfunction#0",
-    "event": "Strategic",
-    "warlord": "Qor-Teth Firefist",
-    "display_name": "sadfunction",
-    "timestamp": "2026-06-17T17:36:11.925Z",
-    "cardList": {
-      "Character": {
-        "count": 21,
-        "mainDeck": {
-          "Bikram Bullstrength": 3,
-          "Blitzer": 1,
-          "Jubilant Hatchling": 3,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 3,
-          "Thunic Yeti": 2
-        },
-        "startingArmy": {
-          "Trogid": 2,
-          "Shambling Horror": 2,
-          "Brine Fiend": 1,
-          "Qor-Teth Firefist": 1
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 2,
-          "Epic Donnybrook": 3,
-          "Heroic Confrontation": 2,
-          "Noble Sacrifice": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 16,
-        "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3,
-          "Griffon of Andover": 2,
-          "Havat-lahn Stance": 1,
-          "Medical Kit": 1,
-          "Myerdeth Mare": 2,
-          "Rockarm": 1,
-          "Steelforge Regalia": 3,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "892597520931364964",
     "discordId": "892597520931364964",
     "discord_username": ".atomic_tomato.#0",
@@ -3356,6 +3302,58 @@
         "mainDeck": {
           "Hod's Legacy": 1,
           "Breastplate of Power": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "189081827498131459",
+    "discordId": "189081827498131459",
+    "discord_username": "sadfunction#0",
+    "event": "Strategic",
+    "warlord": "Queen Yahia",
+    "display_name": "sadfunction",
+    "timestamp": "2026-06-26T19:43:13.543Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Flame Jester": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Thunic Yeti": 3,
+          "Veteran Bowman": 3
+        },
+        "startingArmy": {
+          "Queen Yahia": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Bloodsteed": 3,
+          "Medical Kit": 1,
+          "Storm Shard": 1,
+          "Unicorn of Thun": 1,
+          "Well of Screams": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Epic Evocation": 3,
+          "Essence Drain": 3,
+          "Flamelance": 3,
+          "Glaciate": 3,
+          "Grave Exchange": 3,
+          "Shadow Bolts": 1
         },
         "startingArmy": {}
       }
