@@ -170,14 +170,6 @@
       "timestamp": "2026-06-11T22:09:36.862Z"
     },
     {
-      "warlord": "Kalten the Bleak",
-      "username": "193190910329094144",
-      "discordId": "193190910329094144",
-      "discord_username": "shockgunn#0",
-      "display_name": "Gunn",
-      "timestamp": "2026-06-12T02:17:10.409Z"
-    },
-    {
       "warlord": "Rathra Dak",
       "username": "601032639452807178",
       "discordId": "601032639452807178",
@@ -520,6 +512,14 @@
       "discord_username": "durdle1357#0",
       "display_name": "Zedburger",
       "timestamp": "2026-06-26T23:44:35.035Z"
+    },
+    {
+      "warlord": "Emperor Ceihallus",
+      "username": "193190910329094144",
+      "discordId": "193190910329094144",
+      "discord_username": "shockgunn#0",
+      "display_name": "Gunn",
+      "timestamp": "2026-06-26T23:55:57.359Z"
     }
   ]
 }
