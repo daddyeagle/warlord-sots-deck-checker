@@ -1100,60 +1100,6 @@
     }
   },
   {
-    "username": "228613561398722560",
-    "discordId": "228613561398722560",
-    "discord_username": "kolat#0",
-    "event": "Strategic",
-    "warlord": "Kara Wadreth",
-    "display_name": "Kolat",
-    "timestamp": "2026-06-11T23:47:15.366Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Huggins": 3,
-          "Thunic Yeti": 3,
-          "Field Marshal Malexin": 3,
-          "Master Dresden": 3,
-          "Arika Ketchum": 2,
-          "Oracle of Kavara": 2,
-          "Blitzer": 1,
-          "Sister Amanda": 1,
-          "Brightwing": 1
-        },
-        "startingArmy": {
-          "TFK Brigand": 3,
-          "Crownland Strategist": 2,
-          "Kara Wadreth": 1
-        }
-      },
-      "Item": {
-        "count": 19,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Blade of Antiquity": 3,
-          "Steelforge Regalia": 3,
-          "Griffon of Andover": 3,
-          "Ardian Greathawk": 2,
-          "Fineltour's Draught": 1,
-          "Havat-lahn Stance": 1,
-          "Rockarm": 1,
-          "Medical Kit": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 6,
-        "mainDeck": {
-          "Lights of Revealing Sword": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "193190910329094144",
     "discordId": "193190910329094144",
     "discord_username": "shockgunn#0",
@@ -3360,6 +3306,56 @@
         "mainDeck": {
           "Meet at the Inn!": 3,
           "Well Supplied": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "228613561398722560",
+    "discordId": "228613561398722560",
+    "discord_username": "kolat#0",
+    "event": "Strategic",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Kolat",
+    "timestamp": "2026-06-26T18:07:38.809Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Albrecht Novice": 3,
+          "Leonora": 3,
+          "Ardent Griffon": 3,
+          "Squire Argos": 3,
+          "Shannon the Daring": 3,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Adathan, Celestial Messenger": 1
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Divine Respite": 3,
+          "Invoke the Storm": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Leveled!": 3,
+          "Pin Down": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Breastplate of Power": 1
         },
         "startingArmy": {}
       }
