@@ -3317,7 +3317,7 @@
     "event": "Strategic",
     "warlord": "Zul'Tan Bloodletter",
     "display_name": "PJ",
-    "timestamp": "2026-06-26T16:33:36.907Z",
+    "timestamp": "2026-06-26T16:47:03.739Z",
     "cardList": {
       "Character": {
         "count": 24,
@@ -3343,8 +3343,9 @@
           "Well of Screams": 2,
           "Ardian Greathawk": 1,
           "Unicorn of Thun": 1,
-          "Strongarm Stout": 3,
-          "Shocksaber": 3
+          "Strongarm Stout": 2,
+          "Shocksaber": 2,
+          "Deverenus' Axe": 2
         },
         "startingArmy": {}
       },
