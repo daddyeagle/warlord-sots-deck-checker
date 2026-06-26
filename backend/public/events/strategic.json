@@ -370,14 +370,6 @@
       "timestamp": "2026-06-21T02:23:02.942Z"
     },
     {
-      "warlord": "Ophinuchus",
-      "username": "298580168899821568",
-      "discordId": "298580168899821568",
-      "discord_username": "direscrub#0",
-      "display_name": "DireScrub",
-      "timestamp": "2026-06-23T02:15:04.736Z"
-    },
-    {
       "warlord": "High Acolyte Hellene",
       "username": "307709338250903552",
       "discordId": "307709338250903552",
@@ -512,6 +504,14 @@
       "discord_username": "ag_wow#0",
       "display_name": "AG",
       "timestamp": "2026-06-26T19:57:06.500Z"
+    },
+    {
+      "warlord": "Saunginel",
+      "username": "298580168899821568",
+      "discordId": "298580168899821568",
+      "discord_username": "direscrub#0",
+      "display_name": "DireScrub",
+      "timestamp": "2026-06-26T20:13:17.697Z"
     }
   ]
 }
