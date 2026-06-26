@@ -2410,62 +2410,6 @@
     }
   },
   {
-    "username": "298580168899821568",
-    "discordId": "298580168899821568",
-    "discord_username": "direscrub#0",
-    "event": "Strategic",
-    "warlord": "Ophinuchus",
-    "display_name": "DireScrub",
-    "timestamp": "2026-06-23T02:15:04.736Z",
-    "cardList": {
-      "Character": {
-        "count": 17,
-        "mainDeck": {
-          "Graveyard Librarian": 1,
-          "Yanthorine": 3,
-          "Veera and Bones": 3,
-          "Oracle of Kavara": 1,
-          "Bikram Bullstrength": 3
-        },
-        "startingArmy": {
-          "Graveyard Librarian": 2,
-          "Ophinuchus": 1,
-          "Corpse Crowd": 3
-        }
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Tide Turner": 3,
-          "Arcane Approach": 3,
-          "Prime Positioning": 3,
-          "Pounce": 3,
-          "Lights of Revealing Sword": 3,
-          "Epic Donnybrook": 3,
-          "Crush": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Spellblocker": 1,
-          "Scale Mail": 1,
-          "Rockarm": 1,
-          "Myerdeth Mare": 1,
-          "Havat-lahn Stance": 1,
-          "Griffon of Andover": 1,
-          "Deverenus' Axe": 3,
-          "Bruntor's Helm": 1,
-          "Breastplate of Power": 1,
-          "Ardian Greathawk": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "307709338250903552",
     "discordId": "307709338250903552",
     "discord_username": "themelyk#0",
@@ -3352,6 +3296,59 @@
           "Flamelance": 3,
           "Final Blessing": 2,
           "Divine Respite": 1,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Strategic",
+    "warlord": "Saunginel",
+    "display_name": "DireScrub",
+    "timestamp": "2026-06-26T20:13:17.697Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Veera and Bones": 3,
+          "Skitterleap": 3,
+          "Master Dresden": 2,
+          "Lord's Assailant": 3,
+          "Goldengrove Mage": 3,
+          "Bikram Bullstrength": 3,
+          "Ashveil": 1
+        },
+        "startingArmy": {
+          "Graveyard Librarian": 2,
+          "Saunginel": 1,
+          "Corpse Crowd": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Well of Screams": 1,
+          "Burning Scroll": 1,
+          "Hunting Staff": 1,
+          "Cloak of Brilliance": 1,
+          "Bloodsteed": 2,
+          "Ardian Greathawk": 3,
+          "Archivist's Journal": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Grave Exchange": 3,
+          "Glaciate": 3,
+          "Flamelance": 3,
+          "Epic Evocation": 3,
           "Arcane Approach": 3
         },
         "startingArmy": {}
