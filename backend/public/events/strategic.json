@@ -354,14 +354,6 @@
       "timestamp": "2026-06-20T22:24:55.965Z"
     },
     {
-      "warlord": "Tactician Muddflek",
-      "username": "604207671632986112",
-      "discordId": "604207671632986112",
-      "discord_username": "durdle1357#0",
-      "display_name": "Zedburger",
-      "timestamp": "2026-06-21T02:23:02.942Z"
-    },
-    {
       "warlord": "Anton Cyldragen",
       "username": "421136586705600524",
       "discordId": "421136586705600524",
@@ -520,6 +512,14 @@
       "discord_username": "themelyk#0",
       "display_name": "TheMelyK",
       "timestamp": "2026-06-26T23:23:46.660Z"
+    },
+    {
+      "warlord": "Krun",
+      "username": "604207671632986112",
+      "discordId": "604207671632986112",
+      "discord_username": "durdle1357#0",
+      "display_name": "Zedburger",
+      "timestamp": "2026-06-26T23:44:35.035Z"
     }
   ]
 }
