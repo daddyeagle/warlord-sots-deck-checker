@@ -274,14 +274,6 @@
       "timestamp": "2026-06-17T16:22:27.758Z"
     },
     {
-      "warlord": "Qor-Teth Firefist",
-      "username": "189081827498131459",
-      "discordId": "189081827498131459",
-      "discord_username": "sadfunction#0",
-      "display_name": "sadfunction",
-      "timestamp": "2026-06-17T17:36:11.925Z"
-    },
-    {
       "warlord": "Ja'leeque",
       "username": "892597520931364964",
       "discordId": "892597520931364964",
@@ -512,6 +504,14 @@
       "discord_username": "kolat#0",
       "display_name": "Kolat",
       "timestamp": "2026-06-26T18:07:38.809Z"
+    },
+    {
+      "warlord": "Queen Yahia",
+      "username": "189081827498131459",
+      "discordId": "189081827498131459",
+      "discord_username": "sadfunction#0",
+      "display_name": "sadfunction",
+      "timestamp": "2026-06-26T19:43:13.543Z"
     }
   ]
 }
