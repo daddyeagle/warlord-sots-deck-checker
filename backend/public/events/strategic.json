@@ -138,14 +138,6 @@
       "timestamp": "2026-06-07T23:24:19.720Z"
     },
     {
-      "warlord": "Sir Rallen",
-      "username": "90996233128128512",
-      "discordId": "90996233128128512",
-      "discord_username": "dienekes00#0",
-      "display_name": "dienekes00",
-      "timestamp": "2026-06-08T00:51:19.872Z"
-    },
-    {
       "warlord": "Brymin of the Marches",
       "username": "354280712578400267",
       "discordId": "354280712578400267",
@@ -520,6 +512,14 @@
       "discord_username": "rayneblythewood#0",
       "display_name": "Rayne Blythewood",
       "timestamp": "2026-06-27T00:10:18.054Z"
+    },
+    {
+      "warlord": "Madriga",
+      "username": "90996233128128512",
+      "discordId": "90996233128128512",
+      "discord_username": "dienekes00#0",
+      "display_name": "dienekes00",
+      "timestamp": "2026-06-27T00:22:05.418Z"
     }
   ]
 }
