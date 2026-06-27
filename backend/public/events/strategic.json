@@ -482,14 +482,6 @@
       "timestamp": "2026-06-26T21:40:32.226Z"
     },
     {
-      "warlord": "Winter, Eternal",
-      "username": "289532101194153985",
-      "discordId": "289532101194153985",
-      "discord_username": "rayneblythewood#0",
-      "display_name": "Rayne Blythewood",
-      "timestamp": "2026-06-26T21:49:15.139Z"
-    },
-    {
       "warlord": "Rustiq Umbala",
       "username": "710954937189793882",
       "discordId": "710954937189793882",
@@ -520,6 +512,14 @@
       "discord_username": "shockgunn#0",
       "display_name": "Gunn",
       "timestamp": "2026-06-26T23:55:57.359Z"
+    },
+    {
+      "warlord": "Cairbre Netheryn",
+      "username": "289532101194153985",
+      "discordId": "289532101194153985",
+      "discord_username": "rayneblythewood#0",
+      "display_name": "Rayne Blythewood",
+      "timestamp": "2026-06-27T00:10:18.054Z"
     }
   ]
 }
