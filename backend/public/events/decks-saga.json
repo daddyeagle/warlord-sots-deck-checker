@@ -51,5 +51,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "360923738977468417",
+    "discordId": "360923738977468417",
+    "discord_username": "apachu#0",
+    "event": "Saga",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Apachu",
+    "timestamp": "2026-07-05T20:19:48.951Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 1,
+          "Rrok": 1,
+          "Doo'run": 3,
+          "Catapult Crew": 3,
+          "Thunic Yeti": 3,
+          "Sta'ash": 3,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "The Mighty Mugg": 1
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "Bear Legion Recruit": 3,
+          "'Mad' Pat Carrik": 2
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Rockarm": 3,
+          "Steelforge Regalia": 1,
+          "Myerdeth Mare": 3,
+          "Nothrog S'sike": 2,
+          "Vanguard's Presence": 1,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Press the Attack": 3,
+          "Prime Positioning": 3,
+          "Cleave": 3,
+          "The Quick and the Dead": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
