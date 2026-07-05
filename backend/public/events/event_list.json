@@ -7,5 +7,14 @@
     "decklistFile": "decks-strategic.json",
     "submissionFile": "strategic.json",
     "hidden": false
+  },
+  {
+    "eventName": "Saga",
+    "ruleset": "Saga",
+    "startDate": "2026-07-01",
+    "endDate": "2026-07-08",
+    "decklistFile": "decks-saga.json",
+    "submissionFile": "saga.json",
+    "hidden": false
   }
 ]
