@@ -423,10 +423,10 @@
   ],
   "defaultRuleset": "December Ancients+",
   "rulesetOrder": [
+    "Saga",
     "Template 1",
     "Ancients",
     "default",
-    "Saga",
     "Alliance"
   ]
 }
