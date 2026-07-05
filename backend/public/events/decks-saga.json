@@ -1,1 +1,55 @@
-[]
+[
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Saga",
+    "warlord": "Mair Haven",
+    "display_name": "DireScrub",
+    "timestamp": "2026-07-05T17:15:55.215Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Sister Amanda": 1,
+          "Shannon the Daring": 3,
+          "Huggins": 3,
+          "Graham Heyward": 3,
+          "Field Marshal Malexin": 3,
+          "Brightwing": 1,
+          "Birdsong Druid": 3,
+          "Arika Ketchum": 1
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Venomtipped Arrows": 1,
+          "Teufeltiger's Shroud": 2,
+          "Storm Shard": 1,
+          "Shrapnelball": 3,
+          "Hunting Staff": 1,
+          "Fatestring Bow": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Swivel": 3,
+          "Meet at the Inn!": 3,
+          "Death From Below": 3,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
