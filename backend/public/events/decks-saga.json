@@ -104,5 +104,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Saga",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-07-06T00:37:49.881Z",
+    "cardList": {
+      "Character": {
+        "count": 14,
+        "mainDeck": {
+          "Novice Pyro": 2,
+          "Alaya": 3,
+          "Nog, Pog, and Snivels": 3
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Greenflower Warden": 1,
+          "Novice Pyro": 1,
+          "Vactus, Spirit's Champion": 1
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 1,
+          "Myerdeth Mare": 2,
+          "Rockarm": 1,
+          "Steelforge Regalia": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Blast": 2,
+          "Cleave": 2,
+          "Crush": 3,
+          "Darkflame Bolts": 2,
+          "Epic Donnybrook": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 2,
+          "Shadow Bolts": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
