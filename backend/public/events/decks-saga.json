@@ -210,5 +210,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Saga",
+    "warlord": "Lord Barrow",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-07-06T02:51:25.590Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Callow Rowan": 1,
+          "Ciane": 3,
+          "Lord's Assailant": 3,
+          "Master Dresden": 3,
+          "Skitterleap": 3,
+          "Veera and Bones": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Lord Barrow": 1
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Blast": 3,
+          "Darkflame Bolts": 3,
+          "Epic Evocation": 3,
+          "Flamelance": 3,
+          "Glaciate": 3,
+          "Magic Missiles": 1,
+          "Shadow Bolts": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Bloodsteed": 2,
+          "Nehil": 2,
+          "Storm Shard": 1,
+          "Sunseeker's Goggles": 2,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
