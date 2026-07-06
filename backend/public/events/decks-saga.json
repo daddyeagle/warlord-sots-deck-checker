@@ -368,5 +368,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "744645938546475159",
+    "discordId": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "Saga",
+    "warlord": "Commander Retsov",
+    "display_name": "Russel",
+    "timestamp": "2026-07-06T22:42:28.617Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Oracle of Kavara": 3,
+          "Thunic Yeti": 2,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Swiftcloud": 2,
+          "Ashveil": 1,
+          "Kingslayer": 2,
+          "Dreadfang": 1,
+          "Darkwatcher": 2,
+          "Brightwing": 2
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Sacrifice": 2,
+          "Dissolve": 2,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Griffon of Andover": 2,
+          "Ardian Greathawk": 2,
+          "Rockarm": 2,
+          "Storm Shard": 1,
+          "Medical Kit": 1,
+          "Steelforge Regalia": 3,
+          "Breastplate of Power": 1,
+          "Blade of Antiquity": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
