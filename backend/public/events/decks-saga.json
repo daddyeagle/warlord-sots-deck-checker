@@ -262,5 +262,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "751294885750898728",
+    "discordId": "751294885750898728",
+    "discord_username": "xenomorph40#0",
+    "event": "Saga",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Xenomorph40",
+    "timestamp": "2026-07-06T11:30:59.524Z",
+    "cardList": {
+      "Character": {
+        "count": 15,
+        "mainDeck": {
+          "Hrun Instigator": 2,
+          "Oracle of Kavara": 1,
+          "Sunforge Smith": 3,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Hrun Instigator": 1,
+          "Tinker": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Divine Barrier": 2,
+          "Wither": 2,
+          "Arcane Approach": 3,
+          "Spiritual Weapon": 3,
+          "Lights of Revealing Sword": 3,
+          "Holy Might": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Spellblocker": 2,
+          "Nothrog S'sike": 2,
+          "Havat-lahn Stance": 2,
+          "Shield of Spurning": 3,
+          "Deverenus' Axe": 3,
+          "Myerdeth Mare": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
