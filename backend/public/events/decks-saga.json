@@ -314,5 +314,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Saga",
+    "warlord": "Nisha",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-07-06T18:50:01.772Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Sister Amanda": 1,
+          "Brightwing": 1,
+          "Huggins": 3,
+          "Field Marshal Malexin": 3,
+          "Starbinder": 3,
+          "Oracle of Kavara": 3,
+          "Blitzer": 1,
+          "Arika Ketchum": 3
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Hunt From Above": 3,
+          "Rapid Dash": 3,
+          "Heroic Confrontation": 3,
+          "Lights of Revealing Sword": 3,
+          "Noble Sacrifice": 2,
+          "Close Wounds": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Storm Shard": 1,
+          "Deverenus' Axe": 3,
+          "Teufeltiger's Shroud": 1,
+          "Rockarm": 2,
+          "Cloudracer": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
