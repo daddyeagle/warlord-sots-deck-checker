@@ -423,5 +423,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Saga",
+    "warlord": "Sklot the Cruel",
+    "display_name": "Raclesis",
+    "timestamp": "2026-07-06T23:18:13.618Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Veteran Bowman": 2,
+          "Oracle of Kavara": 1,
+          "Muddflek": 3,
+          "Master Dresden": 3,
+          "Catapult Crew": 3,
+          "Blitzer": 1,
+          "Nog, Pog, and Snivels": 3
+        },
+        "startingArmy": {
+          "Sklot the Cruel": 1,
+          "Novice Pyro": 2,
+          "Joleg": 3
+        }
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Heavy Crossbow": 2,
+          "Trinket of Malice": 3,
+          "Teufeltiger's Shroud": 3,
+          "Scout Pony": 3,
+          "Fatestring Bow": 3,
+          "Cloudracer": 3,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Swivel": 3,
+          "Crypt Wine": 2,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
