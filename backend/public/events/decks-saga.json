@@ -628,5 +628,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "266281128732786688",
+    "discordId": "266281128732786688",
+    "discord_username": "burnout383#0",
+    "event": "Saga",
+    "warlord": "Nisha",
+    "display_name": "Burnout",
+    "timestamp": "2026-07-07T12:54:02.092Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Arika Ketchum": 2,
+          "Blitzer": 1,
+          "Brightwing": 1,
+          "Field Marshal Malexin": 3,
+          "Huggins": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Sister Amanda": 1,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3,
+          "Pin Down": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
