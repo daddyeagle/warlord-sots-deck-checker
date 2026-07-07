@@ -34,14 +34,6 @@
       "timestamp": "2026-07-06T02:37:09.798Z"
     },
     {
-      "warlord": "Lord Barrow",
-      "username": "354280712578400267",
-      "discordId": "354280712578400267",
-      "discord_username": "aaron1002#0",
-      "display_name": "A-A-ron",
-      "timestamp": "2026-07-06T02:51:25.590Z"
-    },
-    {
       "warlord": "Kurak Stonejaw",
       "username": "751294885750898728",
       "discordId": "751294885750898728",
@@ -88,6 +80,14 @@
       "discord_username": "jormunganduur#0",
       "display_name": "Jorgrym",
       "timestamp": "2026-07-07T03:15:00.793Z"
+    },
+    {
+      "warlord": "Lord Barrow",
+      "username": "354280712578400267",
+      "discordId": "354280712578400267",
+      "discord_username": "aaron1002#0",
+      "display_name": "A-A-ron",
+      "timestamp": "2026-07-07T06:10:34.657Z"
     }
   ]
 }
