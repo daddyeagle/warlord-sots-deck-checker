@@ -579,5 +579,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "710954937189793882",
+    "discordId": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Saga",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Temperance",
+    "timestamp": "2026-07-07T06:10:47.812Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Squire Argos": 1,
+          "Field Marshal Malexin": 3,
+          "Shannon the Daring": 3,
+          "Leonora": 3,
+          "Albrecht Novice": 3,
+          "Shambling Horror": 3,
+          "Birdsong Druid": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Pious Rebuke": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 3,
+          "Pin Down": 3,
+          "Leveled!": 3,
+          "Pack Tactics": 3,
+          "Final Blessing": 3,
+          "Sacrifice": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
