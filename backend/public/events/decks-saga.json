@@ -784,5 +784,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "341328809758294016",
+    "discordId": "341328809758294016",
+    "discord_username": "sonirae#0",
+    "event": "Saga",
+    "warlord": "Lord Barrow",
+    "display_name": "PJ",
+    "timestamp": "2026-07-07T21:58:36.140Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Treyik": 3,
+          "Tresven": 3,
+          "Veera and Bones": 3,
+          "Lord's Assailant": 3,
+          "Skitterleap": 3,
+          "Master Dresden": 2,
+          "Callow Rowan": 2
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Lord Barrow": 1
+        }
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Nehil": 2,
+          "Bloodsteed": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Blast": 3,
+          "Flamelance": 2,
+          "Grave Exchange": 2,
+          "Jump": 2,
+          "Magic Missiles": 2,
+          "Polymorph": 3,
+          "Dissolve": 2,
+          "Arcane Approach": 2,
+          "Terrorize": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
