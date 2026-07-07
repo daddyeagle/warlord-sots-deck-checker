@@ -528,5 +528,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Saga",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Hosh",
+    "timestamp": "2026-07-07T01:41:36.069Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Rrok": 1,
+          "Isadran Kennelmaster": 3,
+          "Blitzer": 2,
+          "The Mighty Mugg": 3,
+          "Bikram Bullstrength": 3,
+          "Doo'run": 3,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "'Mad' Pat Carrik": 1,
+          "Novice Pyro": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Crush": 3,
+          "Noble Sacrifice": 2,
+          "Arcane Approach": 3,
+          "Press the Attack": 1,
+          "I Have Your Back": 2,
+          "Prime Positioning": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Steelforge Regalia": 2,
+          "Vanguard's Presence": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
