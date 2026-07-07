@@ -679,5 +679,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "673010482755534868",
+    "discordId": "673010482755534868",
+    "discord_username": "drrandolphcarter#0",
+    "event": "Saga",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "WesY",
+    "timestamp": "2026-07-07T13:45:43.113Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Hinterlands Griffon": 2,
+          "Jubilant Hatchling": 2,
+          "Tunnel Worm": 3,
+          "Master Dresden": 3,
+          "Starbinder": 3,
+          "Veteran Bowman": 3,
+          "Flame Jester": 3
+        },
+        "startingArmy": {
+          "Shambling Horror": 2,
+          "Trogid": 3,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Rapid Dash": 3,
+          "Epic Betrayal": 3,
+          "Dupe": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Medical Kit": 1,
+          "Gapfinder": 2,
+          "Leopard Claws": 2,
+          "Revenger": 3,
+          "Cloudracer": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
