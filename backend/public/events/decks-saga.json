@@ -730,5 +730,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "149252393630957569",
+    "discordId": "149252393630957569",
+    "discord_username": "sleeping4est#0",
+    "event": "Saga",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "Sleeping4est",
+    "timestamp": "2026-07-07T21:22:44.345Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Tunnel Worm": 2,
+          "Bikram Bullstrength": 3,
+          "Jubilant Hatchling": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Starbinder": 2,
+          "Sutek Razorclaw": 2,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Brine Fiend": 2,
+          "Trogid": 1,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Noble Sacrifice": 2,
+          "Dissolve": 2,
+          "Curse of Greed": 2,
+          "Dupe": 3,
+          "Pounce": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Cutlass": 3,
+          "Fineltour's Draught": 2,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
