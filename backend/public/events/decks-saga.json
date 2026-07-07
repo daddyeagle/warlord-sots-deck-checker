@@ -534,7 +534,7 @@
     "event": "Saga",
     "warlord": "Lord Barrow",
     "display_name": "Jorgrym",
-    "timestamp": "2026-07-07T02:47:58.663Z",
+    "timestamp": "2026-07-07T03:15:00.793Z",
     "cardList": {
       "Character": {
         "count": 25,
@@ -558,9 +558,8 @@
       "Item": {
         "count": 8,
         "mainDeck": {
+          "Bloodsteed": 2,
           "Nehil": 2,
-          "Archivist's Journal": 1,
-          "Cloak of Brilliance": 1,
           "Storm Shard": 1,
           "Cyldragen's Tome": 3
         },
