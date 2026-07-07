@@ -74,20 +74,20 @@
       "timestamp": "2026-07-06T23:18:13.618Z"
     },
     {
-      "warlord": "Lord Barrow",
-      "username": "177273296843309057",
-      "discordId": "177273296843309057",
-      "discord_username": "jormunganduur#0",
-      "display_name": "Jorgrym",
-      "timestamp": "2026-07-07T00:28:40.930Z"
-    },
-    {
       "warlord": "Warboss Azh'kal",
       "username": "178257746494357514",
       "discordId": "178257746494357514",
       "discord_username": "hosh5753#0",
       "display_name": "Hosh",
       "timestamp": "2026-07-07T01:41:36.069Z"
+    },
+    {
+      "warlord": "Lord Barrow",
+      "username": "177273296843309057",
+      "discordId": "177273296843309057",
+      "discord_username": "jormunganduur#0",
+      "display_name": "Jorgrym",
+      "timestamp": "2026-07-07T02:47:58.663Z"
     }
   ]
 }
