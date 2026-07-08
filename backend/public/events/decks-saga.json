@@ -938,5 +938,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "344312955292090379",
+    "discordId": "344312955292090379",
+    "discord_username": "jeffscifert#0",
+    "event": "Saga",
+    "warlord": "Nisha",
+    "display_name": "Jeff Scifert",
+    "timestamp": "2026-07-08T11:49:59.711Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Ardent Griffon": 3,
+          "Brightwing": 3,
+          "Field Marshal Malexin": 3,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Squire Argos": 3
+        },
+        "startingArmy": {
+          "Nisha": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 27,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Assassin's Strike": 3,
+          "Cleave": 3,
+          "Crush": 3,
+          "Heroic Confrontation": 3,
+          "Leveled!": 3,
+          "Pounce": 3,
+          "Prime Positioning": 3,
+          "Rapid Dash": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Bruntor's Helm": 1,
+          "Fatestring Bow": 1,
+          "Flail": 1,
+          "Griffon of Andover": 1,
+          "Revenger": 1,
+          "Teufeltiger's Shroud": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
