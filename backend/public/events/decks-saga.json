@@ -885,5 +885,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "390370445549109249",
+    "discordId": "390370445549109249",
+    "discord_username": "mith_x1013#0",
+    "event": "Saga",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "Mith",
+    "timestamp": "2026-07-08T01:31:07.305Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Oracle of Kavara": 2,
+          "Field Marshal Malexin": 3,
+          "Albrecht Novice": 3,
+          "Arika Ketchum": 2,
+          "Shannon the Daring": 3,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "Efrim Dawntreader": 1,
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 1,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 1,
+          "Strongarm Stout": 3,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Griffon of Andover": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3,
+          "Epic Donnybrook": 3,
+          "Arcane Approach": 3,
+          "Noble Sacrifice": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
