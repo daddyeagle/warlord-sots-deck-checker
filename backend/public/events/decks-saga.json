@@ -1097,5 +1097,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Saga",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "Oremm",
+    "timestamp": "2026-07-08T13:24:57.190Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Arva of Reclusa": 3,
+          "Skitterleap": 3,
+          "Oracle of Kavara": 3,
+          "Treyik": 3,
+          "Treyik Netheryn": 2,
+          "Blitzer": 1,
+          "Tresven": 3
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Farhaven Guide": 3,
+          "Storm Shard": 1,
+          "Hod's Legacy": 1,
+          "Xcalam Coatl": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Meet at the Inn!": 3,
+          "Wither": 3,
+          "Epic Judgment": 2,
+          "Curse of Greed": 3,
+          "Final Blessing": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
