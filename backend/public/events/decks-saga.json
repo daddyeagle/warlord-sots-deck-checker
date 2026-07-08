@@ -1352,5 +1352,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546202017714929664",
+    "discordId": "546202017714929664",
+    "discord_username": "newkevlar#0",
+    "event": "Saga",
+    "warlord": "Mair Haven",
+    "display_name": "Mazzaroth",
+    "timestamp": "2026-07-08T23:55:13.667Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Birdsong Druid": 3,
+          "Huggins": 3,
+          "Graham Heyward": 3,
+          "Master Dresden": 3,
+          "Sanguicorn": 3,
+          "Sister Amanda": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Fatestring Bow": 3,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 2,
+          "Venomtipped Arrows": 1,
+          "Storm Shard": 1,
+          "Shrapnelball": 3,
+          "Teufeltiger's Shroud": 2,
+          "Merrick Regalia": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Crypt Wine": 3,
+          "Death From Below": 3,
+          "Assassin's Strike": 2,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
