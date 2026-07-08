@@ -1148,5 +1148,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discordId": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Saga",
+    "warlord": "Mair Haven",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-07-08T14:00:18.158Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Graham Heyward": 3,
+          "Thunic Yeti": 3,
+          "Master Dresden": 2,
+          "Arika Ketchum": 2,
+          "Oracle of Kavara": 2,
+          "Blitzer": 1,
+          "Brightwing": 1,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "Crownland Strategist": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Cloudracer": 3,
+          "Shrapnelball": 3,
+          "Ardian Greathawk": 3,
+          "Fatestring Bow": 2,
+          "Storm Shard": 1,
+          "Angel's Tears": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Pin Down": 2,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
