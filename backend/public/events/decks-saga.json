@@ -1302,5 +1302,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discordId": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "Saga",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-07-08T22:29:28.173Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Kingslayer": 2,
+          "Duke Richter": 3,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Squire Fendric": 2,
+          "Church Enforcer Tancred": 1,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Deverenus' Axe": 3,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 3,
+          "Ardian Greathawk": 2,
+          "Rockarm": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Arcane Approach": 2,
+          "Lights of Revealing Sword": 3,
+          "Well Supplied": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
