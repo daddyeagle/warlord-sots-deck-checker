@@ -162,14 +162,6 @@
       "timestamp": "2026-07-08T12:57:55.364Z"
     },
     {
-      "warlord": "Shyessa the Weaver",
-      "username": "106211008812437504",
-      "discordId": "106211008812437504",
-      "discord_username": "oremm#0",
-      "display_name": "Oremm",
-      "timestamp": "2026-07-08T13:24:57.190Z"
-    },
-    {
       "warlord": "Mair Haven",
       "username": "238453317418614784",
       "discordId": "238453317418614784",
@@ -208,6 +200,14 @@
       "discord_username": "tubazilla#0",
       "display_name": "Tubazilla",
       "timestamp": "2026-07-08T22:29:28.173Z"
+    },
+    {
+      "warlord": "Shyessa the Weaver",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-07-08T23:12:37.419Z"
     }
   ]
 }
