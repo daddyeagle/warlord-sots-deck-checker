@@ -1045,5 +1045,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "601032639452807178",
+    "discordId": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Saga",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "yotakafish",
+    "timestamp": "2026-07-08T12:57:55.364Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Sister Kiren": 3,
+          "Kingslayer": 1,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Church Enforcer Tancred": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Prime Positioning": 2,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 3,
+          "Steelforge Regalia": 3,
+          "Ardian Greathawk": 2,
+          "Strongarm Stout": 3,
+          "Myerdeth Mare": 3,
+          "Havat-lahn Stance": 1,
+          "Storm Shard": 1,
+          "Talisman of Might": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
