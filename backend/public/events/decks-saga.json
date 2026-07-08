@@ -1253,5 +1253,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discordId": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "Saga",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-07-08T20:35:04.315Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Albrecht Novice": 3,
+          "Leonora": 3,
+          "Ardent Griffon": 3,
+          "Squire Argos": 3,
+          "Shannon the Daring": 3,
+          "Field Marshal Malexin": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Adathan, Celestial Messenger": 1
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Divine Respite": 3,
+          "Invoke the Storm": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Leveled!": 3,
+          "Pin Down": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Hod's Legacy": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
