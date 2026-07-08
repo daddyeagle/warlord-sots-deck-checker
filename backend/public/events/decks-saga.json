@@ -1202,5 +1202,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Saga",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-07-08T20:06:25.427Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Treyik": 3,
+          "Skitterleap": 3,
+          "Shambling Horror": 2,
+          "Oracle of Kavara": 1,
+          "Field Marshal Malexin": 2,
+          "Callow Rowan": 3,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Shyessa the Weaver": 1,
+          "Graveyard Librarian": 2
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Courage from Faith": 3,
+          "Meet at the Inn!": 2,
+          "Quick Strength": 2,
+          "Spiritual Weapon": 3,
+          "Invoke the Storm": 3,
+          "Final Farewell": 2,
+          "Final Blessing": 3,
+          "Epic Judgment": 2,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Rockarm": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
