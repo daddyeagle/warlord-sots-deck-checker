@@ -994,5 +994,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discordId": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "Saga",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "graham",
+    "timestamp": "2026-07-08T11:59:54.735Z",
+    "cardList": {
+      "Character": {
+        "count": 18,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Oracle of Kavara": 2,
+          "Hrun Instigator": 3,
+          "Hazahk of Shadow": 3,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Sunforge Smith": 2,
+          "Kurak Stonejaw": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Wither": 2,
+          "Spiritual Weapon": 3,
+          "Lights of Revealing Sword": 2,
+          "Holy Might": 3,
+          "Heroic Confrontation": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Talisman of Might": 2,
+          "Rockarm": 3,
+          "Griffon of Andover": 3,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2,
+          "Aroch Mail": 2,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
