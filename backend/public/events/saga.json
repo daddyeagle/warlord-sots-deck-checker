@@ -42,14 +42,6 @@
       "timestamp": "2026-07-06T11:30:59.524Z"
     },
     {
-      "warlord": "Nisha",
-      "username": "1388986791079448577",
-      "discordId": "1388986791079448577",
-      "discord_username": "fox.and.otter_19171#0",
-      "display_name": "fox.n.otter",
-      "timestamp": "2026-07-06T18:50:01.772Z"
-    },
-    {
       "warlord": "Commander Retsov",
       "username": "744645938546475159",
       "discordId": "744645938546475159",
@@ -208,6 +200,14 @@
       "discord_username": "oremm#0",
       "display_name": "Oremm",
       "timestamp": "2026-07-08T23:12:37.419Z"
+    },
+    {
+      "warlord": "Nisha",
+      "username": "1388986791079448577",
+      "discordId": "1388986791079448577",
+      "discord_username": "fox.and.otter_19171#0",
+      "display_name": "fox.n.otter",
+      "timestamp": "2026-07-08T23:31:45.052Z"
     }
   ]
 }
