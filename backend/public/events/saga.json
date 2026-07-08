@@ -154,14 +154,6 @@
       "timestamp": "2026-07-08T11:49:59.711Z"
     },
     {
-      "warlord": "Kurak Stonejaw",
-      "username": "685269358745878529",
-      "discordId": "685269358745878529",
-      "discord_username": "grahammo#0",
-      "display_name": "graham",
-      "timestamp": "2026-07-08T11:59:54.735Z"
-    },
-    {
       "warlord": "Church Enforcer Tancred",
       "username": "601032639452807178",
       "discordId": "601032639452807178",
@@ -184,6 +176,14 @@
       "discord_username": "elvernthehero#0",
       "display_name": "elvernthehero",
       "timestamp": "2026-07-08T14:00:18.158Z"
+    },
+    {
+      "warlord": "Kurak Stonejaw",
+      "username": "685269358745878529",
+      "discordId": "685269358745878529",
+      "discord_username": "grahammo#0",
+      "display_name": "graham",
+      "timestamp": "2026-07-08T18:35:23.248Z"
     }
   ]
 }
