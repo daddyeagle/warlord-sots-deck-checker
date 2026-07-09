@@ -1668,5 +1668,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Saga",
+    "warlord": "Annetta Yscar",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-07-09T00:57:04.454Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Dwarf-Eater": 2,
+          "Sanguicorn": 2,
+          "Sister Amanda": 1,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Field Marshal Malexin": 3,
+          "Brightwing": 1,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Crownland Strategist": 2,
+          "Annetta Yscar": 1
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Sneak Attack": 2,
+          "Wither": 3,
+          "Sacrifice": 2,
+          "Leveled!": 3,
+          "Final Blessing": 3,
+          "Fateshift": 1,
+          "Divine Respite": 3,
+          "Curse of Greed": 2,
+          "Change of Hands": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Scout Pony": 2,
+          "Hunting Staff": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
