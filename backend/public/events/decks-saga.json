@@ -1882,67 +1882,6 @@
     }
   },
   {
-    "username": "206187469178142720",
-    "discordId": "206187469178142720",
-    "discord_username": "praesum#0",
-    "event": "Saga",
-    "warlord": "Commander Retsov",
-    "display_name": "Praesum",
-    "timestamp": "2026-07-09T01:58:02.851Z",
-    "cardList": {
-      "Character": {
-        "count": 18,
-        "mainDeck": {
-          "Darkwatcher": 3,
-          "Dreadfang": 1,
-          "Oracle of Kavara": 2,
-          "Swiftcloud": 1,
-          "Kingslayer": 1,
-          "Brightwing": 1,
-          "Blitzer": 3
-        },
-        "startingArmy": {
-          "Commander Retsov": 1,
-          "Mephit": 1,
-          "Brine Fiend": 3,
-          "Tyren Ruskin": 1
-        }
-      },
-      "Item": {
-        "count": 20,
-        "mainDeck": {
-          "Breastplate of Power": 2,
-          "Deverenus' Axe": 3,
-          "Ardian Greathawk": 2,
-          "Storm Shard": 1,
-          "Steelforge Regalia": 2,
-          "Myerdeth Mare": 2,
-          "Medical Kit": 1,
-          "Griffon of Andover": 2,
-          "Rockarm": 2,
-          "Strongarm Stout": 2,
-          "Bruntor's Helm": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Meet at the Inn!": 2,
-          "Well Supplied": 1,
-          "Epic Donnybrook": 2,
-          "Dissolve": 2,
-          "Spiritual Weapon": 2,
-          "Lights of Revealing Sword": 1,
-          "Prime Positioning": 2,
-          "Heroic Confrontation": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "157948591380496384",
     "discordId": "157948591380496384",
     "discord_username": "ag_wow#0",
@@ -1990,6 +1929,66 @@
           "Spiritual Weapon": 3,
           "Wither": 3,
           "Noble Sacrifice": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "206187469178142720",
+    "discordId": "206187469178142720",
+    "discord_username": "praesum#0",
+    "event": "Saga",
+    "warlord": "Commander Retsov",
+    "display_name": "Praesum",
+    "timestamp": "2026-07-09T02:01:09.800Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Darkwatcher": 3,
+          "Dreadfang": 1,
+          "Oracle of Kavara": 2,
+          "Swiftcloud": 1,
+          "Kingslayer": 1,
+          "Brightwing": 1,
+          "Blitzer": 3,
+          "Field Marshal Malexin": 1
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Mephit": 1,
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Breastplate of Power": 2,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "Steelforge Regalia": 2,
+          "Myerdeth Mare": 2,
+          "Medical Kit": 1,
+          "Griffon of Andover": 2,
+          "Rockarm": 2,
+          "Bruntor's Helm": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Meet at the Inn!": 3,
+          "Well Supplied": 1,
+          "Epic Donnybrook": 2,
+          "Dissolve": 2,
+          "Spiritual Weapon": 2,
+          "Prime Positioning": 2,
+          "Heroic Confrontation": 2
         },
         "startingArmy": {}
       }
