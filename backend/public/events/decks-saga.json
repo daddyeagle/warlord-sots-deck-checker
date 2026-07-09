@@ -1561,5 +1561,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Saga",
+    "warlord": "Commander Retsov",
+    "display_name": "djBoneRoller",
+    "timestamp": "2026-07-09T00:30:41.899Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Swiftcloud": 1,
+          "Sutek Razorclaw": 1,
+          "Starbinder": 1,
+          "Sta'ash": 1,
+          "Oracle of Kavara": 2,
+          "Kingslayer": 2,
+          "Jubilant Hatchling": 1,
+          "Darkwatcher": 2,
+          "Brightwing": 1,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Shambling Horror": 2,
+          "Commander Retsov": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Vanguard's Presence": 3,
+          "Medical Kit": 1,
+          "Hunting Staff": 2,
+          "Havat-lahn Stance": 3,
+          "Bruntor's Helm": 3,
+          "Bardiche": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Pin Down": 2,
+          "Leveled!": 3,
+          "Heroic Confrontation": 2,
+          "Crush": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
