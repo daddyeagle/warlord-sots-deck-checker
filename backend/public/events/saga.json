@@ -290,20 +290,20 @@
       "timestamp": "2026-07-09T01:35:47.420Z"
     },
     {
-      "warlord": "Commander Retsov",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-07-09T01:58:02.851Z"
-    },
-    {
       "warlord": "Shyessa the Weaver",
       "username": "157948591380496384",
       "discordId": "157948591380496384",
       "discord_username": "ag_wow#0",
       "display_name": "AG",
       "timestamp": "2026-07-09T01:58:19.185Z"
+    },
+    {
+      "warlord": "Commander Retsov",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-07-09T02:01:09.800Z"
     }
   ]
 }
