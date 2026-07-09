@@ -1941,5 +1941,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "157948591380496384",
+    "discordId": "157948591380496384",
+    "discord_username": "ag_wow#0",
+    "event": "Saga",
+    "warlord": "Shyessa the Weaver",
+    "display_name": "AG",
+    "timestamp": "2026-07-09T01:58:19.185Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Ciane": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Shambling Horror": 3,
+          "Skitterleap": 3,
+          "Treyik": 3
+        },
+        "startingArmy": {
+          "Shyessa the Weaver": 1,
+          "Graveyard Librarian": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Hunting Staff": 1,
+          "Luthlarius Regalia": 3,
+          "Ritual Dagger": 3,
+          "Rockarm": 1,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Dissolve": 2,
+          "Epic Judgment": 2,
+          "Final Blessing": 2,
+          "Quick Strength": 2,
+          "Spiritual Weapon": 3,
+          "Wither": 3,
+          "Noble Sacrifice": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
