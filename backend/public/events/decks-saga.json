@@ -1458,57 +1458,6 @@
     }
   },
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Saga",
-    "warlord": "Warboss Azh'kal",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-07-09T00:05:25.367Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 2,
-          "Blitzer": 2,
-          "Makusog Steelhorn": 3,
-          "Doo'run": 3,
-          "The Mighty Mugg": 3,
-          "Thunic Yeti": 3,
-          "Bikram Bullstrength": 3
-        },
-        "startingArmy": {
-          "'Mad' Pat Carrik": 1,
-          "Warboss Azh'kal": 1,
-          "Bear Legion Recruit": 3,
-          "Novice Pyro": 1
-        }
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Press the Attack": 2,
-          "The Quick and the Dead": 3,
-          "Prime Positioning": 3,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 11,
-        "mainDeck": {
-          "Nothrog S'sike": 2,
-          "Vanguard's Presence": 1,
-          "Ardian Greathawk": 2,
-          "Strongarm Stout": 3,
-          "Deverenus' Axe": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1124729150603800616",
     "discordId": "1124729150603800616",
     "discord_username": "vladsod#0",
@@ -1821,6 +1770,57 @@
           "Fateshift": 3,
           "Sacrifice": 3,
           "Shield Rune": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Saga",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-07-09T01:18:18.728Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 2,
+          "Blitzer": 2,
+          "Makusog Steelhorn": 3,
+          "Doo'run": 3,
+          "The Mighty Mugg": 3,
+          "Thunic Yeti": 3,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "'Mad' Pat Carrik": 1,
+          "Warboss Azh'kal": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Steelforge Regalia": 2,
+          "Vanguard's Presence": 1,
+          "Ardian Greathawk": 2,
+          "Strongarm Stout": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Press the Attack": 2,
+          "The Quick and the Dead": 3,
+          "Prime Positioning": 3,
+          "Meet at the Inn!": 3
         },
         "startingArmy": {}
       }
