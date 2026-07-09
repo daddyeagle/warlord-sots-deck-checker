@@ -1825,5 +1825,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "231248072204746753",
+    "discordId": "231248072204746753",
+    "discord_username": "kynarin#0",
+    "event": "Saga",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Kynarin",
+    "timestamp": "2026-07-09T01:35:47.420Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Sunforge Smith": 1,
+          "Frenzy": 3,
+          "Anvil": 1,
+          "Beacon": 3,
+          "Hazahk of Shadow": 3,
+          "Tyren Ruskin": 2
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Sunforge Smith": 2,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Bardiche": 3,
+          "Medical Kit": 1,
+          "Rockarm": 1,
+          "Ritual Dagger": 1,
+          "Bruntor's Helm": 1,
+          "Blessed Vestments": 1,
+          "Strongarm Stout": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Fateshift": 2,
+          "Divine Barrier": 3,
+          "Spiritual Weapon": 3,
+          "Arcane Approach": 2,
+          "Crush": 2,
+          "Sacrifice": 2,
+          "Close Wounds": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
