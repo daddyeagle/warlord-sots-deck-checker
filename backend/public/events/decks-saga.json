@@ -1774,5 +1774,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "784876305388273664",
+    "discordId": "784876305388273664",
+    "discord_username": "kingofglobia.#0",
+    "event": "Saga",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "kingofglobia.",
+    "timestamp": "2026-07-09T01:10:02.136Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sister Kiren": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Duke Richter": 3,
+          "Zaina": 3,
+          "Thunic Yeti": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Breastplate of Power": 1,
+          "Hunting Staff": 3,
+          "Hod's Legacy": 1,
+          "Luthlarius Regalia": 1,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Divine Respite": 3,
+          "Fateshift": 3,
+          "Sacrifice": 3,
+          "Shield Rune": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
