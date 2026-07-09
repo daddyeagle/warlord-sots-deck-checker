@@ -1507,5 +1507,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Saga",
+    "warlord": "Efrim Dawntreader",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-07-09T00:08:37.448Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Squire Argos": 3,
+          "Shannon the Daring": 3,
+          "Leonora": 3,
+          "Keen Eared Sentry": 3,
+          "Huggins": 2,
+          "Field Marshal Malexin": 3,
+          "Albrecht Novice": 2
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Efrim Dawntreader": 1,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 1,
+          "Rockarm": 2,
+          "Myerdeth Mare": 2,
+          "Deverenus' Axe": 3,
+          "Bruntor's Helm": 2,
+          "Breastplate of Power": 1,
+          "Blade of Antiquity": 1,
+          "Aroch Mail": 1,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Meet at the Inn!": 2,
+          "Lights of Revealing Sword": 3,
+          "Epic Donnybrook": 2,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
