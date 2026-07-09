@@ -1723,5 +1723,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Saga",
+    "warlord": "Mair Haven",
+    "display_name": "Kofax",
+    "timestamp": "2026-07-09T01:07:53.604Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Birdsong Druid": 2,
+          "Blitzer": 1,
+          "Graham Heyward": 3,
+          "Huggins": 3,
+          "Master Dresden": 2
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Angel's Tears": 2,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Fatestring Bow": 2,
+          "Shrapnelball": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Pin Down": 3,
+          "Pounce": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
