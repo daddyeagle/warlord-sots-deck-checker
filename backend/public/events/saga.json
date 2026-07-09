@@ -226,14 +226,6 @@
       "timestamp": "2026-07-09T00:00:40.664Z"
     },
     {
-      "warlord": "Warboss Azh'kal",
-      "username": "225075257822674944",
-      "discordId": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-07-09T00:05:25.367Z"
-    },
-    {
       "warlord": "Efrim Dawntreader",
       "username": "1124729150603800616",
       "discordId": "1124729150603800616",
@@ -280,6 +272,14 @@
       "discord_username": "kingofglobia.#0",
       "display_name": "kingofglobia.",
       "timestamp": "2026-07-09T01:10:02.136Z"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-07-09T01:18:18.728Z"
     }
   ]
 }
