@@ -1993,5 +1993,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "Saga",
+    "warlord": "Lord Belasco",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-07-09T14:33:04.303Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3,
+          "Ghed Daucet": 3,
+          "Taumar the Protector": 3,
+          "Duke Richter": 3,
+          "Sister Kiren": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Lord Belasco": 1,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Pounce": 3,
+          "Heroic Confrontation": 2,
+          "Crush": 2,
+          "Shatter": 3,
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Rockarm": 1,
+          "Ardian Greathawk": 1,
+          "Storm Shard": 1,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
