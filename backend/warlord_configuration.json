@@ -144,7 +144,7 @@
       "epic": []
     },
     "Template 2": {
-      "name": "Template 2 (Ancients)",
+      "name": "Classy",
       "warlordCount": 1,
       "saRequiredSlots": [
         {
@@ -161,16 +161,19 @@
       "minTotalDeck": 50,
       "checkMainDeckFaction": false,
       "editions": [
-        "Ancients",
-        "Campaign",
-        "Pre-Campaign"
+        "Saga"
       ],
       "restricted": {
         "names": [],
         "sets": [],
         "rarities": []
       },
-      "hidden": true
+      "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": true,
+      "allowAnySetWarlord": false,
+      "reserved": [],
+      "epic": []
     },
     "Template 3": {
       "name": "Template 3 (Ancients)",
