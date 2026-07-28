@@ -6,6 +6,8 @@
     "endDate": "2026-08-07",
     "decklistFile": "decks-gentleman-s-choice.json",
     "submissionFile": "gentleman-s-choice.json",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldPlaceholder": "Class/Faction",
     "hidden": false
   }
 ]

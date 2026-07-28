@@ -1627,6 +1627,22 @@
                 const mdInputValNow = document.getElementById('main-deck-input').value.trim();
                 const isWithdrawNow = saInputValNow && saInputValNow.split('\n').length === 1 && saInputValNow.trim().toLowerCase() === 'withdraw from event' && (!mdInputValNow);
 
+                try {
+                    const authCheck = await fetch(getBackendUrl() + '/api/auth/success', {
+                        credentials: 'include',
+                        cache: 'no-store'
+                    });
+                    if (!authCheck.ok) {
+                        window.discordUser = null;
+                        statusEl.textContent = 'Session expired. Please log in with Discord again.';
+                        submitButton.disabled = true;
+                        return;
+                    }
+                } catch (e) {
+                    statusEl.textContent = 'Unable to verify login. Please try again.';
+                    return;
+                }
+
                 if (!window.discordUser) {
                     statusEl.textContent = 'Login required.'; return;
                 }
@@ -1692,6 +1708,13 @@
                         body
                     });
                     const result = await resp.json();
+                    if (resp.status === 401) {
+                        window.discordUser = null;
+                        statusEl.className = 'text-red-400 mt-2 font-bold';
+                        statusEl.textContent = 'Session expired. Please log in with Discord again.';
+                        submitButton.disabled = true;
+                        return;
+                    }
                     if (resp.ok && result.success) {
                         statusEl.className = 'text-green-400 mt-2 font-bold';
                         statusEl.textContent = result.withdrawn ? 'Withdrawn successfully.' : 'Deck submitted successfully!';
