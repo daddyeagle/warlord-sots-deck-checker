@@ -7,6 +7,8 @@
     "warlord": "Adathan, Celestial Messenger",
     "display_name": "daddy_eagle",
     "timestamp": "2026-08-01T00:00:00.000Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Nothrog",
     "cardList": {
       "Character": {
         "count": 25,
