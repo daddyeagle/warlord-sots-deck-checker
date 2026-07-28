@@ -10,6 +10,7 @@ const fs = require('fs');
 
 const CARDS_REMOTE_BASE_URL = 'https://theaccordlands.com/assets/resources/';
 const KNOWN_CARD_FILES = [
+  'cards.e70a1eb5.json',
   'cards.76f06328.json',
   'cards.38a524ad.json',
   'cards.e1d32a9e.json',
@@ -106,6 +107,8 @@ async function fetchText(url) {
 
 async function inspectCandidate(fileName) {
   const url = CARDS_REMOTE_BASE_URL + fileName;
+  const isJsonContentType = (contentType) =>
+    typeof contentType === 'string' && contentType.toLowerCase().includes('application/json');
   try {
     const head = await axios.head(url, {
       timeout: 10000,
@@ -113,6 +116,7 @@ async function inspectCandidate(fileName) {
       headers: { 'Cache-Control': 'no-cache' }
     });
     if (head.status >= 200 && head.status < 300) {
+      if (!isJsonContentType(head.headers['content-type'])) return null;
       const modified = Date.parse(head.headers['last-modified'] || '') || 0;
       return { url, modified };
     }
@@ -127,6 +131,7 @@ async function inspectCandidate(fileName) {
       headers: { 'Cache-Control': 'no-cache' }
     });
     if (get.status < 200 || get.status >= 300) return null;
+    if (!isJsonContentType(get.headers['content-type'])) return null;
     const modified = Date.parse(get.headers['last-modified'] || '') || 0;
     return { url, modified };
   } catch (_) {

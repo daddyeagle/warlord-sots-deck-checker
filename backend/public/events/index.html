@@ -294,6 +294,7 @@
             const baseUrl = "https://theaccordlands.com/assets/resources/";
             const forceNoCache = options.forceNoCache === true;
             const knownCardFiles = [
+                "cards.e70a1eb5.json",
                 "cards.76f06328.json",
                 "cards.38a524ad.json",
                 "cards.e1d32a9e.json",
@@ -301,6 +302,9 @@
                 "cards.725ee9dd.json",
                 "cards.json"
             ];
+
+            const isJsonContentType = (contentType) =>
+                typeof contentType === 'string' && contentType.toLowerCase().includes('application/json');
 
             const extractCardFiles = (text) => {
                 const files = [];
@@ -340,6 +344,8 @@
                         headers: { 'Cache-Control': 'no-cache' }
                     });
                     if (head.ok) {
+                        const contentType = head.headers.get('content-type');
+                        if (!isJsonContentType(contentType)) return null;
                         const modified = Date.parse(head.headers.get('last-modified') || '') || 0;
                         return { url, modified };
                     }
@@ -353,6 +359,8 @@
                         headers: { 'Cache-Control': 'no-cache' }
                     });
                     if (!get.ok) return null;
+                    const contentType = get.headers.get('content-type');
+                    if (!isJsonContentType(contentType)) return null;
                     const modified = Date.parse(get.headers.get('last-modified') || '') || 0;
                     return { url, modified };
                 } catch (_) {
