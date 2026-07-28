@@ -164,7 +164,9 @@
         "Saga"
       ],
       "restricted": {
-        "names": [],
+        "names": [
+          "Deverenus' Axe"
+        ],
         "sets": [],
         "rarities": []
       },
