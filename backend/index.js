@@ -868,17 +868,37 @@ app.post('/api/submit-deck', async (req, res) => {
   const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventStartDate = null;
   let eventRequiredTextFieldLabel = null;
+  let eventRulesetKey = null;
   try {
     const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
     const eventList = JSON.parse(eventListRaw);
     const eventMeta = eventList.find(e => e.eventName === eventName);
     if (eventMeta) {
       if (eventMeta.startDate) eventStartDate = eventMeta.startDate;
+      if (typeof eventMeta.ruleset === 'string' && eventMeta.ruleset.trim()) {
+        eventRulesetKey = eventMeta.ruleset.trim();
+      }
       if (typeof eventMeta.requiredTextFieldLabel === 'string' && eventMeta.requiredTextFieldLabel.trim()) {
         eventRequiredTextFieldLabel = eventMeta.requiredTextFieldLabel.trim();
       }
     }
   } catch (e) { /* ignore, fallback to normal timestamp */ }
+
+  if (!eventRequiredTextFieldLabel && eventRulesetKey) {
+    try {
+      const configPath = path.join(__dirname, 'warlord_configuration.json');
+      const configRaw = fs.readFileSync(configPath, 'utf8');
+      const configObj = JSON.parse(configRaw);
+      const rs = configObj && configObj.rulesets ? configObj.rulesets[eventRulesetKey] : null;
+      const requiredMeta = rs ? rs.requiredEventTextField : null;
+      const fallbackLabel = typeof requiredMeta === 'string'
+        ? requiredMeta.trim()
+        : (requiredMeta && typeof requiredMeta.label === 'string' ? requiredMeta.label.trim() : '');
+      if (fallbackLabel) eventRequiredTextFieldLabel = fallbackLabel;
+    } catch (e) {
+      // Ignore config read errors and continue without fallback label.
+    }
+  }
 
   const normalizedRequiredTextFieldValue = typeof requiredTextFieldValue === 'string'
     ? requiredTextFieldValue.trim()

@@ -1556,10 +1556,26 @@
                 return;
             }
 
+            const getRequiredMetaFromRuleset = (rulesetKey) => {
+                const rs = (RULE_SETS && rulesetKey) ? RULE_SETS[rulesetKey] : null;
+                const meta = rs ? rs.requiredEventTextField : null;
+                const label = typeof meta === 'string'
+                    ? meta.trim()
+                    : (meta && typeof meta.label === 'string' ? meta.label.trim() : '');
+                const placeholder = meta && typeof meta === 'object' && typeof meta.placeholder === 'string'
+                    ? meta.placeholder.trim()
+                    : '';
+                return { label, placeholder };
+            };
+
             const syncRequiredEventField = () => {
                 const selectedOpt = eventSelect.selectedOptions[0];
-                const label = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
-                const placeholder = selectedOpt ? (selectedOpt.dataset.requiredTextFieldPlaceholder || '').trim() : '';
+                const eventLabel = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
+                const eventPlaceholder = selectedOpt ? (selectedOpt.dataset.requiredTextFieldPlaceholder || '').trim() : '';
+                const rulesetKey = selectedOpt ? (selectedOpt.dataset.ruleset || '').trim() : '';
+                const rulesetMeta = getRequiredMetaFromRuleset(rulesetKey);
+                const label = eventLabel || rulesetMeta.label;
+                const placeholder = eventPlaceholder || rulesetMeta.placeholder;
                 if (label) {
                     requiredFieldWrap.classList.remove('hidden');
                     requiredFieldLabel.textContent = label;
@@ -1629,7 +1645,9 @@
                     return;
                 }
 
-                const requiredTextFieldLabel = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
+                const eventRequiredLabel = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
+                const fallbackRequiredLabel = requiredRuleset ? getRequiredMetaFromRuleset(requiredRuleset).label : '';
+                const requiredTextFieldLabel = eventRequiredLabel || fallbackRequiredLabel;
                 const requiredTextFieldValue = requiredFieldInput.value.trim();
                 if (!isWithdrawNow && requiredTextFieldLabel && requiredTextFieldValue.length < 4) {
                     statusEl.textContent = `Please enter at least 4 characters for: ${requiredTextFieldLabel}.`;
