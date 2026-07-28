@@ -409,16 +409,30 @@ const jsonToCsv = (json, type) => {
   if (type === 'event') {
     const obj = typeof json === 'string' ? JSON.parse(json) : json;
     const rows = [];
-    const header = ['discord_username', 'display_name', 'warlord'];
+    const submissions = Array.isArray(obj.submissions) ? obj.submissions : [];
+    const includeRequiredFieldColumns = submissions.some(sub => {
+      if (!sub || typeof sub !== 'object') return false;
+      const label = typeof sub.requiredTextFieldLabel === 'string' ? sub.requiredTextFieldLabel.trim() : '';
+      const value = typeof sub.requiredTextFieldValue === 'string' ? sub.requiredTextFieldValue.trim() : '';
+      return !!label || !!value;
+    });
+
+    const header = includeRequiredFieldColumns
+      ? ['discord_username', 'display_name', 'warlord', 'required_text_field_label', 'required_text_field_value']
+      : ['discord_username', 'display_name', 'warlord'];
     rows.push(header);
     rows.push(hyphenRow(header));
-    for (const sub of obj.submissions || []) {
+    for (const sub of submissions) {
       let discord = (sub.discord_username || '').replace(/#0$/, '');
-      rows.push([
+      const baseRow = [
         discord,
         sub.display_name || '',
         sub.warlord || ''
-      ]);
+      ];
+      if (includeRequiredFieldColumns) {
+        baseRow.push(sub.requiredTextFieldLabel || '', sub.requiredTextFieldValue || '');
+      }
+      rows.push(baseRow);
     }
     return rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
   }
