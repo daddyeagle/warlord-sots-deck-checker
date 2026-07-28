@@ -626,6 +626,14 @@
                         opt.value = ev.eventName;
                         opt.textContent = ev.eventName;
                         opt.dataset.ruleset = ev.ruleset || '';
+                        const requiredLabel = typeof ev.requiredTextFieldLabel === 'string'
+                            ? ev.requiredTextFieldLabel.trim()
+                            : '';
+                        const requiredPlaceholder = typeof ev.requiredTextFieldPlaceholder === 'string'
+                            ? ev.requiredTextFieldPlaceholder.trim()
+                            : '';
+                        opt.dataset.requiredTextFieldLabel = requiredLabel;
+                        opt.dataset.requiredTextFieldPlaceholder = requiredPlaceholder;
                         eventSelect.appendChild(opt);
                     }
                 });
@@ -1582,6 +1590,10 @@
                         <label class="block text-xs font-bold text-gray-500 mb-1">Event Name</label>
                         <select id="submit-eventname" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500"></select>
                     </div>
+                    <div id="required-event-field-wrap" class="flex-1 hidden">
+                        <label id="required-event-field-label" class="block text-xs font-bold text-gray-500 mb-1"></label>
+                        <input id="required-event-field-input" type="text" class="w-full p-2.5 bg-gray-900 border border-gray-700 text-gray-50 rounded-lg outline-none focus:border-amber-500" />
+                    </div>
                     <button id="submit-deck-button" type="button" class="bg-amber-600 hover:bg-amber-500 disabled:bg-gray-600 disabled:text-gray-400 text-white font-bold py-2.5 px-6 rounded-lg transition-colors">
                         Submit Deck
                     </button>
@@ -1602,6 +1614,34 @@
             const eventSelect = document.getElementById('submit-eventname');
             const statusEl = document.getElementById('submit-status');
             const discordUserSummary = document.getElementById('discord-user-summary');
+            const requiredFieldWrap = document.getElementById('required-event-field-wrap');
+            const requiredFieldLabel = document.getElementById('required-event-field-label');
+            const requiredFieldInput = document.getElementById('required-event-field-input');
+
+            if (!submitButton || !eventSelect || !statusEl || !discordUserSummary || !requiredFieldWrap || !requiredFieldLabel || !requiredFieldInput) {
+                return;
+            }
+
+            const syncRequiredEventField = () => {
+                const selectedOpt = eventSelect.selectedOptions[0];
+                const label = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
+                const placeholder = selectedOpt ? (selectedOpt.dataset.requiredTextFieldPlaceholder || '').trim() : '';
+                if (label) {
+                    requiredFieldWrap.classList.remove('hidden');
+                    requiredFieldLabel.textContent = label;
+                    requiredFieldInput.placeholder = placeholder || `Enter ${label.toLowerCase()}`;
+                    requiredFieldInput.required = true;
+                } else {
+                    requiredFieldWrap.classList.add('hidden');
+                    requiredFieldLabel.textContent = '';
+                    requiredFieldInput.placeholder = '';
+                    requiredFieldInput.required = false;
+                    requiredFieldInput.value = '';
+                }
+            };
+
+            syncRequiredEventField();
+            eventSelect.addEventListener('change', syncRequiredEventField);
 
             // Update user summary display within submission box
             if (window.discordUser && window.discordUser.id) {
@@ -1653,6 +1693,13 @@
                     return;
                 }
 
+                const requiredTextFieldLabel = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
+                const requiredTextFieldValue = requiredFieldInput.value.trim();
+                if (!isWithdrawNow && requiredTextFieldLabel && !requiredTextFieldValue) {
+                    statusEl.textContent = `Please enter: ${requiredTextFieldLabel}.`;
+                    return;
+                }
+
                 try {
                     statusEl.textContent = 'Submitting...';
                     let body;
@@ -1681,7 +1728,7 @@
 
                         const cardList = buildCardListByType(allCards, saList);
                         const warlordName = warlords.length > 0 ? warlords[0].name : null;
-                        body = JSON.stringify({ eventName, warlord: warlordName, cardList, deckContents: allCards });
+                        body = JSON.stringify({ eventName, warlord: warlordName, cardList, deckContents: allCards, requiredTextFieldValue });
                     }
                     
                     const resp = await fetch(getBackendUrl() + '/api/submit-deck', {

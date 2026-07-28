@@ -50,6 +50,12 @@
           <label class="small">Name</label>
           <input id="rs_name" type="text" />
 
+          <label class="small" style="display:block; margin-top:6px">Required event submission field label (optional)</label>
+          <input id="rs_requiredEventTextLabel" type="text" placeholder="Example: Team Name" />
+
+          <label class="small" style="display:block; margin-top:6px">Required event submission field placeholder (optional)</label>
+          <input id="rs_requiredEventTextPlaceholder" type="text" placeholder="Example: Enter your team name" />
+
           <label class="small" style="display:block; margin-top:6px">Warlord Count</label>
           <input id="rs_warlordCount" type="number" />
 
@@ -208,6 +214,7 @@
         <div>
           <label class="small">Ruleset</label><br>
           <select id="newEventRuleset" style="min-width:140px;"></select>
+          <div id="newEventRulesetFieldHint" class="small" style="margin-top:4px; color:#9ca3af;"></div>
         </div>
         <div>
           <label class="small">Submission Start</label><br>
@@ -237,6 +244,23 @@
     </div>
     <script>
         // --- Event Management Section ---
+        let eventRulesetMeta = {};
+
+        function updateCreateEventRulesetHint() {
+          const select = document.getElementById('newEventRuleset');
+          const hint = document.getElementById('newEventRulesetFieldHint');
+          if (!select || !hint) return;
+          const selected = select.value;
+          const meta = eventRulesetMeta[selected] || {};
+          if (meta.requiredTextFieldLabel) {
+            hint.style.color = '#fbbf24';
+            hint.textContent = `Required submission field for this ruleset: ${meta.requiredTextFieldLabel}`;
+          } else {
+            hint.style.color = '#9ca3af';
+            hint.textContent = 'No extra required submission field for this ruleset.';
+          }
+        }
+
         async function loadRulesetsForEvent() {
           try {
             const r = await fetch('/api/config', {cache:'no-store'});
@@ -244,17 +268,35 @@
             const config = await r.json();
             const select = document.getElementById('newEventRuleset');
             select.innerHTML = '';
+            eventRulesetMeta = {};
             Object.entries(config.rulesets || {}).forEach(([key, rs]) => {
               if (!rs.hidden) {
                 const opt = document.createElement('option');
                 opt.value = key;
                 opt.textContent = rs.name || key;
                 select.appendChild(opt);
+
+                const requiredMeta = rs.requiredEventTextField;
+                const requiredTextFieldLabel = typeof requiredMeta === 'string'
+                  ? requiredMeta.trim()
+                  : (requiredMeta && typeof requiredMeta.label === 'string' ? requiredMeta.label.trim() : '');
+                const requiredTextFieldPlaceholder = requiredMeta && typeof requiredMeta === 'object' && typeof requiredMeta.placeholder === 'string'
+                  ? requiredMeta.placeholder.trim()
+                  : '';
+                eventRulesetMeta[key] = {
+                  requiredTextFieldLabel,
+                  requiredTextFieldPlaceholder
+                };
               }
             });
+            updateCreateEventRulesetHint();
           } catch (e) {}
         }
         window.addEventListener('DOMContentLoaded', loadRulesetsForEvent);
+        window.addEventListener('DOMContentLoaded', () => {
+          const select = document.getElementById('newEventRuleset');
+          if (select) select.addEventListener('change', updateCreateEventRulesetHint);
+        });
 
         document.getElementById('createEventBtn').addEventListener('click', async function() {
           const name = document.getElementById('newEventName').value.trim();
@@ -298,10 +340,14 @@
             }
             listDiv.innerHTML = '';
             data.events.forEach(ev => {
+              const requiredTextDisplay = ev.requiredTextFieldLabel
+                ? `<span class='small' style='color:#fbbf24'>Required field: ${ev.requiredTextFieldLabel}</span><br>`
+                : '';
               const row = document.createElement('div');
               row.style.marginBottom = '8px';
               row.innerHTML = `<strong>${ev.eventName}</strong> (${ev.ruleset})<br>
                 <span class='small'>${ev.startDate} to ${ev.endDate}</span><br>
+                ${requiredTextDisplay}
                 <span class='small'>Decklist: <code>${ev.decklistFile}</code> | Submissions: <code>${ev.submissionFile}</code></span>
                 <span class='small'>${ev.hidden ? '<span style="color:#fca5a5">[Hidden]</span>' : ''}</span>
                 <button data-ev='${ev.eventName}' class='deleteEventBtn btn-danger' style='margin-right:8px;'>Delete</button>
@@ -556,6 +602,13 @@
     function renderRulesetForm(key){
       const rs = configObj.rulesets[key];
       rs_name.value = rs.name || '';
+      const requiredMeta = rs.requiredEventTextField;
+      rs_requiredEventTextLabel.value = typeof requiredMeta === 'string'
+        ? requiredMeta
+        : ((requiredMeta && typeof requiredMeta.label === 'string') ? requiredMeta.label : '');
+      rs_requiredEventTextPlaceholder.value = (requiredMeta && typeof requiredMeta === 'object' && typeof requiredMeta.placeholder === 'string')
+        ? requiredMeta.placeholder
+        : '';
       rs_warlordCount.value = rs.warlordCount || 1;
       rs_maxCopies.value = rs.maxCopies || 3;
       rs_maxEpicCopies.value = rs.maxEpicCopies || 1;
@@ -625,6 +678,14 @@
       try{
         const rs = configObj.rulesets[key];
         rs.name = rs_name.value.trim();
+        const requiredLabel = rs_requiredEventTextLabel.value.trim();
+        const requiredPlaceholder = rs_requiredEventTextPlaceholder.value.trim();
+        if (requiredLabel) {
+          rs.requiredEventTextField = { label: requiredLabel };
+          if (requiredPlaceholder) rs.requiredEventTextField.placeholder = requiredPlaceholder;
+        } else {
+          delete rs.requiredEventTextField;
+        }
         rs.warlordCount = parseInt(rs_warlordCount.value, 10) || 1;
         rs.maxCopies = parseInt(rs_maxCopies.value, 10) || 3;
         rs.maxEpicCopies = parseInt(rs_maxEpicCopies.value, 10) || 1;

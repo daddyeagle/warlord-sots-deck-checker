@@ -642,6 +642,24 @@ app.post('/api/admin/create-event', async (req, res) => {
   const decklistFile = `decks-${safeEventName}.json`;
   const submissionFile = `${safeEventName}.json`;
   try {
+    let requiredTextFieldLabel = '';
+    let requiredTextFieldPlaceholder = '';
+    try {
+      const configPath = path.join(__dirname, 'warlord_configuration.json');
+      const configRaw = fs.readFileSync(configPath, 'utf8');
+      const configObj = JSON.parse(configRaw);
+      const rulesetConfig = configObj && configObj.rulesets ? configObj.rulesets[ruleset] : null;
+      const requiredMeta = rulesetConfig ? rulesetConfig.requiredEventTextField : null;
+      requiredTextFieldLabel = typeof requiredMeta === 'string'
+        ? requiredMeta.trim()
+        : (requiredMeta && typeof requiredMeta.label === 'string' ? requiredMeta.label.trim() : '');
+      requiredTextFieldPlaceholder = requiredMeta && typeof requiredMeta === 'object' && typeof requiredMeta.placeholder === 'string'
+        ? requiredMeta.placeholder.trim()
+        : '';
+    } catch (e) {
+      // Ignore malformed config here and continue creating the event.
+    }
+
     // Create empty decklist and submission files if not exist
     for (const file of [decklistFile, submissionFile]) {
       const path = `backend/public/events/${file}`;
@@ -656,7 +674,12 @@ app.post('/api/admin/create-event', async (req, res) => {
     if (!Array.isArray(events)) events = [];
     // Remove any previous event with same name
     events = events.filter(ev => ev.eventName !== eventName);
-    events.push({ eventName, ruleset, startDate, endDate, decklistFile, submissionFile, hidden: false });
+    const eventObj = { eventName, ruleset, startDate, endDate, decklistFile, submissionFile, hidden: false };
+    if (requiredTextFieldLabel) {
+      eventObj.requiredTextFieldLabel = requiredTextFieldLabel;
+      if (requiredTextFieldPlaceholder) eventObj.requiredTextFieldPlaceholder = requiredTextFieldPlaceholder;
+    }
+    events.push(eventObj);
     await saveEventList(events, sha);
     res.json({ success: true });
   } catch (err) {
@@ -761,7 +784,7 @@ app.post('/api/submit-deck', async (req, res) => {
   
 
   // 2. Destructure inputs (FIXED ORDER)
-  const { eventName, warlord, cardList, deckContents } = req.body;
+  const { eventName, warlord, cardList, deckContents, requiredTextFieldValue } = req.body;
 
   // Special case: Withdraw logic (must come before required fields check)
   let isWithdraw = false;
@@ -844,12 +867,25 @@ app.post('/api/submit-deck', async (req, res) => {
   // Load event list to get startDate
   const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
   let eventStartDate = null;
+  let eventRequiredTextFieldLabel = null;
   try {
     const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
     const eventList = JSON.parse(eventListRaw);
     const eventMeta = eventList.find(e => e.eventName === eventName);
-    if (eventMeta && eventMeta.startDate) eventStartDate = eventMeta.startDate;
+    if (eventMeta) {
+      if (eventMeta.startDate) eventStartDate = eventMeta.startDate;
+      if (typeof eventMeta.requiredTextFieldLabel === 'string' && eventMeta.requiredTextFieldLabel.trim()) {
+        eventRequiredTextFieldLabel = eventMeta.requiredTextFieldLabel.trim();
+      }
+    }
   } catch (e) { /* ignore, fallback to normal timestamp */ }
+
+  const normalizedRequiredTextFieldValue = typeof requiredTextFieldValue === 'string'
+    ? requiredTextFieldValue.trim()
+    : '';
+  if (eventRequiredTextFieldLabel && !normalizedRequiredTextFieldValue) {
+    return res.status(400).json({ success: false, error: `Missing required field: ${eventRequiredTextFieldLabel}` });
+  }
 
   const now = new Date();
   let timestamp = now.toISOString();
@@ -890,6 +926,10 @@ app.post('/api/submit-deck', async (req, res) => {
       discord_username: discordUsername,
       display_name: displayName,
       timestamp,
+      ...(eventRequiredTextFieldLabel ? {
+        requiredTextFieldLabel: eventRequiredTextFieldLabel,
+        requiredTextFieldValue: normalizedRequiredTextFieldValue
+      } : {}),
       // Optional: Link to specific file if you are generating one, otherwise this is enough
     });
 
@@ -920,6 +960,10 @@ app.post('/api/submit-deck', async (req, res) => {
       warlord,
       display_name: displayName,
       timestamp,
+      ...(eventRequiredTextFieldLabel ? {
+        requiredTextFieldLabel: eventRequiredTextFieldLabel,
+        requiredTextFieldValue: normalizedRequiredTextFieldValue
+      } : {}),
       cardList: formatCardList(cardList) // Use helper to format cleanly
     });
 
