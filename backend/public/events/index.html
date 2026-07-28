@@ -1631,11 +1631,13 @@
                     requiredFieldLabel.textContent = label;
                     requiredFieldInput.placeholder = placeholder || `Enter ${label.toLowerCase()}`;
                     requiredFieldInput.required = true;
+                    requiredFieldInput.minLength = 4;
                 } else {
                     requiredFieldWrap.classList.add('hidden');
                     requiredFieldLabel.textContent = '';
                     requiredFieldInput.placeholder = '';
                     requiredFieldInput.required = false;
+                    requiredFieldInput.minLength = 0;
                     requiredFieldInput.value = '';
                 }
             };
@@ -1695,8 +1697,8 @@
 
                 const requiredTextFieldLabel = selectedOpt ? (selectedOpt.dataset.requiredTextFieldLabel || '').trim() : '';
                 const requiredTextFieldValue = requiredFieldInput.value.trim();
-                if (!isWithdrawNow && requiredTextFieldLabel && !requiredTextFieldValue) {
-                    statusEl.textContent = `Please enter: ${requiredTextFieldLabel}.`;
+                if (!isWithdrawNow && requiredTextFieldLabel && requiredTextFieldValue.length < 4) {
+                    statusEl.textContent = `Please enter at least 4 characters for: ${requiredTextFieldLabel}.`;
                     return;
                 }
 

@@ -883,8 +883,11 @@ app.post('/api/submit-deck', async (req, res) => {
   const normalizedRequiredTextFieldValue = typeof requiredTextFieldValue === 'string'
     ? requiredTextFieldValue.trim()
     : '';
-  if (eventRequiredTextFieldLabel && !normalizedRequiredTextFieldValue) {
-    return res.status(400).json({ success: false, error: `Missing required field: ${eventRequiredTextFieldLabel}` });
+  if (eventRequiredTextFieldLabel && normalizedRequiredTextFieldValue.length < 4) {
+    return res.status(400).json({
+      success: false,
+      error: `Missing required field: ${eventRequiredTextFieldLabel} (minimum 4 characters)`
+    });
   }
 
   const now = new Date();
