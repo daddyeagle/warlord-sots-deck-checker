@@ -28,25 +28,25 @@
         }
       },
       "Item": {
-        "count": 13,
+        "count": 10,
         "mainDeck": {
           "Griffon of Andover": 3,
           "Bruntor's Helm": 2,
           "Blade of Antiquity": 1,
           "Steelforge Regalia": 2,
-          "Ardian Greathawk": 2,
-          "Deverenus' Axe": 3
+          "Ardian Greathawk": 2
         },
         "startingArmy": {}
       },
       "Action": {
-        "count": 12,
+        "count": 15,
         "mainDeck": {
           "Arcane Approach": 3,
           "Crush": 3,
           "Press the Attack": 1,
           "Prime Positioning": 3,
-          "Midnight Madness": 2
+          "Midnight Madness": 2,
+          "Final Blessing": 3
         },
         "startingArmy": {}
       }
