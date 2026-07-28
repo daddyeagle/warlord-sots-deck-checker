@@ -1,1 +1,55 @@
-[]
+[
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-08-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "'Mad' Pat Carrik": 1,
+          "Doo'run": 3,
+          "The Mighty Mugg": 3,
+          "Rrok": 1,
+          "Thunic Yeti": 3,
+          "Bikram Bullstrength": 3,
+          "Isadran Kennelmaster": 3,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1,
+          "'Mad' Pat Carrik": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Griffon of Andover": 3,
+          "Bruntor's Helm": 2,
+          "Blade of Antiquity": 1,
+          "Steelforge Regalia": 2,
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 3,
+          "Press the Attack": 1,
+          "Prime Positioning": 3,
+          "Midnight Madness": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
