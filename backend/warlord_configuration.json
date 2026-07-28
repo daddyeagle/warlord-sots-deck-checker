@@ -175,7 +175,11 @@
       "fullBypass": true,
       "allowAnySetWarlord": false,
       "reserved": [],
-      "epic": []
+      "epic": [],
+      "requiredEventTextField": {
+        "label": "Classy/Turncoat Change",
+        "placeholder": "Class/Faction"
+      }
     },
     "Template 3": {
       "name": "Template 3 (Ancients)",
