@@ -7,7 +7,9 @@
       "discordId": "225075257822674944",
       "discord_username": "oeagle#0",
       "display_name": "daddy_eagle",
-      "timestamp": "2026-08-01T00:00:00.000Z"
+      "timestamp": "2026-08-01T00:00:00.000Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Nothrog"
     }
   ]
 }
