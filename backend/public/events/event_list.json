@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "eventName": "Gentleman's Choice",
+    "ruleset": "Template 2",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-07",
+    "decklistFile": "decks-gentleman-s-choice.json",
+    "submissionFile": "gentleman-s-choice.json",
+    "hidden": false
+  }
+]
