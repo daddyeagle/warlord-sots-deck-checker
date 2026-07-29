@@ -20,6 +20,16 @@
       "timestamp": "2026-08-01T00:00:00.000Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Mercenary Human Cleric"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "151512634573717504",
+      "discordId": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-08-01T00:00:00.000Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary"
     }
   ]
 }
