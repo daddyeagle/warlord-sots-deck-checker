@@ -53,5 +53,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "412750327276765194",
+    "discordId": "412750327276765194",
+    "discord_username": "kalius404#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Commander Retsov",
+    "display_name": "Kalius404",
+    "timestamp": "2026-08-01T00:00:00.000Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary Human Cleric",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Kingslayer": 2,
+          "Flamefall": 2,
+          "Blackwind": 1,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Dreadfang": 2,
+          "Swiftcloud": 2,
+          "Brightwing": 2,
+          "Darkwatcher": 2,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Gift From Above": 3,
+          "Fateshift": 3,
+          "Grave Exchange": 2,
+          "Divine Respite": 3,
+          "Spiritual Weapon": 3,
+          "Quick Strength": 3,
+          "Quick Shielding": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
