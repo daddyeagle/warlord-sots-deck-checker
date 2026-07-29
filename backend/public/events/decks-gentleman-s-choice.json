@@ -107,5 +107,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "151512634573717504",
+    "discordId": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-08-01T00:00:00.000Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Flame Jester": 3,
+          "Hinterlands Griffon": 3,
+          "Stirges": 3,
+          "Sutek Razorclaw": 3,
+          "Sutek Slimefang": 3,
+          "Master Dresden": 3
+        },
+        "startingArmy": {
+          "Shambling Horror": 2,
+          "Brine Fiend": 3,
+          "Adathan, Celestial Messenger": 1
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Kor's Patience": 3,
+          "Wither": 3,
+          "Spiritual Weapon": 3,
+          "Sacrifice": 3,
+          "Final Blessing": 3,
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Leveled!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
