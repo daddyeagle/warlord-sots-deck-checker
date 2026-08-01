@@ -158,5 +158,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "278365166238826496",
+    "discordId": "278365166238826496",
+    "discord_username": "pino2k2#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Tazian Dythanus",
+    "display_name": "pino2k2",
+    "timestamp": "2026-08-01T13:50:14.920Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Wizard/Nothrog",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Greenflower Warden": 1,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Muddflek": 3,
+          "Mephit": 3,
+          "Catapult Crew": 3
+        },
+        "startingArmy": {
+          "Tazian Dythanus": 1,
+          "Greenflower Warden": 2,
+          "Joleg": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Blast": 3,
+          "Magic Missiles": 2,
+          "Flamelance": 3,
+          "Shadow Bolts": 3,
+          "Dissolve": 2,
+          "Epic Evocation": 3,
+          "Grave Exchange": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Burning Scroll": 2,
+          "Archivist's Journal": 2,
+          "Nehil": 1,
+          "Kaballite Regalia": 1,
+          "Unicorn of Thun": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
