@@ -30,6 +30,16 @@
       "timestamp": "2026-08-01T00:00:00.000Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Mercenary"
+    },
+    {
+      "warlord": "Tazian Dythanus",
+      "username": "278365166238826496",
+      "discordId": "278365166238826496",
+      "discord_username": "pino2k2#0",
+      "display_name": "pino2k2",
+      "timestamp": "2026-08-01T13:50:14.920Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Wizard/Nothrog"
     }
   ]
 }
