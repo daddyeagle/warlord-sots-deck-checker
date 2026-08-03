@@ -212,5 +212,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "751294885750898728",
+    "discordId": "751294885750898728",
+    "discord_username": "xenomorph40#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Commander Retsov",
+    "display_name": "Xenomorph40",
+    "timestamp": "2026-08-03T12:00:12.539Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Rogue",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Flamefall": 2,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 2,
+          "Darkwatcher": 3,
+          "Swiftcloud": 2,
+          "Dreadfang": 1,
+          "Kingslayer": 2,
+          "Ashveil": 2,
+          "Brightwing": 2
+        },
+        "startingArmy": {
+          "Sutek Razorclaw": 1,
+          "Tyren Ruskin": 1,
+          "Brine Fiend": 3,
+          "Commander Retsov": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Fineltour's Draught": 1,
+          "Medical Kit": 1,
+          "Premonition Pendant": 1,
+          "Strongarm Stout": 3,
+          "Wraithstalker": 3,
+          "Revenger": 3,
+          "Gapfinder": 3,
+          "Cloudracer": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Well Supplied": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
