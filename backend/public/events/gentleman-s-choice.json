@@ -40,6 +40,16 @@
       "timestamp": "2026-08-01T13:50:14.920Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Wizard/Nothrog"
+    },
+    {
+      "warlord": "Commander Retsov",
+      "username": "751294885750898728",
+      "discordId": "751294885750898728",
+      "discord_username": "xenomorph40#0",
+      "display_name": "Xenomorph40",
+      "timestamp": "2026-08-03T12:00:12.539Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Rogue"
     }
   ]
 }
