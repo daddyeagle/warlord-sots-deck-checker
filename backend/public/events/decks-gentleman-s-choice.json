@@ -268,5 +268,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Restomagus",
+    "timestamp": "2026-08-03T20:54:23.869Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 2,
+          "Isadran Kennelmaster": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Recruiter of Misear": 2,
+          "Sutek Razorclaw": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 2,
+          "Fateshift": 3,
+          "Final Farewell": 2,
+          "Gift From Above": 1,
+          "Kor's Patience": 3,
+          "Leveled!": 2,
+          "Quick Strength": 3,
+          "Wither": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
