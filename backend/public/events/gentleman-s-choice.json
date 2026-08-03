@@ -50,6 +50,16 @@
       "timestamp": "2026-08-03T12:00:12.539Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Rogue"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-08-03T20:54:23.869Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary"
     }
   ]
 }
