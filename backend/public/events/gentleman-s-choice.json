@@ -100,6 +100,16 @@
       "timestamp": "2026-08-04T06:26:56.115Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Squid-Ward"
+    },
+    {
+      "warlord": "Kurak Stonejaw",
+      "username": "686402688815988769",
+      "discordId": "686402688815988769",
+      "discord_username": "cathelisourking#0",
+      "display_name": "Dragonbane",
+      "timestamp": "2026-08-04T07:00:01.289Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Rogue cleric dwarf"
     }
   ]
 }
