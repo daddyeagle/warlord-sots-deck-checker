@@ -2,16 +2,6 @@
   "eventName": "Gentleman's Choice",
   "submissions": [
     {
-      "warlord": "Adathan, Celestial Messenger",
-      "username": "225075257822674944",
-      "discordId": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-08-01T00:00:00.000Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Nothrog"
-    },
-    {
       "warlord": "Commander Retsov",
       "username": "412750327276765194",
       "discordId": "412750327276765194",
@@ -140,6 +130,16 @@
       "timestamp": "2026-08-04T19:34:17.049Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Vactus Rogue"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-08-04T21:27:33.141Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Nothrog"
     }
   ]
 }
