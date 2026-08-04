@@ -60,6 +60,16 @@
       "timestamp": "2026-08-03T20:54:23.869Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Mercenary"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "360923738977468417",
+      "discordId": "360923738977468417",
+      "discord_username": "apachu#0",
+      "display_name": "Apachu",
+      "timestamp": "2026-08-04T00:58:00.721Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Free Kingdoms Orc Tactician"
     }
   ]
 }
