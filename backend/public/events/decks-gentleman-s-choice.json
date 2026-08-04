@@ -501,9 +501,9 @@
     "event": "Gentleman's Choice",
     "warlord": "Alrayn Gaunt",
     "display_name": "Restomagus",
-    "timestamp": "2026-08-04T06:17:56.870Z",
+    "timestamp": "2026-08-04T06:26:56.115Z",
     "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Mercenary",
+    "requiredTextFieldValue": "Squid-Ward",
     "cardList": {
       "Character": {
         "count": 23,
@@ -524,10 +524,10 @@
         }
       },
       "Action": {
-        "count": 14,
+        "count": 13,
         "mainDeck": {
           "Arcane Approach": 3,
-          "Berserk": 3,
+          "Berserk": 2,
           "Epic Donnybrook": 2,
           "Final Farewell": 1,
           "Lights of Revealing Sword": 3,
@@ -536,15 +536,16 @@
         "startingArmy": {}
       },
       "Item": {
-        "count": 13,
+        "count": 14,
         "mainDeck": {
           "Ardian Greathawk": 3,
           "Bardiche": 2,
           "Eager Blade": 1,
           "Griffon of Andover": 2,
           "Myerdeth Mare": 1,
+          "Rockarm": 2,
           "Storm Shard": 1,
-          "Strongarm Stout": 3
+          "Strongarm Stout": 2
         },
         "startingArmy": {}
       }
