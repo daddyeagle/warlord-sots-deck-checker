@@ -323,5 +323,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "360923738977468417",
+    "discordId": "360923738977468417",
+    "discord_username": "apachu#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Apachu",
+    "timestamp": "2026-08-04T00:58:00.721Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Free Kingdoms Orc Tactician",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Huggins": 3,
+          "Field Marshal Malexin": 3,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Shannon the Daring": 3,
+          "Sta'ash": 3,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Rockarm": 3,
+          "Vanguard's Presence": 1,
+          "Steelforge Regalia": 2,
+          "Ardian Greathawk": 3,
+          "Myerdeth Mare": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Press the Attack": 3,
+          "Prime Positioning": 3,
+          "Arcane Approach": 3,
+          "Tide Turner": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
