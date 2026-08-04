@@ -130,6 +130,16 @@
       "timestamp": "2026-08-04T15:55:15.561Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Mercenary"
+    },
+    {
+      "warlord": "Vactus, Spirit's Champion",
+      "username": "354280712578400267",
+      "discordId": "354280712578400267",
+      "discord_username": "aaron1002#0",
+      "display_name": "A-A-ron",
+      "timestamp": "2026-08-04T19:34:17.049Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Vactus Rogue"
     }
   ]
 }
