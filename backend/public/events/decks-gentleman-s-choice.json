@@ -713,5 +713,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-08-04T19:34:17.049Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Vactus Rogue",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Makusog Steelhorn": 3,
+          "Master Dresden": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Starbinder": 3
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Greenflower Warden": 2,
+          "Vactus, Spirit's Champion": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Dupe": 3,
+          "Epic Betrayal": 2,
+          "Lights of Revealing Sword": 3,
+          "Pounce": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Leopard Claws": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
