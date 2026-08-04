@@ -375,5 +375,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Hosh",
+    "timestamp": "2026-08-04T01:59:00.077Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Elf Cleric Celestial Ambassador",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Skitterleap": 3,
+          "Shambling Horror": 3,
+          "Flame Jester": 3,
+          "Ciane": 3,
+          "Grimfey Prowler": 2,
+          "Oracle of Kavara": 2,
+          "Tresven": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Yanthorine": 1,
+          "Graveyard Librarian": 1,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Leveled!": 3,
+          "Invoke the Storm": 3,
+          "Divine Respite": 3,
+          "Fateshift": 2,
+          "Spiritual Weapon": 3,
+          "Curse of Greed": 2,
+          "Final Blessing": 3,
+          "Epic Judgment": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Kor's Aegis": 1,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
