@@ -659,5 +659,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "341328809758294016",
+    "discordId": "341328809758294016",
+    "discord_username": "sonirae#0",
+    "event": "Gentleman's Choice",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "PJ",
+    "timestamp": "2026-08-04T15:55:15.561Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Bikram Bullstrength": 3,
+          "Oracle of Kavara": 2,
+          "Blitzer": 3,
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Recruiter of Misear": 2,
+          "Dreadfang": 1,
+          "Swiftcloud": 1,
+          "Blackwind": 1
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "High Acolyte Hellene": 1,
+          "Shambling Horror": 2
+        }
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Hunting Staff": 2,
+          "Luthlarius Regalia": 3,
+          "Ardian Greathawk": 2,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Fateshift": 3,
+          "Final Blessing": 3,
+          "Quick Shielding": 3,
+          "Pious Rebuke": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
