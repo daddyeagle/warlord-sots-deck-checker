@@ -110,6 +110,16 @@
       "timestamp": "2026-08-04T07:00:01.289Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Rogue cleric dwarf"
+    },
+    {
+      "warlord": "Z'adok, Prey Herder",
+      "username": "298580168899821568",
+      "discordId": "298580168899821568",
+      "discord_username": "direscrub#0",
+      "display_name": "DireScrub",
+      "timestamp": "2026-08-04T15:13:57.251Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "My warlord is a Rouge/Fighter"
     }
   ]
 }
