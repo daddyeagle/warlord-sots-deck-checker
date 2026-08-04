@@ -52,16 +52,6 @@
       "requiredTextFieldValue": "Rogue"
     },
     {
-      "warlord": "Adathan, Celestial Messenger",
-      "username": "333097080543379457",
-      "discordId": "333097080543379457",
-      "discord_username": "restomagus#0",
-      "display_name": "Restomagus",
-      "timestamp": "2026-08-03T20:54:23.869Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Mercenary"
-    },
-    {
       "warlord": "Warboss Azh'kal",
       "username": "360923738977468417",
       "discordId": "360923738977468417",
@@ -100,6 +90,16 @@
       "timestamp": "2026-08-04T04:04:45.570Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Faction"
+    },
+    {
+      "warlord": "Alrayn Gaunt",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-08-04T06:17:56.870Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary"
     }
   ]
 }
