@@ -490,5 +490,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "djBoneRoller",
+    "timestamp": "2026-08-04T04:04:45.570Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Faction",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Oracle of Kavara": 2,
+          "Sister Kiren": 3,
+          "Bikram Bullstrength": 1
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Squire Fendric": 1,
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Shield of Spurning": 3,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 2,
+          "Griffon of Andover": 1,
+          "Havat-lahn Stance": 3,
+          "Myerdeth Mare": 1,
+          "Storm Shard": 1,
+          "Medical Kit": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Divine Barrier": 3,
+          "Leveled!": 2,
+          "Meet at the Inn!": 1,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
