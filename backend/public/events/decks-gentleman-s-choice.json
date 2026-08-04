@@ -603,5 +603,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "DireScrub",
+    "timestamp": "2026-08-04T15:13:57.251Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "My warlord is a Rouge/Fighter",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Sutek Razorclaw": 1,
+          "Shambling Horror": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Brinewater Croc": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3,
+          "Sta'ash": 3
+        },
+        "startingArmy": {
+          "Sutek Razorclaw": 2,
+          "Sutek Slimefang": 3,
+          "Z'adok, Prey Herder": 1
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Havat-lahn Stance": 1,
+          "Scale Mail": 1,
+          "Rockarm": 1,
+          "Myerdeth Mare": 2,
+          "Gapfinder": 3,
+          "Revenger": 3,
+          "Bruntor's Helm": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Viscous Goo": 3,
+          "Pounce": 3,
+          "Lights of Revealing Sword": 3,
+          "Crush": 3,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
