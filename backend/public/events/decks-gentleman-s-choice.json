@@ -550,5 +550,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-08-04T07:00:01.289Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Rogue cleric dwarf",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Chovan Voidcaller": 3,
+          "Beacon": 3,
+          "Starbinder": 3,
+          "Quicksilver Gargoyle": 3,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Frenzy": 2
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Sunforge Smith": 2,
+          "Kurak Stonejaw": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Leveled!": 1,
+          "Final Farewell": 1,
+          "Spiritual Weapon": 3,
+          "Divine Barrier": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Storm Shard": 1,
+          "Rockarm": 2,
+          "Ritual Dagger": 3,
+          "Revenger": 3,
+          "Cloudracer": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
