@@ -1,60 +1,5 @@
 [
   {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Gentleman's Choice",
-    "warlord": "Adathan, Celestial Messenger",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-08-01T00:00:00.000Z",
-    "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Nothrog",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "'Mad' Pat Carrik": 1,
-          "Doo'run": 3,
-          "The Mighty Mugg": 3,
-          "Rrok": 1,
-          "Thunic Yeti": 3,
-          "Bikram Bullstrength": 3,
-          "Isadran Kennelmaster": 3,
-          "Blitzer": 2
-        },
-        "startingArmy": {
-          "Adathan, Celestial Messenger": 1,
-          "Bear Legion Recruit": 3,
-          "Novice Pyro": 1,
-          "'Mad' Pat Carrik": 1
-        }
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Griffon of Andover": 3,
-          "Bruntor's Helm": 2,
-          "Blade of Antiquity": 1,
-          "Steelforge Regalia": 2,
-          "Ardian Greathawk": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Crush": 3,
-          "Press the Attack": 1,
-          "Prime Positioning": 3,
-          "Midnight Madness": 2,
-          "Final Blessing": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "412750327276765194",
     "discordId": "412750327276765194",
     "discord_username": "kalius404#0",
@@ -761,6 +706,60 @@
           "Revenger": 3,
           "Storm Shard": 1,
           "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-08-04T21:27:33.141Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Nothrog",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Joleg": 2,
+          "'Mad' Pat Carrik": 2,
+          "Sutek Razorclaw": 3,
+          "Shambling Horror": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Field Marshal Malexin": 3,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Novice Pyro": 1,
+          "Joleg": 1,
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 2
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Storm Shard": 1,
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Spiritual Weapon": 3,
+          "Quick Strength": 3,
+          "Final Farewell": 3,
+          "Final Blessing": 2,
+          "Fateshift": 3,
+          "Epic Judgment": 3,
+          "Arcane Approach": 3
         },
         "startingArmy": {}
       }
