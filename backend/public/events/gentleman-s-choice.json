@@ -180,6 +180,16 @@
       "timestamp": "2026-08-05T15:13:46.129Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Rogue"
+    },
+    {
+      "warlord": "Commander Retsov",
+      "username": "270439545055608832",
+      "discordId": "270439545055608832",
+      "discord_username": "raclesis#0",
+      "display_name": "Raclesis",
+      "timestamp": "2026-08-05T16:50:09.254Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Cleric"
     }
   ]
 }
