@@ -819,5 +819,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Kofax",
+    "timestamp": "2026-08-05T04:47:41.026Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Rogue",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Dwarf-Eater": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Sister Kiren": 3,
+          "Zaina": 3
+        },
+        "startingArmy": {
+          "Church Enforcer Tancred": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Cloudracer": 3,
+          "Gapfinder": 3,
+          "Revenger": 3,
+          "Wraithstalker": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Dupe": 2,
+          "Lights of Revealing Sword": 2,
+          "Meet at the Inn!": 3,
+          "Sneak": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
