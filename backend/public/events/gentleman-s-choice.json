@@ -82,16 +82,6 @@
       "requiredTextFieldValue": "Faction"
     },
     {
-      "warlord": "Alrayn Gaunt",
-      "username": "333097080543379457",
-      "discordId": "333097080543379457",
-      "discord_username": "restomagus#0",
-      "display_name": "Restomagus",
-      "timestamp": "2026-08-04T06:26:56.115Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Squid-Ward"
-    },
-    {
       "warlord": "Kurak Stonejaw",
       "username": "686402688815988769",
       "discordId": "686402688815988769",
@@ -160,6 +150,16 @@
       "timestamp": "2026-08-05T04:56:57.561Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Mercenary"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-08-05T07:56:02.071Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Adathan Ain't No Punk Ass Bitch"
     }
   ]
 }
