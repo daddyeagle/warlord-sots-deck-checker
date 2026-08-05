@@ -1324,5 +1324,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discordId": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Sklot the Cruel",
+    "display_name": "Iceman",
+    "timestamp": "2026-08-05T23:49:15.429Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Dwarf Rogue Goblin Assassin",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Darkwatcher": 1,
+          "Anvil": 2,
+          "Veteran Bowman": 3,
+          "Beacon": 3,
+          "Gadgeteer Bilder": 3,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Tunnel Vanguard": 3,
+          "Shadow Clan Slayer": 2,
+          "Sklot the Cruel": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Swivel": 2,
+          "Curse of Greed": 2,
+          "Assassin's Strike": 2,
+          "Well Supplied": 2,
+          "Crypt Wine": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 2,
+          "Trinket of Malice": 2,
+          "Heavy Crossbow": 2,
+          "Teufeltiger's Shroud": 3,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
