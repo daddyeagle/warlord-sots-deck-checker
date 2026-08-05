@@ -140,6 +140,16 @@
       "timestamp": "2026-08-05T04:04:35.177Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Nothrog"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-08-05T04:44:41.939Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary"
     }
   ]
 }
