@@ -200,6 +200,16 @@
       "timestamp": "2026-08-05T18:29:59.603Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Barrow as Dev"
+    },
+    {
+      "warlord": "Memoriam",
+      "username": "336933692427730946",
+      "discordId": "336933692427730946",
+      "discord_username": "pedrosmurf#0",
+      "display_name": "Pedrosmurf",
+      "timestamp": "2026-08-05T19:15:19.866Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Memoriam is Deverenian"
     }
   ]
 }
