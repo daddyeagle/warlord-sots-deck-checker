@@ -230,6 +230,16 @@
       "timestamp": "2026-08-05T20:41:20.279Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Turncoat"
+    },
+    {
+      "warlord": "Commander Retsov",
+      "username": "328632104973762561",
+      "discordId": "328632104973762561",
+      "discord_username": "lilwing_#0",
+      "display_name": "Ahdrey",
+      "timestamp": "2026-08-05T23:31:49.279Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Cleric"
     }
   ]
 }
