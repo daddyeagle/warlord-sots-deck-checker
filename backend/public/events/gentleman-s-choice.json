@@ -240,6 +240,16 @@
       "timestamp": "2026-08-05T23:31:49.279Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Cleric"
+    },
+    {
+      "warlord": "Sklot the Cruel",
+      "username": "470316124966223873",
+      "discordId": "470316124966223873",
+      "discord_username": "iamiceman#0",
+      "display_name": "Iceman",
+      "timestamp": "2026-08-05T23:49:15.429Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Dwarf Rogue Goblin Assassin"
     }
   ]
 }
