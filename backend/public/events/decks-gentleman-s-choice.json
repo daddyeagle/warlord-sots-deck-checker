@@ -764,5 +764,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "206187469178142720",
+    "discordId": "206187469178142720",
+    "discord_username": "praesum#0",
+    "event": "Gentleman's Choice",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Praesum",
+    "timestamp": "2026-08-05T04:44:41.939Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Recruiter of Misear": 3,
+          "Dwarf-Eater": 2,
+          "Bikram Bullstrength": 3,
+          "Oracle of Kavara": 2,
+          "Blitzer": 2
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Luthlarius Regalia": 3,
+          "Ardian Greathawk": 3,
+          "Hod's Legacy": 1,
+          "Annales Deverenium": 1,
+          "Hunting Staff": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Meet at the Inn!": 3,
+          "Gift From Above": 2,
+          "Holy Might": 2,
+          "Kor's Patience": 2,
+          "Solar Ray": 2,
+          "Quick Strength": 2,
+          "Invoke the Storm": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
