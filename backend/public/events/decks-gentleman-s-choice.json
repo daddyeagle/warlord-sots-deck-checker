@@ -874,5 +874,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-08-05T14:48:20.525Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Faction",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Shambling Horror": 1,
+          "Sutek Razorclaw": 3,
+          "Starbinder": 2,
+          "Recruiter of Misear": 3,
+          "Master Dresden": 3,
+          "Isadran Kennelmaster": 2,
+          "Field Marshal Malexin": 2,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Trogid": 1,
+          "Brine Fiend": 2,
+          "Shambling Horror": 2
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Wither": 2,
+          "Sacrifice": 2,
+          "Quick Strength": 3,
+          "Noble Sacrifice": 2,
+          "Kor's Patience": 3,
+          "Invoke the Storm": 2,
+          "Final Farewell": 2,
+          "Fateshift": 1,
+          "Divine Respite": 3,
+          "Dissolve": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 2,
+          "Hod's Legacy": 1,
+          "Ardian Greathawk": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
