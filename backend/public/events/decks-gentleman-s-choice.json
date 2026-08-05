@@ -987,5 +987,65 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Commander Retsov",
+    "display_name": "Raclesis",
+    "timestamp": "2026-08-05T16:50:09.254Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Cleric",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Thunic Yeti": 3,
+          "Swiftcloud": 1,
+          "Oracle of Kavara": 2,
+          "Master Dresden": 3,
+          "Kingslayer": 1,
+          "Flamefall": 1,
+          "Dreadfang": 1,
+          "Darkwatcher": 1,
+          "Brightwing": 2,
+          "Blitzer": 2,
+          "Blackwind": 1,
+          "Ashveil": 1
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Heresy Ward": 1,
+          "Hunting Staff": 1,
+          "Medical Kit": 1,
+          "Kor's Aegis": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Revitalizing Roots": 2,
+          "Resurrection": 2,
+          "Quick Strength": 2,
+          "Midnight Madness": 2,
+          "Holy Might": 2,
+          "Final Blessing": 3,
+          "Fateshift": 2,
+          "Divine Respite": 3,
+          "Curse of Greed": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
