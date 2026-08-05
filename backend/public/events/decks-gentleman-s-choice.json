@@ -1265,5 +1265,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "328632104973762561",
+    "discordId": "328632104973762561",
+    "discord_username": "lilwing_#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Commander Retsov",
+    "display_name": "Ahdrey",
+    "timestamp": "2026-08-05T23:31:49.279Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Cleric",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blackwind": 2,
+          "Dreadfang": 1,
+          "Jubilant Hatchling": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 3,
+          "Swiftcloud": 1,
+          "Thunic Yeti": 2,
+          "Brightwing": 1,
+          "Flamefall": 1,
+          "Kingslayer": 1,
+          "Ashveil": 1,
+          "Darkwatcher": 1
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Mephit": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Cyldragen's Tome": 3,
+          "Balian's Helm": 1,
+          "Blessed Vestments": 1,
+          "Storm Shard": 1,
+          "Medical Kit": 1,
+          "Ardian Greathawk": 3,
+          "Annales Deverenium": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Curse of Greed": 3,
+          "Meet at the Inn!": 3,
+          "Sacrifice": 3,
+          "Divine Respite": 3,
+          "Resurrection": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
