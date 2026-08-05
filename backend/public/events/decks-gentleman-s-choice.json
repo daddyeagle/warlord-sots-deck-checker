@@ -718,7 +718,7 @@
     "event": "Gentleman's Choice",
     "warlord": "Adathan, Celestial Messenger",
     "display_name": "daddy_eagle",
-    "timestamp": "2026-08-04T21:27:33.141Z",
+    "timestamp": "2026-08-05T04:04:35.177Z",
     "requiredTextFieldLabel": "Classy/Turncoat Change",
     "requiredTextFieldValue": "Nothrog",
     "cardList": {
@@ -756,8 +756,8 @@
           "Spiritual Weapon": 3,
           "Quick Strength": 3,
           "Final Farewell": 3,
-          "Final Blessing": 2,
-          "Fateshift": 3,
+          "Final Blessing": 3,
+          "Fateshift": 2,
           "Epic Judgment": 3,
           "Arcane Approach": 3
         },
