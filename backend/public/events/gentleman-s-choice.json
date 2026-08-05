@@ -142,16 +142,6 @@
       "requiredTextFieldValue": "Nothrog"
     },
     {
-      "warlord": "High Acolyte Hellene",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-08-05T04:44:41.939Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Mercenary"
-    },
-    {
       "warlord": "Church Enforcer Tancred",
       "username": "609237331320373249",
       "discordId": "609237331320373249",
@@ -160,6 +150,16 @@
       "timestamp": "2026-08-05T04:47:41.026Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Rogue"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-08-05T04:56:57.561Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary"
     }
   ]
 }
