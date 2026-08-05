@@ -933,5 +933,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Vactus, Spirit's Champion",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-08-05T15:10:21.763Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Rogue",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Ac'Vuk": 3,
+          "Master Dresden": 3,
+          "Mo'can": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Joleg": 3,
+          "Novice Pyro": 2,
+          "Vactus, Spirit's Champion": 1
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 2,
+          "Fatestring Bow": 1,
+          "Gapfinder": 2,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Cunning Shot": 2,
+          "Epic Betrayal": 2,
+          "Hunt From Above": 2,
+          "Meet at the Inn!": 2,
+          "Rapid Dash": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
