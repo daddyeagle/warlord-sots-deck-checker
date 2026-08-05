@@ -1101,5 +1101,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "336933692427730946",
+    "discordId": "336933692427730946",
+    "discord_username": "pedrosmurf#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Memoriam",
+    "display_name": "Pedrosmurf",
+    "timestamp": "2026-08-05T19:15:19.866Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Memoriam is Deverenian",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Blitzer": 1,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Memoriam": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Sacrifice": 3,
+          "Meet at the Inn!": 3,
+          "Final Blessing": 3,
+          "Invoke the Storm": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Kor's Aegis": 1,
+          "Storm Shard": 1,
+          "Ardian Greathawk": 2,
+          "Hod's Legacy": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
