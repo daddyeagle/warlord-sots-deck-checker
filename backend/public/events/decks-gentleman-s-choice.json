@@ -816,66 +816,6 @@
     }
   },
   {
-    "username": "333097080543379457",
-    "discordId": "333097080543379457",
-    "discord_username": "restomagus#0",
-    "event": "Gentleman's Choice",
-    "warlord": "Adathan, Celestial Messenger",
-    "display_name": "Restomagus",
-    "timestamp": "2026-08-05T07:58:14.858Z",
-    "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Adathan Ain't No Punk Ass Bitch (merc)",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Shambling Horror": 2,
-          "Bikram Bullstrength": 3,
-          "Blitzer": 2,
-          "Brightwing": 1,
-          "Dreadfang": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Sutek Razorclaw": 3,
-          "Swiftcloud": 2
-        },
-        "startingArmy": {
-          "Adathan, Celestial Messenger": 1,
-          "Brine Fiend": 3,
-          "Mephit": 1,
-          "Shambling Horror": 1
-        }
-      },
-      "Item": {
-        "count": 7,
-        "mainDeck": {
-          "Cyldragen's Tome": 1,
-          "Hod's Legacy": 1,
-          "Hunting Staff": 2,
-          "Kor's Aegis": 1,
-          "Medical Kit": 1,
-          "Storm Shard": 1
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Divine Respite": 3,
-          "Fateshift": 3,
-          "Final Blessing": 2,
-          "Final Farewell": 1,
-          "Holy Might": 2,
-          "Kor's Patience": 3,
-          "Leveled!": 2,
-          "Quick Strength": 2,
-          "Viscous Goo": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discordId": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
@@ -1151,6 +1091,66 @@
           "Storm Shard": 1,
           "Ardian Greathawk": 2,
           "Hod's Legacy": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Restomagus",
+    "timestamp": "2026-08-05T19:20:06.852Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Daddy Addy - Merc",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Brightwing": 1,
+          "Sutek Razorclaw": 3,
+          "Blitzer": 2,
+          "Dreadfang": 1,
+          "Bikram Bullstrength": 3,
+          "Swiftcloud": 2
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Brine Fiend": 3,
+          "Mephit": 1,
+          "Shambling Horror": 1
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Cyldragen's Tome": 1,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2,
+          "Kor's Aegis": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Holy Might": 2,
+          "Leveled!": 2,
+          "Fateshift": 3,
+          "Kor's Patience": 3,
+          "Divine Respite": 3,
+          "Quick Strength": 2,
+          "Viscous Goo": 1,
+          "Final Blessing": 2,
+          "Final Farewell": 1
         },
         "startingArmy": {}
       }
