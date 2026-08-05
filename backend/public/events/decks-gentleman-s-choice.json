@@ -440,63 +440,6 @@
     }
   },
   {
-    "username": "333097080543379457",
-    "discordId": "333097080543379457",
-    "discord_username": "restomagus#0",
-    "event": "Gentleman's Choice",
-    "warlord": "Alrayn Gaunt",
-    "display_name": "Restomagus",
-    "timestamp": "2026-08-04T06:26:56.115Z",
-    "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Squid-Ward",
-    "cardList": {
-      "Character": {
-        "count": 23,
-        "mainDeck": {
-          "Mephit": 2,
-          "Blitzer": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Starbinder": 3,
-          "Trogid": 3,
-          "Tunnel Worm": 3
-        },
-        "startingArmy": {
-          "Alrayn Gaunt": 1,
-          "Brine Fiend": 3,
-          "Mephit": 1,
-          "Shambling Horror": 1
-        }
-      },
-      "Action": {
-        "count": 13,
-        "mainDeck": {
-          "Arcane Approach": 3,
-          "Berserk": 2,
-          "Epic Donnybrook": 2,
-          "Final Farewell": 1,
-          "Lights of Revealing Sword": 3,
-          "Prime Positioning": 2
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 14,
-        "mainDeck": {
-          "Ardian Greathawk": 3,
-          "Bardiche": 2,
-          "Eager Blade": 1,
-          "Griffon of Andover": 2,
-          "Myerdeth Mare": 1,
-          "Rockarm": 2,
-          "Storm Shard": 1,
-          "Strongarm Stout": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "686402688815988769",
     "discordId": "686402688815988769",
     "discord_username": "cathelisourking#0",
@@ -867,6 +810,66 @@
           "Solar Ray": 2,
           "Quick Strength": 2,
           "Invoke the Storm": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Restomagus",
+    "timestamp": "2026-08-05T07:56:02.071Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Adathan Ain't No Punk Ass Bitch",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shambling Horror": 2,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 2,
+          "Brightwing": 1,
+          "Dreadfang": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Sutek Razorclaw": 3,
+          "Swiftcloud": 2
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Brine Fiend": 3,
+          "Mephit": 1,
+          "Shambling Horror": 1
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Cyldragen's Tome": 1,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2,
+          "Kor's Aegis": 1,
+          "Medical Kit": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Fateshift": 3,
+          "Final Blessing": 2,
+          "Final Farewell": 1,
+          "Holy Might": 2,
+          "Kor's Patience": 3,
+          "Leveled!": 2,
+          "Quick Strength": 2,
+          "Viscous Goo": 1
         },
         "startingArmy": {}
       }
