@@ -160,6 +160,16 @@
       "timestamp": "2026-08-05T07:58:14.858Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Adathan Ain't No Punk Ass Bitch (merc)"
+    },
+    {
+      "warlord": "Adathan, Celestial Messenger",
+      "username": "1388986791079448577",
+      "discordId": "1388986791079448577",
+      "discord_username": "fox.and.otter_19171#0",
+      "display_name": "fox.n.otter",
+      "timestamp": "2026-08-05T14:48:20.525Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Faction"
     }
   ]
 }
