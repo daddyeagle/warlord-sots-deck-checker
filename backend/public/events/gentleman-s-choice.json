@@ -170,6 +170,16 @@
       "timestamp": "2026-08-05T14:48:20.525Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Faction"
+    },
+    {
+      "warlord": "Vactus, Spirit's Champion",
+      "username": "307709338250903552",
+      "discordId": "307709338250903552",
+      "discord_username": "themelyk#0",
+      "display_name": "TheMelyK",
+      "timestamp": "2026-08-05T15:10:21.763Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Rogue"
     }
   ]
 }
