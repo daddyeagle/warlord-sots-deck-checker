@@ -761,61 +761,6 @@
     }
   },
   {
-    "username": "206187469178142720",
-    "discordId": "206187469178142720",
-    "discord_username": "praesum#0",
-    "event": "Gentleman's Choice",
-    "warlord": "High Acolyte Hellene",
-    "display_name": "Praesum",
-    "timestamp": "2026-08-05T04:56:57.561Z",
-    "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Mercenary",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Master Dresden": 3,
-          "Thunic Yeti": 3,
-          "Recruiter of Misear": 3,
-          "Dwarf-Eater": 2,
-          "Bikram Bullstrength": 3,
-          "Oracle of Kavara": 2,
-          "Blitzer": 3
-        },
-        "startingArmy": {
-          "High Acolyte Hellene": 1,
-          "Brine Fiend": 3,
-          "Shambling Horror": 2
-        }
-      },
-      "Item": {
-        "count": 10,
-        "mainDeck": {
-          "Luthlarius Regalia": 3,
-          "Ardian Greathawk": 3,
-          "Hod's Legacy": 1,
-          "Annales Deverenium": 1,
-          "Hunting Staff": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 18,
-        "mainDeck": {
-          "Divine Respite": 3,
-          "Meet at the Inn!": 3,
-          "Gift From Above": 2,
-          "Kor's Patience": 2,
-          "Holy Might": 2,
-          "Solar Ray": 2,
-          "Quick Strength": 2,
-          "Invoke the Storm": 2
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "1388986791079448577",
     "discordId": "1388986791079448577",
     "discord_username": "fox.and.otter_19171#0",
@@ -1429,6 +1374,67 @@
         "mainDeck": {
           "Storm Shard": 1,
           "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "206187469178142720",
+    "discordId": "206187469178142720",
+    "discord_username": "praesum#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Praesum",
+    "timestamp": "2026-08-06T01:06:57.174Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Deverenian",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Taumar the Protector": 3,
+          "Bikram Bullstrength": 2,
+          "Blitzer": 1,
+          "Sister Kiren": 2
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Warboss Azh'kal": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Vanguard's Presence": 1,
+          "Rockarm": 2,
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 1,
+          "Myerdeth Mare": 2,
+          "Bardiche": 2,
+          "Nothrog S'sike": 3,
+          "Bruntor's Helm": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Berserk": 3,
+          "Well Supplied": 2,
+          "Epic Donnybrook": 1,
+          "Leveled!": 3,
+          "Heroic Confrontation": 2,
+          "Press the Attack": 2,
+          "Final Farewell": 1,
+          "Prime Positioning": 1
         },
         "startingArmy": {}
       }
