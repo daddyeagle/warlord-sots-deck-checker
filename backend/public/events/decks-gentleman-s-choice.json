@@ -1548,5 +1548,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Gentleman's Choice",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-08-06T01:24:03.693Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Mercenary Cleric Human Cantor",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Alaya": 1,
+          "Blackwind": 1,
+          "Blitzer": 2,
+          "Brightwing": 1,
+          "Darkwatcher": 1,
+          "Dreadfang": 1,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Recruiter of Misear": 2,
+          "Swiftcloud": 2,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "High Acolyte Hellene": 1,
+          "Shambling Horror": 1,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cyldragen's Tome": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Courage from Faith": 1,
+          "Curse of Greed": 3,
+          "Dissolve": 2,
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Final Blessing": 3,
+          "Invoke the Storm": 2,
+          "Meet at the Inn!": 1,
+          "Midnight Madness": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
