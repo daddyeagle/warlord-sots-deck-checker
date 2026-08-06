@@ -280,6 +280,16 @@
       "timestamp": "2026-08-06T01:23:57.881Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Deverenian Fighter Stormwraith Tactician"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "568205993100574731",
+      "discordId": "568205993100574731",
+      "discord_username": "the.thing333#0",
+      "display_name": "The.Thing333",
+      "timestamp": "2026-08-06T01:24:03.693Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Mercenary Cleric Human Cantor"
     }
   ]
 }
