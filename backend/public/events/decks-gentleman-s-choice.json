@@ -1554,54 +1554,56 @@
     "discordId": "568205993100574731",
     "discord_username": "the.thing333#0",
     "event": "Gentleman's Choice",
-    "warlord": "High Acolyte Hellene",
+    "warlord": "Efrim Dawntreader",
     "display_name": "The.Thing333",
-    "timestamp": "2026-08-06T01:24:03.693Z",
+    "timestamp": "2026-08-06T01:42:32.848Z",
     "requiredTextFieldLabel": "Classy/Turncoat Change",
-    "requiredTextFieldValue": "Mercenary Cleric Human Cantor",
+    "requiredTextFieldValue": "Nothrog Fighter Human Siege",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Alaya": 1,
-          "Blackwind": 1,
-          "Blitzer": 2,
-          "Brightwing": 1,
-          "Darkwatcher": 1,
-          "Dreadfang": 1,
-          "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Recruiter of Misear": 2,
-          "Swiftcloud": 2,
-          "Thunic Yeti": 3
+          "Bikram Bullstrength": 3,
+          "Doo'run": 3,
+          "Flamefall": 1,
+          "Makusog Steelhorn": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "The Mighty Mugg": 3
         },
         "startingArmy": {
-          "Brine Fiend": 3,
-          "High Acolyte Hellene": 1,
-          "Shambling Horror": 1,
-          "Tyren Ruskin": 1
+          "Efrim Dawntreader": 1,
+          "'Mad' Pat Carrik": 1,
+          "Bear Legion Recruit": 3,
+          "Novice Pyro": 1
         }
       },
-      "Item": {
-        "count": 5,
+      "Action": {
+        "count": 7,
         "mainDeck": {
-          "Ardian Greathawk": 2,
-          "Cyldragen's Tome": 3
+          "Arcane Approach": 2,
+          "Epic Donnybrook": 1,
+          "Final Farewell": 1,
+          "Midnight Madness": 2,
+          "Well Supplied": 1
         },
         "startingArmy": {}
       },
-      "Action": {
-        "count": 20,
+      "Item": {
+        "count": 18,
         "mainDeck": {
-          "Courage from Faith": 1,
-          "Curse of Greed": 3,
-          "Dissolve": 2,
-          "Divine Respite": 3,
-          "Epic Judgment": 3,
-          "Final Blessing": 3,
-          "Invoke the Storm": 2,
-          "Meet at the Inn!": 1,
-          "Midnight Madness": 2
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 2,
+          "Eager Blade": 1,
+          "Flail": 2,
+          "Griffon of Andover": 2,
+          "Havat-lahn Stance": 1,
+          "Myerdeth Mare": 1,
+          "Nothrog S'sike": 1,
+          "Rockarm": 1,
+          "Steelforge Regalia": 2,
+          "Storm Shard": 1,
+          "Strongarm Stout": 2
         },
         "startingArmy": {}
       }
