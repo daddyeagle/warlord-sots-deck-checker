@@ -252,16 +252,6 @@
       "requiredTextFieldValue": "Retsov Cleric"
     },
     {
-      "warlord": "Warboss Azh'kal",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-08-06T01:06:57.174Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Deverenian"
-    },
-    {
       "warlord": "Kurak Stonejaw",
       "username": "685269358745878529",
       "discordId": "685269358745878529",
@@ -280,6 +270,16 @@
       "timestamp": "2026-08-06T01:23:53.334Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Faction changed to Mercenary"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-08-06T01:23:57.881Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Deverenian Fighter Stormwraith Tactician"
     }
   ]
 }
