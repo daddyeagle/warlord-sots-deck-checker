@@ -250,6 +250,16 @@
       "timestamp": "2026-08-05T23:49:15.429Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Dwarf Rogue Goblin Assassin"
+    },
+    {
+      "warlord": "Commander Retsov",
+      "username": "1124729150603800616",
+      "discordId": "1124729150603800616",
+      "discord_username": "vladsod#0",
+      "display_name": "THE-REDWING-13",
+      "timestamp": "2026-08-06T01:05:25.877Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Retsov Cleric"
     }
   ]
 }
