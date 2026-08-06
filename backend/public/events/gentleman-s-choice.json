@@ -142,16 +142,6 @@
       "requiredTextFieldValue": "Rogue"
     },
     {
-      "warlord": "High Acolyte Hellene",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-08-05T04:56:57.561Z",
-      "requiredTextFieldLabel": "Classy/Turncoat Change",
-      "requiredTextFieldValue": "Mercenary"
-    },
-    {
       "warlord": "Adathan, Celestial Messenger",
       "username": "1388986791079448577",
       "discordId": "1388986791079448577",
@@ -260,6 +250,16 @@
       "timestamp": "2026-08-06T01:05:25.877Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Retsov Cleric"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-08-06T01:06:57.174Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Deverenian"
     }
   ]
 }
