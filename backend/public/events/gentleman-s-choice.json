@@ -270,6 +270,16 @@
       "timestamp": "2026-08-06T01:17:38.452Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Deverenian Kurak Fighter/Cleric"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "106211008812437504",
+      "discordId": "106211008812437504",
+      "discord_username": "oremm#0",
+      "display_name": "Oremm",
+      "timestamp": "2026-08-06T01:23:53.334Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Faction changed to Mercenary"
     }
   ]
 }
