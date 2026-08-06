@@ -1494,5 +1494,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "106211008812437504",
+    "discordId": "106211008812437504",
+    "discord_username": "oremm#0",
+    "event": "Gentleman's Choice",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Oremm",
+    "timestamp": "2026-08-06T01:23:53.334Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Faction changed to Mercenary",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Oracle of Kavara": 1,
+          "Blitzer": 2,
+          "Dwarf-Eater": 3,
+          "Swiftcloud": 2,
+          "Recruiter of Misear": 2,
+          "Master Dresden": 3,
+          "Bikram Bullstrength": 3,
+          "Thunic Yeti": 3
+        },
+        "startingArmy": {
+          "Brine Fiend": 3,
+          "Mephit": 2,
+          "High Acolyte Hellene": 1
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Holy Might": 3,
+          "Quick Strength": 3,
+          "Divine Respite": 3,
+          "Fateshift": 3,
+          "Final Blessing": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hunting Staff": 2,
+          "Hod's Legacy": 2,
+          "Medical Kit": 1,
+          "Kor's Aegis": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
