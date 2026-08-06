@@ -260,6 +260,16 @@
       "timestamp": "2026-08-06T01:06:57.174Z",
       "requiredTextFieldLabel": "Classy/Turncoat Change",
       "requiredTextFieldValue": "Deverenian"
+    },
+    {
+      "warlord": "Kurak Stonejaw",
+      "username": "685269358745878529",
+      "discordId": "685269358745878529",
+      "discord_username": "grahammo#0",
+      "display_name": "graham",
+      "timestamp": "2026-08-06T01:17:38.452Z",
+      "requiredTextFieldLabel": "Classy/Turncoat Change",
+      "requiredTextFieldValue": "Deverenian Kurak Fighter/Cleric"
     }
   ]
 }
