@@ -1439,5 +1439,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discordId": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "Gentleman's Choice",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "graham",
+    "timestamp": "2026-08-06T01:17:38.452Z",
+    "requiredTextFieldLabel": "Classy/Turncoat Change",
+    "requiredTextFieldValue": "Deverenian Kurak Fighter/Cleric",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Squire Fendric": 2,
+          "Kurak Stonejaw": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Spiritual Weapon": 1,
+          "Leveled!": 1,
+          "Meet at the Inn!": 3,
+          "Holy Might": 3,
+          "Crush": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Scale Mail": 1,
+          "Bruntor's Helm": 2,
+          "Shillelagh": 2,
+          "Shield of Spurning": 2,
+          "Rockarm": 3,
+          "Myerdeth Mare": 2,
+          "Medical Kit": 1,
+          "Griffon of Andover": 3,
+          "Breastplate of Power": 1,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
