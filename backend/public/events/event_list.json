@@ -9,5 +9,14 @@
     "requiredTextFieldLabel": "Classy/Turncoat Change",
     "requiredTextFieldPlaceholder": "Class/Faction",
     "hidden": false
+  },
+  {
+    "eventName": "Ancients Worlds 2026",
+    "ruleset": "Ancients",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-03",
+    "decklistFile": "decks-ancients-worlds-2026.json",
+    "submissionFile": "ancients-worlds-2026.json",
+    "hidden": false
   }
 ]
