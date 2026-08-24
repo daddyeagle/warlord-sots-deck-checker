@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "username": "744645938546475159",
+    "discordId": "744645938546475159",
+    "discord_username": "russel2525#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "King Xod",
+    "display_name": "Russel",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Nepheline Gargoyle": 1,
+          "Destruction": 1,
+          "Darkwatcher": 1,
+          "Duri Earthwalker": 3,
+          "Kiyar Undying": 1,
+          "Fridgeir": 1,
+          "Korin Blackstone": 2,
+          "Prince Alaric": 3,
+          "Door to the World": 1,
+          "Drea Nexus": 1,
+          "Supply": 1,
+          "The Temple of Lore": 1
+        },
+        "startingArmy": {
+          "King Xod": 1,
+          "Guardian": 1,
+          "Preen": 1,
+          "Linnea Warsong": 3
+        }
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Blade of Antiquity": 2,
+          "Steelforge Regalia": 1,
+          "The King's Lady": 1,
+          "Jirar Heirloom": 1,
+          "Blackwaters Steed": 1,
+          "Athanae's Armor": 1,
+          "Doomedsky Steed": 1,
+          "Crimson Dragon Shield": 1,
+          "Anandale's Armor": 1,
+          "Ironfang": 1,
+          "Tome of Champions": 3,
+          "Sir Tython's Shield": 1,
+          "Blood God's Basinet": 1,
+          "Avatar of Albrecht": 1,
+          "Nodwick": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Steel Dragon Insignia": 1,
+          "Griffon of Misear": 1,
+          "Griffon of Andover": 1,
+          "Giant Strength Potion": 1,
+          "Living History": 1,
+          "Staff of Secrets": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 2,
+        "mainDeck": {
+          "Well Supplied": 2
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
