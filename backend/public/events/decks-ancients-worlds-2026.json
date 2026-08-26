@@ -175,5 +175,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "80710986104840192",
+    "discordId": "80710986104840192",
+    "discord_username": "renkai#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Ar'tek",
+    "display_name": "Renkai",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 6,
+        "mainDeck": {},
+        "startingArmy": {
+          "Ar'tek": 1,
+          "Bear Legion Recruit": 3,
+          "Uthanak's Tower": 2
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "No Prisoners!": 3,
+          "Bloodthirsty": 3,
+          "Paying the Price": 3,
+          "Cleave": 3,
+          "Great Cleave": 3,
+          "Bear's Soul": 3,
+          "Massacre": 3,
+          "Circle Kick": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 20,
+        "mainDeck": {
+          "Axe of Tergoth": 3,
+          "Deverenus' Axe": 3,
+          "Steelforge Regalia": 2,
+          "Havat-lahn Stance": 2,
+          "Gloves of Mercy": 3,
+          "Myerdeth Mare": 2,
+          "Shadow of Murder": 1,
+          "Rockarm": 2,
+          "Uther's Shroud": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
