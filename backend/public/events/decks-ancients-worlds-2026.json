@@ -224,5 +224,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "151512634573717504",
+    "discordId": "151512634573717504",
+    "discord_username": "chrisvac#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Jodin Drac",
+    "display_name": "ChrisVac",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Cardinal Bromin": 3,
+          "Corinne Drac": 3,
+          "Halo of Secrets": 1,
+          "Oracle of Kavara": 2,
+          "Sir Serane Myerdeth": 1,
+          "Sister Kiren": 2,
+          "The Sable Knight": 1,
+          "The Temple of Lore": 2,
+          "Theodore d'Ilchant": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Acolyte Dorra": 2,
+          "D'Ilchant Keeper": 3,
+          "Jodin Drac": 1
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Bracers of Ogre Power": 1,
+          "Deverenus' Axe": 2,
+          "Dragon Buckler": 2,
+          "Gloves of Mercy": 1,
+          "Griffon of Andover": 2,
+          "Noble Steed": 2,
+          "Silverwind": 2,
+          "Storm Shard": 1,
+          "Tome of the Adept": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Loyalty's Reward": 2,
+          "Meet at the Inn!": 3,
+          "Pit Fight": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
