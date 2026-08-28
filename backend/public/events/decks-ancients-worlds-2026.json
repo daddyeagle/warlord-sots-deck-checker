@@ -334,5 +334,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "543583104221184000",
+    "discordId": "543583104221184000",
+    "discord_username": "midge8700#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Ginerva of the Moon",
+    "display_name": "Midge",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Blade Dancer": 1,
+          "Davaenus": 1,
+          "Ghed Invictus": 1,
+          "Toren Yscar": 1,
+          "Duke Richter": 3,
+          "Ghed Morak": 1,
+          "Halo of Secrets": 1,
+          "Lord Joxanus": 1,
+          "Mother Deiane": 1,
+          "Prioress Sophique": 1,
+          "Queen of Lightning": 2,
+          "Temur": 3,
+          "The Sable Knight": 1
+        },
+        "startingArmy": {
+          "D'Ilchant Keeper": 3,
+          "Ginerva of the Moon": 1,
+          "Justinian": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Clarion": 1,
+          "Ring of the Savant": 1,
+          "Staff of Kizazi": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Exhaustion": 2,
+          "Invoke the Storm": 3,
+          "Mass Blessing": 3,
+          "Meet at the Inn!": 3,
+          "Premonition": 2,
+          "Reflect": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
