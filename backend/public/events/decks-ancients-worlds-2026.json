@@ -280,5 +280,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "617965315166437390",
+    "discordId": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Tavis Jape",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Amoudasi's Wrath": 1,
+          "Veteran Bowman": 1,
+          "Baraz": 3,
+          "Blitzer": 1,
+          "Halo of Fire": 1,
+          "Jackals of Mourn": 3,
+          "Rica O'Shea": 3,
+          "SS-Slik": 3,
+          "The Cutting North Wind": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Amoudasi's Wrath": 1,
+          "Brine Fiend": 3,
+          "Tavis Jape": 1,
+          "Veteran Bowman": 1
+        }
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Bascarite Mark": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Blind the Gods": 3,
+          "Divine Respite": 3,
+          "Epic Judgment": 3,
+          "Incentives": 1,
+          "Infinity's End": 2,
+          "Invoke the Storm": 3,
+          "Mass Blessing": 3,
+          "Premonition": 2,
+          "Stolen Destiny": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
