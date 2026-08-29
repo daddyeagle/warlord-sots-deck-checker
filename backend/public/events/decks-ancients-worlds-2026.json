@@ -392,5 +392,66 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Sav'rukk",
+    "display_name": "Gunn",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "The Retiarius": 1,
+          "The Lost Bride": 3,
+          "The Temple of Lore": 1,
+          "Toren Yscar": 1,
+          "Sethusk": 3,
+          "Sar'ean": 1,
+          "Kovit Treeraiser": 1,
+          "Koratcghuk": 2,
+          "Bokos": 2,
+          "Carg'rag": 3,
+          "Kel'suk": 1
+        },
+        "startingArmy": {
+          "Sav'rukk": 1,
+          "Yeg-Igryll's Altar": 1,
+          "Azh'guttk": 1,
+          "Tsinanok": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Figurine of Trickery": 2,
+          "Nodwick": 1,
+          "Yedraw's Tooth": 1,
+          "Tome of Shadows": 1,
+          "Potion of Blurring": 1,
+          "Portable Hole": 3,
+          "Nightmist Cloak": 1,
+          "Wraithstalker": 1,
+          "Jelial's Bracers": 1,
+          "Cloak of Many Things": 2,
+          "Bracers of Ogre Power": 1,
+          "Blackwaters Steed": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Trade Routes": 1,
+          "Loyalty's Reward": 3,
+          "Meet at the Inn!": 3,
+          "Back Alley Tavern": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
