@@ -453,5 +453,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "710954937189793882",
+    "discordId": "710954937189793882",
+    "discord_username": "temperance2443#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Raziel",
+    "display_name": "Temperance",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Isadra": 1,
+          "Dex Glyn": 3,
+          "Jackals of Mourn": 3,
+          "Vivian": 3,
+          "Archer Tower": 1,
+          "Tresven": 3,
+          "Treyik": 3,
+          "Kapix the Cursed": 1,
+          "Kapix": 1
+        },
+        "startingArmy": {
+          "Raziel": 1,
+          "Isadra": 2,
+          "Amatria Tansiq": 3
+        }
+      },
+      "Dungeon": {
+        "count": 3,
+        "mainDeck": {
+          "Malrog's First Test": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Recruiter's Orders": 3,
+          "Black Moss": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Stolen Destiny": 3,
+          "Fiery Bolts": 3,
+          "Distrust": 3,
+          "Beheading": 3,
+          "Rescue": 1,
+          "Exhaustion": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
