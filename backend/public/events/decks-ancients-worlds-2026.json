@@ -510,5 +510,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "116769200181215234",
+    "discordId": "116769200181215234",
+    "discord_username": "uthanaklanath#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Krun",
+    "display_name": "HenriqueB (Lanath)",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "The Temple of Lore": 3,
+          "Carg'rag": 3
+        },
+        "startingArmy": {
+          "Yeg-Igryll's Altar": 1,
+          "Skash": 1,
+          "Krun": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 3,
+          "Potion of Blurring": 3,
+          "Giant Strength Potion": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Outmatched": 3,
+          "Obliterate": 3,
+          "No Prisoners!": 3,
+          "Lights of Revealing Sword": 3,
+          "Heroic Confrontation": 3,
+          "Flame Blade": 3,
+          "Epic Donnybrook": 1,
+          "Bear's Soul": 3,
+          "A Single Motion": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
