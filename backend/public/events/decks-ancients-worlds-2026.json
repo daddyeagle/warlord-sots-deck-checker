@@ -681,5 +681,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "247425097370042369",
+    "discordId": "247425097370042369",
+    "discord_username": "forgedcaake#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Memoriam",
+    "display_name": "Forgedcaake",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Gadgeteer Bilder": 1,
+          "Bonebreaker": 1,
+          "Glorgrim": 1,
+          "Kiyar Undying": 1,
+          "Mentor": 1,
+          "Wreck": 1,
+          "Destruction": 2,
+          "Surge": 2,
+          "Drea Nexus": 3,
+          "Brass Gargoyle": 3,
+          "Vex Duntan": 3
+        },
+        "startingArmy": {
+          "Danres": 3,
+          "Memoriam": 1,
+          "Sunforge Smith": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Backbiter": 1,
+          "Drac Mail": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Avatar of Kor": 3,
+          "Rescue": 1,
+          "Incentives": 1,
+          "Summon Gargoyle": 2,
+          "Divine Respite": 2,
+          "Obliterate": 2,
+          "Final Blessing": 2,
+          "Reflect": 3,
+          "Epic Judgment": 3,
+          "Mass Blessing": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
