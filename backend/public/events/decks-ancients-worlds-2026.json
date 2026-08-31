@@ -560,5 +560,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "The Nemesis",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Halo of Fire": 1,
+          "Baraz": 1,
+          "Flame Jester": 2,
+          "Light": 1,
+          "Blitzer": 1,
+          "Nestor Price": 2,
+          "SS-Slik": 3,
+          "Toren Yscar": 1,
+          "Jackals of Mourn": 3,
+          "Fire Fiends": 1,
+          "Death Fog": 3
+        },
+        "startingArmy": {
+          "Amoudasi's Wrath": 1,
+          "The Nemesis": 1,
+          "Stygian Wraith": 3,
+          "Shambling Horror": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Grave Robbing": 2,
+          "Phantasm": 1,
+          "Dimensional Rift": 3,
+          "Pull the Strings": 3,
+          "Wheel of Death": 3,
+          "Venom Vines": 2,
+          "Severed of Flesh": 3,
+          "Epic Evocation": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Staff of Secrets": 2,
+          "Robe of the Planes": 1,
+          "Wand of Negation": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
