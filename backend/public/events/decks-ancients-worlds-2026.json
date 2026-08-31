@@ -617,5 +617,69 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "601032639452807178",
+    "discordId": "601032639452807178",
+    "discord_username": "yotakafish#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "King Xod",
+    "display_name": "yotakafish",
+    "timestamp": "2026-09-01T00:00:00.000Z",
+    "cardList": {
+      "Character": {
+        "count": 16,
+        "mainDeck": {
+          "Amends": 1,
+          "Denali Sagebound": 3,
+          "Door to the World": 1,
+          "Drea Nexus": 1,
+          "Supply": 1,
+          "The Temple of Lore": 3
+        },
+        "startingArmy": {
+          "Amends": 2,
+          "Danres": 3,
+          "King Xod": 1
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Bellicose": 3,
+          "Flame Blade": 2,
+          "Obliterate": 3,
+          "Superior Armament": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 23,
+        "mainDeck": {
+          "Amulet of Waking": 1,
+          "Blood God's Basinet": 1,
+          "Bracers of Ogre Power": 1,
+          "Collar of Damnation": 1,
+          "Common Blade": 1,
+          "Storm Shard": 1,
+          "Darkhide Armor": 1,
+          "Deverenus' Axe": 1,
+          "Demonslayer": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Griffon of Misear": 1,
+          "Helm of Terror": 1,
+          "Isadran Amulet": 1,
+          "Kor's Banner": 1,
+          "Potion of Blurring": 3,
+          "Shadow of Murder": 1,
+          "Symbol of Kerebrus": 1,
+          "The Cardinals' Blessing": 1,
+          "Tome of the Adept": 1,
+          "War Spikes": 1,
+          "Wyvern's Scale": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
