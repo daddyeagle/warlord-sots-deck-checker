@@ -1188,5 +1188,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Tazian Dythanus",
+    "display_name": "Raclesis",
+    "timestamp": "2026-09-01T23:18:39.933Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Archer Tower": 1,
+          "Dex Glyn": 3,
+          "Jackals of Mourn": 3,
+          "Kapix": 1,
+          "Kargaz Dythanus": 2,
+          "Myhrena": 2,
+          "Remorna": 3,
+          "Vivian": 3
+        },
+        "startingArmy": {
+          "Tazian Dythanus": 1,
+          "Kinnell": 1,
+          "Graveyard Librarian": 1,
+          "Javvyn": 3
+        }
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Chain Lightning": 2,
+          "Conjure Storm": 2,
+          "Epic Evocation": 3,
+          "Evoke Crisis": 3,
+          "Fiery Bolts": 3,
+          "Final Power": 3,
+          "Pull the Strings": 2,
+          "Severed of Flesh": 3,
+          "Teleport": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Red Wyrm's Egg": 1,
+          "Ring of Blasting": 1,
+          "Wand of Negation": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
