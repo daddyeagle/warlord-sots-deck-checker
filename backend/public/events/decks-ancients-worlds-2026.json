@@ -797,5 +797,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "751294885750898728",
+    "discordId": "751294885750898728",
+    "discord_username": "xenomorph40#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Lasan Warbreaker",
+    "display_name": "Xenomorph40",
+    "timestamp": "2026-09-01T15:25:16.220Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Beacon": 2,
+          "Darkwatcher": 1,
+          "Duri Earthwalker": 3,
+          "Cairn Rowan": 3,
+          "Grit": 3,
+          "Drea Nexus": 2,
+          "Faceless": 2,
+          "Destruction": 1,
+          "Toren Yscar": 1,
+          "Fridgeir": 1,
+          "Kiyar Undying": 1
+        },
+        "startingArmy": {
+          "Nolen, King's Guardian": 1,
+          "Bastion": 3,
+          "Lasan Warbreaker": 1
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Steelforge Regalia": 2,
+          "Royal Chariot": 3,
+          "Wyvernsteed": 3,
+          "Stormwolf": 1,
+          "Great White": 1,
+          "Breastplate of Power": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Loyalty's Reward": 3,
+          "Close Combat": 3,
+          "An Honor to Die": 3,
+          "A Time for Heroes": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
