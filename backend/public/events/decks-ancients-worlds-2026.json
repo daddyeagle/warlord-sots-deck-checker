@@ -905,5 +905,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "173757707285823489",
+    "discordId": "173757707285823489",
+    "discord_username": "slyfoxlive#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Adarymy",
+    "display_name": "SlyfoX",
+    "timestamp": "2026-09-01T18:02:59.987Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Spencer Latham": 1,
+          "Brother Dominy": 2,
+          "Clerimonde": 2,
+          "Ryan Mornington": 2,
+          "Novice Ruth": 2,
+          "Spot": 2,
+          "Kun Iacob": 3,
+          "Kylia Smythe": 2,
+          "Leonora": 2,
+          "The Temple of Lore": 1
+        },
+        "startingArmy": {
+          "Spencer Latham": 2,
+          "Brother Dominy": 1,
+          "Rosalie": 2,
+          "Adarymy": 1
+        }
+      },
+      "Action": {
+        "count": 17,
+        "mainDeck": {
+          "Bandage": 2,
+          "Final Blessing": 2,
+          "Exhaustion": 3,
+          "Hero's Gambit": 3,
+          "Sanctuary": 3,
+          "Reflect": 3,
+          "Winter Warfare": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Black Moss": 2,
+          "Blazing Medallion": 1,
+          "Portable Hole": 2,
+          "Deverenus' Axe": 2,
+          "Alliance Standard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
