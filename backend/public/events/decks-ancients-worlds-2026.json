@@ -961,5 +961,76 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discordId": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "King Xod",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-09-01T21:28:47.617Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Door to the World": 1,
+          "Denali Sagebound": 3,
+          "Forge": 1,
+          "Stockpile": 2,
+          "Supply": 1,
+          "Toren Yscar": 1,
+          "Wrath": 2,
+          "Drea Nexus": 1,
+          "Devourer": 1
+        },
+        "startingArmy": {
+          "Will": 1,
+          "King Xod": 1,
+          "Preen": 1,
+          "Danres": 3
+        }
+      },
+      "Action": {
+        "count": 6,
+        "mainDeck": {
+          "Bear's Soul": 1,
+          "Obliterate": 2,
+          "Superior Armament": 2,
+          "Sigil of Bonding": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Amulet of Waking": 1,
+          "Blood God's Basinet": 1,
+          "Blue Wyrm's Egg": 1,
+          "Bone Armor": 1,
+          "Boots of Mobility": 1,
+          "Bracers of Ogre Power": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Common Blade": 1,
+          "Fiendish Plate": 1,
+          "Helm of Terror": 1,
+          "Kor's Banner": 1,
+          "Kringle's Sleigh": 1,
+          "The Maker's Way": 1,
+          "Medical Kit": 1,
+          "Narawat Banner": 1,
+          "Potion of Blurring": 2,
+          "Sir Tython's Shield": 1,
+          "Staff of Secrets": 1,
+          "Symbol of Kerebrus": 1,
+          "The Cardinals' Blessing": 1,
+          "Thievesbane": 1,
+          "Tome of the Adept": 1,
+          "Tome of Champions": 1,
+          "War Spikes": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
