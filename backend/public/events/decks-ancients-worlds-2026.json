@@ -737,5 +737,65 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "784876305388273664",
+    "discordId": "784876305388273664",
+    "discord_username": "kingofglobia.#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Lord Winter",
+    "display_name": "kingofglobia.",
+    "timestamp": "2026-09-01T14:02:36.286Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "The Temple of Lore": 3,
+          "Brindle": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Lord Winter": 1,
+          "Elemere": 1,
+          "Zachary Blaise": 1,
+          "Wretched Horde": 1,
+          "Kapix the Cursed": 1
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Helm of Terror": 1,
+          "Votaurr Charm": 1,
+          "Invulnerability Potion": 3,
+          "Potion of Blurring": 3,
+          "Strongarm Stout": 3,
+          "Excessus": 3,
+          "Havat-lahn Stance": 1,
+          "Nodwick": 1,
+          "Black Moss": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Reckless Abandon": 3,
+          "Primal Rage": 3,
+          "Stubborn": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3,
+          "With My Last Breath": 3
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 3,
+        "mainDeck": {
+          "Isle of Fire": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
