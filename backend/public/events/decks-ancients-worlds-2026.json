@@ -1138,5 +1138,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "307709338250903552",
+    "discordId": "307709338250903552",
+    "discord_username": "themelyk#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Krun",
+    "display_name": "TheMelyK",
+    "timestamp": "2026-09-01T22:49:28.956Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Carg'rag": 3,
+          "The Temple of Lore": 3
+        },
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Krun": 1,
+          "Uthanak's Tower": 1,
+          "Yeg-Igryll's Altar": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "A Single Motion": 2,
+          "Bloodthirsty": 3,
+          "Epic Donnybrook": 2,
+          "Flame Blade": 3,
+          "Heroic Confrontation": 3,
+          "No Prisoners!": 3,
+          "Noble Sacrifice": 3,
+          "Obliterate": 3,
+          "Outmatched": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Giant Strength Potion": 3,
+          "Potion of Blurring": 3,
+          "Silverwind": 3,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
