@@ -853,5 +853,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1097993099822759966",
+    "discordId": "1097993099822759966",
+    "discord_username": "baptiste.bach#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Loki",
+    "display_name": "Bach",
+    "timestamp": "2026-09-01T17:34:34.802Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Archer Tower": 1,
+          "Toren Yscar": 1,
+          "Oracle of Kavara": 3,
+          "Supply": 1,
+          "Barricade": 3,
+          "Sentinel Gargoyle": 3,
+          "Alloy Gargoyle": 3,
+          "Strength": 3
+        },
+        "startingArmy": {
+          "Loki": 1,
+          "Labor": 1,
+          "Preen": 1,
+          "Danres": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Kabal Trials": 3,
+          "Amulet of Force": 3,
+          "Kavara's Glare": 3,
+          "Dusty Shelves": 2,
+          "Technomancy": 2,
+          "Nodwick": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Conjuration": 3,
+          "Extensions": 3,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
