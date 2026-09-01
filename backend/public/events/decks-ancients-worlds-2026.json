@@ -805,12 +805,12 @@
     "event": "Ancients Worlds 2026",
     "warlord": "Lasan Warbreaker",
     "display_name": "Xenomorph40",
-    "timestamp": "2026-09-01T15:25:16.220Z",
+    "timestamp": "2026-09-01T15:38:36.601Z",
     "cardList": {
       "Character": {
         "count": 25,
         "mainDeck": {
-          "Beacon": 2,
+          "Mountain": 2,
           "Darkwatcher": 1,
           "Duri Earthwalker": 3,
           "Cairn Rowan": 3,
