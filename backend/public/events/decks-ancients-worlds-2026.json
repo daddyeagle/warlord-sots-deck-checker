@@ -1084,5 +1084,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "184291506096439296",
+    "discordId": "184291506096439296",
+    "discord_username": "queueteapee#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Havellin Tansiq",
+    "display_name": "QTP",
+    "timestamp": "2026-09-01T22:27:45.850Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ardanaalis": 3,
+          "Kapix": 1,
+          "Avatar of Bone": 1,
+          "Ayaaba Waverunner": 1,
+          "Cyrus Netheryn": 3,
+          "Toren Yscar": 1,
+          "The Lost Bride": 3,
+          "Kargaz Dythanus": 3,
+          "Dark Monolith": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Skyyrek": 2,
+          "Havellin Tansiq": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Ring of the Savant": 1,
+          "Bodyguard": 1,
+          "The Maker's Call": 1,
+          "Chill's Razor": 2,
+          "Staff of Kizazi": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Exhaustion": 3,
+          "Incentives": 1,
+          "Divine Respite": 3,
+          "Mass Blessing": 3,
+          "From Dust to Dust": 3,
+          "Epic Judgment": 3,
+          "Return to Us": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
