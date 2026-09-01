@@ -34,14 +34,6 @@
       "timestamp": "2026-09-01T00:00:00.000Z"
     },
     {
-      "warlord": "Jodin Drac",
-      "username": "151512634573717504",
-      "discordId": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-09-01T00:00:00.000Z"
-    },
-    {
       "warlord": "Tavis Jape",
       "username": "617965315166437390",
       "discordId": "617965315166437390",
@@ -176,6 +168,14 @@
       "discord_username": "raclesis#0",
       "display_name": "Raclesis",
       "timestamp": "2026-09-01T23:18:39.933Z"
+    },
+    {
+      "warlord": "Jodin Drac",
+      "username": "151512634573717504",
+      "discordId": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-09-01T23:32:39.455Z"
     }
   ]
 }
