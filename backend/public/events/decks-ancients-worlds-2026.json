@@ -865,58 +865,6 @@
     }
   },
   {
-    "username": "673010482755534868",
-    "discordId": "673010482755534868",
-    "discord_username": "drrandolphcarter#0",
-    "event": "Ancients Worlds 2026",
-    "warlord": "Raziel",
-    "display_name": "WesY",
-    "timestamp": "2026-09-01T22:05:42.256Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Isadra": 1,
-          "Veera and Bones": 2,
-          "Kapix": 1,
-          "Treyik": 3,
-          "Tresven": 3,
-          "Vivian": 3,
-          "Jackals of Mourn": 3,
-          "Dex Glyn": 3
-        },
-        "startingArmy": {
-          "Javvyn": 3,
-          "Isadra": 2,
-          "Raziel": 1
-        }
-      },
-      "Action": {
-        "count": 23,
-        "mainDeck": {
-          "Stolen Destiny": 2,
-          "Darkflame Bolts": 1,
-          "Fiery Bolts": 3,
-          "Flame Arrows": 3,
-          "Midnight Madness": 3,
-          "Bascarite Swarm": 3,
-          "Tzin's Attention": 3,
-          "Twist of Fate": 2,
-          "Exhaustion": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 2,
-        "mainDeck": {
-          "Black Moss": 1,
-          "Recruiter's Orders": 1
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "184291506096439296",
     "discordId": "184291506096439296",
     "discord_username": "queueteapee#0",
@@ -1753,6 +1701,55 @@
           "Meet at the Inn!": 3,
           "Inheritance": 2,
           "Assassin's Arrow": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "673010482755534868",
+    "discordId": "673010482755534868",
+    "discord_username": "drrandolphcarter#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Averisk Glyn",
+    "display_name": "WesY",
+    "timestamp": "2026-09-02T16:34:58.860Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Myhrena": 3,
+          "Orne": 3,
+          "The Temple of Lore": 3,
+          "Toren Yscar": 1,
+          "The Lost Bride": 3,
+          "Nelwys": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Elemere": 2,
+          "Averisk Glyn": 1
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Farglass": 3,
+          "Unseen Arrow": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Blink": 2,
+          "Crypt Wine": 3,
+          "Veiled Passing": 2,
+          "Meet at the Inn!": 3,
+          "Blood Price": 3,
+          "Conjure Storm": 3,
+          "Lights of Revealing Sword": 3,
+          "Crushing Weight": 3
         },
         "startingArmy": {}
       }
