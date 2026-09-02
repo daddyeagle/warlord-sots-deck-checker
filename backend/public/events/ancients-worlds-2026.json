@@ -42,14 +42,6 @@
       "timestamp": "2026-09-01T00:00:00.000Z"
     },
     {
-      "warlord": "Sav'rukk",
-      "username": "193190910329094144",
-      "discordId": "193190910329094144",
-      "discord_username": "shockgunn#0",
-      "display_name": "Gunn",
-      "timestamp": "2026-09-01T00:00:00.000Z"
-    },
-    {
       "warlord": "Raziel",
       "username": "710954937189793882",
       "discordId": "710954937189793882",
@@ -240,6 +232,14 @@
       "discord_username": "zzzzsss#0",
       "display_name": "Zzzzsss",
       "timestamp": "2026-09-02T03:45:37.932Z"
+    },
+    {
+      "warlord": "Sakar",
+      "username": "193190910329094144",
+      "discordId": "193190910329094144",
+      "discord_username": "shockgunn#0",
+      "display_name": "Gunn",
+      "timestamp": "2026-09-02T05:36:17.801Z"
     }
   ]
 }
