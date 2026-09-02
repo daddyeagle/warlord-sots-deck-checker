@@ -10,14 +10,6 @@
       "timestamp": "2026-09-01T00:00:00.000Z"
     },
     {
-      "warlord": "Khilkhameth",
-      "username": "222893384832909313",
-      "discordId": "222893384832909313",
-      "discord_username": "silen7killz#0",
-      "display_name": "Silen7killz",
-      "timestamp": "2026-09-01T00:00:00.000Z"
-    },
-    {
       "warlord": "Ginerva of the Moon",
       "username": "356100504591269900",
       "discordId": "356100504591269900",
@@ -184,6 +176,14 @@
       "discord_username": "direscrub#0",
       "display_name": "DireScrub",
       "timestamp": "2026-09-02T00:21:49.853Z"
+    },
+    {
+      "warlord": "Khilkhameth",
+      "username": "222893384832909313",
+      "discordId": "222893384832909313",
+      "discord_username": "silen7killz#0",
+      "display_name": "Silen7killz",
+      "timestamp": "2026-09-02T00:26:48.256Z"
     }
   ]
 }
