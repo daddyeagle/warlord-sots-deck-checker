@@ -258,20 +258,20 @@
       "timestamp": "2026-09-02T18:48:04.096Z"
     },
     {
-      "warlord": "Fasolt",
-      "username": "266281128732786688",
-      "discordId": "266281128732786688",
-      "discord_username": "burnout383#0",
-      "display_name": "Burnout",
-      "timestamp": "2026-09-02T21:20:21.283Z"
-    },
-    {
       "warlord": "Tavis Jape",
       "username": "251637874351407105",
       "discordId": "251637874351407105",
       "discord_username": "sammers3169#0",
       "display_name": "sam",
       "timestamp": "2026-09-02T21:22:43.840Z"
+    },
+    {
+      "warlord": "Fasolt",
+      "username": "266281128732786688",
+      "discordId": "266281128732786688",
+      "discord_username": "burnout383#0",
+      "display_name": "Burnout",
+      "timestamp": "2026-09-02T21:28:49.779Z"
     }
   ]
 }
