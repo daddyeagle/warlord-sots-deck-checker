@@ -1406,5 +1406,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "178257746494357514",
+    "discordId": "178257746494357514",
+    "discord_username": "hosh5753#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Mair Haven",
+    "display_name": "Hosh",
+    "timestamp": "2026-09-02T01:53:48.427Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 2,
+          "Archer Tower": 1,
+          "Birdsong Druid": 2,
+          "Peyton Latham": 3,
+          "Roona": 3,
+          "Jirar Huntsman": 3,
+          "Enki": 2,
+          "Calenar": 1,
+          "Sister Amanda": 1,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Baqbou Umbala": 1,
+          "Crownland Strategist": 1,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Empty Racks": 2,
+          "Clearing the Mark": 1,
+          "Subvert": 3,
+          "Crypt Wine": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Fatestring Bow": 3,
+          "Teufeltiger's Shroud": 3,
+          "Portable Hole": 3,
+          "Giant Bat": 3,
+          "Farglass": 2,
+          "Nodwick": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
