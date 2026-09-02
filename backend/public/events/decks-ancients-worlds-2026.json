@@ -1640,73 +1640,6 @@
     }
   },
   {
-    "username": "193190910329094144",
-    "discordId": "193190910329094144",
-    "discord_username": "shockgunn#0",
-    "event": "Ancients Worlds 2026",
-    "warlord": "Sakar",
-    "display_name": "Gunn",
-    "timestamp": "2026-09-02T15:32:49.605Z",
-    "cardList": {
-      "Character": {
-        "count": 35,
-        "mainDeck": {
-          "Grihilga": 1,
-          "Temur": 3,
-          "Red Prisken": 3,
-          "Darkwatcher": 1,
-          "Crownland Strategist": 3,
-          "Toren Yscar": 1,
-          "Halo of Secrets": 1,
-          "Stockpile": 3,
-          "Halo of Fire": 1,
-          "Master Dresden": 3,
-          "Gadgeteer Bilder": 2,
-          "Wanderetch": 3,
-          "Beacon": 3,
-          "Archer Tower": 1
-        },
-        "startingArmy": {
-          "Sakar": 1,
-          "Misearean Trader": 3,
-          "Amoudasi's Wrath": 1,
-          "Tyren Ruskin": 1
-        }
-      },
-      "Item": {
-        "count": 18,
-        "mainDeck": {
-          "Fatestring Bow": 1,
-          "Farglass": 2,
-          "Cear's Stone": 1,
-          "Fortune's Helm": 1,
-          "Portable Hole": 3,
-          "Storm Shard": 1,
-          "Nodwick": 1,
-          "Teufeltiger's Shroud": 2,
-          "Camel": 3,
-          "Bracers of Archery": 2
-        },
-        "startingArmy": {
-          "Fatestring Bow": 1
-        }
-      },
-      "Action": {
-        "count": 17,
-        "mainDeck": {
-          "Empty Racks": 2,
-          "Subvert": 3,
-          "Curse of Greed": 2,
-          "Back Alley Tavern": 2,
-          "Meet at the Inn!": 3,
-          "Inheritance": 2,
-          "Assassin's Arrow": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "673010482755534868",
     "discordId": "673010482755534868",
     "discord_username": "drrandolphcarter#0",
@@ -1804,6 +1737,74 @@
           "No Prisoners!": 3,
           "Once Again": 2,
           "Hand of Might": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Sakar",
+    "display_name": "Gunn",
+    "timestamp": "2026-09-02T18:37:50.274Z",
+    "cardList": {
+      "Character": {
+        "count": 35,
+        "mainDeck": {
+          "Grihilga": 1,
+          "Temur": 3,
+          "Red Prisken": 3,
+          "Darkwatcher": 1,
+          "Crownland Strategist": 3,
+          "Toren Yscar": 1,
+          "Halo of Secrets": 1,
+          "Stockpile": 3,
+          "Halo of Fire": 1,
+          "Master Dresden": 3,
+          "Gadgeteer Bilder": 2,
+          "Wanderetch": 3,
+          "Beacon": 3,
+          "Archer Tower": 1
+        },
+        "startingArmy": {
+          "Sakar": 1,
+          "Misearean Trader": 3,
+          "Amoudasi's Wrath": 1,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Fatestring Bow": 1,
+          "Figurine of Trickery": 3,
+          "Farglass": 1,
+          "Cear's Stone": 1,
+          "Fortune's Helm": 1,
+          "Portable Hole": 3,
+          "Storm Shard": 1,
+          "Nodwick": 1,
+          "Teufeltiger's Shroud": 2,
+          "Camel": 3,
+          "Bracers of Archery": 1
+        },
+        "startingArmy": {
+          "Fatestring Bow": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Stolen Destiny": 3,
+          "Subvert": 2,
+          "Curse of Greed": 2,
+          "Back Alley Tavern": 2,
+          "Meet at the Inn!": 3,
+          "Inheritance": 2,
+          "Assassin's Arrow": 2
         },
         "startingArmy": {}
       }
