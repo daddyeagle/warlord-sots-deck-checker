@@ -122,14 +122,6 @@
       "timestamp": "2026-09-01T21:28:47.617Z"
     },
     {
-      "warlord": "Raziel",
-      "username": "673010482755534868",
-      "discordId": "673010482755534868",
-      "discord_username": "drrandolphcarter#0",
-      "display_name": "WesY",
-      "timestamp": "2026-09-01T22:05:42.256Z"
-    },
-    {
       "warlord": "Havellin Tansiq",
       "username": "184291506096439296",
       "discordId": "184291506096439296",
@@ -248,6 +240,14 @@
       "discord_username": "shockgunn#0",
       "display_name": "Gunn",
       "timestamp": "2026-09-02T15:32:49.605Z"
+    },
+    {
+      "warlord": "Averisk Glyn",
+      "username": "673010482755534868",
+      "discordId": "673010482755534868",
+      "discord_username": "drrandolphcarter#0",
+      "display_name": "WesY",
+      "timestamp": "2026-09-02T16:34:58.860Z"
     }
   ]
 }
