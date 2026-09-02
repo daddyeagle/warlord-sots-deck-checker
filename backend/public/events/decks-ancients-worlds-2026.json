@@ -1749,22 +1749,22 @@
     "event": "Ancients Worlds 2026",
     "warlord": "Sakar",
     "display_name": "Gunn",
-    "timestamp": "2026-09-02T18:37:50.274Z",
+    "timestamp": "2026-09-02T18:48:04.096Z",
     "cardList": {
       "Character": {
         "count": 35,
         "mainDeck": {
-          "Grihilga": 1,
+          "Strength": 2,
           "Temur": 3,
           "Red Prisken": 3,
           "Darkwatcher": 1,
-          "Crownland Strategist": 3,
           "Toren Yscar": 1,
           "Halo of Secrets": 1,
           "Stockpile": 3,
           "Halo of Fire": 1,
           "Master Dresden": 3,
-          "Gadgeteer Bilder": 2,
+          "Fylgia": 3,
+          "Gadgeteer Bilder": 1,
           "Wanderetch": 3,
           "Beacon": 3,
           "Archer Tower": 1
