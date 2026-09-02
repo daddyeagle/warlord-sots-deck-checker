@@ -1578,5 +1578,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-09-02T03:23:22.903Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Spencer Latham": 1,
+          "Kun Iacob": 2,
+          "Colter Arden": 1,
+          "Adept Rey": 2,
+          "Ryan Mornington": 2,
+          "Rafkin": 3,
+          "Rolando": 1,
+          "Nemamiah": 1,
+          "Mairead": 3,
+          "Sir Thomas of Celinar": 1,
+          "Lady Isabelle": 1
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Spencer Latham": 2,
+          "Rosalie": 1,
+          "Brother Dominy": 1,
+          "Za'beth Candlebane": 1
+        }
+      },
+      "Action": {
+        "count": 26,
+        "mainDeck": {
+          "Sword Master": 3,
+          "Acts of Faith": 3,
+          "Rabble Rousing": 3,
+          "Mass Blessing": 3,
+          "Low Tide": 3,
+          "Cheat Death": 1,
+          "Dimensional Rift": 1,
+          "Reflect": 3,
+          "Cauterize": 3,
+          "Seize Life": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 2,
+        "mainDeck": {
+          "Nothrog Daggers": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
