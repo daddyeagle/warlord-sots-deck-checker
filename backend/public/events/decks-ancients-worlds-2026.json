@@ -1635,5 +1635,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "917514647886790677",
+    "discordId": "917514647886790677",
+    "discord_username": "zzzzsss#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Laird Jon Hawthorne",
+    "display_name": "Zzzzsss",
+    "timestamp": "2026-09-02T03:45:37.932Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Heath Stafford": 1,
+          "Archer Tower": 1,
+          "The Temple of Lore": 1,
+          "Lawrence Pheen": 3,
+          "Sestian": 3,
+          "Peyton Latham": 3,
+          "Calenar": 2,
+          "Gladys Tynron": 2
+        },
+        "startingArmy": {
+          "Jiyacin Fret": 3,
+          "Scarlett": 2,
+          "Laird Jon Hawthorne": 1
+        }
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Bracers of Archery": 1,
+          "Portable Hole": 2,
+          "Giant Toad": 1,
+          "Farglass": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "The Better Part of Valor": 2,
+          "Assassin's Arrow": 2,
+          "Spring Attack": 1,
+          "Rescue": 1,
+          "Noble Sacrifice": 3,
+          "Fast as the Wind": 3,
+          "Rapid Dash": 3,
+          "Exhaustion": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
