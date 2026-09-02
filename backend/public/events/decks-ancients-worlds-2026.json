@@ -1754,5 +1754,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546202017714929664",
+    "discordId": "546202017714929664",
+    "discord_username": "newkevlar#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Jodin Drac",
+    "display_name": "Mazzaroth",
+    "timestamp": "2026-09-02T17:27:02.936Z",
+    "cardList": {
+      "Character": {
+        "count": 9,
+        "mainDeck": {
+          "Squire Packard": 3
+        },
+        "startingArmy": {
+          "Jodin Drac": 1,
+          "Justinian": 2,
+          "Inquisitor Chroneus": 1,
+          "Oubliette Hound": 2
+        }
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Flame Steed": 2,
+          "Strongarm Stout": 3,
+          "Havat-lahn Stance": 1,
+          "Potion of Blurring": 2,
+          "Myerdeth Mare": 2,
+          "Shadow of Murder": 1,
+          "Storm Shard": 1,
+          "Axe of Tergoth": 2,
+          "Deverenus' Axe": 3,
+          "Great White": 2,
+          "Tranquility": 2,
+          "Rellion Truebred": 2,
+          "Verdatha Mount": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Pit Fight": 3,
+          "Lights of Revealing Sword": 3,
+          "Onslaught": 2,
+          "No Prisoners!": 3,
+          "Once Again": 2,
+          "Hand of Might": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
