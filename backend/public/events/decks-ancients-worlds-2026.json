@@ -1966,5 +1966,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discordId": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Lord Winter",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-09-02T23:16:32.260Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Vedisalaron": 3,
+          "Toren Yscar": 1,
+          "The Temple of Lore": 3,
+          "The Lost Bride": 3,
+          "Hassimal": 3,
+          "Brindle": 3
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Magheline": 2,
+          "Lord Winter": 1
+        }
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Strongarm Stout": 3,
+          "Potion of Blurring": 3,
+          "Nodwick": 1,
+          "Invulnerability Potion": 3,
+          "Havat-lahn Stance": 1,
+          "Giant Strength Potion": 3,
+          "Excessus": 3,
+          "Black Moss": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Reckless Abandon": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 1,
+        "mainDeck": {
+          "Isle of Fire": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
