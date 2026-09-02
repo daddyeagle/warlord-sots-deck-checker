@@ -1461,5 +1461,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "390370445549109249",
+    "discordId": "390370445549109249",
+    "discord_username": "mith_x1013#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "Mith",
+    "timestamp": "2026-09-02T02:33:34.925Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Brother Dominy": 2,
+          "Rosalie": 1,
+          "Kato Lembua": 1,
+          "Kylia Smythe": 2,
+          "Adept Rey": 3,
+          "Shannon the Daring": 2,
+          "Sir Thomas of Celinar": 1,
+          "Field Marshal Malexin": 2,
+          "Mairead": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Brother Dominy": 1,
+          "Rosalie": 1,
+          "Kato Lembua": 1,
+          "Spencer Latham": 2
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Divine Respite": 2,
+          "Revitalizing Roots": 2,
+          "Sacrifice": 2,
+          "Embolden": 3,
+          "Rabble Rousing": 2,
+          "Epic Judgment": 2,
+          "Seize Life": 2,
+          "Mass Blessing": 3,
+          "Bandage": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Alliance Standard": 1,
+          "Bascarite Mark": 2,
+          "Glyph of Faith": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
