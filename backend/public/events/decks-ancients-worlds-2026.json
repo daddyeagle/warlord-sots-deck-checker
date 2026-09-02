@@ -1242,5 +1242,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Beastmaster Eladric",
+    "display_name": "DireScrub",
+    "timestamp": "2026-09-02T00:21:49.853Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Rafkin": 3,
+          "Tahmores Yscar": 3,
+          "Sister Amanda": 1,
+          "Huggins": 3,
+          "Gladys Tynron": 3,
+          "Barrett Yscar": 3,
+          "Banyon": 1,
+          "Aristaios": 3
+        },
+        "startingArmy": {
+          "Yscarite Sentry": 3,
+          "Eloise": 1,
+          "Beastmaster Eladric": 1,
+          "Baqbou Umbala": 1
+        }
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Signon's Armor": 1,
+          "Stormwolf": 1,
+          "Ring of the Savant": 1,
+          "Hod's Legacy": 1,
+          "Bascarite Mark": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Treewalk": 3,
+          "Meet at the Inn!": 3,
+          "Mass Blessing": 3,
+          "Epic Judgment": 3,
+          "Embolden": 3,
+          "Divine Respite": 3,
+          "Back Alley Tavern": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
