@@ -1862,7 +1862,7 @@
     "event": "Ancients Worlds 2026",
     "warlord": "Fasolt",
     "display_name": "Burnout",
-    "timestamp": "2026-09-02T21:28:49.779Z",
+    "timestamp": "2026-09-02T21:35:54.147Z",
     "cardList": {
       "Character": {
         "count": 16,
@@ -1887,9 +1887,9 @@
           "Bloodthirsty": 2,
           "Epic Donnybrook": 3,
           "Flame Blade": 3,
-          "Unprepared for Battle": 3,
           "Obliterate": 2,
-          "On Silent Wings": 2
+          "On Silent Wings": 2,
+          "Unprepared for Battle": 3
         },
         "startingArmy": {}
       },
