@@ -69,58 +69,6 @@
     }
   },
   {
-    "username": "222893384832909313",
-    "discordId": "222893384832909313",
-    "discord_username": "silen7killz#0",
-    "event": "Ancients Worlds 2026",
-    "warlord": "Khilkhameth",
-    "display_name": "Silen7killz",
-    "timestamp": "2026-09-01T00:00:00.000Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Toren Yscar": 1,
-          "Kapix": 1,
-          "The Lost Bride": 3,
-          "Kargaz Dythanus": 3,
-          "Jackals of Mourn": 3,
-          "Dex Glyn": 3,
-          "The Biting West Wind": 3,
-          "Bis": 3
-        },
-        "startingArmy": {
-          "Kapix the Cursed": 1,
-          "Javvyn": 1,
-          "Kinnell": 2,
-          "Khilkhameth": 1
-        }
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Rescue": 1,
-          "Infinity's End": 3,
-          "Mass Blessing": 3,
-          "Exhaustion": 3,
-          "Stab": 3,
-          "Whirlwind": 3,
-          "Sudden Gale": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 6,
-        "mainDeck": {
-          "Ring of the Savant": 1,
-          "Figurine of Protection": 2,
-          "Portable Hole": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "356100504591269900",
     "discordId": "356100504591269900",
     "discord_username": "godinho10#0",
@@ -1292,6 +1240,60 @@
           "Embolden": 3,
           "Divine Respite": 3,
           "Back Alley Tavern": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "222893384832909313",
+    "discordId": "222893384832909313",
+    "discord_username": "silen7killz#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Khilkhameth",
+    "display_name": "Silen7killz",
+    "timestamp": "2026-09-02T00:26:48.256Z",
+    "cardList": {
+      "Character": {
+        "count": 28,
+        "mainDeck": {
+          "The Temple of Lore": 1,
+          "The Cutting North Wind": 3,
+          "Bis": 3,
+          "The Biting West Wind": 3,
+          "Dex Glyn": 3,
+          "Jackals of Mourn": 3,
+          "The Lost Bride": 3,
+          "Kapix": 1,
+          "Toren Yscar": 1,
+          "Kapix the Cursed": 1
+        },
+        "startingArmy": {
+          "Khilkhameth": 1,
+          "Kinnell": 2,
+          "Javvyn": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Reflect": 3,
+          "Sudden Gale": 3,
+          "Whirlwind": 3,
+          "Stab": 3,
+          "Exhaustion": 3,
+          "Mass Blessing": 3,
+          "Rescue": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Portable Hole": 3,
+          "Figurine of Protection": 2,
+          "Ring of the Savant": 1
         },
         "startingArmy": {}
       }
