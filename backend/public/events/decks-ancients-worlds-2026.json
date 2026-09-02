@@ -1809,5 +1809,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "266281128732786688",
+    "discordId": "266281128732786688",
+    "discord_username": "burnout383#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Fasolt",
+    "display_name": "Burnout",
+    "timestamp": "2026-09-02T21:20:21.283Z",
+    "cardList": {
+      "Character": {
+        "count": 16,
+        "mainDeck": {
+          "Cerebrul": 3,
+          "Light": 2,
+          "Narutep": 3,
+          "The Temple of Lore": 2
+        },
+        "startingArmy": {
+          "Fasolt": 1,
+          "Gilbert Basc": 1,
+          "Desert Martyr": 1,
+          "Trogid": 3
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Bear's Soul": 3,
+          "Blood for Blood": 2,
+          "Bloodthirsty": 2,
+          "Epic Donnybrook": 3,
+          "Flame Blade": 3,
+          "Unprepared for Battle": 3,
+          "Obliterate": 2,
+          "On Silent Wings": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Backbiter": 3,
+          "Bardiche": 3,
+          "Giant Strength Potion": 3,
+          "Potion of Blurring": 3
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 2,
+        "mainDeck": {
+          "Isle of Ice": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
