@@ -1866,5 +1866,50 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "251637874351407105",
+    "discordId": "251637874351407105",
+    "discord_username": "sammers3169#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Tavis Jape",
+    "display_name": "sam",
+    "timestamp": "2026-09-02T21:22:43.840Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Amoudasi's Wrath": 1,
+          "Dryad": 2,
+          "Meri-es-anch": 1,
+          "Blood Worm": 3,
+          "Jackals of Mourn": 3,
+          "Spirit Wing": 3,
+          "Ogre": 3,
+          "The Biting West Wind": 3
+        },
+        "startingArmy": {
+          "Tavis Jape": 1,
+          "Amoudasi's Wrath": 2,
+          "Dryad": 1,
+          "Meri-es-anch": 2
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Divine Respite": 3,
+          "Mass Blessing": 3,
+          "Incentives": 1,
+          "Fiery Bolts": 3,
+          "Evoke Crisis": 3,
+          "Exhaustion": 3,
+          "From Dust to Dust": 3,
+          "Stolen Destiny": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
