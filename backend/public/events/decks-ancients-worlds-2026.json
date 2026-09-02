@@ -1695,5 +1695,67 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discordId": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Lord Winter",
+    "display_name": "Iceman",
+    "timestamp": "2026-09-02T09:01:59.596Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Magheline": 1,
+          "Toren Yscar": 1,
+          "Kapix": 1,
+          "Kapix the Cursed": 1,
+          "Naines": 2,
+          "Oracle of Kavara": 3,
+          "Brindle": 3,
+          "The Temple of Lore": 3
+        },
+        "startingArmy": {
+          "Lord Winter": 1,
+          "Magheline": 2,
+          "Javvyn": 3
+        }
+      },
+      "Dungeon": {
+        "count": 1,
+        "mainDeck": {
+          "Isle of Fire": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Nodwick": 1,
+          "Black Moss": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Havat-lahn Stance": 1,
+          "Strongarm Stout": 3,
+          "Potion of Blurring": 3,
+          "Invulnerability Potion": 3,
+          "Excessus": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Rescue": 1,
+          "Flame Blade": 2,
+          "Lights of Revealing Sword": 2,
+          "Back Alley Tavern": 3,
+          "Primal Rage": 3,
+          "Reckless Abandon": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
