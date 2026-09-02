@@ -1519,5 +1519,64 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Bran Segula",
+    "display_name": "Kofax",
+    "timestamp": "2026-09-02T02:34:00.385Z",
+    "cardList": {
+      "Character": {
+        "count": 19,
+        "mainDeck": {
+          "Baraz": 1,
+          "Ghost Bog": 1,
+          "Kabyrr the Insane": 3,
+          "Master Dresden": 1,
+          "Nightscale": 2,
+          "Oracle of Kavara": 2,
+          "The Biting West Wind": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Amoudasi's Wrath": 1,
+          "Bran Segula": 1,
+          "Meri-es-anch": 3,
+          "Shambling Horror": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Epic Donnybrook": 2,
+          "Exhaustion": 2,
+          "From Dust to Dust": 2,
+          "Hunting for Sport": 2,
+          "Meet at the Inn!": 3,
+          "Veiled Passing": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 3,
+          "Fineltour's Draught": 1,
+          "Griffon of Andover": 1,
+          "Havat-lahn Stance": 1,
+          "Kringle's Sleigh": 2,
+          "Rockarm": 1,
+          "Silverwind": 1,
+          "Steelforge Regalia": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
