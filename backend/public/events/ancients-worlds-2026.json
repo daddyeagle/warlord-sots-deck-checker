@@ -194,14 +194,6 @@
       "timestamp": "2026-09-02T02:33:34.925Z"
     },
     {
-      "warlord": "Bran Segula",
-      "username": "609237331320373249",
-      "discordId": "609237331320373249",
-      "discord_username": "mynameis_kofax#0",
-      "display_name": "Kofax",
-      "timestamp": "2026-09-02T02:34:00.385Z"
-    },
-    {
       "warlord": "Adathan, Celestial Messenger",
       "username": "1388986791079448577",
       "discordId": "1388986791079448577",
@@ -368,6 +360,14 @@
       "discord_username": "restomagus#0",
       "display_name": "Restomagus",
       "timestamp": "2026-09-03T03:54:03.545Z"
+    },
+    {
+      "warlord": "Bran Segula",
+      "username": "609237331320373249",
+      "discordId": "609237331320373249",
+      "discord_username": "mynameis_kofax#0",
+      "display_name": "Kofax",
+      "timestamp": "2026-09-03T04:00:47.938Z"
     }
   ]
 }
