@@ -2315,5 +2315,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Master Assassin Cear",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-09-03T01:23:18.730Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Shadowreaver": 3,
+          "Johan Halfblood": 2,
+          "Dex Glyn": 3,
+          "Oracle of Kavara": 2,
+          "Kargaz Dythanus": 3,
+          "The Lost Bride": 3,
+          "The Temple of Lore": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Javvyn": 3,
+          "Graveyard Librarian": 1,
+          "Kinnell": 1,
+          "Master Assassin Cear": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Anticipate": 2,
+          "Assassination": 2,
+          "Ill-Gotten Gains": 2,
+          "Knife After Dark": 2,
+          "Misear Diplomacy": 2,
+          "Threaten": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Vorpal Blade": 2,
+          "Fatestring Bow": 1,
+          "Cloudracer": 2,
+          "Ardian Greathawk": 1,
+          "Blade of Dark Tidings": 3,
+          "Giant Bat": 2,
+          "Portable Hole": 3,
+          "Spider Vestments": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
