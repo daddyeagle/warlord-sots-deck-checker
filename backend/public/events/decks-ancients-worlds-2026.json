@@ -2086,5 +2086,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546413955648716821",
+    "discordId": "546413955648716821",
+    "discord_username": "tyman6717#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Laird Jon Hawthorne",
+    "display_name": "TyMan",
+    "timestamp": "2026-09-03T00:21:05.174Z",
+    "cardList": {
+      "Character": {
+        "count": 17,
+        "mainDeck": {
+          "Calenar": 1,
+          "Peyton Latham": 3,
+          "Sestian": 3,
+          "Gladys Tynron": 3,
+          "Archer Tower": 1
+        },
+        "startingArmy": {
+          "Laird Jon Hawthorne": 1,
+          "Scarlett": 2,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Cloudracer": 3,
+          "Portable Hole": 3,
+          "Frosttalon": 1,
+          "Merrick Regalia": 1,
+          "Amulet of Waking": 1,
+          "Bracers of Archery": 1,
+          "Roc Fletching": 1,
+          "Poison Arrows": 1,
+          "Red Wyrm's Egg": 1,
+          "Boots of Speed": 1,
+          "Map of the Back Alleys": 1,
+          "Sword of the North": 1,
+          "Ardian Greathawk": 1,
+          "Unseen Arrow": 1,
+          "Farglass": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Inheritance": 3,
+          "Fast as the Wind": 3,
+          "Assassin's Arrow": 2,
+          "Shot on the Run": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
