@@ -2197,5 +2197,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "568205993100574731",
+    "discordId": "568205993100574731",
+    "discord_username": "the.thing333#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Jautya Syne",
+    "display_name": "The.Thing333",
+    "timestamp": "2026-09-03T00:41:01.992Z",
+    "cardList": {
+      "Character": {
+        "count": 18,
+        "mainDeck": {
+          "Peyton Latham": 1,
+          "Archer Tower": 1,
+          "Calenar": 3,
+          "Heath Stafford": 1,
+          "Heresk": 2,
+          "The Temple of Lore": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Jautya Syne": 1,
+          "Tyren Ruskin": 2,
+          "Belan": 1,
+          "Brine Fiend": 3
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Hunt From Above": 2,
+          "Strain the Shot": 2,
+          "Noble Sacrifice": 1,
+          "Assassin's Strike": 2,
+          "Clearing the Mark": 2,
+          "Crypt Wine": 3,
+          "Lucky Shot": 3,
+          "Prey on the Hunter": 2,
+          "Thimblerig": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Demonslayers": 2,
+          "Farglass": 3,
+          "Nodwick": 1,
+          "Portable Hole": 2,
+          "Potion of Blurring": 2,
+          "Sewer Worm": 1,
+          "Sharkbone Bow": 1,
+          "Unseen Arrow": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
