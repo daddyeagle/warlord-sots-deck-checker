@@ -2146,59 +2146,6 @@
     }
   },
   {
-    "username": "412750327276765194",
-    "discordId": "412750327276765194",
-    "discord_username": "kalius404#0",
-    "event": "Ancients Worlds 2026",
-    "warlord": "Bran Segula",
-    "display_name": "Kalius404",
-    "timestamp": "2026-09-03T00:21:15.864Z",
-    "cardList": {
-      "Character": {
-        "count": 12,
-        "mainDeck": {
-          "The Temple of Lore": 3,
-          "Toren Yscar": 1,
-          "Oracle of Kavara": 2
-        },
-        "startingArmy": {
-          "Bran Segula": 1,
-          "Brine Fiend": 3,
-          "Tyren Ruskin": 1,
-          "Mephit": 1
-        }
-      },
-      "Action": {
-        "count": 21,
-        "mainDeck": {
-          "Lights of Revealing Sword": 2,
-          "Arcane Approach": 3,
-          "Outmatched": 3,
-          "No Prisoners!": 3,
-          "Paying the Price": 3,
-          "Bear's Soul": 3,
-          "Final Blow": 1,
-          "Obliterate": 3
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 17,
-        "mainDeck": {
-          "Deverenus' Axe": 3,
-          "Steelforge Regalia": 3,
-          "Myerdeth Mare": 2,
-          "Bracers of Ogre Power": 1,
-          "Blue Wyrm's Egg": 1,
-          "Giant Strength Potion": 3,
-          "Storm Shard": 1,
-          "Potion of Blurring": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "568205993100574731",
     "discordId": "568205993100574731",
     "discord_username": "the.thing333#0",
@@ -2367,6 +2314,59 @@
           "Giant Bat": 2,
           "Portable Hole": 3,
           "Spider Vestments": 1
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "412750327276765194",
+    "discordId": "412750327276765194",
+    "discord_username": "kalius404#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Bran Segula",
+    "display_name": "Kalius404",
+    "timestamp": "2026-09-03T01:27:45.203Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "The Temple of Lore": 3,
+          "Toren Yscar": 1,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Bran Segula": 1,
+          "Brine Fiend": 3,
+          "Tyren Ruskin": 1,
+          "Mephit": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Lights of Revealing Sword": 2,
+          "Arcane Approach": 3,
+          "Outmatched": 3,
+          "No Prisoners!": 3,
+          "Paying the Price": 2,
+          "Bear's Soul": 3,
+          "Final Blow": 1,
+          "Obliterate": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 18,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Bracers of Ogre Power": 2,
+          "Blue Wyrm's Egg": 1,
+          "Giant Strength Potion": 3,
+          "Storm Shard": 1,
+          "Potion of Blurring": 3
         },
         "startingArmy": {}
       }
