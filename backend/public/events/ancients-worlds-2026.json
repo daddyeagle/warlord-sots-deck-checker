@@ -306,14 +306,6 @@
       "timestamp": "2026-09-03T00:21:05.174Z"
     },
     {
-      "warlord": "Bran Segula",
-      "username": "412750327276765194",
-      "discordId": "412750327276765194",
-      "discord_username": "kalius404#0",
-      "display_name": "Kalius404",
-      "timestamp": "2026-09-03T00:21:15.864Z"
-    },
-    {
       "warlord": "Jautya Syne",
       "username": "568205993100574731",
       "discordId": "568205993100574731",
@@ -336,6 +328,14 @@
       "discord_username": "vladsod#0",
       "display_name": "THE-REDWING-13",
       "timestamp": "2026-09-03T01:23:18.730Z"
+    },
+    {
+      "warlord": "Bran Segula",
+      "username": "412750327276765194",
+      "discordId": "412750327276765194",
+      "discord_username": "kalius404#0",
+      "display_name": "Kalius404",
+      "timestamp": "2026-09-03T01:27:45.203Z"
     }
   ]
 }
