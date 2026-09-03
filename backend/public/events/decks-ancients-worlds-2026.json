@@ -2501,5 +2501,73 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Commander Retsov",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-09-03T02:02:48.794Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Rr'gent": 3,
+          "Ssithiss, Sutek King": 1,
+          "Koratcghuk": 3,
+          "Grihilga": 1,
+          "Davaenus": 1,
+          "Kingslayer": 1,
+          "Darkwatcher": 1,
+          "Brightwing": 1,
+          "Dreadfang": 1,
+          "Shadowblaze": 1,
+          "Swiftcloud": 1,
+          "The Temple of Lore": 3,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Mephit": 1,
+          "Will O' Wisp": 1,
+          "Misearean Trader": 3,
+          "Commander Retsov": 1
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Bone Armor": 1,
+          "Amulet of Waking": 3,
+          "Blood God's Basinet": 1,
+          "Boots of Mobility": 1,
+          "Bracers of Ogre Power": 1,
+          "Collar of Damnation": 1,
+          "Common Blade": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Kringle's Armor": 1,
+          "Kringle's Sleigh": 1,
+          "Medical Kit": 1,
+          "Nodwick": 1,
+          "Kerebrus' Signet": 1,
+          "Sandals of Fortune": 1,
+          "Sir Tython's Shield": 1,
+          "Steel Dragon Insignia": 1,
+          "Symbol of Kerebrus": 1,
+          "Tome of Champions": 1,
+          "Tome of the Adept": 1,
+          "War Spikes": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 3,
+        "mainDeck": {
+          "Bribe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
