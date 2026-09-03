@@ -2569,5 +2569,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Kothkah",
+    "display_name": "Restomagus",
+    "timestamp": "2026-09-03T03:54:03.545Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Ar'bruz": 1,
+          "Bokos": 3,
+          "Carg'rag": 2,
+          "Koratcghuk": 2,
+          "Kovit Treeraiser": 3,
+          "Nemtok": 3,
+          "Sar'ean": 1,
+          "Sethusk": 3,
+          "The Retiarius": 2,
+          "Toren Yscar": 1
+        },
+        "startingArmy": {
+          "Gunda": 3,
+          "Kothkah": 1,
+          "Phython": 2
+        }
+      },
+      "Item": {
+        "count": 6,
+        "mainDeck": {
+          "Alholland Bramble": 1,
+          "Figurine of Power": 2,
+          "Storm Shard": 1,
+          "The King's Lady": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Back Alley Tavern": 3,
+          "Loyalty's Reward": 3,
+          "Meet at the Inn!": 3,
+          "Obliterate": 3,
+          "Rescue": 1,
+          "Sabotage": 2,
+          "Slow March": 3,
+          "Treewalk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
