@@ -2371,5 +2371,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "423473617180033035",
+    "discordId": "423473617180033035",
+    "discord_username": "graccustheold#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Ghed Mnettaor",
+    "display_name": "Graccus Lightwarden",
+    "timestamp": "2026-09-03T01:46:50.526Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ghed Nuri": 2,
+          "Brightwing": 1,
+          "Sir Euain": 3,
+          "War Wagon": 3,
+          "Squire Andreas": 1,
+          "Isadran Warrior": 1,
+          "Halo of Secrets": 1,
+          "Toren Yscar": 1,
+          "Sir Serane Myerdeth": 3,
+          "Cardinal Daris": 3
+        },
+        "startingArmy": {
+          "Alexa Genecourt": 1,
+          "Ghed Mnettaor": 1,
+          "Sidor the Avenged": 3,
+          "Skyborne Initiate": 1
+        }
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Shore Up": 3,
+          "Goodwife's Parry": 3,
+          "Gahid's Stand": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Nokhtkruger": 2,
+          "Ardian Greathawk": 1,
+          "Storm Shard": 1,
+          "Fineltour's Draught": 2,
+          "Potion of Blurring": 3,
+          "Helm of Terror": 2,
+          "Deverenus' Axe": 2,
+          "Ghoststeel Gauntlets": 1,
+          "Scales of the Storm": 1,
+          "Medical Kit": 1,
+          "Tome of the Adept": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
