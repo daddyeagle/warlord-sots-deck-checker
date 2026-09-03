@@ -2205,12 +2205,11 @@
     "event": "Ancients Worlds 2026",
     "warlord": "Jautya Syne",
     "display_name": "The.Thing333",
-    "timestamp": "2026-09-03T00:41:01.992Z",
+    "timestamp": "2026-09-03T00:55:36.105Z",
     "cardList": {
       "Character": {
-        "count": 18,
+        "count": 17,
         "mainDeck": {
-          "Peyton Latham": 1,
           "Archer Tower": 1,
           "Calenar": 3,
           "Heath Stafford": 1,
@@ -2219,8 +2218,9 @@
           "Toren Yscar": 1
         },
         "startingArmy": {
+          "Peyton Latham": 1,
           "Jautya Syne": 1,
-          "Tyren Ruskin": 2,
+          "Tyren Ruskin": 1,
           "Belan": 1,
           "Brine Fiend": 3
         }
