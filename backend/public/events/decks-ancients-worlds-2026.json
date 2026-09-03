@@ -2429,5 +2429,77 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "683677078796763168",
+    "discordId": "683677078796763168",
+    "discord_username": "wod4920#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "King Xod",
+    "display_name": "wod",
+    "timestamp": "2026-09-03T01:56:44.837Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Denali Sagebound": 1,
+          "Toren Yscar": 1,
+          "Supply": 1,
+          "Stockpile": 1,
+          "Red Prisken": 1,
+          "Lava Gargoyle": 1,
+          "Kiyar Undying": 1,
+          "Korin Blackstone": 3,
+          "Vex Duntan": 1,
+          "Fridgeir": 1,
+          "Duri Earthwalker": 3,
+          "Darkwatcher": 1,
+          "Destruction": 1,
+          "Helt Royalwarden": 1
+        },
+        "startingArmy": {
+          "Arla Favorsight": 1,
+          "Danres": 3,
+          "Fancy": 1,
+          "King Xod": 1
+        }
+      },
+      "Item": {
+        "count": 26,
+        "mainDeck": {
+          "Living History": 1,
+          "Wand of Negation": 1,
+          "Boots of Mobility": 1,
+          "The Cardinals' Blessing": 1,
+          "Bone Armor": 1,
+          "Steelforge Regalia": 2,
+          "Amulet of Waking": 2,
+          "Common Blade": 1,
+          "Ghoststeel Gauntlets": 1,
+          "Staff of Secrets": 1,
+          "Tower Shield": 1,
+          "War Spikes": 1,
+          "Blood God's Basinet": 1,
+          "Blue Wyrm's Egg": 1,
+          "Kor's Banner": 1,
+          "Alholland Bramble": 3,
+          "Tome of Champions": 1,
+          "Ironfang": 1,
+          "Annals of Triumph": 1,
+          "Sir Tython's Shield": 1,
+          "The Maker's Way": 1,
+          "Gossamer Mantle": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Sigil of Bonding": 1,
+          "Well Supplied": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
