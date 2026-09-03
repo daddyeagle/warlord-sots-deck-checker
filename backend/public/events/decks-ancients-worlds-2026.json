@@ -2255,5 +2255,65 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Jodin Drac",
+    "display_name": "djBoneRoller",
+    "timestamp": "2026-09-03T01:15:03.489Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sister Kiren": 2,
+          "Sir Serane Myerdeth": 1,
+          "Queen of Lightning": 1,
+          "Master Dresden": 3,
+          "Halo of Secrets": 2,
+          "Ghed Invictus": 2,
+          "Fylgia": 2,
+          "Dutan Genecourt": 1,
+          "Duke Richter": 3,
+          "Davaenus": 1,
+          "Blade Dancer": 1
+        },
+        "startingArmy": {
+          "Justinian": 2,
+          "Jodin Drac": 1,
+          "D'Ilchant Keeper": 3
+        }
+      },
+      "Item": {
+        "count": 22,
+        "mainDeck": {
+          "Medical Kit": 1,
+          "Wyvernsteed": 2,
+          "War Spikes": 1,
+          "Tome of Champions": 2,
+          "Sir Tython's Shield": 2,
+          "Silverwind": 3,
+          "Potion of Blurring": 3,
+          "Nodwick": 1,
+          "Kringle's Sleigh": 2,
+          "Gloves of Mercy": 1,
+          "Deverenus' Axe": 1,
+          "Bracers of Ogre Power": 1,
+          "Blade of Antiquity": 1,
+          "Ablung's Plate": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 4,
+        "mainDeck": {
+          "Rune of Protection": 1,
+          "Back Alley Tavern": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
