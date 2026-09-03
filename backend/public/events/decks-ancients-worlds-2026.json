@@ -2023,5 +2023,68 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "685269358745878529",
+    "discordId": "685269358745878529",
+    "discord_username": "grahammo#0",
+    "event": "Ancients Worlds 2026",
+    "warlord": "Allisara",
+    "display_name": "graham",
+    "timestamp": "2026-09-03T00:01:05.273Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "The Temple of Lore": 1,
+          "Terrorshaard": 1,
+          "Swiftcloud": 1,
+          "Supremus": 2,
+          "Ssithiss, Sutek King": 3,
+          "Sirenspawn": 1,
+          "Sal'Azar the Gilded": 1,
+          "Ravenwild": 1,
+          "R'Veeka": 1,
+          "Paymaster Corr": 1,
+          "Ebonscourge": 1,
+          "Grihilga": 1,
+          "Flamefang": 1,
+          "Draxon Rhull": 1,
+          "Bem Kaundodo": 1
+        },
+        "startingArmy": {
+          "Misearean Trader": 3,
+          "Cal Blackborne": 1,
+          "Allisara": 1,
+          "Will O' Wisp": 1
+        }
+      },
+      "Action": {
+        "count": 21,
+        "mainDeck": {
+          "Stone Skin": 2,
+          "Rise, and Obey!": 3,
+          "Rescue": 1,
+          "Blink": 2,
+          "Meet at the Inn!": 3,
+          "Improved Invisibility": 1,
+          "Extensions": 3,
+          "Exhaustion": 3,
+          "Counterspell": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Wand of Negation": 1,
+          "Heerman's Epic": 1,
+          "Flory's Monster Guide": 1,
+          "Bodyguard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
