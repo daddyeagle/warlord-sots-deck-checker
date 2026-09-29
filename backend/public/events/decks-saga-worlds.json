@@ -310,5 +310,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "333097080543379457",
+    "discordId": "333097080543379457",
+    "discord_username": "restomagus#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "Restomagus",
+    "timestamp": "2026-09-29T19:11:05.050Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Arika Ketchum": 2,
+          "Birdsong Druid": 3,
+          "Graham Heyward": 3,
+          "Keen Eared Sentry": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Angel's Tears": 1,
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Shrapnelball": 2,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Crypt Wine": 2,
+          "Cunning Shot": 2,
+          "Death From Below": 2,
+          "Pin Down": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
