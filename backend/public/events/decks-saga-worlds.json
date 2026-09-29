@@ -362,5 +362,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "298580168899821568",
+    "discordId": "298580168899821568",
+    "discord_username": "direscrub#0",
+    "event": "Saga Worlds",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "DireScrub",
+    "timestamp": "2026-09-29T21:59:34.773Z",
+    "cardList": {
+      "Character": {
+        "count": 21,
+        "mainDeck": {
+          "Sutek Razorclaw": 1,
+          "Oracle of Kavara": 1,
+          "Master Dresden": 3,
+          "Dwarf-Eater": 3,
+          "Brinewater Croc": 3,
+          "Blitzer": 1,
+          "Bikram Bullstrength": 3
+        },
+        "startingArmy": {
+          "Sutek Razorclaw": 2,
+          "Z'adok, Prey Herder": 1,
+          "Sutek Slimefang": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Viscous Goo": 3,
+          "Sneak Attack": 3,
+          "Shadow Bolts": 3,
+          "Pounce": 3,
+          "Lights of Revealing Sword": 3,
+          "Assassin's Strike": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Revenger": 3,
+          "Gapfinder": 3,
+          "Fatestring Bow": 1,
+          "Cloak of Flight": 1,
+          "Burning Scroll": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
