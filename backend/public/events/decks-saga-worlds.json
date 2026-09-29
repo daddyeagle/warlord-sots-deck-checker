@@ -154,5 +154,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "485248883580993537",
+    "discordId": "485248883580993537",
+    "discord_username": "whiten1tro77#0",
+    "event": "Saga Worlds",
+    "warlord": "Z'adok, Prey Herder",
+    "display_name": "whitenitro77",
+    "timestamp": "2026-09-29T01:46:42.995Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Veteran Bowman": 2,
+          "Master Dresden": 3,
+          "Brinewater Croc": 3,
+          "Dwarf-Eater": 3,
+          "Sta'ash": 3,
+          "Sutek Razorclaw": 2
+        },
+        "startingArmy": {
+          "Z'adok, Prey Herder": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 2
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Shadow Bolts": 3,
+          "Flamelance": 3,
+          "Death From Below": 3,
+          "Pounce": 1,
+          "Pin Down": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Fatestring Bow": 3,
+          "Scout Pony": 3,
+          "Steel Darts": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
