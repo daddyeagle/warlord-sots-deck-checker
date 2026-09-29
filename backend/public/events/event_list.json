@@ -12,7 +12,7 @@
   },
   {
     "eventName": "Saga Worlds",
-    "ruleset": "Saga",
+    "ruleset": "default",
     "startDate": "2026-09-28",
     "endDate": "2026-10-07",
     "decklistFile": "decks-saga-worlds.json",
