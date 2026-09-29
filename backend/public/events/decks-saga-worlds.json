@@ -262,35 +262,35 @@
     "discordId": "617965315166437390",
     "discord_username": "sangington#0",
     "event": "Saga Worlds",
-    "warlord": "Mair Haven",
+    "warlord": "Alrayn Gaunt",
     "display_name": "Sangington - Delta Cubes",
-    "timestamp": "2026-09-29T11:27:33.010Z",
+    "timestamp": "2026-09-29T18:25:15.624Z",
     "cardList": {
       "Character": {
-        "count": 22,
+        "count": 21,
         "mainDeck": {
-          "Crownland Strategist": 1,
-          "Arika Ketchum": 2,
-          "Birdsong Druid": 3,
           "Blitzer": 1,
-          "Graham Heyward": 2,
           "Master Dresden": 3,
-          "Oracle of Kavara": 2,
-          "Thunic Yeti": 2
+          "Oracle of Kavara": 3,
+          "Starbinder": 3,
+          "Thunic Yeti": 1,
+          "Tunnel Worm": 2,
+          "Veteran Bowman": 2
         },
         "startingArmy": {
-          "Crownland Strategist": 2,
-          "Mair Haven": 1,
-          "TFK Brigand": 3
+          "Alrayn Gaunt": 1,
+          "Brine Fiend": 1,
+          "Shambling Horror": 2,
+          "Trogid": 2
         }
       },
       "Item": {
-        "count": 14,
+        "count": 15,
         "mainDeck": {
           "Ardian Greathawk": 2,
           "Cloudracer": 3,
-          "Fatestring Bow": 3,
-          "Shrapnelball": 2,
+          "Gapfinder": 3,
+          "Revenger": 3,
           "Storm Shard": 1,
           "Teufeltiger's Shroud": 3
         },
@@ -299,11 +299,13 @@
       "Action": {
         "count": 14,
         "mainDeck": {
-          "Assassin's Strike": 3,
-          "Crypt Wine": 3,
+          "Assassin's Strike": 2,
           "Cunning Shot": 2,
-          "Pin Down": 3,
-          "Swivel": 3
+          "Dupe": 2,
+          "Epic Betrayal": 1,
+          "Hunt From Above": 2,
+          "Noble Sacrifice": 2,
+          "Rapid Dash": 3
         },
         "startingArmy": {}
       }
