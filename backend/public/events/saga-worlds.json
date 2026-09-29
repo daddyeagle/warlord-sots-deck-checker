@@ -10,14 +10,6 @@
       "timestamp": "2026-09-29T01:01:48.540Z"
     },
     {
-      "warlord": "Warboss Azh'kal",
-      "username": "225075257822674944",
-      "discordId": "225075257822674944",
-      "discord_username": "oeagle#0",
-      "display_name": "daddy_eagle",
-      "timestamp": "2026-09-29T01:03:36.088Z"
-    },
-    {
       "warlord": "Commander Retsov",
       "username": "167426287139291136",
       "discordId": "167426287139291136",
@@ -32,6 +24,14 @@
       "discord_username": "whiten1tro77#0",
       "display_name": "whitenitro77",
       "timestamp": "2026-09-29T01:46:42.995Z"
+    },
+    {
+      "warlord": "Warboss Azh'kal",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-09-29T02:19:26.304Z"
     }
   ]
 }
