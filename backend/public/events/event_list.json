@@ -9,5 +9,14 @@
     "requiredTextFieldLabel": "Classy/Turncoat Change",
     "requiredTextFieldPlaceholder": "Class/Faction",
     "hidden": false
+  },
+  {
+    "eventName": "Saga Worlds",
+    "ruleset": "Saga",
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-07",
+    "decklistFile": "decks-saga-worlds.json",
+    "submissionFile": "saga-worlds.json",
+    "hidden": false
   }
 ]
