@@ -100,5 +100,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "167426287139291136",
+    "discordId": "167426287139291136",
+    "discord_username": "bblade317#0",
+    "event": "Saga Worlds",
+    "warlord": "Commander Retsov",
+    "display_name": "Bblade317",
+    "timestamp": "2026-09-29T01:24:12.810Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 2,
+          "Dreadfang": 2,
+          "Oracle of Kavara": 2,
+          "Swiftcloud": 1,
+          "Darkwatcher": 3,
+          "Brightwing": 2,
+          "Thunic Yeti": 2,
+          "Blitzer": 2,
+          "Kingslayer": 3
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Brine Fiend": 3,
+          "Shambling Horror": 1,
+          "Tyren Ruskin": 1
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Epic Evocation": 3,
+          "Grave Exchange": 3,
+          "Epic Judgment": 2,
+          "Sacrifice": 2,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Blade of Antiquity": 1,
+          "Deverenus' Axe": 3,
+          "Breastplate of Power": 2,
+          "Steelforge Regalia": 2,
+          "Ardian Greathawk": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
