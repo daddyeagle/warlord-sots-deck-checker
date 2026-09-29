@@ -256,5 +256,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "617965315166437390",
+    "discordId": "617965315166437390",
+    "discord_username": "sangington#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "Sangington - Delta Cubes",
+    "timestamp": "2026-09-29T11:27:33.010Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Arika Ketchum": 2,
+          "Birdsong Druid": 3,
+          "Blitzer": 1,
+          "Graham Heyward": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Thunic Yeti": 2
+        },
+        "startingArmy": {
+          "Crownland Strategist": 2,
+          "Mair Haven": 1,
+          "TFK Brigand": 3
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Cloudracer": 3,
+          "Fatestring Bow": 3,
+          "Shrapnelball": 2,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Cunning Shot": 2,
+          "Pin Down": 3,
+          "Swivel": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
