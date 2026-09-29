@@ -264,16 +264,17 @@
     "event": "Saga Worlds",
     "warlord": "Alrayn Gaunt",
     "display_name": "Sangington - Delta Cubes",
-    "timestamp": "2026-09-29T18:25:15.624Z",
+    "timestamp": "2026-09-29T18:43:34.106Z",
     "cardList": {
       "Character": {
-        "count": 21,
+        "count": 23,
         "mainDeck": {
+          "Bikram Bullstrength": 2,
           "Blitzer": 1,
           "Master Dresden": 3,
-          "Oracle of Kavara": 3,
+          "Oracle of Kavara": 2,
           "Starbinder": 3,
-          "Thunic Yeti": 1,
+          "Thunic Yeti": 2,
           "Tunnel Worm": 2,
           "Veteran Bowman": 2
         },
@@ -285,9 +286,9 @@
         }
       },
       "Item": {
-        "count": 15,
+        "count": 14,
         "mainDeck": {
-          "Ardian Greathawk": 2,
+          "Ardian Greathawk": 1,
           "Cloudracer": 3,
           "Gapfinder": 3,
           "Revenger": 3,
@@ -297,14 +298,13 @@
         "startingArmy": {}
       },
       "Action": {
-        "count": 14,
+        "count": 13,
         "mainDeck": {
           "Assassin's Strike": 2,
           "Cunning Shot": 2,
           "Dupe": 2,
-          "Epic Betrayal": 1,
           "Hunt From Above": 2,
-          "Noble Sacrifice": 2,
+          "Lights of Revealing Sword": 2,
           "Rapid Dash": 3
         },
         "startingArmy": {}
