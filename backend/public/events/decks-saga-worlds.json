@@ -414,5 +414,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "421136586705600524",
+    "discordId": "421136586705600524",
+    "discord_username": "kamacausey_#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "Kamacausey",
+    "timestamp": "2026-09-30T04:57:47.092Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Birdsong Druid": 3,
+          "Graham Heyward": 3,
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Oracle of Kavara": 2,
+          "Arika Ketchum": 2,
+          "Blitzer": 1,
+          "Sister Amanda": 1,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Pin Down": 3,
+          "Crypt Wine": 3,
+          "Assassin's Strike": 2,
+          "Cunning Shot": 2,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Shrapnelball": 3,
+          "Teufeltiger's Shroud": 3,
+          "Cloudracer": 2,
+          "Ardian Greathawk": 2,
+          "Fatestring Bow": 2,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
