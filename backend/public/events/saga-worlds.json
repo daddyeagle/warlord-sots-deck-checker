@@ -34,14 +34,6 @@
       "timestamp": "2026-09-29T02:19:26.304Z"
     },
     {
-      "warlord": "Librarian Shastra",
-      "username": "151512634573717504",
-      "discordId": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-09-29T02:55:31.935Z"
-    },
-    {
       "warlord": "Alrayn Gaunt",
       "username": "617965315166437390",
       "discordId": "617965315166437390",
@@ -80,6 +72,14 @@
       "discord_username": "cathelisourking#0",
       "display_name": "Dragonbane",
       "timestamp": "2026-10-03T03:03:30.059Z"
+    },
+    {
+      "warlord": "Librarian Shastra",
+      "username": "151512634573717504",
+      "discordId": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-10-03T03:03:51.878Z"
     }
   ]
 }
