@@ -272,6 +272,19 @@
         let SA_CHARACTER_EXCEPTIONS = [];
         let FACTION_WILDCARD_NAMES = [];
 
+        const CARD_STATUS = { known: [], unknown: [] };
+        const setCardDot = (color, title) => {
+            let dot = document.getElementById('backup-card-dot');
+            if (!dot) {
+                dot = document.createElement('div');
+                dot.id = 'backup-card-dot';
+                dot.style.cssText = 'position:fixed;bottom:8px;right:8px;width:8px;height:8px;border-radius:50%;opacity:.5;z-index:50;';
+                document.body.appendChild(dot);
+            }
+            dot.style.background = color;
+            dot.title = title;
+        };
+
         // Card data constants: resolve the newest available hashed card file.
         async function getLatestCardDataUrl(options = {}) {
             const baseUrl = "https://theaccordlands.com/assets/resources/";
@@ -371,6 +384,9 @@
                 }
             }
 
+            CARD_STATUS.known = knownCardFiles;
+            CARD_STATUS.unknown = [...new Set(discoveredFiles)].filter(f => !knownCardFiles.includes(f));
+
             const orderedCandidates = [];
             const seenCandidates = new Set();
             for (const file of [...discoveredFiles, ...knownCardFiles]) {
@@ -452,18 +468,21 @@
                 }
 
                 if (response && response.ok) {
+                    const loadedFile = String(CARD_DATA_URL).split('/').pop().split('?')[0].toLowerCase();
+                    if (CARD_STATUS.known.includes(loadedFile) && CARD_STATUS.unknown.length === 0) {
+                        setCardDot('#22c55e', `Card data loaded from known file (${loadedFile})`);
+                    } else {
+                        const extra = CARD_STATUS.unknown.join(', ');
+                        console.warn(`Card file needs attention. Loaded: ${loadedFile}. Unlisted files found: ${extra || 'none'}. Add to knownCardFiles.`);
+                        setCardDot('#f59e0b', `Add to knownCardFiles: ${extra || loadedFile}`);
+                    }
                     return await response.json();
                 }
 
                 // Remote failed: show a subtle dot so we know the card file name needs updating.
                 const showBackupDot = (source) => {
                     console.warn(`Using backup card data (${source}). Remote card file may have been renamed.`);
-                    if (document.getElementById('backup-card-dot')) return;
-                    const dot = document.createElement('div');
-                    dot.id = 'backup-card-dot';
-                    dot.title = `Using backup card data (${source})`;
-                    dot.style.cssText = 'position:fixed;bottom:8px;right:8px;width:8px;height:8px;border-radius:50%;background:#f59e0b;opacity:.5;z-index:50;';
-                    document.body.appendChild(dot);
+                    setCardDot('#f59e0b', `Using backup card data (${source})`);
                 };
 
                 // Fallback to backend-served local card data.
