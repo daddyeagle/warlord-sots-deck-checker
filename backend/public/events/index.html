@@ -301,6 +301,7 @@
                 "cards.e1d32a9e.json",
                 "cards.253921fb.json",
                 "cards.725ee9dd.json",
+                "cards.3586065d.json",
                 "cards.json"
             ];
 
@@ -471,11 +472,34 @@
                     return await response.json();
                 }
 
+                // Remote failed: show a subtle dot so we know the card file name needs updating.
+                const showBackupDot = (source) => {
+                    console.warn(`Using backup card data (${source}). Remote card file may have been renamed.`);
+                    if (document.getElementById('backup-card-dot')) return;
+                    const dot = document.createElement('div');
+                    dot.id = 'backup-card-dot';
+                    dot.title = `Using backup card data (${source})`;
+                    dot.style.cssText = 'position:fixed;bottom:8px;right:8px;width:8px;height:8px;border-radius:50%;background:#f59e0b;opacity:.5;z-index:50;';
+                    document.body.appendChild(dot);
+                };
+
                 // Fallback to backend-served local card data.
                 const localUrl = forceNoCache ? `${LOCAL_CARDS_URL}?_=${Date.now()}` : LOCAL_CARDS_URL;
-                const localResponse = await fetch(localUrl, cardFetchOpts);
-                if (!localResponse.ok) throw new Error("Failed to fetch card data file");
-                return await localResponse.json();
+                try {
+                    const localResponse = await fetch(localUrl, cardFetchOpts);
+                    if (localResponse.ok) {
+                        showBackupDot('backend /api/cards');
+                        return await localResponse.json();
+                    }
+                } catch (err) {
+                    console.warn("Backend card data failed, trying Carddata.json.", err);
+                }
+
+                // Last resort: bundled static copy.
+                const backupResponse = await fetch(getBackendUrl() + "/events/Carddata.json", cardFetchOpts);
+                if (!backupResponse.ok) throw new Error("Failed to fetch card data file");
+                showBackupDot('Carddata.json');
+                return await backupResponse.json();
             }
 
             for (let i = 0; i < retries; i++) {
