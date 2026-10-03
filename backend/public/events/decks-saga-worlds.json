@@ -569,5 +569,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "116769200181215234",
+    "discordId": "116769200181215234",
+    "discord_username": "henriiquebs#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "HenriqueB (Lanath)",
+    "timestamp": "2026-10-03T21:28:09.209Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Starbinder": 2,
+          "Kingslayer": 1,
+          "Duke Richter": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Church Enforcer Tancred": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Spellblocker": 1,
+          "Griffon of Andover": 2,
+          "Scale Mail": 1,
+          "Storm Shard": 1,
+          "Rockarm": 2,
+          "Myerdeth Mare": 2,
+          "Ardian Greathawk": 2,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Final Farewell": 2,
+          "Epic Donnybrook": 2,
+          "Crush": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
