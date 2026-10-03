@@ -9,17 +9,10 @@ const path = require('path');
 const fs = require('fs');
 
 const CARDS_REMOTE_BASE_URL = 'https://theaccordlands.com/assets/resources/';
-const KNOWN_CARD_FILES = [
-  'cards.0ecc768d.json',
-  'cards.e70a1eb5.json',
-  'cards.76f06328.json',
-  'cards.38a524ad.json',
-  'cards.e1d32a9e.json',
-  'cards.253921fb.json',
-  'cards.725ee9dd.json',
-  'cards.json'
-];
+// Discovery only; the hashed file name is maintained in the frontend index.html.
+const KNOWN_CARD_FILES = ['cards.json'];
 const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
+const CARDS_BACKUP_PATH = path.join(__dirname, 'public', 'events', 'Carddata.json');
 
 const app = express();
 // Session Setup (move to top)
@@ -203,10 +196,11 @@ updateCardDatabase();
 
 // API endpoint to serve local card database
 app.get('/api/cards', (req, res) => {
-  if (!fs.existsSync(CARDS_LOCAL_PATH)) {
+  const cardsPath = fs.existsSync(CARDS_LOCAL_PATH) ? CARDS_LOCAL_PATH : CARDS_BACKUP_PATH;
+  if (!fs.existsSync(cardsPath)) {
     return res.status(404).json({ error: 'Card data not found' });
   }
-  fs.readFile(CARDS_LOCAL_PATH, 'utf8', (err, data) => {
+  fs.readFile(cardsPath, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ error: 'Failed to read card data' });
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
