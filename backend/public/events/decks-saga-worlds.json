@@ -467,5 +467,58 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "686402688815988769",
+    "discordId": "686402688815988769",
+    "discord_username": "cathelisourking#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "Dragonbane",
+    "timestamp": "2026-10-03T03:03:30.059Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Brightwing": 1,
+          "Graham Heyward": 3,
+          "Birdsong Druid": 3,
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Arika Ketchum": 2,
+          "Veteran Bowman": 2,
+          "Sister Amanda": 1
+        },
+        "startingArmy": {
+          "Mair Haven": 1,
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Teufeltiger's Shroud": 3,
+          "Fatestring Bow": 2,
+          "Shrapnelball": 3,
+          "Cloudracer": 2,
+          "Ardian Greathawk": 2,
+          "Angel's Tears": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Crypt Wine": 3,
+          "Pin Down": 3,
+          "Cunning Shot": 3,
+          "Assassin's Strike": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
