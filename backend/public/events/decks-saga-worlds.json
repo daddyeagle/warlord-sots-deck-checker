@@ -520,5 +520,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "238453317418614784",
+    "discordId": "238453317418614784",
+    "discord_username": "elvernthehero#0",
+    "event": "Saga Worlds",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "elvernthehero",
+    "timestamp": "2026-10-03T12:10:45.630Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Albrecht Novice": 3,
+          "Leonora": 3,
+          "Shannon the Daring": 3,
+          "Field Marshal Malexin": 3,
+          "Shambling Horror": 3,
+          "Birdsong Druid": 2,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2,
+          "Keen Eared Sentry": 3
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Epic Judgment": 3,
+          "Invoke the Storm": 3,
+          "Leveled!": 3,
+          "Sacrifice": 3,
+          "Divine Respite": 3,
+          "Wither": 3,
+          "Change of Hands": 3,
+          "Final Blessing": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Hod's Legacy": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
