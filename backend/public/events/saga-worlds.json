@@ -74,20 +74,20 @@
       "timestamp": "2026-10-03T03:03:30.059Z"
     },
     {
-      "warlord": "Librarian Shastra",
-      "username": "151512634573717504",
-      "discordId": "151512634573717504",
-      "discord_username": "chrisvac#0",
-      "display_name": "ChrisVac",
-      "timestamp": "2026-10-03T03:03:51.878Z"
-    },
-    {
       "warlord": "Adathan, Celestial Messenger",
       "username": "238453317418614784",
       "discordId": "238453317418614784",
       "discord_username": "elvernthehero#0",
       "display_name": "elvernthehero",
       "timestamp": "2026-10-03T12:10:45.630Z"
+    },
+    {
+      "warlord": "Librarian Shastra",
+      "username": "151512634573717504",
+      "discordId": "151512634573717504",
+      "discord_username": "chrisvac#0",
+      "display_name": "ChrisVac",
+      "timestamp": "2026-10-03T15:35:12.366Z"
     }
   ]
 }
