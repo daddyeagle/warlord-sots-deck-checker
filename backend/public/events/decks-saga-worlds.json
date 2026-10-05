@@ -775,5 +775,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "609237331320373249",
+    "discordId": "609237331320373249",
+    "discord_username": "mynameis_kofax#0",
+    "event": "Saga Worlds",
+    "warlord": "Lord Belasco",
+    "display_name": "Kofax",
+    "timestamp": "2026-10-05T04:43:01.779Z",
+    "cardList": {
+      "Character": {
+        "count": 20,
+        "mainDeck": {
+          "Ghed Daucet": 2,
+          "Bikram Bullstrength": 2,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Kingslayer": 1,
+          "Sister Kiren": 3
+        },
+        "startingArmy": {
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3,
+          "Lord Belasco": 1
+        }
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Arcane Approach": 3,
+          "Crush": 1,
+          "Disperse": 1,
+          "Heroic Confrontation": 2,
+          "Lights of Revealing Sword": 3,
+          "Meet at the Inn!": 3,
+          "Noble Sacrifice": 1,
+          "Tide Turner": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Bloodsteed": 3,
+          "Bruntor's Helm": 1,
+          "Cloak of Flight": 1,
+          "Deverenus' Axe": 3,
+          "Havat-lahn Stance": 1,
+          "Rockarm": 1,
+          "Scale Mail": 1,
+          "Spellblocker": 1,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
