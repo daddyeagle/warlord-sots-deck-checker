@@ -832,5 +832,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "173757707285823489",
+    "discordId": "173757707285823489",
+    "discord_username": "slyfoxlive#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "SlyfoX",
+    "timestamp": "2026-10-05T18:13:06.471Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Field Marshal Malexin": 1,
+          "Arika Ketchum": 2,
+          "Graham Heyward": 3,
+          "Birdsong Druid": 3,
+          "Sanguicorn": 3,
+          "Oracle of Kavara": 3,
+          "Master Dresden": 3,
+          "Brightwing": 1
+        },
+        "startingArmy": {
+          "TFK Brigand": 3,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Change of Hands": 2,
+          "Crypt Wine": 2,
+          "Pin Down": 3,
+          "Rapid Dash": 3,
+          "Swivel": 2
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Fatestring Bow": 2,
+          "Shrapnelball": 3,
+          "Storm Shard": 1,
+          "Merrick Regalia": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
