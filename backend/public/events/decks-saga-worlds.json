@@ -884,5 +884,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "470316124966223873",
+    "discordId": "470316124966223873",
+    "discord_username": "iamiceman#0",
+    "event": "Saga Worlds",
+    "warlord": "Warboss Azh'kal",
+    "display_name": "Iceman",
+    "timestamp": "2026-10-05T21:48:27.215Z",
+    "cardList": {
+      "Character": {
+        "count": 12,
+        "mainDeck": {
+          "Oracle of Kavara": 3,
+          "Nog, Pog, and Snivels": 3
+        },
+        "startingArmy": {
+          "Warboss Azh'kal": 1,
+          "'Mad' Pat Carrik": 1,
+          "Novice Pyro": 1,
+          "Bear Legion Recruit": 3
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Crush": 2,
+          "Final Farewell": 2,
+          "Tide Turner": 3,
+          "Heroic Confrontation": 3,
+          "Epic Donnybrook": 3,
+          "Arcane Approach": 3,
+          "Noble Sacrifice": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Rockarm": 2,
+          "Havat-lahn Stance": 2,
+          "Myerdeth Mare": 3,
+          "Ardian Greathawk": 3,
+          "Steelforge Regalia": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
