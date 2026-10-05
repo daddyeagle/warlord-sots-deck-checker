@@ -725,5 +725,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "193190910329094144",
+    "discordId": "193190910329094144",
+    "discord_username": "shockgunn#0",
+    "event": "Saga Worlds",
+    "warlord": "Lord Belasco",
+    "display_name": "Gunn",
+    "timestamp": "2026-10-05T03:36:08.598Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Master Dresden": 3,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Sister Kiren": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Lord Belasco": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Crush": 2,
+          "Arcane Approach": 3,
+          "Meet at the Inn!": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Scale Mail": 1,
+          "Rockarm": 2,
+          "Bloodsteed": 3,
+          "Bardiche": 3,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
