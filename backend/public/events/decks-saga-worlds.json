@@ -934,5 +934,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "289532101194153985",
+    "discordId": "289532101194153985",
+    "discord_username": "rayneblythewood#0",
+    "event": "Saga Worlds",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "Rayne Blythewood",
+    "timestamp": "2026-10-06T03:22:46.267Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sutek Slimefang": 2,
+          "Jubilant Hatchling": 2,
+          "Blitzer": 1,
+          "Oracle of Kavara": 2,
+          "Bikram Bullstrength": 3,
+          "Starbinder": 3,
+          "Master Dresden": 3,
+          "Tunnel Worm": 3
+        },
+        "startingArmy": {
+          "Trogid": 3,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Rapid Dash": 3,
+          "Dupe": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3,
+          "Ardian Greathawk": 2,
+          "Revenger": 3,
+          "Cutlass": 2,
+          "Gapfinder": 2,
+          "Cloudracer": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
