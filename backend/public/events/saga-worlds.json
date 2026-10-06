@@ -99,14 +99,6 @@
     },
     {
       "warlord": "Lord Belasco",
-      "username": "673010482755534868",
-      "discordId": "673010482755534868",
-      "discord_username": "drrandolphcarter#0",
-      "display_name": "WesY",
-      "timestamp": "2026-10-04T22:46:52.376Z"
-    },
-    {
-      "warlord": "Lord Belasco",
       "username": "193190910329094144",
       "discordId": "193190910329094144",
       "discord_username": "shockgunn#0",
@@ -184,6 +176,14 @@
       "discord_username": "tubazilla#0",
       "display_name": "Tubazilla",
       "timestamp": "2026-10-06T17:22:14.307Z"
+    },
+    {
+      "warlord": "Annetta Yscar",
+      "username": "673010482755534868",
+      "discordId": "673010482755534868",
+      "discord_username": "drrandolphcarter#0",
+      "display_name": "WesY",
+      "timestamp": "2026-10-06T17:59:59.315Z"
     }
   ]
 }
