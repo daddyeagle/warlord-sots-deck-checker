@@ -42,14 +42,6 @@
       "timestamp": "2026-09-29T18:43:34.106Z"
     },
     {
-      "warlord": "Mair Haven",
-      "username": "333097080543379457",
-      "discordId": "333097080543379457",
-      "discord_username": "restomagus#0",
-      "display_name": "Restomagus",
-      "timestamp": "2026-09-29T19:12:45.792Z"
-    },
-    {
       "warlord": "Z'adok, Prey Herder",
       "username": "298580168899821568",
       "discordId": "298580168899821568",
@@ -160,6 +152,14 @@
       "discord_username": "russel2525#0",
       "display_name": "Russel",
       "timestamp": "2026-10-06T04:24:30.713Z"
+    },
+    {
+      "warlord": "Mair Haven",
+      "username": "333097080543379457",
+      "discordId": "333097080543379457",
+      "discord_username": "restomagus#0",
+      "display_name": "Restomagus",
+      "timestamp": "2026-10-06T04:31:52.992Z"
     }
   ]
 }
