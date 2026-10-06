@@ -1146,5 +1146,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "153331120044245003",
+    "discordId": "153331120044245003",
+    "discord_username": "tubazilla#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Tubazilla",
+    "timestamp": "2026-10-06T17:22:14.307Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Blitzer": 1,
+          "Taumar the Protector": 3,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 2,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Squire Fendric": 2,
+          "Church Enforcer Tancred": 1
+        }
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Epic Donnybrook": 2,
+          "Lights of Revealing Sword": 3,
+          "Crush": 2,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Bruntor's Helm": 2,
+          "Breastplate of Power": 2,
+          "Myerdeth Mare": 3,
+          "Deverenus' Axe": 3,
+          "Medical Kit": 1,
+          "Rockarm": 1,
+          "Ardian Greathawk": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
