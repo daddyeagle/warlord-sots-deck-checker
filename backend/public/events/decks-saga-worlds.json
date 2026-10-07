@@ -1785,5 +1785,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "270439545055608832",
+    "discordId": "270439545055608832",
+    "discord_username": "raclesis#0",
+    "event": "Saga Worlds",
+    "warlord": "Wa'San Wolf-Spirit",
+    "display_name": "Raclesis",
+    "timestamp": "2026-10-07T18:17:44.834Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ac'Vuk": 3,
+          "Catapult Crew": 3,
+          "Kraig'dem": 3,
+          "Master Dresden": 3,
+          "Muddflek": 3,
+          "Nog, Pog, and Snivels": 3,
+          "Oracle of Kavara": 1
+        },
+        "startingArmy": {
+          "Wa'San Wolf-Spirit": 1,
+          "Greenflower Warden": 2,
+          "Joleg": 3
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Blast": 3,
+          "Dissolve": 2,
+          "Epic Evocation": 3,
+          "Fireball": 3,
+          "Flamelance": 3,
+          "Glaciate": 3,
+          "Shadow Bolts": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 5,
+        "mainDeck": {
+          "Bloodsteed": 3,
+          "Hunting Staff": 1,
+          "Well of Screams": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
