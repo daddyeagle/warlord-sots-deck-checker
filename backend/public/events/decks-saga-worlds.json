@@ -1518,5 +1518,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "157708010095902720",
+    "discordId": "157708010095902720",
+    "discord_username": "fractal_159#0",
+    "event": "Saga Worlds",
+    "warlord": "Rone of the Deepbrook",
+    "display_name": "Fractal",
+    "timestamp": "2026-10-07T02:47:22.470Z",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Skitterleap": 2,
+          "Oracle of Kavara": 1,
+          "Bone Fiend": 1,
+          "Tresven": 3,
+          "Veera and Bones": 3,
+          "Sutek Razorclaw": 2,
+          "Mephit": 2,
+          "Jigoral": 1,
+          "Frameseer": 1,
+          "Brine Fiend": 3,
+          "Alaya": 2
+        },
+        "startingArmy": {
+          "Rone of the Deepbrook": 1,
+          "Graveyard Librarian": 2,
+          "Grimfey Prowler": 3
+        }
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Dupe": 3,
+          "Epic Betrayal": 3,
+          "Rapid Dash": 3,
+          "Wither": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Cloudracer": 2,
+          "Flail": 3,
+          "Leopard Claws": 2,
+          "Revenger": 3,
+          "Gapfinder": 1,
+          "Wraithstalker": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
