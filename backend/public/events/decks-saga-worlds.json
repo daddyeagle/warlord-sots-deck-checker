@@ -1413,5 +1413,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "390370445549109249",
+    "discordId": "390370445549109249",
+    "discord_username": "mith_x1013#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Mith",
+    "timestamp": "2026-10-07T02:00:32.044Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Thunic Yeti": 2,
+          "Blitzer": 1,
+          "Kingslayer": 1,
+          "Oracle of Kavara": 2,
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Church Enforcer Tancred": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Vanguard's Presence": 1,
+          "Blade of Antiquity": 1,
+          "Nothrog S'sike": 2,
+          "Storm Shard": 1,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Deverenus' Axe": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Dissolve": 2,
+          "Fateshift": 2,
+          "Lights of Revealing Sword": 3,
+          "Heroic Confrontation": 3,
+          "Arcane Approach": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
