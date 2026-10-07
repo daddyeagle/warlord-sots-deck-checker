@@ -1634,7 +1634,7 @@
     "event": "Saga Worlds",
     "warlord": "High Acolyte Hellene",
     "display_name": "Praesum",
-    "timestamp": "2026-10-07T03:41:02.654Z",
+    "timestamp": "2026-10-07T03:43:31.205Z",
     "cardList": {
       "Character": {
         "count": 25,
@@ -1674,9 +1674,9 @@
         "count": 14,
         "mainDeck": {
           "Berserk": 2,
-          "Crush": 2,
+          "Crush": 1,
           "Curse of Greed": 1,
-          "Dissolve": 1,
+          "Dissolve": 2,
           "Invoke the Storm": 3,
           "Kor's Patience": 2,
           "Meet at the Inn!": 3
