@@ -1634,7 +1634,7 @@
     "event": "Saga Worlds",
     "warlord": "High Acolyte Hellene",
     "display_name": "Praesum",
-    "timestamp": "2026-10-07T03:36:58.277Z",
+    "timestamp": "2026-10-07T03:41:02.654Z",
     "cardList": {
       "Character": {
         "count": 25,
@@ -1656,7 +1656,7 @@
         }
       },
       "Item": {
-        "count": 12,
+        "count": 13,
         "mainDeck": {
           "Annales Deverenium": 1,
           "Ardian Greathawk": 1,
@@ -1665,17 +1665,17 @@
           "Hunting Staff": 2,
           "Luthlarius Regalia": 1,
           "Medical Kit": 1,
-          "Nightfire Manacles": 1,
+          "Nightfire Manacles": 2,
           "Shield of Spurning": 2
         },
         "startingArmy": {}
       },
       "Action": {
-        "count": 15,
+        "count": 14,
         "mainDeck": {
           "Berserk": 2,
           "Crush": 2,
-          "Curse of Greed": 2,
+          "Curse of Greed": 1,
           "Dissolve": 1,
           "Invoke the Storm": 3,
           "Kor's Patience": 2,
