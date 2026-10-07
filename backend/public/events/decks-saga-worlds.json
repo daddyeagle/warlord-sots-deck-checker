@@ -1683,5 +1683,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1121204749816045690",
+    "discordId": "1121204749816045690",
+    "discord_username": "all_skillz#0",
+    "event": "Saga Worlds",
+    "warlord": "Lord Barrow",
+    "display_name": "Dr_Autisticus",
+    "timestamp": "2026-10-07T04:22:24.205Z",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Graveyard Librarian": 1,
+          "Tresven": 3,
+          "Skitterleap": 2,
+          "Sutek Slimefang": 3,
+          "Ciane": 3,
+          "Shambling Horror": 3,
+          "Lord's Assailant": 3
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Graveyard Librarian": 2,
+          "Lord Barrow": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Blast": 3,
+          "Grave Exchange": 2,
+          "Polymorph": 3,
+          "Epic Evocation": 2,
+          "Flamelance": 3,
+          "Essence Drain": 3,
+          "Terrorize": 3,
+          "Noble Sacrifice": 3,
+          "Arcane Approach": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 1,
+        "mainDeck": {
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
