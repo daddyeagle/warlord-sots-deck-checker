@@ -1467,5 +1467,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "412750327276765194",
+    "discordId": "412750327276765194",
+    "discord_username": "kalius404#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Kalius404",
+    "timestamp": "2026-10-07T02:11:25.640Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Taumar the Protector": 2,
+          "Duke Richter": 3,
+          "Sister Kiren": 3,
+          "Oracle of Kavara": 2,
+          "Kingslayer": 1
+        },
+        "startingArmy": {
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3,
+          "Church Enforcer Tancred": 1
+        }
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Bruntor's Helm": 2,
+          "Deverenus' Axe": 3,
+          "Steelforge Regalia": 3,
+          "Myerdeth Mare": 2,
+          "Ardian Greathawk": 3,
+          "Storm Shard": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 13,
+        "mainDeck": {
+          "Noble Sacrifice": 2,
+          "Lights of Revealing Sword": 3,
+          "Arcane Approach": 3,
+          "Fateshift": 2,
+          "Heroic Confrontation": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
