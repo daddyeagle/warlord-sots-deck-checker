@@ -1306,5 +1306,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "177273296843309057",
+    "discordId": "177273296843309057",
+    "discord_username": "jormunganduur#0",
+    "event": "Saga Worlds",
+    "warlord": "Kurak Stonejaw",
+    "display_name": "Jorgrym",
+    "timestamp": "2026-10-07T00:49:13.446Z",
+    "cardList": {
+      "Character": {
+        "count": 11,
+        "mainDeck": {
+          "Sunforge Smith": 2,
+          "Beacon": 3
+        },
+        "startingArmy": {
+          "Kurak Stonejaw": 1,
+          "Sunforge Smith": 1,
+          "Tinker": 1,
+          "Tunnel Vanguard": 3
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Nightfire Manacles": 1,
+          "Ritual Dagger": 2,
+          "Sunseeker's Goggles": 1,
+          "War Horse": 1,
+          "Myerdeth Mare": 1,
+          "Griffon of Andover": 2,
+          "Rockarm": 3,
+          "Bruntor's Helm": 2,
+          "Scale Mail": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 23,
+        "mainDeck": {
+          "Crush": 2,
+          "Leveled!": 1,
+          "Holy Might": 3,
+          "Cleave": 2,
+          "Berserk": 2,
+          "Spiritual Weapon": 3,
+          "Divine Barrier": 3,
+          "Heroic Confrontation": 3,
+          "Arcane Approach": 3,
+          "Sacrifice": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
