@@ -1733,5 +1733,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "546202017714929664",
+    "discordId": "546202017714929664",
+    "discord_username": "newkevlar#0",
+    "event": "Saga Worlds",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Mazzaroth",
+    "timestamp": "2026-10-07T17:10:08.853Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Sister Kiren": 3,
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Thunic Yeti": 3,
+          "Zaina": 3
+        },
+        "startingArmy": {
+          "High Acolyte Hellene": 1,
+          "Church Inquisitor": 2,
+          "Genecourt Initiate": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Strongarm Stout": 2,
+          "Hunting Staff": 2,
+          "Ardian Greathawk": 2,
+          "Storm Shard": 1,
+          "Hod's Legacy": 1,
+          "Breastplate of Power": 1,
+          "Deverenus' Axe": 3,
+          "Luthlarius Regalia": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 12,
+        "mainDeck": {
+          "Lights of Revealing Sword": 3,
+          "Fateshift": 3,
+          "Divine Respite": 3,
+          "Invoke the Storm": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
