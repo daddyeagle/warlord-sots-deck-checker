@@ -1993,5 +1993,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "917514647886790677",
+    "discordId": "917514647886790677",
+    "discord_username": "zzzzsss#0",
+    "event": "Saga Worlds",
+    "warlord": "Archivist Myrina",
+    "display_name": "Zzzzsss",
+    "timestamp": "2026-10-07T23:36:37.993Z",
+    "cardList": {
+      "Character": {
+        "count": 28,
+        "mainDeck": {
+          "Sister Kiren": 3,
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 2,
+          "Thunic Yeti": 2,
+          "Oracle of Kavara": 3
+        },
+        "startingArmy": {
+          "Genecourt Initiate": 3,
+          "Church Inquisitor": 2,
+          "Archivist Myrina": 1
+        }
+      },
+      "Action": {
+        "count": 20,
+        "mainDeck": {
+          "Crush": 2,
+          "Noble Sacrifice": 2,
+          "Courage from Faith": 3,
+          "Divine Respite": 3,
+          "Shield Rune": 2,
+          "Sacrifice": 2,
+          "Invoke the Storm": 3,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 8,
+        "mainDeck": {
+          "Hod's Legacy": 1,
+          "Storm Shard": 1,
+          "Shocksaber": 1,
+          "Blade of Antiquity": 2,
+          "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
