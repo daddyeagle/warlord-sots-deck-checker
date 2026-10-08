@@ -987,60 +987,6 @@
     }
   },
   {
-    "username": "1388986791079448577",
-    "discordId": "1388986791079448577",
-    "discord_username": "fox.and.otter_19171#0",
-    "event": "Saga Worlds",
-    "warlord": "Mair Haven",
-    "display_name": "fox.n.otter",
-    "timestamp": "2026-10-06T16:02:26.180Z",
-    "cardList": {
-      "Character": {
-        "count": 22,
-        "mainDeck": {
-          "Keen Eared Sentry": 1,
-          "Birdsong Druid": 3,
-          "Graham Heyward": 2,
-          "Arika Ketchum": 2,
-          "Sanguicorn": 3,
-          "Master Dresden": 3,
-          "Beacon": 2
-        },
-        "startingArmy": {
-          "TFK Brigand": 2,
-          "Keen Eared Sentry": 1,
-          "Crownland Strategist": 2,
-          "Mair Haven": 1
-        }
-      },
-      "Action": {
-        "count": 19,
-        "mainDeck": {
-          "Viscous Goo": 3,
-          "Pin Down": 3,
-          "Sneak": 1,
-          "Assassin's Strike": 3,
-          "Swivel": 2,
-          "Rapid Dash": 3,
-          "Crypt Wine": 3,
-          "Cunning Shot": 1
-        },
-        "startingArmy": {}
-      },
-      "Item": {
-        "count": 11,
-        "mainDeck": {
-          "Storm Shard": 1,
-          "Teufeltiger's Shroud": 3,
-          "Fatestring Bow": 2,
-          "Ardian Greathawk": 2,
-          "Shrapnelball": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "153331120044245003",
     "discordId": "153331120044245003",
     "discord_username": "tubazilla#0",
@@ -2043,6 +1989,60 @@
           "Shocksaber": 1,
           "Blade of Antiquity": 2,
           "Deverenus' Axe": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "1388986791079448577",
+    "discordId": "1388986791079448577",
+    "discord_username": "fox.and.otter_19171#0",
+    "event": "Saga Worlds",
+    "warlord": "Mair Haven",
+    "display_name": "fox.n.otter",
+    "timestamp": "2026-10-08T00:06:45.795Z",
+    "cardList": {
+      "Character": {
+        "count": 22,
+        "mainDeck": {
+          "Keen Eared Sentry": 1,
+          "Arika Ketchum": 2,
+          "Beacon": 2,
+          "Birdsong Druid": 3,
+          "Graham Heyward": 2,
+          "Master Dresden": 3,
+          "Sanguicorn": 3
+        },
+        "startingArmy": {
+          "TFK Brigand": 2,
+          "Keen Eared Sentry": 1,
+          "Crownland Strategist": 2,
+          "Mair Haven": 1
+        }
+      },
+      "Item": {
+        "count": 12,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Fatestring Bow": 2,
+          "Heavy Crossbow": 1,
+          "Shrapnelball": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Assassin's Strike": 3,
+          "Crypt Wine": 3,
+          "Cunning Shot": 1,
+          "Pin Down": 3,
+          "Rapid Dash": 3,
+          "Swivel": 2,
+          "Viscous Goo": 3
         },
         "startingArmy": {}
       }
