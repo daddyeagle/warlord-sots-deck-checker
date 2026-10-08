@@ -2100,5 +2100,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1124729150603800616",
+    "discordId": "1124729150603800616",
+    "discord_username": "vladsod#0",
+    "event": "Saga Worlds",
+    "warlord": "Adathan, Celestial Messenger",
+    "display_name": "THE-REDWING-13",
+    "timestamp": "2026-10-08T00:52:35.023Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Crownland Strategist": 1,
+          "Shambling Horror": 3,
+          "Flame Jester": 3,
+          "Leonora": 3,
+          "Huggins": 3,
+          "Field Marshal Malexin": 3,
+          "Albrecht Novice": 3
+        },
+        "startingArmy": {
+          "Keen Eared Sentry": 3,
+          "Adathan, Celestial Messenger": 1,
+          "Crownland Strategist": 2
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Storm Shard": 1,
+          "Hod's Legacy": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Pin Down": 2,
+          "Fateshift": 2,
+          "Sacrifice": 2,
+          "Quick Strength": 3,
+          "Leveled!": 3,
+          "Invoke the Storm": 3,
+          "Final Blessing": 3,
+          "Epic Judgment": 3,
+          "Divine Respite": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
