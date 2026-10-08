@@ -234,14 +234,6 @@
       "timestamp": "2026-10-07T03:31:35.293Z"
     },
     {
-      "warlord": "High Acolyte Hellene",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-10-07T03:43:31.205Z"
-    },
-    {
       "warlord": "Lord Belasco",
       "username": "609237331320373249",
       "discordId": "609237331320373249",
@@ -320,6 +312,14 @@
       "discord_username": "the.thing333#0",
       "display_name": "The.Thing333",
       "timestamp": "2026-10-08T00:25:48.728Z"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-10-08T00:52:31.581Z"
     }
   ]
 }
