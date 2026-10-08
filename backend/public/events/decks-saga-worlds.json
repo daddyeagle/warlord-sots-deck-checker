@@ -2151,5 +2151,63 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "987033377569927248",
+    "discordId": "987033377569927248",
+    "discord_username": "yinyangman#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "djBoneRoller",
+    "timestamp": "2026-10-08T01:15:38.091Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Bikram Bullstrength": 2,
+          "Blitzer": 1,
+          "Duke Richter": 3,
+          "Dwarf-Eater": 1,
+          "Ghed Bane": 2,
+          "Ghed Daucet": 3,
+          "Kingslayer": 1,
+          "Master Dresden": 3,
+          "Sister Kiren": 3,
+          "Thunic Yeti": 1
+        },
+        "startingArmy": {
+          "Ambitious Squire": 3,
+          "Church Inquisitor": 1,
+          "Squire Fendric": 1,
+          "Church Enforcer Tancred": 1
+        }
+      },
+      "Item": {
+        "count": 19,
+        "mainDeck": {
+          "Ardian Greathawk": 3,
+          "Blade of Antiquity": 1,
+          "Breastplate of Power": 1,
+          "Bruntor's Helm": 1,
+          "Deverenus' Axe": 3,
+          "Griffon of Andover": 1,
+          "Havat-lahn Stance": 2,
+          "Myerdeth Mare": 3,
+          "Shield of Spurning": 1,
+          "Storm Shard": 1,
+          "Strongarm Stout": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 7,
+        "mainDeck": {
+          "Lights of Revealing Sword": 1,
+          "Meet at the Inn!": 3,
+          "Prime Positioning": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
