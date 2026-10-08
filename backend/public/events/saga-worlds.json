@@ -314,14 +314,6 @@
       "timestamp": "2026-10-08T00:25:48.728Z"
     },
     {
-      "warlord": "High Acolyte Hellene",
-      "username": "206187469178142720",
-      "discordId": "206187469178142720",
-      "discord_username": "praesum#0",
-      "display_name": "Praesum",
-      "timestamp": "2026-10-08T00:52:31.581Z"
-    },
-    {
       "warlord": "Adathan, Celestial Messenger",
       "username": "1124729150603800616",
       "discordId": "1124729150603800616",
@@ -352,6 +344,14 @@
       "discord_username": "grahammo#0",
       "display_name": "graham",
       "timestamp": "2026-10-08T01:33:15.461Z"
+    },
+    {
+      "warlord": "High Acolyte Hellene",
+      "username": "206187469178142720",
+      "discordId": "206187469178142720",
+      "discord_username": "praesum#0",
+      "display_name": "Praesum",
+      "timestamp": "2026-10-08T01:53:10.981Z"
     }
   ]
 }
