@@ -1517,64 +1517,6 @@
     }
   },
   {
-    "username": "206187469178142720",
-    "discordId": "206187469178142720",
-    "discord_username": "praesum#0",
-    "event": "Saga Worlds",
-    "warlord": "High Acolyte Hellene",
-    "display_name": "Praesum",
-    "timestamp": "2026-10-07T03:43:31.205Z",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "Blitzer": 2,
-          "Duke Richter": 3,
-          "Ghed Bane": 3,
-          "Ghed Daucet": 3,
-          "Oracle of Kavara": 2,
-          "Sister Kiren": 3,
-          "Zaina": 3
-        },
-        "startingArmy": {
-          "Ambitious Squire": 2,
-          "Church Inquisitor": 1,
-          "Genecourt Initiate": 1,
-          "High Acolyte Hellene": 1,
-          "Squire Fendric": 1
-        }
-      },
-      "Item": {
-        "count": 13,
-        "mainDeck": {
-          "Annales Deverenium": 1,
-          "Ardian Greathawk": 1,
-          "Deverenus' Axe": 2,
-          "Hod's Legacy": 1,
-          "Hunting Staff": 2,
-          "Luthlarius Regalia": 1,
-          "Medical Kit": 1,
-          "Nightfire Manacles": 2,
-          "Shield of Spurning": 2
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 14,
-        "mainDeck": {
-          "Berserk": 2,
-          "Crush": 1,
-          "Curse of Greed": 1,
-          "Dissolve": 2,
-          "Invoke the Storm": 3,
-          "Kor's Patience": 2,
-          "Meet at the Inn!": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
     "username": "609237331320373249",
     "discordId": "609237331320373249",
     "discord_username": "mynameis_kofax#0",
@@ -2095,6 +2037,65 @@
           "Shrapnelball": 2,
           "Storm Shard": 1,
           "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  },
+  {
+    "username": "206187469178142720",
+    "discordId": "206187469178142720",
+    "discord_username": "praesum#0",
+    "event": "Saga Worlds",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Praesum",
+    "timestamp": "2026-10-08T00:52:31.581Z",
+    "cardList": {
+      "Character": {
+        "count": 26,
+        "mainDeck": {
+          "Bikram Bullstrength": 1,
+          "Blitzer": 2,
+          "Duke Richter": 3,
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Oracle of Kavara": 2,
+          "Sister Kiren": 3,
+          "Zaina": 3
+        },
+        "startingArmy": {
+          "Ambitious Squire": 2,
+          "Church Inquisitor": 1,
+          "Genecourt Initiate": 1,
+          "High Acolyte Hellene": 1,
+          "Squire Fendric": 1
+        }
+      },
+      "Item": {
+        "count": 11,
+        "mainDeck": {
+          "Annales Deverenium": 1,
+          "Deverenus' Axe": 2,
+          "Hod's Legacy": 1,
+          "Hunting Staff": 2,
+          "Luthlarius Regalia": 1,
+          "Medical Kit": 1,
+          "Nightfire Manacles": 1,
+          "Shield of Spurning": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Berserk": 2,
+          "Crush": 1,
+          "Dissolve": 2,
+          "Invoke the Storm": 3,
+          "Kor's Patience": 2,
+          "Meet at the Inn!": 3,
+          "Pounce": 3,
+          "Sacrifice": 2
         },
         "startingArmy": {}
       }
