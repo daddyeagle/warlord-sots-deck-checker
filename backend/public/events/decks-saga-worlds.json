@@ -2316,5 +2316,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "354280712578400267",
+    "discordId": "354280712578400267",
+    "discord_username": "aaron1002#0",
+    "event": "Saga Worlds",
+    "warlord": "Alrayn Gaunt",
+    "display_name": "A-A-ron",
+    "timestamp": "2026-10-08T03:58:46.009Z",
+    "cardList": {
+      "Character": {
+        "count": 23,
+        "mainDeck": {
+          "Trogid": 1,
+          "Bikram Bullstrength": 3,
+          "Blitzer": 1,
+          "Hinterlands Griffon": 2,
+          "Master Dresden": 3,
+          "Oracle of Kavara": 2,
+          "Starbinder": 3,
+          "Veteran Bowman": 2
+        },
+        "startingArmy": {
+          "Brine Fiend": 1,
+          "Trogid": 2,
+          "Shambling Horror": 2,
+          "Alrayn Gaunt": 1
+        }
+      },
+      "Action": {
+        "count": 14,
+        "mainDeck": {
+          "Assassin's Strike": 2,
+          "Dupe": 3,
+          "Epic Betrayal": 1,
+          "Hunt From Above": 2,
+          "Lights of Revealing Sword": 2,
+          "Rapid Dash": 3,
+          "Sneak": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Ardian Greathawk": 1,
+          "Cloudracer": 3,
+          "Gapfinder": 3,
+          "Revenger": 3,
+          "Storm Shard": 1,
+          "Teufeltiger's Shroud": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
