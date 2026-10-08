@@ -2371,5 +2371,56 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "181281532357509120",
+    "discordId": "181281532357509120",
+    "discord_username": "nghtshades#0",
+    "event": "Saga Worlds",
+    "warlord": "High Acolyte Hellene",
+    "display_name": "Shades",
+    "timestamp": "2026-10-08T04:25:49.976Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ghed Daucet": 3,
+          "Ghed Bane": 3,
+          "Duke Richter": 3,
+          "Sister Kiren": 3,
+          "Taumar the Protector": 3,
+          "Zaina": 3,
+          "Blitzer": 1
+        },
+        "startingArmy": {
+          "Genecourt Initiate": 3,
+          "Church Inquisitor": 2,
+          "High Acolyte Hellene": 1
+        }
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Divine Respite": 3,
+          "Shield Rune": 3,
+          "Invoke the Storm": 3,
+          "Fateshift": 3,
+          "Holy Might": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 10,
+        "mainDeck": {
+          "Deverenus' Axe": 3,
+          "Hunting Staff": 3,
+          "Hod's Legacy": 1,
+          "Luthlarius Regalia": 1,
+          "Storm Shard": 1,
+          "Breastplate of Power": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
