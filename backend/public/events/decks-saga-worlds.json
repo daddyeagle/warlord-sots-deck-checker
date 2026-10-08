@@ -2209,5 +2209,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "251637874351407105",
+    "discordId": "251637874351407105",
+    "discord_username": "sammers3169#0",
+    "event": "Saga Worlds",
+    "warlord": "Commander Retsov",
+    "display_name": "sam",
+    "timestamp": "2026-10-08T01:17:39.674Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Swiftcloud": 1,
+          "Dreadfang": 1,
+          "Oracle of Kavara": 2,
+          "Blitzer": 1,
+          "Master Dresden": 3,
+          "Thunic Yeti": 3,
+          "Brightwing": 2,
+          "Kingslayer": 3,
+          "Darkwatcher": 3
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Tyren Ruskin": 2,
+          "Brine Fiend": 3
+        }
+      },
+      "Item": {
+        "count": 17,
+        "mainDeck": {
+          "Ardian Greathawk": 2,
+          "Deverenus' Axe": 2,
+          "Steelforge Regalia": 3,
+          "Griffon of Andover": 1,
+          "Myerdeth Mare": 1,
+          "Blade of Antiquity": 3,
+          "Havat-lahn Stance": 2,
+          "Storm Shard": 1,
+          "Medical Kit": 1,
+          "Rockarm": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 8,
+        "mainDeck": {
+          "Well Supplied": 3,
+          "Lights of Revealing Sword": 2,
+          "Meet at the Inn!": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
