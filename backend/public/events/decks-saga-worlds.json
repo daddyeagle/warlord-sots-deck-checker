@@ -2422,5 +2422,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "1437415900017070302",
+    "discordId": "1437415900017070302",
+    "discord_username": "judascradle1987#0",
+    "event": "Saga Worlds",
+    "warlord": "Church Enforcer Tancred",
+    "display_name": "Judascradle",
+    "timestamp": "2026-10-08T14:13:21.378Z",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Ghed Bane": 3,
+          "Ghed Daucet": 3,
+          "Thunic Yeti": 3,
+          "Sister Kiren": 2,
+          "Kingslayer": 2,
+          "Oracle of Kavara": 3,
+          "Duke Richter": 3
+        },
+        "startingArmy": {
+          "Church Enforcer Tancred": 1,
+          "Squire Fendric": 1,
+          "Church Inquisitor": 1,
+          "Ambitious Squire": 3
+        }
+      },
+      "Action": {
+        "count": 11,
+        "mainDeck": {
+          "Crush": 3,
+          "Meet at the Inn!": 3,
+          "Well Supplied": 2,
+          "Lights of Revealing Sword": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 14,
+        "mainDeck": {
+          "Myerdeth Mare": 2,
+          "Steelforge Regalia": 2,
+          "Griffon of Andover": 2,
+          "Ardian Greathawk": 3,
+          "Deverenus' Axe": 3,
+          "Storm Shard": 1,
+          "Rockarm": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
