@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const CARDS_REMOTE_BASE_URL = 'https://theaccordlands.com/assets/resources/';
 // Discovery only; the hashed file name is maintained in the frontend index.html.
-const KNOWN_CARD_FILES = ['cards.json'];
+const KNOWN_CARD_FILES = ['cards.95b25c95.json', 'cards.json'];
 const CARDS_LOCAL_PATH = path.join(__dirname, 'public', 'assets', 'resources', 'cards.json');
 const CARDS_BACKUP_PATH = path.join(__dirname, 'public', 'events', 'Carddata.json');
 
