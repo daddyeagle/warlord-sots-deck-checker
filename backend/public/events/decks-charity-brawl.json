@@ -53,5 +53,62 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "The Nemesis",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:01:25.391Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Atomic_Tomato",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Minor Dragonkin": 1,
+          "Serj Vorvallyn": 2,
+          "Toren Yscar": 1,
+          "Oracle of Kavara": 3,
+          "Kardak-Vash": 3,
+          "Jubilant Hatchling": 3,
+          "Griis": 3,
+          "Benedric": 3
+        },
+        "startingArmy": {
+          "The Nemesis": 1,
+          "Minor Dragonkin": 1,
+          "Serj Vorvallyn": 1,
+          "Misearean Trader": 3
+        }
+      },
+      "Item": {
+        "count": 15,
+        "mainDeck": {
+          "Tome of the Archmage": 1,
+          "Mind Gate": 1,
+          "Medusan Wargear": 3,
+          "Kcal'den's Bracers": 1,
+          "Ironrule": 1,
+          "Heerman's Epic": 1,
+          "Flory's Monster Guide": 1,
+          "Doomedsky Steed": 1,
+          "Deck of Many Things": 2,
+          "Blade of Syneri": 1,
+          "Blackwaters Steed": 1,
+          "Annals of Triumph": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 10,
+        "mainDeck": {
+          "Dragon's Hoard": 10
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
