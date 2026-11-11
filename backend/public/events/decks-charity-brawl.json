@@ -558,5 +558,47 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Brikta",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:38:47.490Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "daddy_eagle",
+    "cardList": {
+      "Character": {
+        "count": 6,
+        "mainDeck": {},
+        "startingArmy": {
+          "Bear Legion Recruit": 3,
+          "Brikta": 1,
+          "Skash": 1,
+          "Yeg-Igryll's Altar": 1
+        }
+      },
+      "Action": {
+        "count": 19,
+        "mainDeck": {
+          "Meet at the Inn!": 18,
+          "Stubborn": 1
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 25,
+        "mainDeck": {
+          "Calamity's Steel": 1,
+          "Excessus": 1,
+          "Storm Shard": 1,
+          "Strongarm Stout": 21,
+          "Uther's Shroud": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
