@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Life, Scion of Kor",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T19:59:11.675Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Forgedcaake",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Amends": 1,
+          "Door to the World": 1,
+          "Supply": 1,
+          "Toren Yscar": 1,
+          "Brawl": 3,
+          "The Temple of Lore": 3,
+          "Surge": 3,
+          "Drea Nexus": 3,
+          "Blessed": 3
+        },
+        "startingArmy": {
+          "Life, Scion of Kor": 1,
+          "Danres": 3,
+          "Arla Favorsight": 1,
+          "Amends": 1
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Hammer of Peronor": 1,
+          "Steelforge Regalia": 1,
+          "Storm Shard": 1,
+          "Crushbone Mace": 1,
+          "Deverenus' Axe": 3,
+          "Bracers of Weaponry": 3,
+          "Baqbou's Charm": 6
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Meet at the Inn!": 3,
+          "Mass Blessing": 3,
+          "Draw the Essence": 3
+        },
+        "startingArmy": {}
+      }
+    }
+  }
+]
