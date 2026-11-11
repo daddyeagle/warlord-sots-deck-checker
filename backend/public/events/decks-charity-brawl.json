@@ -162,5 +162,67 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Kedric",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:04:51.284Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "fox.n.otter",
+    "cardList": {
+      "Character": {
+        "count": 28,
+        "mainDeck": {
+          "Lawrence Pheen": 3,
+          "Oracle of Kavara": 2,
+          "Jaega Reach": 1,
+          "Enki": 2,
+          "Toren Yscar": 1,
+          "The Temple of Lore": 3,
+          "Rhyene": 2,
+          "Owen Haadh": 1,
+          "Sir Thomas of Celinar": 1,
+          "Jackals of Mourn": 3,
+          "Arika Ketchum": 3
+        },
+        "startingArmy": {
+          "Kedric": 1,
+          "Kenrick": 1,
+          "Baqbou Umbala": 1,
+          "Jiyacin Fret": 3
+        }
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Bracers of Ogre Power": 1,
+          "Storm Shard": 1,
+          "Tome of the Adept": 1,
+          "Nodwick": 1,
+          "Cartwright Agent": 1,
+          "Blue Wyrm's Egg": 1,
+          "Potion of Blurring": 2,
+          "Monkey's Paws": 5
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 16,
+        "mainDeck": {
+          "Pit Fight": 1,
+          "Noble Sacrifice": 3,
+          "Rally to the Cause": 2,
+          "Cover Me": 2,
+          "Goodwife's Parry": 3,
+          "Stolen Destiny": 3,
+          "Hero's Gambit": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
