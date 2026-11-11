@@ -209,18 +209,48 @@
         "rarities": []
       },
       "hidden": false,
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "allowAnySetWarlord": false,
+      "reserved": [],
+      "epic": []
+    },
+    "Charity Brawl": {
+      "name": "Charity Brawl",
+      "warlordCount": 1,
+      "saRequiredSlots": [
+        {
+          "level": 1,
+          "count": 3
+        },
+        {
+          "level": 2,
+          "count": 2
+        }
+      ],
+      "maxCopies": 3,
+      "maxEpicCopies": 1,
+      "minTotalDeck": 50,
+      "checkMainDeckFaction": false,
+      "allowAnySetWarlord": false,
+      "editions": [],
+      "restricted": {
+        "names": [],
+        "sets": [],
+        "rarities": []
+      },
+      "reserved": [],
+      "epic": [],
+      "violationLimits": {
+        "total": 100
+      },
+      "hidden": false,
       "requiredEventTextField": {
         "label": "Charity Brawl",
         "placeholder": "Charity Brawl"
       },
       "requiresUnifiedFaction": false,
-      "fullBypass": false,
-      "allowAnySetWarlord": false,
-      "reserved": [],
-      "epic": [],
-      "violationLimits": {
-        "total": 100
-      }
+      "fullBypass": false
     }
   },
   "warlordExceptions": [
