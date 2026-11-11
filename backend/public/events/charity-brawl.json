@@ -100,6 +100,16 @@
       "timestamp": "2026-11-11T20:25:53.396Z",
       "requiredTextFieldLabel": "Charity Brawl",
       "requiredTextFieldValue": "ChrisVac"
+    },
+    {
+      "warlord": "Brikta",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-11-11T20:38:47.490Z",
+      "requiredTextFieldLabel": "Charity Brawl",
+      "requiredTextFieldValue": "daddy_eagle"
     }
   ]
 }
