@@ -60,6 +60,16 @@
       "timestamp": "2026-11-11T20:14:27.880Z",
       "requiredTextFieldLabel": "Charity Brawl",
       "requiredTextFieldValue": "Mith"
+    },
+    {
+      "warlord": "Taisia",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-11-11T20:17:11.891Z",
+      "requiredTextFieldLabel": "Charity Brawl",
+      "requiredTextFieldValue": "Dragonbane"
     }
   ]
 }
