@@ -208,7 +208,18 @@
         "sets": [],
         "rarities": []
       },
-      "hidden": true
+      "hidden": false,
+      "requiredEventTextField": {
+        "label": "Charity Brawl"
+      },
+      "requiresUnifiedFaction": false,
+      "fullBypass": false,
+      "allowAnySetWarlord": false,
+      "reserved": [],
+      "epic": [],
+      "violationLimits": {
+        "total": 100
+      }
     }
   },
   "warlordExceptions": [
