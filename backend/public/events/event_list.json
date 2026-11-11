@@ -1,5 +1,5 @@
 [
-    {
+  {
     "eventName": "Saga Worlds",
     "ruleset": "Saga",
     "startDate": "2026-09-28",
@@ -7,5 +7,17 @@
     "decklistFile": "decks-saga-worlds.json",
     "submissionFile": "saga-worlds.json",
     "hidden": false
+  },
+  {
+    "eventName": "Charity Brawl",
+    "ruleset": "Charity Brawl",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-12",
+    "decklistFile": "decks-charity-brawl.json",
+    "submissionFile": "charity-brawl.json",
+    "hidden": false,
+    "keepAllDecks": true,
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldPlaceholder": "Charity Brawl"
   }
 ]
