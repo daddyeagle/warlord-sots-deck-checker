@@ -344,5 +344,54 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Taisia",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:17:11.891Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Dragonbane",
+    "cardList": {
+      "Character": {
+        "count": 13,
+        "mainDeck": {
+          "Heresk": 3,
+          "Halo of Fire": 2,
+          "Gallows Fiend": 2
+        },
+        "startingArmy": {
+          "Stygian Wraith": 3,
+          "Taisia": 1,
+          "Belan": 2
+        }
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Conjure Storm": 6,
+          "Crypt Wine": 6,
+          "Lucky Shot": 5,
+          "Heaven's Wrath": 4,
+          "Invoke Spirit": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 13,
+        "mainDeck": {
+          "Unseen Arrow": 3,
+          "Portable Hole": 3,
+          "Narawat Ring": 2,
+          "Farglass": 2,
+          "Bracers of Archery": 2,
+          "Lezheer Gem": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
