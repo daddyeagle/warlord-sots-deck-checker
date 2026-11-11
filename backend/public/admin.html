@@ -228,6 +228,10 @@
           <button id="createEventBtn" style="margin-top:18px;">Create Event</button>
         </div>
       </div>
+      <label style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+        <input type="checkbox" id="newEventKeepAllDecks">
+        <span class="small">Keep all deck submissions from each player instead of replacing their previous deck</span>
+      </label>
       <div id="createEventFeedback" class="small" style="color:#fca5a5; margin-bottom:0.5rem;"></div>
     </div>
 
@@ -303,6 +307,7 @@
           const ruleset = document.getElementById('newEventRuleset').value;
           const start = document.getElementById('newEventStart').value;
           const end = document.getElementById('newEventEnd').value;
+          const keepAllDecks = document.getElementById('newEventKeepAllDecks').checked;
           const feedback = document.getElementById('createEventFeedback');
           feedback.textContent = '';
           if (!name || !ruleset || !start || !end) {
@@ -313,7 +318,7 @@
             const res = await fetch('/api/admin/create-event', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ eventName: name, ruleset, startDate: start, endDate: end })
+              body: JSON.stringify({ eventName: name, ruleset, startDate: start, endDate: end, keepAllDecks })
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Failed to create event');
@@ -350,8 +355,32 @@
                 ${requiredTextDisplay}
                 <span class='small'>Decklist: <code>${ev.decklistFile}</code> | Submissions: <code>${ev.submissionFile}</code></span>
                 <span class='small'>${ev.hidden ? '<span style="color:#fca5a5">[Hidden]</span>' : ''}</span>
+                <br><label class='small'><input type='checkbox' class='keepAllDecksToggle' ${ev.keepAllDecks === true ? 'checked' : ''}> Keep all decks from each player</label>
                 <button data-ev='${ev.eventName}' class='deleteEventBtn btn-danger' style='margin-right:8px;'>Delete</button>
                 <button data-ev='${ev.eventName}' class='hideEventBtn' style='margin-right:8px;'>${ev.hidden ? 'Unhide' : 'Hide'}</button>`;
+              const toggle = row.querySelector('.keepAllDecksToggle');
+              toggle.addEventListener('change', async function() {
+                const keepAllDecks = toggle.checked;
+                if (!keepAllDecks && !confirm('Future submissions will replace all previous decks from the same player. Continue?')) {
+                  toggle.checked = true;
+                  return;
+                }
+                toggle.disabled = true;
+                try {
+                  const res = await fetch('/api/admin/event-deck-policy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ eventName: ev.eventName, keepAllDecks })
+                  });
+                  const data = await res.json();
+                  if (!res.ok) throw new Error(data.error || 'Failed to update event');
+                } catch (e) {
+                  toggle.checked = !keepAllDecks;
+                  alert(e.message);
+                } finally {
+                  toggle.disabled = false;
+                }
+              });
               listDiv.appendChild(row);
             });
             // Attach button listeners

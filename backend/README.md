@@ -7,6 +7,16 @@ This backend provides Discord OAuth2 login for secure user authentication.
 - Session management
 - Endpoints for login, callback, user info, and logout
 
+## Event deck submissions
+
+In the Config Editor, select **Keep all deck submissions** when creating an
+event, or toggle **Keep all decks from each player** under Manage Events. With
+the option enabled, each upload adds a separate deck and submission for that
+player. By default, a new upload replaces all of that player's previous decks
+and submissions for the event. Turning the option off does not immediately
+remove decks, but the player's next upload will replace their existing entries.
+Withdrawing from an event removes all of that player's decks and submissions.
+
 ## Setup
 
 1. Copy `.env.example` to `.env` and fill in your Discord app credentials:

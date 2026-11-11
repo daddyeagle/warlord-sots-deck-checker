@@ -188,11 +188,10 @@ async function updateCardDatabase() {
   }
 }
 
-// Update every 6 hours
-// Update every 48 hours
-setInterval(updateCardDatabase, 48 * 60 * 60 * 1000);
-// Initial update on server start
-updateCardDatabase();
+if (require.main === module) {
+  setInterval(updateCardDatabase, 48 * 60 * 60 * 1000);
+  updateCardDatabase();
+}
 
 // API endpoint to serve local card database
 app.get('/api/cards', (req, res) => {
@@ -365,7 +364,7 @@ app.get('/api/user/decks', (req, res) => {
   for (const event of eventList) {
       const deckFile = event.decklistFile;
     if (!deckFile) continue;
-    const deckPath = path.join(__dirname, 'events', deckFile);
+    const deckPath = path.join(__dirname, 'public', 'events', deckFile);
     if (!fs.existsSync(deckPath)) continue;
     let decks;
     try {
@@ -376,18 +375,15 @@ app.get('/api/user/decks', (req, res) => {
     // Debug: log deck file and keys
     console.log('DEBUG event:', event.eventName, 'deckFile:', deckFile);
     const { id, username, discriminator, displayName } = req.session.user;
-    const userDeck = decks.find(d =>
+    const userDecks = decks.filter(d =>
       d.discordId === id ||
       d.discord_username === `${username}#${discriminator}` ||
       d.username === id ||
       d.username === username ||
-      d.display_name === displayName ||
+      (displayName && d.display_name === displayName) ||
       (displayName && typeof d.display_name === 'string' && d.display_name.toLowerCase() === displayName.toLowerCase())
     );
-    if (userDeck) {
-      console.log('DEBUG matched deck:', userDeck);
-      results.push({ eventName: event.eventName, deck: userDeck });
-    }
+    for (const deck of userDecks) results.push({ eventName: event.eventName, deck });
   }
   res.json({ events: results });
 });
@@ -645,8 +641,9 @@ async function saveEventList(events, sha = null) {
 
 // Create new event
 app.post('/api/admin/create-event', async (req, res) => {
-  const { eventName, ruleset, startDate, endDate } = req.body;
+  const { eventName, ruleset, startDate, endDate, keepAllDecks = false } = req.body;
   if (!eventName || !ruleset || !startDate || !endDate) return res.status(400).json({ error: 'Missing fields' });
+  if (typeof keepAllDecks !== 'boolean') return res.status(400).json({ error: 'keepAllDecks must be a boolean' });
   const safeEventName = eventName.replace(/[^a-z0-9\-]+/gi, '-').toLowerCase();
   const decklistFile = `decks-${safeEventName}.json`;
   const submissionFile = `${safeEventName}.json`;
@@ -683,7 +680,7 @@ app.post('/api/admin/create-event', async (req, res) => {
     if (!Array.isArray(events)) events = [];
     // Remove any previous event with same name
     events = events.filter(ev => ev.eventName !== eventName);
-    const eventObj = { eventName, ruleset, startDate, endDate, decklistFile, submissionFile, hidden: false };
+    const eventObj = { eventName, ruleset, startDate, endDate, decklistFile, submissionFile, hidden: false, keepAllDecks };
     if (requiredTextFieldLabel) {
       eventObj.requiredTextFieldLabel = requiredTextFieldLabel;
       if (requiredTextFieldPlaceholder) eventObj.requiredTextFieldPlaceholder = requiredTextFieldPlaceholder;
@@ -693,6 +690,27 @@ app.post('/api/admin/create-event', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to create event', details: err.message });
+  }
+});
+
+app.post('/api/admin/event-deck-policy', async (req, res) => {
+  const { eventName, keepAllDecks } = req.body;
+  if (!eventName || typeof keepAllDecks !== 'boolean') {
+    return res.status(400).json({ error: 'eventName and a boolean keepAllDecks are required' });
+  }
+  try {
+    const file = await getGithubFile(EVENT_LIST_PATH);
+    if (!file) return res.status(404).json({ error: 'Event list not found' });
+    const events = JSON.parse(file.content);
+    if (!Array.isArray(events)) throw new Error('Invalid event list');
+    const event = events.find(ev => ev.eventName === eventName);
+    if (!event) return res.status(404).json({ error: 'Event not found' });
+    event.keepAllDecks = keepAllDecks;
+    await saveEventList(events, file.sha);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Failed to update event deck policy:', err.message);
+    res.status(500).json({ error: 'Failed to update event deck policy' });
   }
 });
 
@@ -873,25 +891,33 @@ app.post('/api/submit-deck', async (req, res) => {
   if (!eventName || !warlord || !cardList) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
-  // Load event list to get startDate
-  const eventListPath = path.join(__dirname, 'public', 'events', 'event_list.json');
+  // Read the authoritative event settings before changing either submission file.
   let eventStartDate = null;
   let eventRequiredTextFieldLabel = null;
   let eventRulesetKey = null;
+  let keepAllDecks = false;
   try {
-    const eventListRaw = fs.readFileSync(eventListPath, 'utf8');
-    const eventList = JSON.parse(eventListRaw);
+    const eventListFile = await getGithubFile(EVENT_LIST_PATH);
+    if (!eventListFile) throw new Error('Event list not found');
+    const eventList = JSON.parse(eventListFile.content);
+    if (!Array.isArray(eventList)) throw new Error('Invalid event list');
     const eventMeta = eventList.find(e => e.eventName === eventName);
-    if (eventMeta) {
-      if (eventMeta.startDate) eventStartDate = eventMeta.startDate;
-      if (typeof eventMeta.ruleset === 'string' && eventMeta.ruleset.trim()) {
-        eventRulesetKey = eventMeta.ruleset.trim();
-      }
-      if (typeof eventMeta.requiredTextFieldLabel === 'string' && eventMeta.requiredTextFieldLabel.trim()) {
-        eventRequiredTextFieldLabel = eventMeta.requiredTextFieldLabel.trim();
-      }
+    if (!eventMeta) return res.status(400).json({ success: false, error: 'Event not found' });
+    if (eventMeta.keepAllDecks !== undefined && typeof eventMeta.keepAllDecks !== 'boolean') {
+      throw new Error('Invalid event deck policy');
     }
-  } catch (e) { /* ignore, fallback to normal timestamp */ }
+    keepAllDecks = eventMeta.keepAllDecks === true;
+    if (eventMeta.startDate) eventStartDate = eventMeta.startDate;
+    if (typeof eventMeta.ruleset === 'string' && eventMeta.ruleset.trim()) {
+      eventRulesetKey = eventMeta.ruleset.trim();
+    }
+    if (typeof eventMeta.requiredTextFieldLabel === 'string' && eventMeta.requiredTextFieldLabel.trim()) {
+      eventRequiredTextFieldLabel = eventMeta.requiredTextFieldLabel.trim();
+    }
+  } catch (err) {
+    console.error('Failed to load event settings:', err.message);
+    return res.status(500).json({ success: false, error: 'Failed to load event settings' });
+  }
 
   if (!eventRequiredTextFieldLabel && eventRulesetKey) {
     try {
@@ -935,21 +961,15 @@ app.post('/api/submit-deck', async (req, res) => {
   const decksPath = `backend/public/events/decks-${safeEventName}.json`;
 
   try {
-    // --- STEP A: Update Event File (The List of Submissions) ---
     const existingEvent = await getGithubFile(eventPath);
-    
-    let eventObj = { eventName, submissions: [] };
-    let eventSha = null;
-
-    if (existingEvent) {
-      eventSha = existingEvent.sha;
-      try { eventObj = JSON.parse(existingEvent.content); } catch (e) { console.log("Parse error, resetting"); }
+    const existingDecks = await getGithubFile(decksPath);
+    let eventObj = existingEvent ? JSON.parse(existingEvent.content) : { eventName, submissions: [] };
+    let decksArr = existingDecks ? JSON.parse(existingDecks.content) : [];
+    if (!eventObj || !Array.isArray(eventObj.submissions) || !Array.isArray(decksArr)) {
+      throw new Error('Invalid event submission or deck data');
     }
 
-    if (!Array.isArray(eventObj.submissions)) eventObj.submissions = [];
-
-    // CRITICAL LOGIC: Filter out OLD submission by this user, then push NEW one
-    eventObj.submissions = eventObj.submissions.filter(sub => !isOwnedByUser(sub));
+    if (!keepAllDecks) eventObj.submissions = eventObj.submissions.filter(sub => !isOwnedByUser(sub));
     
     eventObj.submissions.push({
       warlord,
@@ -965,23 +985,7 @@ app.post('/api/submit-deck', async (req, res) => {
       // Optional: Link to specific file if you are generating one, otherwise this is enough
     });
 
-    await putGithubFile(eventPath, eventObj, `Update event ${eventName} by ${discordUsername}`, eventSha);
-
-    // --- STEP B: Update Decks File (The Detailed Deck Lists) ---
-    const existingDecks = await getGithubFile(decksPath);
-    
-    let decksArr = [];
-    let decksSha = null;
-
-    if (existingDecks) {
-      decksSha = existingDecks.sha;
-      try { decksArr = JSON.parse(existingDecks.content); } catch (e) { console.log("Parse error, resetting"); }
-    }
-
-    if (!Array.isArray(decksArr)) decksArr = [];
-
-    // CRITICAL LOGIC: Filter out OLD deck by this user
-    decksArr = decksArr.filter(d => !isOwnedByUser(d));
+    if (!keepAllDecks) decksArr = decksArr.filter(d => !isOwnedByUser(d));
 
     // Append NEW deck (include discord_username for admin export)
     decksArr.push({
@@ -999,7 +1003,8 @@ app.post('/api/submit-deck', async (req, res) => {
       cardList: formatCardList(cardList) // Use helper to format cleanly
     });
 
-    await putGithubFile(decksPath, decksArr, `Update deck ${eventName} by ${discordUsername}`, decksSha);
+    await putGithubFile(eventPath, eventObj, `Update event ${eventName} by ${discordUsername}`, existingEvent && existingEvent.sha);
+    await putGithubFile(decksPath, decksArr, `Update deck ${eventName} by ${discordUsername}`, existingDecks && existingDecks.sha);
 
     res.json({ success: true });
 
@@ -1053,6 +1058,10 @@ app.get('*', (req, res) => {
   }
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Backend listening on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Backend listening on port ${PORT}`);
+  });
+}
+
+module.exports = app;
