@@ -242,11 +242,11 @@
       "reserved": [],
       "epic": [],
       "violationLimits": {
-        "total": 100
+        "cardCopy": 100
       },
       "hidden": false,
       "requiredEventTextField": {
-        "label": "Charity Brawl",
+        "label": "Username",
         "placeholder": "Charity Brawl"
       },
       "requiresUnifiedFaction": false,
