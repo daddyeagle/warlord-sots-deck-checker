@@ -283,5 +283,66 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Commander Retsov",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:14:27.880Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Mith",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Amoudasi's Wrath": 1,
+          "Toren Yscar": 1,
+          "Bescez": 2,
+          "Nightscale": 4,
+          "Shadowblaze": 2,
+          "Soul Hunter": 4,
+          "The Temple of Lore": 1,
+          "Ghost Bog": 2,
+          "Blade Dancer": 1,
+          "Kardak-Vash": 1,
+          "R'Veeka": 2
+        },
+        "startingArmy": {
+          "Commander Retsov": 1,
+          "Stygian Wraith": 2,
+          "Brine Fiend": 1,
+          "Amoudasi's Wrath": 1,
+          "Gilbert Basc": 1
+        }
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Fineltour's Draught": 2,
+          "Sumptuous Feast": 1
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 24,
+        "mainDeck": {
+          "Assassination": 3,
+          "Prey on the Hunter": 2,
+          "Threaten": 2,
+          "Meet at the Inn!": 3,
+          "Exhaustion": 3,
+          "A Quick Death": 3,
+          "Epic Betrayal": 2,
+          "Reconnaissance": 2,
+          "Mischief": 2,
+          "Drops of Drowsiness": 1,
+          "Loyalty's Reward": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
