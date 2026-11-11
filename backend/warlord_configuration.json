@@ -210,7 +210,8 @@
       },
       "hidden": false,
       "requiredEventTextField": {
-        "label": "Charity Brawl"
+        "label": "Charity Brawl",
+        "placeholder": "Charity Brawl"
       },
       "requiresUnifiedFaction": false,
       "fullBypass": false,
