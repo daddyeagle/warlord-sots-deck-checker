@@ -447,5 +447,61 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Tepheroth",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:23:09.033Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "TheMelyK",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Archer Tower": 1,
+          "Bis": 2,
+          "Dex Glyn": 2,
+          "Jackals of Mourn": 3,
+          "Kapix": 1,
+          "Kargaz Dythanus": 2,
+          "Myhrena": 2,
+          "The Lost Bride": 3,
+          "Toren Yscar": 1,
+          "Vivian": 2
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Kinnell": 2,
+          "Tepheroth": 1
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Chain Lightning": 3,
+          "Evoke Crisis": 3,
+          "Exhaustion": 2,
+          "From Dust to Dust": 2,
+          "Severed of Flesh": 3,
+          "Tzin's Attention": 3,
+          "Viper Whip": 3,
+          "Wheel of Death": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 3,
+        "mainDeck": {
+          "Ring of Blasting": 1,
+          "Storm Shard": 1,
+          "Well of Screams": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
