@@ -16,6 +16,8 @@ player. By default, a new upload replaces all of that player's previous decks
 and submissions for the event. Turning the option off does not immediately
 remove decks, but the player's next upload will replace their existing entries.
 Withdrawing from an event removes all of that player's decks and submissions.
+When a submission includes a required event text field, the downloaded deck CSV
+shows its label and value alongside that deck's player information.
 
 ## Setup
 

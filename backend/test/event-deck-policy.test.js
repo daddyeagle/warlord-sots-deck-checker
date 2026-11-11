@@ -172,3 +172,33 @@ test('the user-decks endpoint returns every matching deck', async () => {
     fs.existsSync = existsSync;
   }
 });
+
+test('deck CSV export includes each stored required field and preserves legacy formatting', async () => {
+  const charityDecks = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'events', 'decks-charity-brawl.json'), 'utf8'));
+  files.set('backend/public/events/decks-charity-brawl.json', JSON.stringify(charityDecks));
+  const response = await fetch(baseUrl + '/api/admin/download-decks/charity-brawl');
+  assert.equal(response.status, 200);
+  const csv = await response.text();
+  for (const deck of charityDecks) {
+    assert.ok(csv.includes(`// discord_username,// display_name,// warlord,// ${deck.requiredTextFieldLabel}`));
+    assert.ok(csv.includes(`// ${deck.discord_username.replace(/#0$/, '')},// ${deck.display_name},// ${deck.warlord},// ${deck.requiredTextFieldValue}`));
+  }
+
+  files.set(decksPath, JSON.stringify([
+    { event: 'My Event', discord_username: 'player#0', display_name: 'Player', warlord: 'Warlord', cardList: {} },
+    {
+      event: 'My Event', discord_username: 'player#0', display_name: 'Player', warlord: 'Warlord',
+      requiredTextFieldLabel: 'Team, "Name"', requiredTextFieldValue: 'One, "Two"\nThree', cardList: {}
+    },
+    { event: 'My Event', discord_username: 'player#0', display_name: 'Player', warlord: 'Warlord', requiredTextFieldValue: 'Value', cardList: {} }
+  ]));
+  const mixedResponse = await fetch(baseUrl + '/api/admin/download-decks/my-event');
+  assert.equal(mixedResponse.status, 200);
+  const mixedCsv = await mixedResponse.text();
+  assert.ok(mixedCsv.includes('// discord_username,// display_name,// warlord\n'));
+  assert.ok(mixedCsv.includes('// player,// Player,// Warlord\n'));
+  assert.ok(mixedCsv.includes('// discord_username,// display_name,// warlord,"// Team, ""Name"""'));
+  assert.ok(mixedCsv.includes('// player,// Player,// Warlord,"// One, ""Two""\nThree"'));
+  assert.ok(mixedCsv.includes('// discord_username,// display_name,// warlord,// required field'));
+  assert.ok(mixedCsv.includes('// player,// Player,// Warlord,// Value'));
+});

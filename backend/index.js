@@ -430,6 +430,9 @@ const jsonToCsv = (json, type) => {
   if (type === 'decks') {
     const arr = typeof json === 'string' ? JSON.parse(json) : json;
     let rows = [];
+    const formatCsvRow = row => row.map(value =>
+      /[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value
+    ).join(',');
     for (const deck of arr) {
       // Header for each deck: event name, month, year
       // Use 'event' and 'timestamp' fields for header, and include 'username' (discord_username) in user info
@@ -445,6 +448,10 @@ const jsonToCsv = (json, type) => {
       }
       const eventHeader = [`// ${eventName}`, `// ${month}`, `// ${year}`];
       const userHeader = ['// discord_username', '// display_name', '// warlord'];
+      const requiredLabel = typeof deck.requiredTextFieldLabel === 'string' ? deck.requiredTextFieldLabel : '';
+      const requiredValue = typeof deck.requiredTextFieldValue === 'string' ? deck.requiredTextFieldValue : '';
+      const hasRequiredField = !!(requiredLabel || requiredValue);
+      if (hasRequiredField) userHeader.push(`// ${requiredLabel || 'required field'}`);
       // Find max header length for this deck
       let maxLen = Math.max(
         eventHeader.join(',').length,
@@ -454,15 +461,17 @@ const jsonToCsv = (json, type) => {
       );
       rows.push(eventHeader);
       rows.push(hyphenRow(eventHeader, maxLen));
-      rows.push(userHeader);
+      rows.push(hasRequiredField ? [formatCsvRow(userHeader)] : userHeader);
       rows.push(hyphenRow(userHeader, maxLen));
       // Use discord_username from event file
       let discord = (deck.discord_username || '').replace(/#0$/, '');
-      rows.push([
+      const userInfo = [
         `// ${discord}`,
         `// ${deck.display_name || ''}`,
         `// ${deck.warlord || ''}`
-      ]);
+      ];
+      if (hasRequiredField) userInfo.push(`// ${requiredValue}`);
+      rows.push(hasRequiredField ? [formatCsvRow(userInfo)] : userInfo);
       const cardList = deck.cardList || {};
       let firstType = true;
       for (const type in cardList) {
