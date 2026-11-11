@@ -503,5 +503,60 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Andlewick",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:25:53.396Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "ChrisVac",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Gilbert Basc": 2,
+          "Paymaster Corr": 1,
+          "Toren Yscar": 1,
+          "The Temple of Lore": 3,
+          "Shambling Horror": 3,
+          "R'Veeka": 3,
+          "Oracle of Kavara": 3,
+          "Kardak-Vash": 3
+        },
+        "startingArmy": {
+          "Andlewick": 1,
+          "Desert Martyr": 1,
+          "Gilbert Basc": 1,
+          "Dryad": 1,
+          "Trogid": 2
+        }
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "The Cardinals' Blessing": 3,
+          "Strongarm Stout": 3,
+          "Storm Shard": 1,
+          "Potion of Blurring": 3,
+          "Nodwick": 1,
+          "Bracers of Ogre Power": 3,
+          "Ardian Greathawk": 2
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Sacrifice": 3,
+          "Chosen": 3,
+          "Another Time": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
