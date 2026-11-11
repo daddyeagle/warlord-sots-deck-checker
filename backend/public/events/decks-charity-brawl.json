@@ -350,7 +350,7 @@
     "discordId": "225075257822674944",
     "discord_username": "oeagle#0",
     "event": "Charity Brawl",
-    "warlord": "Taisia",
+    "warlord": "Muerta",
     "display_name": "daddy_eagle",
     "timestamp": "2026-11-11T20:17:11.891Z",
     "requiredTextFieldLabel": "Charity Brawl",
@@ -365,7 +365,7 @@
         },
         "startingArmy": {
           "Stygian Wraith": 3,
-          "Taisia": 1,
+          "Muerta": 1,
           "Belan": 2
         }
       },
