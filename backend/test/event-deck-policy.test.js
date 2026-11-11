@@ -179,9 +179,14 @@ test('deck CSV export includes each stored required field and preserves legacy f
   const response = await fetch(baseUrl + '/api/admin/download-decks/charity-brawl');
   assert.equal(response.status, 200);
   const csv = await response.text();
+  const csvCell = value => {
+    const cell = `// ${value}`;
+    return /[",\r\n]/.test(cell) ? `"${cell.replace(/"/g, '""')}"` : cell;
+  };
+  assert.ok(charityDecks.length > 0);
   for (const deck of charityDecks) {
-    assert.ok(csv.includes(`// discord_username,// display_name,// warlord,// ${deck.requiredTextFieldLabel}`));
-    assert.ok(csv.includes(`// ${deck.discord_username.replace(/#0$/, '')},// ${deck.display_name},// ${deck.warlord},// ${deck.requiredTextFieldValue}`));
+    assert.ok(csv.includes(['discord_username', 'display_name', 'warlord', deck.requiredTextFieldLabel].map(csvCell).join(',')));
+    assert.ok(csv.includes([deck.discord_username.replace(/#0$/, ''), deck.display_name, deck.warlord, deck.requiredTextFieldValue].map(csvCell).join(',')));
   }
 
   files.set(decksPath, JSON.stringify([
