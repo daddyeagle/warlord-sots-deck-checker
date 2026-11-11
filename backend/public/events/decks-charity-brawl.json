@@ -393,5 +393,59 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Commander Kaiten",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-11T20:20:20.583Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Gunn",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Duke Richter": 3,
+          "Raimund Aedroud": 1,
+          "Ghed Bane": 3,
+          "Theodore d'Ilchant": 3,
+          "Lord Argen d'Ilchant": 1,
+          "Sir Pelimere": 3,
+          "Lord Aurelius Rellion": 1,
+          "Halo of Secrets": 1,
+          "Sister Kiren": 3
+        },
+        "startingArmy": {
+          "Commander Kaiten": 1,
+          "Justinian": 2,
+          "D'Ilchant Keeper": 3
+        }
+      },
+      "Action": {
+        "count": 9,
+        "mainDeck": {
+          "Spiritual Weapon": 3,
+          "Reflect": 3,
+          "Loyalty's Reward": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 16,
+        "mainDeck": {
+          "Noble Steed": 3,
+          "Myerdeth Mare": 3,
+          "Blacksnake Whip": 3,
+          "Wyvernsteed": 3,
+          "Bracers of Ogre Power": 2,
+          "Stormwolf": 1,
+          "Black Banner": 1
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
