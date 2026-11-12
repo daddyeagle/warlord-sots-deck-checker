@@ -230,65 +230,6 @@
     "discordId": "225075257822674944",
     "discord_username": "oeagle#0",
     "event": "Charity Brawl",
-    "warlord": "Khilkhameth",
-    "display_name": "daddy_eagle",
-    "timestamp": "2026-11-11T20:11:21.741Z",
-    "requiredTextFieldLabel": "Charity Brawl",
-    "requiredTextFieldValue": "Rayne Blythewood",
-    "cardList": {
-      "Character": {
-        "count": 25,
-        "mainDeck": {
-          "The Lost Bride": 3,
-          "Kapix": 1,
-          "Bis": 3,
-          "Dex Glyn": 3,
-          "Naala": 3,
-          "The Biting West Wind": 3,
-          "Tyyphera": 3
-        },
-        "startingArmy": {
-          "Valdania Calix": 1,
-          "Tybast": 3,
-          "Magheline": 1,
-          "Khilkhameth": 1
-        }
-      },
-      "Item": {
-        "count": 7,
-        "mainDeck": {
-          "Shadow of Sloth": 3,
-          "Storm Shard": 1,
-          "Staff of Kizazi": 2,
-          "Ring of the Savant": 1
-        },
-        "startingArmy": {}
-      },
-      "Dungeon": {
-        "count": 3,
-        "mainDeck": {
-          "Isle of Ice": 3
-        },
-        "startingArmy": {}
-      },
-      "Action": {
-        "count": 15,
-        "mainDeck": {
-          "Divine Respite": 3,
-          "Epic Judgment": 3,
-          "Sudden Gale": 3,
-          "Mud Slick": 3,
-          "Whirlwind": 3
-        },
-        "startingArmy": {}
-      }
-    }
-  },
-  {
-    "username": "225075257822674944",
-    "discordId": "225075257822674944",
-    "discord_username": "oeagle#0",
-    "event": "Charity Brawl",
     "warlord": "Commander Retsov",
     "display_name": "daddy_eagle",
     "timestamp": "2026-11-11T20:14:27.880Z",
