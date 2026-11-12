@@ -120,6 +120,16 @@
       "timestamp": "2026-11-12T02:26:43.198Z",
       "requiredTextFieldLabel": "Charity Brawl",
       "requiredTextFieldValue": "graham"
+    },
+    {
+      "warlord": "Khilkhameth",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-11-12T02:28:48.796Z",
+      "requiredTextFieldLabel": "Charity Brawl",
+      "requiredTextFieldValue": "Rayne Blythewood"
     }
   ]
 }
