@@ -600,5 +600,55 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Fo'ttr'ak'ka",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-12T02:26:43.198Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "graham",
+    "cardList": {
+      "Character": {
+        "count": 24,
+        "mainDeck": {
+          "Nemtok": 3,
+          "Nog, Pog, and Snivels": 3,
+          "SanUris": 3,
+          "Jackals of Mourn": 3,
+          "FirRal": 3,
+          "Carg'rag": 3
+        },
+        "startingArmy": {
+          "Gunda": 3,
+          "Yeg-Igryll's Altar": 1,
+          "KoVarth": 1,
+          "Fo'ttr'ak'ka": 1
+        }
+      },
+      "Action": {
+        "count": 22,
+        "mainDeck": {
+          "Rescue": 1,
+          "Hero's Gambit": 2,
+          "Incentives": 1,
+          "From Dust to Dust": 9,
+          "Epic Judgment": 3,
+          "Mass Blessing": 6
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 4,
+        "mainDeck": {
+          "Destroyer's Armor": 2,
+          "Black Moss": 2
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
