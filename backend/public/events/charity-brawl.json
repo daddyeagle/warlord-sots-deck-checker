@@ -130,6 +130,16 @@
       "timestamp": "2026-11-12T02:28:48.796Z",
       "requiredTextFieldLabel": "Charity Brawl",
       "requiredTextFieldValue": "Rayne Blythewood"
+    },
+    {
+      "warlord": "Priam Ironsoul",
+      "username": "225075257822674944",
+      "discordId": "225075257822674944",
+      "discord_username": "oeagle#0",
+      "display_name": "daddy_eagle",
+      "timestamp": "2026-11-14T20:15:54.123Z",
+      "requiredTextFieldLabel": "Charity Brawl",
+      "requiredTextFieldValue": "Forgedcaakev2"
     }
   ]
 }
