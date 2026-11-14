@@ -650,5 +650,68 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Priam Ironsoul",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-14T20:15:54.123Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Forgedcaakev2",
+    "cardList": {
+      "Character": {
+        "count": 27,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "Glorgrim": 1,
+          "Destruction": 1,
+          "Stockpile": 1,
+          "Rampage": 3,
+          "Oracle of Kavara": 2,
+          "Temper": 3,
+          "Drea Nexus": 3,
+          "Edge, Fiendblight": 6
+        },
+        "startingArmy": {
+          "Priam Ironsoul": 1,
+          "Mirth": 2,
+          "Danres": 3
+        }
+      },
+      "Item": {
+        "count": 9,
+        "mainDeck": {
+          "Ring of the Savant": 1,
+          "Monkey's Paws": 1,
+          "Fountain of Tears": 1,
+          "Ruby Staff of Selection": 1,
+          "Symbol of Unity": 2,
+          "The Cohorts' Ark": 3
+        },
+        "startingArmy": {}
+      },
+      "Action": {
+        "count": 15,
+        "mainDeck": {
+          "Blood Beneath Your Wings": 1,
+          "Fulfill Destiny": 2,
+          "Meet at the Inn!": 3,
+          "Reflect": 3,
+          "Epic Judgment": 3,
+          "Seize Life": 3
+        },
+        "startingArmy": {}
+      },
+      "Dungeon": {
+        "count": 3,
+        "mainDeck": {
+          "Knights Repose": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
