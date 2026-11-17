@@ -760,5 +760,57 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Coreos Bodach",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-17T03:24:07.358Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "graham v2",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Toren Yscar": 1,
+          "The Lost Bride": 3,
+          "The Cutting North Wind": 4,
+          "Kargaz Dythanus": 4,
+          "Kapix": 1,
+          "Graveyard Librarian": 2,
+          "Ayaaba Waverunner": 1,
+          "Ardanaalis": 3
+        },
+        "startingArmy": {
+          "Coreos Bodach": 1,
+          "Kinnell": 2,
+          "Corpse Crowd": 3
+        }
+      },
+      "Action": {
+        "count": 18,
+        "mainDeck": {
+          "Wheel of Death": 3,
+          "Severed of Flesh": 8,
+          "Phantasm": 1,
+          "Grave Robbing": 3,
+          "From Dust to Dust": 3
+        },
+        "startingArmy": {}
+      },
+      "Item": {
+        "count": 7,
+        "mainDeck": {
+          "Wand of Negation": 1,
+          "Staff of Secrets": 2,
+          "Helm of Undying": 1,
+          "Black Moss": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
