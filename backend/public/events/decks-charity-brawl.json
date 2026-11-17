@@ -713,5 +713,52 @@
         "startingArmy": {}
       }
     }
+  },
+  {
+    "username": "225075257822674944",
+    "discordId": "225075257822674944",
+    "discord_username": "oeagle#0",
+    "event": "Charity Brawl",
+    "warlord": "Havellin Tansiq",
+    "display_name": "daddy_eagle",
+    "timestamp": "2026-11-17T03:21:34.820Z",
+    "requiredTextFieldLabel": "Charity Brawl",
+    "requiredTextFieldValue": "Atomic_Tomato v2",
+    "cardList": {
+      "Character": {
+        "count": 25,
+        "mainDeck": {
+          "Corpse Crowd": 9,
+          "Skyyrek": 1,
+          "Yanthorine": 1,
+          "Sileth Elestra": 3,
+          "Bis": 3,
+          "Betwys": 1,
+          "Ayaaba Waverunner": 1
+        },
+        "startingArmy": {
+          "Corpse Crowd": 3,
+          "Skyyrek": 2,
+          "Havellin Tansiq": 1
+        }
+      },
+      "Action": {
+        "count": 25,
+        "mainDeck": {
+          "Unfeeling Flesh": 3,
+          "Stolen Destiny": 3,
+          "Seize Life": 1,
+          "Revitalize": 1,
+          "Return to Us": 1,
+          "Resurrection": 3,
+          "Noble Sacrifice": 3,
+          "Exhaustion": 3,
+          "Epic Judgment": 2,
+          "Calling Back Souls": 2,
+          "Another Tavern Brawl": 3
+        },
+        "startingArmy": {}
+      }
+    }
   }
 ]
